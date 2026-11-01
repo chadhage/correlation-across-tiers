@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso sign-in response</title>
+  </head>
+  <body>
+    <p>Completing Contoso sign-in…</p>
+    <script type="module">
+      import { broadcastResponseToMainFrame } from "@azure/msal-browser/redirect-bridge";
+      broadcastResponseToMainFrame();
+    </script>
+  </body>
+</html>

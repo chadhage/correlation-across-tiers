@@ -1,0 +1,22 @@
+let windowStart=datetime({{FromUtc}});
+let windowEnd=datetime({{ToUtc}});
+let searchFrom=windowStart-{{LookbackMinutes}}m;
+let appResourceId={{AppResourceId}};
+let selectedTrace={{TraceId}};
+let compositeMappingApproved={{CompositeApproved}};
+let NativeRecords={{WorkspaceTelemetry}};
+{{CanonicalProjection}}
+let LinkedTraces=Records
+| where RecordKind=="span" and TraceId==selectedTrace and EventTime>=windowStart
+| mv-expand Link=Links
+| project TargetTrace=tostring(Link.operation_Id)
+| where TargetTrace matches regex "^[a-f0-9]{32}$" and TargetTrace!="00000000000000000000000000000000"
+| distinct TargetTrace;
+Records
+| where TraceId==selectedTrace or TraceId in (LinkedTraces)
+| extend SelectionBasis=case(TraceId==selectedTrace and EventTime>=windowStart,"selected-test-window",
+    TraceId==selectedTrace,"older-operation-context","one-hop-linked-operation-context")
+| project EventTime,IngestedAt,NativeTable,RecordKind,SelectionBasis,TraceId,RawId,RawParentId,
+    SpanId,ParentSpanId,AssociatedSpanId,ViewId,RoleName,OperationName,Success,ResultCode,DurationMs,ItemCount,BillableBytes,IsBillable,InvocationId,
+    LinksText,Links,InvalidSpanMapping
+| order by EventTime asc

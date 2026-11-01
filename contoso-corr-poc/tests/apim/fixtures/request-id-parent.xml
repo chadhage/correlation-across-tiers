@@ -1,0 +1,5 @@
+<fragment>
+  <set-header name="traceparent" exists-action="override">
+    <value>@("00-" + context.RequestId.ToString("N") + "-1111111111111111-01")</value>
+  </set-header>
+</fragment>

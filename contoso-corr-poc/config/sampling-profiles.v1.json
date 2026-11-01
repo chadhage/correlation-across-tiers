@@ -1,0 +1,45 @@
+{
+  "schema": "contoso.sampling-profiles.v1",
+  "workload": "contoso-corr",
+  "environment": "poc",
+  "userApprovedContosoImplementation": true,
+  "vendorSupportGuarantee": false,
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT",
+  "guardRequiredInProductionAndCertification": true,
+  "production": {
+    "javaPercentage": 10,
+    "browserPercentage": 10,
+    "ssrPercentage": 10,
+    "apimPercentage": 10,
+    "alwaysLog": "allErrors",
+    "allBodyBytes": 0,
+    "frontendCapture": false,
+    "backendInvocationCapture": false,
+    "collectorEnabled": false,
+    "ingestionSamplingPercentage": 100,
+    "dropTransforms": false
+  },
+  "certification": {
+    "javaPercentage": 100,
+    "javaRequestsPerSecond": null,
+    "browserPercentage": 100,
+    "ssrPercentage": 100,
+    "apimPercentage": 100,
+    "alwaysLog": "allErrors",
+    "allBodyBytes": 0,
+    "frontendCapture": false,
+    "backendInvocationCapture": false,
+    "collectorEnabled": false,
+    "ingestionSamplingPercentage": 100,
+    "dropTransforms": false
+  },
+  "windowLimits": {
+    "maximumSeconds": 7200,
+    "drainSeconds": 120,
+    "restoreDeadlineSeconds": 120,
+    "watchdogPollMilliseconds": 500
+  },
+  "nativeHostAndRuntimeAcknowledgements": "To Do",
+  "productionSamplingApproval": "Proposal; retain explicit root approval and measured profile before rollout",
+  "certificationStatus": "NOT_CERTIFIED"
+}

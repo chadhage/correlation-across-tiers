@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Contoso Storefront — correlation across tiers</title>
+</head>
+<body>
+  <!--CONTOSO_RUNTIME_CONFIG-->
+  <header class="masthead">
+    <a class="brand" href="/storefront/">CONTOSO <span>Storefront</span></a>
+    <nav aria-label="Contoso pages">
+      <button type="button" data-route="/storefront/orders">Orders</button>
+      <button type="button" data-route="/storefront/demos">Correlation demos</button>
+      <a data-testid="contoso-open-portal" id="portal-link" href="/portal/">Workload Portal ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CONTOSO END-TO-END CORRELATION POC</p>
+        <h1>One action.<br>Follow its real journey.</h1>
+        <p>Storefront → Gateway → Orders → Inventory → data and messaging. Technical causality uses W3C; durable business identity is created at the trusted edge.</p>
+      </div>
+      <div class="status-card">
+        <span class="pill" id="execution-mode">Runtime configuration pending</span>
+        <p id="sdk-state">Telemetry not initialized</p>
+        <p id="auth-state" data-testid="contoso-auth-state">Not signed in</p>
+        <div class="actions"><button type="button" data-testid="contoso-sign-in">Sign in with Microsoft Entra</button><button class="secondary" type="button" id="sign-out">Sign out</button></div>
+      </div>
+    </section>
+    <div id="error-banner" role="alert" hidden></div>
+    <section class="grid">
+      <article class="panel" id="orders-panel">
+        <p class="eyebrow">CONTOSO ORDERS</p><h2>Create a synthetic order</h2>
+        <p>Uses the real browser Fetch dependency. A 202 response is staged—not proof of broker acceptance or fulfillment.</p>
+        <form id="order-form">
+          <label>Contoso SKU <input id="order-sku" value="CONTOSO-001" maxlength="48" required></label>
+          <label>Quantity <input id="order-quantity" type="number" value="1" min="1" max="100" required></label>
+          <button type="submit" data-testid="contoso-create-order" disabled>Create Contoso order</button>
+        </form>
+      </article>
+      <article class="panel" id="demos-panel">
+        <p class="eyebrow">PRESENTER CONTROLS</p><h2>Drive the demo, then prove it</h2>
+        <label>Contoso demo <select id="demo-id"></select></label>
+        <label>Scenario <select id="demo-scenario"></select></label>
+        <label>Failure budget <input id="failure-budget" type="number" value="0" min="0" max="10"></label>
+        <p id="window-state">Certification window is not active.</p>
+        <button type="button" data-testid="contoso-run-demo" disabled>Run selected Contoso demo</button>
+        <p class="muted">Operator-only replay, key rotation, sampling, permissions and deletion steps remain separately authorized. This page does not execute Azure writes.</p>
+      </article>
+      <article class="panel identity-panel">
+        <p class="eyebrow">SAFE IDENTITY ENRICHMENT</p><h2>Your approved pseudonym</h2>
+        <p>Only the authenticated SPA human can receive their server-derived HMAC pseudonym. A Portal workload has no human pseudonym.</p>
+        <button type="button" class="secondary" id="load-identity" disabled>Load my approved identity view</button>
+        <p id="identity-state">Identity enrichment not loaded.</p>
+        <code id="pseudonym"></code>
+      </article>
+    </section>
+    <section class="panel results" data-testid="contoso-run-result" aria-live="polite">
+      <p class="eyebrow">ACTUAL BACKEND RESPONSE</p><h2 id="result-state">No run yet</h2>
+      <p id="result-note">Live Azure certification remains To Do. SDK/network success alone is not a passing evidence pack.</p>
+      <dl><dt>Order / run ID</dt><dd id="result-id">—</dd><dt>Canonical business invocation ID</dt><dd id="result-business-id">—</dd><dt>Driver</dt><dd id="result-driver">—</dd></dl>
+      <div id="result-details"></div>
+      <button type="button" class="secondary" id="refresh-result" disabled>Read actual backend state</button>
+    </section>
+  </main>
+  <footer>Contoso POC · W3C-only JS SDK 3.4.5 · No tokens, connection configuration or whole network captures in evidence.</footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

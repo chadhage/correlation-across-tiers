@@ -1,0 +1,498 @@
+{
+  "schema": "contoso.code-review.v1",
+  "schemaVersion": 1,
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewedAtUtc": "2026-11-01T02:08:30.5019327Z",
+  "result": "accepted",
+  "sourceAcceptanceIsCertification": false,
+  "liveAcceptance": "To Do",
+  "readOnly": true,
+  "writes": ["evidence\\reviews\\code-r3.json"],
+  "notReviewed": [
+    "Incomplete main/root deployment and its resource integration",
+    "Azure, Microsoft Entra directory, RBAC or regional resource operations",
+    "Deployed image, live identity, private reachability, ingestion, sampling restoration or certification",
+    "Other roles' code outside the explicitly requested R1/R2 scopes",
+    "Exhaustive transitive vendor-source/dependency audit",
+    "Re-execution of the writers' complete test/build/browser suites"
+  ],
+  "scopeHashAlgorithm": "Current R1/R2 sources use exported tools/kanban.mjs reviewSourceDigest(relativePath, bytes) and reviewScopeDigest(sources). Explicit hashMode is board-policy for config/board-state.json (schema/defaultStatus/phaseAwareConstructionApproved only) and raw for all other sources. The R2 author-remediation 11-file manifest is separately checked using its declared ordinal-sorted Windows-path TAB file-SHA256 newline algorithm; it is not itself peer approval. Stored file paths use Windows separators.",
+  "reReviews": [
+    {
+      "reviewedAtUtc": "2026-11-01T01:48:06.8593755Z",
+      "ownerRole": "R1",
+      "result": "accepted",
+      "scope": "Only CR3-R1-01/02 fix hunks and their tests; unchanged prior R1 source acceptance is retained. No incomplete main/deployment or R2 fix review is implied.",
+      "reviewedChangedPaths": ["tools\\kanban.mjs", "tools\\names.mjs", "tests\\kanban.test.mjs", "tests\\names.test.mjs"],
+      "resolvedFindingIds": ["CR3-R1-01", "CR3-R1-02"],
+      "targetedChecks": {
+        "selectedRegressionTests": 5,
+        "result": "PASS",
+        "selectors": "code completion cannot|review envelopes bind|source digest detects|normalizes storage|rejects the former",
+        "helpersUsed": ["reviewSourceDigest", "reviewScopeDigest", "validateReviewReport"],
+        "currentOwnerReportAcceptedByHelper": true,
+        "boardOperationalChangesIgnored": true,
+        "boardDefaultPolicyChangeDetected": true,
+        "hostLengths": {"orders":30,"inventory":27,"fulfillment":31,"notify":30,"aggregator":27,"portal":30}
+      },
+      "unresolvedOwnerRoles": ["R2"],
+      "liveAcceptance": "To Do"
+    },
+    {
+      "reviewedAtUtc": "2026-11-01T02:08:30.5019327Z",
+      "ownerRole": "R2",
+      "result": "accepted",
+      "scope": "Only coordinator-assigned CR3-R2-01/02 corrected-source fix hunks, companion interfaces/docs and targeted regressions. Prior unchanged R2 packaging/SDK/identity source acceptance is retained; no full suite/build or live certification is implied.",
+      "authorReportSha256": "b041689ad82551292f2f4d89c0b056351d99fec02b095c7a7d493da4e8e8ad9b",
+      "authorRemediationManifestSha256": "6ad8dc9ed85178b7819e8443c128385d8a0f8d217073c5720300415bd6d8941e",
+      "checkedChangedFileCount": 11,
+      "reviewedChangedPaths": [
+        "web\\portal-ssr\\README.md",
+        "web\\portal-ssr\\src\\browser-adapter.ts",
+        "web\\portal-ssr\\src\\browser\\portal-client.ts",
+        "web\\portal-ssr\\src\\server.ts",
+        "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+        "web\\portal-ssr\\src\\shared\\contracts.ts",
+        "web\\portal-ssr\\tests\\browser\\contoso.spec.ts",
+        "web\\portal-ssr\\tests\\browser\\fixture-boot.ts",
+        "web\\portal-ssr\\tests\\server.test.ts",
+        "web\\storefront-spa\\README.md",
+        "web\\storefront-spa\\src\\app.ts"
+      ],
+      "resolvedFindingIds": ["CR3-R2-01", "CR3-R2-02"],
+      "targetedChecks": {
+        "nativeSelectedTests": 2,
+        "nativeSelectors": "cohost requires a fixed controller|anonymous landings cannot",
+        "nativeResult": "PASS",
+        "browserSelectedTests": 4,
+        "browserSelectors": "sequential runs on one page|in-progress run cannot be replaced|page invocation capacity rejects|workload SSR requires authenticated controller",
+        "browserResult": "PASS",
+        "browserDurationSeconds": 14.6,
+        "actualBrowserChecks": "Existing Chromium/Playwright fixture: two distinct sequential runs, explicit reused-ID rejection with no POST, active-run replacement rejection, 101st prepare rejection, and native workload SSR compatibility.",
+        "fullSuitesRerun": false,
+        "authorRemediationAcceptedAsPeerApproval": false,
+        "hashHelpersUsed": ["reviewSourceDigest", "reviewScopeDigest", "validateReviewReport"]
+      },
+      "currentR2ScopeSha256": "ae8dac34385c8fd96c2428b2a844bc266c3b94a6f5d26161af45a828fa3463cf",
+      "newHighConfidenceIssues": [],
+      "liveAcceptance": "To Do"
+    }
+  ],
+  "roles": [
+    {
+      "role": "R1",
+      "result": "accepted",
+      "fileCount": 17,
+      "scopeSha256": "3ae8eb0ee16cc7a8f0fa2c6657987161558b36087b7acf419feed4f51712d073",
+      "acceptedSourceAreas": [
+        "The cost calculation explicitly scopes its result to fixed listed meters and never authorizes provisioning.",
+        "The network module separates delegated compute/PostgreSQL, nondelegated APIM and private-endpoint subnets and declares the inspected DNS links.",
+        "DECISIONS preserves construction versus live acceptance, canonical roles, no fabricated spans and no vendor-specific sampler-GA guarantee.",
+        "The static certification-path checker rejects its stated removed-claim/resource patterns and checks declared dependency status/source constraints within its limited scope.",
+        "Dependency-completion, WIP and live-clause checks are retained; current CODE/documentation review envelope, matching reviewer/owner verdict, completion source and scope/current hash enforcement resolve CR3-R1-01.",
+        "All six generated host names satisfy the approved <=32 rule, including the shortened inv physical stem; canonical roles remain unchanged."
+      ],
+      "findingIds": ["CR3-R1-01", "CR3-R1-02"],
+      "sources": [
+        {"path":"tools\\kanban.mjs","sha256":"375026d7af8fa3a0d6ef89216b8cef2dfbff7baaf248d4724faeb23ab1ce9e35","hashMode":"raw"},
+        {"path":"tools\\certification-path.mjs","sha256":"7ac07497deaab8915157ec8dda54d23b390e4eb5b7478d9d41cbd4fa61d5b0d6","hashMode":"raw"},
+        {"path":"tools\\names.mjs","sha256":"9a2876f887aa27c911589c599c9e5ad3e80a04059237d3e84432193985d5bb5f","hashMode":"raw"},
+        {"path":"tools\\architecture.mjs","sha256":"52bc3e210c5747e8de77ed6f45405487c44d3d71f69615b629111edbb1d90af3","hashMode":"raw"},
+        {"path":"tools\\cost.mjs","sha256":"90cf14779856c92a5520427b2a7ef20f94c1886113f7958d26fbafbcaa470466","hashMode":"raw"},
+        {"path":"infra\\modules\\network.bicep","sha256":"824e94626027820a1e94ca2630cf158ecd8f3f96e23f7aa2318d2f13fd324afa","hashMode":"raw"},
+        {"path":"DECISIONS.md","sha256":"7abeedcf9b437b0355402bbf04c644852ca740e5e842d99af548db9aca506fdc","hashMode":"raw"},
+        {"path":"package.json","sha256":"5626c20aa686f2e39d0bacf440f0791c669402db65b0b40705b924a21a9ce96a","hashMode":"raw"},
+        {"path":"config\\board-state.json","sha256":"afdada0216e53e7b418d5b9463eb66af89a5ed7e521765b45919603d8a199935","hashMode":"board-policy"},
+        {"path":"config\\certification-dependencies.json","sha256":"897fabb8de1b03a3a4278c534ecd85d5ae022dfdd80bf6c1ad45b2e023c44867","hashMode":"raw"},
+        {"path":"config\\cost-model.json","sha256":"e36adb09a400e1ece21c64826dbdb9d8f816fc6204c93be10281a92a365f4a76","hashMode":"raw"},
+        {"path":"contracts\\expected-boundary-map.v1.json","sha256":"7a05a7a13bb38151f81a6685b83c29c0de1f7c4013d756eaebbe744cac73516c","hashMode":"raw"},
+        {"path":"tests\\kanban.test.mjs","sha256":"bcac1eae7ea1e7b3a301d4f3482f38e011bae81889aa3daa15c1ae3c92d68939","hashMode":"raw"},
+        {"path":"tests\\certification-path.test.mjs","sha256":"06050964707dac8bcc466026a497873aaf06c6feb170dba2b411013912dfa0cd","hashMode":"raw"},
+        {"path":"tests\\names.test.mjs","sha256":"b5af479fea17b4be57416638c806d0b360a00264f1b0bb173114a0b10cae9c28","hashMode":"raw"},
+        {"path":"tests\\architecture.test.mjs","sha256":"6a654cdf2070c64ea6702f90ec67dbd7a11a2776b05488a08f64819b605100d5","hashMode":"raw"},
+        {"path":"tests\\cost.test.mjs","sha256":"bb7974c6a0d61fe9db09c541b6ba5314b4c1cda252a270dd4d7e2a89b5485f52","hashMode":"raw"}
+      ]
+    },
+    {
+      "role": "R2",
+      "result": "accepted",
+      "fileCount": 36,
+      "scopeSha256": "ae8dac34385c8fd96c2428b2a844bc266c3b94a6f5d26161af45a828fa3463cf",
+      "acceptedSourceAreas": [
+        "Browser SDK initialization explicitly selects W3C_TRACE, disables raw header/exception persistence and limits correlation destinations.",
+        "The exact-origin dependency veto explicitly returns false even if the reporting callback throws.",
+        "Workload-only Portal business transport uses ManagedIdentityCredential, fixed API origin/path, no user delegation and no redirect forwarding.",
+        "Control-session authentication is separate: fixed RS256 issuer/audience/client/principal, v2 idtyp=app/no scp/Portal.Invoke; mutation additionally checks origin, CSRF and window.",
+        "Cohost packaging copies the already-built SPA into the Portal leaf artifact, preserves server-injected runtime configuration and uses the declared bootstrap entrypoint.",
+        "Manifest dependency pins match the structured root entries of both leaf lockfiles.",
+        "Native versus fixture/live-not-certified labels, real returned DURABLE_STAGED state and workload omission of a human pseudonym are explicit.",
+        "The corrected session allocator is authenticated-only, reaps expiry at allocation/lookup and clamps expiry/cookie age; anonymous landings are stateless.",
+        "The corrected run lifecycle versions executions, clears current results/dependency views, rejects active/reused/overflow IDs, and filters send-time SDK identities against the current captured wire IDs."
+      ],
+      "findingIds": ["CR3-R2-01", "CR3-R2-02"],
+      "sources": [
+        {"path":"web\\portal-ssr\\src\\bootstrap.ts","sha256":"d077435581f751be05d4de6fd1bcff6aeabf29344b02fe0311c981c0445b5aac"},
+        {"path":"web\\portal-ssr\\src\\browser-adapter.ts","sha256":"453b1d17a49a0fd124570a4ec91fe6940f9fe365ecf99c5c5c6fa4d9313db415","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\src\\browser\\portal-client.ts","sha256":"05417ca49ec4c38697ea431d522dc45133abfe1a7d2157c3f9b074efcb016d7c","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\src\\config.ts","sha256":"0ffbc5656602e2a9e544ca04ac43d7d4a83ddf6b01b7476bd2ee36202444168f"},
+        {"path":"web\\portal-ssr\\src\\control-auth.ts","sha256":"a104936f659f8b9a94bf0b23fc0809636c1547fd6189f75dad561743ab36fbec"},
+        {"path":"web\\portal-ssr\\src\\gateway.ts","sha256":"3faaabe9523bea5a30af3b2c029135a18caae40ee07f47554fe00295ba13bb25"},
+        {"path":"web\\portal-ssr\\src\\public\\portal.css","sha256":"796f3767ba847b062278a0a8e4176575d93fe0f24008c0f90303b5b171c61c6b"},
+        {"path":"web\\portal-ssr\\src\\server.ts","sha256":"35d134c548348e4a25db272c79ad81bab804dc0c8a39fca62840840064c29442","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\src\\shared\\browser-api.ts","sha256":"2e11c450138cd9b35f6bc3d3785c4ab4db59896b8f2326dcf4b9191604ea672a"},
+        {"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","sha256":"5247ae2ba387e6978c63c2b80b8f629ce3c87165dc2054c0139f89d37934ea24","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\src\\shared\\contracts.ts","sha256":"51995ea4bcfac4482c555f7e8da781e1769837d9f0ab4ffe8d9a04871aac532b","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\src\\telemetry.ts","sha256":"74f2f1cd6daefa094fb094cf02ab93c2910c6a4a9f117cf8da420c687a264b0e"},
+        {"path":"web\\storefront-spa\\src\\app.ts","sha256":"21454bbb1f74b16380b6559ff3926571568cdad96870b636a754b1e43b4efcc9","hashMode":"raw"},
+        {"path":"web\\storefront-spa\\src\\auth.ts","sha256":"d450e81b131b4b9edae35fe7a5d66596e5f984707126af600907f91751912369"},
+        {"path":"web\\storefront-spa\\src\\main.ts","sha256":"095c2f288d16b5ead102fc7958de1e60adaffceb97dee72758ed05abf884b33b"},
+        {"path":"web\\storefront-spa\\src\\style.css","sha256":"26d77c72e079ad0670d8a0612693d9d9a40bf7ef124eaa3a2b105edde7c05f3e"},
+        {"path":"contracts\\public-runtime-config.v1.schema.json","sha256":"891d07b165796caa1f5450382e8557cee6489027e06714e87b462c5ac70c3e00"},
+        {"path":"web\\portal-ssr\\package.json","sha256":"3aaa2dea09832e1e8015a04b26ca1ada865de69158180b69537265945609416a"},
+        {"path":"web\\portal-ssr\\package-lock.json","sha256":"ad82bfd98fcbb4992e22c87c2be35321093eb9764f6da4cb35a90498294c47c9"},
+        {"path":"web\\portal-ssr\\tsconfig.json","sha256":"96119365a9a467d0f299869197bb67c6e04491abdc85b418cc8e294697bef7ee"},
+        {"path":"web\\portal-ssr\\tsconfig.tests.json","sha256":"ab8843a8a6fe9618caba2a728e8224a56bfc607bf39bf8d881cbf3caec60d723"},
+        {"path":"web\\portal-ssr\\vite.portal.config.ts","sha256":"1c4e829e445c9e22fea404d353f987c086b67f04a19a9b8b8251955d4e481480"},
+        {"path":"web\\portal-ssr\\scripts\\package-cohost.mjs","sha256":"b4b3d56dcddb246825152d11d271f1dac8ca987366d9f1fe850ad3e1a029b5d7"},
+        {"path":"web\\portal-ssr\\start.ps1","sha256":"e1ba630a301206a7d06fa403abb3c40cdbc62f842b2e38402ac1666676ee6def"},
+        {"path":"web\\portal-ssr\\README.md","sha256":"fe6c6899bbc33e0fc2f8b290fc2f9d9d2a3eb7485c13ceabc365d071dcc0c352","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\playwright.config.ts","sha256":"fcbdc255d8956263e117dfc356b5b74a5ef55273d15c1584373a5f759397a3b6"},
+        {"path":"web\\storefront-spa\\package.json","sha256":"bc6788b7c47acb37912fa34697b53e2148ca257f7364ae5e7697187a5b1a6933"},
+        {"path":"web\\storefront-spa\\package-lock.json","sha256":"671056455752c8adf89d3b66b95c744d634b06e4112fd9be3b9c9c3e6559fb33"},
+        {"path":"web\\storefront-spa\\tsconfig.json","sha256":"73c80bb2f4ecc656ce977756920772651e591dccf672c02428cb13f37b6c5334"},
+        {"path":"web\\storefront-spa\\vite.config.ts","sha256":"098a1da4f7614ef1843d433aaefadbf975959f9091a24e644d31a194c8d187c4"},
+        {"path":"web\\storefront-spa\\index.html","sha256":"5822046127f72302b50e94edb37e4f97a67d0361f9da9ba4a8345f42bd8eff56"},
+        {"path":"web\\storefront-spa\\auth\\redirect.html","sha256":"c08855ab42193da750c83a16d0adba8bfece7f445cf980fc219365786660b47c"},
+        {"path":"web\\storefront-spa\\README.md","sha256":"166078fe69b91e3179763a7911149f53aeea82e1217b294a5ab02068cafc52c3","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\tests\\browser\\contoso.spec.ts","sha256":"7fba00a3eb3317e0a038b57774165fabd53ec9200d24be4c9e5bec2f95f9b6be","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\tests\\browser\\fixture-boot.ts","sha256":"858b40ed1b660ba6a523e7a61622c09b862a7f4ac556d0c556679a9aba7fc3d4","hashMode":"raw"},
+        {"path":"web\\portal-ssr\\tests\\server.test.ts","sha256":"ed1be58c811da38854c2437fb773b0af2ee8e42d69b477411b490a7716d673a8","hashMode":"raw"}
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CR3-R1-01",
+      "status": "resolved",
+      "historicalFinding": true,
+      "ownerRole": "R1",
+      "severity": "high",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Done accepts design-only/generic reviews and ignores reviewed-source freshness",
+      "evidence": [
+        {"path":"tools\\kanban.mjs","lineStart":105,"lineEnd":109,"detail":"Accepted reviewer set checks result/role/artifact/report hash only, with no CODE-review kind or reviewed-source binding."},
+        {"path":"tools\\kanban.mjs","lineStart":127,"lineEnd":140,"detail":"Artifact verification authenticates current report bytes, not its review semantics or the current source hashes reviewed by it."},
+        {"path":"tests\\kanban.test.mjs","lineStart":65,"lineEnd":78,"detail":"The existing missing-review/missing-clause test does not test design-only, generic-marker or stale-code reports."}
+      ],
+      "observedTargetedCheck": {
+        "probeId": "R1-review-kind-freshness",
+        "input": "One isolated static-clause card, two accepted other-role records with reviewKind=design, existing DECISIONS artifact hash, and stale zero scopedSourceHashes.",
+        "expected": "Reject before declaring Done.",
+        "actual": "validateState accepted the Done record.",
+        "scope": "Read-only validator correctness probe; no board/state file written."
+      },
+      "impact": "The newly mandated two other-role CODE reviews can be bypassed by earlier design documents or a generic artifact. Later source changes do not invalidate review acceptance merely because the unchanged report still hashes correctly.",
+      "requestedFix": "Parse a defined code-review schema; require code kind, matching reviewer and reviewed-owner verdict, explicit scope/exclusions and current per-file/scope source hashes. Reject design-only/generic markers and changed source before counting an accepted code review. Add targeted negative tests while retaining live-clause/dependency checks.",
+      "acceptance": "Resolved and accepted for the current R1 fix-scoped code snapshot; no live certification or complete main review.",
+      "resolution": {
+        "label": "Verified",
+        "reviewedAtUtc": "2026-11-01T01:48:06.8593755Z",
+        "evidence": [
+          {"path":"tools\\kanban.mjs","lineStart":19,"lineEnd":61,"detail":"Exported digest/envelope helpers enforce expected raw/board-policy mode, matching reviewer/accepted owner, required kind, completion-source coverage and scope hash."},
+          {"path":"tools\\kanban.mjs","lineStart":153,"lineEnd":164,"detail":"Done counts only required review kind/owner and requires explicit completionSources."},
+          {"path":"tools\\kanban.mjs","lineStart":192,"lineEnd":212,"detail":"Accepted JSON is parsed, each source digest/current scope is checked before Done."},
+          {"path":"tests\\kanban.test.mjs","lineStart":72,"lineEnd":111,"detail":"Targeted design/generic/stale-scope and operational-board-policy regressions passed."}
+        ],
+        "boardPolicyMode": "Explicitly approved normalization protects schema/defaultStatus/phaseAwareConstructionApproved and excludes operational records/revision/sourceHashes. reviewSourceDigest was used for the stored policy hash.",
+        "currentScopeSha256": "3ae8eb0ee16cc7a8f0fa2c6657987161558b36087b7acf419feed4f51712d073"
+      }
+    },
+    {
+      "id": "CR3-R1-02",
+      "status": "resolved",
+      "historicalFinding": true,
+      "ownerRole": "R1",
+      "severity": "medium",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Inventory physical host exceeds the approved six-host 32-character freeze",
+      "evidence": [
+        {"path":"tools\\names.mjs","lineStart":17,"lineEnd":22,"detail":"The full inventory physical stem produces 33 characters with the canonical prefix, separator and six-hex discriminator."},
+        {"path":"tools\\names.mjs","lineStart":53,"lineEnd":55,"detail":"The length validator checks only fulfillment/notify/aggregator, not the approved six-host set."},
+        {"path":"tests\\names.test.mjs","lineStart":16,"lineEnd":22,"detail":"The related test likewise checks only the three Functions names."}
+      ],
+      "observedTargetedCheck": {
+        "probeId": "R1-six-host-length",
+        "input": "frozenNames for the supplied subscription and centralus, followed by validateFrozenNames.",
+        "actual": {"validatorAccepted":true,"lengths":{"orders":30,"inventory":33,"fulfillment":31,"notify":30,"aggregator":27,"portal":30}},
+        "scope": "Pure local naming functions, not Azure availability validation."
+      },
+      "impact": "The generated/validated map contradicts the root's explicit six-host <=32 contract. This is an approved POC freeze mismatch, not a claim that Azure Web Apps universally have a 32-character name limit.",
+      "requestedFix": "Shorten the physical inventory stem and validate/test all six host names. Preserve canonical contoso-inventory-api and the deterministic discriminator; re-freeze the physical alias map.",
+      "acceptance": "Resolved and accepted for the approved six-host source contract; actual availability remains To Do.",
+      "resolution": {
+        "label": "Verified",
+        "reviewedAtUtc": "2026-11-01T01:48:06.8593755Z",
+        "evidence": [
+          {"path":"tools\\names.mjs","lineStart":17,"lineEnd":22,"detail":"Inventory physical stem is inv; canonical role is retained."},
+          {"path":"tools\\names.mjs","lineStart":53,"lineEnd":55,"detail":"All six host names are checked against <=32."},
+          {"path":"tests\\names.test.mjs","lineStart":15,"lineEnd":38,"detail":"All-six and former 33-character inventory alias negatives passed."}
+        ],
+        "observedHostLengths": {"orders":30,"inventory":27,"fulfillment":31,"notify":30,"aggregator":27,"portal":30},
+        "currentScopeSha256": "3ae8eb0ee16cc7a8f0fa2c6657987161558b36087b7acf419feed4f51712d073"
+      }
+    },
+    {
+      "id": "CR3-R2-01",
+      "status": "resolved",
+      "historicalFinding": true,
+      "ownerRole": "R2",
+      "severity": "high",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Anonymous Portal page sessions exhaust authenticated-controller admission",
+      "evidence": [
+        {"path":"web\\portal-ssr\\src\\server.ts","lineStart":136,"lineEnd":154,"detail":"Unauthenticated Portal GETs allocate entries in the same capped 100-session map; expiry cleanup occurs only in session()."},
+        {"path":"web\\portal-ssr\\src\\server.ts","lineStart":215,"lineEnd":219,"detail":"After control authorization succeeds, a new caller without an existing cookie still goes through the exhausted newSession cap."}
+      ],
+      "observedTargetedCheck": {
+        "probeId": "R2-anonymous-session-admission",
+        "executedArtifact": "web\\portal-ssr\\dist\\server.js",
+        "executedArtifactSha256": "b0b27d5ed304d40b4489547df7d2b23ee5feca8f9619ff5f08b65abd628284bc",
+        "input": "Existing local fixture, 100 no-cookie GET /portal/ requests, then POST /portal/session whose injected control authorizer returns success.",
+        "expected": "An independently authorized controller can establish its bounded session.",
+        "actual": {"anonymousLandingRequests":100,"controlAuthorizerSucceeded":true,"authorizedLoginStatus":429,"errorCode":"PORTAL_DISABLED"},
+        "scope": "Local session admission only. JWT cryptography, grants and live service behavior were deliberately not claimed by this probe.",
+        "cleanup": "Owned local server and connections closed in finally; no token/cookie/config file persisted."
+      },
+      "impact": "A small anonymous landing-request burst denies a fresh authorized controller the ability to start the demo. Stale entries also remain at this login path until another session() access performs expiry cleanup.",
+      "requestedFix": "Do not let unauthenticated page state consume the entire authenticated-control quota. Allocate/reserve authenticated capacity or use stateless public landing state, reap expiry at allocation/login, and bound unauthenticated admission independently. Keep fixed-actor authorization, rotation and CSRF intact.",
+      "acceptance": "Resolved and accepted for the corrected-source/session fix scope; live control identity/admission remains To Do.",
+      "resolution": {
+        "label": "Verified",
+        "reviewedAtUtc": "2026-11-01T02:08:30.5019327Z",
+        "evidence": [
+          {"path":"web\\portal-ssr\\src\\server.ts","lineStart":138,"lineEnd":163,"detail":"Expired entries are reaped at allocation/lookup; unauthenticated lookup returns stateless view and no cookie; allocation is bounded/authenticated and expiry-clamped."},
+          {"path":"web\\portal-ssr\\src\\server.ts","lineStart":224,"lineEnd":231,"detail":"Only successful fixed control authorization plus a still-active window leads to newSession."},
+          {"path":"web\\portal-ssr\\tests\\server.test.ts","lineStart":88,"lineEnd":146,"detail":"Focused actual HTTP fixture passes 120 anonymous no-cookie landings, 100 authorized slots, overflow429, 16-minute advancement and fresh login without a landing cleanup call."}
+        ],
+        "targetedNativeSelectedTests": 2,
+        "result": "PASS",
+        "preservedControls": "Fixed-actor authorization, origin, schema, window recheck, cookie rotation and CSRF remain independently enforced.",
+        "currentScopeSha256": "ae8dac34385c8fd96c2428b2a844bc266c3b94a6f5d26161af45a828fa3463cf"
+      }
+    },
+    {
+      "id": "CR3-R2-02",
+      "status": "resolved",
+      "historicalFinding": true,
+      "ownerRole": "R2",
+      "severity": "high",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Browser run evidence contains prior-run dependencies and can select a stale reused-run result",
+      "evidence": [
+        {"path":"web\\storefront-spa\\src\\app.ts","lineStart":45,"lineEnd":49,"detail":"Dependency identities live in one rolling page/controller buffer, capped by shifting, not partitioned by run."},
+        {"path":"web\\storefront-spa\\src\\app.ts","lineStart":209,"lineEnd":227,"detail":"prepare() changes the requested run but does not clear/version dependencies or old result entries; dependencyIdentities() returns the whole retained buffer."},
+        {"path":"web\\portal-ssr\\src\\browser-adapter.ts","lineStart":115,"lineEnd":119,"detail":"The adapter waits for any result under the ID and then copies all controller dependency identities into this run's pack."}
+      ],
+      "observedTargetedCheck": {
+        "probeId": "R2-run-lifecycle-static",
+        "method": "Read-only source lifecycle/data-flow trace, not re-execution of the browser suite.",
+        "actual": "On a second run using the same page, earlier retained dependency identities are still included by line118. Reusing a runId also permits the old results entry to satisfy line115 before the new request completes.",
+        "scope": "Controller/adapter source semantics; no fabricated telemetry rows were used."
+      },
+      "impact": "A run-labelled evidence pack is not exclusively fresh/current-run evidence. It can contain sibling/prior request identities, or an old backend result for a reused ID, contradicting the strict finite expected-set/current-evidence acceptance.",
+      "requestedFix": "Give each execution a version/nonce and a run-scoped observation buffer, or record a start offset and filter to current captured request/span IDs. Clear/reject reused result IDs before driving, prevent unrelated in-flight callback contamination, and require completion of the requested execution rather than existence of an old entry. Add a two-distinct-runs-on-one-page and reused-ID regression.",
+      "acceptance": "Resolved and accepted for the corrected-source/run isolation scope, backed by targeted actual Chromium fixtures; no Azure certification is implied.",
+      "resolution": {
+        "label": "Verified",
+        "reviewedAtUtc": "2026-11-01T02:08:30.5019327Z",
+        "evidence": [
+          {"path":"web\\storefront-spa\\src\\app.ts","lineStart":48,"lineEnd":67,"detail":"Current-run callback version check and bounded no-eviction dependency view."},
+          {"path":"web\\storefront-spa\\src\\app.ts","lineStart":145,"lineEnd":181,"detail":"Positive invocationVersion, result/dependency clearing, no reused/active/101st prepare acceptance; version is not a backend DTO field."},
+          {"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","lineStart":166,"lineEnd":200,"detail":"Request-send-time private context records the actual current run/version only on the intended POST; callback preserves that snapshot."},
+          {"path":"web\\portal-ssr\\src\\browser-adapter.ts","lineStart":100,"lineEnd":148,"detail":"Prepare before observers, explicit driver rejection, matching-version completion, actual response and SDK dependency filter against current captured wire trace/span."},
+          {"path":"web\\portal-ssr\\tests\\browser\\contoso.spec.ts","lineStart":181,"lineEnd":248,"detail":"Sequential current-evidence isolation, reused-ID no-POST, delayed active-run replacement and page capacity regression."}
+        ],
+        "targetedBrowserSelectedTests": 4,
+        "result": "PASS",
+        "nativeSsrCompatibility": "Existing authenticated workload-only native SSR navigation regression passed within the selected four browser checks.",
+        "currentScopeSha256": "ae8dac34385c8fd96c2428b2a844bc266c3b94a6f5d26161af45a828fa3463cf"
+      }
+    }
+  ],
+  "materialClaims": [
+    {
+      "role":"R1",
+      "claim":"The generated names use a deterministic scope discriminator and preserve canonical role identifiers.",
+      "label":"Verified",
+      "rationale":"Inspected frozenNames and validateFrozenNames literals/functions. The targeted generation is deterministic; the separate six-host length claim fails as recorded.",
+      "evidence":[{"path":"tools\\names.mjs","lineStart":6,"lineEnd":43}]
+    },
+    {
+      "role":"R1",
+      "claim":"The corrected Done path requires current CODE review (or explicit known documentation-card kind), matching accepted owner/reviewer, completion sources and current source hashes.",
+      "label":"Verified",
+      "rationale":"Re-reviewed only the fix hunks. Corrected envelope/source verification and targeted negative regressions passed; the prior Incorrect finding is preserved as resolved history.",
+      "findingIds":["CR3-R1-01"]
+    },
+    {
+      "role":"R1",
+      "claim":"The board distinguishes To Do/construction from live acceptance and enforces its declared dependency/WIP/live-clause conditions.",
+      "label":"Verified",
+      "rationale":"The existing dependency/WIP/live-clause checks remain, and the corrected Done path parses current typed review evidence. The explicit board-policy digest covers policy fields while operational records/revision/sourceHashes remain validated operational state, not code acceptance. No live closure is endorsed.",
+      "evidence":[{"path":"tools\\kanban.mjs","lineStart":130,"lineEnd":212},{"path":"config\\board-state.json","hashMode":"board-policy","policyFields":["schema","defaultStatus","phaseAwareConstructionApproved"]}]
+    },
+    {
+      "role":"R1",
+      "claim":"The network source declares separate delegated compute/PG, nondelegated APIM and PE subnets with APIM NSG and DNS links.",
+      "label":"Verified",
+      "rationale":"Verified resource declarations/output relationships in the reviewed module; no main integration or resource creation is inferred.",
+      "evidence":[{"path":"infra\\modules\\network.bicep","lineStart":1,"lineEnd":190}]
+    },
+    {
+      "role":"R1",
+      "claim":"Network source/compile by itself proves private API/data/SCM reachability.",
+      "label":"Unsupported",
+      "rationale":"No deployed route/DNS/endpoint/identity observations or completed main integration were reviewed.",
+      "sourceUrls":["https://learn.microsoft.com/en-us/azure/api-management/virtual-network-reference","https://learn.microsoft.com/en-us/azure/app-service/overview-private-endpoint"]
+    },
+    {
+      "role":"R1",
+      "claim":"The certification-path guard checks declared source/status and removed-claim patterns, not a complete runtime GA/support oracle.",
+      "label":"Partially verified",
+      "rationale":"Inspected constraints and pattern checks. Declared GA/source strings and Contoso-owned classification do not establish the actual provider graph, every feature's support or deployed evaluation isolation.",
+      "evidence":[{"path":"tools\\certification-path.mjs","lineStart":9,"lineEnd":44},{"path":"config\\certification-dependencies.json","lineStart":1,"lineEnd":31}]
+    },
+    {
+      "role":"R1",
+      "claim":"The cost output is fixed-listed-meters-only and is not a hard spending cap or provisioning approval.",
+      "label":"Verified",
+      "rationale":"calculateFixedCost explicitly excludes variable meters/open items and returns NOT APPROVED. Current price applicability and final resource inventory are not independently researched in this bounded review.",
+      "evidence":[{"path":"tools\\cost.mjs","lineStart":5,"lineEnd":22},{"path":"config\\cost-model.json","lineStart":1,"lineEnd":63}]
+    },
+    {
+      "role":"R1",
+      "claim":"The Contoso parent guard is a vendor-specific Microsoft GA/support announcement.",
+      "label":"Unsupported",
+      "rationale":"DECISIONS and the manifest correctly decline that claim; code acceptance of the mechanism is separate from runtime/support verification.",
+      "evidence":[{"path":"DECISIONS.md","lineStart":70,"lineEnd":87},{"path":"config\\certification-dependencies.json","lineStart":19,"lineEnd":25}]
+    },
+    {
+      "role":"R2",
+      "claim":"The actual browser initialization uses SDK3.4.5 W3C_TRACE rather than remembered mode2.",
+      "label":"Verified",
+      "rationale":"Inspected explicit enum, dependency pins and matching structured leaf-lock entries. Published enum provenance was already verified in the same task; this review does not claim live wire compatibility.",
+      "evidence":[{"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","lineStart":68,"lineEnd":83},{"path":"web\\storefront-spa\\package.json","lineStart":1,"lineEnd":24}],
+      "sourceUrls":["https://github.com/microsoft/ApplicationInsights-JS/blob/9f3440d9ac3dd8941f7d004dbae43108b08baf7e/shared/AppInsightsCore/src/enums/ai/Enums.ts"]
+    },
+    {
+      "role":"R2",
+      "claim":"Legacy/default enum knowledge can replace the current explicit W3C_TRACE18 contract.",
+      "label":"Outdated",
+      "rationale":"Current code and the pinned SDK enum use the approved state-enabled W3C_TRACE lane; the older W3C2 value is not the approved configuration.",
+      "sourceUrls":["https://github.com/microsoft/ApplicationInsights-JS/blob/9f3440d9ac3dd8941f7d004dbae43108b08baf7e/shared/AppInsightsCore/src/enums/ai/Enums.ts"]
+    },
+    {
+      "role":"R2",
+      "claim":"A throwing reporter cannot turn the explicit exact-origin veto into allow.",
+      "label":"Verified",
+      "rationale":"veto catches the reporter exception and still returns false; the dependency listener calls it for missing/unapproved/userinfo destinations.",
+      "evidence":[{"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","lineStart":64,"lineEnd":71},{"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","lineStart":160,"lineEnd":179}]
+    },
+    {
+      "role":"R2",
+      "claim":"Browser filtering prevents all possible privacy leakage and proves live publisher authenticity.",
+      "label":"Unsupported",
+      "rationale":"The inspected initializer/transport controls are useful source protections, not a universal guarantee against manual requests or public injection; actual Azure telemetry remains To Do.",
+      "evidence":[{"path":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","lineStart":107,"lineEnd":159},{"path":"web\\portal-ssr\\src\\shared\\browser-api.ts","lineStart":14,"lineEnd":42}]
+    },
+    {
+      "role":"R2",
+      "claim":"The workload Portal's business credential and fixed control-actor authentication are independently separated.",
+      "label":"Verified",
+      "rationale":"ManagedIdentityCredential is the business token provider. JOSE control verification checks fixed issuer/audience/client/principal, RS256, v2/idtyp app/no scp/Portal.Invoke; origin/CSRF/window checks remain separate. The admission bug does not bypass the crypto intent.",
+      "evidence":[{"path":"web\\portal-ssr\\src\\gateway.ts","lineStart":14,"lineEnd":36},{"path":"web\\portal-ssr\\src\\control-auth.ts","lineStart":6,"lineEnd":32},{"path":"web\\portal-ssr\\src\\server.ts","lineStart":202,"lineEnd":246}]
+    },
+    {
+      "role":"R2",
+      "claim":"The corrected browser controller/adapter binds current execution version and filters SDK evidence to the intended captured POST.",
+      "label":"Verified",
+      "rationale":"Coordinator-assigned fix-scoped read and four selected actual Chromium checks confirm distinct sequential isolation, no reused-ID POST/stale completion, active-run replacement rejection and capacity behavior. Prior Incorrect evidence is retained as resolved history; live Azure remains To Do.",
+      "findingIds":["CR3-R2-02"]
+    },
+    {
+      "role":"R2",
+      "claim":"One existing Node distro/provider and its expiry/production restoration are fully certified by source.",
+      "label":"Partially verified",
+      "rationale":"Source initializes one distro after loader import, uses the published parentbased_trace_id_ratio spelling, and stops at expiry. The README explicitly requires coordinator production restart/profile verification; actual provider/image/restoration evidence was not rerun.",
+      "evidence":[{"path":"web\\portal-ssr\\src\\bootstrap.ts","lineStart":1,"lineEnd":34},{"path":"web\\portal-ssr\\src\\telemetry.ts","lineStart":14,"lineEnd":125},{"path":"web\\portal-ssr\\README.md","lineStart":140,"lineEnd":151}]
+    },
+    {
+      "role":"R2",
+      "claim":"The reviewed leaf packaging includes both surfaces without bundling resolved runtime configuration.",
+      "label":"Verified",
+      "rationale":"The package script checks the SPA injection placeholder, rejects static runtime-config markup and copies the existing SPA build into the Portal dist. Source/dependency-lock agreement and existing entrypoints were inspected; production builds were not broadly rerun.",
+      "evidence":[{"path":"web\\portal-ssr\\scripts\\package-cohost.mjs","lineStart":5,"lineEnd":16},{"path":"web\\portal-ssr\\package.json","lineStart":7,"lineEnd":16},{"path":"web\\portal-ssr\\src\\server.ts","lineStart":109,"lineEnd":114},{"path":"web\\storefront-spa\\src\\main.ts","lineStart":7,"lineEnd":12}]
+    }
+  ],
+  "targetedChecks": [
+    {
+      "id":"R1-six-host-length",
+      "executed":true,
+      "result":"Confirmed CR3-R1-02",
+      "description":"Called frozenNames/validateFrozenNames only; no Azure query and no name/board file written."
+    },
+    {
+      "id":"R1-review-kind-freshness",
+      "executed":true,
+      "result":"Confirmed CR3-R1-01",
+      "description":"Called validateState on an isolated code-completion probe with design/stale-source review metadata; no synchronize/write path invoked."
+    },
+    {
+      "id":"R2-anonymous-session-admission",
+      "executed":true,
+      "result":"Confirmed CR3-R2-01",
+      "description":"Used an existing built local fixture server; only the admission question was exercised. Server/connections closed and no secret/session artifact persisted."
+    },
+    {
+      "id":"R2-run-lifecycle-static",
+      "executed":false,
+      "result":"High-confidence source finding CR3-R2-02",
+      "description":"Read allocation, prepare/result lifecycle and adapter selection. Did not rerun all browser tests or manufacture observed span rows."
+    },
+    {
+      "id":"R2-leaf-locks",
+      "executed":true,
+      "result":"Manifest pins match each leaf lockfile's root dependencies",
+      "description":"Structured local lock inspection only; no install, restore or transitive vulnerability audit."
+    }
+  ],
+  "integrationNotes": [
+    {
+      "label":"Partially verified",
+      "issue":"R2 documents optional SDK Request-Context metadata and its fixture CORS explicitly permits request-context; root must align actual SDK-generated preflight headers with APIM.",
+      "evidence":[{"path":"web\\portal-ssr\\README.md","lineStart":132,"lineEnd":139},{"path":"web\\portal-ssr\\tests\\browser\\fixture-boot.ts","lineStart":100,"lineEnd":109}],
+      "disposition":"Check/fix at R3/root integration when the actual appId/header is emitted. This is not a claim that incomplete main/deployed APIM was reviewed or that every first request emits that header."
+    },
+    {
+      "label":"Verified",
+      "issue":"The expiry policy is fail-closed SDK/provider shutdown, not source proof that production sampling has been restored.",
+      "disposition":"R7/root must positively acknowledge approved reload/restart/profile restoration; live restoration remains To Do."
+    }
+  ],
+  "writerFeedback": [
+    {"writerRole":"R2","deliveredToExistingAgent":true,"findingIds":["CR3-R2-01","CR3-R2-02"],"filesModifiedByReviewer":false},
+    {"writerRole":"R1","deliveredViaExistingR9Coordinator":true,"findingIds":["CR3-R1-01","CR3-R1-02"],"filesModifiedByReviewer":false}
+  ],
+  "requiredFollowUp": [
+    "R1 CR3-R1-01/02 and R2 CR3-R2-01/02 are resolved for their explicitly refreshed source/fix scopes. Author remediation was not treated as peer approval; independent targeted checks were run.",
+    "Re-review changed source scopes and update hashes/verdicts; this report never accepts a future modified snapshot automatically.",
+    "Root must not count earlier design reviews, generic success markers or stale-source accepted reviews as current CODE approval.",
+    "Incomplete main/root deployment still requires its own later review/integration.",
+    "All deployed identity, private network/SCM, strict -00, actual gateway/span parentage, ingestion/privacy/overhead and certification acceptance remain To Do."
+  ]
+}

@@ -1,0 +1,16 @@
+<policies>
+  <inbound>
+    <base />
+    <include-fragment fragment-id="contoso-authn-v1" />
+    <include-fragment fragment-id="contoso-authz-v1" />
+    <include-fragment fragment-id="contoso-request-guard-v1" />
+    <include-fragment fragment-id="contoso-context-v1" />
+    <include-fragment fragment-id="contoso-header-hygiene-v1" />
+    <include-fragment fragment-id="contoso-business-id-v1" />
+    <include-fragment fragment-id="contoso-business-observe-v1" />
+    <include-fragment fragment-id="contoso-backend-proof-v1" />
+  </inbound>
+  <backend><base /></backend>
+  <outbound><base /><include-fragment fragment-id="contoso-response-id-v1" /></outbound>
+  <on-error><base /></on-error>
+</policies>

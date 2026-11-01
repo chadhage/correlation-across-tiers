@@ -1,0 +1,231 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 1,
+      "name": "safety-status",
+      "content": {
+        "json": "# Contoso Correlation\n\nDiagnostic views only. Source-supported loader/custom sampler proof is distinct from Azure live certification. Strict sampled-positive completeness and unsampled propagation remain mandatory. No row, screenshot or viewer-supplied metadata certifies origin. Missing data/unknown mappings remain To Do.\n\nFiltered trace/business queries are not the all-table privacy scan. Export only R8-approved safe fields after scanning original intake."
+      }
+    },
+    {
+      "type": 9,
+      "name": "parameters",
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "style": "pills",
+        "parameters": [
+          {
+            "id": "Workspace",
+            "name": "Workspace",
+            "type": 5,
+            "isRequired": true,
+            "value": [],
+            "typeSettings": {
+              "resourceTypeFilter": {
+                "typeString": "microsoft.operationalinsights/workspaces"
+              },
+              "multiSelect": false
+            }
+          },
+          {
+            "id": "ApplicationInsights",
+            "name": "ApplicationInsights",
+            "type": 5,
+            "isRequired": true,
+            "value": [],
+            "typeSettings": {
+              "resourceTypeFilter": {
+                "typeString": "microsoft.insights/components"
+              },
+              "multiSelect": false
+            }
+          },
+          {
+            "id": "TimeRange",
+            "name": "TimeRange",
+            "type": 4,
+            "isRequired": true,
+            "value": {
+              "durationMs": 7200000
+            }
+          },
+          {
+            "id": "TraceId",
+            "name": "TraceId",
+            "type": 1,
+            "isRequired": true,
+            "value": "",
+            "typeSettings": {
+              "validationRegex": "^(?!0{32}$)[a-f0-9]{32}$",
+              "validationMessage": "Nonzero lowercase W3C trace ID required"
+            }
+          },
+          {
+            "id": "InvocationId",
+            "name": "InvocationId",
+            "type": 1,
+            "isRequired": true,
+            "value": "",
+            "typeSettings": {
+              "validationRegex": "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$",
+              "validationMessage": "Trusted canonical UUIDv4 required"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": 3,
+      "name": "trace-reconstruct",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let windowStart=datetime({TimeRange:start});\r\nlet windowEnd=datetime({TimeRange:end});\r\nlet searchFrom=windowStart-10080m;\r\nlet appResourceId=\"{ApplicationInsights:escapejson}\";\r\nlet selectedTrace=\"{TraceId:escapejson}\";\r\nlet compositeMappingApproved=false;\r\nlet NativeRecords=union\n(AppRequests\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppRequests\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppDependencies\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppDependencies\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppTraces\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppTraces\", RecordKind=\"log\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppExceptions\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppExceptions\", RecordKind=\"exception\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppPageViews\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppPageViews\", RecordKind=\"view\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppEvents\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppEvents\", RecordKind=\"event\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null)));\r\nlet compositeRoles=dynamic([]);\n\nlet CanonicalId=(raw:string,trace:string,role:string) {\n    case(raw matches regex \"^[a-f0-9]{16}$\" and raw!=\"0000000000000000\",raw,\n         role in (compositeRoles) and compositeMappingApproved\n             and raw matches regex \"^\\\\|[a-f0-9]{32}\\\\.[a-f0-9]{16}\\\\.?$\"\n             and extract(\"^\\\\|([a-f0-9]{32})\\\\.\",1,raw)==trace\n             and extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\",1,raw)!=\"0000000000000000\",\n         extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\\\\.?$\",1,raw),\"\")\n};\nlet Records = NativeRecords\n| extend SpanId=iff(RecordKind==\"span\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         ParentSpanId=iff(RecordKind==\"span\",CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         AssociatedSpanId=iff(RecordKind in (\"log\",\"exception\",\"event\"),CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         ViewId=iff(RecordKind==\"view\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         InvocationId=tostring(NativeProperties[\"business.invocation_id\"]),\n         LinksText=tostring(NativeProperties[\"_MS.links\"])\n| extend Links=iff(RecordKind==\"span\" and isnotempty(LinksText),parse_json(LinksText),dynamic([])),\n         InvalidSpanMapping=RecordKind==\"span\" and (isempty(SpanId) or not(TraceId matches regex \"^[a-f0-9]{32}$\") or TraceId==\"00000000000000000000000000000000\"\n             or (isnotempty(RawParentId) and isempty(ParentSpanId)));\n\r\nlet LinkedTraces=Records\r\n| where RecordKind==\"span\" and TraceId==selectedTrace and EventTime>=windowStart\r\n| mv-expand Link=Links\r\n| project TargetTrace=tostring(Link.operation_Id)\r\n| where TargetTrace matches regex \"^[a-f0-9]{32}$\" and TargetTrace!=\"00000000000000000000000000000000\"\r\n| distinct TargetTrace;\r\nRecords\r\n| where TraceId==selectedTrace or TraceId in (LinkedTraces)\r\n| extend SelectionBasis=case(TraceId==selectedTrace and EventTime>=windowStart,\"selected-test-window\",\r\n    TraceId==selectedTrace,\"older-operation-context\",\"one-hop-linked-operation-context\")\r\n| project EventTime,IngestedAt,NativeTable,RecordKind,SelectionBasis,TraceId,RawId,RawParentId,\r\n    SpanId,ParentSpanId,AssociatedSpanId,ViewId,RoleName,OperationName,Success,ResultCode,DurationMs,ItemCount,BillableBytes,IsBillable,InvocationId,\r\n    LinksText,Links,InvalidSpanMapping\r\n| order by EventTime asc\r\n",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "business-lookup",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let windowStart=datetime({TimeRange:start});\r\nlet windowEnd=datetime({TimeRange:end});\r\nlet searchFrom=windowStart-10080m;\r\nlet appResourceId=\"{ApplicationInsights:escapejson}\";\r\nlet selectedInvocation=\"{InvocationId:escapejson}\";\r\nlet compositeMappingApproved=false;\r\nlet NativeRecords=union\n(AppRequests\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppRequests\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppDependencies\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppDependencies\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppTraces\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppTraces\", RecordKind=\"log\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppExceptions\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppExceptions\", RecordKind=\"exception\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppPageViews\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppPageViews\", RecordKind=\"view\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppEvents\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppEvents\", RecordKind=\"event\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null)));\r\nlet compositeRoles=dynamic([]);\n\nlet CanonicalId=(raw:string,trace:string,role:string) {\n    case(raw matches regex \"^[a-f0-9]{16}$\" and raw!=\"0000000000000000\",raw,\n         role in (compositeRoles) and compositeMappingApproved\n             and raw matches regex \"^\\\\|[a-f0-9]{32}\\\\.[a-f0-9]{16}\\\\.?$\"\n             and extract(\"^\\\\|([a-f0-9]{32})\\\\.\",1,raw)==trace\n             and extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\",1,raw)!=\"0000000000000000\",\n         extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\\\\.?$\",1,raw),\"\")\n};\nlet Records = NativeRecords\n| extend SpanId=iff(RecordKind==\"span\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         ParentSpanId=iff(RecordKind==\"span\",CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         AssociatedSpanId=iff(RecordKind in (\"log\",\"exception\",\"event\"),CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         ViewId=iff(RecordKind==\"view\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         InvocationId=tostring(NativeProperties[\"business.invocation_id\"]),\n         LinksText=tostring(NativeProperties[\"_MS.links\"])\n| extend Links=iff(RecordKind==\"span\" and isnotempty(LinksText),parse_json(LinksText),dynamic([])),\n         InvalidSpanMapping=RecordKind==\"span\" and (isempty(SpanId) or not(TraceId matches regex \"^[a-f0-9]{32}$\") or TraceId==\"00000000000000000000000000000000\"\n             or (isnotempty(RawParentId) and isempty(ParentSpanId)));\n\r\nlet SeedTraces=Records | where InvocationId==selectedInvocation | where isnotempty(TraceId) | distinct TraceId;\r\nlet Multiplicity=Records\r\n| where TraceId in (SeedTraces) and isnotempty(InvocationId)\r\n| summarize by TraceId,InvocationId\r\n| summarize ExplicitInvocationCount=count() by TraceId;\r\nRecords\r\n| where InvocationId==selectedInvocation or TraceId in (SeedTraces)\r\n| join kind=leftouter Multiplicity on TraceId\r\n| extend MembershipBasis=iff(InvocationId==selectedInvocation,\"explicit-business-property\",\"operation-co-membership-not-business-proof\"),\r\n    ConflictingInvocation=isnotempty(InvocationId) and InvocationId!=selectedInvocation,\r\n    AmbiguousOperation=ExplicitInvocationCount>1\r\n| project EventTime,IngestedAt,NativeTable,RecordKind,TraceId,RawId,RawParentId,SpanId,\r\n    ParentSpanId,AssociatedSpanId,ViewId,RoleName,OperationName,Success,ResultCode,DurationMs,ItemCount,BillableBytes,IsBillable,InvocationId,MembershipBasis,\r\n    ConflictingInvocation,AmbiguousOperation,LinksText,InvalidSpanMapping\r\n| order by EventTime asc\r\n",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "orphan-candidates",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let windowStart=datetime({TimeRange:start});\r\nlet windowEnd=datetime({TimeRange:end});\r\nlet searchFrom=windowStart-10080m;\r\nlet queryTime=now();\r\nlet grace=600s;\r\nlet appResourceId=\"{ApplicationInsights:escapejson}\";\r\nlet compositeMappingApproved=false;\r\nlet BoundaryAssignments=datatable(AssignedTrace:string,AssignedSpan:string,BoundaryId:string,AssignmentEvidence:string)[\n\n];\r\nlet BoundaryMap=datatable(BoundaryId:string,ExpectedRole:string,ExpectedKind:string,ParentMode:string,AllowedParentsJson:string)[\n\"storefront.http\",\"contoso-storefront-spa\",\"CLIENT\",\"unspecified\",\"[]\",\n\"portal.request\",\"contoso-portal-ssr\",\"SERVER\",\"root\",\"[]\",\n\"portal.gateway\",\"contoso-portal-ssr\",\"CLIENT\",\"parent\",\"[\\\"portal.request\\\"]\",\n\"gateway.request\",\"contoso-corr-poc-apim\",\"SERVER\",\"parent\",\"[\\\"storefront.http\\\",\\\"portal.gateway\\\"]\",\n\"gateway.backend\",\"contoso-corr-poc-apim\",\"CLIENT\",\"parent\",\"[\\\"gateway.request\\\"]\",\n\"orders.request\",\"contoso-orders-api\",\"SERVER\",\"parent\",\"[\\\"gateway.backend\\\"]\",\n\"orders.validation\",\"contoso-orders-api\",\"INTERNAL\",\"parent\",\"[\\\"orders.request\\\"]\",\n\"orders.inventory\",\"contoso-orders-api\",\"CLIENT\",\"parent\",\"[\\\"orders.request\\\"]\",\n\"inventory.request\",\"contoso-inventory-api\",\"SERVER\",\"parent\",\"[\\\"orders.inventory\\\"]\",\n\"postgres.logical\",\"contoso-inventory-api\",\"CLIENT\",\"parent\",\"[\\\"inventory.request\\\"]\",\n\"redis.logical\",\"contoso-inventory-api\",\"CLIENT\",\"parent\",\"[\\\"inventory.request\\\"]\",\n\"orders.servicebus.send\",\"contoso-orders-api\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"orders.eventgrid.send\",\"contoso-orders-api\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"orders.eventhubs.send\",\"contoso-orders-api\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"orders.storage.send\",\"contoso-orders-api\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"fulfillment.process\",\"contoso-fulfillment-worker\",\"CONSUMER\",\"parent\",\"[\\\"orders.servicebus.send\\\",\\\"orders.eventgrid.send\\\",\\\"orders.storage.send\\\"]\",\n\"notify.process\",\"contoso-notify-worker\",\"CONSUMER\",\"parent\",\"[\\\"orders.servicebus.send\\\"]\",\n\"fulfillment.result\",\"contoso-fulfillment-worker\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"notify.result\",\"contoso-notify-worker\",\"PRODUCER\",\"unspecified\",\"[]\",\n\"aggregator.result\",\"contoso-order-aggregator\",\"CONSUMER\",\"parent\",\"[\\\"fulfillment.result\\\",\\\"notify.result\\\"]\",\n\"aggregator.batch\",\"contoso-order-aggregator\",\"CONSUMER\",\"root\",\"[]\",\n\"aggregator.fanin\",\"contoso-order-aggregator\",\"INTERNAL\",\"root\",\"[]\",\n\"aggregator.replay\",\"contoso-order-aggregator\",\"INTERNAL\",\"root\",\"[]\",\n\"orders.replay.send\",\"contoso-orders-api\",\"PRODUCER\",\"root\",\"[]\"\n];\r\nlet ReferenceProofs=datatable(ChildTrace:string,ChildSpan:string,TargetTrace:string,TargetSpan:string,Relation:string,ProvenClass:string,ReferenceEvidence:string)[\n\n];\r\nlet NativeRecords=union\n(AppRequests\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppRequests\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppDependencies\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppDependencies\", RecordKind=\"span\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppTraces\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppTraces\", RecordKind=\"log\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppExceptions\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppExceptions\", RecordKind=\"exception\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppPageViews\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppPageViews\", RecordKind=\"view\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null))),\n(AppEvents\n| where TimeGenerated >= searchFrom and TimeGenerated < windowEnd\n| where _ResourceId =~ appResourceId\n| extend NativeTable=\"AppEvents\", RecordKind=\"event\", IngestedAt=ingestion_time()\n| project NativeTable, RecordKind, EventTime=TimeGenerated, IngestedAt, TraceId=OperationId,\n    RawId=tostring(column_ifexists(\"Id\",\"\")), RawParentId=ParentId, RoleName=AppRoleName,\n    OperationName=coalesce(tostring(column_ifexists(\"Name\",\"\")),tostring(column_ifexists(\"ExceptionType\",\"\"))),\n    Success=column_ifexists(\"Success\",bool(null)),\n    ResultCode=tostring(column_ifexists(\"ResultCode\",\"\")),\n    BillableBytes=column_ifexists(\"_BilledSize\",real(null)),IsBillable=tostring(column_ifexists(\"_IsBillable\",\"\")),\n    NativeProperties=Properties, DurationMs=column_ifexists(\"DurationMs\",real(null)),\n    ItemCount=column_ifexists(\"ItemCount\",long(null)));\r\nlet compositeRoles=dynamic([]);\n\nlet CanonicalId=(raw:string,trace:string,role:string) {\n    case(raw matches regex \"^[a-f0-9]{16}$\" and raw!=\"0000000000000000\",raw,\n         role in (compositeRoles) and compositeMappingApproved\n             and raw matches regex \"^\\\\|[a-f0-9]{32}\\\\.[a-f0-9]{16}\\\\.?$\"\n             and extract(\"^\\\\|([a-f0-9]{32})\\\\.\",1,raw)==trace\n             and extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\",1,raw)!=\"0000000000000000\",\n         extract(\"^\\\\|[a-f0-9]{32}\\\\.([a-f0-9]{16})\\\\.?$\",1,raw),\"\")\n};\nlet Records = NativeRecords\n| extend SpanId=iff(RecordKind==\"span\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         ParentSpanId=iff(RecordKind==\"span\",CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         AssociatedSpanId=iff(RecordKind in (\"log\",\"exception\",\"event\"),CanonicalId(RawParentId,TraceId,RoleName),\"\"),\n         ViewId=iff(RecordKind==\"view\",CanonicalId(RawId,TraceId,RoleName),\"\"),\n         InvocationId=tostring(NativeProperties[\"business.invocation_id\"]),\n         LinksText=tostring(NativeProperties[\"_MS.links\"])\n| extend Links=iff(RecordKind==\"span\" and isnotempty(LinksText),parse_json(LinksText),dynamic([])),\n         InvalidSpanMapping=RecordKind==\"span\" and (isempty(SpanId) or not(TraceId matches regex \"^[a-f0-9]{32}$\") or TraceId==\"00000000000000000000000000000000\"\n             or (isnotempty(RawParentId) and isempty(ParentSpanId)));\n\r\nlet Spans=Records | where RecordKind==\"span\";\r\nlet Index=union\r\n    (Spans | where isnotempty(SpanId) | project TargetTrace=TraceId,TargetSpan=SpanId),\r\n    (Records | where RecordKind==\"view\" and isnotempty(ViewId) | project TargetTrace=TraceId,TargetSpan=ViewId)\r\n| distinct TargetTrace,TargetSpan;\r\nlet Parents=Spans\r\n| where EventTime>=windowStart\r\n| extend TargetTrace=TraceId,TargetSpan=ParentSpanId,Relation=\"parent\"\r\n| join kind=leftanti Index on TargetTrace,TargetSpan;\r\nlet LinkIndex=Spans | where isnotempty(SpanId) | project TargetTrace=TraceId,TargetSpan=SpanId | distinct TargetTrace,TargetSpan;\r\nlet MissingLinks=Spans\r\n| where EventTime>=windowStart and array_length(Links)>0\r\n| mv-expand Link=Links\r\n| extend TargetTrace=tostring(Link.operation_Id),TargetSpan=tostring(Link.id),Relation=\"link\"\r\n| join kind=leftanti LinkIndex on TargetTrace,TargetSpan;\r\nlet BadLinks=Spans\r\n| where EventTime>=windowStart and isnotempty(LinksText) and isnull(array_length(Links))\r\n| extend TargetTrace=TraceId,TargetSpan=\"\",Relation=\"link-format\";\r\nunion Parents,MissingLinks,BadLinks\r\n| project EventTime,IngestedAt,DurationMs,ChildTrace=TraceId,ChildSpan=SpanId,\r\n    TargetTrace,TargetSpan,Relation,RoleName,RawId,RawParentId,InvalidSpanMapping\r\n| join kind=leftouter BoundaryAssignments on $left.ChildTrace==$right.AssignedTrace,$left.ChildSpan==$right.AssignedSpan\r\n| join kind=leftouter BoundaryMap on BoundaryId\r\n| join kind=leftouter ReferenceProofs on ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation\r\n| extend EndTime=EventTime+DurationMs*1ms,\r\n    InvalidReference=InvalidSpanMapping or Relation==\"link-format\"\r\n        or not(TargetTrace matches regex \"^[a-f0-9]{32}$\") or TargetTrace==\"00000000000000000000000000000000\"\r\n        or (Relation==\"link\" and isempty(TargetSpan))\r\n        or (isnotempty(TargetSpan) and (not(TargetSpan matches regex \"^[a-f0-9]{16}$\") or TargetSpan==\"0000000000000000\"))\r\n| extend Classification=case(InvalidReference,\"defect\",\r\n    isempty(TargetSpan) and Relation==\"parent\" and ParentMode==\"root\" and isnotempty(AssignmentEvidence),\"expected-root\",\r\n    isnotempty(ReferenceEvidence),ProvenClass,\r\n    isnull(IngestedAt) or isnull(EndTime) or IngestedAt>queryTime-grace or EndTime>queryTime-grace,\"delayed\",\r\n    \"defect\")\r\n| extend GateAction=case(Classification in (\"expected-root\",\"expected-remote\"),\"declared-boundary\",\r\n    Classification==\"delayed\",\"requery-before-deadline\",\r\n    Classification in (\"cross-resource\",\"sampled\",\"outside-window\",\"outside-retention\"),\"required-coverage-not-waived\",\r\n    \"fail-until-adjudicated\"),IsProvenApplicationDefect=false\r\n| project EventTime,EndTime,IngestedAt,ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation,\r\n    BoundaryId,RoleName,Classification,GateAction,IsProvenApplicationDefect,\r\n    AssignmentEvidence,ReferenceEvidence,RawId,RawParentId\r\n| order by Classification asc,EventTime asc\r\n",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 1,
+      "name": "boundary-input-status",
+      "content": {
+        "json": "## Boundary triage input contract\n\nThe compiled declared boundaries below are generated solely from `contracts\\expected-boundary-map.v1.json`. Actual observed trace/span assignments and reference evidence must be bound by the reviewed R9 capture/renderer; this default viewer does not invent them. Empty assignments cannot produce a green certificate. Composite ID mapping must be source/role proven before the assertion pipeline accepts it.\n\nUse the R7 query renderer with the sealed run inputs for final candidate results; select the actual Application Insights resource for Application Map and Transaction Diagnostics. Their real screenshots remain required live assets."
+      }
+    },
+    {
+      "type": 3,
+      "name": "root-boundary-map",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "datatable(Boundary:string,Role:string,Kind:string)[\"storefront.http\",\"contoso-storefront-spa\",\"CLIENT\",\"portal.request\",\"contoso-portal-ssr\",\"SERVER\",\"portal.gateway\",\"contoso-portal-ssr\",\"CLIENT\",\"gateway.request\",\"contoso-corr-poc-apim\",\"SERVER\",\"gateway.backend\",\"contoso-corr-poc-apim\",\"CLIENT\",\"orders.request\",\"contoso-orders-api\",\"SERVER\",\"orders.validation\",\"contoso-orders-api\",\"INTERNAL\",\"orders.inventory\",\"contoso-orders-api\",\"CLIENT\",\"inventory.request\",\"contoso-inventory-api\",\"SERVER\",\"postgres.logical\",\"contoso-inventory-api\",\"CLIENT\",\"redis.logical\",\"contoso-inventory-api\",\"CLIENT\",\"orders.servicebus.send\",\"contoso-orders-api\",\"PRODUCER\",\"orders.eventgrid.send\",\"contoso-orders-api\",\"PRODUCER\",\"orders.eventhubs.send\",\"contoso-orders-api\",\"PRODUCER\",\"orders.storage.send\",\"contoso-orders-api\",\"PRODUCER\",\"fulfillment.process\",\"contoso-fulfillment-worker\",\"CONSUMER\",\"notify.process\",\"contoso-notify-worker\",\"CONSUMER\",\"fulfillment.result\",\"contoso-fulfillment-worker\",\"PRODUCER\",\"notify.result\",\"contoso-notify-worker\",\"PRODUCER\",\"aggregator.result\",\"contoso-order-aggregator\",\"CONSUMER\",\"aggregator.batch\",\"contoso-order-aggregator\",\"CONSUMER\",\"aggregator.fanin\",\"contoso-order-aggregator\",\"INTERNAL\",\"aggregator.replay\",\"contoso-order-aggregator\",\"INTERNAL\",\"orders.replay.send\",\"contoso-orders-api\",\"PRODUCER\"]\n| order by Boundary asc",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "ingestion-delay",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "union AppRequests,AppDependencies\n| where TimeGenerated {TimeRange}\n| where _ResourceId =~ \"{ApplicationInsights:escapejson}\"\n| extend ObservedIngestion=ingestion_time(),EndTime=TimeGenerated+DurationMs*1ms\n| where isnotnull(ObservedIngestion)\n| extend DelaySeconds=(ObservedIngestion-EndTime)/1s\n| summarize PhysicalSpans=count(),P95=percentile(DelaySeconds,95),P99=percentile(DelaySeconds,99) by AppRoleName",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "physical-volume",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "union AppRequests,AppDependencies,AppTraces,AppExceptions,AppEvents,AppPageViews\n| where TimeGenerated {TimeRange}\n| where _ResourceId =~ \"{ApplicationInsights:escapejson}\" and _IsBillable =~ \"true\"\n| summarize PhysicalRows=count(),BillableBytes=sum(_BilledSize) by Type,AppRoleName\n| extend BillableGB=BillableBytes/1000000000.0",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "workspace-usage",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Usage\n| where TimeGenerated {TimeRange} and IsBillable\n| summarize BillableGB=sum(Quantity)/1000.0 by DataType,bin(StartTime,1h)\n| order by StartTime asc",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 3,
+      "name": "ingestion-health",
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "_LogOperation\n| where TimeGenerated {TimeRange}\n| where Level in (\"Warning\",\"Error\")\n| project TimeGenerated,Category,Operation,Level",
+        "size": 0,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "crossComponentResources": [
+          "{Workspace}"
+        ],
+        "visualization": "table",
+        "showExportToExcel": false
+      }
+    },
+    {
+      "type": 1,
+      "name": "operational-status",
+      "content": {
+        "json": "## Profiles, load and cost\n\nThe bounded controller records desired/observed hashes, all-layer expiry/restore and independent-watchdog status. Missing acknowledgements/reset block PASS. Actual CPU/memory/native URL privacy/ingestion scope require measured supported metrics, not zeros.\n\nApproved OBS-04/15 load: 10 requests/s for 120 seconds; p95 ≤1000 ms, p99 ≤2500 ms; unexpected errors ≤1%; CPU mean ≤70%, peak ≤90%; memory ≤80% limit; instrumentation p95 overhead ≤20%; no missing declared certification spans. Fault vectors are separate.\n\nCost uses approved R1 price/budget input, physical billed sizes and actual variable meters. `ItemCount` never multiplies billed bytes. Caps can overshoot and blind ingestion, Usage is hourly/delayed, and budgets do not stop resources. Target is 1000 USD/day, intended lifetime 720 hours; this page is not an invoice or a provisioning approval."
+      }
+    }
+  ],
+  "fallbackResourceIds": [],
+  "metadata": {
+    "schema": "contoso.correlation-workbook.v1",
+    "sourceBoundaryMap": "contracts\\expected-boundary-map.v1.json",
+    "sourceBoundaryMapSha256": "7a05a7a13bb38151f81a6685b83c29c0de1f7c4013d756eaebbe744cac73516c",
+    "generatedFromSingleMap": true,
+    "certificationEligible": false,
+    "azureLiveState": "To Do",
+    "queryRenderer": "tools\\observability\\kql.mjs"
+  }
+}

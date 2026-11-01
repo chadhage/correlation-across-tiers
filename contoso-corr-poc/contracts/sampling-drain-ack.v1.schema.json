@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:sampling-drain-ack:v1",
+  "type": "object",
+  "required": ["schema", "runId", "layerId", "sourceKind", "newSyntheticTrafficStopped", "inFlightRemaining", "secretsIncluded", "providerConstruction", "extraExporter", "privacyChanged"],
+  "properties": {
+    "schema": { "const": "contoso.sampling-drain-ack.v1" },
+    "runId": { "type": "string", "format": "uuid" },
+    "layerId": { "type": "string", "pattern": "^contoso-[a-z0-9-]+$" },
+    "sourceKind": { "const": "trusted-runtime-observation" },
+    "newSyntheticTrafficStopped": { "const": true },
+    "inFlightRemaining": { "const": 0 },
+    "secretsIncluded": { "const": false },
+    "providerConstruction": { "const": false },
+    "extraExporter": { "const": false },
+    "privacyChanged": { "const": false }
+  },
+  "description": "Drains only the approved run's new synthetic traffic; not ordinary workload shutdown. A failed/missing native drain remains nonpassing even when file restoration succeeds."
+}

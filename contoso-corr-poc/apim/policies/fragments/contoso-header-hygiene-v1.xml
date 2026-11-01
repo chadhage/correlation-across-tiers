@@ -1,0 +1,11 @@
+<fragment>
+  <set-header name="request-id" exists-action="delete" />
+  <set-header name="correlation-context" exists-action="delete" />
+  <set-header name="baggage" exists-action="delete" />
+  <set-header name="x-business-correlation-id" exists-action="delete" />
+  <set-header name="x-trusted" exists-action="delete" />
+  <set-header name="x-user-id" exists-action="delete" />
+  <set-header name="x-ms-client-principal" exists-action="delete" />
+  <set-header name="x-ms-token-aad-access-token" exists-action="delete" />
+  <set-header name="cookie" exists-action="delete" />
+</fragment>

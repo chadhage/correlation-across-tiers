@@ -1,0 +1,669 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "R2",
+  "reviewDate": "2026-10-31",
+  "kind": "mandated-code-cross-review",
+  "readOnly": true,
+  "certificationEligible": false,
+  "result": "ACCEPTED_FIX_SCOPES",
+  "resultLimit": "Accepted R3/R4 corrected CODE scopes only. This is not acceptance of unreviewed source changes, real integration, deployed startup or live certification, and is not a Done transition.",
+  "sourceFreeze": "Hashes were captured before writer feedback. Findings apply to these source snapshots; later changes need a focused recheck.",
+  "sourceHashesApplyToInitialSnapshot": true,
+  "followUpScopeLimit": "R3's narrow CORS metadata/bare-GUID acceptance is retained. ROOT assigned R4's launcher/bypass, classloader/archive-admission and APIM inventory corrections; only those hunks, related tests and existing reports were re-reviewed. R2 author remediation below is not an other-role CODE approval.",
+  "method": {
+    "agentsLaunched": 0,
+    "azureWrites": 0,
+    "applicationTraffic": false,
+    "fullSuitesRerun": false,
+    "newUpstreamResearch": false,
+    "outputOnly": "evidence\\reviews\\code-r2.json",
+    "evidenceLabels": ["Verified", "Partially verified", "Unsupported", "Incorrect", "Outdated"],
+    "limitations": [
+      "Source inspection and two pure read-only protocol probes are not deployed APIM, JWT, vendor-agent, database, broker or Node24 certification.",
+      "R4 construction fixtures are test-source-only compilation contracts, not production identity/workflow implementations or authenticated business proofs.",
+      "Real services\\security-core\\pom.xml and workers\\messaging-core\\pom.xml were absent at this review snapshot. R4 integrated dependency resolution and production packaging remain blocked.",
+      "R6 data implementation and R7 sampler-extension implementation were not independently code-reviewed as additional roles; their interfaces, frozen metadata and R4 guard usage were reviewed.",
+      "Tool-redacted authentication literals were not reconstructed through alternative tools."
+    ]
+  },
+  "pureReviewProbes": [
+    {
+      "id": "R2-PROBE-CORS",
+      "source": "tools\\protocol.mjs:129-133",
+      "operation": "corsPreflight for the approved origin with Authorization, Request-Context and traceparent",
+      "observedGranted": false,
+      "expectedForApprovedSdkMetadata": true,
+      "fixtureOnly": true,
+      "writes": false
+    },
+    {
+      "id": "R2-PROBE-V2-AUDIENCE",
+      "source": "tools\\protocol.mjs:163-179",
+      "operation": "validateModuleParameters with a resource-URI publicAudience and otherwise valid fixture parameters",
+      "observedPassed": true,
+      "expectedForFrozenV2GuidAudience": false,
+      "fixtureOnly": true,
+      "writes": false
+    }
+  ],
+  "scopeReviews": [
+    {
+      "role": "R3",
+      "decision": "accepted",
+      "initialDecision": "changes-required",
+      "decisionLimit": "Owned CODE fixes accepted after the narrow follow-up; managed/live acceptance and root deployment admission remain To Do. Initial material claims are retained as history.",
+      "materialClaimsApplyToInitialSnapshot": true,
+      "sourceFileCount": 25,
+      "sourceManifestSha256": "f09d6946bb2a06654bf8590c131aba4d67dfd4047fae599dfe9bafdccff45f0a",
+      "initialSourceManifestSha256": "707e2639d72e64a96613caf05ed18544e26aea8f64e9c00875934fff69343964",
+      "manifestAlgorithm": "SHA256 of UTF8 newline-joined, case-insensitive-ordinal-sorted unique Windows-relative-path TAB lowercase-file-SHA256 rows, with no trailing newline",
+      "scope": [
+        "infra\\modules\\apim-service.bicep",
+        "infra\\modules\\apim-observability.bicep",
+        "infra\\modules\\apim-api-policies.bicep",
+        "apim\\**\\*.xml",
+        "apim\\**\\*.json",
+        "apim\\README.md",
+        "tools\\protocol.mjs",
+        "tests\\apim\\**\\*.mjs",
+        "tests\\apim\\fixtures\\*.xml",
+        "tests\\apim\\fixtures\\*.json"
+      ],
+      "acceptedAreas": [
+        "GA2024-05-01 APIM declarations, root-supplied physical names and public /contoso/v1 to fixed Orders /api mapping",
+        "Source-pinned JS3.4.5 W3C_TRACE18 rather than default/mixed or old mode2",
+        "Caller proof deletion, separate acquired gateway MI proof and exact original Authorization restoration",
+        "Post-token-validation app-only Portal idtyp/no-scp/Portal.Invoke/client checks and USER business-ID replacement",
+        "Canonical business response echo, finite OpenAPI DTOs, zero body capture and empty frontend input capture",
+        "No policy trace-ID generation, sampled-bit rewrite, raw valid-carrier copy-back or alleged active-tracer reset",
+        "Explicit local protocol/test versus managed-gateway/live acceptance distinction"
+      ],
+      "findingIds": ["R2-R3-01", "R2-R3-02"],
+      "materialClaims": [
+        {
+          "claim": "APIM declarations consistently use 2024-05-01 and keep the root's physical names.",
+          "label": "Verified",
+          "evidence": ["infra\\modules\\apim-service.bicep:30-65", "infra\\modules\\apim-observability.bicep:64-104", "infra\\modules\\apim-api-policies.bicep:74-162"],
+          "rationale": "Verified as source/configuration declarations; target-provider acceptance, SKU capacity and networking remain live prerequisites."
+        },
+        {
+          "claim": "Public /contoso/v1 and backend /api URI/DTO contracts agree with R4.",
+          "label": "Verified",
+          "evidence": ["apim\\openapi\\contoso-orders.v1.json", "infra\\modules\\apim-api-policies.bicep:135-160", "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java:124-197"],
+          "rationale": "Order/run IDs, numeric demoId1..15, quantity1..100, failureBudget0..10 and finite scenario/action/target enums agree. 202 is staged, not delivery completion."
+        },
+        {
+          "claim": "The v2 public-audience admission guard enforces the bare Orders client GUID.",
+          "label": "Incorrect",
+          "evidence": ["tools\\protocol.mjs:163-179", "tests\\apim\\protocol.test.mjs:155-170"],
+          "rationale": "The helper checks presence only; its accepted fixture uses a resource URI. The pure probe accepts an invalid value for the frozen v2 GUID-audience contract.",
+          "findingId": "R2-R3-02"
+        },
+        {
+          "claim": "The gateway strips supplied internal proof, obtains its own MI token and preserves the original caller Authorization.",
+          "label": "Verified",
+          "evidence": ["apim\\policies\\fragments\\contoso-authn-v1.xml:2-24", "apim\\policies\\fragments\\contoso-backend-proof-v1.xml:2-10"],
+          "rationale": "Verified policy composition. Independent real JWT validation, audience/role assignment and transport isolation are not established by the Node header-comparison fixture."
+        },
+        {
+          "claim": "Portal invocation-ID authority derives from a validated app-only caller rather than a raw trust header.",
+          "label": "Verified",
+          "evidence": ["apim\\policies\\fragments\\contoso-authz-v1.xml:8-25", "apim\\policies\\fragments\\contoso-business-id-v1.xml:2-19"],
+          "rationale": "Code requires idtyp=app, no scp, Portal.Invoke and an approved client, then accepts only one canonical UUIDv4. End-to-end backend principal enforcement still depends on real R8 artifacts/configuration."
+        },
+        {
+          "claim": "The current CORS policy supports all headers the selected browser SDK can emit.",
+          "label": "Incorrect",
+          "evidence": ["apim\\policies\\service-policy.xml:6-12", "tools\\protocol.mjs:13", "tools\\protocol.mjs:129-133", "tools\\protocol.mjs:320-325"],
+          "rationale": "Request-Context is missing and the guard classifies it as unsafe. SDK3.4.5 can add appId metadata independently of W3C mode.",
+          "findingId": "R2-R3-01"
+        },
+        {
+          "claim": "JS3.4.5 W3C_TRACE is18; mode2 or mixed17 is equivalent for required tracestate propagation.",
+          "label": "Verified",
+          "evidence": ["apim\\sdk-source-pin.json", "tools\\protocol.mjs:151-160", "tests\\apim\\gate01.test.mjs:37-46"],
+          "rationale": "The current code correctly pins18 and rejects2/17. The equivalence claim about older/mixed modes is Outdated/Incorrect; the metadata pin alone is not a fresh installed-runtime/wire test."
+        },
+        {
+          "claim": "W3C validation deletes only absent/invalid parents or bad state, while a participating gateway owns parent advancement.",
+          "label": "Verified",
+          "evidence": ["apim\\policies\\fragments\\contoso-context-v1.xml", "tools\\protocol.mjs:25-82", "apim\\demo03-cases.v1.json"],
+          "rationale": "Static policy preserves valid parent values, separates bad state and supports bounded higher-version prefixes. Exact managed-gateway extraction/injection and strict00 behavior remain Partially verified."
+        },
+        {
+          "claim": "Zero bodies, header allowlists and query-name masking guarantee no sensitive native telemetry.",
+          "label": "Unsupported",
+          "evidence": ["infra\\modules\\apim-observability.bicep:30-57", "infra\\modules\\apim-observability.bicep:114-155", "tools\\protocol.mjs:189-212"],
+          "rationale": "Safe static settings are Verified; native Url/Data, timing, arbitrary query names and policy/SDK capture require real R8/R9 classification. Current code truthfully leaves those To Do."
+        },
+        {
+          "claim": "KV named-value plus connectionString/MI logger resolution, rotation and authenticated ingestion are complete.",
+          "label": "Partially verified",
+          "evidence": ["infra\\modules\\apim-observability.bicep:64-104"],
+          "rationale": "Reference-only plumbing and supported identities are configured; exact substitution/secret-scoped access/casing/refresh and real ingestion were not executed."
+        },
+        {
+          "claim": "A passing local protocol gate is live end-to-end certification.",
+          "label": "Incorrect",
+          "evidence": ["tools\\protocol.mjs:440-457", "tests\\apim\\protocol.test.mjs:108-115"],
+          "rationale": "The code itself reports codePassed separately and retains JWT/wire/logger/privacy live To Do. Carrier fixtures do not create or certify telemetry rows."
+        }
+      ]
+    },
+    {
+      "role": "R4",
+      "decision": "accepted",
+      "initialDecision": "changes-required",
+      "decisionLimit": "Only the current 15-file corrected-hunk/test/report-context scope in R2-R4-FOLLOWUP-01 is accepted. The original 44-file review remains historical; no automatic acceptance of other changed code, production integration or live/runtime claims.",
+      "materialClaimsApplyToInitialSnapshot": true,
+      "acceptedAreasApplyToInitialSnapshot": true,
+      "sourceFileCount": 15,
+      "sourceManifestSha256": "9d0eeff93034b881fd23cd14845ef40a76d1034da0dcce8d8c6552ed51e4b7a4",
+      "initialSourceFileCount": 44,
+      "initialSourceManifestSha256": "e3eb15cb68bba170efc2d9d365d6b0a1d1f8244e8622f679d569191633ea02ec",
+      "manifestAlgorithm": "SHA256 of UTF8 newline-joined, case-insensitive-ordinal-sorted unique Windows-relative-path TAB lowercase-file-SHA256 rows, with no trailing newline",
+      "initialScope": [
+        "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\*.java",
+        "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\*.java",
+        "services\\correlation-core\\src\\main\\resources\\contoso-parent-safe-sampler.properties",
+        "services\\correlation-core\\pom.xml",
+        "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\SingleAgentExportTest.java",
+        "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java",
+        "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\ExtensionGuardTest.java",
+        "services\\orders-api\\pom.xml",
+        "services\\orders-api\\src\\**\\*.java",
+        "services\\orders-api\\src\\main\\resources\\application.properties",
+        "services\\inventory-api\\pom.xml",
+        "services\\inventory-api\\src\\**\\*.java",
+        "services\\inventory-api\\src\\main\\resources\\application.properties",
+        "pom.xml",
+        "infra\\modules\\compute.bicep",
+        "config\\java-agent.json",
+        "config\\versions.lock.json",
+        "VERSIONS.md",
+        "docs\\JAVA_VALIDATION.md",
+        "tools\\java\\startup.sh",
+        "tools\\java\\Gate-02.ps1",
+        "tools\\java\\Gate-05.ps1",
+        "tools\\java\\Package-Service.ps1",
+        "tools\\java\\Package-Worker.ps1",
+        "tests\\java\\gates.test.mjs",
+        "tests\\java\\construction\\pom.xml"
+      ],
+      "scope": [
+        "config\\versions.lock.json",
+        "docs\\JAVA_VALIDATION.md",
+        "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java",
+        "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeClasspathGuard.java",
+        "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java",
+        "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeClasspathGuardTest.java",
+        "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java",
+        "services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java",
+        "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\ProductionLaunchGuardTest.java",
+        "tests\\java\\construction\\pom.xml",
+        "tests\\java\\gates.test.mjs",
+        "tools\\java\\Gate-02.ps1",
+        "tools\\java\\startup.sh",
+        "VERSIONS.md"
+      ],
+      "acceptedAreas": [
+        "Typed real-factory Orders/Inventory shells with matching /api routes, finite request bounds and explicit staged responses",
+        "Real R8/R5 dependencies are required instead of replacing them with construction implementations",
+        "Fixed HTTPS Inventory base ending/api, nonredirecting native HTTP client and explicit managed identity",
+        "Canonical UUIDv4 business data distinct from W3C identity; manual spans use the existing GlobalOpenTelemetry provider",
+        "API/context-only Maven declarations, narrow PROVIDED extension exception and frozen agent/extension hashes",
+        "One public Node24-lts cohost, leaf node dist/bootstrap.js startup and prebuilt artifact/no remote build setting",
+        "Safe failure categories, bounded workflow metadata and explicit local-versus-live qualification distinction"
+      ],
+      "findingIds": ["R2-R4-01", "R2-R4-02", "R2-R4-03"],
+      "materialClaims": [
+        {
+          "claim": "RuntimeGuard cannot be disabled on production main paths and the startup guard owns every automatic JVM option channel.",
+          "label": "Incorrect",
+          "evidence": ["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:19-24", "tools\\java\\startup.sh:5", "tools\\java\\startup.sh:20-21"],
+          "rationale": "The production guard returns on contoso.requireAgent=false; startup does not inspect JDK_JAVA_OPTIONS, which the Java launcher prepends automatically.",
+          "findingId": "R2-R4-01"
+        },
+        {
+          "claim": "System-loader resource checks detect SDK/provider classes in the deployed executable Spring Boot application classpath.",
+          "label": "Incorrect",
+          "evidence": ["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:35-37", "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java:32-35", "services\\orders-api\\pom.xml", "services\\inventory-api\\pom.xml"],
+          "rationale": "System loader is not the Boot launched/context loader for BOOT-INF/classes and BOOT-INF/lib. The Maven declaration gate is valuable but does not turn this runtime check into complete packaged-classpath coverage.",
+          "findingId": "R2-R4-02"
+        },
+        {
+          "claim": "The root management API version inventory covers the reviewed deployment.",
+          "label": "Incorrect",
+          "evidence": ["config\\versions.lock.json:57-59", "VERSIONS.md:63", "infra\\modules\\apim-api-policies.bicep"],
+          "rationale": "It lists only Microsoft.Web; APIM service/logger/namedValue/diagnostic/policy/API resources use2024-05-01 but are absent from the root inventory.",
+          "findingId": "R2-R4-03"
+        },
+        {
+          "claim": "The root pom enforces API-only application dependencies and the exact compiler-only extension exception.",
+          "label": "Verified",
+          "evidence": ["pom.xml:8-18", "pom.xml:52-77", "services\\correlation-core\\pom.xml", "tools\\java\\Gate-02.ps1:15-80"],
+          "rationale": "Verified declarations/guard structure; it is not a deployed all-classloader proof and does not justify the two runtime guard defects."
+        },
+        {
+          "claim": "Java API/context1.65.0 and agent3.7.10 hashes/extension ABI agree; Node API1.9.1 remains separately compatible with SDK/HTTP0.221.",
+          "label": "Verified",
+          "evidence": ["config\\versions.lock.json:6-18", "config\\versions.lock.json:30-40", "services\\correlation-core\\pom.xml", "services\\correlation-core\\src\\main\\resources\\contoso-parent-safe-sampler.properties"],
+          "rationale": "Source inventory is consistent with the prior reported local qualification; no new upstream release or deployed-image verification was performed."
+        },
+        {
+          "claim": "Hash/SPI/thin-JAR checks and local parent-safe extension qualification establish Microsoft GA support or deployed behavior.",
+          "label": "Unsupported",
+          "evidence": ["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java", "tools\\java\\Gate-02.ps1:82-139", "config\\versions.lock.json:82-92"],
+          "rationale": "Thin-JAR/compiler/classloader restrictions and recorded local probe are meaningful. Vendor support, live loader and deployed remote-parent guarantees explicitly remain VERIFY."
+        },
+        {
+          "claim": "Java certification mode is operational at100% fidelity.",
+          "label": "Partially verified",
+          "evidence": ["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:71-75", "config\\java-agent.json", "infra\\modules\\compute.bicep:15-26"],
+          "rationale": "Current code intentionally fails closed for live certification mode and pins the production rate-limited file. This is an open qualification gate, not a hidden production pass or a bug to fix by flag surgery."
+        },
+        {
+          "claim": "Manual correlation spans create a second provider or manually forward raw W3C headers.",
+          "label": "Incorrect",
+          "evidence": ["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\Correlation.java:37-68", "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\W3c.java", "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java"],
+          "rationale": "Code uses GlobalOpenTelemetry and restricts carrier keys. Inventory client relies on native agent-owned HTTP injection, not fabricated traceparent. Actual role/parent/flags are still a live/runtime qualification."
+        },
+        {
+          "claim": "Orders/Inventory HTTP contracts align with public API and preserve verified business context.",
+          "label": "Verified",
+          "evidence": ["services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java:53-90", "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java:124-197", "services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java:36-103", "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow"],
+          "rationale": "Verified shell/DTO structure and finite enums. Original/gateway token semantics, HUMAN versus WORKLOAD and trustedInvocationIssuer must come from real R8 code; no construction header is an identity proof."
+        },
+        {
+          "claim": "Inventory outbound HTTP is fixed HTTPS, deadline-bounded, nonredirecting and managed-identity-only.",
+          "label": "Verified",
+          "evidence": ["services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java:16-48", "infra\\modules\\compute.bicep:78-84"],
+          "rationale": "Verified code path; registered token resource/audience, role grants, private reachability and API1.65 native instrumentation remain deployment prerequisites."
+        },
+        {
+          "claim": "The compute Node leaf startup/environment contract matches R2's cohost artifact.",
+          "label": "Verified",
+          "evidence": ["infra\\modules\\compute.bicep:124-154", "docs\\JAVA_VALIDATION.md:17-26"],
+          "rationale": "NODE|24-lts, one public Node app, node dist/bootstrap.js and SCM build=false agree with the self-contained SPA-first leaf build. Canonical roles are unchanged; actual Node24 image/MI/public runtime values are not certified."
+        },
+        {
+          "claim": "Current Java APIs/SCM are certified private and native telemetry is entirely clean.",
+          "label": "Partially verified",
+          "evidence": ["infra\\modules\\compute.bicep:49-65", "services\\orders-api\\src\\main\\resources\\application.properties", "services\\inventory-api\\src\\main\\resources\\application.properties"],
+          "rationale": "APIs remain publicNetworkAccess=Enabled during staging; private app/SCM path and later isolation need root verification. Safe logger/body/code restrictions do not prove all native URL/SDK/worker captures."
+        },
+        {
+          "claim": "Construction HTTP tests constitute real R8/R5 production integration.",
+          "label": "Incorrect",
+          "evidence": ["tests\\java\\construction\\pom.xml:3-22", "docs\\JAVA_VALIDATION.md:94-113", "services\\orders-api\\pom.xml:5-8"],
+          "rationale": "The fixture is explicitly outside the reactor and undeployed; actual security-core/messaging-core POMs were absent. Preserve that blocker rather than install/ship a construction implementation."
+        },
+        {
+          "claim": "Legacy/classic Java adaptive sampling and API1.10.0 are the current selected defaults.",
+          "label": "Outdated",
+          "evidence": ["config\\java-agent.json", "config\\versions.lock.json:30-40", "docs\\JAVA_VALIDATION.md"],
+          "rationale": "The implementation selects the agent's documented rate limit plus a separately qualified parent-safe lane; Node uses the tested1.9.1 peer, not a latest-version guess. Java API1.65.0 is a separate ecosystem."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "R2-R3-01",
+      "status": "resolved-in-owned-code",
+      "resolutionReview": "R2-R3-FOLLOWUP-01",
+      "owner": "R3",
+      "priority": "P1",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Approved JS SDK Request-Context metadata is denied by both the deployed CORS template and its guard",
+      "locations": [
+        {"file": "apim\\policies\\service-policy.xml", "lines": [6, 12]},
+        {"file": "tools\\protocol.mjs", "lines": [13, 13]},
+        {"file": "tools\\protocol.mjs", "lines": [129, 133]},
+        {"file": "tools\\protocol.mjs", "lines": [320, 325]}
+      ],
+      "impact": "Once SDK3.4.5 has an appId, it can add Request-Context independently of W3C_TRACE. The approved-origin preflight then fails despite valid Authorization/trace context; business traffic and real browser dependency continuation break.",
+      "reproduction": "Pure R2-PROBE-CORS returns granted=false for the approved origin requesting Request-Context.",
+      "requestedFix": "Add request-context to the allowed CORS request-header list and CORS_HEADERS/guard; retain its noncausal/noncredential classification. Do not permit the gateway proof or capture header values. Add a targeted subsequent-request/appId and guard test; response metadata exposure remains separately approved.",
+      "sources": ["https://github.com/microsoft/ApplicationInsights-JS/blob/v3.4.5/extensions/applicationinsights-dependencies-js/src/ajax.ts", "https://learn.microsoft.com/en-us/azure/api-management/cors-policy"]
+    },
+    {
+      "id": "R2-R3-02",
+      "status": "resolved-in-owned-code",
+      "resolutionReview": "R2-R3-FOLLOWUP-01",
+      "owner": "R3",
+      "priority": "P2",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Module admission model accepts a resource URI where the frozen v2 public audience must be a GUID",
+      "locations": [
+        {"file": "tools\\protocol.mjs", "lines": [163, 170]},
+        {"file": "tests\\apim\\protocol.test.mjs", "lines": [155, 170]}
+      ],
+      "impact": "The guard can approve an audience setting that rejects all actual v2 Orders tokens at APIM. Its positive fixture currently validates this invalid audience/resource conflation.",
+      "reproduction": "Pure R2-PROBE-V2-AUDIENCE returns passed=true with publicAudience=api://orders-fixture.",
+      "requestedFix": "Validate publicAudience as the nonzero Orders application client GUID and use GUIDs in the positive fixture. Keep ordersTokenResource separately registered/resource-qualified; do not force that field to equal the v2 aud string. Connect the same validation to deployment admission.",
+      "sources": ["https://learn.microsoft.com/en-us/entra/identity-platform/claims-validation"]
+    },
+    {
+      "id": "R2-R4-01",
+      "status": "resolved-in-owned-code",
+      "historicalFinding": true,
+      "resolutionReview": "R2-R4-FOLLOWUP-01",
+      "owner": "R4",
+      "priority": "P1",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Unvetted automatic JVM options plus the production test bypass defeat the single-agent guard",
+      "locations": [
+        {"file": "tools\\java\\startup.sh", "lines": [5, 5]},
+        {"file": "tools\\java\\startup.sh", "lines": [20, 21]},
+        {"file": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java", "lines": [19, 24]}
+      ],
+      "impact": "JDK_JAVA_OPTIONS is automatically prepended by the launcher but is not inspected/cleared. It can carry an extra agent/provider option or contoso.requireAgent=false; the latter returns before all agent/configuration/extension checks. Maven source qualification does not protect that deployed launch channel.",
+      "requestedFix": "Reject or clear unapproved JDK_JAVA_OPTIONS before exec alongside all automatic JVM option sources. Remove the universal production early-return bypass, or confine it to a fixture-only entry/classpath marker that cannot enter deployment. Add focused launcher-option and production-main guard tests without shipping an anti-pattern.",
+      "sources": ["https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html", "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java", "tools\\java\\startup.sh"]
+    },
+    {
+      "id": "R2-R4-02",
+      "status": "resolved-in-owned-code",
+      "historicalFinding": true,
+      "resolutionReview": "R2-R4-FOLLOWUP-01",
+      "owner": "R4",
+      "priority": "P2",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Packaged Spring Boot SDK classes are invisible to the guard's system-loader-only check",
+      "locations": [
+        {"file": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java", "lines": [35, 37]},
+        {"file": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java", "lines": [32, 35]},
+        {"file": "tools\\java\\Package-Service.ps1", "lines": [17, 19]}
+      ],
+      "impact": "Spring Boot's launched/context loader resolves nested BOOT-INF classes/libs; ClassLoader.getSystemResource does not establish that those SDK/provider classes are absent. The normal Maven ban is helpful, but this advertised runtime guard is blind to a packaged/nested SDK leak or externally supplied app JAR.",
+      "requestedFix": "Check the actual application/RuntimeGuard classloader and context classloader, not only the system loader; retain the Enforcer restriction and inspect the packaged application's nested libraries before archive admission. Add a focused launched-classloader resource fixture that must fail.",
+      "sources": ["https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html", "services\\orders-api\\pom.xml", "services\\inventory-api\\pom.xml"]
+    },
+    {
+      "id": "R2-R4-03",
+      "status": "resolved-in-owned-code",
+      "historicalFinding": true,
+      "resolutionReview": "R2-R4-FOLLOWUP-01",
+      "owner": "R4",
+      "priority": "P2",
+      "confidence": "high",
+      "label": "Incorrect",
+      "title": "Root version inventory omits the deployed APIM management contract",
+      "locations": [
+        {"file": "config\\versions.lock.json", "lines": [57, 59]},
+        {"file": "VERSIONS.md", "lines": [63, 63]}
+      ],
+      "impact": "The root freeze cannot map/invalidate the reviewed APIM service/logger/diagnostic/namedValue/policy/API contracts even though those declarations use2024-05-01. Source pinning in R3 does not replace the required root resource API inventory.",
+      "requestedFix": "Add the APIM2024-05-01 resource-family entry and existing official source to versions.lock, then regenerate VERSIONS with its new digest. Keep this an inventory change, not an Azure write or a claim of provider acceptance.",
+      "sources": ["infra\\modules\\apim-service.bicep", "infra\\modules\\apim-observability.bicep", "infra\\modules\\apim-api-policies.bicep", "https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service"]
+    }
+  ],
+  "sourceHashes": [
+    {"file": "apim\\policies\\service-policy.xml", "sha256": "9b2018bc8871c294aea32ae834748daf7bd37fec1d56f20519af76bc03af61ff"},
+    {"file": "tools\\protocol.mjs", "sha256": "26b8b3aa34532ff2ffd2b025eb0c65ee6e712dc8befcf3e0596524398240d5c9"},
+    {"file": "apim\\sdk-source-pin.json", "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36"},
+    {"file": "infra\\modules\\apim-api-policies.bicep", "sha256": "62e61e2d3942490c73d72389e6bac3bb72d88686fccee842b83b867f3d429839"},
+    {"file": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java", "sha256": "eb7cb2cd4358adeb4932d58d6b8aa39e05423ca86752cd0fd666d2ef21ab2ce2"},
+    {"file": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java", "sha256": "4fc7d4de2b903ffe2ee400802336e220478564e33c65b6f35f8cf501685448b4"},
+    {"file": "tools\\java\\startup.sh", "sha256": "e1975de27319f04cebc166a821b507a64e38f296d3c15bc6b6081af668f480b4"},
+    {"file": "config\\versions.lock.json", "sha256": "9583e4d2d06edea4aae25628132dc06dd6a65d26441e07c53385a44441ab9200"},
+    {"file": "VERSIONS.md", "sha256": "eb7641a3d2c5982ba8fa377400dd8ceaad66208b1157a98ee73701935576f8da"},
+    {"file": "infra\\modules\\compute.bicep", "sha256": "1f4cc11f1b9864fe242c02a3504389cc45a916c8b20135c5b66ec44c7712cb18"},
+    {"file": "tools\\java\\Package-Service.ps1", "sha256": "c9b1ad3b6f1b34b492a4989ca2433429fdbd545921ea2cd328ffdd874675c272"}
+  ],
+  "sdkSourceAnchor": {
+    "version": "3.4.5",
+    "enum": "eDistributedTracingModes.W3C_TRACE",
+    "value": 18,
+    "commit": "9f3440d9ac3dd8941f7d004dbae43108b08baf7e",
+    "sha256": "2ddecab74cebebbb36be69e03f9b4ad92f7b97a21011a7671d048148b5e842d9",
+    "kind": "existing-source-freeze-metadata; not a new upstream fetch or live SDK certificate"
+  },
+  "followUpReviews": [
+    {
+      "id": "R2-R3-FOLLOWUP-01",
+      "role": "R3",
+      "reviewDate": "2026-10-31",
+      "decision": "accepted",
+      "readOnly": true,
+      "fullSuitesRerun": false,
+      "azureWrites": 0,
+      "sourceFileCount": 25,
+      "sourceManifestSha256": "f09d6946bb2a06654bf8590c131aba4d67dfd4047fae599dfe9bafdccff45f0a",
+      "hashRevalidatedAtUtc": "2026-11-01T01:56:04.339Z",
+      "manifestSort": "Case-insensitive ordinal; current 25-file digest and all six corrected-file hashes match the stored follow-up snapshot.",
+      "resolvedFindings": ["R2-R3-01", "R2-R3-02"],
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "Request-Context is allowed only as a request CORS metadata header; gateway proof/credential exposure and header-value capture remain denied.",
+          "evidence": ["apim\\policies\\service-policy.xml:6-14", "tools\\protocol.mjs:13", "tests\\apim\\gate01.test.mjs:84-94"],
+          "rationale": "Current template/guard agrees and the pure approved-origin metadata probe grants; proof-header probe remains denied. Real subsequent-appId browser/APIM behavior is not claimed."
+        },
+        {
+          "label": "Verified",
+          "claim": "The v2 public audience model accepts a nonzero GUID and rejects resource URIs/nil GUIDs, keeping MI token resource separate.",
+          "evidence": ["tools\\protocol.mjs:164-170", "infra\\modules\\apim-api-policies.bicep:10-17", "tests\\apim\\protocol.test.mjs:166-183"],
+          "rationale": "Current code and focused pure probes match the frozen caller-aud versus token-resource contract. Bicep enforces36-character bounds; root must actually apply strict input validation/admission."
+        },
+        {
+          "label": "Partially verified",
+          "claim": "The fixed owned code establishes real SDK subsequent-appId requests, effective deployed CORS and live JWT/ingestion behavior.",
+          "rationale": "Those managed/browser/live checks remain To Do. Pure preflight models and supplied writer test results are not a live certificate."
+        }
+      ],
+      "pureProbeResults": {
+        "requestContextGranted": true,
+        "gatewayProofDenied": true,
+        "validGuidAccepted": true,
+        "resourceUriRejected": true,
+        "nilGuidRejected": true,
+        "currentXmlGuardFindings": []
+      },
+      "sourceHashes": [
+        {"file": "apim\\policies\\service-policy.xml", "sha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12"},
+        {"file": "tools\\protocol.mjs", "sha256": "439065ba457192e12959c82508abbffa2a72ff10d6b99ecf06909fbc5776e43a"},
+        {"file": "infra\\modules\\apim-api-policies.bicep", "sha256": "b853c6c4f483582debd776095517bfe1cb7e95e29170e7f92341739661205061"},
+        {"file": "tests\\apim\\protocol.test.mjs", "sha256": "8f1f5da2fb89d177ca3e677b36688c16c92291f178754bee9af4727a9767c244"},
+        {"file": "tests\\apim\\gate01.test.mjs", "sha256": "2824e52097a8bd0d557e3877e69dcb9449d7f319fda9ed320956dd799fd27205"},
+        {"file": "apim\\README.md", "sha256": "73ad706840f681862270c917631c0c3a7be46d881e0848491383426aedcbd649"}
+      ]
+    },
+    {
+      "id": "R2-R4-FOLLOWUP-01",
+      "role": "R4",
+      "reviewedAtUtc": "2026-11-01T02:09:51.820Z",
+      "decision": "accepted",
+      "decisionLimit": "Corrected hunks and their local guard/test evidence only; whole-file hashes bind this snapshot without approving unrelated hunks or current dependency/publication changes.",
+      "readOnly": true,
+      "azureWrites": 0,
+      "agentsLaunched": 0,
+      "fullSuitesRerun": false,
+      "sourceFileCount": 15,
+      "sourceManifestSha256": "9d0eeff93034b881fd23cd14845ef40a76d1034da0dcce8d8c6552ed51e4b7a4",
+      "manifestAlgorithm": "SHA256 of UTF8 newline-joined, case-insensitive-ordinal-sorted unique Windows-relative-path TAB lowercase-file-SHA256 rows, with no trailing newline",
+      "resolvedFindings": ["R2-R4-01", "R2-R4-02", "R2-R4-03"],
+      "newHighConfidenceBugs": [],
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "The production bypass is removed; implicit JDK_JAVA_OPTIONS/_JAVA_OPTIONS fail closed and the startup script owns its single JAVA_TOOL_OPTIONS attach.",
+          "evidence": [
+            "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:19-50",
+            "tools\\java\\startup.sh:5-10",
+            "tools\\java\\startup.sh:25-26",
+            "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java:10-22",
+            "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\ProductionLaunchGuardTest.java:9-28"
+          ],
+          "rationale": "No requireAgent=false early return remains. Both service main methods call the guard before Spring/integration factories. The stored passing child-launch test checks explicit false-property and implicit JDK options, requires the expected guard failure and rejects CONSTRUCTION_ONLY output. This is negative admission evidence, not a production identity/workflow proof.",
+          "sources": ["https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html"]
+        },
+        {
+          "label": "Verified",
+          "claim": "SDK/extension resource rejection now considers explicit application, thread-context, core and system loaders.",
+          "evidence": [
+            "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeClasspathGuard.java:11-30",
+            "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:39-42",
+            "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java:32-34",
+            "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java:26-28",
+            "services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java:25-27",
+            "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeClasspathGuardTest.java:19-32"
+          ],
+          "rationale": "Identity-deduplicated loader checks include all four sources, and the explicit main-class loader is supplied before application startup. Context-only/app-only resource fixtures reproduce the prior blind spot and have passing stored JUnit results. Synthetic resource URLs are not an actual deployed Boot loader or SDK implementation.",
+          "sources": ["https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html"]
+        },
+        {
+          "label": "Verified",
+          "claim": "GATE-02 inspects matching built service/worker archives and recursively checks nested JAR contents rather than relying only on dependency filenames.",
+          "evidence": [
+            "tools\\java\\Gate-02.ps1:16-40",
+            "tools\\java\\Gate-02.ps1:94-110",
+            "tests\\java\\gates.test.mjs:94-111"
+          ],
+          "rationale": "SDK/extension package entries are rejected inside BOOT-INF/classes and innocuously named nested libraries. Unreadable, oversized or over-depth archives fail admission. The focused real-ZIP construction regression and API-only positive control passed. This does not prove every production artifact exists or that the root deployment invoked the gate on final packages."
+        },
+        {
+          "label": "Verified",
+          "claim": "The root APIM management-family inventory now includes 2024-05-01 and VERSIONS binds the current lock digest.",
+          "evidence": ["config\\versions.lock.json:65-69", "VERSIONS.md:5", "VERSIONS.md:64"],
+          "rationale": "Current APIM entry/source and generated digest match lock SHA256 134e1e55d2f0914c4891d57c067224fe4d11f7ee5456c81e5d725adcb6e75e10; the selected source/lock check passed. Unrelated compiler/dependency pin hunks were not re-approved, and provider/SKU acceptance was not queried.",
+          "sources": ["https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service"]
+        },
+        {
+          "label": "Partially verified",
+          "claim": "Corrected source and local tests establish deployed single-agent startup, actual Boot package/classloader admission and real R8/R5 integrated runtime behavior.",
+          "rationale": "Negative production-main launches and resource/archive fixtures establish the corrected guard behavior locally, not positive production authentication/workflow or a deployed-image pass. Real dependency reactor/packaging, final artifact gate invocation and deployed effective configuration remain To Do."
+        },
+        {
+          "label": "Unsupported",
+          "claim": "Contoso guard/extension qualification is Microsoft GA/vendor support or live end-to-end certification.",
+          "rationale": "The existing report and inventory explicitly retain NOT_CERTIFIED, vendor-support VERIFY and live To Do. No such endorsement or certification follows from the corrected source."
+        }
+      ],
+      "validation": {
+        "reviewerExecuted": {
+          "command": "node --test --test-name-pattern=\"accepts API only|agent pin|startup owns|BOOT-INF\" tests\\java\\gates.test.mjs",
+          "selected": 4,
+          "passed": 4,
+          "fullSuite": false,
+          "scope": "API-only baseline plus corrected startup, archive and inventory guard checks; generated ZIP fixtures are local construction and are cleaned by the runner."
+        },
+        "existingReportsObserved": {
+          "core": {"tests": 21, "failed": 0, "skipped": 0},
+          "constructionHttp": {"tests": 7, "failed": 0, "skipped": 0},
+          "nodeGuardsWriterReported": {"tests": 7, "scope": "Writer result retained; reviewer independently reran only the four selected checks."},
+          "targetedCases": [
+            "falsePropertyCannotDisableProductionGuard",
+            "implicitJdkLauncherVariablesAreRejected",
+            "sdkVisibleOnlyInContextLoaderFails",
+            "explicitApplicationLoaderAndExtensionOnApplicationClasspathFail",
+            "productionMainCannotUseFalsePropertyOrImplicitJdkOptionsToSkipGuards"
+          ],
+          "scope": "Existing JUnit results and safe local validation report were read, not regenerated by the reviewer. Test-only R8/R5 factories remain CONSTRUCTION_ONLY and cannot serve as production proof."
+        },
+        "remaining": [
+          "Real R8/R5 dependency reactor and production packaging; construction cannot substitute.",
+          "Root invocation of archive/agent checks against complete final artifacts and actual deployed app/context classloaders.",
+          "Deployed one-agent/image/effective configuration, real dualJWT/PortalMI behavior, vendor support and all live acceptance."
+        ]
+      },
+      "sourceHashes": [
+        {"file":"config\\versions.lock.json","sha256":"134e1e55d2f0914c4891d57c067224fe4d11f7ee5456c81e5d725adcb6e75e10"},
+        {"file":"docs\\JAVA_VALIDATION.md","sha256":"c7885e86ca2fe497fb8d8986e35f11d9d782e31b0cb3391a66b74cfea3abef19"},
+        {"file":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java","sha256":"a4456000625f4f3899ca47c50d0df2a3f24cb062ebdda0c00afd3e2081178d00"},
+        {"file":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeClasspathGuard.java","sha256":"bf955caa6f62d5a75a24e74950e017473c3ab95688c49844954ba02330dcbedf"},
+        {"file":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java","sha256":"f0e38d81bdc4e6811560ffe54458fda5bcf4179612a4985cec3ff5592695b993"},
+        {"file":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeClasspathGuardTest.java","sha256":"b55395ad399120ccd322d10bd3594d91ffd99f681b5bdbe74f5664e96b2d343a"},
+        {"file":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java","sha256":"941a01ef5fd6f93ba4cc068c11762b8f9991bf9a58218be64e180f264eed2b4b"},
+        {"file":"services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java","sha256":"faa080e4f16bc7e836bd6989ad724543d3ffe8caba878277ac2044458cb1ce15"},
+        {"file":"services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java","sha256":"50a07dd8739985abca27328e1aae98b5b53f184a1b078a41334c06f1dc6fb787"},
+        {"file":"services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\ProductionLaunchGuardTest.java","sha256":"73bf78e5f4971a9092223bdd6405bcc2f171ddcb7a9f60f894b7b760b1770f77"},
+        {"file":"tests\\java\\construction\\pom.xml","sha256":"4e2f2a9962b9d26d99e56ffed2f8a154f6738d3a115ed29d7cc78058729d7c9b"},
+        {"file":"tests\\java\\gates.test.mjs","sha256":"d72584a51e1639c9837814625fca800e3a98341996c4defbe73212c4c2c32b01"},
+        {"file":"tools\\java\\Gate-02.ps1","sha256":"d9fb6d48a63e6503db2a304b74a09fb1908d058956dc8c90472a42764014035a"},
+        {"file":"tools\\java\\startup.sh","sha256":"0a79aeea22bbb7eed454f073f97adb9b4dc5a4e8871f3d116d723b33b8e8d894"},
+        {"file":"VERSIONS.md","sha256":"1caf12bc066ed73de60f2699db1ffedda6a12b706c0ff108d19033a60e9a58bd"}
+      ],
+      "existingEvidenceHashes": [
+        {"file":"evidence\\java-local\\validation.json","sha256":"284f70fcffd7a3c26c0925274eab20cab4e9ca92abb91a12336736af98019361"},
+        {"file":"services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.RuntimeGuardTest.xml","sha256":"4c2d7a6257880e5ae9f9a78f15a5f12667256cba7196b5b78e84e33d237591ba"},
+        {"file":"services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.RuntimeClasspathGuardTest.xml","sha256":"591b1161b13cf98fc3911f4cc754a40ecc7d9826bd5d14a8249bd60207f9d603"},
+        {"file":"tests\\java\\construction\\target\\surefire-reports\\TEST-com.contoso.orders.ProductionLaunchGuardTest.xml","sha256":"9f2373bff141f02a3e19ddfd2f9efb89aa585344b3bb10244283fe5b4ea9e231"}
+      ]
+    }
+  ],
+  "ownerRemediation": {
+    "role": "R2",
+    "kind": "author-remediation-not-code-review",
+    "codeAcceptance": "Pending fresh other-role CODE reviews; not self-approved.",
+    "certificationEligible": false,
+    "azureWrites": 0,
+    "agentsLaunched": 0,
+    "installs": 0,
+    "scopeFileCount": 11,
+    "sourceManifestSha256": "6ad8dc9ed85178b7819e8443c128385d8a0f8d217073c5720300415bd6d8941e",
+    "manifestAlgorithm": "SHA256 of UTF8 newline-joined, ordinal-sorted Windows-relative-path TAB lowercase-file-SHA256 rows, with no trailing newline",
+    "fixes": [
+      {
+        "peerFinding": "CR3-R2-01",
+        "label": "Verified",
+        "verificationLimit": "Owned source and local fixture session admission, not live JWT/grants.",
+        "implementation": "Anonymous landing state is stateless and sets no cookie. Only independently authorized controllers allocate the capped 100-session map. Expiry is reaped at lookup/allocation and clamped to 15 minutes or the window deadline. Active authenticated overflow remains visible 429 PORTAL_DISABLED; authorization, rotation, origin and one-use CSRF remain.",
+        "regression": "120 no-cookie landings consume no slots; 100 authenticated sessions succeed; the next is rejected; advancing the fixture clock 16 minutes permits fresh login without an intervening landing."
+      },
+      {
+        "peerFinding": "CR3-R2-02",
+        "label": "Verified",
+        "verificationLimit": "Actual Chromium clicks plus published SDK fixture dependency receipts, not live Azure rows.",
+        "implementation": "Preparation invalidates prior result/dependency views, assigns a page invocation version and rejects reused IDs, active-run replacement or page capacity overflow. Send-time SDK context binds identities to the run/version. The adapter prepares before observation, waits for that version, requires the actual action response and matches only captured POST trace/span IDs. Stale driver preparation returns a bounded code without another request.",
+        "regression": "Two distinct orders on one page export exclusively current dependencies; old result lookup is empty; reusing an ID through the driver rejects RUN_ID_REUSED without a POST; delayed in-progress replacement and the 101st prepared ID reject visibly."
+      }
+    ],
+    "validation": {
+      "executionMode": "fixture",
+      "localNodeVersion": "22.23.4",
+      "productionBuilds": "Storefront then Portal passed; leaf cohost assets retained.",
+      "typechecks": "Both packages passed, including Portal tests against rebuilt adapter declarations.",
+      "focusedNativeTests": {"selected": 2, "passed": 2},
+      "focusedBrowserTests": {"distinctSelected": 5, "passed": 5},
+      "finalAdapterFollowUp": {"selected": 2, "passed": 2, "note": "Same sequential and workload-SSR tests repeated after explicit bounded driver-error propagation; not two additional distinct qualifications."},
+      "initialFailuresResolved": [
+        "Test typecheck initially consumed stale pre-remediation dist declarations; rebuilt the actual Portal adapter before final typecheck.",
+        "The newly added session regression was initially nested; moved it to top level and reran the two focused native checks."
+      ],
+      "fullSuitesRerun": false,
+      "liveAcceptance": "To Do"
+    },
+    "sourceHashes": [
+      {"file":"web\\portal-ssr\\README.md","sha256":"fe6c6899bbc33e0fc2f8b290fc2f9d9d2a3eb7485c13ceabc365d071dcc0c352"},
+      {"file":"web\\portal-ssr\\src\\browser-adapter.ts","sha256":"453b1d17a49a0fd124570a4ec91fe6940f9fe365ecf99c5c5c6fa4d9313db415"},
+      {"file":"web\\portal-ssr\\src\\browser\\portal-client.ts","sha256":"05417ca49ec4c38697ea431d522dc45133abfe1a7d2157c3f9b074efcb016d7c"},
+      {"file":"web\\portal-ssr\\src\\server.ts","sha256":"35d134c548348e4a25db272c79ad81bab804dc0c8a39fca62840840064c29442"},
+      {"file":"web\\portal-ssr\\src\\shared\\browser-telemetry.ts","sha256":"5247ae2ba387e6978c63c2b80b8f629ce3c87165dc2054c0139f89d37934ea24"},
+      {"file":"web\\portal-ssr\\src\\shared\\contracts.ts","sha256":"51995ea4bcfac4482c555f7e8da781e1769837d9f0ab4ffe8d9a04871aac532b"},
+      {"file":"web\\portal-ssr\\tests\\browser\\contoso.spec.ts","sha256":"7fba00a3eb3317e0a038b57774165fabd53ec9200d24be4c9e5bec2f95f9b6be"},
+      {"file":"web\\portal-ssr\\tests\\browser\\fixture-boot.ts","sha256":"858b40ed1b660ba6a523e7a61622c09b862a7f4ac556d0c556679a9aba7fc3d4"},
+      {"file":"web\\portal-ssr\\tests\\server.test.ts","sha256":"ed1be58c811da38854c2437fb773b0af2ee8e42d69b477411b490a7716d673a8"},
+      {"file":"web\\storefront-spa\\README.md","sha256":"166078fe69b91e3179763a7911149f53aeea82e1217b294a5ab02068cafc52c3"},
+      {"file":"web\\storefront-spa\\src\\app.ts","sha256":"21454bbb1f74b16380b6559ff3926571568cdad96870b636a754b1e43b4efcc9"}
+    ]
+  },
+  "liveAcceptance": {
+    "status": "To Do",
+    "notEstablished": [
+      "Managed APIM actual parent advancement, absent/invalid root ownership and strict sampled00 behavior",
+      "Real dualJWT authorization, actual v2 token/optional-claim/role/client/principal assignments",
+      "Private API/app/SCM reachability and effective deployed configuration",
+      "Actual logger KV resolution/MI/rotation/capture timing/native URL privacy",
+      "Real R8/R5 integration, executable packaged classpath and deployed one-agent/extension runtime",
+      "Node24/PortalMI/live workspace/KQL/visualizations/SLO/retention/reset certification"
+    ],
+    "majorityVoteIsEvidence": false
+  }
+}

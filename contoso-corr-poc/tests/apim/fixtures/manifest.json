@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "deployable": false,
+  "purpose": "Isolated GATE-01 negative controls, never deployment policy inputs or certification telemetry.",
+  "files": ["flag-rewrite.xml", "request-id-parent.xml", "legacy-diagnostic.json"]
+}

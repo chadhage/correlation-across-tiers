@@ -1,0 +1,30 @@
+{
+  "schema": "contoso.certification-dependencies.v1",
+  "baseline": "direct-azure-monitor",
+  "components": [
+    { "id": "application-insights", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" },
+    { "id": "log-analytics", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview" },
+    { "id": "apim-w3c", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights" },
+    { "id": "app-service-java", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/app-service/configure-language-java" },
+    { "id": "functions-java", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages?pivots=programming-language-java" },
+    { "id": "java-agent", "status": "GA", "source": "https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.7.10" },
+    { "id": "browser-sdk", "status": "GA", "source": "https://github.com/microsoft/ApplicationInsights-JS/releases/tag/v3.4.5" },
+    { "id": "postgresql", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview" },
+    { "id": "managed-redis", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/redis/overview" },
+    { "id": "service-bus", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview" },
+    { "id": "event-grid-cloudevents", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/event-grid/cloud-event-schema" },
+    { "id": "event-hubs", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about" },
+    { "id": "storage-queue", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction" },
+    { "id": "key-vault", "status": "GA", "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview" },
+    { "id": "entra-authentication", "status": "GA", "source": "https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens" },
+    { "id": "contoso-application-and-sampler", "status": "Contoso-owned", "source": "DECISIONS.md", "vendorSamplerSupportClaim": "VERIFY: no sampler-specific Microsoft GA/support guarantee is asserted; functional and one-provider proof required." }
+  ],
+  "excludedEvaluationRoots": ["eval", "evaluation"],
+  "constraints": {
+    "noPreviewDependency": true,
+    "noNativeApimOtlpAssumption": true,
+    "noAzureCacheForRedis": true,
+    "noClassicJavaAdaptiveSampling": true,
+    "contosoOwnedCodeIsNotAnAzureGaAnnouncement": true
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Contoso Orders API",
+    "version": "1.0.0",
+    "description": "Public prefix /contoso/v1 maps to the private Orders /api base. Caller Authorization is preserved; APIM adds a separate MI gateway proof. R8 owns independent JWT validation. Delegated Orders.Invoke or approved app-only Portal.Invoke is required. No query parameters are supported."
+  },
+  "servers": [{ "url": "/contoso/v1" }],
+  "security": [{ "callerBearer": [] }],
+  "x-contoso-contract-version": 1,
+  "x-contoso-required-delegated-scope": "Orders.Invoke",
+  "x-contoso-portal-app-role": "Portal.Invoke",
+  "x-contoso-gateway-proof-header": "X-Contoso-Gateway-Authorization",
+  "x-contoso-gateway-app-role": "Gateway.Invoke",
+  "x-contoso-backend-base-path": "/api",
+  "x-contoso-live-url-privacy-acceptance": "To Do",
+  "paths": {
+    "/orders": {
+      "post": {
+        "operationId": "contoso-orders-create",
+        "parameters": [{ "$ref": "#/components/parameters/businessInvocationId" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OrderRequest" } } }
+        },
+        "responses": {
+          "201": { "$ref": "#/components/responses/workflow" },
+          "202": { "$ref": "#/components/responses/stagedWorkflow" },
+          "400": { "$ref": "#/components/responses/safeError" },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "operationId": "contoso-orders-status",
+        "parameters": [{ "$ref": "#/components/parameters/id" }, { "$ref": "#/components/parameters/businessInvocationId" }],
+        "responses": {
+          "200": { "$ref": "#/components/responses/workflow" },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" },
+          "404": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "operationId": "contoso-actor",
+        "description": "A Portal.Invoke workload has no human pseudonym. A human pseudonym is supplied only by R8's independently validated caller/HMAC integration.",
+        "parameters": [{ "$ref": "#/components/parameters/businessInvocationId" }],
+        "responses": {
+          "200": {
+            "description": "Safe verified actor facts.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ActorView" } } }
+          },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    },
+    "/demo-runs": {
+      "post": {
+        "operationId": "contoso-demo-create",
+        "parameters": [{ "$ref": "#/components/parameters/businessInvocationId" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DemoRunRequest" } } }
+        },
+        "responses": {
+          "202": { "$ref": "#/components/responses/stagedWorkflow" },
+          "400": { "$ref": "#/components/responses/safeError" },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    },
+    "/demo-runs/{id}": {
+      "get": {
+        "operationId": "contoso-demo-status",
+        "parameters": [{ "$ref": "#/components/parameters/id" }, { "$ref": "#/components/parameters/businessInvocationId" }],
+        "responses": {
+          "200": { "$ref": "#/components/responses/workflow" },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" },
+          "404": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    },
+    "/demo-runs/{id}/controls": {
+      "post": {
+        "operationId": "contoso-demo-control",
+        "description": "R8/R4 enforce the approved operator authorization and typed WorkTarget. A certification flag or business UUID is not authorization.",
+        "parameters": [{ "$ref": "#/components/parameters/id" }, { "$ref": "#/components/parameters/businessInvocationId" }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ControlRequest" } } }
+        },
+        "responses": {
+          "200": { "$ref": "#/components/responses/workflow" },
+          "202": { "$ref": "#/components/responses/stagedWorkflow" },
+          "400": { "$ref": "#/components/responses/safeError" },
+          "401": { "$ref": "#/components/responses/safeError" },
+          "403": { "$ref": "#/components/responses/safeError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "callerBearer": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" } },
+    "parameters": {
+      "id": { "name": "id", "in": "path", "required": true, "schema": { "$ref": "#/components/schemas/UuidV4" } },
+      "businessInvocationId": {
+        "name": "x-business-invocation-id",
+        "in": "header",
+        "required": false,
+        "description": "Untrusted or malformed input is replaced by the authenticated edge. Never an authorization credential.",
+        "schema": { "$ref": "#/components/schemas/UuidV4" }
+      }
+    },
+    "responses": {
+      "workflow": {
+        "description": "Durable workflow state, not a telemetry certification claim.",
+        "headers": { "x-business-invocation-id": { "schema": { "$ref": "#/components/schemas/UuidV4" } } },
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkflowView" } } }
+      },
+      "stagedWorkflow": {
+        "description": "DURABLE_STAGED: work is durably staged, not proof of broker acceptance or consumer completion.",
+        "headers": { "x-business-invocation-id": { "schema": { "$ref": "#/components/schemas/UuidV4" } } },
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkflowView" } } }
+      },
+      "safeError": {
+        "description": "Finite sanitized error code; no token, original exception, claims or payload.",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SafeError" } } }
+      }
+    },
+    "schemas": {
+      "UuidV4": { "type": "string", "minLength": 36, "maxLength": 36, "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" },
+      "OrderRequest": {
+        "type": "object", "additionalProperties": false,
+        "required": ["schemaVersion", "sku", "quantity"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "orderId": { "$ref": "#/components/schemas/UuidV4" },
+          "sku": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$" },
+          "quantity": { "type": "integer", "minimum": 1, "maximum": 100 }
+        }
+      },
+      "DemoRunRequest": {
+        "type": "object", "additionalProperties": false, "required": ["schemaVersion", "demoId"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "runId": { "$ref": "#/components/schemas/UuidV4" },
+          "demoId": { "type": "integer", "minimum": 1, "maximum": 15 },
+          "scenario": { "type": "string", "enum": ["SYNC", "RETRY", "DLQ", "FAN_OUT", "FAN_IN", "BATCH", "EVENT_GRID", "STORAGE_QUEUE", "PRIVACY", "SAMPLING"] },
+          "failureBudget": { "type": "integer", "minimum": 0, "maximum": 10 }
+        }
+      },
+      "ControlRequest": {
+        "type": "object", "additionalProperties": false, "required": ["schemaVersion", "action", "target"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "action": { "type": "string", "enum": ["PAUSE", "RESUME", "FAIL_BEFORE_EFFECT", "REPLAY", "CLEAR_FAULTS"] },
+          "target": { "type": "string", "enum": ["ORDER", "FULFILLMENT", "NOTIFY", "AGGREGATOR", "SERVICE_BUS", "EVENT_GRID", "EVENT_HUBS", "STORAGE_QUEUE"] },
+          "failureBudget": { "type": "integer", "minimum": 0, "maximum": 10 }
+        }
+      },
+      "WorkflowView": {
+        "type": "object", "additionalProperties": false,
+        "required": ["schemaVersion", "id", "businessInvocationId", "state", "details"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "id": { "$ref": "#/components/schemas/UuidV4" },
+          "businessInvocationId": { "$ref": "#/components/schemas/UuidV4" },
+          "state": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "details": { "type": "object", "additionalProperties": { "type": "string", "maxLength": 512 }, "description": "Only the service's allowlisted safe workload details; never authentication/telemetry fixtures." }
+        }
+      },
+      "ActorView": {
+        "type": "object", "additionalProperties": false, "required": ["schemaVersion", "actorType", "businessInvocationId"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "actorType": { "type": "string", "enum": ["HUMAN", "WORKLOAD"] },
+          "businessInvocationId": { "$ref": "#/components/schemas/UuidV4" },
+          "pseudonym": { "type": "string", "description": "Absent for a workload actor." }
+        }
+      },
+      "SafeError": {
+        "type": "object", "additionalProperties": false, "required": ["schemaVersion", "code"],
+        "properties": {
+          "schemaVersion": { "type": "integer", "enum": [1] },
+          "code": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Z0-9_]+$" },
+          "businessInvocationId": { "$ref": "#/components/schemas/UuidV4" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "agentVersion": "3.7.10",
+  "sha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "source": "https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.7.10/applicationinsights-agent-3.7.10.jar",
+  "environmentVariable": "CONTOSO_AGENT_JAR",
+  "destination": "loopback-receiver-only",
+  "liveAzureCertification": false,
+  "maximumHeapMiB": 256
+}

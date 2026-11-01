@@ -1,0 +1,25 @@
+<fragment>
+  <set-header name="X-Contoso-Gateway-Authorization" exists-action="delete" />
+  <set-variable name="contoso.authHeaderValid" value="@{
+    string[] values;
+    if (!context.Request.Headers.TryGetValue(&quot;Authorization&quot;, out values) || values.Length != 1) return false;
+    var value = values[0];
+    return value != null &amp;&amp; value.Length &lt;= 8192 &amp;&amp; value.StartsWith(&quot;Bearer &quot;, StringComparison.OrdinalIgnoreCase) &amp;&amp; !value.Contains(&quot;,&quot;);
+  }" />
+  <choose>
+    <when condition="@(!(bool)context.Variables[&quot;contoso.authHeaderValid&quot;])">
+      <return-response>
+        <set-status code="401" reason="Unauthorized" />
+        <set-header name="Content-Type" exists-action="override"><value>application/json</value></set-header>
+        <set-body>{"schemaVersion":1,"code":"AUTHENTICATION_REQUIRED"}</set-body>
+      </return-response>
+    </when>
+  </choose>
+  <set-variable name="contoso.originalAuthorization" value="@(context.Request.Headers[&quot;Authorization&quot;][0])" />
+  <validate-azure-ad-token tenant-id="{{contoso-tenant-id}}" header-name="Authorization"
+    failed-validation-httpcode="401" failed-validation-error-message="AUTHENTICATION_FAILED"
+    output-token-variable-name="contoso.validatedCallerJwt">
+    <client-application-ids>__CLIENT_APPLICATION_IDS__</client-application-ids>
+    <audiences><audience>{{contoso-public-audience}}</audience></audiences>
+  </validate-azure-ad-token>
+</fragment>

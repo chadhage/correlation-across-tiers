@@ -1,0 +1,18 @@
+<fragment>
+  <set-variable name="contoso.businessDisposition" value="@{
+    string[] values;
+    if (!context.Request.Headers.TryGetValue(&quot;x-business-invocation-id&quot;, out values) || values.Length == 0) return &quot;generated-absent&quot;;
+    if (values.Length != 1) return &quot;generated-duplicate&quot;;
+    if (!(bool)context.Variables[&quot;contoso.callerTrustedInvocationIssuer&quot;]) return &quot;generated-untrusted&quot;;
+    var value = values[0];
+    if (value == null || value.Length != 36 || !Regex.IsMatch(value, &quot;^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$&quot;)) return &quot;generated-invalid&quot;;
+    return &quot;accepted-trusted&quot;;
+  }" />
+  <set-variable name="contoso.businessId" value="@{
+    if ((string)context.Variables[&quot;contoso.businessDisposition&quot;] == &quot;accepted-trusted&quot;) return context.Request.Headers[&quot;x-business-invocation-id&quot;][0];
+    return Guid.NewGuid().ToString(&quot;D&quot;);
+  }" />
+  <set-header name="x-business-invocation-id" exists-action="override">
+    <value>@((string)context.Variables["contoso.businessId"])</value>
+  </set-header>
+</fragment>

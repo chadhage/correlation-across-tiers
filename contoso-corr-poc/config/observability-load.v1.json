@@ -1,0 +1,28 @@
+{
+  "schema": "contoso.observability-load.v1",
+  "requestsPerSecond": 10,
+  "durationSeconds": 120,
+  "requestTimeoutMs": 5000,
+  "thresholds": {
+    "p95Ms": 1000,
+    "p99Ms": 2500,
+    "unexpectedErrorPercent": 1,
+    "cpuAveragePercent": 70,
+    "cpuPeakPercent": 90,
+    "memoryLimitPercent": 80,
+    "instrumentationP95OverheadPercent": 20,
+    "missingDeclaredCertSpans": 0
+  },
+  "budget": { "dailyTargetUsd": 1000, "intendedLifetimeHours": 720 },
+  "costInputs": {
+    "rootFixedMonthlyUsd": 257.6573,
+    "monthlyBasisHours": 730,
+    "rootFixedDailyUsd": 8.4709,
+    "analyticsLogsUsdPerBillableGb": 2.76,
+    "owner": "R1",
+    "variableMetersRequireActualInputs": true
+  },
+  "approvalScope": "User-approved measurement profile; not provisioning or global SLO certification",
+  "resourceWritesApproved": false,
+  "azureLiveState": "To Do"
+}

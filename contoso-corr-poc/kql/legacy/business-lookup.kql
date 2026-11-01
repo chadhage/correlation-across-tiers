@@ -1,0 +1,23 @@
+let windowStart=datetime({{FromUtc}});
+let windowEnd=datetime({{ToUtc}});
+let searchFrom=windowStart-{{LookbackMinutes}}m;
+let appResourceId={{AppResourceId}};
+let selectedInvocation={{InvocationId}};
+let compositeMappingApproved={{CompositeApproved}};
+let NativeRecords={{LegacyTelemetry}};
+{{CanonicalProjection}}
+let SeedTraces=Records | where InvocationId==selectedInvocation | where isnotempty(TraceId) | distinct TraceId;
+let Multiplicity=Records
+| where TraceId in (SeedTraces) and isnotempty(InvocationId)
+| summarize by TraceId,InvocationId
+| summarize ExplicitInvocationCount=count() by TraceId;
+Records
+| where InvocationId==selectedInvocation or TraceId in (SeedTraces)
+| join kind=leftouter Multiplicity on TraceId
+| extend MembershipBasis=iff(InvocationId==selectedInvocation,"explicit-business-property","operation-co-membership-not-business-proof"),
+    ConflictingInvocation=isnotempty(InvocationId) and InvocationId!=selectedInvocation,
+    AmbiguousOperation=ExplicitInvocationCount>1
+| project EventTime,IngestedAt,NativeTable,RecordKind,TraceId,RawId,RawParentId,SpanId,
+    ParentSpanId,AssociatedSpanId,ViewId,RoleName,OperationName,Success,ResultCode,DurationMs,ItemCount,BillableBytes,IsBillable,InvocationId,MembershipBasis,
+    ConflictingInvocation,AmbiguousOperation,LinksText,InvalidSpanMapping
+| order by EventTime asc

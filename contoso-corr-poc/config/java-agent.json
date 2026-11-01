@@ -1,0 +1,10 @@
+{
+  "sampling": {"requestsPerSecond": 5},
+  "instrumentation": {
+    "azureSdk": {"enabled": false},
+    "jdbc": {"enabled": false, "masking": {"enabled": true}},
+    "redis": {"enabled": false},
+    "logging": {"level": "INFO"}
+  },
+  "selfDiagnostics": {"level": "WARN", "destination": "console"}
+}

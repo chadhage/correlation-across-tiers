@@ -1,0 +1,33 @@
+<fragment>
+  <set-variable name="contoso.callerDelegated" value="@{
+    var jwt = (Jwt)context.Variables[&quot;contoso.validatedCallerJwt&quot;];
+    string[] scopes;
+    if (!jwt.Claims.TryGetValue(&quot;scp&quot;, out scopes)) return false;
+    return scopes.SelectMany(value =&gt; value.Split(' ')).Contains(&quot;{{contoso-delegated-scope}}&quot;);
+  }" />
+  <set-variable name="contoso.callerTrustedInvocationIssuer" value="@{
+    var jwt = (Jwt)context.Variables[&quot;contoso.validatedCallerJwt&quot;];
+    string[] values;
+    var clientId = &quot;&quot;;
+    if (jwt.Claims.TryGetValue(&quot;azp&quot;, out values) &amp;&amp; values.Length == 1) clientId = values[0];
+    else if (jwt.Claims.TryGetValue(&quot;appid&quot;, out values) &amp;&amp; values.Length == 1) clientId = values[0];
+    string[] roles;
+    string[] identityTypes;
+    return !(bool)context.Variables[&quot;contoso.callerDelegated&quot;]
+      &amp;&amp; !jwt.Claims.ContainsKey(&quot;scp&quot;)
+      &amp;&amp; jwt.Claims.TryGetValue(&quot;idtyp&quot;, out identityTypes)
+      &amp;&amp; identityTypes.Length == 1 &amp;&amp; identityTypes[0] == &quot;app&quot;
+      &amp;&amp; jwt.Claims.TryGetValue(&quot;roles&quot;, out roles)
+      &amp;&amp; roles.Contains(&quot;Portal.Invoke&quot;)
+      &amp;&amp; &quot;{{contoso-portal-client-ids}}&quot;.Split(',').Contains(clientId);
+  }" />
+  <choose>
+    <when condition="@(!(bool)context.Variables[&quot;contoso.callerDelegated&quot;] &amp;&amp; !(bool)context.Variables[&quot;contoso.callerTrustedInvocationIssuer&quot;])">
+      <return-response>
+        <set-status code="403" reason="Forbidden" />
+        <set-header name="Content-Type" exists-action="override"><value>application/json</value></set-header>
+        <set-body>{"schemaVersion":1,"code":"AUTHORIZATION_DENIED"}</set-body>
+      </return-response>
+    </when>
+  </choose>
+</fragment>

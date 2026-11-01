@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Synthetic HTTP carrier vectors, not emitted telemetry or proof of live span parentage.",
+  "publicOperation": "/contoso/v1/demo-runs",
+  "requestBody": { "schemaVersion": 1, "demoId": 3, "scenario": "SAMPLING", "failureBudget": 0 },
+  "liveAcceptance": "To Do",
+  "cases": [
+    {
+      "caseId": "valid-sampled",
+      "headers": { "traceparent": "00-11111111111111111111111111111111-2222222222222222-01", "tracestate": "contoso=cert03" },
+      "expectedPolicyDeletion": [],
+      "expectedLiveAssertion": "Same trace ID; gateway backend dependency supplies the new wire parent; strict child ParentId equality."
+    },
+    {
+      "caseId": "absent",
+      "headers": {},
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Record the real tracer-created root; do not derive IDs from the request/business identity."
+    },
+    {
+      "caseId": "invalid-zero-trace",
+      "headers": { "traceparent": "00-00000000000000000000000000000000-2222222222222222-01", "tracestate": "contoso=cert03" },
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Rejected context and actual new root, not fabricated spans."
+    },
+    {
+      "caseId": "valid-unsampled",
+      "headers": { "traceparent": "00-33333333333333333333333333333333-4444444444444444-00", "tracestate": "contoso=cert03" },
+      "expectedPolicyDeletion": [],
+      "expectedLiveAssertion": "No sampled-bit surgery; observe active SDK recording/sampled state and actual outbound carrier; no full-span claim for unsampled cohort."
+    },
+    {
+      "caseId": "valid-parent-invalid-state",
+      "headers": { "traceparent": "00-55555555555555555555555555555555-6666666666666666-01", "tracestate": "contoso=one,contoso=two" },
+      "expectedPolicyDeletion": ["tracestate"],
+      "expectedLiveAssertion": "Discard state only; preserve the valid trace ID."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "coreQualification": {
+    "failed": 0,
+    "tests": 22,
+    "skipped": 0
+  },
+  "lockSha256": "134e1e55d2f0914c4891d57c067224fe4d11f7ee5456c81e5d725adcb6e75e10",
+  "generatedAt": "2026-11-01T02:36:05.4479307Z",
+  "schemaVersion": 1,
+  "actualDataQualification": {
+    "failed": 0,
+    "tests": 21,
+    "skipped": 0
+  },
+  "integratedApplications": {
+    "status": "To Do",
+    "reason": "Requires actual R8 security-core/R5 messaging-core libraries, full reactor/package tests and cross-reviews; construction checks are not their replacement."
+  },
+  "liveAcceptance": [
+    "To Do: deployed hash-pinned parent-safe policy/classloader; vendor support open (Contoso local probe passed)",
+    "To Do: exact App Service/Functions image, one attach and effective suppression",
+    "To Do: actual JWT/gateway/Portal policy and SDK-managed delivery/settlement",
+    "To Do: PostgreSQL/Redis CLIENT execution, token renewal and privacy",
+    "To Do: authenticated Azure ingestion/native links, graceful restart/redeploy/SLO",
+    "To Do: directory/RBAC/region/SKU/cost/quota/provisioning approval"
+  ],
+  "httpConstructionOnly": {
+    "failed": 0,
+    "tests": 10,
+    "skipped": 0
+  },
+  "certified": false,
+  "httpConstructionScope": "Real R6 inventory-data library. Frozen R8/R5 API headers only for unavailable identity/workflow modules; no production implementation is supplied by those headers. Never install/deploy the construction fixture.",
+  "parentSafeExtension": {
+    "sha256": "08592fa4f8fea7b7d259efd2ea38753d9ddc0e9abed05c2e42b62d7bbf2218ce",
+    "result": "PASS",
+    "nativeSpanCounts": [
+      2,
+      0,
+      2
+    ],
+    "scope": "Contoso-owned local pinned-agent qualification; not vendor guarantee or live Azure certification",
+    "sdkAbi": "1.65.0"
+  }
+}

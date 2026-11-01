@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:sampling-window:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "mode", "target", "startsAtUtc", "expiresAtUtc", "restoreDeadlineSeconds", "inventoryParticipantIds", "participants", "approvals"],
+  "properties": {
+    "schema": { "const": "contoso.sampling-window.v1" },
+    "runId": { "type": "string", "format": "uuid" },
+    "mode": { "enum": ["LocalValidate", "BootstrapValidate", "Certify"] },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["subscriptionId", "location", "workload", "environment"],
+      "properties": {
+        "subscriptionId": { "const": "474c40eb-d385-40d8-baa2-06883dbdca2d" },
+        "location": { "const": "centralus" }, "workload": { "const": "contoso-corr" }, "environment": { "const": "poc" }
+      }
+    },
+    "startsAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "expiresAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "drainSeconds": { "type": "integer", "minimum": 0, "maximum": 120 },
+    "restoreDeadlineSeconds": { "type": "integer", "minimum": 1, "maximum": 120 },
+    "inventoryParticipantIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "participants": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "layer", "role", "adapter"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^contoso-[a-z0-9-]+$" },
+          "layer": { "enum": ["browser", "ssr", "apim", "jvm", "functions-host", "backend", "collector"] },
+          "role": { "type": "string", "pattern": "^contoso-[a-z0-9-]+$" },
+          "adapter": {
+            "type": "object", "additionalProperties": false,
+            "required": ["kind", "path"],
+            "properties": {
+              "kind": { "enum": ["json-file", "command"] },
+              "path": { "type": "string" },
+              "apply": { "$ref": "#/$defs/command" },
+              "observe": { "$ref": "#/$defs/command" },
+              "restore": { "$ref": "#/$defs/command" },
+              "stopTraffic": { "$ref": "#/$defs/command" }
+            }
+          }
+        }
+      }
+    },
+    "approvals": {
+      "type": "object", "additionalProperties": false,
+      "required": ["localConfigurationWrites", "trafficApprovalRef", "azureWriteApprovalRef"],
+      "properties": {
+        "localConfigurationWrites": { "type": "boolean" },
+        "trafficApprovalRef": { "type": ["string", "null"] },
+        "azureWriteApprovalRef": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "$defs": {
+    "command": {
+      "type": "object", "additionalProperties": false,
+      "required": ["executable", "sha256", "arguments", "capability"],
+      "properties": {
+        "executable": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+        "arguments": { "type": "array", "items": { "type": "string" } },
+        "capability": { "enum": ["read-only", "local-write", "azure-write"] }
+      }
+    }
+  },
+  "description": "Semantic code validation additionally enforces the actual root inventory, fixed target, profile limits, safe owned keys, hash-pinned guard, explicit command capabilities and native acknowledgements. LocalValidate cannot certify runtime behavior."
+}

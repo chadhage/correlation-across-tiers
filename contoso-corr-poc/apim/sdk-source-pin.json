@@ -1,0 +1,10 @@
+{
+  "sdkVersion": "3.4.5",
+  "enumName": "eDistributedTracingModes.W3C_TRACE",
+  "enumValue": 18,
+  "sourceCommit": "9f3440d9ac3dd8941f7d004dbae43108b08baf7e",
+  "sourcePath": "shared/AppInsightsCore/src/enums/ai/Enums.ts",
+  "sourceUrl": "https://github.com/microsoft/ApplicationInsights-JS/blob/9f3440d9ac3dd8941f7d004dbae43108b08baf7e/shared/AppInsightsCore/src/enums/ai/Enums.ts",
+  "sourceSha256": "2ddecab74cebebbb36be69e03f9b4ad92f7b97a21011a7671d048148b5e842d9",
+  "verification": "Published v3.4.5 tag source inspected; W3C=2 and _W3CTraceState=16, W3C_TRACE is their bitwise OR. Installed runtime and actual wire behavior require separate verification."
+}

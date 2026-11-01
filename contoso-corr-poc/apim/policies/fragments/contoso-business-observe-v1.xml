@@ -1,0 +1,11 @@
+<fragment>
+  <choose>
+    <when condition="@(&quot;{{contoso-business-observation-enabled}}&quot; == &quot;true&quot;)">
+      <trace source="contoso-gateway" severity="information">
+        <message>Contoso invocation edge.</message>
+        <metadata name="business.invocation_id" value="@((string)context.Variables[&quot;contoso.businessId&quot;])" />
+        <metadata name="business.disposition" value="@((string)context.Variables[&quot;contoso.businessDisposition&quot;])" />
+      </trace>
+    </when>
+  </choose>
+</fragment>

@@ -1,0 +1,9 @@
+{
+  "type": "Microsoft.ApiManagement/service/diagnostics",
+  "apiVersion": "2024-05-01",
+  "properties": {
+    "httpCorrelationProtocol": "Legacy",
+    "frontend": { "request": { "body": { "bytes": 512 } }, "response": { "body": { "bytes": 0 } } },
+    "backend": { "request": { "body": { "bytes": 0 } }, "response": { "body": { "bytes": 0 } } }
+  }
+}

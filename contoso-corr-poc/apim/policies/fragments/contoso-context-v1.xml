@@ -1,0 +1,47 @@
+<fragment>
+  <set-variable name="contoso.traceparentDisposition" value="@{
+    string[] values;
+    if (!context.Request.Headers.TryGetValue(&quot;traceparent&quot;, out values) || values.Length == 0) return &quot;absent&quot;;
+    if (values.Length != 1) return &quot;duplicate&quot;;
+    var value = values[0];
+    if (value == null || value.Length &lt; 55 || value.Length &gt; 256 || value.Contains(&quot;,&quot;)) return &quot;invalid&quot;;
+    if (value.Any(character =&gt; character &lt; 0x21 || character &gt; 0x7e)) return &quot;invalid&quot;;
+    var match = Regex.Match(value, &quot;^([0-9a-f]{2})-([0-9a-f]{32})-([0-9a-f]{16})-([0-9a-f]{2})&quot;);
+    if (!match.Success || match.Groups[1].Value == &quot;ff&quot;) return &quot;invalid&quot;;
+    if (match.Groups[2].Value == &quot;00000000000000000000000000000000&quot; || match.Groups[3].Value == &quot;0000000000000000&quot;) return &quot;invalid&quot;;
+    if (match.Groups[1].Value == &quot;00&quot; &amp;&amp; value.Length != 55) return &quot;invalid&quot;;
+    if (value.Length &gt; 55 &amp;&amp; value[55] != '-') return &quot;invalid&quot;;
+    return &quot;valid&quot;;
+  }" />
+  <set-variable name="contoso.tracestateValid" value="@{
+    if ((string)context.Variables[&quot;contoso.traceparentDisposition&quot;] != &quot;valid&quot;) return false;
+    string[] values;
+    if (!context.Request.Headers.TryGetValue(&quot;tracestate&quot;, out values) || values.Length == 0) return true;
+    var value = string.Join(&quot;,&quot;, values);
+    if (value.Length &gt; 512) return false;
+    var members = value.Split(',');
+    if (members.Length &gt; 32) return false;
+    var keys = new HashSet&lt;string&gt;(StringComparer.Ordinal);
+    foreach (var rawMember in members) {
+      var member = rawMember.Trim(' ', '\t');
+      if (member.Length == 0) continue;
+      var separator = member.IndexOf('=');
+      if (separator &lt;= 0 || separator != member.LastIndexOf('=')) return false;
+      var key = member.Substring(0, separator);
+      var entryValue = member.Substring(separator + 1);
+      if (!Regex.IsMatch(key, &quot;^(?:[a-z][a-z0-9_*/-]{0,255}|[a-z0-9][a-z0-9_*/-]{0,240}@[a-z][a-z0-9_*/-]{0,13})$&quot;) || !keys.Add(key)) return false;
+      if (entryValue.Length == 0 || entryValue.Length &gt; 256 || entryValue[entryValue.Length - 1] == ' ') return false;
+      if (entryValue.Any(character =&gt; character &lt; 0x20 || character &gt; 0x7e || character == ',' || character == '=')) return false;
+    }
+    return true;
+  }" />
+  <choose>
+    <when condition="@((string)context.Variables[&quot;contoso.traceparentDisposition&quot;] != &quot;valid&quot;)">
+      <set-header name="traceparent" exists-action="delete" />
+      <set-header name="tracestate" exists-action="delete" />
+    </when>
+    <when condition="@(!(bool)context.Variables[&quot;contoso.tracestateValid&quot;])">
+      <set-header name="tracestate" exists-action="delete" />
+    </when>
+  </choose>
+</fragment>

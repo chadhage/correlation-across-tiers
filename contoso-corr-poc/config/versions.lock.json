@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "workload": "contoso-corr",
+  "environment": "poc",
+  "evidenceCutoff": "2026-10-31",
+  "agent": {
+    "version": "3.7.10",
+    "file": "applicationinsights-agent-3.7.10.jar",
+    "sha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+    "bytes": 47680213,
+    "url": "https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.7.10/applicationinsights-agent-3.7.10.jar",
+    "source": "https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.7.10",
+    "instrumentation": "2.31.1",
+    "api": "1.65.0",
+    "autoConfigure": "1.7.0"
+  },
+  "portableTools": {
+    "bicep": {"version":"0.48.1","file":"bicep.exe","sha256":"398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082","url":"https://github.com/Azure/bicep/releases/download/v0.48.1/bicep-win-x64.exe","source":"https://github.com/Azure/bicep/releases/tag/v0.48.1"},
+    "jdk": {"version":"25.0.5+8","file":"OpenJDK25U-jdk_x64_windows_hotspot_25.0.5_8.zip","sha256":"636bdc13dc649ddc7d5921c5c7d23cca6e44fd19d662b45cc9c02135a6c96c42","url":"https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.5%2B8/OpenJDK25U-jdk_x64_windows_hotspot_25.0.5_8.zip","source":"https://github.com/adoptium/temurin25-binaries/releases/tag/jdk-25.0.5%2B8"},
+    "maven": {"version":"3.10.0","file":"apache-maven-3.10.0-bin.zip","sha512":"22d31676d5b92ed53308c19ecded3245d0efd0cddfec51ec7bab62f4f13ad70ddddceff8e62940e0e8e2421f3cde8106737f4becec0aa034ffeff2a754e88337","url":"https://downloads.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.zip","source":"https://downloads.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.zip.sha512"}
+  },
+  "compilerTools": [
+    {
+      "name":"Microsoft.Azure.Kusto.Language",
+      "version":"12.4.1",
+      "sha256":"154c176ac9c1c4ae9cf0bc53b74354c9d35798ff587f81fe6e0005028a0a1961",
+      "source":"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/flat2/microsoft.azure.kusto.language/12.4.1/microsoft.azure.kusto.language.12.4.1.nupkg",
+      "scope":"R7 compiler-only syntax/schema validation; not application runtime, provider or ingestion"
+    }
+  ],
+  "releases": [
+    {"name":"Spring Boot","version":"4.1.2","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Spring Framework","version":"7.0.10","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Tomcat","version":"11.0.27","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"SLF4J","version":"2.0.20","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Logback","version":"1.5.38","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"HikariCP","version":"7.0.2","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Jackson","version":"3.1.7","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Jackson 2 family","version":"2.21.7","source":"https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/4.1.2/spring-boot-dependencies-4.1.2.pom"},
+    {"name":"Java OpenTelemetry API/context","version":"1.65.0","source":"https://repo.maven.apache.org/maven2/io/opentelemetry/opentelemetry-api/1.65.0/opentelemetry-api-1.65.0.pom"},
+    {"name":"Node Microsoft OpenTelemetry distro","version":"1.5.0","source":"https://registry.npmjs.org/@microsoft%2fopentelemetry/1.5.0"},
+    {"name":"Node OpenTelemetry API","version":"1.9.1","source":"https://registry.npmjs.org/@opentelemetry%2fapi/1.9.1"},
+    {"name":"Node OpenTelemetry SDK","version":"0.221.0","source":"https://registry.npmjs.org/@opentelemetry%2fsdk-node/0.221.0"},
+    {"name":"Node HTTP instrumentation","version":"0.221.0","source":"https://registry.npmjs.org/@opentelemetry%2finstrumentation-http/0.221.0"},
+    {"name":"Node JOSE","version":"6.2.13","source":"https://registry.npmjs.org/jose/6.2.13"},
+    {"name":"Browser Application Insights SDK","version":"3.4.5","source":"https://registry.npmjs.org/@microsoft%2fapplicationinsights-web/3.4.5"},
+    {"name":"Node Azure Identity","version":"4.14.1","source":"https://registry.npmjs.org/@azure%2fidentity/4.14.1"},
+    {"name":"Browser MSAL","version":"5.27.0","source":"https://registry.npmjs.org/@azure%2fmsal-browser/5.27.0"},
+    {"name":"Frontend TypeScript","version":"7.0.2","source":"https://registry.npmjs.org/typescript/7.0.2"},
+    {"name":"Frontend Vite","version":"8.3.5","source":"https://registry.npmjs.org/vite/8.3.5"},
+    {"name":"Browser fixture Playwright","version":"1.64.1","source":"https://registry.npmjs.org/@playwright%2ftest/1.64.1"},
+    {"name":"Azure SDK BOM","version":"1.3.9","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Azure Core","version":"1.60.0","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Azure Identity","version":"1.18.7","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Service Bus","version":"7.18.1","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Event Grid","version":"4.31.9","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Event Hubs","version":"5.21.7","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"Storage Queue","version":"12.31.0","source":"https://repo.maven.apache.org/maven2/com/azure/azure-sdk-bom/1.3.9/azure-sdk-bom-1.3.9.pom"},
+    {"name":"pgJDBC","version":"42.7.14","source":"https://github.com/pgjdbc/pgjdbc/releases/tag/REL42.7.14"},
+    {"name":"Lettuce","version":"7.9.0.RELEASE","source":"https://github.com/redis/lettuce/releases/tag/7.9.0.RELEASE"},
+    {"name":"Redis AuthX Entra","version":"0.2.0","source":"https://github.com/redis/jvm-redis-authx-entraid/releases/tag/v0.2.0"},
+    {"name":"Functions Java library","version":"3.3.0","source":"https://repo.maven.apache.org/maven2/com/microsoft/azure/functions/azure-functions-java-library/3.3.0/azure-functions-java-library-3.3.0.pom"},
+    {"name":"Functions Maven plugin","version":"1.42.0","source":"https://repo.maven.apache.org/maven2/com/microsoft/azure/azure-functions-maven-plugin/1.42.0/azure-functions-maven-plugin-1.42.0.pom"},
+    {"name":"Maven","version":"3.10.0","source":"https://maven.apache.org/download.cgi"}
+  ],
+  "resourceApis": [
+    {"name":"Microsoft.Web/sites and serverfarms","version":"2025-03-01","source":"https://learn.microsoft.com/en-us/azure/templates/microsoft.web/2025-03-01/sites"},
+    {"name":"Microsoft.ApiManagement service/API/logger/diagnostic/policy family","version":"2024-05-01","source":"https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service"}
+  ],
+  "liveVerifies": [
+    "Actual App Service/Functions Java vendor, patch, image, worker and binding build",
+    "Agent remote-parent no-sampled-bit-promotion behavior; unsupported by default",
+    "Effective single agent and disabled ai-azure-functions/SDK/data instrumentation",
+    "Authenticated backend receipt, native links, JDBC/Redis execution and privacy",
+    "Graceful shutdown/restart, capacity/SLO, actual GA resource API/SKU availability",
+    "Cost/quota/RBAC/directory/provisioning approval"
+  ],
+  "certification": "NOT_CERTIFIED",
+  "extensions": [
+    {
+      "module":"extensions/parent-safe-sampler",
+      "groupId":"com.contoso",
+      "artifactId":"contoso-parent-safe-sampler",
+      "version":"1.0.0",
+      "file":"target/contoso-parent-safe-sampler-1.0.0.jar",
+      "sdkAbi":"1.65.0",
+      "compilerProvidedArtifacts":["opentelemetry-sdk-trace","opentelemetry-sdk-common","opentelemetry-sdk-extension-autoconfigure-spi"],
+      "providerService":"META-INF/services/io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider",
+      "providerClass":"com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sha256":"08592fa4f8fea7b7d259efd2ea38753d9ddc0e9abed05c2e42b62d7bbf2218ce",
+      "runtimeLoaderArgument":"-Dotel.javaagent.extensions=/home/site/wwwroot/agent/extensions/contoso-parent-safe-sampler-1.0.0.jar",
+      "loaderProperty":"otel.javaagent.extensions",
+      "extensionLoader":"io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "delegateClass":"com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader":"io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "probeReport":"extensions/parent-safe-sampler/target/agent-probe/result.json",
+      "runtimeLoading":"QUALIFIED_LOCAL_AGENT_3.7.10_JDK_25.0.5+8",
+      "policy":"DROP valid unsampled parent; delegate unchanged otherwise; same existing provider",
+      "vendorSupport":"VERIFY: Contoso-owned approval is not Microsoft GA/support endorsement"
+    }
+  ]
+}

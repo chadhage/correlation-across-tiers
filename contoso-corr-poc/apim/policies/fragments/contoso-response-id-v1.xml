@@ -1,0 +1,9 @@
+<fragment>
+  <choose>
+    <when condition="@(&quot;{{contoso-expose-business-id}}&quot; == &quot;true&quot; &amp;&amp; context.Variables.ContainsKey(&quot;contoso.businessId&quot;))">
+      <set-header name="x-business-invocation-id" exists-action="override">
+        <value>@((string)context.Variables["contoso.businessId"])</value>
+      </set-header>
+    </when>
+  </choose>
+</fragment>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:sampling-control-ack:v1",
+  "type": "object",
+  "required": ["schema", "layerId", "revision", "configSha256", "sourceKind", "percentage", "requestsPerSecond", "guardPresent", "guardSha256", "privacyChanged", "secretsIncluded", "providerConstruction", "extraExporter"],
+  "properties": {
+    "schema": { "const": "contoso.sampling-control-ack.v1" },
+    "layerId": { "type": "string", "pattern": "^contoso-[a-z0-9-]+$" },
+    "revision": { "type": "string", "minLength": 1 },
+    "configSha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+    "sourceKind": { "enum": ["trusted-runtime-observation", "local-config"] },
+    "percentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "requestsPerSecond": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "guardPresent": { "type": "boolean" },
+    "guardSha256": { "type": ["string", "null"], "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+    "privacyChanged": { "const": false }, "secretsIncluded": { "const": false },
+    "providerConstruction": { "const": false }, "extraExporter": { "const": false },
+    "runtimeEvidenceRef": { "type": ["string", "null"] },
+    "observedAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" }
+  },
+  "description": "A local config acknowledgement cannot establish native runtime state. Trusted runtime provenance and exact owned hash/guard/window are independently verified by the R9 source/freeze pipeline; schema validity is not authorization or certification."
+}

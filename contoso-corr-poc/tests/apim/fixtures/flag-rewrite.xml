@@ -1,0 +1,9 @@
+<fragment>
+  <choose>
+    <when condition="@(false)">
+      <set-header name="traceparent" exists-action="override">
+        <value>@(context.Request.Headers.GetValueOrDefault("traceparent","").Replace("-00","-01"))</value>
+      </set-header>
+    </when>
+  </choose>
+</fragment>

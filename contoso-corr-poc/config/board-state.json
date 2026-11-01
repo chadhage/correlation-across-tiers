@@ -1,0 +1,107 @@
+{
+  "schema": "contoso.board-acceptance.v1",
+  "revision": 1,
+  "defaultStatus": "To Do",
+  "phaseAwareConstructionApproved": true,
+  "sourceHashes": {
+    "backlog": "6449e6fc7a8405f4fb8ecbbf4b6b736a006d5edb34e3a53e3d20913b305f4abd",
+    "kanban": "f4e221ef8f789f55ab89775cba8d0189ce6a29d9e6af7d8d3cab2328fa74406d"
+  },
+  "records": {
+    "GATE-07": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "returned",
+      "constructionReady": true,
+      "nextAction": "Run live deployment what-if for evaluation isolation and obtain two code reviews; the static guard and seeded tests pass locally.",
+      "waitingOn": [
+        "Complete root infrastructure",
+        "Live what-if evidence",
+        "Two accepted code reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "returned",
+      "constructionReady": true,
+      "nextAction": "Obtain two code reviews and link current protocol-scan evidence; APIM modules, XML and local tests are implemented.",
+      "waitingOn": [
+        "Two accepted code reviews",
+        "Current integrated scan evidence"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "returned",
+      "constructionReady": true,
+      "nextAction": "Build the real complete reactor after security/messaging/sampler artifacts arrive, then verify every deployed JVM and obtain two code reviews.",
+      "waitingOn": [
+        "Real security and messaging modules",
+        "Parent-safe extension proof",
+        "Per-JVM live startup/export evidence"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-09": {
+      "status": "In Progress",
+      "scope": "construction",
+      "phase": "draft",
+      "constructionReady": true,
+      "nextAction": "Implement the real async contracts and retry/link assertions with isolated checker fixtures.",
+      "waitingOn": [],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-03": {
+      "status": "In Progress",
+      "scope": "construction",
+      "phase": "draft",
+      "constructionReady": true,
+      "nextAction": "Implement source/history/evidence secret checks and named-secret Key Vault wiring.",
+      "waitingOn": [],
+      "criteria": [],
+      "reviews": []
+    },
+    "WEB-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "returned",
+      "constructionReady": true,
+      "nextAction": "Deploy the verified cohost artifact with real Entra/runtime configuration, run the first authenticated browser-to-Gateway trace, and obtain two code reviews.",
+      "waitingOn": [
+        "Root infrastructure and Entra grants",
+        "Live Application Insights rows",
+        "Two accepted code reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "INF-01": {
+      "status": "In Progress",
+      "scope": "construction",
+      "phase": "draft",
+      "constructionReady": true,
+      "nextAction": "Finish the typed telemetry/budget/alert module and sampling integration for root assembly.",
+      "waitingOn": [],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-06": {
+      "status": "In Progress",
+      "scope": "construction",
+      "phase": "draft",
+      "constructionReady": true,
+      "nextAction": "Finish the source-bound verification register, exact acceptance-scope mapping, and real evidence harness.",
+      "waitingOn": [],
+      "criteria": [],
+      "reviews": []
+    }
+  }
+}

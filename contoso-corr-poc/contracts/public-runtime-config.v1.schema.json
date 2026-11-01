@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:public-runtime-config:v1",
+  "title": "Contoso browser-public runtime configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "executionMode", "environment", "surface", "deploymentStamp", "api", "identity", "portal", "telemetry", "certification", "demos"],
+  "$defs": {
+    "uuid": { "type": "string", "format": "uuid" },
+    "uri": { "type": "string", "format": "uri" },
+    "strings": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "date": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "executionMode": { "enum": ["live", "local", "fixture"] },
+    "environment": { "const": "poc" },
+    "surface": { "enum": ["storefront-spa", "portal-page"] },
+    "deploymentStamp": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "api": {
+      "type": "object", "additionalProperties": false, "required": ["origin", "basePath"],
+      "properties": { "origin": { "$ref": "#/$defs/uri" }, "basePath": { "const": "/contoso/v1" } }
+    },
+    "identity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tenantId", "spaClientId", "apiClientId", "apiAudience", "scopes", "spaRedirectUri", "postLogoutRedirectUri"],
+      "properties": {
+        "tenantId": { "$ref": "#/$defs/uuid" }, "spaClientId": { "$ref": "#/$defs/uuid" },
+        "apiClientId": { "$ref": "#/$defs/uuid" }, "apiAudience": { "$ref": "#/$defs/uuid" },
+        "scopes": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "type": "string" } },
+        "spaRedirectUri": { "$ref": "#/$defs/uri" }, "postLogoutRedirectUri": { "$ref": "#/$defs/uri" }
+      }
+    },
+    "portal": {
+      "type": "object", "additionalProperties": false, "required": ["origin", "entryPath", "authProfile", "enabled"],
+      "properties": { "origin": { "$ref": "#/$defs/uri" }, "entryPath": { "const": "/portal/" }, "authProfile": { "const": "workload-only" }, "enabled": { "type": "boolean" } }
+    },
+    "telemetry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["connectionString", "roleName", "tracingMode", "samplingPercentage", "approvedCorrelationOrigins", "excludedCorrelationHosts"],
+      "properties": {
+        "connectionString": { "type": "string", "minLength": 1, "maxLength": 4096, "description": "Runtime-only public routing configuration. Never commit a resolved value or persist it in evidence." },
+        "roleName": { "enum": ["contoso-storefront-spa", "contoso-portal-ssr"] },
+        "tracingMode": { "const": "W3C_TRACE" },
+        "samplingPercentage": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+        "approvedCorrelationOrigins": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/uri" } },
+        "excludedCorrelationHosts": { "$ref": "#/$defs/strings" }
+      }
+    },
+    "certification": {
+      "type": "object", "additionalProperties": false, "required": ["enabled", "startsAtUtc", "endsAtUtc", "windowId"],
+      "properties": {
+        "enabled": { "type": "boolean" }, "startsAtUtc": { "$ref": "#/$defs/date" }, "endsAtUtc": { "$ref": "#/$defs/date" },
+        "windowId": { "type": ["string", "null"], "maxLength": 80 }
+      }
+    },
+    "demos": {
+      "type": "object", "additionalProperties": false, "required": ["controllerVersion", "enabled", "allowedDemoIds"],
+      "properties": {
+        "controllerVersion": { "const": 1 }, "enabled": { "type": "boolean" },
+        "allowedDemoIds": { "type": "array", "uniqueItems": true, "items": { "type": "integer", "minimum": 1, "maximum": 15 } }
+      }
+    }
+  },
+  "description": "Use the shipped typed parser for cross-field equality, canonical origins, actual scope/resource binding, finite UTC window, fixture isolation and runtime connection-string endpoint validation. JSON Schema format annotations alone are not an authorization boundary."
+}

@@ -1,0 +1,11 @@
+<fragment>
+  <set-backend-service backend-id="contoso-orders-backend" />
+  <authentication-managed-identity resource="{{contoso-orders-token-resource}}"
+    output-token-variable-name="contoso.gatewayMiToken" ignore-error="false" />
+  <set-header name="X-Contoso-Gateway-Authorization" exists-action="override">
+    <value>@("Bearer " + (string)context.Variables["contoso.gatewayMiToken"])</value>
+  </set-header>
+  <set-header name="Authorization" exists-action="override">
+    <value>@((string)context.Variables["contoso.originalAuthorization"])</value>
+  </set-header>
+</fragment>

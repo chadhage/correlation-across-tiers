@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>com.contoso</groupId><artifactId>contoso-corr-poc</artifactId><version>1.0.0</version><relativePath>../../pom.xml</relativePath></parent>
+  <artifactId>contoso-parent-safe-sampler</artifactId>
+  <name>Contoso same-provider parent-safe sampler</name>
+  <properties>
+    <project.build.outputTimestamp>2026-10-31T00:00:00Z</project.build.outputTimestamp>
+    <contoso.sdk.trace.compiler.include>io.opentelemetry:opentelemetry-sdk-trace:[1.65.0]:jar:provided</contoso.sdk.trace.compiler.include>
+    <contoso.sdk.common.compiler.include>io.opentelemetry:opentelemetry-sdk-common:[1.65.0]:jar:provided</contoso.sdk.common.compiler.include>
+    <contoso.sdk.spi.compiler.include>io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:[1.65.0]:jar:provided</contoso.sdk.spi.compiler.include>
+  </properties>
+  <dependencies>
+    <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-sdk-trace</artifactId><version>1.65.0</version><scope>provided</scope></dependency>
+    <dependency>
+      <groupId>io.opentelemetry</groupId><artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId><version>1.65.0</version><scope>provided</scope>
+      <exclusions><exclusion><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-sdk</artifactId></exclusion></exclusions>
+    </dependency>
+    <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-api</artifactId><version>1.65.0</version><scope>provided</scope></dependency>
+    <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-context</artifactId><version>1.65.0</version><scope>provided</scope></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+  </dependencies>
+  <build><plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId>
+      <configuration><archive><manifestEntries>
+        <Contoso-Sampler-Policy>DROP_VALID_UNSAMPLED_PARENT</Contoso-Sampler-Policy>
+        <Contoso-SDK-ABI>1.65.0</Contoso-SDK-ABI>
+      </manifestEntries></archive></configuration>
+    </plugin>
+  </plugins></build>
+</project>

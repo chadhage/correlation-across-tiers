@@ -1,0 +1,51 @@
+{
+  "schema": "contoso.cost-model.v1",
+  "currency": "USD",
+  "location": "centralus",
+  "pricingSource": "https://prices.azure.com/api/retail/prices",
+  "hoursPerMonth": 730,
+  "dailyBudgetTargetUsd": 1000,
+  "intendedResourceLifetimeHours": 720,
+  "approval": "PRICING_RESEARCH_ONLY",
+  "fixedMeters": [
+    { "component": "Linux P1v3 shared Dedicated plan", "meterId": "d1f1c915-69ba-5a22-b511-4cebd10b143a", "rate": 0.17, "unit": "hour", "quantity": 1 },
+    { "component": "APIM Developer unit", "meterId": "17c7c650-0e4a-4a4f-99d8-412d1ebcb892", "rate": 0.0658, "unit": "hour", "quantity": 1 },
+    { "component": "Managed Redis B0 cache instance, conservative undiscounted rate", "meterId": "d600d82c-9b95-5804-99ea-a529094ae172", "rate": 0.018, "unit": "hour", "quantity": 1 },
+    { "component": "PostgreSQL Flexible Server B1MS", "meterId": "b383f128-f841-5b48-8fba-a99736f080f4", "rate": 0.01921, "unit": "hour", "quantity": 1 },
+    { "component": "PostgreSQL 32 GiB storage", "meterId": "57bd6ad4-86a1-5f19-86a4-3a7aa1b81d90", "rate": 0.13, "unit": "month", "quantity": 32 },
+    { "component": "Defender for PostgreSQL imposed by policy", "meterId": "e297c4a7-370a-49f3-b8e7-af75c26c007e", "rate": 15, "unit": "month", "quantity": 1 },
+    { "component": "Service Bus Standard base unit, monthly equivalent only", "meterId": "d5034e45-00c1-48c6-8c00-c866f788e033", "rate": 10, "unit": "month", "quantity": 1 },
+    { "component": "Event Hubs Standard throughput unit", "meterId": "62d94a65-9300-48a6-8c15-0e70fc41eb44", "rate": 0.03, "unit": "hour", "quantity": 1 },
+    { "component": "Managed Redis standard private endpoint, global rate", "meterId": "e6ab7238-e433-4fe0-a2b2-2b2564df2cdb", "rate": 0.01, "unit": "hour", "quantity": 1 }
+  ],
+  "variableMeters": [
+    { "component": "Analytics Logs ingestion, no free-tier assumption", "meterId": "7011d191-03ab-4350-8bc8-f1879b43777c", "rate": 2.76, "unit": "GB" },
+    { "component": "Analytics Logs excess retention", "meterId": "d129e279-c0ae-4458-97c5-df7be432716a", "rate": 0.12, "unit": "GB/month" },
+    { "component": "Hot LRS Blob data stored, first tier", "meterId": "06cd85e2-e7d6-49a3-bc94-2c31c8f7d433", "rate": 0.0184, "unit": "GB/month" },
+    { "component": "Hot LRS Blob writes", "meterId": "8778022c-ce89-4ebf-8f3a-646bff3faf28", "rate": 0.05, "unit": "10K" },
+    { "component": "Hot LRS Blob reads", "meterId": "8b6d2696-456c-41e1-a09e-73efeb109a63", "rate": 0.004, "unit": "10K" },
+    { "component": "Key Vault Standard operations", "meterId": "0f824807-2376-435c-95c9-f992b67a07b0", "rate": 0.03, "unit": "10K" },
+    { "component": "Event Grid event operations, conservative paid tier", "meterId": "a96eca0a-e6d7-599a-9eff-f3c62eed9602", "rate": 0.6, "unit": "1M" },
+    { "component": "Event Hubs ingress", "meterId": "d0a685ee-f093-4c5c-ba76-3ec342a75de7", "rate": 0.028, "unit": "1M" },
+    { "component": "Service Bus operations, conservative highest returned paid tier", "meterId": "2a9992f8-e914-490b-a7a6-6d21ba55acda", "rate": 0.8, "unit": "1M" },
+    { "component": "Private Link data processed ingress, first tier", "meterId": "10caa28b-6479-4852-9eb7-610870cb6417", "rate": 0.01, "unit": "GB" },
+    { "component": "Private Link data processed egress, first tier", "meterId": "e7f162f6-7cb8-4cea-ad4f-12cdb5dda25b", "rate": 0.01, "unit": "GB" }
+  ],
+  "openEstimateItems": [
+    "VERIFY: private DNS and alert-rule meters; no zero-cost assumption.",
+    "VERIFY: storage Queue/Table transactions and any required extra private endpoints/public IP.",
+    "VERIFY: final resource inventory against compiled root deployment.",
+    "VERIFY: observed ingestion volume and selected load thresholds before certification."
+  ],
+  "excludedOptions": [
+    "No Elastic Premium or autoscale expansion in the candidate.",
+    "No Event Hubs Capture, Kafka surcharge assumption, geo-replication, Managed HSM or paid evaluation lane.",
+    "No double-count of monthly/hourly Service Bus base-unit equivalents.",
+    "No promotional/trial/free ingestion or Redis HA discount assumed."
+  ],
+  "limits": {
+    "budgetsNotifyButDoNotEnforceHardSpendCaps": true,
+    "provisioningRequiresSeparateApproval": true,
+    "representativeLoadAndLifetimeNotYetApproved": false
+  }
+}

@@ -1,0 +1,54 @@
+let windowStart=datetime({{FromUtc}});
+let windowEnd=datetime({{ToUtc}});
+let searchFrom=windowStart-{{LookbackMinutes}}m;
+let queryTime=datetime({{AsOfUtc}});
+let grace={{GraceSeconds}}s;
+let appResourceId={{AppResourceId}};
+let compositeMappingApproved={{CompositeApproved}};
+let BoundaryAssignments={{Assignments}};
+let BoundaryMap={{BoundaryMap}};
+let ReferenceProofs={{ReferenceProofs}};
+let NativeRecords={{WorkspaceTelemetry}};
+{{CanonicalProjection}}
+let Spans=Records | where RecordKind=="span";
+let Index=union
+    (Spans | where isnotempty(SpanId) | project TargetTrace=TraceId,TargetSpan=SpanId),
+    (Records | where RecordKind=="view" and isnotempty(ViewId) | project TargetTrace=TraceId,TargetSpan=ViewId)
+| distinct TargetTrace,TargetSpan;
+let Parents=Spans
+| where EventTime>=windowStart
+| extend TargetTrace=TraceId,TargetSpan=ParentSpanId,Relation="parent"
+| join kind=leftanti Index on TargetTrace,TargetSpan;
+let LinkIndex=Spans | where isnotempty(SpanId) | project TargetTrace=TraceId,TargetSpan=SpanId | distinct TargetTrace,TargetSpan;
+let MissingLinks=Spans
+| where EventTime>=windowStart and array_length(Links)>0
+| mv-expand Link=Links
+| extend TargetTrace=tostring(Link.operation_Id),TargetSpan=tostring(Link.id),Relation="link"
+| join kind=leftanti LinkIndex on TargetTrace,TargetSpan;
+let BadLinks=Spans
+| where EventTime>=windowStart and isnotempty(LinksText) and isnull(array_length(Links))
+| extend TargetTrace=TraceId,TargetSpan="",Relation="link-format";
+union Parents,MissingLinks,BadLinks
+| project EventTime,IngestedAt,DurationMs,ChildTrace=TraceId,ChildSpan=SpanId,
+    TargetTrace,TargetSpan,Relation,RoleName,RawId,RawParentId,InvalidSpanMapping
+| join kind=leftouter BoundaryAssignments on $left.ChildTrace==$right.AssignedTrace,$left.ChildSpan==$right.AssignedSpan
+| join kind=leftouter BoundaryMap on BoundaryId
+| join kind=leftouter ReferenceProofs on ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation
+| extend EndTime=EventTime+DurationMs*1ms,
+    InvalidReference=InvalidSpanMapping or Relation=="link-format"
+        or not(TargetTrace matches regex "^[a-f0-9]{32}$") or TargetTrace=="00000000000000000000000000000000"
+        or (Relation=="link" and isempty(TargetSpan))
+        or (isnotempty(TargetSpan) and (not(TargetSpan matches regex "^[a-f0-9]{16}$") or TargetSpan=="0000000000000000"))
+| extend Classification=case(InvalidReference,"defect",
+    isempty(TargetSpan) and Relation=="parent" and ParentMode=="root" and isnotempty(AssignmentEvidence),"expected-root",
+    isnotempty(ReferenceEvidence),ProvenClass,
+    isnull(IngestedAt) or isnull(EndTime) or IngestedAt>queryTime-grace or EndTime>queryTime-grace,"delayed",
+    "defect")
+| extend GateAction=case(Classification in ("expected-root","expected-remote"),"declared-boundary",
+    Classification=="delayed","requery-before-deadline",
+    Classification in ("cross-resource","sampled","outside-window","outside-retention"),"required-coverage-not-waived",
+    "fail-until-adjudicated"),IsProvenApplicationDefect=false
+| project EventTime,EndTime,IngestedAt,ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation,
+    BoundaryId,RoleName,Classification,GateAction,IsProvenApplicationDefect,
+    AssignmentEvidence,ReferenceEvidence,RawId,RawParentId
+| order by Classification asc,EventTime asc

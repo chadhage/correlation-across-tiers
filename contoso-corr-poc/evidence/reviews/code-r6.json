@@ -1,0 +1,370 @@
+{
+  "schema": "contoso.code-review.v1",
+  "schemaVersion": 1,
+  "reviewKind": "code",
+  "reviewerRole": "R6",
+  "sourceAcceptanceIsCertification": false,
+  "readOnly": true,
+  "reviewedAtUtc": "2026-11-01T02:48:32.230Z",
+  "result": "accepted",
+  "sourceBase": "tools/kanban.mjs exported projectRoot",
+  "hashAlgorithm": "reviewSourceDigest for bytes/board-policy; reviewScopeDigest for normalized project-relative sources",
+  "method": {
+    "newAgents": 0,
+    "azureWrites": 0,
+    "codeEdits": 0,
+    "fullSuitesRerun": false,
+    "onlyEditedFile": "evidence\\reviews\\code-r6.json",
+    "designReviewsCountedAsCodeApproval": false,
+    "writerNotificationsCountedAsApproval": false,
+    "scope": "Current R4 and R7 code, input ABIs, existing qualification artifacts, and focused read-only remediation rechecks.",
+    "limitations": [
+      "Owner test reports and local real-agent/load artifacts are not production applications or Azure certification.",
+      "R4 construction fixture still has throw-only R8/R5 API headers outside the reactor; no construction qualification is accepted as authentication, workflow or production proof.",
+      "Raw tool-redacted authentication literals/regexes were not reconstructed through alternative tools.",
+      "No live KQL, native Azure workbook import, deployed controller hook, directory/RBAC or provisioning operation was executed.",
+      "Compiler/renderer syntax and declared-schema analysis do not establish actual LAW schemas, permissions, result completeness or ingestion fidelity."
+    ]
+  },
+  "notReviewed": [
+    "R6-owned core data/runtime implementation as an independent other-role code approval; only R4 consumer ABI compatibility was checked.",
+    "R8 security-core runtime authentication/HMAC and R5 messaging-core/worker runtime implementations.",
+    "Root live infrastructure, deployed APIM/Functions/App Service/PostgreSQL/Managed Redis, native grants and directory/RBAC.",
+    "Production workload SLO/capacity/billing and full authenticated Azure ingestion/certification.",
+    "R2 frontend as an additional role approval; current Portal config/telemetry/bootstrap were read only for the requested Node/controller ABI."
+  ],
+  "contextSources": [
+    {"path":"tools\\kanban.mjs","sha256":"375026d7af8fa3a0d6ef89216b8cef2dfbff7baaf248d4724faeb23ab1ce9e35","hashMode":"raw"},
+    {"path":"config\\board-state.json","sha256":"afdada0216e53e7b418d5b9463eb66af89a5ed7e521765b45919603d8a199935","hashMode":"board-policy"},
+    {"path":"contracts\\expected-boundary-map.v1.json","sha256":"7a05a7a13bb38151f81a6685b83c29c0de1f7c4013d756eaebbe744cac73516c","hashMode":"raw"},
+    {"path":"contracts\\public-runtime-config.v1.schema.json","sha256":"891d07b165796caa1f5450382e8557cee6489027e06714e87b462c5ac70c3e00","hashMode":"raw"},
+    {"path":"tools\\protocol.mjs","sha256":"439065ba457192e12959c82508abbffa2a72ff10d6b99ecf06909fbc5776e43a","hashMode":"raw"},
+    {"path":"web\\portal-ssr\\src\\config.ts","sha256":"0ffbc5656602e2a9e544ca04ac43d7d4a83ddf6b01b7476bd2ee36202444168f","hashMode":"raw"},
+    {"path":"web\\portal-ssr\\src\\telemetry.ts","sha256":"74f2f1cd6daefa094fb094cf02ab93c2910c6a4a9f117cf8da420c687a264b0e","hashMode":"raw"},
+    {"path":"web\\portal-ssr\\src\\bootstrap.ts","sha256":"d077435581f751be05d4de6fd1bcff6aeabf29344b02fe0311c981c0445b5aac","hashMode":"raw"}
+  ],
+  "existingProofs": [
+    {
+      "path":"evidence\\java-local\\validation.json",
+      "sha256":"56336ae4ab31447f4510bcf30ee40ff7f136d5fabaaf240320523b407368f47d",
+      "label":"Partially verified",
+      "acceptedScope":"Owner-reported local 22 core/10 construction HTTP/21 data tests with no failures; certified=false and integratedApplications To Do. R6 did not rerun suites."
+    },
+    {
+      "path":"extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.0.0.jar",
+      "sha256":"08592fa4f8fea7b7d259efd2ea38753d9ddc0e9abed05c2e42b62d7bbf2218ce",
+      "label":"Verified",
+      "acceptedScope":"Read-only current ZIP/hash: exactly the two Contoso sampler classes, one SPI entry, zero io/opentelemetry class entries or nested JARs. Does not establish vendor GA or deployed loading."
+    },
+    {
+      "path":"extensions\\parent-safe-sampler\\target\\agent-probe\\result.json",
+      "sha256":"3c027c6d820aad5beef5256ea94dc98da73bee2462a128cf58aaefa37cb0d02f",
+      "label":"Partially verified",
+      "acceptedScope":"Existing real-local-agent source: three PIDs, native counts 2/0/2, preserved remote 00 and current ExtensionClassLoader/AgentClassLoader delegate observations; certificationEligible=false."
+    },
+    {
+      "path":"extensions\\parent-safe-sampler\\target\\approved-load\\result.json",
+      "sha256":"13b915d5e5f196b2221413a763d96c2220215275d7355c20237b129bc764808d",
+      "label":"Partially verified",
+      "acceptedScope":"Existing actual HTTP/exact-PID measurements use configured 10 RPS/120 s profile and current thresholds. 2400/2400 native spans; overall INCONCLUSIVE for missing actualAzureBillableBytes/actualVariableDailyMeters. Two-core/8GiB normalization is not observed P1v3 capacity."
+    }
+  ],
+  "pureReviewProbes": [
+    {
+      "id":"R6-P1",
+      "scope":"Initial production-restoration predicate versus complete acknowledgement validator",
+      "label":"Verified",
+      "observed":"Initial predicate accepted unsafe privacy/provider/exporter flags; common validator rejected them. Focused current validateProductionRestoreAck rejects them.",
+      "fixtureOnly":true,
+      "writes":0
+    },
+    {
+      "id":"R6-P2",
+      "scope":"Current compiled Portal telemetry guard with controller's former configured server percentage100",
+      "label":"Verified",
+      "observed":"CONFIG_INVALID before distro/provider initialization. Remediated SSR patch preserves production bases below100 and writes only validated window fields.",
+      "fixtureOnly":true,
+      "providerInitialized":false,
+      "writes":0
+    },
+    {
+      "id":"R6-P3",
+      "scope":"Current isDrainComplete on attempted-only or forged-completion/pending-owner state",
+      "label":"Verified",
+      "observed":"Both states rejected; current restore replays unfinished drain journal and requires complete per-owner acknowledgements.",
+      "fixtureOnly":true,
+      "writes":0
+    }
+  ],
+  "findings": [
+    {
+      "id":"R6-R4-01",
+      "owner":"R4",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "claim":"Initial HTTP lookup's request/byte limits bounded the complete token-plus-response operation.",
+      "initialSourceSha256":"b8f7897f2668bbe7a178edcb3dfd4020a982f3dd406c1f8158a57a3a1b547156",
+      "problem":"Token acquisition preceded expiry checking and had no remaining budget. InputStream readNBytes after response headers could stall beyond the Context deadline.",
+      "currentEvidence":[
+        {"path":"services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java","lines":[33,114],"sha256":"ddaba3c2dc4650f969ab1390239f1aae1e598575af13ee196848a9756bdd963b"},
+        {"path":"services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\InventoryHttpClientTest.java","lines":[14,59],"sha256":"e9d202ef4dd77b1aee147e8eb5922efab961540139a36a3ad5e792db43d63350"}
+      ],
+      "resolution":"Focused code read verifies pre-token absolute/monotonic Budget, bounded four-thread/16-queue call executor, remaining-time Azure token block, whole-call Future, HTTP cancellation and off-call-thread body close. Stalled-token/body controls are source-present and owner-reported locally passing, not live production."
+    },
+    {
+      "id":"R6-R4-02",
+      "owner":"R4",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "claim":"Initial startup admission rejected every native system/environment enable that could duplicate manual data spans.",
+      "initialSourceSha256":"f0e38d81bdc4e6811560ffe54458fda5bcf4179612a4985cec3ff5592695b993",
+      "problem":"Only applicationinsights system overrides were checked; workers could inherit JAVA_TOOL_OPTIONS containing native otel.instrumentation enables.",
+      "currentEvidence":[
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java","lines":[83,140],"sha256":"9f09b6013dffdd9aacf5cf55da51dd0fb0237a10e24989bd93ecbb8bcfd03df0"},
+        {"path":"infra\\modules\\compute.bicep","lines":[14,28],"sha256":"58ab5c9810a5350d6e8ff23de438dc06eb11cc2921b58cba51301d6e51e81cd2"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java","lines":[10,26],"sha256":"dd0d2f896adaa5c221b761a673a9cd6b2af97084eaeee797476ebd779ed3067e"}
+      ],
+      "resolution":"Current System+Env alias/family checks reject JDBC/Lettuce/Jedis/Redisson/Azure/aiFunctions true/invalid enables. Common compute settings clear inherited JAVA_TOOL_OPTIONS/JDK_JAVA_OPTIONS/_JAVA_OPTIONS; fixed worker JAVA_OPTS owns one agent/extension."
+    },
+    {
+      "id":"R6-R7-01",
+      "owner":"R7",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "claim":"The initial production-restored predicate had the same safety checks as activation.",
+      "problem":"Initial restore omitted complete schema/privacy/provider/exporter acknowledgement validation.",
+      "currentEvidence":[{"path":"tools\\observability\\sampling-controller.mjs","lines":[63,72],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"}],
+      "resolution":"Current validateProductionRestoreAck reuses validateSamplingControlAck plus actual source kind and baseline owned hash; pure unsafe-ack probe rejects the initial unsafe flags."
+    },
+    {
+      "id":"R6-R7-02",
+      "owner":"R7",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "claim":"The initial SSR configured-percentage100 patch matched the current Portal initialization contract.",
+      "initialSourceSha256":"00e7f57b824753c8b52ad972b233fe90bb860c36e8b2109baa5207738d366708",
+      "problem":"Portal rejects configured server percentage>=100 before deriving effective100 from the certification window.",
+      "currentEvidence":[
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[91,93],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[279,286],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"web\\portal-ssr\\src\\telemetry.ts","lines":[24,28],"sha256":"74f2f1cd6daefa094fb094cf02ab93c2910c6a4a9f117cf8da420c687a264b0e"}
+      ],
+      "resolution":"SSR patch now changes only validated window fields, validates/preserves approved production bases<100, and leaves effective100 to the current R2 window guard. Does not prove deployed Node reload/provider behavior."
+    },
+    {
+      "id":"R6-R7-03",
+      "owner":"R7",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "claim":"The initial controller honored configured pre-expiry drain and never accepted late activation/restoration.",
+      "problem":"Drain reserve was unused; the final activation could complete after expiry; restore reset a fresh budget after delay rather than enforcing lease expiry plus budget.",
+      "currentEvidence":[
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[74,77],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[122,148],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[443,491],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"}
+      ],
+      "resolution":"Current code validates configured drain reserve/mandatory traffic-owner hooks, checks activation before drain/after hooks, schedules drain before expiry, and records absolute cutoff misses as nonpassing best-effort recovery."
+    },
+    {
+      "id":"R6-R7-04",
+      "owner":"R7",
+      "severity":"high",
+      "confidence":"high",
+      "label":"Incorrect",
+      "status":"resolved",
+      "initialSourceSha256":"31fc639fb47b6006a22740ab831a2cc1b51054d711d59070398eb2d03bee7e1b",
+      "claim":"An attempted drain marker proved all owners completed draining after a crash.",
+      "problem":"Attempted=true was persisted before owner hooks; recovery skipped drain and could return restored with no completed journal or remaining-owner acknowledgements.",
+      "currentEvidence":[
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[339,423],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"tools\\observability\\sampling-controller.mjs","lines":[429,484],"sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9"},
+        {"path":"tests\\observability\\sampling-controller.test.mjs","lines":[288,309],"sha256":"c056bd0a88d336f0eb0cff5614c9e6e82046c72ee375a23f441a8552fa2259cb"}
+      ],
+      "resolution":"Current per-owner journal resumes pending records, validates retained acknowledgements, stamps completion only after all owners, and requires completeDrainVerified for restored. Pure attempted/pending-state probes reject; actual deployed mid-drain failure remains a live test."
+    }
+  ],
+  "roles": [
+    {
+      "role":"R4",
+      "result":"accepted",
+      "sourceCount":62,
+      "scopeSha256":"62b86dc1ff42e29a51c8b3d67843b392b22611aa69425009c007a24f6a44f3cc",
+      "acceptanceLimit":"Current CODE construction/local qualification after independent scoped fix rechecks. Not integrated R8/R5 runtime, production packaging, managed platform or certification acceptance.",
+      "changesRequired":[],
+      "findingIds":["R6-R4-01","R6-R4-02"],
+      "acceptedAreas":[
+        {"claim":"Root/API/context1.65.0 and provider/extension governance keep application SDK/exporter construction forbidden; PROVIDED exception is only the exact sampler child ABI.","label":"Verified","evidence":["pom.xml:65-88","tools\\java\\Gate-02.ps1:44-124","services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeClasspathGuard.java:9-30"]},
+        {"claim":"Classloader, actual current JAR/hash/SPI and application-loader exclusion are checked without hiding the extension subtree.","label":"Verified","evidence":["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java:13-57","tools\\java\\Gate-02.ps1:129-180","services\\correlation-core\\src\\main\\resources\\contoso-parent-safe-sampler.properties"]},
+        {"claim":"Current data consumer ABI uses the real standalone inventory-data factories and frozen core data ports, not an executable Inventory app or duplicated data headers.","label":"Verified","evidence":["services\\orders-api\\pom.xml:4-10","services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java:34-40","services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java:27-30","tests\\java\\construction\\pom.xml:7-17"]},
+        {"claim":"Manual spans use existing GlobalOpenTelemetry, approved attributes before start, scoped business/pseudonym context and restored event MDC; failures do not record original Throwable causes.","label":"Verified","evidence":["services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\Correlation.java:37-76","services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\Correlation.java:118-174","services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\CorrelationSpan.java:18-35"]},
+        {"claim":"Current HTTP lookup bounds token/headers/body/parse and closes canceled work; native instrumentation overrides cannot silently duplicate manual CLIENTs.","label":"Verified","evidence":["services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java:33-163","services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java:83-140","infra\\modules\\compute.bicep:14-28"]},
+        {"claim":"One P1v3 Dedicated declaration, Java25/Node24 leaf startup, actual cohost packaging references and bounded heaps are code declarations, not observed plan capacity or private-SCM reachability.","label":"Partially verified","evidence":["infra\\modules\\compute.bicep:39-158","docs\\JAVA_VALIDATION.md:13-25","tools\\java\\startup.sh:11-32"]},
+        {"claim":"NDJSON HTTP/parent/link/shutdown/restart proof is a real local agent qualification; R8/R5 throw-only construction factories remain test-source-only and cannot be production authority.","label":"Partially verified","evidence":["services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\SingleAgentExportTest.java:18-143","tests\\java\\construction\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticator.java:3-8","tests\\java\\construction\\src\\test\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java:6-10","docs\\JAVA_VALIDATION.md:60-104"]}
+      ],
+      "sources":[
+        {"path":"VERSIONS.md","sha256":"1caf12bc066ed73de60f2699db1ffedda6a12b706c0ff108d19033a60e9a58bd","hashMode":"raw"},
+        {"path":"config\\java-agent.json","sha256":"a229ce70560666dfe7fa46afc7018bbd0489edf1eca47b0c3817495e8c175590","hashMode":"raw"},
+        {"path":"config\\versions.lock.json","sha256":"134e1e55d2f0914c4891d57c067224fe4d11f7ee5456c81e5d725adcb6e75e10","hashMode":"raw"},
+        {"path":"docs\\JAVA_VALIDATION.md","sha256":"aa0dd151bf9a3ecb26713a3c2166cb8b07b045541a48ea975c4c69d314cbb03f","hashMode":"raw"},
+        {"path":"infra\\modules\\compute.bicep","sha256":"58ab5c9810a5350d6e8ff23de438dc06eb11cc2921b58cba51301d6e51e81cd2","hashMode":"raw"},
+        {"path":"pom.xml","sha256":"944c8457b19efd12e6cecc7b556bb859f5b8e92c6ce32b1070ee593b95395b66","hashMode":"raw"},
+        {"path":"services\\correlation-core\\pom.xml","sha256":"047cb933af2ba1cdd179bcf8ab869c06b4f419921f216863c007ea0d4e604bf6","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\Correlation.java","sha256":"22ba979afccabf113397335b3eaad09d6c38b82de7eaf0c3fff92a096ac04428","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\CorrelationSpan.java","sha256":"74af2cfb41f2ba7c2bba10d99381f99bd332471f73e2cc74c5abc212e9e46a97","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java","sha256":"a4456000625f4f3899ca47c50d0df2a3f24cb062ebdda0c00afd3e2081178d00","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\InvocationId.java","sha256":"c26e714e91af153d2b3b3e588dc1663805b69db4a25c813f403e66571ddb3447","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\InvocationIds.java","sha256":"a290553ca7e68e4c33d9ac099c4263a277ffd3678700c35b9d0835dfdc91cddc","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeClasspathGuard.java","sha256":"bf955caa6f62d5a75a24e74950e017473c3ab95688c49844954ba02330dcbedf","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java","sha256":"9f09b6013dffdd9aacf5cf55da51dd0fb0237a10e24989bd93ecbb8bcfd03df0","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\SpanOracle.java","sha256":"91bffd56ac74145b90ae1989810daad4be163a2079b3f4ffce57a4a1834297c6","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\W3c.java","sha256":"b17e71d6e32d9f2f155455291ca857adbd4cb8425bcff5bca2281423d2f15881","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\DemoRunCommand.java","sha256":"8f9b5c4cf844ba19bd269d48911cd9d3ccb9ce17fc20510b3bc4cca5c31b8722","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\OrderCommand.java","sha256":"a738be6bf2cd4d26b7d7ea15a3c21912be28ccc9eede4db7067822f72fa635a9","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\RunAction.java","sha256":"81bd99ba2fe529b1cc27d78f2d5b61a85ed3f39321dbaad2392b5e8a25a809aa","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\RunControl.java","sha256":"6442d506bb737e17326594d1d1fe0f8b16f0306aeaacef22420afb7b79b8ac53","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\RunScenario.java","sha256":"5ce376fa0dc657d8b886ea182e0ade4ef90f9b98927e0bee73ecd8890a0b3881","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\WorkTarget.java","sha256":"a87de5261040318dfba4310940eafb11add6c8482ad577c9a099f8f4e094d80f","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\WorkflowPort.java","sha256":"f6aa5e525f5a53b5a9fc6abf2718ba4304100fa3ae6b510b17276b49e45b5c13","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\WorkflowView.java","sha256":"6b50ed9ba769f0d502483f70dc5738474cd4ccbc0e175c8b0e0ac9dc65ab26d6","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\main\\resources\\contoso-parent-safe-sampler.properties","sha256":"e0f84386477a0d4ea2157beb009bfaef45f06268b014f7e6319bb26b7d044ae0","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\AgentProbe.java","sha256":"f8be10dfb24edf9d5d6636bb4d169dcc35ec9ebcdcb5e1c2eca9b67bda0894f1","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\CorrelationTest.java","sha256":"131d20613b5bc7b44f0d622ef7847a8f3dbd3028c0ddbd25812c8d3022eef374","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\ExtensionGuardTest.java","sha256":"3eb3eb2a9a4e15c31717de653e19228b03ff5d6b9e1b6a4f05fb56738a95bf9d","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\HttpAgentProbe.java","sha256":"dff8076bce8a79dd167882c80ad886115bd4c3d296bdb8f835040150cbcafc06","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeClasspathGuardTest.java","sha256":"b55395ad399120ccd322d10bd3594d91ffd99f681b5bdbe74f5664e96b2d343a","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java","sha256":"dd0d2f896adaa5c221b761a673a9cd6b2af97084eaeee797476ebd779ed3067e","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\SingleAgentExportTest.java","sha256":"5bb94dc9a5acedbd7f13ad92b9a5c4088d58b8aa5a83b0544d1a91794e867e6e","hashMode":"raw"},
+        {"path":"services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\SpanOracleTest.java","sha256":"a28b0e9431896ff15702eb84164dc9ba38a7d9281f6b9ac5c92ca04783b3c730","hashMode":"raw"},
+        {"path":"services\\inventory-api\\pom.xml","sha256":"0e46dede0d1c557d0de4b21e7a54cd1b9344e78ec9cfa24edbb66f2d6c65908a","hashMode":"raw"},
+        {"path":"services\\inventory-api\\src\\main\\java\\com\\contoso\\inventory\\InventoryApplication.java","sha256":"faa080e4f16bc7e836bd6989ad724543d3ffe8caba878277ac2044458cb1ce15","hashMode":"raw"},
+        {"path":"services\\inventory-api\\src\\main\\resources\\application.properties","sha256":"378863e5c4a1b43cedf643209fd24cd82cc202df49662902b450e1ebb4ce69e8","hashMode":"raw"},
+        {"path":"services\\inventory-api\\src\\test\\java\\com\\contoso\\inventory\\InventoryApiTest.java","sha256":"8a5fe3382149d6b50d3ae8f4961b33ffce54e2b72b7a6d04336ac7aaa7b52ba0","hashMode":"raw"},
+        {"path":"services\\orders-api\\pom.xml","sha256":"4b470b87a4c17c8ab22f8da95b3a3616ac290f4c7d66c883f572f2b31b4a25e8","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java","sha256":"ddaba3c2dc4650f969ab1390239f1aae1e598575af13ee196848a9756bdd963b","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java","sha256":"f6cc70acfb03a791721a8eb5dd4dba20f943eb3d1ead80eb7b0b60b7e5ed524b","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\main\\resources\\application.properties","sha256":"117a1d2692abd3dfddca8e1a0ed8ae5c8fc43c45d19fd3be060f942320ac1c1e","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\InventoryHttpClientTest.java","sha256":"e9d202ef4dd77b1aee147e8eb5922efab961540139a36a3ad5e792db43d63350","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\OrdersApiTest.java","sha256":"4ed6044cabdec4d7254a3f6e9d98551c18bb23da3c3ec51ffb686f4085eb4cc2","hashMode":"raw"},
+        {"path":"services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\ProductionLaunchGuardTest.java","sha256":"73bf78e5f4971a9092223bdd6405bcc2f171ddcb7a9f60f894b7b760b1770f77","hashMode":"raw"},
+        {"path":"tests\\java\\construction\\pom.xml","sha256":"4e2f2a9962b9d26d99e56ffed2f8a154f6738d3a115ed29d7cc78058729d7c9b","hashMode":"raw"},
+        {"path":"tests\\java\\construction\\src\\test\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java","sha256":"dd3d4ec4b7a5811c273f647fb386feaecba320ff9ea3ed9949c6e57028c14a2c","hashMode":"raw"},
+        {"path":"tests\\java\\construction\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticator.java","sha256":"4fae8f5db2350b70077beb76806b21ff0b285edd25aa57e17f182816f0fcfc4a","hashMode":"raw"},
+        {"path":"tests\\java\\construction\\src\\test\\java\\com\\contoso\\security\\VerifiedCaller.java","sha256":"25063884484a66f42a6d9672cd9b035f6030541babeb5b06865ad6fc304dd4ec","hashMode":"raw"},
+        {"path":"tests\\java\\gates.test.mjs","sha256":"d72584a51e1639c9837814625fca800e3a98341996c4defbe73212c4c2c32b01","hashMode":"raw"},
+        {"path":"tools\\java\\Freeze-Versions.ps1","sha256":"095906548211abdfc848dec3daee16819cf8d3f3e46a8fbb37c0d7c9b2e6a599","hashMode":"raw"},
+        {"path":"tools\\java\\Gate-02.ps1","sha256":"d9fb6d48a63e6503db2a304b74a09fb1908d058956dc8c90472a42764014035a","hashMode":"raw"},
+        {"path":"tools\\java\\Gate-05.ps1","sha256":"df7f1690a16c48e1ac5091a8f69a915376f3a732145b03aed3fcbc9edc506715","hashMode":"raw"},
+        {"path":"tools\\java\\Get-Agent.ps1","sha256":"18defac51bd6562a40a179ed6ce1aed4db7bed06124171e8216a525969684ea3","hashMode":"raw"},
+        {"path":"tools\\java\\Get-Extension.ps1","sha256":"4dbf6a11d4e5a03b4050e2eafbec578fffec63917e97228a7df62afe5c7637ec","hashMode":"raw"},
+        {"path":"tools\\java\\Install-Bicep.ps1","sha256":"58ed1c6ffa589878c2040ab8f47881a41724d8af414574be8041d87e0e6eaa0d","hashMode":"raw"},
+        {"path":"tools\\java\\Install-Portable.ps1","sha256":"471beb5eb286cfae1983202afb9e826204c10855926066e7ecf8dab79cb8fe69","hashMode":"raw"},
+        {"path":"tools\\java\\Package-Service.ps1","sha256":"c9b1ad3b6f1b34b492a4989ca2433429fdbd545921ea2cd328ffdd874675c272","hashMode":"raw"},
+        {"path":"tools\\java\\Package-Worker.ps1","sha256":"a11591eb48b82df2dbb9f6f820d57b78ab662851a414ffe268c167aef5d27dc8","hashMode":"raw"},
+        {"path":"tools\\java\\Use-Portable.ps1","sha256":"8a6e8ceb209d539812fc9488099f31515a11d1339ceed2b17ff226526e0d0328","hashMode":"raw"},
+        {"path":"tools\\java\\Validate-Compute.ps1","sha256":"df1c90e80129781743563041927ccc4e38956173a56523ce5f6f010ab4fc747c","hashMode":"raw"},
+        {"path":"tools\\java\\Write-ValidationReport.ps1","sha256":"c46b23229070641c0bcc0a0c9aee3724ef38708045ed2197fe027f12e85dd2bd","hashMode":"raw"},
+        {"path":"tools\\java\\startup.sh","sha256":"0a79aeea22bbb7eed454f073f97adb9b4dc5a4e8871f3d116d723b33b8e8d894","hashMode":"raw"}
+      ]
+    },
+    {
+      "role":"R7",
+      "result":"accepted",
+      "sourceCount":45,
+      "scopeSha256":"218672971c51de4ac760eac751dd1bdbbe0f3bfe5bbd550d501f6523d2d11eaa",
+      "acceptanceLimit":"Current 44-file completed scope plus new drain-ack schema, after independent focused remediation review. Source-local controller/checker/renderer/qualified sampler and existing actual-load proof only, not deployed hooks, live LAW or vendor guarantees.",
+      "changesRequired":[],
+      "findingIds":["R6-R7-01","R6-R7-02","R6-R7-03","R6-R7-04"],
+      "manifestProvenance":{
+        "path":".cache\\r7\\R7-review-scope.json",
+        "repositoryProvenancePath":".cache\\r7\\R7-review-scope.repository-provenance.json",
+        "initialManifestSha256":"2e038a9079646e56d83d94a29d3e1a7055dc097019317246c4243de73d51f74f",
+        "initialRepositoryPrefixedScope":"0231982f49fa31aa7346ad857ea713dcc75f6dcae551d0e06c99f4aec4487d50",
+        "finalOwnerManifestSha256":"53434b0d97fbedc2542f1149ea7150b8fddb4c3daf049f47280e15b974a7f1de",
+        "finalOwnerManifestScopeSha256":"1910ce8e1d25186ec093640b08b8a20b9e64c4cea839e4286f1fb1417e32fc59",
+        "ownerReportedFocusedControllerTests":14,
+        "ownerReportedFullNodeTests":33,
+        "normalization":"Owner paths prefixed contoso-corr-poc were converted to exported kanban projectRoot-relative paths; all source bytes were rehashed independently after fixes. The owner's stated JSON-array digest is preserved only as provenance and is not the tools/kanban.mjs newline-based reviewScopeDigest. The role scopeSha256 uses the actual exported helper. Owner manifest alone does not grant review approval."
+      },
+      "acceptedAreas":[
+        {"claim":"The guard drops valid local/remote unsampled parent before invoking the existing agent sampler and returns the delegate result for eligible/root work; PROVIDED SDK interfaces are not bundled runtime classes.","label":"Verified","evidence":["extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling\\ParentSafeSampler.java:14-29","extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling\\ParentSafeSamplerCustomizer.java:8-17","extensions\\parent-safe-sampler\\pom.xml:11-28"]},
+        {"claim":"Existing real local loader proof shows one SPI observation/phase, distinct restart IDs, correct passed delegate/classloader and counts2/0/2; this is not Microsoft GA or deployed edge certification.","label":"Partially verified","evidence":["tools\\observability\\probe-parent-safe.mjs:141-200","extensions\\parent-safe-sampler\\target\\agent-probe\\result.json","docs\\SAMPLING_MATRIX.md:19-37"]},
+        {"claim":"Native link IDs use operation_Id/id pairs; logs/exceptions are attachments, views are anchors, physical duplicate spans are retained, unavailable flags/attributes remain null, every normalized item is uncertified.","label":"Verified","evidence":["tools\\observability\\telemetry-contract.mjs:54-74","tools\\observability\\telemetry-contract.mjs:110-158","tests\\observability\\kql-contract.test.mjs:68-123"]},
+        {"claim":"Three workspace and three separate legacy queries bind the single Root map, explicit observed assignments/proofs and bounded scope; syntax/declared-schema checking is not live query/fidelity or exact business ownership.","label":"Partially verified","evidence":["tools\\observability\\kql.mjs:12-49","tools\\observability\\kql.mjs:99-139","tools\\observability\\Validate-Kql.ps1:7-36","kql\\business-lookup.kql:9-22","kql\\README.md:19-40"]},
+        {"claim":"Current controller enforces expiry, configured pre-expiry drain, complete safety acknowledgements on both activation/restore, absolute cutoff and resumable per-owner drain journal; local file acknowledgements cannot certify runtime.","label":"Verified","evidence":["tools\\observability\\sampling-controller.mjs:63-77","tools\\observability\\sampling-controller.mjs:118-169","tools\\observability\\sampling-controller.mjs:338-484","contracts\\sampling-drain-ack.v1.schema.json:1-20"]},
+        {"claim":"SSR controller patch now matches the current Node contract: production base stays<100 and the valid finite window derives effective100; source/file readback is not actual Node restart acknowledgement.","label":"Verified","evidence":["tools\\observability\\sampling-controller.mjs:91-93","tools\\observability\\sampling-controller.mjs:279-286","web\\portal-ssr\\src\\telemetry.ts:24-28","tests\\observability\\sampling-controller.test.mjs:77-91"]},
+        {"claim":"The current load script actually consumes configured profile/thresholds, measures exact-PID CPU/working set and real HTTP/native receipts, keeps missing actual billing null and reports INCONCLUSIVE, not default-zero/cost certification.","label":"Partially verified","evidence":["config\\observability-load.v1.json:1-31","tools\\observability\\measure-parent-safe.mjs:16-18","tools\\observability\\measure-parent-safe.mjs:83-137","tools\\observability\\load.mjs:118-161","extensions\\parent-safe-sampler\\target\\approved-load\\result.json"]},
+        {"claim":"Workbook is single-map derived and diagnostic only; telemetry module emits no secret/RBAC resource and disables unconfigured routes; retention/caps/queries/portal rendering remain live observations.","label":"Partially verified","evidence":["tools\\observability\\workbook.mjs:29-96","workbooks\\README.md:5-25","infra\\modules\\telemetry.bicep:23-156","infra\\modules\\telemetry.README.md:1-29"]}
+      ],
+      "sources":[
+        {"path":"config\\observability-load.v1.json","sha256":"83c129c13fdd472168f6484033b01842c897aecaeb0be25d13ac050b58e425a8","hashMode":"raw"},
+        {"path":"config\\sampling-profiles.v1.json","sha256":"6245034012a4846128bfd5d14adc068e8414bc2792d19f920e57e6ba46a29854","hashMode":"raw"},
+        {"path":"contracts\\sampling-control-ack.v1.schema.json","sha256":"a489386b3eac15f9e6d9117506fbbd0c72b0d3b68517062849d48e7a94f44ff5","hashMode":"raw"},
+        {"path":"contracts\\sampling-drain-ack.v1.schema.json","sha256":"715810a22522ac7757f6b089a1012285e8490464963138448267be5fb4ef89f4","hashMode":"raw"},
+        {"path":"contracts\\sampling-window.v1.schema.json","sha256":"e1b919ea2da356f5a24cb0bc62b09725a62d0bcb9e2b4f3781f0bf74315fe650","hashMode":"raw"},
+        {"path":"docs\\OBSERVABILITY.md","sha256":"99c73e6254db133c10e7543b9b05f9e112e2cf210360e4013a770b7c18b2b2b4","hashMode":"raw"},
+        {"path":"docs\\SAMPLING_MATRIX.md","sha256":"86c86dce5cd50bf6a9c4d97100d6932605e8cc0cd5bac93dd8fb22c8aefc5e7e","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\.gitignore","sha256":"28f0ebc1ad43be69ca1a4f2c2c299cf276806c4480a907bd8d797b2573b51b66","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\README.md","sha256":"c662cd127e9d1e49431070433b2edf2f208bbbc35357de375ae3301f07e09f73","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\pom.xml","sha256":"5bc803364023c917d507f106ca77f5f804c057eecefec60fea04c813a5b5c962","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling\\ParentSafeSampler.java","sha256":"c555112a71095d3c1a96767f8035fd141afe75e7469eba8f397db657182530cb","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling\\ParentSafeSamplerCustomizer.java","sha256":"47e0ee34ef9c8101571f18c9cb7da679ecd47df845ca2ad52ba4c3c2ebc335ed","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\src\\main\\resources\\META-INF\\services\\io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider","sha256":"fe2737206f8d42e387ce95610500b25beed54e1c3f7debd56c9eba1280efd963","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java","sha256":"24519e621741caae690f6647f0be46de4bed60fe06018c7319a7ba05264f0980","hashMode":"raw"},
+        {"path":"extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeSamplerTest.java","sha256":"0ec9718c5c9a371457306c3d8723484200df11bf451e42ec53a62db5b38a7e54","hashMode":"raw"},
+        {"path":"infra\\modules\\telemetry.README.md","sha256":"bf7d5abcddc20d397890f78c19c2c08f1c67305d5e73b4a1172aefc0b173ea77","hashMode":"raw"},
+        {"path":"infra\\modules\\telemetry.bicep","sha256":"55c165952c690839abff252882aa5cfa7e4e1dda6f0ee64d97dabcf95fc31c15","hashMode":"raw"},
+        {"path":"kql\\README.md","sha256":"f6973c67a21baf89d30d9e97b81fd9ed25ed1b925b0c8be7c67d4fa8beac9e93","hashMode":"raw"},
+        {"path":"kql\\business-lookup.kql","sha256":"05f970902be5a644944d2a0cd840cd56824d135afd0fe280f498ca16cd8a111b","hashMode":"raw"},
+        {"path":"kql\\legacy\\business-lookup.kql","sha256":"bd1beb5ff2ecc6be7299ba61506ebf767618d59a06f3f45691f10bf2f142a7e0","hashMode":"raw"},
+        {"path":"kql\\legacy\\orphan-candidates.kql","sha256":"53ee5a0ba588ac85041b2f11b9931b93b944c911318c86a56ec12cb7769f5da0","hashMode":"raw"},
+        {"path":"kql\\legacy\\trace-reconstruct.kql","sha256":"f5892347b14b33c2be52aa3563a75f2614c56570783a20a9075fcac88063f515","hashMode":"raw"},
+        {"path":"kql\\orphan-candidates.kql","sha256":"6582cfbcf6cc75bb2173b715dc5450b69e196c28aab8ced0008c1c5299b2f414","hashMode":"raw"},
+        {"path":"kql\\trace-reconstruct.kql","sha256":"8eb761b1b033ab794778081e28786693e2518c88bc616bc8317d1d590d663471","hashMode":"raw"},
+        {"path":"tests\\observability\\kql-contract.test.mjs","sha256":"0ccc03028e6246cca893544a16397d2bc55cfd132ec7bbd81e06f3a2f18501fc","hashMode":"raw"},
+        {"path":"tests\\observability\\load.test.mjs","sha256":"9734b0675a62a590c1ef1e3669f5e211a787a78b6248e8cc7b22d4c9b632d294","hashMode":"raw"},
+        {"path":"tests\\observability\\sampling-controller.test.mjs","sha256":"c056bd0a88d336f0eb0cff5614c9e6e82046c72ee375a23f441a8552fa2259cb","hashMode":"raw"},
+        {"path":"tests\\observability\\telemetry-infra.test.mjs","sha256":"b03e735599a2a4fcb51be275af4a584bbec79989c72f34223dba71d29f9779c1","hashMode":"raw"},
+        {"path":"tests\\observability\\workbook.test.mjs","sha256":"9a8ec76ccc58bc0ac2a423e3d65e40ba60caef4281c093f81cab6f97cc0ae509","hashMode":"raw"},
+        {"path":"tools\\observability\\Render-KqlChecks.mjs","sha256":"b184446c117e119dc4a8a7492de0bba107b2ab8f67ef2a49c1f29240eebeaff7","hashMode":"raw"},
+        {"path":"tools\\observability\\Restore-KqlCompiler.ps1","sha256":"c44320f8b9414eac545f7dcb9ed0fbf59c7f8c92dd8ae41996f682eaebae1dbb","hashMode":"raw"},
+        {"path":"tools\\observability\\Use-Portable.ps1","sha256":"15d15bc7b7f43bb577ccd7f4f772de815c7fb70dae387854e33b0be6fc423850","hashMode":"raw"},
+        {"path":"tools\\observability\\Validate-Kql.ps1","sha256":"4ca311ae3a932d65a90b2dad1a8fc1a6e6d44b95752c0af936485998b292c59e","hashMode":"raw"},
+        {"path":"tools\\observability\\kql.mjs","sha256":"280d21a01765bbd5a43ad5f160293d4bfe7c1220fb4107e4f44f3a0c9b77fbae","hashMode":"raw"},
+        {"path":"tools\\observability\\load.mjs","sha256":"4af0c0c98af0c25cfbff307212d6a2d9938d18ccc7e4d1116d262c0c8d549f70","hashMode":"raw"},
+        {"path":"tools\\observability\\measure-parent-safe.mjs","sha256":"05d983ebbc964ee4190cb6f18544408ad71b27bd371624abced459853be2fdca","hashMode":"raw"},
+        {"path":"tools\\observability\\probe-parent-safe.mjs","sha256":"926e774ecf17d21a5f8ce3da626ac762e07a91a81868b05d8b8717bbd7ab905f","hashMode":"raw"},
+        {"path":"tools\\observability\\process-metrics.ps1","sha256":"5aecfd6fab5a27e4b1cc29a7049f6328423038729eca3400ede4f4fb8fea9080","hashMode":"raw"},
+        {"path":"tools\\observability\\sampling-controller.mjs","sha256":"e25e2cd077b23b48f3807f255d8221fb5e5f4e3b0551b5ef8be6e8c1423822f9","hashMode":"raw"},
+        {"path":"tools\\observability\\telemetry-contract.mjs","sha256":"e64a5f25300e456d7e292e7a02de97165bd77aa23dd33d421aa0100940cc3562","hashMode":"raw"},
+        {"path":"tools\\observability\\test.mjs","sha256":"d2d2e2eb37e052ee78ba6f64f258d86fa1cea4497b233e52fd6635775c3eb3da","hashMode":"raw"},
+        {"path":"tools\\observability\\workbook.mjs","sha256":"5e5e7df929f2cf1bbf81fecc1c9598d6eb5131cf03e71d4960d7ff245fc3e31b","hashMode":"raw"},
+        {"path":"workbooks\\.gitignore","sha256":"9c13b62a02748b611c2eba5fb0480c30fba68db58e005dff0fe44b0e1996c560","hashMode":"raw"},
+        {"path":"workbooks\\README.md","sha256":"14f0eaf44305c6925324e0c78c8e989e5d7825c427d56d23373db0827e0647e4","hashMode":"raw"},
+        {"path":"workbooks\\contoso-correlation.workbook.json","sha256":"0804ddc2fdb95b761375bb7cd6be271804c6ec20ef75c228b52a01c4ec08ae2c","hashMode":"raw"}
+      ]
+    }
+  ],
+  "rootReport":{
+    "acceptedCodeRoles":["R4","R7"],
+    "outstandingHighConfidenceCodeChanges":[],
+    "resolvedWriterFindings":6,
+    "liveAcceptanceStatus":"To Do",
+    "productionAcceptance":false,
+    "nextActions":[
+      "Preserve this exact current-hash CODE report; later source changes require focused recheck rather than reusing design-review approval.",
+      "R4/root must use actual R8/R5 modules for real reactor, production packaging and integrated authentication/workflow tests; construction headers cannot substitute.",
+      "R7/R9 must execute actual LAW schemas/permissions/queries/native hook acknowledgements/complete evidence and workspace/backend settings after separately authorized provisioning.",
+      "Root/R1/R8 must close deployed images/classloaders, private connectivity/data grants/renewal, aggregate P1v3 SLO/cost/capacity and all-layer deployed restoration; local source/load proof is narrower."
+    ]
+  }
+}
