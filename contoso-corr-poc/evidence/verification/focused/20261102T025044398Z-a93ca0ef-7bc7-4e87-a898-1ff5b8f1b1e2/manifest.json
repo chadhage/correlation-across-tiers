@@ -1,0 +1,13 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "startedAtUtc": "2026-11-02T02:50:44.398Z",
+  "finishedAtUtc": "2026-11-02T02:50:55.498Z",
+  "files": [
+    {
+      "path": "preparation-tests.json",
+      "sha256": "1bd1dd7fd37738cf23cfeac63105abe9cd6176e3f0fb84f1678258de39c61194"
+    }
+  ]
+}

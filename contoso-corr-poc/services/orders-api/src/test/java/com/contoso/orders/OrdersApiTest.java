@@ -13,6 +13,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 class OrdersApiTest {
+    @Test void oneHttpOperationKeepsItsOriginalAbsoluteDeadline() {
+        var request = new org.springframework.mock.web.MockHttpServletRequest();
+        request.setAttribute(OrdersApplication.INVOCATION, InvocationId.generate());
+        var first = OrdersApplication.operation(request);
+        assertSame(first, OrdersApplication.operation(request));
+    }
+
     @Test void schemaAndBoundsFailBeforeAnyDependencyCall() throws Exception {
         var port = new StubWorkflow();
         var api = new OrdersApplication.Api(port, new InventoryHttpClient(URI.create("http://127.0.0.1:1/api"), () -> "synthetic"),
@@ -35,6 +42,25 @@ class OrdersApiTest {
         assertEquals(1, view.get("schemaVersion"));
         assertEquals("DURABLE_STAGED", view.get("state"));
         assertFalse(view.containsKey("certified"));
+    }
+
+    @Test void mutationIdentityUsesCurrentActionWithoutChangingTheStoredWorkflowOrReadView() {
+        var storedId = InvocationId.generate().value();
+        var originalInvocation = InvocationId.generate().value();
+        var stored = new WorkflowView(storedId, originalInvocation, "QUEUED", Map.of("paused", "false"));
+        for (int attempt = 0; attempt < 3; attempt++) {
+            var action = InvocationId.generate();
+            var context = new OperationContext(action, io.opentelemetry.context.Context.root(),
+                java.time.Instant.now().plusSeconds(5));
+            var response = OrdersApplication.mutationView(stored, context);
+            assertEquals(action.value(), response.get("businessInvocationId"));
+            assertEquals(originalInvocation, response.get("workflowBusinessInvocationId"));
+            assertEquals(storedId, response.get("id"));
+            assertEquals(stored.details(), response.get("details"));
+            assertEquals(originalInvocation, stored.businessInvocationId());
+            assertEquals(originalInvocation, OrdersApplication.view(stored).get("businessInvocationId"));
+            assertFalse(OrdersApplication.view(stored).containsKey("workflowBusinessInvocationId"));
+        }
     }
 
     static final class StubWorkflow implements WorkflowPort {

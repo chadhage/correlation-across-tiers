@@ -1,0 +1,96 @@
+{
+  "schema": "contoso.sampler-safe-failure.v1",
+  "result": "FAIL_OR_UNVERIFIED",
+  "phase": "eligible-on",
+  "failureStage": "native-intake",
+  "failureCode": "NATIVE_RECEIVER_INCOMPLETE",
+  "rawDiagnosticsPersisted": false,
+  "javaPid": 46180,
+  "lastProbeHttpStatus": 200,
+  "actualScopedNativeSpanCount": null,
+  "lastProbeEchoObserved": true,
+  "lastProbeEchoCarrierPresent": true,
+  "lastProbeEchoCarrierValid": true,
+  "expectedScopedNativeSpanCount": 2,
+  "sourceKind": "real-local-agent-loopback",
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": true,
+    "receiverCode": "NATIVE_RECEIVER_INCOMPLETE",
+    "sealed": false,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 2,
+      "parse": 2,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 1,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 2,
+      "nativePosts": 2,
+      "completedBodies": 2,
+      "rawBytesObserved": 1071,
+      "acceptedPayloads": 2,
+      "acceptedRawBytes": 1071,
+      "acceptedDecodedBytes": 2639,
+      "acceptedEnvelopes": 4
+    },
+    "firstPoison": {
+      "event": "clientError",
+      "receiverCode": "NATIVE_RECEIVER_INCOMPLETE",
+      "transportPhase": "listening",
+      "observedAtUtc": "2026-11-02T01:36:01.132Z",
+      "underlyingCode": "ECONNRESET",
+      "parserBytesParsed": null,
+      "request": null
+    },
+    "lastRequest": {
+      "methodClass": "POST",
+      "routeClass": "native-v2.1-track",
+      "declaredLengthState": "in-range",
+      "declaredLength": 515,
+      "wireBytesObserved": 515
+    },
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 8,
+      "nativePosts": 2,
+      "echoGets": 2,
+      "rejectedRoutes": 4,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  },
+  "actualObservation": {
+    "nativeStateAvailable": true,
+    "effectiveSamplingPercentage": 100,
+    "requestsPerSecond": null,
+    "loadedCount": 1,
+    "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+    "artifactVersion": "1.1.0",
+    "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+    "sdkAbi": "1.65.0",
+    "runtimeInstanceId": "46180",
+    "providerCount": null,
+    "exporterCount": null,
+    "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+    "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+  },
+  "expectedExtensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "certificationEligible": false,
+  "allTablePrivacyGateVerified": false
+}

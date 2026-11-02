@@ -180,10 +180,14 @@
         "type": "object", "additionalProperties": false, "required": ["schemaVersion", "actorType", "businessInvocationId"],
         "properties": {
           "schemaVersion": { "type": "integer", "enum": [1] },
-          "actorType": { "type": "string", "enum": ["HUMAN", "WORKLOAD"] },
+          "actorType": { "type": "string", "enum": ["user", "workload"] },
           "businessInvocationId": { "$ref": "#/components/schemas/UuidV4" },
-          "pseudonym": { "type": "string", "description": "Absent for a workload actor." }
-        }
+          "pseudonym": { "type": "string", "minLength": 79, "maxLength": 79, "pattern": "^h1:[0-9a-f]{32}:[A-Za-z0-9_-]{43}$", "description": "Optional user-only HMAC pseudonym with an explicit Key Vault secret version; absent for workload actors." }
+        },
+        "oneOf": [
+          { "properties": { "actorType": { "enum": ["user"] } } },
+          { "properties": { "actorType": { "enum": ["workload"] } }, "not": { "required": ["pseudonym"] } }
+        ]
       },
       "SafeError": {
         "type": "object", "additionalProperties": false, "required": ["schemaVersion", "code"],

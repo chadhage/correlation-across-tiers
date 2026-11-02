@@ -1,0 +1,338 @@
+{
+  "schema": "contoso.r3-r7-postfix-source-review.v1",
+  "reviewer": "original-R3",
+  "recordedAtUtc": "2026-11-01T20:47:11.070Z",
+  "verdict": "ACCEPTED_FINITE_SOURCE_AND_LOCAL_CONSTRUCTION",
+  "handoffSha256": "cc918df7c82bbd9932cf8eaacde843104976695f2279d1e975d998be3c138603",
+  "scopeSha256": "e838b3cc1e7648ead8195e5a2cd1dfc1fd0ebf21be77765fbaeddda42b4499a6",
+  "ownChangedSourceCount": 14,
+  "currentSourceAndDependencyCount": 69,
+  "currentSources": [
+    {
+      "path": "config\\observability-load.v1.json",
+      "sha256": "83c129c13fdd472168f6484033b01842c897aecaeb0be25d13ac050b58e425a8"
+    },
+    {
+      "path": "config\\sampling-profiles.v1.json",
+      "sha256": "b4d0673453c9622a24100ebe2b49e976769ae271e42d89d72540bea2c989b20c"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "3c196334ac4925c1cac3df529da087f905a612044c41abeef881a05fe43c19ab"
+    },
+    {
+      "path": "infra\\modules\\telemetry.README.md",
+      "sha256": "bf7d5abcddc20d397890f78c19c2c08f1c67305d5e73b4a1172aefc0b173ea77"
+    },
+    {
+      "path": "infra\\modules\\telemetry.bicep",
+      "sha256": "55c165952c690839abff252882aa5cfa7e4e1dda6f0ee64d97dabcf95fc31c15"
+    },
+    {
+      "path": "kql\\README.md",
+      "sha256": "6a348cac33de6dcc8cc04871f941c04e7262fe2c1dc7130f1fb492574d55f445"
+    },
+    {
+      "path": "kql\\legacy\\orphan-candidates.kql",
+      "sha256": "0b1f678eb43a09ca014c0eeccef0dafff1e617187d91f2ae6cc8f335dc3fdaca"
+    },
+    {
+      "path": "kql\\orphan-candidates.kql",
+      "sha256": "94cdc931cad08b13cf6f1563c203a16367affda038fe6c82d5b046998a9b9e4d"
+    },
+    {
+      "path": "tests\\observability\\kql-contract.test.mjs",
+      "sha256": "ee83e60c01b79cc986e0b385d96f64a6221648dd379a111bf73610ed16240795"
+    },
+    {
+      "path": "tests\\observability\\load.test.mjs",
+      "sha256": "6a6f18cec7864726fb56cf40e6694a766f79889c15fe1bdeed8049b9e330ac4c"
+    },
+    {
+      "path": "tests\\observability\\raw-query.test.mjs",
+      "sha256": "28d9109fa936c1834252fa32cd0dc7111f393cd0cb93549a250ce26c6ea79df3"
+    },
+    {
+      "path": "tests\\observability\\runtime-adapters.test.mjs",
+      "sha256": "c0ff6b08bb7b5d05a800aa77e4564d659f41db9cc9b2fb34678e3d585aa34ca7"
+    },
+    {
+      "path": "tests\\observability\\runtime-lease.test.mjs",
+      "sha256": "3f8bc8cb1853a25fc87644cbdfee217ccfe3fde25d86f9076b6f4723ec4e4e7c"
+    },
+    {
+      "path": "tests\\observability\\sampling-controller.test.mjs",
+      "sha256": "7843e9bf7ff14492ed497174167eaef669c2ae8b7f50e8afc6629cdd2592b619"
+    },
+    {
+      "path": "tests\\observability\\state-io.test.mjs",
+      "sha256": "3c5d1cf6090cc178afebd3989a1d375ea00804c271861207938a921c3774c812"
+    },
+    {
+      "path": "tests\\observability\\telemetry-infra.test.mjs",
+      "sha256": "b03e735599a2a4fcb51be275af4a584bbec79989c72f34223dba71d29f9779c1"
+    },
+    {
+      "path": "tests\\observability\\workbook.test.mjs",
+      "sha256": "6f79af6924de57d117ea35e0b6106716c241198d3356a964ddce7784fbfa6a19"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "tools\\observability\\Render-KqlChecks.mjs",
+      "sha256": "a1020d5f3214d6d08468788b462b7bc0122570a8a4b10108d608b1aef7a9efc3"
+    },
+    {
+      "path": "tools\\observability\\Restore-KqlCompiler.ps1",
+      "sha256": "c44320f8b9414eac545f7dcb9ed0fbf59c7f8c92dd8ae41996f682eaebae1dbb"
+    },
+    {
+      "path": "tools\\observability\\Use-Portable.ps1",
+      "sha256": "15d15bc7b7f43bb577ccd7f4f772de815c7fb70dae387854e33b0be6fc423850"
+    },
+    {
+      "path": "tools\\observability\\Validate-Kql.ps1",
+      "sha256": "42a57d61fc20afbc99ce8fd04f5b436261bc423769d8a0447307517019b820ed"
+    },
+    {
+      "path": "tools\\observability\\kql.mjs",
+      "sha256": "b3f0e1f97c5560c58e08d6648c2e942a037ec3f4ca9583797696afe1c61fcb3d"
+    },
+    {
+      "path": "tools\\observability\\load.mjs",
+      "sha256": "8fc66826f6d2212f170160b4b11c0b3e60b6c975681fb1eaba2381c37ecdd6d1"
+    },
+    {
+      "path": "tools\\observability\\measure-parent-safe.mjs",
+      "sha256": "1c3865ae572caf38e3e8e736867dff9cdafd791f434ce257cec63f6b909ceab4"
+    },
+    {
+      "path": "tools\\observability\\probe-parent-safe.mjs",
+      "sha256": "a199a58eb845b4575aa174285888fc4d7cebe42bcc6fda1d49eb4c40b8542ddd"
+    },
+    {
+      "path": "tools\\observability\\process-metrics.ps1",
+      "sha256": "0be7d6d1e2a16db2e80b312b537d4e519d0092333b207fa2af5d51aa6b44d9f3"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "3c066c11191bbfb3643c1706ad3b56a5ff5170dbdb4ac682e422d598ad995ff7"
+    },
+    {
+      "path": "tools\\observability\\runtime-adapters.mjs",
+      "sha256": "6a05fcbf7ae74aec51cbfdb371c7188322c77cc417f65030317b728725b761e6"
+    },
+    {
+      "path": "tools\\observability\\runtime-lease.mjs",
+      "sha256": "405970bfcb02df2915e8e9bc19338f4a7c6ad403b321d4549115e735133995a9"
+    },
+    {
+      "path": "tools\\observability\\sampling-controller.mjs",
+      "sha256": "e29740cbff0001918c3f044093b51d50781943fde52fad4812f14532ce8ad6b6"
+    },
+    {
+      "path": "tools\\observability\\state-io.mjs",
+      "sha256": "6bff52e23fe08e78d31f59b28e778f12cd1e3a43883e3be6b5126ee71cb47aeb"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\observability\\test.mjs",
+      "sha256": "d2d2e2eb37e052ee78ba6f64f258d86fa1cea4497b233e52fd6635775c3eb3da"
+    },
+    {
+      "path": "tools\\observability\\workbook.mjs",
+      "sha256": "ed88660d6e35f1d6b76af43657f8a157a38f6c82148602d63318969f157f2d76"
+    },
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "5b486c0d0f4d7693be7ea3f8691abf757cebb87c33f36cd5acd4c320ac39d279"
+    },
+    {
+      "path": "tools\\security\\Run-NodeAuthPropagationProbe.mjs",
+      "sha256": "bbdbffe17f38e3646bb0dca5091ca1283c24053b7860823cc2de22efa8c0e0dc"
+    },
+    {
+      "path": "tools\\security\\Run-SecurityGates.ps1",
+      "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\hmac-reference-syntax.mjs",
+      "sha256": "ba4cdeff3ca3b849175a80090ac35db8754c88c0fcf453b8280f628602a9dd12"
+    },
+    {
+      "path": "tools\\security\\identifiers.mjs",
+      "sha256": "d8517e2f9f116eadbe1cbdc05fba953cf41b4a3e43195865157efda3185d1832"
+    },
+    {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+    },
+    {
+      "path": "tools\\security\\repository.mjs",
+      "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75"
+    },
+    {
+      "path": "tools\\security\\telemetry-policy.v1.json",
+      "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\demo.mjs",
+      "sha256": "eafc26ca681dd36d2c27e99c8c9ff848d70fd228bbf348a121c9e1049badb3b5"
+    },
+    {
+      "path": "tools\\verification\\evidence.mjs",
+      "sha256": "2d6e540e326e8773dbe68b2a125ac17e1a8178409cdf8b6cbc1b3fd79eb04180"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "f52623189a8c8ce6fe974eaad40fec530bf806d01e8e0f812a630abbdf31b936"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "3c9913732ee68b31e4c2768005f59b175a767a790ef36c4767073d3658cb5c1f"
+    },
+    {
+      "path": "tools\\verification\\raw-intake.mjs",
+      "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "ed1a42f70fb8cf3c6761143497933fd5165e89b1b76d4762da30d93f98baec38"
+    },
+    {
+      "path": "tools\\verification\\report.mjs",
+      "sha256": "39f1adabe02bdc70d9ba226dc3bd052f98532b4656611e5d8a7e8f84d751a1c9"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+    },
+    {
+      "path": "tools\\verification\\scenarios.mjs",
+      "sha256": "7433dec3e3b04beaedba1b36e3420b7c929dedcef5d177c43a91fdadc371417a"
+    },
+    {
+      "path": "tools\\verification\\security-client-qualification.mjs",
+      "sha256": "4788d0564080f1ac2452d1fc82095ebeab781e359cc6c113589fd4dbbab52de4"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "3ff96f385ea0992c15483a231d93870c252172ad2c9d3bfaf5ce2eb4179098d7"
+    },
+    {
+      "path": "workbooks\\README.md",
+      "sha256": "2c42d7776a2cf52c988ba7a87e74e0745d65b970704a30c501d6d16fbc8912e5"
+    },
+    {
+      "path": "workbooks\\contoso-correlation.workbook.json",
+      "sha256": "58797d569f59dca704bbd70c9947869ae79ee8e7f1fc48f71836dc36d192ccf9"
+    }
+  ],
+  "beforeAfterAndFinalAll69Stable": true,
+  "actualFocusedNodeCounts": {
+    "tests": 44,
+    "pass": 44,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "focusedOutputSha256": "8d3547683c278da0686691f1e8b0bb682ff25e6259baf25626b1117b563de0f1",
+  "freshKustoAnalysesPassed": 39,
+  "kustoLanguageSha256": "84ecda278b4c292a90fc25db119b97818e09736fb19021726a4840484f77e989",
+  "compilerHarnessRelocation": "Original renderer import/output and original compiler root/input paths only relocated in memory to R3 project scratch; original rendering/schema/analyzer unchanged",
+  "workbookCheck": {
+    "result": "PASS",
+    "sourceMapSha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+    "workbookSha256": "58797d569f59dca704bbd70c9947869ae79ee8e7f1fc48f71836dc36d192ccf9",
+    "certificationEligible": false,
+    "azureImport": "To Do"
+  },
+  "scalarDependencyCounter": {
+    "syntheticCpuOnly": true,
+    "original65536ByteScalarRejectedBeforePatternScan": true,
+    "elapsedMs": 3.886500000000005,
+    "noNetworkOrNativeExecution": true
+  },
+  "retainedReview": "12 unchanged runtime/source/derived-artifact files retain the earlier complete code review; current successor delta consists only of 2 precision docs and native decoder dependency8166->00e0. All current 69 hashes plus new tests were independently reverified, not rehashed old results.",
+  "verifiedSourceClosures": [
+    "Common origin/layer/instance/observed-role/ownership/freshness drain guards preserve genuine expired/restored drains and reject file/foreign-role claims",
+    "Canonical browser layer preserves published controller/SDK activation and expired drain interface",
+    "Real two-loopback foreign302 and same-origin307 fail without follow; explicitly approved direct200 stays functional",
+    "Conditional9 policies remain separate from deliberate roots, require exact source policy/disposition/nullparent/original private graph/native runtime-carrier enrollment, and reject caller/checker JSON waivers",
+    "Committed workbook matches current single aefab map and default conditional ledger remains UNVERIFIED",
+    "Documentation now identifies old55/38 as historical and honestly states current Root v3 omits optional workbook input; new Root wiring is a separate granted preparation facet"
+  ],
+  "noNewHighConfidenceChangedSourceDefects": true,
+  "ownerFull65Tests": "Owner executed on exact successor69; not independently rerun byR3, whose smallest covering run is focused44",
+  "historicalEvidencePreserved": [
+    "9fa008/4ec original frozen execution",
+    "R3 prior paused5d1ac evidence",
+    "1134/55fe and3f27 historical changes-required scopes"
+  ],
+  "unmetIndependentEvidence": [
+    "Native runtime/carrier observer enrollment unavailable; conditional cases not certified",
+    "Source/build/loaded native all-role/global fidelity/default transports",
+    "Current privateC/GA/cost/secret/SQL/SCM/Azure approvals",
+    "Actual Root workbook wiring requires separate new source grant; Azure import/render and screenshots unrun"
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "noMavenJavaNativeAzurePeerSourceOrRootWrites": true
+}

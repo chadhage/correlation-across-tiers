@@ -32,4 +32,19 @@ foreach ($extension in $lock.extensions) {
 }
 $lines += @('', '## Live VERIFYs — acceptance remains To Do', '')
 foreach ($verify in $lock.liveVerifies) { $lines += "- VERIFY: $verify" }
+$bomPath = Join-Path $ProjectRoot 'target\sbom\bom.json'
+if (Test-Path -LiteralPath $bomPath) {
+  $bom = Get-Content -Raw -LiteralPath $bomPath | ConvertFrom-Json
+  $lines += @('', '## Last generated Java runtime BOM', '',
+    'Source: the existing aggregate CycloneDX runtime BOM; its presence does not bind it to the current source/dependency closure. Regenerate and validate it after the final build.',
+    'PROVIDED compiler SDK APIs and tests are not runtime dependencies.',
+    '', '| Maven component | Version | Source |', '|---|---|---|')
+  foreach ($component in $bom.components | Sort-Object group,name,version) {
+    $group = $component.group
+    $source = if ($group -and $group -ne 'com.contoso') {
+      "https://repo.maven.apache.org/maven2/$($group.Replace('.','/'))/$($component.name)/$($component.version)/$($component.name)-$($component.version).pom"
+    } else { 'Contoso-owned source; no vendor support assertion' }
+    $lines += "| ${group}:$($component.name) | $($component.version) | $source |"
+  }
+}
 [IO.File]::WriteAllLines((Join-Path $ProjectRoot 'VERSIONS.md'), $lines, [Text.UTF8Encoding]::new($false))

@@ -10,10 +10,23 @@ const map = JSON.parse(await readFile(path.join(projectRoot, 'contracts', 'expec
 test('declares all eight synchronous boundaries and separate SSR, replay, fan-in and batch roots', () => {
   assert.equal(map.coreSynchronousBoundaries.length, 8);
   assert.ok(map.deliberateRoots.some((item) => item.boundary === 'portal.request'));
-  for (const boundary of ['aggregator.fanin', 'aggregator.batch', 'aggregator.replay']) {
+  for (const boundary of ['aggregator.fanin', 'aggregator.batch', 'fulfillment.replay.process', 'notify.replay.process', 'fulfillment.replay.send', 'notify.replay.send']) {
     assert.ok(map.deliberateRoots.some((item) => item.boundary === boundary));
     assert.equal(map.edges.filter((edge) => edge.to === boundary && edge.type === 'parent').length, 0);
   }
+});
+
+test('conditional A03 roots cannot waive valid parents or replace actual native receipts', () => {
+  const gateway = map.conditionalRoots.find(item => item.boundary === 'gateway.request');
+  assert.deepEqual(gateway.allowedDispositions, ['absent', 'duplicate', 'invalid']);
+  assert.equal(gateway.parentMustBeNull, true);
+  assert.equal(gateway.sourceProofRequired, true);
+  assert.equal(map.deliberateRoots.some(item => item.boundary === 'gateway.request'), false);
+  const broken = structuredClone(map);
+  broken.conditionalRoots[0].allowedDispositions.push('valid');
+  assert.throws(() => renderArchitecture(broken), /Invalid conditional root/);
+  assert.equal(map.spans.some(item => ['aggregator.replay', 'orders.replay.send'].includes(item.id)), false);
+  assert.equal(map.spans.find(item => item.id === 'notify.replay.send').roleName, 'contoso-notify-worker');
 });
 
 test('data tiers are client boundaries and actual contributors are bounded links', () => {

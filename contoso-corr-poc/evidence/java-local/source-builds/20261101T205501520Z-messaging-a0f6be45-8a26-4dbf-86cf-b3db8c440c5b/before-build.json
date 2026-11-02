@@ -1,0 +1,173 @@
+{
+  "observedAtUtc": "2026-11-01T20:55:20.2552708Z",
+  "sources": [
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    },
+    {
+      "path": "workers\\messaging-core\\pom.xml",
+      "sha256": "c762a0a26088521f381a38dacf8e37040b42215da33370535efbf6eb756567ab"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AsyncProcessor.java",
+      "sha256": "cba99111baf0d89626f77b1d77ba32d9ba63cac332d66b9eb41d34931ff3f91f"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureCarriers.java",
+      "sha256": "95d3c2e3683133dc27ba665feb514dc93845acf2e2dd08a4de507545b6d94176"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureMessagingTransport.java",
+      "sha256": "1509708bf2eb080a6d9e022b51bd2e0379c2260de9d437cbfe6a3b1228f11df1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Branch.java",
+      "sha256": "b4e85d0a6e59347965b1cb88ad9a1df912bb552aa7308ad3eba6c9260dab1d2d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Delivery.java",
+      "sha256": "5613788ba8d97f0787d257242767d46f970e649625c9d7773a82235bb8bcca7d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Destination.java",
+      "sha256": "0209f28fd5c938165e32ae0e76459aeaa921da7e3877160caa93df49355d7689"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Envelope.java",
+      "sha256": "6d88e26d03b8ece77c5347dff5b508432a29bc93dc401cafaba1a401aab132b8"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\EnvelopeCodec.java",
+      "sha256": "9b1376a151a61e37ab0f50ac5e3c8153ff411e99bd915d5fc7e0ec1b326689a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingFailure.java",
+      "sha256": "8c11b0f9dacc90fc68c46e6c1097f8c80b41c9b5d4ca13127a251bef36672c39"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingLoggingGuard.java",
+      "sha256": "f055d037cfeed7163c99b827cd4c14ddc0bbc3dffe3151829510adeed63dffeb"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingRuntime.java",
+      "sha256": "f868e7675e13218117dcdbb0b4e3d39ca87bea68fa297098d224e77cc7f02589"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingSettings.java",
+      "sha256": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingStore.java",
+      "sha256": "6a19c8d4fc76daec7308fe70f0ab4c9c3082851146a555520d9309a8722846e2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingTransport.java",
+      "sha256": "af2add40dc0fa475b5a852b83afae4483c5a51282160c4b0f1fe1230761b5e81"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java",
+      "sha256": "9bc25811764d8c1e6ba20c9bf2daf17e05574163182dcbf4c2e9b28de75c9d8d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\OutboxPublisher.java",
+      "sha256": "51a9b31c747e9d6c860d42a820bfda6844f30fe753920eb9399cd5f1b14ac1a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\PgMessagingStore.java",
+      "sha256": "405b862786c551079d1f4dc18ae7f35b4b00954305eae76c15d5067b5483db55"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ProcessingLease.java",
+      "sha256": "d823ca21343fa93f2d105458d6beaf24417282f7d2ec74582c87519e4481f3c2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ReplayProcessor.java",
+      "sha256": "5396b5f376ce32aa02f0fdf3a2cd0e333d6f892eb21a6161a9995874a007f668"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Source.java",
+      "sha256": "73fe067cb4b743e45d7335befc05bfe9ac1818e7cc765a22a5f2916fcb61b91c"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\TraceContexts.java",
+      "sha256": "144b1109028f830b1b1c5d1239b1f5902b104ebcf9d5e36c3eb0855d05217264"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkerRuntimeHolder.java",
+      "sha256": "7a03694d4a040607ca30904070fd5ccc31ba5d173de5c51e0f9729bcac0ea515"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkPayload.java",
+      "sha256": "46a0c210d2eb7dfaa77ed077f3498db030bcf97ff72c2b75ee4cb32491d986f4"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+      "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
+      "sha256": "d5b71197152553f930bd80e8e0bf45fb4e87aa455764f17e32846ed7032a7b85"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeProbe.java",
+      "sha256": "ecbc0630afaefce8afa74c3085c0fe2f31ce82051f3d0c979193ee2d712f3553"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AzureSdkBoundaryTest.java",
+      "sha256": "8e47ce74ac35585cacbf6ab95d12f159f5f12dc9f5974291014bd1ebc342bcdc"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\EnvelopeTest.java",
+      "sha256": "8e9409b72d61824125b7063ed00acfa792955b6a4484d5bb717c2f0e5cb24123"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+      "sha256": "c1a95ae769a4086c9fcfc9b72abf4b16857cd4995067877e6bb7eabd5d5e41bf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java",
+      "sha256": "e7cc01d773868dbb9edbe1c37053fa738631d38a284d691dc2378fae219cb348"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LocalCarrierTransport.java",
+      "sha256": "f2d4a57932b0705313cd23fc52b2794a5c040daffdb3cb9ae388131056383cec"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\MessagingFixture.java",
+      "sha256": "8a09147fe6009425ab5ac602990e6d8ab5aca23774c4fc8cd8ee37cfb8038cbf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\PgMessagingStoreTest.java",
+      "sha256": "8f2e4fb8c46ce0e82d8c08051f006b1ff68dabc72b2a02fc262278eaae372c4d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\ProcessingLeaseTest.java",
+      "sha256": "4b1d110b5a44cfa0a9dc064c574d0b48ffeafea72ac505f8496bb0bade4db4d1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\resources\\logback-test.xml",
+      "sha256": "f4f49a49c961e36b32bc7b477c3349ad3faf46b3654cca475a8a79b34d0b6d67"
+    }
+  ],
+  "sourceClosureSha256": "a9d32d23def93edc9e461ed74a52c977effb3d479ac0328296fcd92f324b323f",
+  "toolchain": {
+    "mavenCommand": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\apache-maven-3.10.0\\bin\\mvn.cmd",
+    "mavenCommandSha256": "b7001067ae1a052a3853bc51df0e1a4c013aadae2005837a1e970c0d51b57fdf",
+    "java": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+    "javaSha256": "f961fb8db73c7c546821bc6d30fdaa8ce2458da460a5e75e2c39189cd107e6ba",
+    "javac": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\javac.exe",
+    "javacSha256": "02160baa324a6a778e01962f14c748155c3172c37821df201bb201df110985c0",
+    "versions": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.java-work\r\nApache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)\r\nMaven home: C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\apache-maven-3.10.0\r\nJava version: 25.0.5, vendor: Eclipse Adoptium, runtime: C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\r\nDefault locale: en_US, platform encoding: UTF-8, time zone: America/New_York\r\nOS name: \"windows 11\", version: \"10.0\", arch: \"amd64\", family: \"windows\"",
+    "witnessScriptSha256": "03009cb3b8fa4afc5dfecf89d2731a6f3e0e5ec3377151953a985e79d590335c"
+  },
+  "nativeInputs": null
+}

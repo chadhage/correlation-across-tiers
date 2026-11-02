@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderKql, loadRootMap } from './kql.mjs';
+import { renderKql, loadRootMap, conditionalRootPolicies } from './kql.mjs';
 import { sha256 } from './telemetry-contract.mjs';
 
 const project = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -53,6 +53,10 @@ export async function buildWorkbook() {
   });
   items.push(queryItem('root-boundary-map', `datatable(Boundary:string,Role:string,Kind:string)[${map.spans.map(value =>
     [value.id, value.roleName, value.semanticKind].map(JSON.stringify).join(',')).join(',')}]\n| order by Boundary asc`));
+  items.push(queryItem('conditional-root-candidates',
+    `datatable(Boundary:string,PolicyRef:string,AllowedDispositionsJson:string,ReceiptType:string)[${conditionalRootPolicies(map)
+      .map(rule => [rule.boundary, rule.policyRef, JSON.stringify(rule.allowedDispositions), rule.receiptType]
+        .map(JSON.stringify).join(',')).join(',')}]\n| extend NativeEvidenceStatus="UNVERIFIED",ParentMustBeNull=true,SourceProofRequired=true\n| order by Boundary asc`));
   items.push(queryItem('ingestion-delay', `union AppRequests,AppDependencies
 | where TimeGenerated {TimeRange}
 | where _ResourceId =~ "{ApplicationInsights:escapejson}"

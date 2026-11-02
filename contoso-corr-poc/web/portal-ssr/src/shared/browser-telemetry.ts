@@ -1,7 +1,8 @@
 import { ApplicationInsights, DistributedTracingModes } from "@microsoft/applicationinsights-web";
 import {
   ContosoError, isRecord, isUuid4, safeRoute,
-  type ContosoErrorCode, type ContosoPublicRuntimeConfigV1
+  certificationActive,
+  type ContosoBrowserContextReceiptV1, type ContosoBrowserSamplingObservationV1, type ContosoErrorCode, type ContosoPublicRuntimeConfigV1
 } from "./contracts.js";
 
 export interface BrowserDependencyIdentity {
@@ -14,15 +15,19 @@ export interface BrowserDependencyIdentity {
 }
 export interface BrowserTelemetry {
   readonly sdkVersion: "3.4.5";
+  status(): { active: boolean; samplingPercentage: number };
+  contextIdentity(): ContosoBrowserContextReceiptV1 | undefined;
+  observeSampling(request: { runId: string; revision: string }, admission: { state: "accepting" | "quiesced"; inFlight: number }): ContosoBrowserSamplingObservationV1;
   flush(): Promise<void>;
   event(name: string, properties?: Readonly<Record<string, string>>): void;
   observeDependencies(callback: (identity: BrowserDependencyIdentity) => void): () => void;
   scopeInvocation(runId: string, invocationVersion: number, path: "/orders" | "/demo-runs"): void;
   clearInvocation(): void;
-  stop(): void;
+  stop(): Promise<void>;
 }
 const xhrOrigins = new WeakMap<XMLHttpRequest, string>();
 let xhrTrackingInstalled = false;
+let sdkStarted = false;
 function trackXhrOrigins(): void {
   if (xhrTrackingInstalled) return;
   xhrTrackingInstalled = true;
@@ -54,7 +59,7 @@ function safeProperties(value: unknown): Record<string, string> {
   if (!isRecord(value)) return result;
   for (const [key, item] of Object.entries(value)) {
     if (key === "business.invocation_id" && isUuid4(item)) result[key] = item;
-    if (key === "user.pseudonym" && typeof item === "string" && /^h1\.[A-Za-z0-9_-]{1,40}\.[A-Za-z0-9_-]{40,64}$/.test(item))
+    if (key === "user.pseudonym" && typeof item === "string" && /^h1:[0-9a-f]{32}:[A-Za-z0-9_-]{43}$/.test(item))
       result[key] = item;
     if (["error.category", "auth.outcome", "demo.id", "telemetry.origin", "execution.mode"].includes(key)
       && typeof item === "string" && /^[A-Za-z0-9_.-]{1,80}$/.test(item)) result[key] = item;
@@ -67,9 +72,30 @@ export function createBrowserTelemetry(
   onError: (code: ContosoErrorCode) => void,
   syntheticState = false
 ): BrowserTelemetry {
+  if (sdkStarted) throw new ContosoError("SDK_INITIALIZATION_FAILED");
+  sdkStarted = true;
   const allowedOrigins = new Set(config.telemetry.approvedCorrelationOrigins);
   const listeners = new Set<(identity: BrowserDependencyIdentity) => void>();
+  const runtimeInstanceId = crypto.randomUUID();
+  const admittedConfiguration = Object.freeze({
+    "telemetry.tracingMode": config.telemetry.tracingMode,
+    "certification.enabled": config.certification.enabled,
+    "certification.startsAtUtc": config.certification.startsAtUtc,
+    "certification.endsAtUtc": config.certification.endsAtUtc,
+    "certification.windowId": config.certification.windowId,
+    "demos.enabled": config.demos.enabled
+  });
   let invocation: { runId: string; invocationVersion: number; path: string } | undefined;
+  const expiration = config.certification.endsAtUtc ? Date.parse(config.certification.endsAtUtc) : null;
+  let stopped = false;
+  let stopping: Promise<void> | undefined;
+  function active(): boolean {
+    return !stopped && !(config.certification.enabled && expiration !== null && Date.now() >= expiration);
+  }
+  function pageName(): string {
+    return config.surface === "portal-page" ? "Contoso Portal"
+      : location.pathname.endsWith("/demos") ? "Contoso Demos" : "Contoso Orders";
+  }
   trackXhrOrigins();
   function veto(): false {
     // A throwing UI callback must not turn the SDK's swallowed listener exception into fail-open injection.
@@ -107,8 +133,16 @@ export function createBrowserTelemetry(
       ],
       addRequestContext: context => {
         let businessId: string | null = null;
-        if (context?.response instanceof Response) businessId = context.response.headers.get("x-business-invocation-id");
-        if (context?.xhr) businessId = context.xhr.getResponseHeader("x-business-invocation-id");
+        if (context?.response instanceof Response) {
+          try {
+            if (new URL(context.response.url).origin !== config.api.origin) return {};
+          } catch { return {}; }
+          businessId = context.response.headers.get("x-business-invocation-id");
+        }
+        if (context?.xhr) {
+          if (xhrOrigins.get(context.xhr) !== config.api.origin) return {};
+          businessId = context.xhr.getResponseHeader("x-business-invocation-id");
+        }
         return isUuid4(businessId) ? { "business.invocation_id": businessId } : {};
       }
     }
@@ -125,7 +159,7 @@ export function createBrowserTelemetry(
     const sdkVersion: unknown = originalTags["ai.internal.sdkVersion"];
     if (typeof sdkVersion === "string" && /^[A-Za-z0-9:._-]{1,80}$/.test(sdkVersion))
       tags["ai.internal.sdkVersion"] = sdkVersion;
-    tags["ai.operation.name"] = location.pathname.endsWith("/demos") ? "Contoso Demos" : "Contoso Orders";
+    tags["ai.operation.name"] = pageName();
     item.tags = tags;
     if (isRecord(item.baseData)) {
       const data = item.baseData;
@@ -137,17 +171,22 @@ export function createBrowserTelemetry(
         }
       }
       if (typeof data.name === "string")
-        data.name = item.baseType === "RemoteDependencyData" ? "Contoso HTTP"
-          : location.pathname.endsWith("/demos") ? "Contoso Demos" : "Contoso Orders";
+        data.name = item.baseType === "RemoteDependencyData" ? "Contoso HTTP" : pageName();
       if (typeof data.target === "string") {
         try { data.target = new URL(data.target, config.api.origin).host; }
         catch { data.target = new URL(config.api.origin).host; }
       }
-      data.properties = {
+      const properties: Record<string, string> = {
         ...safeProperties(data.properties),
         "telemetry.origin": "browser",
         "execution.mode": config.executionMode
       };
+      if (item.baseType === "RemoteDependencyData") {
+        try {
+          if (new URL(String(data.data)).origin !== config.api.origin) delete properties["business.invocation_id"];
+        } catch { delete properties["business.invocation_id"]; }
+      }
+      data.properties = properties;
     }
     item.data = safeProperties(item.data);
     if (isRecord(item.ext)) {
@@ -163,6 +202,7 @@ export function createBrowserTelemetry(
     return true;
   });
   app.addDependencyListener(details => {
+    if (!active()) return veto();
     const input: unknown = details.input;
     let target: URL;
     try {
@@ -200,25 +240,71 @@ export function createBrowserTelemetry(
     for (const callback of listeners) callback(identity);
   });
   try {
+    if (config.telemetry.samplingPercentage === 100 && !certificationActive(config)) throw new ContosoError("CERT_WINDOW_INACTIVE");
     app.loadAppInsights();
-    app.trackPageView({ name: "Contoso Storefront", uri: `${location.origin}${safeRoute(new URL(location.href))}` });
-  } catch { throw new ContosoError("SDK_INITIALIZATION_FAILED"); }
-  const expiration = config.certification.endsAtUtc ? Date.parse(config.certification.endsAtUtc) : null;
-  let stopped = false;
+    app.trackPageView({ name: pageName(), uri: `${location.origin}${safeRoute(new URL(location.href))}` });
+  } catch (error: unknown) {
+    if (error instanceof ContosoError) throw error;
+    throw new ContosoError("SDK_INITIALIZATION_FAILED");
+  }
+  function stop(): Promise<void> {
+    if (!stopping) {
+      stopped = true;
+      invocation = undefined;
+      stopping = Promise.resolve(app.unload(true)).then(() => undefined);
+    }
+    return stopping;
+  }
   const timer = expiration && config.certification.enabled
-    ? window.setTimeout(() => { stopped = true; void app.unload(true); onError("CERT_WINDOW_INACTIVE"); }, Math.max(0, expiration - Date.now()))
+    ? window.setTimeout(() => {
+      void stop().catch(() => undefined);
+      try { onError("CERT_WINDOW_INACTIVE"); } catch { /* The expiry fence remains active. */ }
+    }, Math.max(0, expiration - Date.now()))
     : undefined;
   return {
     sdkVersion: "3.4.5",
+    status() { return { active: active(), samplingPercentage: active() ? app.config.samplingPercentage ?? 0 : 0 }; },
+    contextIdentity() {
+      const current = app.core.getTraceCtx(false);
+      if (!current?.traceId || !/^[0-9a-f]{32}$/.test(current.traceId) || /^0+$/.test(current.traceId)) return undefined;
+      const contextSpanId = current.spanId && /^[0-9a-f]{16}$/.test(current.spanId) && !/^0+$/.test(current.spanId) ? current.spanId : undefined;
+      return { schemaVersion: 1, sdkVersion: "3.4.5", identityKind: "sdk-browser-context-not-span",
+        pageInstanceId: runtimeInstanceId, traceId: current.traceId, observedAtUtc: new Date().toISOString(),
+        ...(contextSpanId ? { contextSpanId } : {}) };
+    },
+    observeSampling(request, admission) {
+      if (!isUuid4(request.runId) || request.revision !== `cert-${request.runId}`) throw new ContosoError("REQUEST_INVALID");
+      const activeLeaseId = active() && isUuid4(admittedConfiguration["certification.windowId"])
+        ? admittedConfiguration["certification.windowId"] : null;
+      const sender = app.getSender();
+      const core = app.core;
+      const initialized = typeof core.isInitialized === "function" && core.isInitialized();
+      return { schema: "contoso.sampling-runtime-observation.v1", runId: request.runId,
+        requestedRevision: request.revision, revision: activeLeaseId ? `cert-${activeLeaseId}` : "production-or-inactive",
+        observedAtUtc: new Date().toISOString(), runtimeInstanceId,
+        executionMode: config.executionMode, sourceKind: "contoso-js-sdk-runtime",
+        actualRevision: activeLeaseId ? `cert-${activeLeaseId}` : "production-or-inactive",
+        nativeStateAvailable: initialized, ready: initialized && active(), admitting: initialized && active() && admission.state === "accepting",
+        inFlightRemaining: admission.inFlight, guard: null,
+        ownedConfiguration: { ...admittedConfiguration, "telemetry.samplingPercentage": app.config.samplingPercentage ?? 0,
+          "telemetry.tracingMode": app.config.distributedTracingMode === DistributedTracingModes.W3C_TRACE ? "W3C_TRACE" : "UNSUPPORTED" },
+        effectiveSamplingPercentage: active() ? app.config.samplingPercentage ?? 0 : 0,
+        requestsPerSecond: null, activeLeaseId,
+        providerCount: typeof core.isInitialized === "function" ? (active() && core.isInitialized() ? 1 : 0) : null,
+        exporterCount: typeof sender.isInitialized === "function" ? (active() && sender.isInitialized() ? 1 : 0) : null,
+        admission: { ...admission, state: active() ? admission.state : "quiesced" },
+        restartMechanism: "document-reload", ownershipPending: true, certificationEligible: false,
+        certification: "NOT_CERTIFIED" };
+    },
     async flush() {
       if (stopped) return;
-      await new Promise<void>(resolve => {
-        const timeout = setTimeout(resolve, 5000);
+      await new Promise<void>((resolve, reject) => {
+        const timeout = setTimeout(() => reject(new ContosoError("SDK_INITIALIZATION_FAILED")), 5000);
         app.flush(true, () => { clearTimeout(timeout); resolve(); });
       });
     },
     event(name, properties = {}) {
-      if (!/^Contoso\.[A-Za-z.]{1,60}$/.test(name)) return;
+      if (!active() || !/^Contoso\.[A-Za-z.]{1,60}$/.test(name)) return;
       app.trackEvent({ name }, safeProperties(properties));
     },
     observeDependencies(callback) {
@@ -231,10 +317,9 @@ export function createBrowserTelemetry(
       invocation = { runId, invocationVersion, path: `${config.api.basePath}${path}` };
     },
     clearInvocation() { invocation = undefined; },
-    stop() {
+    async stop() {
       if (timer !== undefined) clearTimeout(timer);
-      stopped = true;
-      void app.unload(true);
+      await stop();
     }
   };
 }

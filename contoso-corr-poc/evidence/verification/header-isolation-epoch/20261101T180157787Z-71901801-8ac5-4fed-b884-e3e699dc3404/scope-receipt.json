@@ -1,0 +1,48 @@
+{
+  "schema": "contoso.header-isolation-epoch-preservation.v1",
+  "recordedByRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "mode": "header_isolation_only",
+  "policyVersion": 1,
+  "originalA": {
+    "path": "C:\\Users\\chhage\\.copilot\\session-state\\3de83ad7-93ef-4788-aee8-de78a568fd0d\\files\\build-witness\\20261101T174303605Z-header-security-86079bf2-6c0b-4c58-99d5-7ca08b90faef\\source-build.json",
+    "sha256": "72e632c0820259bbdb1a06eb6c66ef441ec161c577bd913f7469891154bf8b1e",
+    "executionId": "2ca74e37-5b9e-422f-be47-77972e06c087",
+    "module": "services\\security-core",
+    "sourceBeforeAfterEqual": true,
+    "tests": 32,
+    "produced": {
+      "path": "services\\security-core\\target\\security-core-1.0.0.jar",
+      "sha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+      "bytes": 50595
+    },
+    "installed": "Notinpre-installA, parentlaterinstalledexacte58separate"
+  },
+  "originalB": {
+    "path": "services\\security-core\\docs\\av23-java-header-isolation-parent-20261101T174453438Z.json",
+    "sha256": "6a2cb691070e4c6c30378fd578877c819fd82d35048d054e41c6347a28162cfd",
+    "pid": 27460,
+    "startedAt": "2026-11-01T17:44:55.390Z",
+    "capturedAt": "2026-11-01T17:45:01.799Z",
+    "logicalIdentitySends": 2,
+    "physicalIdentityAttempts": 3,
+    "result": "PASS_FINITE_HEADER_SCOPE"
+  },
+  "finiteConsistencyVerified": {
+    "positiveJwks1Mi2All7HeadersAbsent": true,
+    "rawUnfilteredNativeContextExpectedNegativeRetained": true,
+    "trustedJdkAndParentAdvance": true,
+    "actualUsedWrapperMatchesAOutput": true,
+    "headerSourceModeExplicit": true
+  },
+  "unknowns": {
+    "identityClientExportCount": "UNKNOWN_NOT_COUNTED_BY_WIRE_PROBE",
+    "identityClientRetentionParentTrace": "UNVERIFIED_UNTIL_APPROVED_ACTUAL_NATIVE_CAPTURE",
+    "privateWholeLineageC": "NOT_MINTED_FROM_JSON_HASH_FILECOPY",
+    "fullRootOrUnusedInventoryWorkers": "UNVERIFIED",
+    "globalFidelityPrivacyAzure": "UNVERIFIED",
+    "apiReady": false
+  },
+  "scope": "Independently checked originalsource/ownerexecution/observedbyte/header predicates; finite Security-only A/B consistency notfullgraph/nativeCLIENTretention/sourceunusedmodule acceptance",
+  "history": "Original990a+17:06priorMODEoverallFAIL9cf immutable; notrefilled/relabelled"
+}

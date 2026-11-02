@@ -1,0 +1,146 @@
+{
+  "schema": "contoso.generic-original-native-source-freeze.v1",
+  "readiness": "SOURCE_CPU_READY_FOR_ORIGINAL_R2_R5_REVIEW_AND_PEER_CONSUMER_INTEGRATION",
+  "certification": "NOT_CERTIFIED",
+  "sourceVerifiedAuthorityGranted": false,
+  "nativeExecutionGrantedOrPerformed": false,
+  "productionJavaPomSdkProviderOrLockedArtifactChanged": false,
+  "peerConsumersEdited": false,
+  "originalReviewers": ["original-R2", "original-R5"],
+  "sourceScope": "new generic non-Java original-native decoder/privacy port, stdin CLI, tests and owned documentation",
+  "sourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\security\\native-payload.mjs",
+      "sha256": "7458a8f9e29f9dc23a7a68b956bceeb488187bd12d71299e1d7185b5efa3f3aa"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\security\\native-payload.test.mjs",
+      "sha256": "2e0e356f3a41d6e3e2a15bf63b307064fe454991d153b2b1364188d31ad73e8a"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\README.md",
+      "sha256": "7377c318d5ff6d5c65abceb94c8b41d738437184aa2f6b5e1019f5051d299519"
+    }
+  ],
+  "unchangedSharedValuePolicy": {
+    "path": "contoso-corr-poc\\tools\\security\\values.mjs",
+    "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+  },
+  "preservedPriorEpochsFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\native-client-source-freeze.v2.json",
+      "sha256": "c42b47fe9fb81cfa2477b7b0b41fe3e46eb3ea28256f77400bd17af1710f3e23"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-client-output-parent-20261101T182444029Z.json",
+      "sha256": "b380966e1858f455348dd9bbf071fb76f432ed664367f817a9ab860d8028742e"
+    }
+  ],
+  "port": {
+    "module": "tools\\security\\native-payload.mjs",
+    "exports": [
+      "captureNativePayloads(input)",
+      "captureNativeApiPayloads (alias of captureNativePayloads)",
+      "createNativePayloadSession({publisherKeys,forbiddenValues}).ingest(rawBuffer,encoding)",
+      "session.snapshot()",
+      "decodeNativePayload(rawBuffer,encoding) (strict structural decode only, NOT privacy verification)",
+      "parseNativeCaptureInput(rawRequestBuffer)",
+      "NATIVE_LIMITS",
+      "NATIVE_POLICY_SOURCE_SHA256",
+      "SHARED_VALUE_POLICY_SHA256",
+      "nativePayloadErrorCode(error)"
+    ],
+    "cli": "node .\\contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+    "cliArguments": "NONE; all fixture publisher keys, exact markers and original raw payloads are passed on stdin only",
+    "input": "{publisherKeys:[1..16 distinct exact UUIDv4 strings],forbiddenValues:[0..64 exact strings],payloads:[1..16 {rawBase64:canonicalBase64,encoding:identity|gzip}]}",
+    "encodingDefault": "identity",
+    "stdoutSchema": "contoso.native-api-safe-capture.v1",
+    "stdoutFields": [
+      "validatorPid/nodeVersion/validatorSourceSha256/sharedPolicySha256/validatorCliSourceSha256 (CLI)",
+      "verified (input check only, NOT producer or source authority)",
+      "actualCounts payloads/originalRawBytes/decodedBytes/envelopes",
+      "payloadReceipts originalPayloadSha256/originalPayloadBytes/decodedPayloadBytes/originalEnvelopeCount/strictDuplicateKeysVerified/scannedAllOriginalValues/projectedAfterScan/originalPayloadRetained:false",
+      "nativeEnvelopes original policy-scanned context/data with publisher/machine/IP/user tags omitted only after original scan",
+      "sourceAcceptanceIsCertification:false/independentProducerAuthorityVerified:false/allTablePrivacyGateVerified:false/certification:NOT_CERTIFIED"
+    ],
+    "failure": "throws static NATIVE_* only; CLI exit 1, empty stdout, one redacted code on stderr; no raw values, markers, keys or causes printed",
+    "sessionFailure": "poisons session and clears stored projection; subsequent ingestion/snapshot fails with the original redacted code",
+    "wholeRunPersistenceRule": "buffer receipts/projections until all required inputs pass; consumer must bound bytes while receiving and retain original-byte/PID/source/count binding"
+  },
+  "limits": {
+    "rawBytesPerPayload": 1048576,
+    "decodedBytesPerPayload": 1048576,
+    "payloads": 16,
+    "totalRawBytes": 16777216,
+    "totalDecodedBytes": 16777216,
+    "envelopesPerPayload": 512,
+    "totalEnvelopes": 8192,
+    "envelopeDepth": 32,
+    "utf8FieldKeyBytes": 128,
+    "utf8ScalarBytes": 4096,
+    "fieldsAndValuesPerEnvelope": 8192,
+    "parsedNodesPerPayload": 131072,
+    "totalParsedNodes": 1048576,
+    "publisherKeys": 16,
+    "forbiddenValues": 64,
+    "forbiddenValueBytes": 16384,
+    "totalForbiddenValueBytes": 65536,
+    "stdinRequestBytes": 33554432,
+    "stdinReadDeadlineMilliseconds": 10000,
+    "callerCanRaiseLimits": false
+  },
+  "policy": [
+    "strict recursive JSON parser rejects duplicate decoded names including escaped equivalents in JSON, arrays, nested objects and NDJSON before projection",
+    "fatal original UTF-8 decoding, malformed/partial/nonfinite/prototype and depth/node/key/scalar bounds before shared regex",
+    "known fixture publisher membership required at envelope top-level iKey only; missing/foreign/nested placement or copied publisher values/keys elsewhere rejected",
+    "existing values.mjs forbiddenField/forbiddenString/PSEUDONYM/UUID4 policies reused, not duplicated credential regex",
+    "original credential/personal/SQL/Redis fields/values, unsafe user identifiers and exact caller markers checked before any tag removal",
+    "no caller waiver, truncation, masking, native ID/kind/name/role/URL backfill or new provider"
+  ],
+  "validation": {
+    "kind": "SOURCE_CPU_ONLY",
+    "focusedGenericTests": 17,
+    "focusedGenericPassed": 17,
+    "focusedGenericFailed": 0,
+    "focusedGenericSkipped": 0,
+    "focusedGenericDurationMilliseconds": 4189.5728,
+    "combinedGenericIdentityAndHeaderTests": 34,
+    "combinedPassed": 34,
+    "combinedFailed": 0,
+    "combinedSkipped": 0,
+    "combinedDurationMilliseconds": 3005.7911,
+    "helperAndCliSyntax": "PASS",
+    "fourChangedSourceFileSecretScan": "PASS_ZERO_FINDINGS_SOURCE_MODE",
+    "ownedDiffWhitespace": "PASS",
+    "actualCliCpuChecks": "stdin positive PID/source/raw-hash/count binding, duplicate wrapper, adversarial 64-KiB scalar and exact-marker negatives; no network/provider/fixture files",
+    "exactBoundaries": [
+      "one and sixteen known publishers, 64 caller markers",
+      "4096-byte ASCII/Unicode scalars and 128-byte Unicode keys; above-limit cases fail",
+      "depth 32 and 8192 fields/values; above-limit cases fail",
+      "1048576 raw and gzip-decoded bytes with multi-scalar positive; one-byte-over negative",
+      "sixteen payloads / 16777216 raw and decoded bytes; additional payload fails",
+      "512 envelopes per payload / 8192 total; additional envelope fails",
+      "33554432-byte strict CLI request parser; one-byte-over negative"
+    ],
+    "focusedCommandFromRepositoryRoot": "node --test .\\contoso-corr-poc\\tests\\security\\native-payload.test.mjs",
+    "combinedCommandFromRepositoryRoot": "node --test .\\contoso-corr-poc\\tests\\security\\native-payload.test.mjs .\\contoso-corr-poc\\tests\\security\\native-identity-client.test.mjs .\\contoso-corr-poc\\tests\\security\\av23-check.test.mjs",
+    "stdinTimeoutRuntimeTested": false,
+    "javaNativeMavenOrCloudOperations": false
+  },
+  "scopeLimits": [
+    "no peer API, async or sampler consumer edited; they must adopt the new port under their own grant and freeze current import hashes",
+    "old identity collector00e remains unchanged and is not retroactively made strict by this new source",
+    "no original raw-payload disclosure or matched finding persisted",
+    "input privacy/known fixture publisher check does not attest source, enrollment, all-table privacy, native fidelity or exporter completeness",
+    "original R2/R5 source/CPU reviews required; parent owns future actual current-source native retakes"
+  ],
+  "writerState": "SOURCE_FROZEN_AFTER_THIS_MANIFEST_NO_PEER_PRODUCTION_JAVA_NATIVE_MAVEN_LOCK_OR_TARGET_WRITES"
+}

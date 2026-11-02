@@ -2,13 +2,15 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
-import { expandNeeds, parseBacklog, projectRoot, renderKanban, reviewScopeDigest, reviewSourceDigest, updateAcceptance, validateReviewReport, validateState } from '../tools/kanban.mjs';
+import { backlogSemanticHash, expandNeeds, implementationOwner, parseBacklog, projectRoot, renderKanban, reviewScopeDigest, reviewSourceDigest, updateAcceptance, validateReviewReport, validateState, verifyPersistedLiveEvidence } from '../tools/kanban.mjs';
+import { createAcceptanceScopes, validateAcceptanceScopes } from '../tools/verification/acceptance.mjs';
 
 const wiki = path.join(projectRoot, '..', '.docs', 'wiki');
 const backlog = await readFile(path.join(wiki, 'Contoso_E2E_Correlation_POC_Backlog.md'), 'utf8');
 const board = await readFile(path.join(wiki, 'Contoso_E2E_Correlation_POC_Kanban.md'), 'utf8');
 const cards = parseBacklog(backlog);
-const empty = () => ({ schema: 'contoso.board-acceptance.v1', revision: 1, defaultStatus: 'To Do', phaseAwareConstructionApproved: true, records: {} });
+const empty = () => ({ schema: 'contoso.board-acceptance.v1', revision: 1, defaultStatus: 'To Do', phaseAwareConstructionApproved: true,
+  implementationAssignments: { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } }, records: {} });
 const active = () => ({ status: 'In Progress', scope: 'construction', phase: 'draft', constructionReady: true, nextAction: 'Implement checker', waitingOn: [], criteria: [], reviews: [] });
 
 test('imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix', () => {
@@ -46,6 +48,108 @@ test('enforces one active card per role and returns stalled work to To Do', () =
   delete state.records['GATE-11'];
   state.records['GATE-07'].waitingOn = ['missing live prerequisite'];
   assert.throws(() => validateState(cards, state), /return to To Do/);
+});
+
+test('approved acting roles retain logical ownership but share one implementation WIP limit', () => {
+  const state = empty();
+  state.implementationAssignments = { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } };
+  state.records['GATE-11'] = active();
+  validateState(cards, state);
+  assert.equal(implementationOwner(state, 'R1'), 'R3');
+  state.records['GATE-01'] = active();
+  assert.throws(() => validateState(cards, state), /implementation owner R3/);
+  delete state.records['GATE-01'];
+  state.records['DAT-01'] = active();
+  state.records['GATE-09'] = active();
+  assert.throws(() => validateState(cards, state), /implementation owner R5/);
+});
+
+test('acting authors cannot count their own reviews through logical-role aliases', () => {
+  for (const [id, author] of [['GATE-11', 'R3'], ['DAT-01', 'R5'], ['GATE-09', 'R6'], ['GATE-01', 'R1']]) {
+    const state = empty();
+    state.implementationAssignments = { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } };
+    state.records[id] = { ...active(), status: 'To Do', reviews: [{ role: author, result: 'accepted' }] };
+    assert.throws(() => validateState(cards, state), /Author\/self-review/);
+  }
+});
+
+test('two accepted logical-role aliases cannot count as two implementation reviewers', () => {
+  const state = empty();
+  state.implementationAssignments = { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } };
+  state.records['GATE-03'] = { ...active(), status: 'Done', reviews: ['R1', 'R3'].map(role => ({
+    role, result: 'accepted', reviewKind: 'code', reviewedOwnerRole: 'R8',
+    artifact: `evidence\\reviews\\${role}.json`, sha256: '1'.repeat(64), scopeSha256: '2'.repeat(64)
+  })) };
+  assert.throws(() => validateState(cards, state), /Two other-role reviews/);
+});
+
+test('unapproved replacement roles reject and approved assignment changes invalidate board-policy review', () => {
+  const state = empty();
+  const historical = { ...state, implementationAssignments: null };
+  const before = reviewSourceDigest('config\\board-state.json', Buffer.from(JSON.stringify(historical)));
+  const after = reviewSourceDigest('config\\board-state.json', Buffer.from(JSON.stringify(state)));
+  assert.notEqual(before, after);
+  state.implementationAssignments.owners.R1 = 'R10';
+  assert.throws(() => validateState(cards, state), /Explicit approved/);
+  for (const assignments of [
+    { owners: { R1: 'R3', R6: 'R5' } },
+    { approval: 'USER reassign_existing', owners: {} },
+    { approval: 'USER reassign_existing', owners: { R1: 'R3' } },
+    { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5', R4: 'R2' } }
+  ]) {
+    state.implementationAssignments = assignments;
+    assert.throws(() => validateState(cards, state), /Explicit approved/);
+  }
+});
+
+test('current synchronization/rendering cannot remove or null the approved acting assignment', async () => {
+  const current = JSON.parse(await readFile(path.join(projectRoot, 'config', 'board-state.json')));
+  const scopeCards = createAcceptanceScopes(cards, backlogSemanticHash(backlog)).cards;
+  for (const source of [empty(), current]) {
+    for (const value of [undefined, null]) {
+      const candidate = structuredClone(source);
+      if (value === undefined) delete candidate.implementationAssignments;
+      else candidate.implementationAssignments = value;
+      assert.throws(() => validateState(cards, candidate, scopeCards), /Explicit approved/);
+      assert.throws(() => implementationOwner(candidate, 'R1'), /Explicit approved/);
+      assert.throws(() => renderKanban(cards, candidate, board), /Explicit approved/);
+    }
+  }
+});
+
+test('cross-role WIP and author protection cannot fall back to parked roles without the map', () => {
+  const state = empty();
+  state.records['GATE-09'] = active();
+  state.records['DAT-01'] = active();
+  state.records['GATE-11'] = { ...active(), reviews: [{ role: 'R3', result: 'accepted' }] };
+  delete state.implementationAssignments;
+  assert.throws(() => validateState(cards, state), /Explicit approved/);
+});
+
+test('highest executable facet is compared across logical roles sharing an implementation owner', () => {
+  const scopeCards = createAcceptanceScopes(cards, backlogSemanticHash(backlog)).cards;
+  for (const [id, higher, index, scope] of [
+    ['GATE-01', 'GATE-11', 2, 'unit'],
+    ['DAT-01', 'GATE-09', 3, 'unit']
+  ]) {
+    const state = empty();
+    state.implementationAssignments = { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } };
+    state.explicitActiveFacetsRequired = true;
+    state.executableCards = [higher, id];
+    state.records[id] = { ...active(), activeFacet: { index, scope, action: 'Implement owned source facet', readiness: 'executable' } };
+    assert.throws(() => validateState(cards, state, scopeCards), new RegExp(`Pull higher-priority executable facet ${higher}`));
+    state.executableCards = [id];
+    validateState(cards, state, scopeCards);
+  }
+});
+
+test('rendered implementation lanes show acting owner instead of stopped original writer', () => {
+  const state = empty();
+  state.implementationAssignments = { approval: 'USER reassign_existing', owners: { R1: 'R3', R6: 'R5' } };
+  state.records['GATE-11'] = active();
+  const output = renderKanban(cards, state, board);
+  assert.match(output, /### R3: 1 cards/);
+  assert.match(output, /logical R1; implementation R3 acting R1/);
 });
 
 test('construction does not satisfy completion dependencies or evidence', () => {
@@ -124,6 +228,15 @@ test('partial passing checkboxes require scope policy and current evidence too',
   assert.throws(() => validateState(cards, state, policy), /Missing current passing evidence/);
 });
 
+test('persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority', async () => {
+  const receipt = { provenance: 'azure-monitor-logs', result: 'PASS', fixture: false,
+    sourceAcceptanceIsCertification: false, coverage: { complete: true }, sourceManifestSha256: 'a'.repeat(64),
+    authenticatedPeerVerified: true, observerId: 'caller-invented', nativeHttpStatus: 200 };
+  await assert.rejects(verifyPersistedLiveEvidence(receipt, { provenance: receipt.provenance }), /No root-enrolled live acceptance executor/);
+  await assert.rejects(verifyPersistedLiveEvidence({ ...receipt, provenance: 'azure-resource-manager-read' },
+    { provenance: 'azure-resource-manager-read' }), /cannot grant native authority/);
+});
+
 test('rehydrates all card IDs once with accurate columns and unchanged Avoid doing', () => {
   const state = empty();
   state.records['GATE-03'] = active();
@@ -134,4 +247,56 @@ test('rehydrates all card IDs once with accurate columns and unchanged Avoid doi
   assert.match(output, /## Done \(0\)/);
   assert.match(output, /\| AV-25 \|/);
   assert.equal(updateAcceptance(backlog, cards, empty()), backlog.replaceAll('- [x] ', '- [ ] '));
+});
+
+test('exact scopes cover all clauses and invalidate on a semantic source change', () => {
+  const policy = createAcceptanceScopes(cards, backlogSemanticHash(backlog));
+  validateAcceptanceScopes(cards, policy, backlogSemanticHash(backlog));
+  assert.equal(Object.keys(policy.cards).length, 78);
+  assert.deepEqual(policy.cards['CRT-01'].liveClauses, []);
+  assert.deepEqual(policy.cards['GATE-08'].clauses[0].requiredFacets, ['unit', 'live']);
+  const changed = structuredClone(cards);
+  changed[0].clauses[0].text += ' changed';
+  assert.throws(() => validateAcceptanceScopes(changed, policy, backlogSemanticHash(backlog)), /Stale\/invalid exact/);
+  assert.throws(() => validateAcceptanceScopes(cards, policy, '1'.repeat(64)), /unapproved, or stale/);
+});
+
+test('partial local facet is rendered separately and cannot tick a whole live clause', () => {
+  const state = empty();
+  state.records['GATE-08'] = { ...active(), criteria: [{
+    index: 1, result: 'NOT RUN', scope: 'unit',
+    facets: [{ scope: 'unit', result: 'PASS', artifact: 'evidence/local.json', sha256: '1'.repeat(64) }]
+  }] };
+  const policy = createAcceptanceScopes(cards, backlogSemanticHash(backlog));
+  validateState(cards, state, policy.cards);
+  assert.match(renderKanban(cards, state, board), /Whole clause remains unmet/);
+  assert.equal(updateAcceptance(backlog, cards, state), backlog.replaceAll('- [x] ', '- [ ] '));
+  state.records['GATE-08'].criteria[0].result = 'PASS';
+  assert.throws(() => validateState(cards, state, policy.cards), /Live evidence required/);
+});
+
+test('arbitrary live PASS and reviewer votes are not native acceptance', () => {
+  const state = empty();
+  state.records['GATE-08'] = { ...active(), criteria: [{
+    index: 1, result: 'PASS', scope: 'live',
+    facets: [
+      { scope: 'unit', result: 'PASS', artifact: 'evidence/unit.json', sha256: '1'.repeat(64) },
+      { scope: 'live', result: 'PASS', artifact: 'evidence/live.json', sha256: '2'.repeat(64) }
+    ]
+  }] };
+  const policy = createAcceptanceScopes(cards, backlogSemanticHash(backlog));
+  assert.throws(() => validateState(cards, state, policy.cards), /Native live evidence provenance/);
+});
+
+test('source-backlog hash does not authorize removal of a live facet or weaker evidence kinds', () => {
+  const policy = createAcceptanceScopes(cards, backlogSemanticHash(backlog));
+  const missingLive = structuredClone(policy);
+  missingLive.cards['GATE-02'].clauses[0].requiredFacets =
+    missingLive.cards['GATE-02'].clauses[0].requiredFacets.filter(value => value !== 'live');
+  missingLive.cards['GATE-02'].liveClauses =
+    missingLive.cards['GATE-02'].clauses.filter(clause => clause.requiredFacets.includes('live')).map(clause => clause.index);
+  assert.throws(() => validateAcceptanceScopes(cards, missingLive, backlogSemanticHash(backlog)), /authoritative acceptance facets/);
+  const weakerKind = structuredClone(policy);
+  weakerKind.cards['GATE-08'].clauses[0].liveEvidenceKinds.push('azure-arm-state');
+  assert.throws(() => validateAcceptanceScopes(cards, weakerKind, backlogSemanticHash(backlog)), /authoritative acceptance facets/);
 });

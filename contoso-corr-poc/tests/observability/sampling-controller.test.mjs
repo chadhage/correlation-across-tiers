@@ -6,9 +6,25 @@ import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { enterWindow, restoreWindow, validatePlan, validateProductionRestoreAck, validateDrainAck, assertActivationBeforeDrain, isDrainComplete } from '../../tools/observability/sampling-controller.mjs';
+import { GUARD_POLICY, GUARD_ARTIFACT_VERSION, sha256 } from '../../tools/observability/telemetry-contract.mjs';
 
 const project = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const wait = delay => new Promise(done => setTimeout(done, delay));
+async function progressBefore(deadline, message, statePath, child = null) {
+  if (Date.now() < deadline && (!child || child.exitCode === null)) return;
+  const state = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}'));
+  const heartbeat = JSON.parse(await readFile(join(dirname(statePath), 'watchdog.json'), 'utf8').catch(() => '{}'));
+  let watchdogAlive = false;
+  if (Number.isInteger(state.watchdogPid)) {
+    try { process.kill(state.watchdogPid, 0); watchdogAlive = true; } catch { }
+  }
+  assert.fail(`${message}: ${JSON.stringify({
+    status: state.status ?? null, errorCategory: state.errorCategory ?? null,
+    restoreReason: state.restoreReason ?? null, watchdogAlive,
+    heartbeatAtUtc: heartbeat.observedAtUtc ?? null, childExitCode: child?.exitCode ?? null,
+    restoreDeadlineMissed: state.restoreDeadlineMissed ?? null
+  })}`);
+}
 async function fixture(layers = ['jvm'], seconds = 20) {
   const runId = randomUUID();
   const folder = join(project, '.cache', 'r7', 'test-controller', runId);
@@ -44,6 +60,7 @@ test('production restoration reuses complete acknowledgement safety validation',
   const ack = { schema: 'contoso.sampling-control-ack.v1', layerId: participant.id, revision: 'production',
     configSha256: hash, sourceKind: 'trusted-runtime-observation',
     guardPresent: true, guardSha256: hash, percentage: 10, requestsPerSecond: null,
+    guardPolicy: GUARD_POLICY, guardArtifactVersion: GUARD_ARTIFACT_VERSION,
     privacyChanged: false, secretsIncluded: false, providerConstruction: false, extraExporter: false };
   assert.equal(validateProductionRestoreAck(ack, participant, snapshot, { sha256: hash }), ack);
   for (const field of ['privacyChanged', 'secretsIncluded', 'providerConstruction', 'extraExporter']) {
@@ -129,7 +146,8 @@ test('all layer local activation and restoration preserve unrelated security fie
     assert.equal(final.sampling.percentage, 10);
     assert.equal(final.sampling.requestsPerSecond, 5);
     assert.equal(final.security.epoch, 'approved-new-epoch');
-    assert.equal(restored.guard.sha256, '08592fa4f8fea7b7d259efd2ea38753d9ddc0e9abed05c2e42b62d7bbf2218ce');
+    const lock = JSON.parse(await readFile(join(project, 'config', 'versions.lock.json'), 'utf8'));
+    assert.equal(restored.guard.sha256, lock.extensions[0].sha256);
   } finally { await clean(data); }
 });
 
@@ -166,7 +184,9 @@ test('independent watchdog restores after controller interruption', { timeout: 2
   const planPath = join(data.folder, 'plan.json');
   await writeFile(planPath, JSON.stringify(data.plan));
   const child = spawn(process.execPath, [join(project, 'tools', 'observability', 'sampling-controller.mjs'), 'enter', planPath],
-    { cwd: project, stdio: 'ignore' });
+    { cwd: project, stdio: ['ignore', 'pipe', 'pipe'] });
+  child.stdout.resume();
+  child.stderr.resume();
   const statePath = join(project, '.cache', 'r7', 'controller', data.plan.runId, 'state.json');
   let watchdogPid;
   try {
@@ -175,7 +195,7 @@ test('independent watchdog restores after controller interruption', { timeout: 2
       let state;
       try { state = JSON.parse(await readFile(statePath, 'utf8')); } catch (failure) { if (failure.code !== 'ENOENT') throw failure; }
       if (state?.status === 'active-local') { watchdogPid = state.watchdogPid; break; }
-      assert(Date.now() < deadline, 'Controller activation did not finish');
+      await progressBefore(deadline, 'Controller activation did not finish', statePath, child);
       await wait(50);
     }
     assert(watchdogPid && watchdogPid !== child.pid);
@@ -187,7 +207,7 @@ test('independent watchdog restores after controller interruption', { timeout: 2
         assert.equal(JSON.parse(await readFile(data.plan.participants[0].adapter.path, 'utf8')).sampling.percentage, 10);
         break;
       }
-      assert(Date.now() < deadline + 5000, 'Independent watchdog did not restore');
+      await progressBefore(deadline + 5000, 'Independent watchdog did not restore', statePath);
       await wait(100);
     }
     await wait(600);
@@ -214,7 +234,7 @@ test('independent watchdog enforces expiry even while the owner stays alive', { 
         assert.equal(JSON.parse(await readFile(data.plan.participants[0].adapter.path, 'utf8')).sampling.percentage, 10);
         break;
       }
-      assert(Date.now() < deadline, 'Expiry watchdog did not restore');
+      await progressBefore(deadline, 'Expiry watchdog did not restore', entered.statePath);
       await wait(100);
     }
     await wait(600);
@@ -251,7 +271,7 @@ test('watchdog starts drain before expiry without changing the full sampling pro
     for (;;) {
       const state = JSON.parse(await readFile(entered.statePath, 'utf8'));
       if (state.drainCompletedAtUtc) { draining = state; break; }
-      assert(Date.now() < deadline, 'Scheduled pre-expiry drain did not occur');
+      await progressBefore(deadline, 'Scheduled pre-expiry drain did not occur', entered.statePath);
       await wait(50);
     }
     assert.equal(draining.status, 'draining');
@@ -261,7 +281,7 @@ test('watchdog starts drain before expiry without changing the full sampling pro
     for (;;) {
       const state = JSON.parse(await readFile(entered.statePath, 'utf8'));
       if (state.status === 'restored') break;
-      assert(Date.now() < deadline, 'Final restoration did not finish');
+      await progressBefore(deadline, 'Final restoration did not finish', entered.statePath);
       await wait(100);
     }
     await wait(600);
@@ -306,5 +326,39 @@ test('recovery resumes an interrupted persisted mid-drain journal instead of tru
     assert(recovered.drainResumedAtUtc);
     assert(recovered.drainCompletedAtUtc);
     assert(isDrainComplete(recovered, data.plan));
+  } finally { await clean(data); }
+});
+
+test('duplicate lease entry preserves the original write-ahead journal and rollback', async () => {
+  const data = await fixture();
+  try {
+    const entered = await enterWindow(data.plan, { startWatchdog: false });
+    const before = await readFile(entered.statePath, 'utf8');
+    await assert.rejects(enterWindow(data.plan, { startWatchdog: false }), /already exists/);
+    assert.equal(await readFile(entered.statePath, 'utf8'), before);
+    const restored = await restoreWindow(entered.statePath);
+    assert.equal(restored.status, 'restored');
+    assert.equal(JSON.parse(await readFile(data.plan.participants[0].adapter.path, 'utf8')).sampling.percentage, 10);
+  } finally { await clean(data); }
+});
+
+test('interpreter executable hash alone cannot approve mutable hook code or inline evaluation', async () => {
+  const data = await fixture();
+  try {
+    const script = join(project, 'tools', 'observability', 'state-io.mjs');
+    const command = { executable: process.execPath, sha256: sha256(await readFile(process.execPath)),
+      arguments: [script], capability: 'local-write' };
+    data.plan.participants[0].adapter = { kind: 'command', path: data.plan.participants[0].adapter.path,
+      apply: command, restore: command, observe: { ...command, capability: 'read-only' } };
+    await assert.rejects(validatePlan(data.plan), /pinned entry-point/);
+    const pinned = { ...command, codeFiles: [{ path: script, sha256: sha256(await readFile(script)) }] };
+    data.plan.participants[0].adapter.apply = pinned;
+    data.plan.participants[0].adapter.restore = pinned;
+    data.plan.participants[0].adapter.observe = { ...pinned, capability: 'read-only' };
+    await assert.doesNotReject(validatePlan(data.plan));
+    data.plan.participants[0].adapter.apply = { ...pinned, arguments: ['--eval', 'console.log("{}")'] };
+    await assert.rejects(validatePlan(data.plan), /Inline executable/);
+    data.plan.participants[0].adapter.apply = { ...pinned, codeFiles: [{ path: script, sha256: 'a'.repeat(64) }] };
+    await assert.rejects(validatePlan(data.plan), /source drift/);
   } finally { await clean(data); }
 });

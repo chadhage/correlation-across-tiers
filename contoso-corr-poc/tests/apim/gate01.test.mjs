@@ -119,6 +119,9 @@ test("OpenAPI is versioned, finite, preserves the prefix mapping and never expos
   assert.equal(Object.keys(spec.paths).some(route => route.startsWith("/api") || route.includes("?")), false);
   assert.equal(Object.values(spec.components.parameters).some(parameter => parameter.name === "X-Contoso-Gateway-Authorization"), false);
   assert.equal(spec.components.schemas.DemoRunRequest.properties.demoId.maximum, 15);
+  assert.deepEqual(spec.components.schemas.ActorView.properties.actorType.enum, ["user", "workload"]);
+  assert.equal(spec.components.schemas.ActorView.properties.pseudonym.pattern, "^h1:[0-9a-f]{32}:[A-Za-z0-9_-]{43}$");
+  assert.deepEqual(spec.components.schemas.ActorView.oneOf[1].not.required, ["pseudonym"]);
   assert.equal(spec.components.schemas.ControlRequest.properties.action.enum.includes("REPLAY"), true);
   assert.equal(spec.components.responses.stagedWorkflow.description.includes("not proof of broker acceptance"), true);
 });

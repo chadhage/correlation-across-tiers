@@ -1,0 +1,69 @@
+{
+  "schema": "contoso.local-native-projection.v1",
+  "originalEnvelopesInMemoryOnly": true,
+  "projectedRecords": 0,
+  "publisherKeysPersisted": false,
+  "allTablePrivacyGateVerified": false,
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false,
+  "originalPrivacyCapture": {
+    "schema": "contoso.sampler-native-intake-empty.v1",
+    "observedNativePayloads": 0,
+    "verified": false,
+    "validatorPid": null,
+    "expectedPolicySourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "expectedSharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "payloadReceipts": [],
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED"
+  },
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": false,
+    "receiverCode": null,
+    "sealed": true,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 0,
+      "parse": 0,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 0,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 0,
+      "nativePosts": 0,
+      "completedBodies": 0,
+      "rawBytesObserved": 0,
+      "acceptedPayloads": 0,
+      "acceptedRawBytes": 0,
+      "acceptedDecodedBytes": 0,
+      "acceptedEnvelopes": 0
+    },
+    "firstPoison": null,
+    "lastRequest": null,
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 4,
+      "nativePosts": 0,
+      "echoGets": 0,
+      "rejectedRoutes": 4,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  }
+}

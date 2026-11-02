@@ -1,0 +1,1410 @@
+{
+  "schemaVersion" : 1,
+  "observations" : [ {
+    "inputMode" : "actual-native-producer-0",
+    "consumerPercentage" : 100,
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "spanId" : "cf169edc17486e81",
+        "sampled" : true,
+        "traceId" : "128c8613b8ca6be6e0dd1085f5cb6356"
+      },
+      "ordinaryProcess" : {
+        "spanId" : "f66b7402c3a7b54d",
+        "sampled" : false,
+        "traceId" : "e787248bef7b6beefd44d067a09d24a5"
+      },
+      "replaySend" : {
+        "spanId" : "07317a213f7b95ef",
+        "sampled" : false,
+        "traceId" : "209679c26137b766975d5310c4abb7bb"
+      },
+      "resultSends" : [ {
+        "spanId" : "abb16030ddf46f96",
+        "sampled" : false,
+        "traceId" : "ea13eb9a6d2ef1b863709a4dbcf7b421"
+      }, {
+        "spanId" : "b36da62290185bf3",
+        "sampled" : false,
+        "traceId" : "0bda44504e772629c9a487dffad9271f"
+      } ],
+      "fanIn" : {
+        "spanId" : "665bd2f5b1ab5f49",
+        "sampled" : false,
+        "traceId" : "0c0c9427d02db31e365db42491886672"
+      },
+      "batchItems" : [ {
+        "spanId" : "a60d32e289daad8a",
+        "sampled" : false,
+        "traceId" : "84c06332efc54df10b8b7dc2e33d696e"
+      }, {
+        "spanId" : "13b07cf96e01e9e4",
+        "sampled" : false,
+        "traceId" : "84c06332efc54df10b8b7dc2e33d696e"
+      } ],
+      "inputContexts" : [ {
+        "spanId" : "64b95314690b5f65",
+        "sampled" : false,
+        "traceId" : "e787248bef7b6beefd44d067a09d24a5"
+      }, {
+        "spanId" : "4b6c0c00fb51e1dc",
+        "sampled" : false,
+        "traceId" : "9d630aa29263bdddce62a30d43484cf9"
+      }, {
+        "spanId" : "134d8104df82dd2c",
+        "sampled" : false,
+        "traceId" : "be792bb199b49503737a83ae6a5fd69f"
+      }, {
+        "spanId" : "2bfb4bf631f511a8",
+        "sampled" : false,
+        "traceId" : "e1560ac89e9b9ba3e23c1386bcf39fb6"
+      }, {
+        "spanId" : "680e1a20141e7b44",
+        "sampled" : false,
+        "traceId" : "5fbd63079ee4086a63f485f27f6da696"
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    },
+    "exportedOrdinaryCount" : 0,
+    "actualNativeSpans" : [ {
+      "traceId" : "01ebe4b73630a3843289230f4052ff1a",
+      "spanId" : "d9fc5f8b593d0706",
+      "parentId" : "",
+      "links" : "",
+      "name" : "GET /carriers"
+    }, {
+      "traceId" : "128c8613b8ca6be6e0dd1085f5cb6356",
+      "spanId" : "cf169edc17486e81",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.sampling.unlinked.control"
+    }, {
+      "traceId" : "71fdaa6072df047b79402a93e158aaeb",
+      "spanId" : "b881aeb4e663c11b",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "22964f4ad8ae50a0926e5627d6e87065",
+      "spanId" : "6fdb4deb0202b600",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "0dd64cfbdb20af0437ce7c6928c127fc",
+      "spanId" : "a63015068fe07028",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8d58706866208442ee7b680fabca7ecf",
+      "spanId" : "613d7ed813b0f12e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "fb34236e94341d3e06dd133aaede27c9",
+      "spanId" : "6243a0d2180de4e6",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "68f9b8460567c65913bbbf537f1d49c0",
+      "spanId" : "331d39610846f7f8",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "2de8e7869cbfaec485e2f6fbeba23ae8",
+      "spanId" : "25b0f55a98607c5d",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "18d19859401d3d791b55c89f80aa4462",
+      "spanId" : "e181df4e00b7756a",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "f74b7cab15e7c49c80526f58f980d10d",
+      "spanId" : "aaf07bff1efa7dfd",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1a6dca259367614a03c78d0cb36b2f6b",
+      "spanId" : "3f541d2940955b13",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "c1dafc8b6c330dbc349d3d89edf9fd4e",
+      "spanId" : "4f687d6fd720ce3c",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1a74b8cee391356edddbab3de7e42995",
+      "spanId" : "bc7d9cb0e224dcba",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "78c001350a0700a3a040d9c0dfd71b02",
+      "spanId" : "f82f27b477ecaafc",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "854480a1f3f4a22863d0e44441527130",
+      "spanId" : "ec43d3f2453d6179",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d2d92cc725695cf410ce89637c1736bd",
+      "spanId" : "26af6785ba3fa05f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "b86127804a41fc9ad2564cf69bd8f724",
+      "spanId" : "7b3cdf1807d2cf33",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "58630f18396051677d581376647d6bc3",
+      "spanId" : "d958bd6c244762c2",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "64f28454a9f8e60f190ff81457ca147c",
+      "spanId" : "ad4116d0b823b77e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "11918427e35d6c0d50f9f2a60a4f08ea",
+      "spanId" : "12bfd96e602d4aea",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "239d71682f38dbfa50fe78ead1da191a",
+      "spanId" : "c925458789f27f80",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "b51c00b6507ee9487641cae8f9d45b01",
+      "spanId" : "c9b8dec67fcddf89",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "9ad59b98d0d6052057ccc9446c78bafd",
+      "spanId" : "1f889ec1d1c186c9",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "6f609e08be49d8445dba2d676abf2b1b",
+      "spanId" : "e36d7996054641d2",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1033f19c2bfa02bdb1e2f38d9d334def",
+      "spanId" : "e6b6e6f4e728fb8b",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "31758e83eb382a64e32f15c3d45a5925",
+      "spanId" : "a1c467495d71406f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "b9bb6a7214dae8fa8938b054e00be8a6",
+      "spanId" : "057ee7cc7345a09e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1d6e32bde1c751f58cf144fa76f16532",
+      "spanId" : "3695886daf7876e5",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "4319d555320ac94bbc39bd6176d09282",
+      "spanId" : "bdac233615cab1c7",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "ba32cceefc1f6610d18824938efb25b3",
+      "spanId" : "652cf70dfd5836cc",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "512e2ee1a64d6c8cf0e21899633a60f4",
+      "spanId" : "16f4a8084feffb1c",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "81133da3c4e6f50d529408100ae66a47",
+      "spanId" : "ecafa0ed0fbc7b45",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "072c36e87405cb7542767eca6da57e8f",
+      "spanId" : "b0cedd2692231126",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "46f39281f73ee186880499b14616c37a",
+      "spanId" : "018364bca6b09e1f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d14a410449a6f9938c13ad48bf9896ab",
+      "spanId" : "a828787f1bf24e5e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "e34670b61f784322113a2ced82bcacaa",
+      "spanId" : "6da962dc9149863b",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "e9badfcadec3a05a11f8b6dcfbd1b72c",
+      "spanId" : "977eea25b34552c2",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "a36a8c479644ecd4d0cf60b91e6eb22e",
+      "spanId" : "765abcf654887932",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "88a21f2fcfe85a0623a53d473307be31",
+      "spanId" : "620c335ca4ad84c4",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "941237fdbe1940b72e9b464ec6753f1f",
+      "spanId" : "d7b24c0da5028f63",
+      "parentId" : "",
+      "links" : "",
+      "name" : "POST /decisions"
+    } ],
+    "everyOutgoingZeroSatisfied" : true,
+    "sourcePercentage" : 0
+  }, {
+    "inputMode" : "actual-native-producer-100",
+    "consumerPercentage" : 100,
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "spanId" : "443def20e49d5cf9",
+        "traceId" : "5c8b3148a3864069789fda4cc7ab8e6e",
+        "sampled" : true
+      },
+      "ordinaryProcess" : {
+        "spanId" : "66628d015fc26137",
+        "traceId" : "08795679edeef70c4f15cd05be423670",
+        "sampled" : true
+      },
+      "replaySend" : {
+        "spanId" : "d9a1c847cf9daf3f",
+        "traceId" : "bac9b7428cffa1a17af4a9f36f61e160",
+        "sampled" : true
+      },
+      "resultSends" : [ {
+        "spanId" : "e26e7038ff6bd02f",
+        "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+        "sampled" : true
+      }, {
+        "spanId" : "b797f4301e48ce9c",
+        "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+        "sampled" : true
+      } ],
+      "fanIn" : {
+        "spanId" : "031d65d560a56c22",
+        "traceId" : "e0fd8a07d983df23bd43d5912a750362",
+        "sampled" : true
+      },
+      "batchItems" : [ {
+        "spanId" : "f0937d335a95392f",
+        "traceId" : "d408da2b28b2c034230cce1bedab4634",
+        "sampled" : true
+      }, {
+        "spanId" : "8c705d1f562435c5",
+        "traceId" : "d408da2b28b2c034230cce1bedab4634",
+        "sampled" : true
+      } ],
+      "inputContexts" : [ {
+        "spanId" : "a91ae95ee81e398f",
+        "traceId" : "08795679edeef70c4f15cd05be423670",
+        "sampled" : true
+      }, {
+        "spanId" : "8aa59da256610a86",
+        "traceId" : "20f4693f5d43a1136105882a9d498de7",
+        "sampled" : true
+      }, {
+        "spanId" : "4f929efe53570df4",
+        "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+        "sampled" : true
+      }, {
+        "spanId" : "3c3697088d7a8877",
+        "traceId" : "b0b4f953f348333fb762d886655f2bc2",
+        "sampled" : true
+      }, {
+        "spanId" : "6607d416e579908b",
+        "traceId" : "e105b219461cecdcf8a6f5a5a1c9ec44",
+        "sampled" : true
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    },
+    "exportedOrdinaryCount" : 1,
+    "actualNativeSpans" : [ {
+      "traceId" : "7193d7f1f5b12c08d24df174237652e0",
+      "spanId" : "b8e412799dd9760a",
+      "parentId" : "",
+      "links" : "",
+      "name" : "GET /carriers"
+    }, {
+      "traceId" : "5c8b3148a3864069789fda4cc7ab8e6e",
+      "spanId" : "443def20e49d5cf9",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.sampling.unlinked.control"
+    }, {
+      "traceId" : "ceda64b4633ab38bcf2edfa935e30996",
+      "spanId" : "ce9bf3d93332c9b6",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "732547bb28297de6685af6b811912520",
+      "spanId" : "3faab35967a13b36",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "49a5f76a1856d7140f692b357482a37b",
+      "spanId" : "b7c6fc2abfd1fa9e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "fa6ce30c52dc620fd690f5f33490f4f0",
+      "spanId" : "899f1b9436171c57",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "21af4012e4f798cc8d4647a4e0a58e41",
+      "spanId" : "dea75ce036687b13",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "7ec0a270b054df4eb0f066b570f5cbd7",
+      "spanId" : "fbef0e5c0065f269",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1126eecd725cd3bb7216a0b059f4a1f6",
+      "spanId" : "578efe519fbd1ff7",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "5604f1879ed3fbe6d9f6d0ee1f470a30",
+      "spanId" : "a4d01541b660e6ad",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d1c36a88f47773e37e4c612b30763811",
+      "spanId" : "637eeb1da3a4e873",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "7838e481e3839302120ef30cb080450f",
+      "spanId" : "18f888443ac2837e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "706b9c59771115d44f860691312ad878",
+      "spanId" : "121ae3b0b7074ebf",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8b41c476b4bc8de518d06459fa2ef20b",
+      "spanId" : "af5f0784fe92c7b7",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "6b4ed7b67ea6df6d3e9b2f3a6d9ffe5f",
+      "spanId" : "d46ad87dcffac290",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "0373c2dd1d73b8983b2c06876d2be08b",
+      "spanId" : "68e85b29cd26d5b2",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "ccfa73651a7472d4409553de17907697",
+      "spanId" : "a8f745bb73d18beb",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "9f6efa2dde637421d15c72fc3da5416a",
+      "spanId" : "605f563633f684d5",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "693ef174a9a3da5e6cb5717f795db095",
+      "spanId" : "cdef3ad0226c60f3",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "b0fce89adcb16625994189ac89d25a1e",
+      "spanId" : "07b909b496c8eb86",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "ced9ca865e6845d72d06ddadd59988ab",
+      "spanId" : "46b4eabaca5f8948",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "27963a9f9b7e693d5de2f57a83a540ab",
+      "spanId" : "9913aaf48dd8a1ce",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "45ca570810ce681269bce61b648949f5",
+      "spanId" : "b762ea9aeeddc351",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "03da5964911d3640",
+      "parentId" : "66628d015fc26137",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "9adeee96c01c4352",
+      "parentId" : "66628d015fc26137",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "66628d015fc26137",
+      "parentId" : "a91ae95ee81e398f",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "d38a194a64dbdd36ba16614953491bf8",
+      "spanId" : "bb9794eaa5afa6be",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "d84340c4bb6ce92b",
+      "parentId" : "e647c58d18b52f74",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "90783b0bed854810",
+      "parentId" : "e647c58d18b52f74",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "e647c58d18b52f74",
+      "parentId" : "8aa59da256610a86",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "b92e85b7f4627b71a40d85bc56a26e11",
+      "spanId" : "9d5eb841db6da504",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "0f1c83b4adaf6175987e0557c5148f56",
+      "spanId" : "f021bac343e1139e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "31a31ba4a0562b08a8c8fe553929a5fd",
+      "spanId" : "c2f14649fc7f7078",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "a6165b006961655d2c50421d5d772cba",
+      "spanId" : "344290a3f18c2aec",
+      "parentId" : "b35f989222dff425",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "a6165b006961655d2c50421d5d772cba",
+      "spanId" : "b35f989222dff425",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"20f4693f5d43a1136105882a9d498de7\",\"id\":\"8aa59da256610a86\"}]",
+      "name" : "contoso.replay.process"
+    }, {
+      "traceId" : "3f2f6dd0c9a676c4c03e1a783d251df0",
+      "spanId" : "14ec2ec6b524cfdc",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "bac9b7428cffa1a17af4a9f36f61e160",
+      "spanId" : "04a468c340cb03e3",
+      "parentId" : "d9a1c847cf9daf3f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "bac9b7428cffa1a17af4a9f36f61e160",
+      "spanId" : "29fb18597f2415f8",
+      "parentId" : "d9a1c847cf9daf3f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "bac9b7428cffa1a17af4a9f36f61e160",
+      "spanId" : "d9a1c847cf9daf3f",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"20f4693f5d43a1136105882a9d498de7\",\"id\":\"8aa59da256610a86\"}]",
+      "name" : "contoso.replay.send"
+    }, {
+      "traceId" : "adff99f5d12df3f37222b103597413ed",
+      "spanId" : "4b05ed28ecdc7780",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "bd8b9b974a6957cb",
+      "parentId" : "ca6ad6b69cb87abd",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "cc27f570d2f025ab",
+      "parentId" : "ca6ad6b69cb87abd",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "ca6ad6b69cb87abd",
+      "parentId" : "4f929efe53570df4",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "005ad301b028ffec8abd5632729dda55",
+      "spanId" : "31289772452f68dd",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "16d88718b8538dac",
+      "parentId" : "462ae28419135f34",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "ee3a05002f89255b",
+      "parentId" : "462ae28419135f34",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "462ae28419135f34",
+      "parentId" : "4f929efe53570df4",
+      "links" : "",
+      "name" : "contoso.notify.process"
+    }, {
+      "traceId" : "b42c48de3f10c9796830ef3340e1489b",
+      "spanId" : "5078311426b9d668",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "656195e9e7196988",
+      "parentId" : "e26e7038ff6bd02f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "2b7e9f5ed7a9869c",
+      "parentId" : "e26e7038ff6bd02f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "e26e7038ff6bd02f",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"ca6ad6b69cb87abd\"}]",
+      "name" : "contoso.servicebus.send"
+    }, {
+      "traceId" : "161417a1174320ed9d8eb867c0aa5cf2",
+      "spanId" : "2c00be8fa29980be",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "6c3bf6f7a8cb41d2",
+      "parentId" : "b797f4301e48ce9c",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "4fe7fa7e1667de4b",
+      "parentId" : "b797f4301e48ce9c",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "b797f4301e48ce9c",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"462ae28419135f34\"}]",
+      "name" : "contoso.servicebus.send"
+    }, {
+      "traceId" : "d7cd2a80d11114e0c0eaa651bd783a6d",
+      "spanId" : "c4d24eaa3c8beb59",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "a35f4411afc6f418",
+      "parentId" : "83ae5570e1a0326f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "dbea4d103390b98a",
+      "parentId" : "83ae5570e1a0326f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "cf2a3eaa55a1ca71b619c955047d4ac4",
+      "spanId" : "373c67ec7a16ba25",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "894a541a5557d5fcdc6b39221cc1c221",
+      "spanId" : "83ae5570e1a0326f",
+      "parentId" : "e26e7038ff6bd02f",
+      "links" : "",
+      "name" : "contoso.results.process"
+    }, {
+      "traceId" : "d498d56d917b8aea0cc676f64a3c0997",
+      "spanId" : "3c3ed85c52e42995",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "e0095b0d7500fff7",
+      "parentId" : "30d1cf6c4b7767b3",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "52ff1703085028e6",
+      "parentId" : "30d1cf6c4b7767b3",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "7c5c26e80c6da31c8a611c26df108a22",
+      "spanId" : "9bfbb1ab7e5d4302",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "a07098cd18edbd5cd408fc7dc793055a",
+      "spanId" : "5ad6da44b31ca215",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "e0fd8a07d983df23bd43d5912a750362",
+      "spanId" : "85e789a8be726ef3",
+      "parentId" : "031d65d560a56c22",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "e0fd8a07d983df23bd43d5912a750362",
+      "spanId" : "031d65d560a56c22",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"ca6ad6b69cb87abd\"},{\"operation_Id\":\"894a541a5557d5fcdc6b39221cc1c221\",\"id\":\"e26e7038ff6bd02f\"},{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"462ae28419135f34\"},{\"operation_Id\":\"d09308fe9ab822f2476c5bd3ce09cbfc\",\"id\":\"b797f4301e48ce9c\"}]",
+      "name" : "contoso.fanin.process"
+    }, {
+      "traceId" : "d09308fe9ab822f2476c5bd3ce09cbfc",
+      "spanId" : "30d1cf6c4b7767b3",
+      "parentId" : "b797f4301e48ce9c",
+      "links" : "",
+      "name" : "contoso.results.process"
+    }, {
+      "traceId" : "fab8c4f0d2fa8380f3b2ef145404a118",
+      "spanId" : "76d3cfdbe35ee13e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d18839aa80d0009a1d1c870387f3f51a",
+      "spanId" : "3e813778f1d60d30",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "aabf7640cd94f800dd0a79103aebc043",
+      "spanId" : "c8f25fcc06b6cc33",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "4377505d7a16dc7f",
+      "parentId" : "f0937d335a95392f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "cdca72bcbd2ff68b",
+      "parentId" : "f0937d335a95392f",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "f0937d335a95392f",
+      "parentId" : "05be02d4443fde0a",
+      "links" : "",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "fa99e814366f0679",
+      "parentId" : "8c705d1f562435c5",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "c585e6848faa2446",
+      "parentId" : "8c705d1f562435c5",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "8c705d1f562435c5",
+      "parentId" : "05be02d4443fde0a",
+      "links" : "",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "d408da2b28b2c034230cce1bedab4634",
+      "spanId" : "05be02d4443fde0a",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"b0b4f953f348333fb762d886655f2bc2\",\"id\":\"3c3697088d7a8877\"},{\"operation_Id\":\"e105b219461cecdcf8a6f5a5a1c9ec44\",\"id\":\"6607d416e579908b\"}]",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "20ada6007f3a02dc1d62d70376188d61",
+      "spanId" : "739540bb4233e034",
+      "parentId" : "",
+      "links" : "",
+      "name" : "POST /decisions"
+    } ],
+    "everyOutgoingZeroSatisfied" : false,
+    "sourcePercentage" : 100
+  }, {
+    "inputMode" : "mixed-native-producer-0-and-100",
+    "consumerPercentage" : 100,
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "traceId" : "a6d98628835ecd4a71c1ee412f84665e",
+        "sampled" : true,
+        "spanId" : "0ab100158be82ae9"
+      },
+      "ordinaryProcess" : {
+        "traceId" : "08795679edeef70c4f15cd05be423670",
+        "sampled" : true,
+        "spanId" : "9764761b0d41eda3"
+      },
+      "replaySend" : {
+        "traceId" : "31f0deae6d50665427849fd9ec88d71b",
+        "sampled" : true,
+        "spanId" : "bb47a0ddd044a897"
+      },
+      "resultSends" : [ {
+        "traceId" : "db14191cdef678a9414336dfa1756bc0",
+        "sampled" : true,
+        "spanId" : "6ea5f858154cc592"
+      }, {
+        "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+        "sampled" : true,
+        "spanId" : "7d53139fc1e2d6cc"
+      } ],
+      "fanIn" : {
+        "traceId" : "909c9a9c072215254895f46b2ef1da0f",
+        "sampled" : true,
+        "spanId" : "da9bffd2384b1238"
+      },
+      "batchItems" : [ {
+        "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+        "sampled" : true,
+        "spanId" : "a9d6dbf0fa18c39a"
+      }, {
+        "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+        "sampled" : true,
+        "spanId" : "c992e4c3471d8cc2"
+      } ],
+      "inputContexts" : [ {
+        "traceId" : "08795679edeef70c4f15cd05be423670",
+        "sampled" : true,
+        "spanId" : "a91ae95ee81e398f"
+      }, {
+        "traceId" : "20f4693f5d43a1136105882a9d498de7",
+        "sampled" : true,
+        "spanId" : "8aa59da256610a86"
+      }, {
+        "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+        "sampled" : true,
+        "spanId" : "4f929efe53570df4"
+      }, {
+        "traceId" : "e1560ac89e9b9ba3e23c1386bcf39fb6",
+        "sampled" : false,
+        "spanId" : "2bfb4bf631f511a8"
+      }, {
+        "traceId" : "e105b219461cecdcf8a6f5a5a1c9ec44",
+        "sampled" : true,
+        "spanId" : "6607d416e579908b"
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    },
+    "exportedOrdinaryCount" : 1,
+    "actualNativeSpans" : [ {
+      "traceId" : "ff9f061e3d30dabd3e9e113cb6d1e0da",
+      "spanId" : "c1caebcd925bea53",
+      "parentId" : "",
+      "links" : "",
+      "name" : "GET /carriers"
+    }, {
+      "traceId" : "a6d98628835ecd4a71c1ee412f84665e",
+      "spanId" : "0ab100158be82ae9",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.sampling.unlinked.control"
+    }, {
+      "traceId" : "853dc3e8bbca21c5935861bac713069e",
+      "spanId" : "3576bb0184433e64",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "213810cbf50be2c415444ea59afe344c",
+      "spanId" : "bc92279d69cdbdf6",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "768b77a5e04894a15cdb23015121c71f",
+      "spanId" : "5fc8c84ae9bea10f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "728ab23ce221d09706e1e13ed645d930",
+      "spanId" : "6a717fe1fca5d8e1",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "4384d0c1663ef00953fe7d3124d0daf7",
+      "spanId" : "aad5162a50272ddd",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "f643478c14b95af550f13fb93405f517",
+      "spanId" : "db10d5aad5e87d4a",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "3631602945db45673b255f9ef7cb206b",
+      "spanId" : "a727c40efb9919dc",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8187bb13adbc7951a4d71cfd01eaa596",
+      "spanId" : "5461a072269e8191",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "1a92c403d0900834e1112991a9ef6620",
+      "spanId" : "ad0a76bf9756d3e6",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "584c70e4bd06c06e04fba35bbbfdc998",
+      "spanId" : "c34ebea258e792f9",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "0feff9aeb47e73d1335b621892eb1f19",
+      "spanId" : "51cf0ae08e3bbaec",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "5d2cb997396764ee466652bc7b96bac5",
+      "spanId" : "e09f81838d8d42ef",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "df1d2349246c351b437943b8be42b9d2",
+      "spanId" : "fea5b299a1433a02",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "007fc5378c7c8c4ec5dbd1f6ace2e0f2",
+      "spanId" : "37588a11f898777f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "473040c8c41c4e8a36db4a6be749b36d",
+      "spanId" : "4c1e69754a3bc415",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "42a593a2ccbca874f7f5185f3bdc65f0",
+      "spanId" : "8ca15d13d65b5798",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "63bca6b89f423853769e77d8a9893016",
+      "spanId" : "64a77ee8ab5ced2a",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "4905ba83a89a8cbd5fcfcb11b8b9f311",
+      "spanId" : "717bff57fb3a5b02",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "b7dde9495732ef52503174059e5981a3",
+      "spanId" : "c6ad822a003e3969",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "835e39be68f48a7fdc3dd917b35582e6",
+      "spanId" : "056c611fb3c4c7fb",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "68d1f03f487d4ac991688b9e80ad4b31",
+      "spanId" : "4b31e0691d790d50",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "fcec4071c3a3cab3",
+      "parentId" : "9764761b0d41eda3",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "08bfa8901f9de89a",
+      "parentId" : "9764761b0d41eda3",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "08795679edeef70c4f15cd05be423670",
+      "spanId" : "9764761b0d41eda3",
+      "parentId" : "a91ae95ee81e398f",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "23a710087526d468403d3c5d07e50d22",
+      "spanId" : "a22d57f584fd4694",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "a765a8c98aa1c248",
+      "parentId" : "253d804ccb4b36fd",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "f68026eecfd80e0d",
+      "parentId" : "253d804ccb4b36fd",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "20f4693f5d43a1136105882a9d498de7",
+      "spanId" : "253d804ccb4b36fd",
+      "parentId" : "8aa59da256610a86",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "cdbfd17fa0507895c7748770bff62221",
+      "spanId" : "0398b9116b6efe4f",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8a86d594b9d9ceebb10318d09730beff",
+      "spanId" : "f037b3778ffe6331",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d35b5d6b3ec8ab2aadd12b08781358ce",
+      "spanId" : "d3fe3d8b3ca51fe8",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "44d0e7b47fa14b4cd6025eefca272c4a",
+      "spanId" : "c589d987538c1888",
+      "parentId" : "247e8ddcda269671",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "44d0e7b47fa14b4cd6025eefca272c4a",
+      "spanId" : "247e8ddcda269671",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"20f4693f5d43a1136105882a9d498de7\",\"id\":\"8aa59da256610a86\"}]",
+      "name" : "contoso.replay.process"
+    }, {
+      "traceId" : "e316ce7f5364bb7b53feaa2c7293c2a8",
+      "spanId" : "ce382f720ea51ca1",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "31f0deae6d50665427849fd9ec88d71b",
+      "spanId" : "a8532c486216d203",
+      "parentId" : "bb47a0ddd044a897",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "31f0deae6d50665427849fd9ec88d71b",
+      "spanId" : "0e0071c37432f8c6",
+      "parentId" : "bb47a0ddd044a897",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "31f0deae6d50665427849fd9ec88d71b",
+      "spanId" : "bb47a0ddd044a897",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"20f4693f5d43a1136105882a9d498de7\",\"id\":\"8aa59da256610a86\"}]",
+      "name" : "contoso.replay.send"
+    }, {
+      "traceId" : "d1a9434c9664cf9047621b4b4a554d36",
+      "spanId" : "0725dee2d4f500d5",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "4ca4e8b2dfa177cd",
+      "parentId" : "7b054eae7677073d",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "57801d0780d6c595",
+      "parentId" : "7b054eae7677073d",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "7b054eae7677073d",
+      "parentId" : "4f929efe53570df4",
+      "links" : "",
+      "name" : "contoso.fulfillment.process"
+    }, {
+      "traceId" : "7624ba431bb135173af4a7ac187243db",
+      "spanId" : "2e5abaf57b64af8e",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "365f95717d88af53",
+      "parentId" : "4af8ded25283e964",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "1516c7814abd7d48",
+      "parentId" : "4af8ded25283e964",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "d0973a3081f850cd1c7715e84945fcaa",
+      "spanId" : "4af8ded25283e964",
+      "parentId" : "4f929efe53570df4",
+      "links" : "",
+      "name" : "contoso.notify.process"
+    }, {
+      "traceId" : "df4eae9e668e0587eef4ad34eee34460",
+      "spanId" : "a357117b5638f4e9",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "ed3ae55c7eb39c0d",
+      "parentId" : "6ea5f858154cc592",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "3e3976af9329e6b7",
+      "parentId" : "6ea5f858154cc592",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "6ea5f858154cc592",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"7b054eae7677073d\"}]",
+      "name" : "contoso.servicebus.send"
+    }, {
+      "traceId" : "f5c12023735de19cb59b7df277f3186c",
+      "spanId" : "a714c2ca637daea4",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "e2261b8798b137fa",
+      "parentId" : "7d53139fc1e2d6cc",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "183eaf84a9472daf",
+      "parentId" : "7d53139fc1e2d6cc",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "7d53139fc1e2d6cc",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"4af8ded25283e964\"}]",
+      "name" : "contoso.servicebus.send"
+    }, {
+      "traceId" : "6fcf0fc0c0b9b389d0e279f75bcd47ee",
+      "spanId" : "4f4cd20a62fa2ec0",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "2828530b3023b201",
+      "parentId" : "23357569020ac4f0",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "3bce8abadd96c672",
+      "parentId" : "23357569020ac4f0",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "cdf2e347b3e2a0fa2d9cb07e49b77365",
+      "spanId" : "e05672b12146610b",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "db14191cdef678a9414336dfa1756bc0",
+      "spanId" : "23357569020ac4f0",
+      "parentId" : "6ea5f858154cc592",
+      "links" : "",
+      "name" : "contoso.results.process"
+    }, {
+      "traceId" : "319a07ae1563056a6afd2b6e9c3770c2",
+      "spanId" : "dd9e21e11c229a64",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "6004c44793c8a21e",
+      "parentId" : "78fb649a5d964016",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "ba08a57b49a929bc",
+      "parentId" : "78fb649a5d964016",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "57ae73878ad78da4a036f9c8661d0272",
+      "spanId" : "fa6f76f94f544e24",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "ecb0bc2340de4ad28881c6cf538e5384",
+      "spanId" : "dd4d60bde8ae5c04",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "909c9a9c072215254895f46b2ef1da0f",
+      "spanId" : "6986c78f1c2d8f8b",
+      "parentId" : "da9bffd2384b1238",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "909c9a9c072215254895f46b2ef1da0f",
+      "spanId" : "da9bffd2384b1238",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"7b054eae7677073d\"},{\"operation_Id\":\"db14191cdef678a9414336dfa1756bc0\",\"id\":\"6ea5f858154cc592\"},{\"operation_Id\":\"d0973a3081f850cd1c7715e84945fcaa\",\"id\":\"4af8ded25283e964\"},{\"operation_Id\":\"c997fd8932e009f42adbbee8a4ce5c4e\",\"id\":\"7d53139fc1e2d6cc\"}]",
+      "name" : "contoso.fanin.process"
+    }, {
+      "traceId" : "c997fd8932e009f42adbbee8a4ce5c4e",
+      "spanId" : "78fb649a5d964016",
+      "parentId" : "7d53139fc1e2d6cc",
+      "links" : "",
+      "name" : "contoso.results.process"
+    }, {
+      "traceId" : "c2a7b5d84ec4f2635f013ed0e2f75871",
+      "spanId" : "e0d5c79cf9f6a807",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "91e4be7931ec7ebe71ce6292c053f5d1",
+      "spanId" : "c51dcbb5f63bc7ca",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "2e2a7e70c5e6f5586edf29212425adfd",
+      "spanId" : "6b1f8919065a2213",
+      "parentId" : "",
+      "links" : "",
+      "name" : "contoso.pg.select"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "3caaae2ef08f9776",
+      "parentId" : "a9d6dbf0fa18c39a",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "6bd13be1d9c1447d",
+      "parentId" : "a9d6dbf0fa18c39a",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "a9d6dbf0fa18c39a",
+      "parentId" : "9dd6f20d7d860a38",
+      "links" : "",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "142051f7b08bda40",
+      "parentId" : "c992e4c3471d8cc2",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "3f2926d07bf8b4e8",
+      "parentId" : "c992e4c3471d8cc2",
+      "links" : "",
+      "name" : "contoso.pg.transaction"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "c992e4c3471d8cc2",
+      "parentId" : "9dd6f20d7d860a38",
+      "links" : "",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "8b0d3c54dd0cbf905d6f931844f73ea3",
+      "spanId" : "9dd6f20d7d860a38",
+      "parentId" : "",
+      "links" : "[{\"operation_Id\":\"e1560ac89e9b9ba3e23c1386bcf39fb6\",\"id\":\"2bfb4bf631f511a8\"},{\"operation_Id\":\"e105b219461cecdcf8a6f5a5a1c9ec44\",\"id\":\"6607d416e579908b\"}]",
+      "name" : "contoso.eventhubs.batch.process"
+    }, {
+      "traceId" : "483eeb8d1ee4d17d8631a0e25a9c64a8",
+      "spanId" : "36a913f9930aa21c",
+      "parentId" : "",
+      "links" : "",
+      "name" : "POST /decisions"
+    } ],
+    "everyOutgoingZeroSatisfied" : false,
+    "sourcePercentage" : -1
+  } ],
+  "extensionSha256" : "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "certified" : false,
+  "guardArtifactVersion" : "1.1.0",
+  "scope" : "Actual current provider, producer SDK-carrier contexts and runtime/H2 outcomes; no Azure/permission/Functions proof",
+  "guardPolicy" : "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS"
+}

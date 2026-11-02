@@ -15,12 +15,19 @@ async function testFiles(directory) {
   return files;
 }
 
-const files = (await testFiles(path.join(root, 'tests'))).sort();
-if (!files.length) throw new Error('No repository-native test files discovered');
-const result = spawnSync(process.execPath, ['--test', ...process.argv.slice(2), ...files], {
-  cwd: root,
-  stdio: 'inherit'
-});
-if (result.error) throw result.error;
-if (result.status === null) throw new Error(`Test runner terminated by ${result.signal}`);
-process.exitCode = result.status;
+export async function discoverTestFiles() {
+  const directories = [path.join(root, 'tests'), path.join(root, 'services', 'inventory-data', 'tools')];
+  return [...new Set((await Promise.all(directories.map(testFiles))).flat())].sort();
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const files = await discoverTestFiles();
+  if (!files.length) throw new Error('No repository-native test files discovered');
+  const result = spawnSync(process.execPath, ['--test', ...process.argv.slice(2), ...files], {
+    cwd: root,
+    stdio: 'inherit'
+  });
+  if (result.error) throw result.error;
+  if (result.status === null) throw new Error(`Test runner terminated by ${result.signal}`);
+  process.exitCode = result.status;
+}

@@ -4,7 +4,10 @@
   "environment": "poc",
   "userApprovedContosoImplementation": true,
   "vendorSupportGuarantee": false,
-  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "guardArtifactVersion": "1.1.0",
+  "guardPolicyApproval": "User-authorized extend_guard; nonempty all-valid unsampled linked roots DROP, all nonmatching inputs delegate unchanged",
+  "allUnsampledLinkedRootsExported": false,
   "guardRequiredInProductionAndCertification": true,
   "production": {
     "javaPercentage": 10,

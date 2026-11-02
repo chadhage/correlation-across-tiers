@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,6 +42,8 @@ public final class InventorySchemaHooks {
         }
         @Override public String toString() { return "DatabasePrincipal[redacted]"; }
     }
+
+    public enum WorkflowRole { ORDERS, FULFILLMENT, NOTIFY, AGGREGATOR }
 
     public static void install(PgConnectionFactory administrator, Permit permit, OperationContext context) {
         authorized(permit);
@@ -148,17 +151,102 @@ public final class InventorySchemaHooks {
         PgOperations.execute(administrator, PgOperation.TRANSACTION, context, 1, connection -> {
             verifyDatabase(connection, permit.expectedDatabase());
             connection.setAutoCommit(false);
+            verifyBoundDataset(connection, permit);
+            verifyRuntimePrincipal(connection, principal);
             String role = "\"" + principal.roleName() + "\"";
             try (var statement = connection.createStatement()) {
                 statement.execute("GRANT CONNECT ON DATABASE contoso_orders TO " + role);
                 statement.execute("GRANT USAGE ON SCHEMA contoso TO " + role);
-                statement.execute("GRANT SELECT,UPDATE ON contoso.inventory_item TO " + role);
-                statement.execute("GRANT SELECT,INSERT,UPDATE ON contoso.inventory_reservation TO " + role);
+                statement.execute("REVOKE ALL PRIVILEGES ON contoso.inventory_item,contoso.inventory_reservation FROM " + role);
+                statement.execute("REVOKE INSERT(sku,display_name,available,revision,synthetic),UPDATE(sku,display_name,available,revision,synthetic) ON contoso.inventory_item FROM " + role);
+                statement.execute("REVOKE INSERT(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at),UPDATE(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at) ON contoso.inventory_reservation FROM " + role);
+                statement.execute("GRANT SELECT,UPDATE(available,revision) ON contoso.inventory_item TO " + role);
+                statement.execute("GRANT SELECT,INSERT(reservation_id,order_id,sku,quantity,state,invocation_id),UPDATE(state) ON contoso.inventory_reservation TO " + role);
                 statement.execute("GRANT SELECT ON contoso.environment_marker TO " + role);
             }
             connection.commit();
             return null;
         });
+    }
+
+    public static void grantWorkflow(PgConnectionFactory administrator, Permit permit, Principal principal,
+                                     WorkflowRole workflowRole, OperationContext context) {
+        authorized(permit);
+        verifyEndpoint(administrator, permit);
+        List<String> grants = workflowGrantStatements(principal, workflowRole);
+        PgOperations.execute(administrator, PgOperation.TRANSACTION, context, 1, connection -> {
+            verifyDatabase(connection, permit.expectedDatabase());
+            connection.setAutoCommit(false);
+            verifyBoundDataset(connection, permit);
+            verifyRuntimePrincipal(connection, principal);
+            try (var statement = connection.createStatement()) {
+                for (String grant : grants) statement.execute(grant);
+            }
+            connection.commit();
+            return null;
+        });
+    }
+
+    static List<String> workflowGrantStatements(Principal principal, WorkflowRole role) {
+        if (principal == null || role == null || principal.roleName().toLowerCase(Locale.ROOT).startsWith("pg_")) {
+            throw new IllegalArgumentException("invalid_workflow_principal");
+        }
+        String specific = switch (role) {
+            case ORDERS -> "orders";
+            case FULFILLMENT, NOTIFY -> "worker";
+            case AGGREGATOR -> "aggregator";
+        };
+        List<String> result = new ArrayList<>();
+        for (String name : List.of("common", specific)) {
+            String resource = "db/grants/workflow/" + name + ".sql";
+            try (var input = InventorySchemaHooks.class.getClassLoader().getResourceAsStream(resource)) {
+                if (input == null) throw new DataAccessException(DataErrorKind.INTERNAL, false);
+                String sql = new String(input.readAllBytes(), StandardCharsets.UTF_8);
+                for (String command : sql.split(";")) {
+                    if (!command.isBlank()) {
+                        result.add(command.strip().replace("__ROLE__", "\"" + principal.roleName() + "\""));
+                    }
+                }
+            } catch (IOException failure) {
+                throw new DataAccessException(DataErrorKind.INTERNAL, false);
+            }
+        }
+        return List.copyOf(result);
+    }
+
+    static void verifyBoundDataset(Connection connection, Permit permit) throws SQLException {
+        try (var query = connection.prepareStatement(
+                "SELECT expected_resource_id,workload,environment,seed_version FROM contoso.environment_marker WHERE singleton=TRUE FOR UPDATE");
+             var rows = query.executeQuery()) {
+            if (!rows.next() || !permit.expectedResourceId().equals(rows.getString(1)) ||
+                !"contoso-corr".equals(rows.getString(2)) || !"poc".equals(rows.getString(3)) || rows.getInt(4) != 1) {
+                throw new DataAccessException(DataErrorKind.AUTHORIZATION, false);
+            }
+        }
+    }
+
+    private static void verifyRuntimePrincipal(Connection connection, Principal principal) throws SQLException {
+        if (principal == null || principal.roleName().toLowerCase(Locale.ROOT).startsWith("pg_")) {
+            throw new DataAccessException(DataErrorKind.AUTHORIZATION, false);
+        }
+        try (var query = connection.prepareStatement(
+                "SELECT rolsuper,rolcreatedb,rolcreaterole,rolbypassrls FROM pg_catalog.pg_roles WHERE rolname=?")) {
+            query.setString(1, principal.roleName());
+            try (var rows = query.executeQuery()) {
+                if (!rows.next() || rows.getBoolean(1) || rows.getBoolean(2) || rows.getBoolean(3) || rows.getBoolean(4)) {
+                    throw new DataAccessException(DataErrorKind.AUTHORIZATION, false);
+                }
+            }
+        }
+        try (var query = connection.prepareStatement(
+                "SELECT objectid FROM pg_catalog.pgaadauth_list_principals(FALSE) WHERE rolename=?")) {
+            query.setString(1, principal.roleName());
+            try (var rows = query.executeQuery()) {
+                if (!rows.next() || !principal.objectId().equalsIgnoreCase(rows.getString(1))) {
+                    throw new DataAccessException(DataErrorKind.AUTHORIZATION, false);
+                }
+            }
+        }
     }
 
     static void applyV001(Connection connection) throws SQLException {

@@ -1,0 +1,711 @@
+{
+  "schema": "contoso.local-check.v1",
+  "scope": "unit",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "command": "node tools\\verification\\run-focused.mjs",
+  "nodeVersion": "v22.23.4",
+  "startedAtUtc": "2026-11-02T04:42:33.783Z",
+  "finishedAtUtc": "2026-11-02T04:42:44.793Z",
+  "tests": 144,
+  "passed": 144,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "sourceDrift": [],
+  "sourcesVerified": true,
+  "result": "PASS",
+  "beforeSourcesSha256": "f313db9baa17eddb60e171e69dfaf428288df4f09a12efec643d579db39b34af",
+  "afterSourcesSha256": "f313db9baa17eddb60e171e69dfaf428288df4f09a12efec643d579db39b34af",
+  "sources": [
+    {
+      "path": "config\\acceptance-scopes.json",
+      "sha256": "787e9ac01d62f370d716a77dfeff189390277340ac77b53b987f26f4a2222060"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    },
+    {
+      "path": "contracts\\conditional-native-observer.v1.json",
+      "sha256": "7a836ae7ffb8580f6e1de1f38eac3abbec01260c9e4c2c02454b10c84d856512"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "contracts\\message-envelope.v1.json",
+      "sha256": "37aad2df23055f0a2ccaa072baec5ae209a6bc956ef1caaa9626c3dc9dc7ad4b"
+    },
+    {
+      "path": "contracts\\public-runtime-config.v1.schema.json",
+      "sha256": "891d07b165796caa1f5450382e8557cee6489027e06714e87b462c5ac70c3e00"
+    },
+    {
+      "path": "contracts\\sampling-control-ack.v1.schema.json",
+      "sha256": "c82096384b9bf7127c7f3bc82a92850374bdc13c952fea3724016dd9d11bab31"
+    },
+    {
+      "path": "contracts\\sampling-drain-ack.v1.schema.json",
+      "sha256": "715810a22522ac7757f6b089a1012285e8490464963138448267be5fb4ef89f4"
+    },
+    {
+      "path": "contracts\\sampling-runtime-lease.v1.schema.json",
+      "sha256": "bd22b403e931db0a46a61e8a9420f2aabcaffc4a074fda2448de6bb893c74fb0"
+    },
+    {
+      "path": "contracts\\sampling-window.v1.schema.json",
+      "sha256": "54b15a44a2ad1ae675961b197b646f37e085912fe281e64f183a2ec013836248"
+    },
+    {
+      "path": "contracts\\security-telemetry-scan.v1.schema.json",
+      "sha256": "f8a8f83d363e07c89afbc5b9cb12877a8d6354bde31776a1f72ec7348f3201f7"
+    },
+    {
+      "path": "contracts\\verification-acceptance.v1.json",
+      "sha256": "5abe1dbd929f54b87811bec4f32cac0b310143fb047f86644755f5ebab9a3515"
+    },
+    {
+      "path": "contracts\\verification-observer-registry.v1.json",
+      "sha256": "7a3645edda1b55757dbe9a866a892196c24fba3c2913d8f502878e4746aec1d9"
+    },
+    {
+      "path": "demos\\01\\Reset.ps1",
+      "sha256": "f509807fc5a8aaffbcab7f58d7a4f2aaf1e8c6fecf4a2b90a8b14dc0cfea720b"
+    },
+    {
+      "path": "demos\\01\\Run.ps1",
+      "sha256": "5e43199516c703072de223483f2c7f01d6d37f85dfd50d3359da7bea066e72e5"
+    },
+    {
+      "path": "demos\\01\\demo.json",
+      "sha256": "7fcdd0b51b76a69e7a672a10ab2265d9ed196d5988f014a4e6619abbd07fd000"
+    },
+    {
+      "path": "demos\\02\\Reset.ps1",
+      "sha256": "dcc2d2555d6fc93e71a331055c0780d4988945bcd95db18c51cb84695e4e18b1"
+    },
+    {
+      "path": "demos\\02\\Run.ps1",
+      "sha256": "dca80be3164a15c86b2b6f03e08169796d989f2c2f3b61724e413408c05215a1"
+    },
+    {
+      "path": "demos\\02\\demo.json",
+      "sha256": "b8f0f0cc2df3416b9d61488c904e92ee1529ca70ad510bb6036c2e19a0695f5a"
+    },
+    {
+      "path": "demos\\03\\Reset.ps1",
+      "sha256": "b12a96c2ec152a2bbb121d200f59496f4ccf8c989c19ecf124fecc5c7ac0194a"
+    },
+    {
+      "path": "demos\\03\\Run.ps1",
+      "sha256": "10bd79775f6fdb3f9e3f48970ff2cccd41877deb3bd999d044818f30c48db7ae"
+    },
+    {
+      "path": "demos\\03\\demo.json",
+      "sha256": "15b71f5657c38693a304cc69bdf8a2391def1335fd8d588523fa7c55e7b5b779"
+    },
+    {
+      "path": "demos\\04\\Reset.ps1",
+      "sha256": "2c9c36e85c8facc07353e14708fdf1106fc509f1dd4d3b0bd64c7c7685169c06"
+    },
+    {
+      "path": "demos\\04\\Run.ps1",
+      "sha256": "2a4319678d527a7c13073580068dedd3dc6203d0d08332aa6bd7293043fe77d8"
+    },
+    {
+      "path": "demos\\04\\demo.json",
+      "sha256": "513af1cd32e32eaa3203541d81d9c8cbefa779829f2cc3a6faf35fc177d821e3"
+    },
+    {
+      "path": "demos\\05\\Reset.ps1",
+      "sha256": "ad07c778f0eee2cb17c16ed2218cb00dae693d684e7cea14f230b90d5238acaf"
+    },
+    {
+      "path": "demos\\05\\Run.ps1",
+      "sha256": "9fc27c371ccb65e45e71e1a4d564561ff5a5f2e8da46d337161c51d5e970890d"
+    },
+    {
+      "path": "demos\\05\\demo.json",
+      "sha256": "7b45d9cca190468cf23a19e544478702be70f58048f31f5b7699823f96960540"
+    },
+    {
+      "path": "demos\\06\\Reset.ps1",
+      "sha256": "d0c3b6c99a84be170e3627b73d91b953d8aa848456e2a15970031c48cb698ac6"
+    },
+    {
+      "path": "demos\\06\\Run.ps1",
+      "sha256": "75019748600389497d2c0a31a0bee9f188b65e21efc9dd0777519898e9c92581"
+    },
+    {
+      "path": "demos\\06\\demo.json",
+      "sha256": "9813f699d87c9eeca7a1957ebf9fad0a2143e4893280b162117e8718656063fd"
+    },
+    {
+      "path": "demos\\07\\Reset.ps1",
+      "sha256": "bbe51ca9640bfc17f7ee6f892fd3c8f7e12c8f345615d11d3847b5c1fd7fd09e"
+    },
+    {
+      "path": "demos\\07\\Run.ps1",
+      "sha256": "7ed6447bcdd7ebfc853c58b31fd26f0b816ebcd445549762be00d1398eb772cf"
+    },
+    {
+      "path": "demos\\07\\demo.json",
+      "sha256": "34e26ecdeeb2a472768895b969b99052e70ec791eb9f97bf4a3952432bbef81a"
+    },
+    {
+      "path": "demos\\08\\Reset.ps1",
+      "sha256": "9febc217c05a270860adb114f755568577fc0e3b368a221e6f236664fa24c740"
+    },
+    {
+      "path": "demos\\08\\Run.ps1",
+      "sha256": "f0e72c15dbb2a11c9cdd40e65616799756137ca3953cda2a0b107e242fb6fad5"
+    },
+    {
+      "path": "demos\\08\\demo.json",
+      "sha256": "24e4d6ddb428863724f81ff08c7de980397ba5c0e6936051b19cd8c3dc02c8e8"
+    },
+    {
+      "path": "demos\\09\\Reset.ps1",
+      "sha256": "63517256933bdd97e772bbcef9047e79465017836c099e936cddb3ed761980f1"
+    },
+    {
+      "path": "demos\\09\\Run.ps1",
+      "sha256": "a60815e8aaef1465fe03509f8a41d4742e449fbcdbb0a6073ea508e572312366"
+    },
+    {
+      "path": "demos\\09\\demo.json",
+      "sha256": "c03d0acd9d7b0701db7264d5981af47e1cd73d672d2eba04c5ac3314200b8398"
+    },
+    {
+      "path": "demos\\10\\Reset.ps1",
+      "sha256": "8a6d7d6154a4eea5d194800f3bada6f9873f1c70b187fd8d4040344772f03d29"
+    },
+    {
+      "path": "demos\\10\\Run.ps1",
+      "sha256": "47de6e2e5027c4707255cd8d7ced72ee322488d4d3794f8fd73c5fa1b7e176b5"
+    },
+    {
+      "path": "demos\\10\\demo.json",
+      "sha256": "778d688c5238694ed0be95b726dcda94e8fe28208bb156d9dd2314b74ceb10a5"
+    },
+    {
+      "path": "demos\\11\\Reset.ps1",
+      "sha256": "24f7e2f85e5a9a67c4028e066d92d5a26297ca03c1ecf52d1cf9458af8f5c879"
+    },
+    {
+      "path": "demos\\11\\Run.ps1",
+      "sha256": "244641ce713e0e5df39817a100478fc76e7119711adf6fce420680b688a234d6"
+    },
+    {
+      "path": "demos\\11\\demo.json",
+      "sha256": "9effecd751cb5ca2334e5c43541ae3c4c196eae08c50861647100c996b9e1815"
+    },
+    {
+      "path": "demos\\12\\Reset.ps1",
+      "sha256": "4f0a37a7c3776cab0d9b116465199f9fb12adace8a1e48799646e752bdae3d81"
+    },
+    {
+      "path": "demos\\12\\Run.ps1",
+      "sha256": "66e8d5b340e9cb0697b59dd1978044cac0647b55fdda5d42f1217aee25c3490a"
+    },
+    {
+      "path": "demos\\12\\demo.json",
+      "sha256": "2e3b4d5db0942cfefdaf018be8f61c57eaff651b945535c175f77512e3dfe227"
+    },
+    {
+      "path": "demos\\13\\Reset.ps1",
+      "sha256": "9b3fdb4953a5ee13487f6e04515c908053ca1386b009ebf79c3ca34410ddb584"
+    },
+    {
+      "path": "demos\\13\\Run.ps1",
+      "sha256": "7f411018cdfe25f035520b9ab86376423bb11c6c3772a7e0dbd4db4bef887037"
+    },
+    {
+      "path": "demos\\13\\demo.json",
+      "sha256": "aad34def014869b61ffe4b881e1f156102a42b4dc38ee7e0811b29ef93d0924b"
+    },
+    {
+      "path": "demos\\14\\Reset.ps1",
+      "sha256": "6d4ac7474c66d9cee562018f0a1c886ab007cf6e7e67c8a49562bce9165f1a64"
+    },
+    {
+      "path": "demos\\14\\Run.ps1",
+      "sha256": "b2abaeaa7369710bf1f75c0075cfb3327f5e9aaf02882def9db6538afb910759"
+    },
+    {
+      "path": "demos\\14\\demo.json",
+      "sha256": "369a2574c16f1b9a49bbc07a24b3d1034f0cf69b8113c899effad48894d686fc"
+    },
+    {
+      "path": "demos\\15\\Reset.ps1",
+      "sha256": "8b6d7103e4dcbaa220fda8bfe1cace5969f75d9146d740404ee516cf013a3793"
+    },
+    {
+      "path": "demos\\15\\Run.ps1",
+      "sha256": "3103fc8092aaa03149b8e17c131a328e9d1f1a2beff400b0f2a62d6e72b2b1de"
+    },
+    {
+      "path": "demos\\15\\demo.json",
+      "sha256": "da15708d51a927e0bc75bdf4c3f83b7c8fe40a035d1d78a371eec0a04c01b1e3"
+    },
+    {
+      "path": "demos\\catalog.json",
+      "sha256": "eae62d808cd31c4ef90a6550eead9a47d9b5604faa7e625ac2ef2e7c693dc839"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+    },
+    {
+      "path": "tests\\verification\\async-capture-receipts.test.mjs",
+      "sha256": "5ee24f58ba5088df3a2650416e31e7ad2aaab28757d9c6cd0b9a857ef777b5f0"
+    },
+    {
+      "path": "tests\\verification\\conditional-observer.test.mjs",
+      "sha256": "23da8c2e7c34e3e654f6461484f0cdc12dd1a96b169823cac1b79a38f4390e79"
+    },
+    {
+      "path": "tests\\verification\\demo.test.mjs",
+      "sha256": "9ddcc0c100afca60208e4238b6c9d1e32e9af099f59d1feada37448d2a282a2b"
+    },
+    {
+      "path": "tests\\verification\\evidence.test.mjs",
+      "sha256": "12a6b6dea1bb70f14ef1ab5ec3ab785ce00f09b9cbcc7470b279c820f02232ec"
+    },
+    {
+      "path": "tests\\verification\\invariants.test.mjs",
+      "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef"
+    },
+    {
+      "path": "tests\\verification\\local-native.test.mjs",
+      "sha256": "eb696ef56a8f31b5c849550856ad1189774bf92db630f469c1f86fc955d882f3"
+    },
+    {
+      "path": "tests\\verification\\observers.test.mjs",
+      "sha256": "c13495874bf439a5864e818b46b34db22c2d3a7dc7a208407df8df55687179b3"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    },
+    {
+      "path": "tests\\verification\\register.test.mjs",
+      "sha256": "8add4e0d67a212fedead3ab23ee373acb55f45faf1686fcc8644d8fc307538fd"
+    },
+    {
+      "path": "tests\\verification\\replay-scenarios.test.mjs",
+      "sha256": "41b789c997553ee1749c16eddb3065720009c55d5a003aaecbd429d68bdea882"
+    },
+    {
+      "path": "tests\\verification\\report.test.mjs",
+      "sha256": "0119f4c057a3795ac4607b3ee7228857e89fb398b9304fb07b0811ff51663fc0"
+    },
+    {
+      "path": "tests\\verification\\run-focused.test.mjs",
+      "sha256": "a0dafe006a0f58abffe4031533eb70b7fb33b884b3dca47ae44a07c524eccacf"
+    },
+    {
+      "path": "tests\\verification\\sampling-fixture.mjs",
+      "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca"
+    },
+    {
+      "path": "tests\\verification\\sampling-qualification.test.mjs",
+      "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b"
+    },
+    {
+      "path": "tests\\verification\\security-client-qualification.test.mjs",
+      "sha256": "47d03061cf401b55ac8b46cad8d0842a3ca61bb6636f4a45f43719bfba29fb8e"
+    },
+    {
+      "path": "tests\\verification\\test-discovery.test.mjs",
+      "sha256": "f27ecb0100774c6e163362c0b085acb465ae01a6086f66575b8adfc5747ef66c"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tools\\Prepare-DeploymentPackages.ps1",
+      "sha256": "c34dde758f0ed859b7671eed64f2fee703940ae2c4342fae90143cf60df626c1"
+    },
+    {
+      "path": "tools\\Prepare-Root.ps1",
+      "sha256": "a9e42b3eaa1bcd92225deec688c6417f29f44a1f809e80cb59170dcbc05fc770"
+    },
+    {
+      "path": "tools\\architecture.mjs",
+      "sha256": "6e1c42ad96220b8a0e3c9c5f8b8d67a436750c571bf26f125ea7c16b894cf94e"
+    },
+    {
+      "path": "tools\\certification-path.mjs",
+      "sha256": "86fb405fa252caed7c69aec4eb2f854f2a012054445f41b4c3e7e8d0feb0c8e3"
+    },
+    {
+      "path": "tools\\cost.mjs",
+      "sha256": "90cf14779856c92a5520427b2a7ef20f94c1886113f7958d26fbafbcaa470466"
+    },
+    {
+      "path": "tools\\java\\Assert-Startup.ps1",
+      "sha256": "af177b2f1b6809740211bb026c6e5125afe042c82bff0b9d1d4894aba41a4292"
+    },
+    {
+      "path": "tools\\java\\Freeze-Versions.ps1",
+      "sha256": "33e5e219d07558ebdb9ea340aee298639307d7c96b073aff43d4a2577d5b9fd3"
+    },
+    {
+      "path": "tools\\java\\Gate-02.ps1",
+      "sha256": "9bde9398075c2ea14c5002a23a3dbcb231da12ef7b6aa4d66b5d11034dc66f56"
+    },
+    {
+      "path": "tools\\java\\Gate-05.ps1",
+      "sha256": "df7f1690a16c48e1ac5091a8f69a915376f3a732145b03aed3fcbc9edc506715"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "c49bc2cc8e1175e3b5b9140016924d7d7b949a640cd914a4a893625962511794"
+    },
+    {
+      "path": "tools\\java\\Get-Extension.ps1",
+      "sha256": "a10fc9f06d1034f1180797626f4ebdabb6c2640332e067b330844a719af0d565"
+    },
+    {
+      "path": "tools\\java\\Install-Bicep.ps1",
+      "sha256": "58ed1c6ffa589878c2040ab8f47881a41724d8af414574be8041d87e0e6eaa0d"
+    },
+    {
+      "path": "tools\\java\\Install-Portable.ps1",
+      "sha256": "471beb5eb286cfae1983202afb9e826204c10855926066e7ecf8dab79cb8fe69"
+    },
+    {
+      "path": "tools\\java\\Observe-Sampling.ps1",
+      "sha256": "b0ae89ec63a164c52d94f73d3a68f3023edd73aeef10b706be99224970a20803"
+    },
+    {
+      "path": "tools\\java\\Package-Replay.ps1",
+      "sha256": "fcba88e84d00138a91dfdf61dfec107a693730d8d38b19cfc4dd14af01d8a762"
+    },
+    {
+      "path": "tools\\java\\Package-Service.ps1",
+      "sha256": "1644f4c0ddbf0ac24eac7c089a1f1f65a27597734cf6a1e78f241d8406e78e59"
+    },
+    {
+      "path": "tools\\java\\Package-Worker.ps1",
+      "sha256": "dfba95941daf48bc587d74093457e29910dbb6025baa41d2aae3ec7c591f549c"
+    },
+    {
+      "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
+    },
+    {
+      "path": "tools\\java\\Test-PackagedLaunch.ps1",
+      "sha256": "023bb999223b34d7237e26f2f7cfb168436ed61c8f3a45290da19d58541a0827"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    },
+    {
+      "path": "tools\\java\\Validate-Compute.ps1",
+      "sha256": "3440e7833d7239b50ebbf0b49c8d625e6d0fd09dd1bd81f40edf985749bb5d6a"
+    },
+    {
+      "path": "tools\\java\\Write-DeploymentZip.ps1",
+      "sha256": "692820422e5d745a145fa4f0d622215a847e96b2a7370fe53f24adfcda89b610"
+    },
+    {
+      "path": "tools\\java\\Write-ReviewManifest.ps1",
+      "sha256": "f756bd9fc9bf2eef638cbb049453a21e829913e186d2cb6434ba3ce8d707c58b"
+    },
+    {
+      "path": "tools\\java\\Write-ValidationReport.ps1",
+      "sha256": "b36a2cff5b26a5afec425806d78d3ab5b8fba04a202a6b5527e818c0d9c338af"
+    },
+    {
+      "path": "tools\\java\\native-api-capture.mjs",
+      "sha256": "4adbcc4c70f863140a4af4c25a9734353b8b87546cb3ed4f4200dee1c207226c"
+    },
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "tools\\names.mjs",
+      "sha256": "9a2876f887aa27c911589c599c9e5ad3e80a04059237d3e84432193985d5bb5f"
+    },
+    {
+      "path": "tools\\observability\\Render-KqlChecks.mjs",
+      "sha256": "a1020d5f3214d6d08468788b462b7bc0122570a8a4b10108d608b1aef7a9efc3"
+    },
+    {
+      "path": "tools\\observability\\Restore-KqlCompiler.ps1",
+      "sha256": "c44320f8b9414eac545f7dcb9ed0fbf59c7f8c92dd8ae41996f682eaebae1dbb"
+    },
+    {
+      "path": "tools\\observability\\Use-Portable.ps1",
+      "sha256": "15d15bc7b7f43bb577ccd7f4f772de815c7fb70dae387854e33b0be6fc423850"
+    },
+    {
+      "path": "tools\\observability\\Validate-Kql.ps1",
+      "sha256": "42a57d61fc20afbc99ce8fd04f5b436261bc423769d8a0447307517019b820ed"
+    },
+    {
+      "path": "tools\\observability\\kql.mjs",
+      "sha256": "b3f0e1f97c5560c58e08d6648c2e942a037ec3f4ca9583797696afe1c61fcb3d"
+    },
+    {
+      "path": "tools\\observability\\load.mjs",
+      "sha256": "8fc66826f6d2212f170160b4b11c0b3e60b6c975681fb1eaba2381c37ecdd6d1"
+    },
+    {
+      "path": "tools\\observability\\measure-parent-safe.mjs",
+      "sha256": "adebeac3c4762be596531bf4108fcb94963da8ca4798bf49389e8268688a3e5e"
+    },
+    {
+      "path": "tools\\observability\\probe-parent-safe.mjs",
+      "sha256": "b014eca957e21a21d3aa2e798ff75dd2cefe11e78b41e56df7c208bfb7299cd9"
+    },
+    {
+      "path": "tools\\observability\\process-metrics.ps1",
+      "sha256": "0be7d6d1e2a16db2e80b312b537d4e519d0092333b207fa2af5d51aa6b44d9f3"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "3c066c11191bbfb3643c1706ad3b56a5ff5170dbdb4ac682e422d598ad995ff7"
+    },
+    {
+      "path": "tools\\observability\\runtime-adapters.mjs",
+      "sha256": "6a05fcbf7ae74aec51cbfdb371c7188322c77cc417f65030317b728725b761e6"
+    },
+    {
+      "path": "tools\\observability\\runtime-lease.mjs",
+      "sha256": "405970bfcb02df2915e8e9bc19338f4a7c6ad403b321d4549115e735133995a9"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207"
+    },
+    {
+      "path": "tools\\observability\\sampling-controller.mjs",
+      "sha256": "e29740cbff0001918c3f044093b51d50781943fde52fad4812f14532ce8ad6b6"
+    },
+    {
+      "path": "tools\\observability\\state-io.mjs",
+      "sha256": "6bff52e23fe08e78d31f59b28e778f12cd1e3a43883e3be6b5126ee71cb47aeb"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\observability\\test.mjs",
+      "sha256": "d2d2e2eb37e052ee78ba6f64f258d86fa1cea4497b233e52fd6635775c3eb3da"
+    },
+    {
+      "path": "tools\\observability\\workbook.mjs",
+      "sha256": "ed88660d6e35f1d6b76af43657f8a157a38f6c82148602d63318969f157f2d76"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "0281304b3c3e1f1f1307e20984a05f30edba3aa59f350f17f2656869cd997b64"
+    },
+    {
+      "path": "tools\\root-candidate.mjs",
+      "sha256": "e78dd633cb2f6684c3d45a86c18dae384fe32593b383231e46071b966183a23b"
+    },
+    {
+      "path": "tools\\root-preflight.mjs",
+      "sha256": "04960fc840b96a621ea1e7c9bf3a25f1cbd9a8bab8a319c830ada67f13b35875"
+    },
+    {
+      "path": "tools\\run-tests.mjs",
+      "sha256": "8ae894d9d3fd3ba00b80858f8657b75890f8db8128413cbb5880a6d24afe87cb"
+    },
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "5b486c0d0f4d7693be7ea3f8691abf757cebb87c33f36cd5acd4c320ac39d279"
+    },
+    {
+      "path": "tools\\security\\Run-NodeAuthPropagationProbe.mjs",
+      "sha256": "bbdbffe17f38e3646bb0dca5091ca1283c24053b7860823cc2de22efa8c0e0dc"
+    },
+    {
+      "path": "tools\\security\\Run-SecurityGates.ps1",
+      "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1"
+    },
+    {
+      "path": "tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\hmac-reference-syntax.mjs",
+      "sha256": "ba4cdeff3ca3b849175a80090ac35db8754c88c0fcf453b8280f628602a9dd12"
+    },
+    {
+      "path": "tools\\security\\identifiers.mjs",
+      "sha256": "d8517e2f9f116eadbe1cbdc05fba953cf41b4a3e43195865157efda3185d1832"
+    },
+    {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+    },
+    {
+      "path": "tools\\security\\native-payload-source-freeze.v1.json",
+      "sha256": "060b6864f20c921300f30004a94a8c16a2374c40bea68fbf673922e1eb4e4c76"
+    },
+    {
+      "path": "tools\\security\\native-payload-source-freeze.v2.json",
+      "sha256": "67bdeeae289e5480b1d673b7abb71e8513cb6eaf86556e1421a7bc4f00a10dbe"
+    },
+    {
+      "path": "tools\\security\\native-payload-source-freeze.v3.json",
+      "sha256": "f7a6fdd1216500f69fdb14b352a815c315261072702fb7da37e44ede301e42a3"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\repository.mjs",
+      "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75"
+    },
+    {
+      "path": "tools\\security\\telemetry-policy.v1.json",
+      "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\async-capture-receipts.mjs",
+      "sha256": "0f7438fd3716656f2f2c6d2c9069eec5853ea435856ea5566c42d291b0642a97"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v1.json",
+      "sha256": "6ce9e9168954b08f225535c7c1eb85a0144b7a209027987322564c4c3731314e"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v2.json",
+      "sha256": "ed4c3cd599d8ac0511061880ae745b9db2705dfb5ff56eca6af9ec425ccb0625"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v3.json",
+      "sha256": "7bd6a30f0977c28d1816e7dacf696ecd4d231fb0fc862d2cf59b392208280a2f"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v4.json",
+      "sha256": "1f9f577ae6ab0853f257258faf4ef3b5bf525502349a8e17a97032876ad103dc"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v5.json",
+      "sha256": "1a134be80acf4f5c24f6223a219673077165c468d3d724b2f8296e244cd55837"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v6.json",
+      "sha256": "0d1b24bb57cf1259a7de289cee6bbd3449163555b7824df7280f265763b8ec09"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v7.json",
+      "sha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v8.json",
+      "sha256": "b3cb1b2aa41b9459a365eb94d84555461052ab22a24497b7780dd53792c7feee"
+    },
+    {
+      "path": "tools\\verification\\demo.mjs",
+      "sha256": "eafc26ca681dd36d2c27e99c8c9ff848d70fd228bbf348a121c9e1049badb3b5"
+    },
+    {
+      "path": "tools\\verification\\evidence.mjs",
+      "sha256": "2d6e540e326e8773dbe68b2a125ac17e1a8178409cdf8b6cbc1b3fd79eb04180"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "6d2dee783ceb3efbb018a5af2ddf2bcc46f047a98b91ae8b31b5b858a7d1891b"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "c7ebc2ade134a75c2d73b553330fe93de8378912f98e7620c484287a7948b5b6"
+    },
+    {
+      "path": "tools\\verification\\raw-intake.mjs",
+      "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "ed1a42f70fb8cf3c6761143497933fd5165e89b1b76d4762da30d93f98baec38"
+    },
+    {
+      "path": "tools\\verification\\report.mjs",
+      "sha256": "39f1adabe02bdc70d9ba226dc3bd052f98532b4656611e5d8a7e8f84d751a1c9"
+    },
+    {
+      "path": "tools\\verification\\run-conditional-observer.mjs",
+      "sha256": "234462658bc84065109ad8e73e6cdf1ff543f3531156da44c216fd14af9c7a20"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+    },
+    {
+      "path": "tools\\verification\\scenarios.mjs",
+      "sha256": "7433dec3e3b04beaedba1b36e3420b7c929dedcef5d177c43a91fdadc371417a"
+    },
+    {
+      "path": "tools\\verification\\security-client-qualification.mjs",
+      "sha256": "4788d0564080f1ac2452d1fc82095ebeab781e359cc6c113589fd4dbbab52de4"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    }
+  ],
+  "limitations": [
+    "Fixture positives test checkers only",
+    "No Azure/tool-auth/privacy/performance/accountable-owner certification"
+  ]
+}

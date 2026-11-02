@@ -1,0 +1,92 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "notReviewed": [
+    "FullRootSource/Maven/build-before/afterA capture",
+    "NativeOkHttp honoring/JWKS+MIheaderabsence/trustedSDKNettyactualUSE",
+    "Ownedsource→artifact→installed→loadedbyte lineage",
+    "Deployment/host/globalcounts/fidelity/privacy/owner/Azure"
+  ],
+  "roles": [
+    {
+      "role": "R4",
+      "executionOwner": "parent/coordinator originalR4recovery, no replacement agent",
+      "result": "changes_requested",
+      "scope": "READY8FILE CURRENT ROOT SOURCE/Node-PowerShell FIXTURE SUBSET ONLY",
+      "sources": [
+        {
+          "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java",
+          "sha256": "b69ea345bd0103a96efa78cd46b8bce300cae3c42d926f07f58cea8659eafeff"
+        },
+        {
+          "path": "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java",
+          "sha256": "d9747b8667532d61b22111ce4d951edbb6aecfe4f1fde349030dd90df3450635"
+        },
+        {
+          "path": "tools\\java\\startup.sh",
+          "sha256": "e0f412fbb1f0bd9fdeb059f08a6ef167c009a655bc8aaf62c9d204b3124e28d0"
+        },
+        {
+          "path": "tools\\java\\replay.sh",
+          "sha256": "7e1dfa9b76e70915bde52ac18d646843ff96728271a1585a85350b002a100da5"
+        },
+        {
+          "path": "infra\\modules\\compute.bicep",
+          "sha256": "9c1cc65cd4f6b517a4b3abef7cea78407b66ee802c08351930aafff2e740fcfa"
+        },
+        {
+          "path": "docs\\JAVA_VALIDATION.md",
+          "sha256": "0008de072b0532656b053ab901fc259926715616b08e0f62a68a7a257745695e"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "90779aad87e8a54225f20a09f1028f24b232a99f6399a9e743aa72d1899b0dce"
+        },
+        {
+          "path": "tests\\java\\gates.test.mjs",
+          "sha256": "58192f5cba37a2f379d37d263ec65a95203e67ba6ea8c1e5052f21d1b1f257c5"
+        }
+      ],
+      "scopeSha256": "3a8fa510179a24a0747d99ec9c8e70bdeae318844112bca0a448018752cdc77c",
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "CurrentapprovedOkHttpdisablealias denial and businessJDKfalse denial +singlefixedagent/startup/replay/compute args/key-reference controls",
+          "evidence": "Directread current8files; R9 independently NodePowerShell/source/mockZIP 10/10/0skip; MavenRuntimeGuard8/8 OWNER-only"
+        },
+        {
+          "label": "Incorrect",
+          "claim": "Purpose-onlyOkHttpscope also protectsactualbusinessNettyfalse overrides",
+          "evidence": "CurrentrequiredHttpModule/manualOwnerModule matchnone ofreactor-netty/reactor-netty-1.0/netty/netty-4.1; sourcepredicatecountershowsfalseoverridesnotdenied"
+        },
+        {
+          "label": "Outdated",
+          "claim": "JAVA_VALIDATION.current sampler c3/validparent-only policy and oldbaseline counts reflectnewguard",
+          "evidence": "Doclines89-96 stillCURRENTc3 despiteactualBB8291.1extendedlinkedpolicy; markoldbaselinehistorical/currentnewscope separately"
+        },
+        {
+          "label": "Unsupported",
+          "claim": "Newnativeheaderabsence/current-sourcebuild/fullroot/Azure acceptance",
+          "evidence": "10CPU/sourcefixtures do notproveNative/Bsource/A; Java990a remainsfailedpendingnewapprovednativeepoch"
+        }
+      ],
+      "requiredOwnerChanges": [
+        "ParentRuntimeGuardrequiredHttpModule includes verifiedbusinessReactorNetty/Nettyaliases plusfalseenv/systemnegativecontrols; preserveOkHttpfalsenarrow/JDKbusinesspositive",
+        "ParentJAVA_VALIDATION labelsoldc3/136test/SBOM/replaybaselinehistorical, current1.1BBextendedpolicy/currentlocalqualification/nativeAV23pending explicit"
+      ],
+      "commands": [
+        "node --test --test-reporter=spec tests\\java\\gates.test.mjs"
+      ],
+      "tests": {
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "sourceCounterOnly": true,
+      "mavenNativeExecutedByR9": false
+    }
+  ]
+}

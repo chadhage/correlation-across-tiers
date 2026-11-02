@@ -12,6 +12,7 @@
     <redis-authx.version>0.2.0</redis-authx.version><azure-functions.version>3.3.0</azure-functions.version>
     <azure-functions-maven-plugin.version>1.42.0</azure-functions-maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputTimestamp>2026-10-31T00:00:00Z</project.build.outputTimestamp>
     <contoso.sdk.trace.compiler.include>com.contoso:compiler-sdk-disabled</contoso.sdk.trace.compiler.include>
     <contoso.sdk.common.compiler.include>com.contoso:compiler-sdk-disabled</contoso.sdk.common.compiler.include>
     <contoso.sdk.spi.compiler.include>com.contoso:compiler-sdk-disabled</contoso.sdk.spi.compiler.include>
@@ -19,7 +20,7 @@
   <modules>
     <module>services/correlation-core</module><module>services/security-core</module>
     <module>services/inventory-data</module><module>workers/messaging-core</module>
-    <module>services/orders-api</module><module>services/inventory-api</module>
+    <module>services/inventory-api</module><module>services/orders-api</module>
     <module>workers/fulfillment</module><module>workers/notify</module>
     <module>workers/aggregator</module><module>workers/replay</module>
     <module>extensions/parent-safe-sampler</module>
@@ -32,7 +33,7 @@
     <dependency><groupId>com.contoso</groupId><artifactId>security-core</artifactId><version>${project.version}</version></dependency>
     <dependency><groupId>com.contoso</groupId><artifactId>inventory-data</artifactId><version>${project.version}</version></dependency>
     <dependency><groupId>com.contoso</groupId><artifactId>messaging-core</artifactId><version>${project.version}</version></dependency>
-    <dependency><groupId>com.contoso</groupId><artifactId>contoso-parent-safe-sampler</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>com.contoso</groupId><artifactId>contoso-parent-safe-sampler</artifactId><version>1.1.0</version></dependency>
   </dependencies></dependencyManagement>
   <build>
     <pluginManagement><plugins>
@@ -40,6 +41,11 @@
       <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.6</version></plugin>
       <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-failsafe-plugin</artifactId><version>3.5.6</version></plugin>
       <plugin><groupId>com.microsoft.azure</groupId><artifactId>azure-functions-maven-plugin</artifactId><version>${azure-functions-maven-plugin.version}</version></plugin>
+      <plugin><groupId>org.cyclonedx</groupId><artifactId>cyclonedx-maven-plugin</artifactId><version>2.9.3</version><configuration>
+        <includeCompileScope>true</includeCompileScope><includeRuntimeScope>true</includeRuntimeScope>
+        <includeProvidedScope>false</includeProvidedScope><includeTestScope>false</includeTestScope>
+        <includeLicenseText>false</includeLicenseText><outputDirectory>${project.build.directory}/sbom</outputDirectory>
+      </configuration></plugin>
     </plugins></pluginManagement>
     <plugins><plugin>
       <groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId><version>3.6.3</version>

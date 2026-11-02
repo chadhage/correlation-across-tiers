@@ -1,0 +1,44 @@
+[
+  {
+    "role": "contoso-orders-api",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 62024,
+    "certified": false
+  },
+  {
+    "role": "contoso-inventory-api",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 50012,
+    "certified": false
+  },
+  {
+    "role": "replay",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 63784,
+    "certified": false
+  },
+  {
+    "role": "fulfillment",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 38216,
+    "certified": false
+  },
+  {
+    "role": "notify",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 61064,
+    "certified": false
+  },
+  {
+    "role": "aggregator",
+    "exitCode": 1,
+    "missingAgentRejected": true,
+    "actualPid": 50236,
+    "certified": false
+  }
+]

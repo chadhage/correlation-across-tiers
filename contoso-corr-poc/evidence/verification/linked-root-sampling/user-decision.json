@@ -1,0 +1,13 @@
+{
+  "schema": "contoso.user-decision.v1",
+  "decision": "extend_guard",
+  "sourceAcceptanceIsCertification": false,
+  "approvedVersion": "1.1.0",
+  "policy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "sameProviderOnly": true,
+  "headerSurgery": false,
+  "arbitraryParent": false,
+  "oldObservationSha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+  "oldObservationUnmodified": true,
+  "currentRetake": "NOT RUN"
+}

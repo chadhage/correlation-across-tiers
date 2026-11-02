@@ -1,0 +1,93 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "notReviewed": [
+    "MavenRuntimeGuard9 actualresult (parent executing/owner scope)",
+    "FullRootSource/A-sourcebuild/originalruntimeB/lineageC",
+    "ActualOkHttpMicrosofthonoring/AV23 allwireattemptabsence/defaultNettyUSED",
+    "Azure/globalcounts/fidelity/privacy/owner approvals"
+  ],
+  "roles": [
+    {
+      "role": "R4",
+      "executionOwner": "parent/coordinator originalR4recovery, no replacement agent",
+      "result": "accepted",
+      "scope": "CORRECTED CURRENT8FILE SOURCE-ONLY SUBSET; NO fullRoot/currentbuild/native acceptance",
+      "sources": [
+        {
+          "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java",
+          "sha256": "256b3599e9eb2a00329fd25ff32dcbfe89eab7f44d011940627c7508df82e133"
+        },
+        {
+          "path": "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java",
+          "sha256": "7ec769a8fc8a7d538a7be0fff406ad0d3009a3dec80e89e96e191880e98dacea"
+        },
+        {
+          "path": "tools\\java\\startup.sh",
+          "sha256": "e0f412fbb1f0bd9fdeb059f08a6ef167c009a655bc8aaf62c9d204b3124e28d0"
+        },
+        {
+          "path": "tools\\java\\replay.sh",
+          "sha256": "7e1dfa9b76e70915bde52ac18d646843ff96728271a1585a85350b002a100da5"
+        },
+        {
+          "path": "infra\\modules\\compute.bicep",
+          "sha256": "9c1cc65cd4f6b517a4b3abef7cea78407b66ee802c08351930aafff2e740fcfa"
+        },
+        {
+          "path": "docs\\JAVA_VALIDATION.md",
+          "sha256": "a9acb2f945b228d15c29c7001e7b268739eecc9568b4080e5fb64b4280ad1e69"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "90779aad87e8a54225f20a09f1028f24b232a99f6399a9e743aa72d1899b0dce"
+        },
+        {
+          "path": "tests\\java\\gates.test.mjs",
+          "sha256": "58192f5cba37a2f379d37d263ec65a95203e67ba6ea8c1e5052f21d1b1f257c5"
+        }
+      ],
+      "scopeSha256": "e5f08e1eca9b47f1f4af5c0e305516cc49f8062553474c522d3e21279f0c28e8",
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "Named netty/reactorNetty/globalcommon default override findings closed in actualsource/testcases",
+          "evidence": "CurrentrequiredHttpModule has realfamilies/versionaliases; actualsystemcommon.default-enabled/envfalse explicitdeny; false/true sourcecontrols whileOkHttpfalse permitted andJDKretained"
+        },
+        {
+          "label": "Verified",
+          "claim": "Historical/current JAVA_VALIDATION findingclosed",
+          "evidence": "136/c3 baseline explicitlyhistorical; current1.1BB allvalidunsampledlinkedroot policy/scopedR5retake/NativeAV23pending separated"
+        },
+        {
+          "label": "Verified",
+          "claim": "Unchangedtooling/ZIP/startup SourceCPU controls",
+          "evidence": "R9 independentlyexecuted exactNode/PowerShellmockZIP gates10/10/0skip beforeguardrevision; fiveothercurrent8filehashes unchanged"
+        },
+        {
+          "label": "Unsupported",
+          "claim": "Maven9/currentfullsourceBuildA/nativeB/AV23/API_READY/certification inference",
+          "evidence": "NoJvm/Maven/nativebyR9; candidate sourceonly, originalproofs andalllivegaps separate"
+        }
+      ],
+      "closedFindings": [
+        "R2-R4-RECOVERY-01 netty/commonactualgrammar",
+        "R2-R4-RECOVERY-02 outdatedCURRENTc3"
+      ],
+      "commands": [
+        "node --test --test-reporter=spec tests\\java\\gates.test.mjs (prior independent10 tests; unchangedfixture/tooling files)",
+        "sourceconditionmirrorcounter (notJVM)"
+      ],
+      "tests": {
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "scope": "Prior independentlyexecuted unchangedCPU/tooling/mockZIPfixture subset; not currentMaven9"
+      },
+      "nativeMavenExecutedByR9": false
+    }
+  ]
+}

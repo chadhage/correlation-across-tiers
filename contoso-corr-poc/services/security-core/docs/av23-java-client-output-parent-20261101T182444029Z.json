@@ -1,0 +1,253 @@
+{
+  "schema": "contoso.av23-java-wire.v3",
+  "sourceKind": "real-local-agent-loopback",
+  "assessmentScope": "protected-identity-headers-and-actual-native-JWKS-MI-CLIENT-outputs-with-root-binding-and-raw-negative-trusted-positive-controls-not-full-export-completeness",
+  "providerActive": true,
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "guardLoadedFromFrozenBytes": true,
+  "guardArtifactVersion": "1.1.0",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "sdkAbi": "1.65.0",
+  "mode": "header_isolation_only",
+  "headerPolicyVersion": 1,
+  "headerIsolation": {
+    "mode": "header_isolation_only",
+    "policyVersion": 1,
+    "productionAuthHeadersAbsent": true,
+    "negativeControlObserved": true,
+    "unfilteredControlExpectation": "native-context-present-without-public-header-isolation",
+    "switchHonoringClaim": "REMOVED_INEFFECTIVE_SWITCH_NOT_CLAIMED",
+    "verified": true
+  },
+  "identityClientOutput": {
+    "schema": "contoso.identity-client-output.v1",
+    "sourceKind": "native-envelope-projection-requires-executed-helper-binding",
+    "assessmentScope": "actual-native-HTTP-identity-CLIENT-outputs-directly-under-observed-in-app-root-not-full-export-completeness",
+    "verified": true,
+    "findings": [],
+    "actualRootContext": {
+      "traceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+      "spanId": "e34505dd36c5e806"
+    },
+    "nativeIdentityClientSpanCounts": {
+      "jwks": 1,
+      "managedIdentity": 2
+    },
+    "logicalIdentitySendCalls": 2,
+    "physicalIdentityWireAttempts": 3,
+    "spanCountsEqualPhysicalAttemptsClaimed": false,
+    "nativeIdSerialization": "strict-native-nonzero-W3C-hex-no-arbitrary-conversion",
+    "parserContractSha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+    "safeNativeClientProjection": [
+      {
+        "nativeEnvelopeOrdinal": 7,
+        "route": "jwks",
+        "nativeBaseType": "RemoteDependencyData",
+        "nativeDependencyType": "Http",
+        "nativeRoleName": "contoso-av23-probe",
+        "nativeTraceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "nativeSpanId": "1795b809f0e5cec8",
+        "nativeParentId": "e34505dd36c5e806",
+        "traceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "spanId": "1795b809f0e5cec8",
+        "parentSpanId": "e34505dd36c5e806",
+        "nativeTimeUtc": "2026-11-01T18:24:53.878Z"
+      },
+      {
+        "nativeEnvelopeOrdinal": 8,
+        "route": "managed-identity",
+        "nativeBaseType": "RemoteDependencyData",
+        "nativeDependencyType": "Http",
+        "nativeRoleName": "contoso-av23-probe",
+        "nativeTraceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "nativeSpanId": "1eb4cd4093fdf852",
+        "nativeParentId": "e34505dd36c5e806",
+        "traceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "spanId": "1eb4cd4093fdf852",
+        "parentSpanId": "e34505dd36c5e806",
+        "nativeTimeUtc": "2026-11-01T18:24:54.515Z"
+      },
+      {
+        "nativeEnvelopeOrdinal": 9,
+        "route": "managed-identity",
+        "nativeBaseType": "RemoteDependencyData",
+        "nativeDependencyType": "Http",
+        "nativeRoleName": "contoso-av23-probe",
+        "nativeTraceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "nativeSpanId": "fe2f37bf06ca8386",
+        "nativeParentId": "e34505dd36c5e806",
+        "traceId": "afb40ad3e053ac197dc4ce333b7e24d2",
+        "spanId": "fe2f37bf06ca8386",
+        "parentSpanId": "e34505dd36c5e806",
+        "nativeTimeUtc": "2026-11-01T18:24:54.521Z"
+      }
+    ],
+    "rawPayloadRetained": false,
+    "globalRawTelemetrySafetyVerified": false,
+    "fullExporterCompletenessVerified": false,
+    "independentProducerAuthorityVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "nativePayloadsReceived": 2,
+    "nativeEnvelopesReceived": 12
+  },
+  "probeCompilation": {
+    "verified": true,
+    "compilerPid": 62968,
+    "compilerExitCode": 0,
+    "compilerExecutable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\javac.exe",
+    "compilerExecutableSha256": "02160baa324a6a778e01962f14c748155c3172c37821df201bb201df110985c0",
+    "compilerArguments": [
+      "-cp",
+      "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\r8-av23\\classes;C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\security-core-1.0.0.jar;C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\test-classes;C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\classes;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\nimbusds\\nimbus-jose-jwt\\10.9.1\\nimbus-jose-jwt-10.9.1.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\tools\\jackson\\core\\jackson-core\\3.1.7\\jackson-core-3.1.7.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-identity\\1.18.7\\azure-identity-1.18.7.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core\\1.60.0\\azure-core-1.60.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-xml\\1.2.1\\azure-xml-1.2.1.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-annotations\\2.21\\jackson-annotations-2.21.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-core\\2.21.7\\jackson-core-2.21.7.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-databind\\2.21.7\\jackson-databind-2.21.7.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\datatype\\jackson-datatype-jsr310\\2.21.7\\jackson-datatype-jsr310-2.21.7.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\reactor-core\\3.8.8\\reactor-core-3.8.8.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\reactivestreams\\reactive-streams\\1.0.4\\reactive-streams-1.0.4.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-handler\\4.2.19.Final\\netty-handler-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver\\4.2.19.Final\\netty-resolver-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport\\4.2.19.Final\\netty-transport-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-base\\4.2.19.Final\\netty-codec-base-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-handler-proxy\\4.2.19.Final\\netty-handler-proxy-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-socks\\4.2.19.Final\\netty-codec-socks-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-buffer\\4.2.19.Final\\netty-buffer-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec\\4.2.19.Final\\netty-codec-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-compression\\4.2.19.Final\\netty-codec-compression-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-protobuf\\4.2.19.Final\\netty-codec-protobuf-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-marshalling\\4.2.19.Final\\netty-codec-marshalling-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http\\4.2.19.Final\\netty-codec-http-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http2\\4.2.19.Final\\netty-codec-http2-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-unix-common\\4.2.19.Final\\netty-transport-native-unix-common-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-epoll\\4.2.19.Final\\netty-transport-native-epoll-4.2.19.Final-linux-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-classes-epoll\\4.2.19.Final\\netty-transport-classes-epoll-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-kqueue\\4.2.19.Final\\netty-transport-native-kqueue-4.2.19.Final-osx-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-classes-kqueue\\4.2.19.Final\\netty-transport-classes-kqueue-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-classes\\2.0.84.Final\\netty-tcnative-classes-2.0.84.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-linux-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-linux-aarch_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-osx-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-osx-aarch_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-windows-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\netty\\reactor-netty-http\\1.3.8\\reactor-netty-http-1.3.8.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http3\\4.2.19.Final\\netty-codec-http3-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-classes-quic\\4.2.19.Final\\netty-codec-classes-quic-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-linux-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-linux-aarch_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-osx-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-osx-aarch_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-windows-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns\\4.2.19.Final\\netty-resolver-dns-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-dns\\4.2.19.Final\\netty-codec-dns-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns-native-macos\\4.2.19.Final\\netty-resolver-dns-native-macos-4.2.19.Final-osx-x86_64.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns-classes-macos\\4.2.19.Final\\netty-resolver-dns-classes-macos-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\netty\\reactor-netty-core\\1.3.8\\reactor-netty-core-1.3.8.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-common\\4.2.19.Final\\netty-common-4.2.19.Final.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-json\\1.5.1\\azure-json-1.5.1.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\microsoft\\azure\\msal4j\\1.26.0\\msal4j-1.26.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\microsoft\\azure\\msal4j-persistence-extension\\1.3.0\\msal4j-persistence-extension-1.3.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\net\\java\\dev\\jna\\jna\\5.13.0\\jna-5.13.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\net\\java\\dev\\jna\\jna-platform\\5.17.0\\jna-platform-5.17.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-security-keyvault-secrets\\4.11.3\\azure-security-keyvault-secrets-4.11.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-okhttp\\1.13.8\\azure-core-http-okhttp-1.13.8.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okhttp3\\okhttp\\4.12.0\\okhttp-4.12.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okio\\okio\\3.6.0\\okio-3.6.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk8\\2.3.21\\kotlin-stdlib-jdk8-2.3.21.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk7\\2.3.21\\kotlin-stdlib-jdk7-2.3.21.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okio\\okio-jvm\\3.18.1\\okio-jvm-3.18.1.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib\\2.3.21\\kotlin-stdlib-2.3.21.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\annotations\\13.0\\annotations-13.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\slf4j\\slf4j-api\\2.0.20\\slf4j-api-2.0.20.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter\\6.0.3\\junit-jupiter-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-api\\6.0.3\\junit-jupiter-api-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\opentest4j\\opentest4j\\1.3.0\\opentest4j-1.3.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\platform\\junit-platform-commons\\6.0.3\\junit-platform-commons-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\apiguardian\\apiguardian-api\\1.1.2\\apiguardian-api-1.1.2.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jspecify\\jspecify\\1.0.1\\jspecify-1.0.1.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-params\\6.0.3\\junit-jupiter-params-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-engine\\6.0.3\\junit-jupiter-engine-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\platform\\junit-platform-engine\\6.0.3\\junit-platform-engine-6.0.3.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\ch\\qos\\logback\\logback-classic\\1.5.38\\logback-classic-1.5.38.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\ch\\qos\\logback\\logback-core\\1.5.38\\logback-core-1.5.38.jar;;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar;C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar",
+      "-d",
+      "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\r8-av23\\classes",
+      "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java"
+    ],
+    "compilerStartedAtUtc": "2026-11-01T18:24:44.228Z",
+    "compilerEndedAtUtc": "2026-11-01T18:24:46.444Z",
+    "actualCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/target/r8-av23/classes/",
+    "classResourceSha256": "543f0d73f1dc2a2ae7c179f7145057b74833be327e01232e0a7972b43515b4aa",
+    "compiledClassSha256Before": "543f0d73f1dc2a2ae7c179f7145057b74833be327e01232e0a7972b43515b4aa",
+    "compiledClassSha256After": "543f0d73f1dc2a2ae7c179f7145057b74833be327e01232e0a7972b43515b4aa",
+    "sourceSha256Before": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6",
+    "sourceSha256After": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6",
+    "productionModuleRebuilt": false,
+    "widerSourceBuildLineageClaimed": false
+  },
+  "rawTransportControlCompleted": true,
+  "rawNativeInterceptorPresent": true,
+  "identitySendCalls": 2,
+  "clientObservations": [
+    {
+      "codeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/target/security-core-1.0.0.jar",
+      "artifactSha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "classResourceSha256": "1cd2cd278faf1889e43749b7d00c6cacc88ec29103d35fae042f421aeab50a76",
+      "purpose": "identity-wrapper",
+      "usage": "USED_VIA_PUBLIC_HTTP_CLIENT_SEND",
+      "concreteClass": "com.contoso.security.IdentityHttpClients$ContextFreeRestClient"
+    },
+    {
+      "codeSource": "file:///C:/Users/chhage/.copilot/session-state/a2820816-7000-4e63-9cf2-cd2c8da2162f/files/tools/r4/m2/com/azure/azure-core-http-okhttp/1.13.8/azure-core-http-okhttp-1.13.8.jar",
+      "artifactSha256": "42f41cc327176141f258c00d5bdfe8e20c5bb599e3efc60df2ea1e2fcca26207",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "classResourceSha256": "e7c68a59fb6206d315579ac6a834caacc2ee092ee37613316aeebcc3dd770b43",
+      "purpose": "identity-sdk-client",
+      "usage": "USED_VIA_PUBLIC_HTTP_CLIENT_SEND",
+      "concreteClass": "com.azure.core.http.okhttp.OkHttpAsyncHttpClient"
+    },
+    {
+      "codeSource": "file:///C:/Users/chhage/.copilot/session-state/a2820816-7000-4e63-9cf2-cd2c8da2162f/files/tools/r4/m2/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar",
+      "artifactSha256": "b1050081b14bb7a3a7e55a4d3ef01b5dcfabc453b4573a4fc019767191d5f4e0",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "classResourceSha256": "49f80db3e816d71a8af59f6f9dfbe7f3c0ab50dae762519a3e294827978fa091",
+      "purpose": "configured-okhttp-passed-to-sdk-builder",
+      "usage": "CREATED_ONLY",
+      "concreteClass": "okhttp3.OkHttpClient"
+    }
+  ],
+  "usedIdentityScope": {
+    "verified": true,
+    "findings": [],
+    "logicalIdentitySendCalls": 2,
+    "physicalIdentityWireAttempts": 3,
+    "retryLayer": "wire-attempts-may-exceed-logical-sends-via-OkHttp-or-SDK-retry",
+    "broaderSourceBuildLineage": "UNVERIFIED_BY_THIS_FINITE_CHECK"
+  },
+  "configuredNetworkInterceptorClasses": [
+    "io.opentelemetry.javaagent.shaded.instrumentation.okhttp.v3_0.internal.TracingInterceptor",
+    "com.contoso.security.IdentityHttpClients$Shared$$Lambda/0x0000000097633318"
+  ],
+  "pid": 61972,
+  "processStartUtc": "2026-11-01T18:24:46.505Z",
+  "observedAtUtc": "2026-11-01T18:24:54.825294700Z",
+  "sdkTracingOptionsDisabled": false,
+  "isolatedCredentialTransport": true,
+  "extensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "qualified": true,
+  "securityArtifactSha256Before": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+  "securityArtifactSha256After": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+  "securityArtifactStable": true,
+  "capturedAtUtc": "2026-11-01T18:24:55.246Z",
+  "harnessSha256": "5b486c0d0f4d7693be7ea3f8691abf757cebb87c33f36cd5acd4c320ac39d279",
+  "nativeCollectorSha256Before": "8166b4d3d7485d069aea69f717a0b046e67c6e0d19d140f3705635231eed5195",
+  "nativeCollectorSha256After": "8166b4d3d7485d069aea69f717a0b046e67c6e0d19d140f3705635231eed5195",
+  "checkerSha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+  "probeSourceSha256": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6",
+  "exitCode": 0,
+  "failureCategories": [],
+  "missingClasses": [],
+  "authHeadersAbsent": true,
+  "trustedPropagationObserved": true,
+  "trustedParentAdvanced": true,
+  "retryControlRequested": true,
+  "retryObserved": true,
+  "requestCounts": {
+    "jwks": 1,
+    "identity": 2,
+    "transportControl": 1,
+    "trusted": 1
+  },
+  "wireHeaderPresence": {
+    "jwks": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "identity": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      },
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "transportControl": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "trusted": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": true,
+        "x-business-correlation-id": false
+      }
+    ]
+  },
+  "result": "PASS",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "rawOutputRetained": false
+}

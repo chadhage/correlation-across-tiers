@@ -11,12 +11,17 @@ import java.util.zip.ZipFile;
 public final class ExtensionGuard {
     private ExtensionGuard() {}
 
-    public static void verify(ClassLoader... applicationLoaders) {
+    static Properties inventory() {
         Properties inventory = new Properties();
         try (InputStream source = ExtensionGuard.class.getResourceAsStream("/contoso-parent-safe-sampler.properties")) {
             if (source == null) fail("UNFROZEN");
             inventory.load(source);
         } catch (Exception failure) { fail("UNFROZEN"); }
+        return inventory;
+    }
+
+    public static void verify(ClassLoader... applicationLoaders) {
+        Properties inventory = inventory();
         String configured = System.getProperty(inventory.getProperty("loaderProperty", "otel.javaagent.extensions"));
         if (configured == null) {
             if (Boolean.parseBoolean(inventory.getProperty("required", "false"))) fail("REQUIRED");
@@ -28,7 +33,7 @@ public final class ExtensionGuard {
             configured.contains(",") || configured.contains(";") ||
             !"1.65.0".equals(inventory.getProperty("sdkAbi"))) fail("UNFROZEN");
         Path jar = Path.of(configured);
-        if (!jar.getFileName().toString().equals("contoso-parent-safe-sampler-1.0.0.jar")) fail("ARTIFACT");
+        if (!jar.getFileName().toString().equals(inventory.getProperty("artifactId") + "-" + inventory.getProperty("version") + ".jar")) fail("ARTIFACT");
         RuntimeClasspathGuard.verify(applicationLoaders);
         RuntimeClasspathGuard.reject(java.util.List.of(provider.replace('.', '/') + ".class"),
             "GATE_02_EXTENSION_APPLICATION_CLASSLOADER", applicationLoaders);

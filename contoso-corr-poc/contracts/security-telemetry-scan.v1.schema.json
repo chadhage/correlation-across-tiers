@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:security-telemetry-scan:v1",
+  "type": "object",
+  "required": [
+    "result", "policySha256", "assessmentScope", "scannedAllColumns",
+    "scannedRawRecords", "tablesScanned", "canaryDisposition",
+    "sourceAcceptanceIsCertification", "globalTelemetrySafetyVerified", "findings"
+  ],
+  "properties": {
+    "result": { "enum": ["PASS", "FAIL"] },
+    "policySha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "assessmentScope": { "enum": ["graph-intake", "all-telemetry"] },
+    "scannedAllColumns": { "type": "boolean" },
+    "scannedRawRecords": { "type": "integer", "minimum": 0 },
+    "tablesScanned": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "canaryDisposition": { "enum": ["PASS", "UNPROVED"] },
+    "sourceAcceptanceIsCertification": { "const": false },
+    "globalTelemetrySafetyVerified": { "const": false },
+    "gateEligible": { "const": false },
+    "fullScopeScanned": { "type": "boolean" },
+    "scope": { "enum": ["graph-intake", "all-table-gate"] },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["table", "recordOrdinal", "classification", "code"],
+        "properties": {
+          "table": { "type": "string" },
+          "recordOrdinal": { "type": "integer", "minimum": -1 },
+          "classification": { "type": "string", "pattern": "^[a-z-]+$" },
+          "code": { "type": "string", "pattern": "^[A-Z_]+$" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

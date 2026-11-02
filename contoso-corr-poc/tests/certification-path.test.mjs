@@ -31,11 +31,14 @@ test('does not confuse a validation-tool rejection predicate with a deployment r
 });
 
 test('fails closed on preview/unknown dependencies and missing official sources', () => {
-  validateCertificationManifest(manifest);
-  const preview = structuredClone(manifest);
+  assert.throws(() => validateCertificationManifest(manifest), /Preview\/unknown dependency: node-azure-exporter/);
+  const verifiedFixture = structuredClone(manifest);
+  verifiedFixture.components = verifiedFixture.components.filter(item => item.status !== 'UNVERIFIED');
+  validateCertificationManifest(verifiedFixture);
+  const preview = structuredClone(verifiedFixture);
   preview.components[0].status = 'Preview';
   assert.throws(() => validateCertificationManifest(preview), /Preview\/unknown/);
-  const missing = structuredClone(manifest);
+  const missing = structuredClone(verifiedFixture);
   delete missing.components[0].source;
   assert.throws(() => validateCertificationManifest(missing), /Missing dependency source/);
 });

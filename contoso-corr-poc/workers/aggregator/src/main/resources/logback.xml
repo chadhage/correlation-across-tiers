@@ -1,0 +1,11 @@
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder><pattern>%d{ISO8601} %level %logger{32} business.invocation_id=%X{business.invocation_id} trace_id=%X{trace_id} span_id=%X{span_id} %msg%n</pattern></encoder>
+  </appender>
+  <logger name="com.azure" level="OFF"/>
+  <logger name="com.microsoft.aad.msal4j" level="OFF"/>
+  <logger name="org.postgresql" level="OFF"/>
+  <logger name="io.lettuce" level="WARN"/>
+  <logger name="redis.clients.authentication" level="OFF"/>
+  <root level="INFO"><appender-ref ref="CONSOLE"/></root>
+</configuration>

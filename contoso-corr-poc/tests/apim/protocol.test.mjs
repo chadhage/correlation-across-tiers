@@ -112,6 +112,22 @@ test("transport proof checks preserve caller Authorization and do not pretend to
   assert.equal(verifyBackendHeaderContract(before, { ...after, "X-Contoso-Gateway-Authorization": before["X-Contoso-Gateway-Authorization"] }).passed, false);
 });
 
+test("case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof", () => {
+  const before = { Authorization: "Bearer synthetic-original-only" };
+  const after = { Authorization: before.Authorization, "X-Contoso-Gateway-Authorization": "Bearer synthetic-gateway-only", "x-business-invocation-id": business };
+  for (const patch of [
+    { authorization: before.Authorization },
+    { "x-contoso-gateway-authorization": after["X-Contoso-Gateway-Authorization"] },
+    { "X-Business-Invocation-Id": business },
+    { "X-Contoso-Gateway-Authorization": before.Authorization },
+    { "X-Contoso-Gateway-Authorization": "Bearer synthetic-one,Bearer synthetic-two" },
+    { Authorization: "Bearer synthetic-original-only\r\nX-Test: value" }
+  ]) assert.equal(verifyBackendHeaderContract(before, { ...after, ...patch }).passed, false);
+  assert.equal(verifyBackendHeaderContract({ ...before, authorization: before.Authorization }, after).passed, false);
+  const errors = verifyBackendHeaderContract(null, null).errors;
+  assert.equal(errors.some(error => error.includes("synthetic-original-only")), false);
+});
+
 test("CORS grants only frontend origin/custom-header list and never grants the gateway proof", () => {
   const config = { frontendOrigins: [origin] };
   assert.equal(corsPreflight({ origin, method: "POST", requestedHeaders: ["Authorization", "traceparent", "tracestate", "x-business-invocation-id"] }, config).granted, true);
@@ -127,6 +143,8 @@ test("CORS grants only frontend origin/custom-header list and never grants the g
     assert.equal(result.allowOrigin, null);
   }
   assert.equal(corsPreflight({ origin, method: "GET" }, { frontendOrigins: ["*"] }).granted, false);
+  assert.equal(corsPreflight({ origin, method: "POST", requestedHeaders: [null] }, config).granted, false);
+  assert.equal(corsPreflight({ origin, method: "POST", requestedHeaders: "Authorization" }, config).granted, false);
 });
 
 test("SDK appId metadata preflight remains permitted on a subsequent approved request", () => {
@@ -173,7 +191,10 @@ function parameters() {
 
 test("module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets", () => {
   assert.equal(validateModuleParameters(parameters()).passed, true);
-  for (const patch of [{ serviceName: "" }, { delegatedScope: "Contoso.Invoke" }, { ordersBackendBaseUrl: "https://untrusted.example/api" }, { ordersBackendBaseUrl: "https://contoso-orders-api-legal.azurewebsites.net/contoso/v1" }, { frontendOrigins: ["*"] }, { portalClientIds: [generated] }]) {
+  assert.equal(validateModuleParameters({ ...parameters(), ordersBackendBaseUrl: "https://contoso-orders-api-hash.centralus-01.azurewebsites.net/api" }).passed, true);
+  const upperClientId = "ABCDEFAB-CDEF-4ABC-8DEF-ABCDEFABCDEF";
+  assert.equal(validateModuleParameters({ ...parameters(), tenantId: upperClientId, publicAudience: upperClientId, allowedCallerClientIds: [upperClientId], portalClientIds: [upperClientId.toLowerCase()] }).passed, true);
+  for (const patch of [{ serviceName: "" }, { delegatedScope: "Contoso.Invoke" }, { ordersBackendBaseUrl: "https://untrusted.example/api" }, { ordersBackendBaseUrl: "https://contoso-orders-api-legal.azurewebsites.net/contoso/v1" }, { ordersBackendBaseUrl: "https://contoso-orders-api-legal.azurewebsites.net:8443/api" }, { frontendOrigins: ["*"] }, { frontendOrigins: [origin, origin] }, { portalClientIds: [generated] }, { allowedCallerClientIds: [business, business] }, { allowedCallerClientIds: ["00000000-0000-0000-0000-000000000000"] }, { allowedCallerClientIds: [null] }]) {
     assert.equal(validateModuleParameters({ ...parameters(), ...patch }).passed, false);
   }
   for (const publicAudience of [undefined, "api://orders-fixture", `api://${business}`, "00000000-0000-0000-0000-000000000000", "not-a-guid"]) {
@@ -181,7 +202,7 @@ test("module parameter negatives enforce physical input, exact scope, fixed back
   }
   assert.equal(validateModuleParameters({ ...parameters(), publicAudience: generated, ordersTokenResource: `api://${business}` }).passed, true);
   assert.equal(validateSecretReference("https://contoso-legal.vault.azure.net/secrets/appi-connection"), true);
-  for (const reference of ["InstrumentationKey=fixture", "https://contoso-legal.vault.azure.net/secrets/appi-connection/version", "http://contoso-legal.vault.azure.net/secrets/appi-connection", "https://contoso-legal.vault.azure.net/secrets/appi-connection?token=fixture"]) assert.equal(validateSecretReference(reference), false);
+  for (const reference of ["InstrumentationKey=fixture", "https://contoso-legal.vault.azure.net/secrets/appi-connection/version", "http://contoso-legal.vault.azure.net/secrets/appi-connection", "https://contoso-legal.vault.azure.net/secrets/appi-connection?token=fixture", "https://contoso-legal.vault.azure.net:8443/secrets/appi-connection", "https://contoso--legal.vault.azure.net/secrets/appi-connection", "https://contoso-legal.vault.azure.net/secrets/appi%2Dconnection", "https://contoso-legal.vault.azure.net/secrets/x/../appi-connection", "https://x.vault.azure.net/secrets/appi-connection"]) assert.equal(validateSecretReference(reference), false);
 });
 
 function diagnostic() {
@@ -210,4 +231,9 @@ test("all4 capture positions and timing approval controls; no unbounded 100% or 
   full.sampling.percentage = 100;
   assert.equal(validateDiagnosticSettings(full).passed, false);
   assert.equal(validateDiagnosticSettings(full, { certificationWindow: { windowId: business, startsAtUtc: "2026-10-31T22:00:00Z", expiresAtUtc: "2026-10-31T23:00:00Z" } }).passed, true);
+  for (const window of [
+    { windowId: "not-a-uuid", startsAtUtc: "2026-10-31T22:00:00Z", expiresAtUtc: "2026-10-31T23:00:00Z" },
+    { windowId: business, startsAtUtc: "2026-10-31T22:00:00+00:00", expiresAtUtc: "2026-10-31T23:00:00Z" },
+    { windowId: business, startsAtUtc: "2026-10-31T22:00:00Z", expiresAtUtc: "2026-11-01T01:00:00Z" }
+  ]) assert.equal(validateDiagnosticSettings(full, { certificationWindow: window }).passed, false);
 });

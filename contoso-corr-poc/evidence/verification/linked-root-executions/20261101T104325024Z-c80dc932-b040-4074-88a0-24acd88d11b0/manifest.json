@@ -1,0 +1,11 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "preserved-original-local-junit-execution",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "execution-receipt.json",
+      "sha256": "32307f6c6323452d099346bd3ff97c2b202b58ca18b84a7164cb3d71e130f716"
+    }
+  ]
+}

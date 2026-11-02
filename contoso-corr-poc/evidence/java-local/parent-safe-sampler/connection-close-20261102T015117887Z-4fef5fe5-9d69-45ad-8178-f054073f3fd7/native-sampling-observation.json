@@ -1,0 +1,461 @@
+{
+  "schema": "contoso.native-sampling-local-observation.v1",
+  "extensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "artifactVersion": "1.1.0",
+  "fixedPhases": [
+    {
+      "nativeStateAvailable": true,
+      "ownedConfiguration": {
+        "sampling.overrides": [],
+        "sampling.percentage": 100,
+        "sampling.requestsPerSecond": {
+          "$contosoAbsent": true
+        }
+      },
+      "effectiveSamplingPercentage": 100,
+      "requestsPerSecond": null,
+      "loadedCount": 1,
+      "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sdkAbi": "1.65.0",
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "unsampledDropCount": 0,
+      "delegateDecisionCount": 0,
+      "runtimeInstanceId": "49516",
+      "providerCount": null,
+      "exporterCount": null
+    },
+    {
+      "nativeStateAvailable": true,
+      "ownedConfiguration": {
+        "sampling.overrides": [],
+        "sampling.percentage": 0,
+        "sampling.requestsPerSecond": {
+          "$contosoAbsent": true
+        }
+      },
+      "effectiveSamplingPercentage": 0,
+      "requestsPerSecond": null,
+      "loadedCount": 1,
+      "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sdkAbi": "1.65.0",
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "unsampledDropCount": 0,
+      "delegateDecisionCount": 0,
+      "runtimeInstanceId": "46268",
+      "providerCount": null,
+      "exporterCount": null
+    },
+    {
+      "nativeStateAvailable": true,
+      "ownedConfiguration": {
+        "sampling.overrides": [],
+        "sampling.percentage": 100,
+        "sampling.requestsPerSecond": {
+          "$contosoAbsent": true
+        }
+      },
+      "effectiveSamplingPercentage": 100,
+      "requestsPerSecond": null,
+      "loadedCount": 1,
+      "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sdkAbi": "1.65.0",
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "unsampledDropCount": 0,
+      "delegateDecisionCount": 0,
+      "runtimeInstanceId": "29488",
+      "providerCount": null,
+      "exporterCount": null
+    }
+  ],
+  "rateObservation": {
+    "name": "native-rate-five",
+    "percentage": null,
+    "requestsPerSecond": 5,
+    "pid": 38176,
+    "spiLoads": [
+      "abi=1.65.0 delegate=com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler extensionLoader=io.opentelemetry.javaagent.tooling.ExtensionClassLoader delegateLoader=io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+    ],
+    "observations": [],
+    "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+    "artifactVersion": "1.1.0",
+    "nativeObservation": {
+      "nativeStateAvailable": true,
+      "ownedConfiguration": {
+        "sampling.overrides": [],
+        "sampling.percentage": {
+          "$contosoAbsent": true
+        },
+        "sampling.requestsPerSecond": 5
+      },
+      "effectiveSamplingPercentage": null,
+      "requestsPerSecond": 5,
+      "loadedCount": 1,
+      "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sdkAbi": "1.65.0",
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "unsampledDropCount": 0,
+      "delegateDecisionCount": 0,
+      "runtimeInstanceId": "38176",
+      "providerCount": null,
+      "exporterCount": null
+    },
+    "observationSamples": [
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": {
+            "$contosoAbsent": true
+          },
+          "sampling.requestsPerSecond": 5
+        },
+        "effectiveSamplingPercentage": null,
+        "requestsPerSecond": 5,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "38176",
+        "providerCount": null,
+        "exporterCount": null
+      }
+    ],
+    "nativeObservationHash": "a18698d6e1c2f2932226923388ca5778df24933b3441e08bb5cbc0e90a58e81c",
+    "nativeSpanCount": null,
+    "nativeSpanIds": [],
+    "runtimeClasspath": [
+      "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\test-classes",
+      "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+      "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+      "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar"
+    ],
+    "loaderArgument": "-Dotel.javaagent.extensions=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+    "sourceKind": "real-local-agent-loopback",
+    "certificationEligible": false,
+    "originalPrivacyCapture": {
+      "schema": "contoso.sampler-native-intake-empty.v1",
+      "observedNativePayloads": 0,
+      "verified": false,
+      "validatorPid": null,
+      "expectedPolicySourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "expectedSharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "payloadReceipts": [],
+      "sourceAcceptanceIsCertification": false,
+      "independentProducerAuthorityVerified": false,
+      "allTablePrivacyGateVerified": false,
+      "certification": "NOT_CERTIFIED"
+    },
+    "receiverDiagnostics": {
+      "schema": "contoso.sampler-receiver-diagnostics.v1",
+      "diagnosticsOnly": true,
+      "poisoned": false,
+      "receiverCode": null,
+      "sealed": true,
+      "pendingReceives": 0,
+      "transportPhase": "closed",
+      "events": {
+        "receive": 0,
+        "parse": 0,
+        "finish": 1,
+        "pending": 0,
+        "clientError": 0,
+        "drop": 0,
+        "serverError": 0,
+        "close": 0
+      },
+      "counts": {
+        "receiveCalls": 0,
+        "nativePosts": 0,
+        "completedBodies": 0,
+        "rawBytesObserved": 0,
+        "acceptedPayloads": 0,
+        "acceptedRawBytes": 0,
+        "acceptedDecodedBytes": 0,
+        "acceptedEnvelopes": 0
+      },
+      "firstPoison": null,
+      "lastRequest": null,
+      "lastBarrierFailure": null,
+      "countersSaturateAt": 4294967295,
+      "independentProducerAuthorityVerified": false,
+      "allTablePrivacyGateVerified": false,
+      "http": {
+        "requests": 4,
+        "nativePosts": 0,
+        "echoGets": 0,
+        "rejectedRoutes": 4,
+        "closeCalls": 1
+      },
+      "limits": {
+        "maxConnections": 8,
+        "bodyBytes": 1048576,
+        "bodyDeadlineMs": 5000
+      }
+    }
+  },
+  "classification": "Contoso-owned pinned internal ABI read-only observation; not vendor support or Azure certification",
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false
+}

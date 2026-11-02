@@ -1,0 +1,491 @@
+{
+  "schema": "contoso.local-conditional-failed-native.v1",
+  "diagnosticsOnly": true,
+  "authorityGranted": false,
+  "savedJsonCanEnroll": false,
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "originalPrivacyValidatedProjection": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 44280,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 3,
+      "originalRawBytes": 2312,
+      "decodedBytes": 10977,
+      "envelopes": 16
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "37954e4acaadc407f7b5fc8191a7d2b1459c35ec98d2d398c2c8136e2dcb839d",
+        "originalPayloadBytes": 540,
+        "decodedPayloadBytes": 1278,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "bca72039f0f5c5403c17cf478e459d5c6458c3ac0fa5c96fbc99cc6829f62998",
+        "originalPayloadBytes": 466,
+        "decodedPayloadBytes": 1145,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "0047b5c6e2c64dc0ef0783c80a68eae39707f33735f237e06014366e0cf6bbc6",
+        "originalPayloadBytes": 1306,
+        "decodedPayloadBytes": 8554,
+        "originalEnvelopeCount": 12,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ],
+    "nativeEnvelopes": [
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:31.491Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Starting NativeApiFixture using Java 25.0.5 with PID 24260 (C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\classes started by chhage in C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc)",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.contoso.orders.NativeApiFixture",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:31.542Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "No active profile set, falling back to 1 default profile: \"default\"",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.contoso.orders.NativeApiFixture",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T04:06:36.04Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.server.request.duration",
+                "value": 358.61119999999994,
+                "count": 7,
+                "min": 6.4436,
+                "max": 294.1589
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "operation/synthetic": "False",
+              "cloud/roleInstance": "DESKTOP-JFTHPKH",
+              "Request.Success": "True",
+              "cloud/roleName": "contoso-orders-api",
+              "request/resultCode": "200",
+              "_MS.IsAutocollected": "True",
+              "_MS.MetricId": "requests/duration"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T04:06:36.04Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.server.request.duration",
+                "value": 0.35861119999999996,
+                "count": 7,
+                "min": 0.0064436,
+                "max": 0.2941589
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "http.response.status_code": "200"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:33.646Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Starting service [Tomcat]",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "org.apache.catalina.core.StandardService",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:33.649Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Starting Servlet engine: [Apache Tomcat/11.0.27]",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "org.apache.catalina.core.StandardEngine",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:34.503Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Started NativeApiFixture in 4.17 seconds (process running for 15.938)",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.contoso.orders.NativeApiFixture",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:34.627Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "199f5bdb0e5e2edf5f7aadfd0b1002ea",
+          "ai.operation.name": "GET",
+          "ai.cloud.role": "contoso-orders-api",
+          "ai.operation.parentId": "9cf2bf1e2f99c4ef"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Initializing Spring DispatcherServlet 'dispatcherServlet'",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+              "SourceType": "Logger",
+              "ThreadName": "http-nio-auto-1-exec-1"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.576Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "199f5bdb0e5e2edf5f7aadfd0b1002ea",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "9cf2bf1e2f99c4ef",
+            "duration": "00:00:00.297929",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "adddc964-5cdc-4b0d-8ea5-8b2155dc4c2e",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.876Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b61aaee1f78f593a5aa7e707ecde574c",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "d838510301f9233d",
+            "duration": "00:00:00.009381",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "3a17ce25-6538-47a4-8691-36f10486d404",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.887Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "d19f9f35c545ebf078d2a13c3130977f",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "7ecb46320ca87e1c",
+            "duration": "00:00:00.006530",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "76162d56-e17e-4f34-a612-d50cfccacc50",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:34.988Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Stopping service [Tomcat]",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "org.apache.catalina.core.StandardService",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.896Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "403cca7f222a16973c23811b043473b9",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api",
+          "ai.operation.parentId": "7e4222dac3020f36"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "a5e5054f29fad6b3",
+            "duration": "00:00:00.006678",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.905Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "403cca7f222a16973c23811b043473b9",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api",
+          "ai.operation.parentId": "7e4222dac3020f36"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "e44653213d76b622",
+            "duration": "00:00:00.021188",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Request",
+        "time": "2026-11-02T04:06:34.928Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "403cca7f222a16973c23811b043473b9",
+          "ai.operation.name": "GET /api/me",
+          "ai.cloud.role": "contoso-orders-api",
+          "ai.operation.parentId": "7e4222dac3020f36"
+        },
+        "data": {
+          "baseType": "RequestData",
+          "baseData": {
+            "ver": 2,
+            "id": "f9572444f79dcda0",
+            "duration": "00:00:00.011575",
+            "success": true,
+            "responseCode": "200",
+            "name": "GET /api/me",
+            "url": "http://127.0.0.1:63930/api/me",
+            "properties": {
+              "user.pseudonym": "h1:eb37e38fbf4f4c36a926121852a47177:F2-DIIFqNor9eu5AMYf7JEQXUMsQ58HOzKPXWXppOkI",
+              "_MS.ProcessedByMetricExtractors": "True",
+              "contoso.auth.actor_type": "user",
+              "business.invocation_id": "b49490ab-9c77-4629-ad0e-2a150135fb26",
+              "contoso.auth.role_category": "invoker",
+              "contoso.auth.outcome": "authenticated"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T04:06:34.995Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-orders-api"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "Destroying Spring FrameworkServlet 'dispatcherServlet'",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

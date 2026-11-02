@@ -40,6 +40,19 @@ export function renderArchitecture(map) {
     'PostgreSQL and Redis nodes are CLIENT operations, not database server continuations.', '',
     '## Declared new-root boundaries', '');
   for (const boundary of map.deliberateRoots) lines.push(`- ${boundary.boundary}: ${boundary.reason}`);
+  lines.push('', '## Conditional A03 root candidates', '',
+    'These are not unconditional parent-edge exemptions. R7/R9 must verify a separately source-bound native trust-root receipt, actual null parent and real native IDs before accepting an edge break.',
+    'Policy deletion, a caller label, valid context with invalid state, or business-ID replacement is not such a receipt.', '');
+  for (const boundary of map.conditionalRoots ?? []) {
+    if (!spans.has(boundary.boundary) || typeof boundary.policyRef !== 'string' || !boundary.policyRef
+      || boundary.receiptType !== 'source-bound-native-trust-root'
+      || boundary.parentMustBeNull !== true || boundary.sourceProofRequired !== true
+      || !Array.isArray(boundary.allowedDispositions) || boundary.allowedDispositions.length === 0
+      || boundary.allowedDispositions.some(value => ['valid', 'NONE', 'invalid-tracestate', 'generated-untrusted'].includes(value))) {
+      throw new Error('Invalid conditional root contract');
+    }
+    lines.push(`- ${boundary.boundary}: ${boundary.allowedDispositions.join(', ')}; native receipt required.`);
+  }
   lines.push('', '## Transport and trust limits', '',
     '- Service Bus, Event Hubs, Event Grid, and Queue carry context; no invented broker spans.',
     '- VNet-integrated workers use the selected authenticated TLS transport endpoints. Integration is not Private Link.',

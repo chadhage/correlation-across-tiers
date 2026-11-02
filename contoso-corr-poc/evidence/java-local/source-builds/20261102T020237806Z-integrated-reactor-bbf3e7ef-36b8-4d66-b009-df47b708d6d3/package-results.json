@@ -1,0 +1,41 @@
+{
+  "schema": "contoso.parent-current-reactor-package-results.v1",
+  "recordedAtUtc": "2026-11-02T02:21:35.6123019Z",
+  "sourceBuildSha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+  "packages": [
+    {
+      "path": "services\\orders-api\\target\\contoso-orders-api.zip",
+      "sha256": "a5122bc7add628cb1380d5b6392673b446c9191aebf264d1277c9165919e0680",
+      "bytes": 104557323
+    },
+    {
+      "path": "services\\inventory-api\\target\\contoso-inventory-api.zip",
+      "sha256": "c375246c88a886d3196fb84ad1c9e03dc0fc06bda4a44a0ac0dd974b8e85e20e",
+      "bytes": 101433727
+    },
+    {
+      "path": "workers\\fulfillment\\target\\contoso-fulfillment-worker.zip",
+      "sha256": "f61e723ced25b13662d1bfe8d8202a3aaa25eb2e7e909e1238146f163f02b6f3",
+      "bytes": 88020811
+    },
+    {
+      "path": "workers\\notify\\target\\contoso-notify-worker.zip",
+      "sha256": "ce273d0d90db6f1ff181d886df558b3a618b105dbc66e4e799995740ba605c14",
+      "bytes": 88020768
+    },
+    {
+      "path": "workers\\aggregator\\target\\contoso-order-aggregator.zip",
+      "sha256": "e76edcfae01f0df866f343371cbb2a4f703204e86b942ccda9ee9c9e1bdfa8f4",
+      "bytes": 88020800
+    },
+    {
+      "path": "workers\\replay\\target\\contoso-replay.zip",
+      "sha256": "279f3ab8bc935d3369cbd068b6318f6296a99c0228284aa80f552ae71a50e7cb",
+      "bytes": 87989290
+    }
+  ],
+  "packagedLaunchGuardPath": "evidence\\java-local\\packaged-launch-guards\\20261102T021846197Z-14587d8c-bb9e-42df-8ec5-d365bf06928a.json",
+  "packagedLaunchGuardSha256": "b9d9b679b2e62162da7aaa3b991d2bdf93c2d7241678cfe55355e085bd90de5d",
+  "scope": "Six actual ZIPs from current source-stable182-test reactor and six actual negative missing-agent launches; not healthy-host or Azure qualification.",
+  "certified": false
+}

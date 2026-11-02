@@ -1,0 +1,44 @@
+{
+  "schema": "contoso.local-junit-execution.v1",
+  "ownerRole": "R9",
+  "preserverRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "sourceKind": "preserved-original-local-junit-execution",
+  "originalXmlPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+  "originalXmlSha256": "50f683a8d11edc519bc7059ac5be243be6a155dc1cc28175ffbcba5b3f5c7a49",
+  "observedXmlMtimeUtc": "2026-11-01T10:39:04.511Z",
+  "testSuite": "com.contoso.messaging.AsyncNativeAgentTest",
+  "testMethod": "actualSingleAgentProcessRetryReplayFanInBatchAndPersistedEffects",
+  "testClass": "com.contoso.messaging.AsyncNativeAgentTest",
+  "tests": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "durationSeconds": 7.396,
+  "scope": "Actual closed local algorithm against recorded compiled classpath; source/build/loaded-code lineage UNVERIFIED",
+  "sourceExecutionBinding": "UNVERIFIED",
+  "runtimeBinaries": [
+    {
+      "file": "contoso-correlation-core-1.0.0.jar",
+      "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\contoso-correlation-core\\1.0.0\\contoso-correlation-core-1.0.0.jar",
+      "postExecutionFileSha256": "df944cd85ee8309d2f279ab12bb540edf115e368f103f1338ebffab0bec4a9e3",
+      "loadedCodeSourceVerified": false,
+      "sourceBuildLineage": "UNVERIFIED"
+    },
+    {
+      "file": "inventory-data-1.0.0.jar",
+      "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\inventory-data\\1.0.0\\inventory-data-1.0.0.jar",
+      "postExecutionFileSha256": "b7a6cfc9a5bd5c1b146d9c8c7ecd03782a6cb365774f7c7bfafbe5ad11282529",
+      "loadedCodeSourceVerified": false,
+      "sourceBuildLineage": "UNVERIFIED"
+    }
+  ],
+  "rawXmlRetained": false,
+  "qualificationSha256": null,
+  "apiReady": false,
+  "azureAcceptance": "NOT RUN",
+  "originalResultPath": "evidence\\verification\\local-native\\20261101T103904678Z-65e6d3d4-c9bf-4052-84c2-9aaf43963227\\result.json",
+  "startedAtUtc": "2026-11-01T10:38:39.967Z",
+  "finishedAtUtc": "2026-11-01T10:39:04.675Z"
+}

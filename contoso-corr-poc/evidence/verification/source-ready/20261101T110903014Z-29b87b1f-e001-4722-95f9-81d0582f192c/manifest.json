@@ -1,0 +1,100 @@
+{
+  "schema": "contoso.r9-source-review-handoff.v1",
+  "ownerRole": "R9",
+  "reviewKind": "code",
+  "sourceAcceptanceIsCertification": false,
+  "scope": "P1-B sealed metadata snapshot/receipt-only display correction READY; P2 narrowing accepted source/local and build lineage UNVERIFIED",
+  "sources": [
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+    },
+    {
+      "path": "tools\\verification\\report.mjs",
+      "sha256": "2a178a4b1b354821407126055c207bc8a247e514a5d6a61371c0702c898b899d"
+    },
+    {
+      "path": "tests\\verification\\sampling-qualification.test.mjs",
+      "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "f52623189a8c8ce6fe974eaad40fec530bf806d01e8e0f812a630abbdf31b936"
+    },
+    {
+      "path": "tests\\verification\\local-native.test.mjs",
+      "sha256": "fdcf54a7fe26eef6b7543d084c479879e4f4366e57130b064f7c264e828e4fbe"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tests\\verification\\run-focused.test.mjs",
+      "sha256": "a0dafe006a0f58abffe4031533eb70b7fb33b884b3dca47ae44a07c524eccacf"
+    },
+    {
+      "path": "tests\\verification\\report.test.mjs",
+      "sha256": "0c08e9ca66bb65fd27884cfc5d6d99753326218415d14f0a6c1a76ced2c7275f"
+    },
+    {
+      "path": "tests\\verification\\sampling-fixture.mjs",
+      "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca"
+    },
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d25126e81badb46d0ac2a5d0075c83986599db34d1039740e70294ad2dd67781"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "830e444bb86f1d714278d1bc9cdbd4402bf3f9392dab6ad3433d45215c6c0ac6"
+    },
+    {
+      "path": "contracts\\verification-acceptance.v1.json",
+      "sha256": "5abe1dbd929f54b87811bec4f32cac0b310143fb047f86644755f5ebab9a3515"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "eae7fe51d0f451d6774bbde2b30286e7da639b7cc57e3af953a787264ae846ac"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "770691bdcd4341a0e783e6b256afb7ca61f5c5099727bff907ee5eca7bc25f6b"
+    },
+    {
+      "path": "config\\board-state.json",
+      "sha256": "4272011c03685eb213f4c4aa84e909defbc6ee68374171f1ef14e737e3b88f9d",
+      "hashMode": "board-policy"
+    }
+  ],
+  "scopeSha256": "91c3b6a5b597bfcab5db57258cc1d1d1d7ac393c93e244ebac925832343c29f1",
+  "tests": {
+    "passed": 82,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "focusedReceipt": "evidence\\verification\\focused\\20261101T110748604Z-8a7395b4-87de-4f97-b19d-7268ad724923\\preparation-tests.json",
+  "focusedReceiptSha256": "22bc8de695556d10f41a05bd21963e240bdebcee99caf478ea309351dbff58ad",
+  "targetedTests": {
+    "passed": 38,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "genuineAccessorRegressions": {
+    "changingOwnerLoaderRejected": true,
+    "ownerReads": 0,
+    "changingVersionRenderRejected": true,
+    "versionReads": 0,
+    "nestedAsyncCountMutationIsolated": true
+  },
+  "nativeRerun": false,
+  "observedDataEdited": false,
+  "sourceExecutionBinding": "UNVERIFIED",
+  "azureAcceptance": "NOT RUN"
+}

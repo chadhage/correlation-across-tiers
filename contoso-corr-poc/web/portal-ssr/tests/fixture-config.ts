@@ -14,7 +14,7 @@ export function fixtureConfig(origin = "http://127.0.0.1:41001", gateway = "http
       roleName: "contoso-storefront-spa", tracingMode: "W3C_TRACE", samplingPercentage: 100,
       approvedCorrelationOrigins: [gateway], excludedCorrelationHosts: ["login.microsoftonline.com"] },
     certification: { enabled: true, startsAtUtc: new Date(Date.now() - 60000).toISOString(),
-      endsAtUtc: new Date(Date.now() + 600000).toISOString(), windowId: "contoso-fixture-window" },
+      endsAtUtc: new Date(Date.now() + 600000).toISOString(), windowId: randomUUID() },
     demos: { controllerVersion: 1, enabled: true, allowedDemoIds: Array.from({ length: 15 }, (_, index) => index + 1) }
   };
 }

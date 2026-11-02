@@ -1,0 +1,12 @@
+{
+  "schema": "contoso.native-original-sibling-preservation.v1",
+  "preservedAtUtc": "2026-11-02T00:56:56.1183664Z",
+  "originalPath": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-safe-inspection.json",
+  "copiedPath": "evidence\\java-local\\source-builds\\20261102T001842270Z-messaging-original-intake-a7270c6a-1236-401d-bfcd-fb001ab54681\\support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-safe-inspection.json",
+  "sha256": "fac4d7985717b046f4e5086987cf2beed4cbbc9d8bb2a926ec3f45614433812c",
+  "bytes": 39983,
+  "reconstructed": false,
+  "authority": "BYTE_PRESERVATION_ONLY",
+  "actualSuiteXmlCount": 7,
+  "actualTests": 40
+}

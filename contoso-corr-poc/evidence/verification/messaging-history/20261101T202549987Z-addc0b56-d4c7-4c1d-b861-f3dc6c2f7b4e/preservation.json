@@ -1,0 +1,75 @@
+{
+  "schema": "contoso.historical-target-preservation.v1",
+  "ownerOriginalRole": "R5",
+  "preserverRole": "R9",
+  "sourceKind": "BYTE_IDENTICAL_PRE_CLEAN_PRESERVATION_NOT_NEW_EXECUTION",
+  "startedAtUtc": "2026-11-01T20:25:49.987Z",
+  "finishedAtUtc": "2026-11-01T20:25:50.068Z",
+  "sourceIdentification": "workers\\messaging-core\\docs\\module-source-freeze.v1.json",
+  "sourceIdentificationSha256": "b1a428109775a50bdf390fb4d5b2e1a0d62a565d9c472f94480cd7b8881c7766",
+  "files": [
+    {
+      "source": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "path": "original\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "sha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+      "bytes": 47558
+    },
+    {
+      "source": "workers\\messaging-core\\target\\linked-root-sampling\\qualification.json",
+      "path": "original\\workers\\messaging-core\\target\\linked-root-sampling\\qualification.json",
+      "sha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+      "bytes": 34100
+    },
+    {
+      "source": "workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "path": "original\\workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "sha256": "194cc7b7f3ce8933a2faa413deb5d6ffa77afa6b59ce0029a6530f7003e1971d",
+      "bytes": 41362
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\after.json",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\after.json",
+      "sha256": "cd8a44829a3a522e3dca6623ff0e98f23cb9785f01855f3b6f2383de02284b4e",
+      "bytes": 9773
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\before.json",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\before.json",
+      "sha256": "e75a16c460fd31d46479d7be420fd3430649f0c3950e4d99f52a7a5c3055bd00",
+      "bytes": 9773
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\count-adjudication.json",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\count-adjudication.json",
+      "sha256": "3e67724c3d81aacfd2cf5e2af095fd18662ecca76c19ddfb0953c90722d9eebb",
+      "bytes": 4425
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\maven.stderr.log",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\maven.stderr.log",
+      "sha256": "036599853b4bda0dfb46a5c6295339fec3c88c4a631936e4b75090e2e1c2f3b8",
+      "bytes": 121
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\maven.stdout.log",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\maven.stdout.log",
+      "sha256": "afd66ddb9b3a8dd9f0480fc56019d3384a4a2a1e3929b6a9c0d6019878307d62",
+      "bytes": 3894
+    },
+    {
+      "source": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\result.json",
+      "path": "original\\workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974\\result.json",
+      "sha256": "3f5db4dbd739398a95e2868ca49aa1e681c1437e6ec5294971dd752980bf6f0e",
+      "bytes": 34716
+    }
+  ],
+  "originalSourceUnchanged": true,
+  "rawTargetContentNotReclassified": true,
+  "sourceBuildOrNativeAuthorityGranted": false,
+  "certification": "NOT_CERTIFIED",
+  "limitations": [
+    "Historical F-only counts/failures and old native observations preserved unchanged",
+    "No current Messaging JAR/defaultUSED/whole-module/Azure qualification",
+    "Private target logs/receipts remain historical, not a global privacy clearance"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "contoso.source-bound-observation.v1",
+  "sourceAcceptanceIsCertification": false,
+  "qualificationSha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+  "sources": [
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java",
+      "sha256": "c22e9ca0d29d2fc6c11ac7f4895ca477ef2320a271b4ed3760f210c18fa59e79"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+      "sha256": "c3288998c16e3b8f5c09553a268c1e645756f5b5334a3b2c4ad002f23300ad74"
+    }
+  ],
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "extensionSha256": "c3f552d170f599a625ef25a2974e32ccc9215fa849038d49aad654d8c53a9ee7",
+  "scope": "R5 actual installed provider producer0/100 to consumer100, four bounded local JVM phases, H2/in-memory carriers; not Azure",
+  "requirement": "docs\\SAMPLING_MATRIX.md Mandatory distinct assertions #2",
+  "requirementResult": "FAIL",
+  "observed": "ordinary parent00 DROP/sameTrace/noexport; linked replay/result/fanin/batch new-root sampled1",
+  "qualificationTestResult": "PASS1 observation collection only",
+  "decision": "USER DECISION REQUIRED; HOLD sampler/application/profile scope changes; no waiver",
+  "preservedAtUtc": "2026-11-01T07:40:51.803Z"
+}

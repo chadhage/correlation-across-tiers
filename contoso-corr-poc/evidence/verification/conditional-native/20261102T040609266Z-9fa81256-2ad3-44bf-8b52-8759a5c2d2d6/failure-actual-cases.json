@@ -1,0 +1,290 @@
+{
+  "schema": "contoso.local-conditional-failed-observations.v1",
+  "diagnosticsOnly": true,
+  "authorityGranted": false,
+  "savedJsonCanEnroll": false,
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "wires": [
+    {
+      "businessInvocationId": "adddc964-5cdc-4b0d-8ea5-8b2155dc4c2e",
+      "name": "absent",
+      "traceparentFields": [],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "5ffd11b1-148e-4888-bd32-36c4af8cda6c",
+      "sentAtUtc": "2026-11-02T04:06:34.508Z"
+    },
+    {
+      "businessInvocationId": "3a17ce25-6538-47a4-8691-36f10486d404",
+      "name": "invalid-zero-trace",
+      "traceparentFields": [
+        "00-00000000000000000000000000000000-c02ed30273cff65f-01"
+      ],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "b27c3615-6e29-4574-b867-027cfbd2636b",
+      "sentAtUtc": "2026-11-02T04:06:34.873Z"
+    },
+    {
+      "businessInvocationId": "76162d56-e17e-4f34-a612-d50cfccacc50",
+      "name": "invalid-zero-parent",
+      "traceparentFields": [
+        "00-6cc97aa103514574c2cda3966ab83677-0000000000000000-01"
+      ],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "ac6d94f3-efb4-4043-8d97-a4d386580fbd",
+      "sentAtUtc": "2026-11-02T04:06:34.886Z"
+    },
+    {
+      "businessInvocationId": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+      "name": "valid-parent",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "1f337d55-69ec-41ce-97e8-98059b31c35a",
+      "sentAtUtc": "2026-11-02T04:06:34.895Z"
+    },
+    {
+      "businessInvocationId": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+      "name": "invalid-tracestate-only",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [
+        "bad key=value"
+      ],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "7bf942b6-3654-4595-ae9c-78ab26302d23",
+      "sentAtUtc": "2026-11-02T04:06:34.904Z"
+    },
+    {
+      "businessInvocationId": "b49490ab-9c77-4629-ad0e-2a150135fb26",
+      "name": "changed-business-id-valid-parent",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "5f292815-7d40-4624-8d40-97ed324eaec6",
+      "sentAtUtc": "2026-11-02T04:06:34.927Z"
+    },
+    {
+      "businessInvocationId": "ef1620dd-65db-4994-bddc-b3f7e225ebde",
+      "name": "valid-unsampled-parent",
+      "traceparentFields": [
+        "00-71d4b6dffcfc29285d640bb569b21ab0-37c9d112dc045bb2-00"
+      ],
+      "tracestateFields": [],
+      "schema": "contoso.actual-observer-wire.v1",
+      "caseId": "91e32841-35cd-4a4c-8cf9-f2e720bcf658",
+      "sentAtUtc": "2026-11-02T04:06:34.941Z"
+    }
+  ],
+  "observed": [
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "5ffd11b1-148e-4888-bd32-36c4af8cda6c",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.684634500Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "adddc964-5cdc-4b0d-8ea5-8b2155dc4c2e",
+      "traceparentFields": [],
+      "tracestateFields": [],
+      "sdkTraceId": "199f5bdb0e5e2edf5f7aadfd0b1002ea",
+      "sdkSpanId": "9cf2bf1e2f99c4ef",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "b27c3615-6e29-4574-b867-027cfbd2636b",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.877847100Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "3a17ce25-6538-47a4-8691-36f10486d404",
+      "traceparentFields": [
+        "00-00000000000000000000000000000000-c02ed30273cff65f-01"
+      ],
+      "tracestateFields": [],
+      "sdkTraceId": "b61aaee1f78f593a5aa7e707ecde574c",
+      "sdkSpanId": "d838510301f9233d",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "ac6d94f3-efb4-4043-8d97-a4d386580fbd",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.888831200Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "76162d56-e17e-4f34-a612-d50cfccacc50",
+      "traceparentFields": [
+        "00-6cc97aa103514574c2cda3966ab83677-0000000000000000-01"
+      ],
+      "tracestateFields": [],
+      "sdkTraceId": "d19f9f35c545ebf078d2a13c3130977f",
+      "sdkSpanId": "7ecb46320ca87e1c",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "1f337d55-69ec-41ce-97e8-98059b31c35a",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.897828500Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [],
+      "sdkTraceId": "403cca7f222a16973c23811b043473b9",
+      "sdkSpanId": "a5e5054f29fad6b3",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "7bf942b6-3654-4595-ae9c-78ab26302d23",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.906828400Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "5ae1e8ed-c5f1-4db4-9d7f-29f79ccf186e",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [
+        "bad key=value"
+      ],
+      "sdkTraceId": "403cca7f222a16973c23811b043473b9",
+      "sdkSpanId": "e44653213d76b622",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "5f292815-7d40-4624-8d40-97ed324eaec6",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.929833500Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "b49490ab-9c77-4629-ad0e-2a150135fb26",
+      "traceparentFields": [
+        "00-403cca7f222a16973c23811b043473b9-7e4222dac3020f36-01"
+      ],
+      "tracestateFields": [],
+      "sdkTraceId": "403cca7f222a16973c23811b043473b9",
+      "sdkSpanId": "f9572444f79dcda0",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    {
+      "schema": "contoso.actual-api-root-observation.v1",
+      "caseId": "91e32841-35cd-4a4c-8cf9-f2e720bcf658",
+      "pid": 24260,
+      "processStartUtc": "2026-11-02T04:06:18.470Z",
+      "observedAtUtc": "2026-11-02T04:06:34.945348600Z",
+      "roleName": "contoso-orders-api",
+      "requestMethod": "GET",
+      "requestPath": "/api/me",
+      "businessInvocationId": "ef1620dd-65db-4994-bddc-b3f7e225ebde",
+      "traceparentFields": [
+        "00-71d4b6dffcfc29285d640bb569b21ab0-37c9d112dc045bb2-00"
+      ],
+      "tracestateFields": [],
+      "sdkTraceId": "71d4b6dffcfc29285d640bb569b21ab0",
+      "sdkSpanId": "198d6c8d12ebcfc3",
+      "sdkSampled": false,
+      "sdkRecording": false,
+      "fixtureCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "observerCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+      "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "applicationCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:/C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    }
+  ],
+  "childIdentity": {
+    "pid": 24260,
+    "startedAtUtc": "2026-11-02T04:06:18.465Z",
+    "finishedAtUtc": "2026-11-02T04:06:36.509Z",
+    "codeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/verification/conditional-native/20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6/classes/",
+    "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+    "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+    "applicationCodeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+    "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+    "runtimeGuardCodeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+    "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+  }
+}

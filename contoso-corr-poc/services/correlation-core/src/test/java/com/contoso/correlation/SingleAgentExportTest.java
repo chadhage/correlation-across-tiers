@@ -43,7 +43,7 @@ class SingleAgentExportTest {
     private java.util.Set<String> execute(Class<?> mainClass, boolean http) throws Exception {
         Path agent = Path.of(System.getenv("CONTOSO_AGENT_JAR"));
         Path extension = System.getenv("CONTOSO_PARENT_SAFE_JAR") == null
-            ? Path.of(System.getProperty("basedir")).resolve("../../extensions/parent-safe-sampler/target/contoso-parent-safe-sampler-1.0.0.jar").normalize()
+            ? Path.of(System.getProperty("basedir")).resolve("../../extensions/parent-safe-sampler/target/contoso-parent-safe-sampler-1.1.0.jar").normalize()
             : Path.of(System.getenv("CONTOSO_PARENT_SAFE_JAR"));
         assertTrue(Files.isRegularFile(extension), "The one hash-frozen parent-safe extension is required");
         assertEquals(RuntimeGuard.AGENT_SHA256, java.util.HexFormat.of().formatHex(

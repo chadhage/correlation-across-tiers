@@ -74,8 +74,12 @@ unsampled vector. Run positive `01` completeness separately. Missing unsampled
 export is reported, not called complete collection.
 
 **Consequences:** the approved Contoso sampler wraps the existing agent's
-supplied sampler, drops any valid unsampled parent, and delegates other inputs
-unchanged. It never constructs/registers another SDK/provider/exporter or
+supplied sampler. The user's explicit `extend_guard` decision also drops a
+no-parent root when its nonempty links are all valid unsampled contexts.
+Valid unsampled parents still drop; sampled, mixed and unlinked roots delegate
+unchanged. The current immutable 1.1.0/BB829 artifact and its actually loaded
+bytes must match the parent-owned version lock; old c3/b813 receipts are
+historical. It never constructs/registers another SDK/provider/exporter or
 rewrites headers. Its SDK sampler/SPI dependencies are compiler-only `provided`
 and must not be packaged. The exact JAR/hash/ABI/loader joins the version freeze.
 VERIFY: actual loader, reconfiguration, provider, and both vector tests.
@@ -94,6 +98,16 @@ Manual spans use its `GlobalOpenTelemetry`. Disable automatic semantic messaging
 and JDBC/Redis collection where the approved manual safe boundary owns the span.
 HTTP/framework instrumentation remains independently verified.
 
+**Identity HTTP adjudication:** the user explicitly approved the official
+identity-only Azure OkHttp transport and then selected `header_isolation_only`.
+Retain eligible identity CLIENT instrumentation inside the existing provider;
+enforce public REST/network isolation of the seven context/business headers
+on every physical JWKS/MI attempt. The ineffective OkHttp native-disable
+switch is removed, not claimed honored. Raw unfiltered native-context traffic
+is an explicit negative control and is not hidden. Business Grid/Queue Netty,
+AMQP and injected/operator/default modes remain distinct. Creation, syntax,
+source, wire, used-member and whole-artifact lineage evidence are not interchangeable.
+
 Use direct Azure Monitor export as the baseline. The Portal Node process has
 one independently initialized Microsoft distro. The browser uses the pinned
 JS SDK's explicit W3C-only mode, not a remembered legacy enum.
@@ -111,6 +125,34 @@ certification deployment. Preview Trace Analytics/OTLP remains isolated.
 **Evidence:** Brief P3/P8, sections 6/8/14/15/21;
 [Java configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config).
 Signed for construction by R1. Automatic/native qualification is separate.
+
+## Root preparation staging and executor handoff
+
+The user's `reassign_existing` decision assigns root R1 implementation to
+the original R3, without a replacement/tenth agent. Original R1 drafts remain
+preserved; parent owns R4 Maven/Core/compute/startup/version inputs, R5 acts as
+R6 Data implementation, and R9 alone owns board/acceptance. Root R3 cannot
+self-review its acting R1 work; the independent root reviewers remain R5/R8.
+
+The missing root entry point is composed in resource-group scope from the
+merged modules. Foundation creates infrastructure/identities with no HMAC
+version or client GUID placeholders. Key Vault uses an explicit sealed
+foundation/application reference phase; SDK generation/SET, real version,
+named readers, logger and workload configuration follow separate approval.
+Application inputs require actual client/object pairs, database roles and
+controller bindings; reference configuration is not secret existence or readiness.
+
+The single expected map now distinguishes unconditional result/replay/batch
+roots from separate conditional A03 candidates requiring actual source-bound
+native receipts and policy references. Replay actors are actual Fulfillment/
+Notification workloads, not invented Orders/Aggregator identities. No valid
+parent, invalid-state-only input or business UUID replacement gains a root waiver.
+
+The resolved Node exporter `1.0.0-beta.46` remains UNVERIFIED in the
+certification dependency manifest. Root static input/compile acceptance cannot
+make that dependency GA or certify Azure. Root workload preflight remains
+closed until support/source/native/artifact and provisioning/owner prerequisites
+are independently satisfied.
 
 ## ADR A05: telemetry topology, names, and governance
 

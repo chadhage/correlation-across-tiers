@@ -1,0 +1,25 @@
+{
+  "schema": "contoso.gap-log.v1",
+  "sourceAcceptanceIsCertification": false,
+  "gaps": [
+    {
+      "claim": "Mandatory authenticated00 every outgoing bit0 across same participating paths",
+      "source": "docs\\SAMPLING_MATRIX.md Mandatory #2",
+      "observedEvidence": "evidence\\verification\\linked-root-sampling\\qualification.json",
+      "sha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+      "result": "FAIL",
+      "impact": "OBS01/DEM15/CRT02 strict vector acceptance unmet; USER HOLD, no waiver",
+      "scope": "Actual local SDK/provider producer0/100 and consumer100, four JVM phases,H2/in-memory carrier",
+      "decision": "USER AUTHORIZED extend_guard: existing parent00 DROP plus NONEMPTY all-valid-unsampled linked-root DROP; sampled/mixed/unlinked delegate unchanged",
+      "currentStatus": "Historical c3 measurement FAIL; current1.1.0 implementation/native retake pending, NOT PASS"
+    },
+    {
+      "claim": "Java identity/JWKS requests do not inject W3C context",
+      "source": "Prompt AV23; Brief browser/identity trust boundary",
+      "observedEvidence": "evidence\\verification\\av23\\av23-java-local.v1.json",
+      "result": "FAIL",
+      "impact": "Java AV23 exact VERIFY; SDK logging/tracing false is not propagation exclusion",
+      "scope": "Actual local provider wire; literal Entra HTTPS host behavior unqualified"
+    }
+  ]
+}

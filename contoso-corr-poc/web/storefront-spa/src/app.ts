@@ -1,5 +1,5 @@
 import {
-  certificationActive, ContosoError, isUuid4, SCENARIOS, safeErrorCode, validateDemoRequest, validateOrderRequest,
+  certificationActive, ContosoError, isUuid4, originalWorkflowInvocationId, SCENARIOS, safeErrorCode, validateDemoRequest, validateOrderRequest,
   type ApiCollection, type ContosoBrowserControllerV1, type ContosoBrowserRunResultV1,
   type ContosoBrowserRunSpecV1, type ContosoErrorCode, type ContosoPublicRuntimeConfigV1,
   type ContosoScenario, type ContosoSdkDependencyIdentity, type WorkflowViewV1
@@ -41,16 +41,29 @@ export function createStorefront(
   if (config.executionMode === "fixture" && !fixture) throw new ContosoError("FIXTURE_CONFIG_REJECTED");
   const errorBanner = element("error-banner", HTMLDivElement);
   function report(code: ContosoErrorCode): void {
-    errorBanner.textContent = `Contoso operation unavailable: ${code}. No sensitive input has been logged.`;
+    errorBanner.textContent = `Contoso operation unavailable: ${code}. ${
+      code === "AUTH_INTERACTION_REQUIRED" ? "Use Sign in with Microsoft Entra to authorize this scope again. " : ""
+    }No sensitive input has been logged.`;
     errorBanner.hidden = false;
   }
   const telemetry = createBrowserTelemetry(config, report, fixture);
   const dependencies: ContosoSdkDependencyIdentity[] = [];
-  const api = createBrowserApi(config, () => auth.token());
+  let quiesced = false;
+  let inFlight = 0;
+  const drained = new Set<() => void>();
+  function finishTraffic(): void {
+    inFlight--;
+    if (inFlight === 0) { for (const resolve of drained) resolve(); drained.clear(); }
+  }
+  function requireTraffic(): void {
+    if (quiesced || !telemetry.status().active) throw new ContosoError("CERT_WINDOW_INACTIVE", 409);
+  }
+  const api = createBrowserApi(config, () => auth.token(), requireTraffic);
   const seenRunIds = new Set<string>();
   let currentSpec: ContosoBrowserRunSpecV1 | undefined;
   let currentResult: ContosoBrowserRunResultV1 | undefined;
   let invocationVersion = 0;
+  let refreshVersion = 0;
   let prepared = false;
   let dependencyOverflow = false;
   let currentCollection: ApiCollection = "orders";
@@ -107,16 +120,20 @@ export function createStorefront(
     element("window-state", HTMLParagraphElement).textContent = active
       ? "Bounded certification window active. Real workspace evidence is still required."
       : "Certification window inactive; demo mutations are disabled.";
-    createOrderButton.disabled = running || !signedIn;
-    identityButton.disabled = running || !signedIn;
-    runDemoButton.disabled = running || !signedIn || !config.demos.enabled || !active;
-    refreshButton.disabled = running || !signedIn || !currentWorkflow;
+    const unavailable = running || quiesced || !telemetry.status().active;
+    createOrderButton.disabled = unavailable || !signedIn;
+    identityButton.disabled = unavailable || !signedIn;
+    runDemoButton.disabled = unavailable || !signedIn || !config.demos.enabled || !active;
+    refreshButton.disabled = unavailable || !signedIn || !currentWorkflow;
   }
   function showWorkflow(view: WorkflowViewV1, kind: "browser-spa" | "browser-ssr"): void {
     currentWorkflow = view;
     element("result-state", HTMLHeadingElement).textContent = view.state;
     element("result-id", HTMLElement).textContent = view.id;
     element("result-business-id", HTMLElement).textContent = view.businessInvocationId;
+    element("result-business-id-label", HTMLElement).textContent =
+      view.workflowBusinessInvocationId ? "Current action invocation ID" : "Workflow invocation ID";
+    element("result-workflow-business-id", HTMLElement).textContent = originalWorkflowInvocationId(view);
     element("result-driver", HTMLElement).textContent = kind;
     element("result-note", HTMLParagraphElement).textContent =
       "This is actual backend state. DURABLE_STAGED/202 does not prove broker delivery, worker completion or live correlation certification.";
@@ -165,7 +182,9 @@ export function createStorefront(
     budgetInput.value = String(spec.failureBudget ?? 0);
     element("result-state", HTMLHeadingElement).textContent = "Awaiting requested execution";
     element("result-note", HTMLParagraphElement).textContent = "Prepared only: no current backend request has completed.";
-    for (const id of ["result-id", "result-business-id", "result-driver"]) element(id, HTMLElement).textContent = "—";
+    for (const id of ["result-id", "result-business-id", "result-workflow-business-id", "result-driver"])
+      element(id, HTMLElement).textContent = "—";
+    element("result-business-id-label", HTMLElement).textContent = "Business invocation ID";
     element("result-details", HTMLDivElement).replaceChildren();
     navigate(spec.kind === "order" ? "/storefront/orders" : "/storefront/demos");
     updateControls();
@@ -177,6 +196,7 @@ export function createStorefront(
     const version = invocationVersion;
     prepared = false;
     running = true;
+    inFlight++;
     telemetry.scopeInvocation(spec.runId, version, spec.kind === "order" ? "/orders" : "/demo-runs");
     errorBanner.hidden = true;
     updateControls();
@@ -214,7 +234,12 @@ export function createStorefront(
       };
       currentResult = result;
       return result;
-    } finally { telemetry.clearInvocation(); running = false; updateControls(); }
+    } finally {
+      telemetry.clearInvocation();
+      running = false;
+      finishTraffic();
+      updateControls();
+    }
   }
   function executeClick(kind: "order" | "demo"): void {
     try {
@@ -237,26 +262,47 @@ export function createStorefront(
     void auth.signOut().catch((error: unknown) => report(safeErrorCode(error, "AUTH_FAILED")));
   });
   identityButton.addEventListener("click", () => {
+    inFlight++;
     void api.identity().then(view => {
       element("identity-state", HTMLParagraphElement).textContent =
-        view.actorType === "HUMAN" ? "Verified human API identity; only approved pseudonym displayed." : "Workload identity · no human pseudonym.";
+        view.actorType === "user" ? "Verified human API identity; only approved pseudonym displayed." : "Workload identity · no human pseudonym.";
       element("pseudonym", HTMLElement).textContent = view.pseudonym ?? "Approved pseudonym unavailable.";
       telemetry.event("Contoso.Identity", { "auth.outcome": view.actorType, ...(view.pseudonym ? { "user.pseudonym": view.pseudonym } : {}) });
-    }).catch((error: unknown) => report(safeErrorCode(error, "API_REQUEST_FAILED")));
+    }).catch((error: unknown) => report(safeErrorCode(error, "API_REQUEST_FAILED"))).finally(finishTraffic);
   });
   refreshButton.addEventListener("click", () => {
-    if (currentWorkflow) void api.workflow(currentCollection, currentWorkflow.id)
-      .then(view => showWorkflow(view, "browser-spa"))
-      .catch((error: unknown) => report(safeErrorCode(error, "API_REQUEST_FAILED")));
+    if (currentWorkflow) {
+      const version = invocationVersion;
+      const refresh = ++refreshVersion;
+      const id = currentWorkflow.id;
+      const businessId = originalWorkflowInvocationId(currentWorkflow);
+      const collection = currentCollection;
+      const current = (): boolean => version === invocationVersion && refresh === refreshVersion
+        && currentWorkflow?.id === id && currentCollection === collection;
+      inFlight++;
+      void api.workflow(collection, id)
+      .then(view => {
+        if (!current()) return;
+        if (originalWorkflowInvocationId(view) !== businessId) throw new ContosoError("API_RESPONSE_INVALID", 502);
+        showWorkflow(view, "browser-spa");
+      })
+      .catch((error: unknown) => { if (current()) report(safeErrorCode(error, "API_REQUEST_FAILED")); }).finally(finishTraffic);
+    }
   });
-  function navigate(path: string): void {
+  function renderRoute(path: string): void {
     if (!["/storefront/orders", "/storefront/demos"].includes(path)) return;
-    history.pushState({}, "", path);
     orderForm.closest("article")?.toggleAttribute("hidden", path.endsWith("/demos"));
     element("demos-panel", HTMLElement).toggleAttribute("hidden", path.endsWith("/orders"));
   }
+  function navigate(path: string): void {
+    if (!["/storefront/orders", "/storefront/demos"].includes(path)) return;
+    if (location.pathname !== path) history.pushState({}, "", path);
+    renderRoute(path);
+  }
   for (const value of document.querySelectorAll<HTMLElement>("[data-route]"))
     value.addEventListener("click", () => navigate(value.dataset.route ?? ""));
+  addEventListener("popstate", () => renderRoute(location.pathname));
+  renderRoute(location.pathname.endsWith("/demos") ? "/storefront/demos" : "/storefront/orders");
   const ready = auth.initialize().then(() => { updateControls(); });
   ready.catch((error: unknown) => { report(safeErrorCode(error, "AUTH_FAILED")); updateControls(); });
   updateControls();
@@ -272,6 +318,24 @@ export function createStorefront(
     },
     result(runId) { return currentSpec?.runId === runId ? currentResult : undefined; },
     dependencyIdentities() { return dependencies.map(identity => ({ ...identity })); },
-    flushTelemetry() { return telemetry.flush(); }
+    flushTelemetry() { return telemetry.flush(); },
+    browserContextIdentity() { return telemetry.contextIdentity(); },
+    runtimeState() {
+      const status = telemetry.status();
+      return { schemaVersion: 1, executionMode: config.executionMode, service: config.telemetry.roleName,
+        sdkVersion: telemetry.sdkVersion, providerActive: status.active, samplingPercentage: status.samplingPercentage,
+        windowId: config.certification.windowId, expiresAtUtc: config.certification.endsAtUtc,
+        trafficState: quiesced || !status.active ? "quiesced" : "accepting", inFlight, certification: "NOT_CERTIFIED" };
+    },
+    observeSampling(request) {
+      return telemetry.observeSampling(request, { state: quiesced ? "quiesced" : "accepting", inFlight });
+    },
+    stopTraffic() { quiesced = true; updateControls(); },
+    async drain() {
+      quiesced = true;
+      updateControls();
+      if (inFlight > 0) await new Promise<void>(resolve => drained.add(resolve));
+      await telemetry.flush();
+    }
   };
 }

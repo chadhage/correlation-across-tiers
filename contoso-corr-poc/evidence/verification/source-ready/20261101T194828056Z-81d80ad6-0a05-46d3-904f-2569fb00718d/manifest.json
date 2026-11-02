@@ -1,0 +1,85 @@
+{
+  "schema": "contoso.r9-source-ready.v1",
+  "authorOriginalRole": "R9",
+  "readiness": "READY_FOR_NARROW_OTHER_ROLE_REVIEW",
+  "scope": "private-graph-conditional-root-binding-source-and-Node-only",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "startedAtUtc": "2026-11-01T19:48:28.056Z",
+  "finishedAtUtc": "2026-11-01T19:48:28.457Z",
+  "beforeSources": [
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "3ff96f385ea0992c15483a231d93870c252172ad2c9d3bfaf5ce2eb4179098d7"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "3c9913732ee68b31e4c2768005f59b175a767a790ef36c4767073d3658cb5c1f"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "3ff96f385ea0992c15483a231d93870c252172ad2c9d3bfaf5ce2eb4179098d7"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "3c9913732ee68b31e4c2768005f59b175a767a790ef36c4767073d3658cb5c1f"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    }
+  ],
+  "sourcesStable": true,
+  "validation": {
+    "command": "node --test --test-reporter=tap tests\\verification\\trust-roots.test.mjs tests\\verification\\invariants.test.mjs tests\\verification\\pipeline.test.mjs",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "contract": {
+    "module": "tools\\verification\\pipeline.mjs",
+    "export": "requireVerifiedTrustRootBindings",
+    "capability": "ORIGINAL_PRIVATE_VERIFY_GRAPH_INTAKE_SESSION",
+    "arguments": [
+      "map",
+      "rows",
+      "mode"
+    ],
+    "schema": "contoso.verified-trust-root-bindings.v1",
+    "nativeRuntimeCarrierObserverEnrolled": false,
+    "localActualSourceVerified": false,
+    "nativeCases": "FAIL_NO_ENROLLED_RUNTIME_CARRIER_OBSERVER"
+  },
+  "notReviewed": [
+    "native/auth source authority",
+    "all15 live demos",
+    "full R9 source closure",
+    "source-build-loaded whole modules"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "contoso.local-native-projection.v1",
+  "originalEnvelopesInMemoryOnly": true,
+  "projectedRecords": 0,
+  "publisherKeysPersisted": false,
+  "allTablePrivacyGateVerified": false,
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false
+}

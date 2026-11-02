@@ -17,7 +17,7 @@ const { createContosoServer } = await import("./server.js");
 const server = createContosoServer({
   env: process.env,
   ...(config ? { config } : {}),
-  ...(telemetry ? { telemetryStatus: () => telemetry.status() } : {})
+  ...(telemetry ? { telemetryStatus: () => telemetry.status(), shutdownTelemetry: () => telemetry.shutdown() } : {})
 });
 const port = portFromEnvironment(process.env);
 server.listen(port, "0.0.0.0", () => {

@@ -1,0 +1,495 @@
+{
+  "schema": "contoso.r9-conditional-source-freeze.v7",
+  "publishedAtUtc": "2026-11-02T04:17:20.270Z",
+  "publicationPid": 41868,
+  "readiness": "SOURCE_ONLY_FINISHED_FROZEN_SCOPED_HARDENED_SNAPSHOT_HASH_FIX_NO_NATIVE_PERMISSION",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "supersedes": {
+    "artifact": "tools\\verification\\conditional-source-freeze.v6.json",
+    "sha256": "0d1b24bb57cf1259a7de289cee6bbd3449163555b7824df7280f265763b8ec09",
+    "originalV6SourcePairAccepted": true,
+    "actualV6AttemptRemains": "FAIL_OR_UNVERIFIED",
+    "oldEvidenceNeverRetagged": true
+  },
+  "ownedSources": [
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "5a05d37d645185db339bac20dcb890d2c267b6ee48ffd4b8b70bb4391c3b107f"
+    },
+    {
+      "path": "contracts\\conditional-native-observer.v1.json",
+      "sha256": "7a836ae7ffb8580f6e1de1f38eac3abbec01260c9e4c2c02454b10c84d856512"
+    },
+    {
+      "path": "contracts\\verification-observer-registry.v1.json",
+      "sha256": "7a3645edda1b55757dbe9a866a892196c24fba3c2913d8f502878e4746aec1d9"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "846b151df4e88fedef7242a9fe94c124f14ea9d2ce784ef6a7f51b904e5920e0"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "5308d58e94e9ac31b56379f29275d42037fffcb008f68998309fb8f9fd809f69"
+    },
+    {
+      "path": "package.json",
+      "sha256": "48683a5afaee27765b4a580a0673a0ad92ed3655f23a447b7fb5a8023a59dfcd"
+    },
+    {
+      "path": "tests\\verification\\async-capture-receipts.test.mjs",
+      "sha256": "5ee24f58ba5088df3a2650416e31e7ad2aaab28757d9c6cd0b9a857ef777b5f0"
+    },
+    {
+      "path": "tests\\verification\\conditional-observer.test.mjs",
+      "sha256": "23da8c2e7c34e3e654f6461484f0cdc12dd1a96b169823cac1b79a38f4390e79"
+    },
+    {
+      "path": "tests\\verification\\local-native.test.mjs",
+      "sha256": "eb696ef56a8f31b5c849550856ad1189774bf92db630f469c1f86fc955d882f3"
+    },
+    {
+      "path": "tools\\verification\\async-capture-receipts.mjs",
+      "sha256": "0f7438fd3716656f2f2c6d2c9069eec5853ea435856ea5566c42d291b0642a97"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "6d2dee783ceb3efbb018a5af2ddf2bcc46f047a98b91ae8b31b5b858a7d1891b"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "c7ebc2ade134a75c2d73b553330fe93de8378912f98e7620c484287a7948b5b6"
+    },
+    {
+      "path": "tools\\verification\\run-conditional-observer.mjs",
+      "sha256": "234462658bc84065109ad8e73e6cdf1ff543f3531156da44c216fd14af9c7a20"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    }
+  ],
+  "importedSources": [
+    {
+      "path": ".cache\\parent\\conditional-v2-review\\20261102T021137013Z-774e3858-3be5-47e8-97a6-73b28162793b\\http-abort-counter.json",
+      "sha256": "fe93bb7d358ef0c8c26aed526d044f4c4372b154c303cce06d3db51a188841a4"
+    },
+    {
+      "path": ".cache\\parent\\conditional-v4-review\\20261102T025628410Z-04e88a90-0fcf-4df7-affd-054008674a3e\\review.json",
+      "sha256": "ccec81dc9a3881e6313b6a808188a820adf8ee9d29154dfea1be48d40e50d8c5"
+    },
+    {
+      "path": ".cache\\parent\\conditional-v6-diagnosis\\20261102T041032707Z-5725934c-b360-4705-99b1-3aa523a617e9\\saved-projection-checks.json",
+      "sha256": "401fd47514defe50f916b99aff60287a5fc9a200c796b2247febb944b2981afc"
+    },
+    {
+      "path": ".cache\\parent\\conditional-v6-review\\20261102T040530893Z-e8372aa4-e9ea-405b-ac0f-1e317d234e21\\review.json",
+      "sha256": "6f0474d46d3cbbe8cee5f59d0f74aa2b1026a8ae16361213c61bbf35346d902d"
+    },
+    {
+      "path": ".cache\\r2\\notify-native-v2-review\\73a95637-frozen\\review.json",
+      "sha256": "71cd35e15a33f076c43e389e1b671f01f96a61f0f1aea04c2a1a841ff2f4446f"
+    },
+    {
+      "path": ".cache\\r2\\r7-connection-close-review\\6dd864bd-frozen\\review.json",
+      "sha256": "3dccd3ad40dddac07d3a34d67e9318e26117b53f2677324067f1f991a1d4a453"
+    },
+    {
+      "path": ".cache\\r3\\notify-native-v2-source-review\\20261102T014429644Z-fd323af8-df11-4b5a-ba81-944ea734c96c\\review-scoped.json",
+      "sha256": "0755bfc4511521cccc04ae56f62db7caa453041a009bd64c1b1693490e217011"
+    },
+    {
+      "path": ".cache\\r3\\r7-connection-close-review\\20261102T015051699Z-b2ce6ad9-6801-4a63-9a02-1ddb152978da\\review.json",
+      "sha256": "2e494d56d16735aabf48f1e4995c97ebde3be619bfa60f5cadcf399436005694"
+    },
+    {
+      "path": ".cache\\r7\\connection-close\\20261102T014019283Z-c8c2c0b2-2989-4207-907b-2e0689daa60f\\handoff.json",
+      "sha256": "6dd864bdd56295027247c21cc3e9afbb27ed10238093eac659088b1fbfb9b314"
+    },
+    {
+      "path": ".cache\\r7\\connection-close\\20261102T014019283Z-c8c2c0b2-2989-4207-907b-2e0689daa60f\\source-review-complete.json",
+      "sha256": "fda870f3fcbf79b2b69b04d7c6743daeb377f87efef92a330bd55251432a2788"
+    },
+    {
+      "path": ".cache\\r7\\r9-conditional-v2-review\\20261102T020444926Z-e90d5f6e-c650-445c-976a-4bef7ee191b3\\review.json",
+      "sha256": "1279fd41384082f13e8f73d6c05e3b44d5c8287b0dec9a36b6397eae72d3b1af"
+    },
+    {
+      "path": ".cache\\r7\\r9-conditional-v2-review\\20261102T020444926Z-e90d5f6e-c650-445c-976a-4bef7ee191b3\\runtime-publisher-counter.json",
+      "sha256": "4e5e9a3c8dd7efddd2028b469718443670bd4dcb78826436d75bb00612d8fd72"
+    },
+    {
+      "path": ".cache\\r7\\r9-conditional-v4-review\\20261102T025240360Z-e371275e-0d61-438c-bfcc-c079dd1d0e8d\\review.json",
+      "sha256": "a23d61adfff2a053b1dcbe5b45a9984797bd8aee3bba9623f26927b0c22dd429"
+    },
+    {
+      "path": ".cache\\r7\\r9-conditional-v4-review\\20261102T025240360Z-e371275e-0d61-438c-bfcc-c079dd1d0e8d\\source-review-pair.json",
+      "sha256": "381be5174da9246a3d860ef7bc764f3084c7e5d7229d90e673f7470863df882a"
+    },
+    {
+      "path": ".cache\\r7\\r9-conditional-v6-review\\20261102T032854564Z-100e6f9b-59a2-46b9-9912-78bc01b125ed\\review.json",
+      "sha256": "e1a3beaffefaeacc1e3543cc7cacc4683a924cb18e303cbe5211733f62f001f4"
+    },
+    {
+      "path": ".cache\\r9\\conditional-v6-source-pair\\20261102T040743947Z-ea17ebe3-447a-4d37-bf95-2b58ffc2fb01\\source-review-pair.json",
+      "sha256": "dd9be649fe21aa43daeb25a9fe2450f28fd2d1d4243344c9b59afff90b305636"
+    },
+    {
+      "path": ".cache\\r9\\conditional-v7-target-205f7ce6-3e59-4e84-b8d1-fef3208efd8c.log",
+      "sha256": "011806b716920f7f9eaedc225caecb81f64a5feeed0ccd08773aba7b77b0e3ab"
+    },
+    {
+      "path": "VERSIONS.md",
+      "sha256": "db3b5a11896ef83d38c90d4ad59812e529e1e82a46fad77184de58746ae85583"
+    },
+    {
+      "path": "config\\acceptance-scopes.json",
+      "sha256": "5d1fdfdf50cb9f810a19fef2b796ffefe6430f6700e8439d4b478fa80fd44fa6"
+    },
+    {
+      "path": "config\\java-agent.json",
+      "sha256": "9d6907c173cdfe0e0585646de5c11234dc6a7b8e3aeb0386051a1ade3d227c26"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "evidence\\java-local\\parent-safe-sampler\\connection-close-20261102T015117887Z-4fef5fe5-9d69-45ad-8178-f054073f3fd7\\result.json",
+      "sha256": "5c68274325d3824de4d7a152020a7b7f45e683c41fa8f0879d6c0a96f18a737d"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+      "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\support\\services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.NativeApiIntegrationTest.xml",
+      "sha256": "9dbd63fb7904b43df70a5495fb9ab7f571eafdb5d2531e7aa5e31ef5cb6ec9ce"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native-attempts\\20261102T023649873Z-d794ba8f-5f5f-47da-990f-afb352f5ad6d\\failure.json",
+      "sha256": "eb6ff220ca3a7ecb18f95b7322619a03b7ad60a9ff06e2d2b88bc1f3dc0dee6c"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native-attempts\\20261102T024452464Z-563e91ed-9758-484e-9149-ab6077b731ed\\factual-addendum.json",
+      "sha256": "659b2c762827b4f34467c9fd9d5ded8fb712dc3d5736bf197a03603a0bd1d0ca"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T030053559Z-50803ec1-a6f1-4ec1-a1d7-69ee2b08e670\\classpath-selection.json",
+      "sha256": "8f868c05e07a2d9525404769da5aeb35ef81bafccaffa85b90efe554a7160e6a"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T030053559Z-50803ec1-a6f1-4ec1-a1d7-69ee2b08e670\\failure.json",
+      "sha256": "51a2a815122010c117e912edc708bf54c7f734f0dcc3c5f7f28b744daf7d1a65"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T030053559Z-50803ec1-a6f1-4ec1-a1d7-69ee2b08e670\\manifest.json",
+      "sha256": "68523454735f67883f0fa67e286586becd015752e23d2755206bd537e76ebde0"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\classpath-selection.json",
+      "sha256": "0c8d4b5bd782e7c5c738b22cd7eef5b85040ec81cb40a9c8cc7f8d2fdd525e82"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\failure-actual-cases.json",
+      "sha256": "fa36c1aa76287ec237bd3417139ff54ba97fb0900c5722d7b0f6bbeccd23c655"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\failure-input-context.json",
+      "sha256": "31cb32ed2bc3ce7cd7ff8808baa536cd593178c877052545ee39bf1dd1141e49"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\failure-native-safe-capture.json",
+      "sha256": "4c5ef55ff8b5a95f830f882068c70e3f4ac5a5f109f4a2c6c30428ce1182a73e"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\failure.json",
+      "sha256": "761040529192e7af43735073806ada437c897bb452d16b915f592d59110067a1"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\manifest.json",
+      "sha256": "6574ba91ee18961a28d2b05ef75f634ee7dfc29f7d01b9dc2b7bff50652c863c"
+    },
+    {
+      "path": "evidence\\verification\\focused\\20261102T032353881Z-f246bdf1-fb1f-4dd8-bbfc-3b3e7d5b2178\\preparation-tests.json",
+      "sha256": "9f08caa6d00a1747e4abee0aa48359b1fceacb72e5c522f6ac48ba62de33a4ad"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T025729612Z-77451c76-5b42-49ba-a3e4-5f6975931356\\result.json",
+      "sha256": "f4d47fa2a2c6a945ea30546ee36b2d60cad1e008034fc18d72e275a421abd3f8"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T040654661Z-16ace9e0-5a82-4e7a-ac5c-e36a10430d3f\\result.json",
+      "sha256": "9eaa2fa6242ba1e306c56fb1c5532f6d43af67875a1b02755f8aee65eb40e526"
+    },
+    {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiFixture.java",
+      "sha256": "7e9140855643d816feb0c3ee6e97ac16f4034ceb6300bd346a16e225be8594a0"
+    },
+    {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeTrustRootObservationFilter.java",
+      "sha256": "9550c022e6502ca426e170eaec3efa9961cdecb773c9cf9e92318ad82ec7d8ee"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "c49bc2cc8e1175e3b5b9140016924d7d7b949a640cd914a4a893625962511794"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    },
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "3c066c11191bbfb3643c1706ad3b56a5ff5170dbdb4ac682e422d598ad995ff7"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\native-payload-source-freeze.v3.json",
+      "sha256": "f7a6fdd1216500f69fdb14b352a815c315261072702fb7da37e44ede301e42a3"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v4.json",
+      "sha256": "1f9f577ae6ab0853f257258faf4ef3b5bf525502349a8e17a97032876ad103dc"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v5.json",
+      "sha256": "1a134be80acf4f5c24f6223a219673077165c468d3d724b2f8296e244cd55837"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v6.json",
+      "sha256": "0d1b24bb57cf1259a7de289cee6bbd3449163555b7824df7280f265763b8ec09"
+    },
+    {
+      "path": "tools\\verification\\evidence.mjs",
+      "sha256": "2d6e540e326e8773dbe68b2a125ac17e1a8178409cdf8b6cbc1b3fd79eb04180"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\raw-intake.mjs",
+      "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "ed1a42f70fb8cf3c6761143497933fd5165e89b1b76d4762da30d93f98baec38"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+    },
+    {
+      "path": "tools\\verification\\scenarios.mjs",
+      "sha256": "7433dec3e3b04beaedba1b36e3420b7c929dedcef5d177c43a91fdadc371417a"
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\native-intake-source-freeze.v2.json",
+      "sha256": "34551a07302539026299d472fac9087068a9566953457a1b2ad7b0d3e2c4e7b5"
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\notify-native-source-freeze.v2.json",
+      "sha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf"
+    }
+  ],
+  "effectiveInputs": 87,
+  "ownedDeltas": [
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "846b151df4e88fedef7242a9fe94c124f14ea9d2ce784ef6a7f51b904e5920e0",
+      "previousSha256": "cd7510254a835703af386aec36546527f7c03fc2d547f4cdb5321c0d2615c381"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "5308d58e94e9ac31b56379f29275d42037fffcb008f68998309fb8f9fd809f69",
+      "previousSha256": "715dde9cd12aa42a99a6951d1b597f0b713b80b5937e4f8e8be96aebb03646bb"
+    },
+    {
+      "path": "tests\\verification\\conditional-observer.test.mjs",
+      "sha256": "23da8c2e7c34e3e654f6461484f0cdc12dd1a96b169823cac1b79a38f4390e79",
+      "previousSha256": "ec3513f078bd8a2b5ed79775c5ea2e8aa212731e126edf574beab4e02316885a"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+      "previousSha256": "4ef61e64953bf9223a8e548f7d926ac45c318bfe2ac9a3df99e57a0f9512cece"
+    }
+  ],
+  "unchangedOwnedCount": 11,
+  "retainedImportedCount": 59,
+  "boundedFix": {
+    "productionHelper": "conditionalEvidenceHash",
+    "module": "tools\\verification\\conditional-observer.mjs",
+    "boundary": "DESCRIPTOR_SAFE_OBSERVED_SNAPSHOT_THEN_CHECKED_JSON_DATA_NORMALIZATION_THEN_EXISTING_NATIVE_EVIDENCE_HASH",
+    "nestedNullPrototypeDataSupported": true,
+    "ordinaryCanonicalDigestsPreserved": true,
+    "sharedTelemetryContractOrHasherChanged": false,
+    "callbacksAccessorsProxiesCustomObjectsCyclesRejected": true,
+    "allConditionalHashSitesScoped": true,
+    "materialParentStrict00PrivacyOriginPidTimeChecksPreserved": true,
+    "privateCapabilityRulesUnchanged": true,
+    "savedProjectionOrHashCannotEnroll": true
+  },
+  "actualV6Diagnosis": {
+    "artifact": ".cache\\parent\\conditional-v6-diagnosis\\20261102T041032707Z-5725934c-b360-4705-99b1-3aa523a617e9\\saved-projection-checks.json",
+    "sha256": "401fd47514defe50f916b99aff60287a5fc9a200c796b2247febb944b2981afc",
+    "scope": "PARENT_SAVED_PROJECTION_CPU_ONLY_NOT_NATIVE_ENROLLMENT_OR_MARKER_RESCAN",
+    "sevenSavedMaterialCasesCheckerOnlyAccepted": true,
+    "subsequentFirstRuntimeEvidenceHashNullPrototypeMismatchReproduced": true,
+    "latestFailedArtifact": "evidence\\verification\\conditional-native\\20261102T040609266Z-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6\\failure.json",
+    "latestFailedSha256": "761040529192e7af43735073806ada437c897bb452d16b915f592d59110067a1",
+    "latestFailedManifestSha256": "6574ba91ee18961a28d2b05ef75f634ee7dfc29f7d01b9dc2b7bff50652c863c",
+    "old51a2ExactPredicateStillNotRecovered": true
+  },
+  "validation": {
+    "targeted": {
+      "artifact": ".cache\\r9\\conditional-v7-target-205f7ce6-3e59-4e84-b8d1-fef3208efd8c.log",
+      "sha256": "011806b716920f7f9eaedc225caecb81f64a5feeed0ccd08773aba7b77b0e3ab",
+      "tests": 30,
+      "passed": 30,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "scope": "ACTUAL_TARGETED_NODE_CPU_AND_OWNED_LOOPBACK_NOT_NATIVE"
+    },
+    "postPublicationFocused": "REQUIRED_SEPARATE_IMMUTABLE_RECEIPT",
+    "originalR7Review": "PENDING_CURRENT_V7",
+    "originalParentR4Review": "PENDING_CURRENT_V7"
+  },
+  "registry": {
+    "schema": "contoso.local-conditional-source-registry.v1",
+    "observerId": "r9-local-api-conditional-v1",
+    "factory": "executeLocalConditionalObserver",
+    "sourceKind": "real-local-agent-loopback",
+    "allowedMode": "LocalValidate",
+    "allowedBoundaries": [
+      "orders.request"
+    ],
+    "sourceFactoryRegistered": true,
+    "completedNativeExecutions": 0,
+    "reviewedIntakeReady": true,
+    "savedJsonCanEnroll": false,
+    "queryCapabilityCanEnroll": false,
+    "azureAuthority": false,
+    "certificationEligible": false
+  },
+  "sharedImports": {
+    "intakeSha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207",
+    "candidateSha256": "6dd864bdd56295027247c21cc3e9afbb27ed10238093eac659088b1fbfb9b314",
+    "sourcePairReceiptSha256": "fda870f3fcbf79b2b69b04d7c6743daeb377f87efef92a330bd55251432a2788",
+    "genericSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "notifySourceSha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf"
+  },
+  "nativePort": {
+    "contract": "contracts\\conditional-native-observer.v1.json",
+    "implementationOwner": "parent-R4",
+    "filterSourceSha256": "9550c022e6502ca426e170eaec3efa9961cdecb773c9cf9e92318ad82ec7d8ee",
+    "fixtureSourceSha256": "7e9140855643d816feb0c3ee6e97ac16f4034ceb6300bd346a16e225be8594a0",
+    "historicalFixedFactoryInvocations": 3,
+    "historicalFixedFactoryCompilerInvocations": 3,
+    "historicalApplicationJvmInvocations": 2,
+    "qualifiedNativeExecutions": 0,
+    "nativeCompilerOrJvmInvocationsDuringHashFix": 0,
+    "nativePermissionFromThisFile": false
+  },
+  "runtimeBaseline": {
+    "artifact": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+    "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+    "actualParentTests": 182,
+    "moduleCount": 11,
+    "scope": "Published actualparentfullclean witness only; fixedfactoryrechecksactualcurrenttool/classpath/main/JAR/classresource provenance duringfuturegrantedexecution. Old7fcc/166remainsunchangedhistorical."
+  },
+  "rootSelectionContext": {
+    "probeReport": "evidence/java-local/parent-safe-sampler/connection-close-20261102T015117887Z-4fef5fe5-9d69-45ad-8178-f054073f3fd7/result.json",
+    "selectedProofSha256": "5c68274325d3824de4d7a152020a7b7f45e683c41fa8f0879d6c0a96f18a737d",
+    "versionsMarkdownSha256": "db3b5a11896ef83d38c90d4ad59812e529e1e82a46fad77184de58746ae85583",
+    "rootPointerSelectionPending": false,
+    "laterPointerChangesRequireNarrowContextRefresh": true
+  },
+  "historicalRootNodeContext": {
+    "artifact": "evidence\\verification\\root-node\\20261102T040654661Z-16ace9e0-5a82-4e7a-ac5c-e36a10430d3f\\result.json",
+    "sha256": "9eaa2fa6242ba1e306c56fb1c5532f6d43af67875a1b02755f8aee65eb40e526",
+    "actualParentReportedTests": 415,
+    "scope": "CURRENT_V6_PARENT_ROOT_NODE_ONLY_NOT_V7_TEST_OUTPUT_OR_R9_RUN"
+  },
+  "limitations": [
+    "All15OWNwritersSTOPPED afterpublication; request originalR7 CURRENTv7 independent source/CPU review",
+    "No board/register/unrelated source or shared telemetry/R8/intake/Java/SDK/pins/targets/M2 edits in this bounded fix",
+    "Original failed7610 pack/v6 and actual415/182/source votes remain immutable historical facts",
+    "Current targeted30/future focused tests/ordinary canonical byte equality do not establish native future PASS or private graph enrollment",
+    "No new native/compiler/JVM/Maven execution authorized in source-only window",
+    "No privateC/global/allTable/fullGraph/Azure/API_READY/CardDone authority"
+  ]
+}

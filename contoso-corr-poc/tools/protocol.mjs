@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { randomUUID, createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -101,8 +101,13 @@ export function resolveBusinessInvocationId(input, { trustedInvocationIssuer = f
 }
 
 function header(input, name) {
-  const key = Object.keys(input).find(key => key.toLowerCase() === name.toLowerCase());
-  return key === undefined ? [] : values(input[key]);
+  if (!input || typeof input !== "object" || Array.isArray(input)) return [];
+  return Object.keys(input).filter(key => key.toLowerCase() === name.toLowerCase()).flatMap(key => values(input[key]));
+}
+
+function bearer(entries) {
+  return entries.length === 1 && typeof entries[0] === "string" && entries[0].length <= 8192
+    && /^Bearer [^\s,]+$/i.test(entries[0]);
 }
 
 // This checks transport observations, not JWT validity or caller authorization (owned by R8).
@@ -112,8 +117,9 @@ export function verifyBackendHeaderContract(before, after) {
   const proof = header(after, GATEWAY_PROOF_HEADER);
   const business = header(after, BUSINESS_HEADER);
   const errors = [];
-  if (original.length !== 1 || forwarded.length !== 1 || forwarded[0] !== original[0]) errors.push("Original caller Authorization was not preserved.");
-  if (proof.length !== 1 || typeof proof[0] !== "string" || !proof[0].startsWith("Bearer ") || proof[0].length <= 7) errors.push("Independent gateway proof is missing or duplicated.");
+  if (!bearer(original) || !bearer(forwarded) || forwarded[0] !== original[0]) errors.push("Original caller Authorization was not preserved.");
+  if (!bearer(proof)) errors.push("Independent gateway proof is missing, malformed or duplicated.");
+  if (proof[0] === original[0]) errors.push("Gateway proof is not independent of caller Authorization.");
   if (proof[0] === header(before, GATEWAY_PROOF_HEADER)[0]) errors.push("Caller-supplied gateway proof was not replaced.");
   if (business.length !== 1 || !isCanonicalInvocationId(business[0])) errors.push("Backend business header is not one canonical UUIDv4.");
   return { passed: errors.length === 0, errors, jwtValidation: "To Do" };
@@ -130,7 +136,7 @@ function httpsOrigin(input) {
 export function corsPreflight({ origin, method, requestedHeaders = [] }, { frontendOrigins }) {
   const validOrigins = Array.isArray(frontendOrigins) && frontendOrigins.length > 0 && frontendOrigins.every(httpsOrigin);
   const granted = validOrigins && frontendOrigins.includes(origin) && ["GET", "POST"].includes(method)
-    && requestedHeaders.every(name => CORS_HEADERS.includes(name.toLowerCase()));
+    && Array.isArray(requestedHeaders) && requestedHeaders.every(name => typeof name === "string" && CORS_HEADERS.includes(name.toLowerCase()));
   return { granted, status: 200, allowOrigin: granted ? origin : null };
 }
 
@@ -170,12 +176,18 @@ export function validateModuleParameters(input) {
   if (input.delegatedScope !== "Orders.Invoke") errors.push("Delegated short scope must match Orders.Invoke.");
   const clients = input.allowedCallerClientIds;
   const portals = input.portalClientIds;
-  if (!Array.isArray(clients) || clients.length === 0 || clients.some(id => !GUID.test(id))) errors.push("Approved caller client IDs required.");
-  if (!Array.isArray(portals) || portals.length === 0 || portals.some(id => !GUID.test(id) || !clients?.includes(id))) errors.push("Portal client IDs must be approved caller IDs.");
-  if (!Array.isArray(input.frontendOrigins) || input.frontendOrigins.length === 0 || input.frontendOrigins.some(origin => !httpsOrigin(origin))) errors.push("Exact HTTPS frontend origins required.");
+  const validIds = ids => Array.isArray(ids) && ids.length > 0 && ids.length <= 64
+    && ids.every(id => typeof id === "string" && GUID.test(id) && !NIL_GUID.test(id))
+    && new Set(ids.map(id => id.toLowerCase())).size === ids.length;
+  if (!validIds(clients)) errors.push("Unique nonzero approved caller client IDs required.");
+  if (!validIds(portals) || portals.some(id => !Array.isArray(clients) || !clients.some(client => typeof client === "string" && client.toLowerCase() === id.toLowerCase()))) errors.push("Portal client IDs must be approved caller IDs.");
+  if (!Array.isArray(input.frontendOrigins) || input.frontendOrigins.length === 0 || input.frontendOrigins.length > 32
+    || input.frontendOrigins.some(origin => !httpsOrigin(origin)) || new Set(input.frontendOrigins).size !== input.frontendOrigins.length) errors.push("Unique exact HTTPS frontend origins required.");
   try {
     const url = new URL(input.ordersBackendBaseUrl);
-    if (url.protocol !== "https:" || !url.hostname.endsWith(".azurewebsites.net") || url.pathname !== BACKEND_PATH || url.search || url.hash || url.username || url.password) errors.push("Fixed private App HTTPS backend ending /api required.");
+    if (url.protocol !== "https:" || url.port || !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.){1,2}azurewebsites\.net$/.test(url.hostname)
+      || url.pathname !== BACKEND_PATH || url.search || url.hash || url.username || url.password
+      || url.href !== input.ordersBackendBaseUrl) errors.push("Fixed private App HTTPS backend ending /api required.");
   } catch { errors.push("Fixed private App HTTPS backend ending /api required."); }
   return { passed: errors.length === 0, errors };
 }
@@ -183,8 +195,11 @@ export function validateModuleParameters(input) {
 export function validateSecretReference(input) {
   try {
     const url = new URL(input);
-    return url.protocol === "https:" && url.hostname.endsWith(".vault.azure.net")
-      && /^\/secrets\/[A-Za-z0-9-]+$/.test(url.pathname) && !url.search && !url.hash && !url.username && !url.password;
+    return url.protocol === "https:" && !url.port
+      && /^(?=.{3,24}\.vault\.azure\.net$)[a-z][a-z0-9-]*[a-z0-9]\.vault\.azure\.net$/.test(url.hostname)
+      && !url.hostname.split(".")[0].includes("--")
+      && /^\/secrets\/[A-Za-z0-9-]{1,127}$/.test(url.pathname)
+      && !url.search && !url.hash && !url.username && !url.password && url.href === input;
   } catch { return false; }
 }
 
@@ -207,11 +222,241 @@ export function validateDiagnosticSettings(settings, { captureEvidence, certific
     }
   }
   if (settings.sampling?.percentage === 100) {
-    const start = Date.parse(certificationWindow?.startsAtUtc);
-    const end = Date.parse(certificationWindow?.expiresAtUtc);
-    if (!certificationWindow?.windowId || !Number.isFinite(start) || !Number.isFinite(end) || end <= start) errors.push("100% requires a declared bounded certification window.");
+    const start = utcTime(certificationWindow?.startsAtUtc);
+    const end = utcTime(certificationWindow?.expiresAtUtc);
+    if (!isCanonicalInvocationId(certificationWindow?.windowId) || !Number.isFinite(start) || !Number.isFinite(end)
+      || end <= start || end - start > 7200000) errors.push("100% requires a declared UUID/UTC certification window bounded to two hours.");
   }
   return { passed: errors.length === 0, errors, captureTiming: "To Do", nativeUrlPrivacy: "To Do" };
+}
+
+export const APIM_SAMPLING_OWNED_FIELDS = Object.freeze([
+  "properties.sampling.samplingType", "properties.sampling.percentage",
+  "properties.httpCorrelationProtocol", "properties.alwaysLog",
+  "properties.frontend.request.body.bytes", "properties.frontend.response.body.bytes",
+  "properties.backend.request.body.bytes", "properties.backend.response.body.bytes",
+  "properties.frontend.request.headers", "properties.frontend.response.headers",
+  "properties.backend.request.headers", "properties.backend.response.headers"
+]);
+
+const configHash = value => createHash("sha256").update(JSON.stringify(value)).digest("hex");
+const utcTime = value => typeof value === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) ? Date.parse(value) : NaN;
+const validEtag = value => typeof value === "string" && /^(?:W\/)?"[\x21\x23-\x7e]{1,240}"$/.test(value);
+
+// An ARM readback proves configuration only. It never acknowledges effective gateway sampling.
+export function createApimSamplingAdapter({
+  diagnosticResourceId, request, allowAzureWrites = false, azureWriteApprovalRef = "", now = Date.now
+} = {}) {
+  const match = typeof diagnosticResourceId === "string" && /^\/subscriptions\/([0-9a-f-]{36})\/resourceGroups\/[A-Za-z0-9._()-]{1,90}\/providers\/Microsoft\.ApiManagement\/service\/[A-Za-z](?:[A-Za-z0-9-]{0,48}[A-Za-z0-9])?\/diagnostics\/applicationinsights$/i.exec(diagnosticResourceId);
+  if (!match || !GUID.test(match[1]) || NIL_GUID.test(match[1]) || typeof request !== "function" || typeof now !== "function") {
+    throw new TypeError("APIM_ADAPTER_TARGET_INVALID");
+  }
+  const serviceId = diagnosticResourceId.slice(0, -"/diagnostics/applicationinsights".length);
+  const loggerId = `${serviceId}/loggers/contoso-appinsights`;
+  const endpoint = id => `https://management.azure.com${id}?api-version=${APIM_API_VERSION}`;
+  const sameId = (left, right) => typeof left === "string" && left.toLowerCase() === right.toLowerCase();
+  const exactFields = value => value && typeof value === "object" && !Array.isArray(value)
+    && Object.keys(value).length === APIM_SAMPLING_OWNED_FIELDS.length
+    && APIM_SAMPLING_OWNED_FIELDS.every(key => Object.hasOwn(value, key));
+  const owned = (document, keys = APIM_SAMPLING_OWNED_FIELDS) => Object.fromEntries(keys.map(key => [
+    key, key.split(".").reduce((value, part) => value?.[part], document)
+  ]));
+  const leaseFields = ["runId", "startsAtUtc", "expiresAtUtc", "drainAtUtc", "restoreDeadlineUtc"];
+  const bindLease = lease => Object.fromEntries(leaseFields.map(key => [key, lease[key]]));
+
+  function leaseTimes(lease, active = false) {
+    const start = utcTime(lease?.startsAtUtc), end = utcTime(lease?.expiresAtUtc);
+    const drain = utcTime(lease?.drainAtUtc), restore = utcTime(lease?.restoreDeadlineUtc);
+    if (!isCanonicalInvocationId(lease?.runId) || ![start, end, drain, restore].every(Number.isFinite)
+      || end <= start || end - start > 7200000 || drain <= start || drain >= end
+      || restore < end || restore - end > 120000 || (active && (now() < start || now() >= drain))) {
+      throw new TypeError("APIM_ADAPTER_LEASE_INVALID");
+    }
+    return { start, end, drain, restore };
+  }
+
+  function requireWrites() {
+    if (allowAzureWrites !== true || typeof azureWriteApprovalRef !== "string"
+      || !azureWriteApprovalRef.trim() || azureWriteApprovalRef.length > 256 || /[\r\n\0]/.test(azureWriteApprovalRef)) {
+      throw new TypeError("APIM_ADAPTER_WRITES_NOT_AUTHORIZED");
+    }
+  }
+
+  async function call(method, url, { headers = {}, body } = {}) {
+    let parsed;
+    try { parsed = new URL(url); } catch { throw new TypeError("APIM_ADAPTER_URL_INVALID"); }
+    if (parsed.origin !== "https://management.azure.com" || parsed.username || parsed.password || parsed.hash
+      || !parsed.pathname.toLowerCase().startsWith(`${serviceId.toLowerCase()}/`)
+      || parsed.searchParams.get("api-version") !== APIM_API_VERSION) throw new TypeError("APIM_ADAPTER_URL_INVALID");
+    let response;
+    try { response = await request({ method, url, headers, body, redirect: "error" }); }
+    catch { throw new TypeError("APIM_MANAGEMENT_REQUEST_FAILED"); }
+    if (!response || (method === "GET" ? response.status !== 200 : ![200, 204].includes(response.status))) {
+      throw new TypeError("APIM_MANAGEMENT_RESPONSE_FAILED");
+    }
+    return response;
+  }
+
+  async function collection(id) {
+    const first = new URL(endpoint(id));
+    let url = first.href;
+    const seen = new Set(), items = [];
+    while (url) {
+      const parsed = new URL(url);
+      if (!sameId(parsed.pathname, first.pathname) || seen.has(url) || seen.size >= 100) throw new TypeError("APIM_SCOPE_PAGINATION_INVALID");
+      seen.add(url);
+      const response = await call("GET", url);
+      if (!Array.isArray(response.body?.value) || items.length + response.body.value.length > 1000) throw new TypeError("APIM_SCOPE_LIST_INVALID");
+      items.push(...response.body.value);
+      const next = response.body.nextLink;
+      if (next !== undefined && next !== null && next !== "" && typeof next !== "string") throw new TypeError("APIM_SCOPE_PAGINATION_INVALID");
+      try { url = next ? new URL(next, first).href : null; } catch { throw new TypeError("APIM_SCOPE_PAGINATION_INVALID"); }
+    }
+    return items;
+  }
+
+  async function preflight() {
+    const diagnostics = await collection(`${serviceId}/diagnostics`);
+    if (diagnostics.length !== 1 || !sameId(diagnostics[0]?.id, diagnosticResourceId)) throw new TypeError("APIM_ALL_APIS_DIAGNOSTIC_CONFLICT");
+    const apis = await collection(`${serviceId}/apis`);
+    for (const api of apis) {
+      if (typeof api?.id !== "string" || !api.id.toLowerCase().startsWith(`${serviceId.toLowerCase()}/apis/`)
+        || !/^[A-Za-z0-9._;=-]{1,160}$/.test(api.id.slice(serviceId.length + "/apis/".length))) throw new TypeError("APIM_API_SCOPE_INVALID");
+      if ((await collection(`${api.id}/diagnostics`)).length !== 0) throw new TypeError("APIM_API_DIAGNOSTIC_OVERRIDE");
+    }
+    return apis.length;
+  }
+
+  function validProperties(properties, lease) {
+    if (!properties || !sameId(properties.loggerId, loggerId)
+      || Object.keys(properties.sampling ?? {}).some(key => !["samplingType", "percentage"].includes(key))
+      || !validateDiagnosticSettings(properties, { certificationWindow: {
+        windowId: lease.runId, startsAtUtc: lease.startsAtUtc, expiresAtUtc: lease.expiresAtUtc
+      } }).passed) throw new TypeError("APIM_DIAGNOSTIC_CONFIGURATION_UNSAFE");
+  }
+
+  async function readDiagnostic(lease) {
+    const response = await call("GET", endpoint(diagnosticResourceId));
+    if (!sameId(response.body?.id, diagnosticResourceId)) throw new TypeError("APIM_DIAGNOSTIC_ID_MISMATCH");
+    validProperties(response.body.properties, lease);
+    const etags = header(response.headers, "etag");
+    if (etags.length !== 1 || !validEtag(etags[0])) throw new TypeError("APIM_DIAGNOSTIC_ETAG_REQUIRED");
+    return { document: response.body, etag: etags[0] };
+  }
+
+  function validatePatch(patch, production = false) {
+    if (!exactFields(patch)) throw new TypeError("APIM_OWNED_PATCH_INVALID");
+    const percentage = patch["properties.sampling.percentage"];
+    if (!Number.isInteger(percentage) || percentage < 0 || percentage > (production ? 99 : 100)
+      || patch["properties.sampling.samplingType"] !== "fixed"
+      || patch["properties.httpCorrelationProtocol"] !== "W3C" || patch["properties.alwaysLog"] !== "allErrors"
+      || APIM_SAMPLING_OWNED_FIELDS.filter(key => key.endsWith(".bytes")).some(key => patch[key] !== 0)
+      || APIM_SAMPLING_OWNED_FIELDS.filter(key => key.endsWith(".headers")).some(key => !Array.isArray(patch[key]) || patch[key].length !== 0)) {
+      throw new TypeError("APIM_OWNED_PATCH_UNSAFE");
+    }
+  }
+
+  function validateSnapshot(snapshot, lease) {
+    if (snapshot?.schema !== "contoso.apim-management-snapshot.v1" || !sameId(snapshot.diagnosticResourceId, diagnosticResourceId)
+      || snapshot.runId !== lease.runId || snapshot.sourceKind !== "management-plane-observation"
+      || !exactFields(snapshot.baselineOwnedConfiguration)
+      || snapshot.baselineOwnedConfigSha256 !== configHash(snapshot.baselineOwnedConfiguration)
+      || !validEtag(snapshot.etag)) throw new TypeError("APIM_BASELINE_SNAPSHOT_INVALID");
+    if (!snapshot.leaseBinding || typeof snapshot.leaseBinding !== "object" || Array.isArray(snapshot.leaseBinding)
+      || Object.keys(snapshot.leaseBinding).length !== leaseFields.length
+      || leaseFields.some(key => snapshot.leaseBinding[key] !== lease[key])) throw new TypeError("APIM_LEASE_BINDING_MISMATCH");
+    validatePatch(snapshot.baselineOwnedConfiguration, true);
+  }
+
+  function patchBody(current, patch) {
+    const body = { properties: {
+      loggerId: current.properties.loggerId,
+      frontend: structuredClone(current.properties.frontend),
+      backend: structuredClone(current.properties.backend)
+    } };
+    for (const [key, value] of Object.entries(patch)) {
+      const parts = key.split(".");
+      let target = body;
+      for (const part of parts.slice(0, -1)) target = target[part] ??= {};
+      target[parts.at(-1)] = structuredClone(value);
+    }
+    return body;
+  }
+
+  function observation(current, lease, patch) {
+    const times = leaseTimes(lease);
+    const configuration = owned(current.document, Object.keys(patch));
+    const matches = configHash(configuration) === configHash(patch);
+    return {
+      schema: "contoso.apim-management-observation.v1", sourceKind: "management-plane-observation",
+      diagnosticResourceId, runId: lease.runId, apiVersion: APIM_API_VERSION, diagnosticScope: "allApis",
+      configSha256: configHash(configuration), ownedConfiguration: configuration,
+      percentage: configuration["properties.sampling.percentage"], etag: current.etag, matches,
+      observedAtUtc: new Date(now()).toISOString(), activeTrafficWindow: now() >= times.start && now() < times.drain,
+      restoreWithinDeadline: now() <= times.restore, runtimeAcknowledgement: false,
+      nativeSamplingEffective: "To Do", gatewayWireParentage: "To Do", secretsIncluded: false
+    };
+  }
+
+  return Object.freeze({
+    async prepare({ lease } = {}) {
+      leaseTimes(lease, true);
+      const apiCount = await preflight();
+      const current = await readDiagnostic(lease);
+      const baseline = owned(current.document);
+      validatePatch(baseline, true);
+      return {
+        schema: "contoso.apim-management-snapshot.v1", sourceKind: "management-plane-observation",
+        diagnosticResourceId, runId: lease.runId, etag: current.etag, apiCount,
+        leaseBinding: bindLease(lease),
+        baselineOwnedConfiguration: baseline, baselineOwnedConfigSha256: configHash(baseline),
+        runtimeAcknowledgement: false
+      };
+    },
+    async apply({ lease, snapshot, ownedPatch } = {}) {
+      requireWrites();
+      leaseTimes(lease, true);
+      validateSnapshot(snapshot, lease);
+      validatePatch(ownedPatch);
+      await preflight();
+      const current = await readDiagnostic(lease);
+      if (current.etag !== snapshot.etag
+        || configHash(owned(current.document)) !== snapshot.baselineOwnedConfigSha256) throw new TypeError("APIM_BASELINE_CONCURRENT_CHANGE");
+      leaseTimes(lease, true);
+      await call("PATCH", endpoint(diagnosticResourceId), {
+        headers: { "If-Match": current.etag }, body: patchBody(current.document, ownedPatch)
+      });
+      const result = observation(await readDiagnostic(lease), lease, ownedPatch);
+      if (!result.matches) throw new TypeError("APIM_APPLY_READBACK_MISMATCH");
+      leaseTimes(lease, true);
+      return result;
+    },
+    async observe({ lease, ownedPatch } = {}) {
+      leaseTimes(lease);
+      validatePatch(ownedPatch);
+      return observation(await readDiagnostic(lease), lease, ownedPatch);
+    },
+    async restore({ lease, snapshot, appliedOwnedPatch } = {}) {
+      requireWrites();
+      leaseTimes(lease);
+      validateSnapshot(snapshot, lease);
+      validatePatch(appliedOwnedPatch);
+      const current = await readDiagnostic(lease);
+      const baseline = snapshot.baselineOwnedConfiguration;
+      const actual = owned(current.document, Object.keys(appliedOwnedPatch));
+      const orderedBaseline = Object.fromEntries(Object.keys(appliedOwnedPatch).map(key => [key, baseline[key]]));
+      if (configHash(actual) === configHash(orderedBaseline)) {
+        return observation(current, lease, baseline);
+      }
+      if (configHash(actual) !== configHash(appliedOwnedPatch)) throw new TypeError("APIM_RESTORE_CONCURRENT_CHANGE");
+      await call("PATCH", endpoint(diagnosticResourceId), {
+        headers: { "If-Match": current.etag }, body: patchBody(current.document, baseline)
+      });
+      const result = observation(await readDiagnostic(lease), lease, baseline);
+      if (!result.matches) throw new TypeError("APIM_RESTORE_READBACK_MISMATCH");
+      return result;
+    }
+  });
 }
 
 function decodeXml(value) {
@@ -303,9 +548,9 @@ export function inspectPolicyXml(source, sourcePath = "policy.xml") {
       const action = node.attributes["exists-action"] ?? "override";
       if (!name || name.includes("@") || name.includes("{{")) add("HEADER_NAME_DYNAMIC", "Protocol/security header names must be literal.");
       if (["traceparent", "tracestate"].includes(name)) {
-        const conditions = ancestors(node).filter(parent => parent.name === "when").map(parent => parent.attributes.condition ?? "");
-        const parentInvalid = conditions.some(condition => /contoso\.traceparentDisposition[\s\S]*!=[\s\S]*"valid"/.test(condition));
-        const stateInvalid = conditions.some(condition => /!\(bool\)[\s\S]*contoso\.tracestateValid/.test(condition));
+        const conditions = ancestors(node).filter(parent => parent.name === "when").map(parent => (parent.attributes.condition ?? "").replace(/\s/g, ""));
+        const parentInvalid = conditions.includes('@((string)context.Variables["contoso.traceparentDisposition"]!="valid")');
+        const stateInvalid = conditions.includes('@(!(bool)context.Variables["contoso.tracestateValid"])');
         if (action !== "delete") add("VALID_CONTEXT_WRITE", "Policy must not rewrite/append/copy back valid W3C context.");
         else if (!parentInvalid && !(name === "tracestate" && stateInvalid)) add("CONTEXT_DELETE_UNGUARDED", "Only absent/invalid-context guarded deletions are allowed.");
       }
@@ -329,8 +574,23 @@ export function inspectPolicyXml(source, sourcePath = "policy.xml") {
     }
     if (node.name === "authentication-managed-identity" && (node.attributes["ignore-error"] !== "false"
       || node.attributes["output-token-variable-name"] !== "contoso.gatewayMiToken")) add("MI_PROOF_FAIL_OPEN", "MI acquisition must fail closed and use the separate proof variable.");
+    if (node.name === "set-backend-service" && (node.attributes["backend-id"] !== "contoso-orders-backend"
+      || Object.hasOwn(node.attributes, "base-url"))) add("BACKEND_TARGET_UNSAFE", "Caller and gateway credentials must only reach the fixed approved Orders backend.");
+    if (["send-request", "send-one-way-request", "log-to-eventhub"].includes(node.name)) add("UNDECLARED_POLICY_EGRESS", "Undeclared policy egress/telemetry sinks are outside the approved gateway boundary.");
     if (node.name === "forward-request" && node.attributes["follow-redirects"] !== "false") add("BACKEND_REDIRECT", "Gateway must not follow redirects carrying credentials.");
-    if (node.name === "trace" && allNodes(node).some(child => /Authorization|Cookie|LastError\.Message|Request\.Body|validatedCallerJwt|gatewayMiToken/i.test(`${child.attributes.value ?? ""} ${child.text}`))) add("TRACE_SENSITIVE", "Policy trace must not serialize credentials, raw errors, claims or bodies.");
+    if (node.name === "trace") {
+      const descendants = allNodes(node);
+      if (descendants.some(child => /Authorization|Cookie|LastError\.Message|Request\.(?:Body|Headers|OriginalUrl|Url)|validatedCallerJwt|gatewayMiToken/i.test(`${Object.values(child.attributes ?? {}).join(" ")} ${child.text}`))) add("TRACE_SENSITIVE", "Policy trace must not serialize credentials, raw errors, claims, URLs or bodies.");
+      const permitted = {
+        "business.invocation_id": '@((string)context.Variables["contoso.businessId"])',
+        "business.disposition": '@((string)context.Variables["contoso.businessDisposition"])'
+      };
+      for (const child of descendants.filter(child => child.name === "metadata")) {
+        if (permitted[child.attributes.name] !== child.attributes.value) add("TRACE_METADATA_UNSAFE", "Only canonical generated business identity and bounded disposition metadata are permitted.");
+      }
+      if (descendants.some(child => child.name === "message" && child.text.trim() !== "Contoso invocation edge.")) add("TRACE_MESSAGE_UNSAFE", "Gateway trace message must be fixed, not raw context or caller data.");
+      if (descendants.some(child => !["trace", "message", "metadata"].includes(child.name))) add("TRACE_STRUCTURE_UNSAFE", "Trace structure must not add another unreviewed data carrier.");
+    }
   }
   return errors;
 }
@@ -371,16 +631,17 @@ export function scanSource(source, sourcePath, { sdkVersion = SDK_VERSION, const
     const opening = text.indexOf("{", match.index + match[0].length);
     const block = opening < 0 ? "" : bicepObject(text, opening);
     if (!/\bhttpCorrelationProtocol\s*:\s*'W3C'/.test(block)) add("DIAGNOSTIC_PROTOCOL", "Bicep diagnostic must explicitly bind W3C; omitted/unresolved inheritance is not proof.");
+    if ([...block.matchAll(/\bbody\s*:\s*\{\s*bytes\s*:\s*0\s*\}/g)].length !== 4) add("BODY_CAPTURE_UNRESOLVED", "Every diagnostic must explicitly bind all four body positions to zero, not dynamic/default values.");
     if (/\/apis\//.test(match[0])) add("DIAGNOSTIC_SCOPE_OVERRIDE", "API diagnostic overrides are not permitted in the allApis baseline.");
   }
   if (/load(?:Text|Json)Content\s*\([^)]*tests[\\/][^)]*fixtures|load(?:Text|Json)Content\s*\([^)]*tests[\\/]apim/i.test(text)) add("FIXTURE_DEPLOYMENT_REFERENCE", "Negative controls must not enter deployable infrastructure.");
   for (const match of text.matchAll(/\bhttpCorrelationProtocol["']?\s*[:=]\s*['"]([^'"]+)['"]/g)) {
     if (match[1] !== "W3C") add("DIAGNOSTIC_PROTOCOL", "APIM diagnostics must remain W3C.");
   }
-  for (const match of text.matchAll(/\bdistributedTracingMode["']?\s*[:=]\s*([^,\n;}]+)/g)) {
+  for (const match of text.matchAll(/\bdistributedTracingMode["']?\s*(?::|=(?!=|>))\s*([^,\n;}]+)/g)) {
     const expression = match[1].trim();
     let mode = /^\d+$/.test(expression) ? Number(expression) : undefined;
-    if (/\bW3C_TRACE\b/.test(expression)) mode = SDK_W3C_MODE;
+    if (/^(?:DistributedTracingModes|eDistributedTracingModes)\.W3C_TRACE$/.test(expression)) mode = SDK_W3C_MODE;
     if (constants.has(expression)) mode = constants.get(expression);
     if (mode !== SDK_W3C_MODE || sdkVersion !== SDK_VERSION) add("SDK_TRACING_MODE", "SDK initialization requires version-pinned W3C_TRACE18; unresolved/legacy/mixed modes fail closed.");
   }
@@ -446,11 +707,9 @@ export async function runProtocolGate(root) {
   if (!verifySdkSourcePin(pin)) findings.push({ code: "SDK_SOURCE_PIN", path: "apim/sdk-source-pin.json", message: "SDK source/version/enum digest pin mismatch." });
   const files = (await Promise.all(["apim", "infra", "web", "services", "workers"].map(directory => walk(path.join(root, directory))))).flat();
   const sources = await Promise.all(files.map(async file => ({ file, text: await readFile(file, "utf8") })));
-  const constants = new Map();
-  for (const { text } of sources) {
-    for (const match of text.matchAll(/\bconst\s+(\w+)(?:\s*:\s*[^=\n]+)?\s*=\s*(18)\b/g)) constants.set(match[1], Number(match[2]));
-  }
   for (const { file, text } of sources) {
+    const constants = new Map();
+    for (const match of stripComments(text).matchAll(/\bconst\s+(\w+)(?:\s*:\s*[^=\n]+)?\s*=\s*(18)\s*(?:;|$)/gm)) constants.set(match[1], Number(match[2]));
     findings.push(...scanSource(text, path.relative(root, file), { constants, sdkVersion: await sdkVersionFor(file, root) }));
   }
   return {

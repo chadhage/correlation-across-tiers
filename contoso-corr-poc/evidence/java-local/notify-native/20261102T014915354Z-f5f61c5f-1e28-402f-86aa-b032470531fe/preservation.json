@@ -1,0 +1,114 @@
+{
+  "schema": "contoso.parent-notify-native-preservation.v1",
+  "preservedAtUtc": "2026-11-02T01:49:15.5221034Z",
+  "selectedExecutionTests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "actualChildPids": [
+    60092,
+    58816,
+    10204,
+    64088
+  ],
+  "actualNativeRoles": [
+    "contoso-fulfillment-worker",
+    "contoso-notify-worker"
+  ],
+  "notifyOriginalLinkedRoots": [
+    {
+      "parentSpanId": "",
+      "traceId": "61bea54dc82bc81049b877bd2f92198b",
+      "spanId": "9a8f453c7a6cc5c0",
+      "messageId": "",
+      "businessInvocationId": "1ede112c-4ec4-4f8b-b143-4bd7b7534f1e",
+      "attempt": "2",
+      "roleName": "contoso-notify-worker",
+      "links": [
+        {
+          "operation_Id": "fbc76bbd706d92fe74b2d9194c378a86",
+          "id": "1b15cc6a0e4a5030"
+        }
+      ],
+      "name": "contoso.replay.process",
+      "kind": "CONSUMER"
+    },
+    {
+      "parentSpanId": "",
+      "traceId": "a6e3e0b0877e9cff49b4f5cefc2fde61",
+      "spanId": "62145685dbeca8a3",
+      "messageId": "487d49ca-7885-4fde-9a59-9df2166143fe",
+      "businessInvocationId": "1ede112c-4ec4-4f8b-b143-4bd7b7534f1e",
+      "attempt": "",
+      "roleName": "contoso-notify-worker",
+      "links": [
+        {
+          "operation_Id": "fbc76bbd706d92fe74b2d9194c378a86",
+          "id": "1b15cc6a0e4a5030"
+        }
+      ],
+      "name": "contoso.replay.send",
+      "kind": "PRODUCER"
+    }
+  ],
+  "actualCounts": {
+    "payloads": 5,
+    "originalRawBytes": 11945,
+    "decodedBytes": 139104,
+    "envelopes": 162
+  },
+  "copiedFiles": [
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-proof.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-proof.json",
+      "sha256": "730ddebce442d94ba324e6f374ecdc8c7778fa0f29c03cd50dcc7f50dcf5f08a",
+      "bytes": 69853
+    },
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-safe-inspection.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-safe-inspection.json",
+      "sha256": "17ed58d662702989043aa992bc077c1dae6c5fbce72b25229186759e06a1ff27",
+      "bytes": 58975
+    },
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T014555095Z-c134fa05-688f-4d99-ae6e-86ae12c42a91\\qualification.json",
+      "copy": "support\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T014555095Z-c134fa05-688f-4d99-ae6e-86ae12c42a91\\qualification.json",
+      "sha256": "3735b3ac25b63cd8e2ad93d09f456af1a872fca6d9b55915f586341d95e22101",
+      "bytes": 64731
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NotifyTopicReplayFixtureTest.xml",
+      "copy": "support\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NotifyTopicReplayFixtureTest.xml",
+      "sha256": "526e70e51669bbc8fb1e5a68279e30832bf25a45a7ca7038c8a01c56e7126b42",
+      "bytes": 41541
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NativeTestCaptureTest.xml",
+      "copy": "support\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NativeTestCaptureTest.xml",
+      "sha256": "bf9460356c56bfa6b566752deec45a12cd8ce7669cb741d4be1ac13ab0f1bd76",
+      "bytes": 42304
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "copy": "support\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "sha256": "42302bab8f9fc03ce588490591202265a9b7ba840ec59097b40fbacd1d05b5a2",
+      "bytes": 41581
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "copy": "support\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "sha256": "6672486cd9ac67c1f54d4fb68ee13b9e183fa4859a0d80004a345134d940a27a",
+      "bytes": 41612
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\notify-native-source-freeze.v2.json",
+      "copy": "support\\workers\\messaging-core\\docs\\notify-native-source-freeze.v2.json",
+      "sha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf",
+      "bytes": 41037
+    }
+  ],
+  "rawOriginalsRetained": false,
+  "sourceAcceptanceIsCertification": false,
+  "certified": false,
+  "scope": "Actual selected local Java/native two-actor test result and byte-for-byte metadata/XML preservation; not a new whole-reactor/JAR build, raw rescan, independent producer authority or Azure/broker/Functions/MI qualification."
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "contoso.telemetry-privacy-policy.v1",
+  "status": "CONSTRUCTION_POLICY_REQUIRES_PRIVACY_OWNER_APPROVAL",
+  "requiredTables": [
+    "AppAvailabilityResults", "AppBrowserTimings", "AppDependencies", "AppEvents",
+    "AppExceptions", "AppMetrics", "AppPageViews", "AppPerformanceCounters",
+    "AppRequests", "AppTraces"
+  ],
+  "commonColumns": {
+    "TimeGenerated": "timestamp", "TenantId": "configuration-metadata", "_ItemId": "opaque-monitor-id",
+    "IKey": "configuration-metadata", "_ResourceId": "configuration-metadata",
+    "ResourceGUID": "configuration-metadata", "ResourceId": "configuration-metadata",
+    "SourceSystem": "bounded-label", "Type": "bounded-label",
+    "SDKVersion": "sdk-version", "AppRoleName": "service-name", "AppRoleInstance": "instance-id",
+    "OperationId": "trace-id", "OperationName": "route-name", "ParentId": "span-id",
+    "UserId": "anonymous-analytics-id", "UserAuthenticatedId": "pseudonym",
+    "UserAccountId": "empty", "SessionId": "anonymous-analytics-id",
+    "ClientIP": "masked-ip", "ClientCity": "empty", "ClientStateOrProvince": "empty",
+    "ClientCountryOrRegion": "bounded-label", "ClientType": "bounded-label",
+    "ClientModel": "bounded-label", "ClientOS": "bounded-label", "ClientBrowser": "bounded-label",
+    "AppVersion": "sdk-version", "Properties": "attributes", "Measurements": "measurements",
+    "ItemCount": "number", "_BilledSize": "number", "_IsBillable": "boolean",
+    "SyntheticSource": "bounded-label"
+  },
+  "tableColumns": {
+    "AppRequests": {
+      "Id": "span-id", "Name": "route-name", "Url": "safe-url", "Success": "boolean",
+      "ResultCode": "bounded-label", "DurationMs": "number", "PerformanceBucket": "bounded-label"
+    },
+    "AppDependencies": {
+      "Id": "span-id", "Name": "route-name", "Target": "safe-target", "Data": "safe-dependency-data",
+      "DependencyType": "bounded-label", "Success": "boolean", "ResultCode": "bounded-label",
+      "DurationMs": "number", "PerformanceBucket": "bounded-label"
+    },
+    "AppPageViews": {
+      "Id": "opaque-monitor-id", "Name": "route-name", "Url": "safe-url", "DurationMs": "number",
+      "PerformanceBucket": "bounded-label"
+    },
+    "AppTraces": { "Message": "safe-text", "SeverityLevel": "number" },
+    "AppEvents": { "Name": "bounded-label" },
+    "AppExceptions": {
+      "ProblemId": "safe-text", "ExceptionType": "bounded-label", "Assembly": "sdk-version",
+      "Method": "bounded-label", "OuterType": "bounded-label", "OuterMessage": "safe-text",
+      "OuterAssembly": "sdk-version", "OuterMethod": "bounded-label", "InnermostType": "bounded-label",
+      "InnermostMessage": "safe-text", "InnermostAssembly": "sdk-version", "InnermostMethod": "bounded-label",
+      "Message": "safe-text", "SeverityLevel": "number", "Details": "empty", "HandledAt": "bounded-label"
+    },
+    "AppMetrics": {
+      "Name": "metric-name", "Sum": "number", "Min": "number", "Max": "number",
+      "ItemCount": "number", "Count": "number", "Value": "number"
+    },
+    "AppAvailabilityResults": {
+      "Id": "opaque-monitor-id", "Name": "bounded-label", "Location": "bounded-label",
+      "Success": "boolean", "Message": "safe-text", "DurationMs": "number"
+    },
+    "AppBrowserTimings": {
+      "Name": "route-name", "Url": "safe-url", "NetworkDurationMs": "number",
+      "SendDurationMs": "number", "ReceiveDurationMs": "number", "ProcessingDurationMs": "number",
+      "TotalDurationMs": "number", "PerformanceBucket": "bounded-label"
+    },
+    "AppPerformanceCounters": {
+      "Name": "bounded-label", "Category": "bounded-label", "Counter": "bounded-label",
+      "Instance": "instance-id", "Value": "number"
+    },
+    "AppSystemEvents": { "Name": "bounded-label", "Message": "safe-text" }
+  },
+  "attributes": {
+    "business.invocation_id": "invocation-id", "user.pseudonym": "pseudonym",
+    "service.name": "service-name", "service.instance.id": "instance-id",
+    "contoso.auth.outcome": "auth-outcome", "contoso.auth.actor_type": "actor-type",
+    "contoso.auth.role_category": "role-category",
+    "contoso.span.kind": "span-kind", "contoso.data.operation": "bounded-label",
+    "contoso.cache.outcome": "bounded-label", "contoso.transport": "bounded-label",
+    "contoso.outcome": "bounded-label", "contoso.error.kind": "bounded-label",
+    "contoso.branch": "bounded-label", "contoso.process.attempt": "number",
+    "contoso.context.rejection": "context-code", "contoso.link.count": "link-count",
+    "contoso.original.message.id": "invocation-id", "contoso.causation.id": "invocation-id",
+    "error.type": "bounded-label",
+    "contoso.publish.attempt": "number", "contoso.message.id": "invocation-id",
+    "contoso.run.id": "invocation-id", "contoso.workflow.id": "invocation-id",
+    "contoso.canary": "bounded-label", "contoso.demo.id": "bounded-label",
+    "contoso.span.links": "span-links",
+    "messaging.system": "bounded-label", "messaging.destination.name": "bounded-label",
+    "messaging.operation.name": "bounded-label", "messaging.message.id": "invocation-id",
+    "messaging.destination.partition.id": "partition-id", "messaging.eventhubs.message.offset": "offset",
+    "messaging.batch.message_count": "number", "db.system": "bounded-label",
+    "db.system.name": "bounded-label", "db.name": "bounded-label", "db.namespace": "bounded-label",
+    "db.operation.name": "bounded-label", "server.address": "safe-target", "server.port": "number",
+    "http.request.method": "bounded-label", "http.response.status_code": "number",
+    "http.route": "route-name", "otel.status_code": "bounded-label",
+    "otel.library.name": "sdk-version", "otel.library.version": "sdk-version",
+    "ai.internal.sdkVersion": "sdk-version", "ai.cloud.role": "service-name",
+    "ai.cloud.roleInstance": "instance-id", "_MS.links": "span-links",
+    "security.entra.request_id": "security-event-id", "security.entra.correlation_id": "security-event-id"
+  },
+  "metricAttributes": [
+    "service.name", "messaging.system", "contoso.transport", "contoso.outcome",
+    "contoso.auth.outcome", "contoso.auth.actor_type", "contoso.auth.role_category"
+  ],
+  "measurementNames": [
+    "contoso.process.attempt", "contoso.publish.attempt", "messaging.batch.message_count",
+    "contoso.scan.records", "contoso.http.duration_ms"
+  ],
+  "serviceNames": [
+    "contoso-storefront-spa", "contoso-portal-ssr", "contoso-orders-api",
+    "contoso-inventory-api", "contoso-fulfillment-worker", "contoso-notify-worker",
+    "contoso-order-aggregator", "contoso-corr-poc-apim"
+  ],
+  "limits": { "maxDepth": 12, "maxFieldsPerObject": 256, "maxTextLength": 2048, "maxLinks": 32 }
+}

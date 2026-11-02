@@ -1,0 +1,130 @@
+{
+  "schema": "contoso.r9-scoped-source-adjudication.v1",
+  "adjudicatorRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "nativeAcceptanceGranted": false,
+  "cardCompletionGranted": false,
+  "reviewPairIsNotCurrentRuntimeAuthority": true,
+  "scopes": [
+    {
+      "logicalOwner": "R1",
+      "implementationAuthor": "original-R3",
+      "sourceManifest": "infra\\root-preparation-candidate.v3.json",
+      "sourceManifestSha256": "0d19568af79f7e24ed01728ddd19c0697dce9b8c11d947026a3138c75a9c59d7",
+      "scope": "21 own source files and 13 merged references; preparation only",
+      "reviewers": [
+        {
+          "originalRole": "R5",
+          "result": "ACCEPTED_FINITE_SOURCE_LOCAL_CONSTRUCTION",
+          "independentNodeTestsPassed": 23,
+          "independentArchitectureCheck": "PASS",
+          "independentPinnedBicep": "Main and params compiled, declared six BCP081 warnings per compile; not ARM/service validation"
+        },
+        {
+          "originalRole": "R8",
+          "result": "ACCEPTED_FINITE_SOURCE_LOCAL_CONSTRUCTION",
+          "independentNodeTestsPassed": 23,
+          "independentArchitectureCheck": "PASS",
+          "independentPinnedBicep": "Not rerun; owner source/compile facts only"
+        }
+      ],
+      "closedSourceFindings": [
+        "Any IPv4 CIDR prefix zero is rejected, not only literal0.0.0.0/0",
+        "Sealed foundation/application configuration and normalized credential-field rejection precede ARM rendering"
+      ],
+      "unmet": [
+        "Optional workbook caller wiring is omitted in v3, a new preparation facet needing parent source grant",
+        "Actual Foundation endpoints/principals/HMAC version/grants/SCM/data/service/GA/owner/cloud acceptance",
+        "Current source-built packaged/runtime/full-path qualification"
+      ]
+    },
+    {
+      "logicalOwner": "R6",
+      "implementationAuthor": "original-R5",
+      "sourceManifest": "services\\inventory-data\\docs\\data-source-freeze.v3.json",
+      "sourceManifestSha256": "9d2200dd99bbbcea86bae6a93256613cd328e62d5aa8dfd2dc0a030b7f3e6ace",
+      "scope": "38 own sources, 13 Core references and five shared references; later Root POM reorder changes the historical reference context",
+      "reviewers": [
+        {
+          "originalRole": "parent-R4",
+          "result": "ACCEPTED_FINITE_SOURCE_AND_SELECTED_ACTUAL_BUILD",
+          "basis": "Actual AuthX provider path, shared/injected credentials, bound dataset before grants, runtime-read versus mutation rights; parent A33"
+        },
+        {
+          "originalRole": "R8",
+          "result": "ACCEPTED_FINITE_SOURCE_CPU_AND_RECEIPT_CONSISTENCY",
+          "independentNodeTestsPassed": 9,
+          "basis": "Actual copied A/log/source/member/M2/install consistency read, not independent Maven/native execution"
+        }
+      ],
+      "actualBuild": {
+        "sourceBuildSha256": "3032eec387b5319ac91ea771d220edeaa5bc54a642e6882373f51cbbc8ddefa1",
+        "tests": 33,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "jarSha256": "f2605ce5793a9acdf2e5a4a37cfed8187d1fcef5a0b81442a82d048fd6ddc3e7",
+        "installedArtifactObservedSeparately": true
+      },
+      "unmet": [
+        "Actual default Entra PG/Redis/private TLS and inherited grants",
+        "Source-bound loaded consumer/runtime proof and full graph",
+        "Azure/privacy/performance/owner acceptance"
+      ],
+      "historicalFailuresUnchanged": ["055/70f main compile failure", "7d0/9a724 tests33/failure1"]
+    },
+    {
+      "logicalOwner": "R7",
+      "implementationAuthor": "original-R7",
+      "sourceManifest": ".cache\\r7\\integration-ready\\20261101T203636622Z-6aa463ef-8579-4a2b-8b43-014488d70da4\\handoff.json",
+      "sourceManifestSha256": "cc918df7c82bbd9932cf8eaacde843104976695f2279d1e975d998be3c138603",
+      "ownScopeSha256": "e838b3cc1e7648ead8195e5a2cd1dfc1fd0ebf21be77765fbaeddda42b4499a6",
+      "scope": "14 own sources with69 effective source inputs at execution",
+      "reviewers": [
+        {
+          "originalRole": "R2",
+          "result": "ACCEPTED_FINITE_SOURCE_LOCAL_CONSTRUCTION",
+          "artifact": "evidence\\reviews\\code-r2-r7-successor.json",
+          "sha256": "9ad4353888e248bd760567d8258dafe4d0378c2c9290210beedb525a79acaab7",
+          "independentFocusedTestsPassed": 44,
+          "independentKustoAnalyses": 39,
+          "reviewerSeparateBeforeSnapshotPersisted": false,
+          "beforeHashCheckWasInOriginalReviewContext": true
+        },
+        {
+          "originalRole": "R3",
+          "result": "ACCEPTED_FINITE_SOURCE_LOCAL_CONSTRUCTION",
+          "artifact": "evidence\\reviews\\code-r3-r7-successor.json",
+          "sha256": "8591edce5a64aaa8cf7a374ef421330d0e3b6cd12b01120ae973f160e325854b",
+          "independentFocusedTestsPassed": 44,
+          "independentFreshKustoAnalyses": 39
+        }
+      ],
+      "ownerFullTestsPassed": 65,
+      "ownerFullTestsAreNotReviewerReruns": true,
+      "unmet": [
+        "Genuine locally executed runtime/carrier conditional-case observer enrollment",
+        "Actual source-bound native/Azure full-path/coverage/canary proof",
+        "Accountable privacy/performance/cost/owner acceptance"
+      ],
+      "historicalScopesNotPromoted": ["3f27/46", "1134/9/60", "9fa/14/69", "5d1ac paused review"]
+    },
+    {
+      "logicalOwner": "R8",
+      "implementationAuthor": "original-R8",
+      "sourceManifest": "services\\security-core\\docs\\native-client-source-freeze.v2.json",
+      "sourceManifestSha256": "c42b47fe9fb81cfa2477b7b0b41fe3e46eb3ea28256f77400bd17af1710f3e23",
+      "scope": "Scalar-bound collector00e source delta, eleven source/import/preserved inputs",
+      "reviewers": [
+        {"originalRole": "R2", "result": "ACCEPTED_FINITE_SOURCE_CPU", "independentTestsPassed": 17},
+        {"originalRole": "R5", "result": "ACCEPTED_FINITE_SOURCE_CPU", "independentTestsPassed": 17}
+      ],
+      "unmet": [
+        "Fresh actual current-collector native retake and private execution binding",
+        "Full AV23/API_READY, global privacy, exporter completeness, default workers and Azure"
+      ],
+      "historicalPhysicsPreserved": "Old79f/b380 actual small12-envelope JWKS1/MI2/header observations remain immutable, not scalar-fix native proof"
+    }
+  ],
+  "persistenceNote": "This adjudication records explicit original reviewer messages and their actual receipts. It is not a new reviewer run, source-before snapshot or live executor enrollment. Every effective source change needs appropriate current review and native requalification."
+}

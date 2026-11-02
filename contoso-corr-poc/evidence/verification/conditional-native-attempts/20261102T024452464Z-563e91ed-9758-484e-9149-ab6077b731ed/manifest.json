@@ -1,0 +1,12 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "result": "FACTUAL_CORRECTION_ONLY",
+  "files": [
+    {
+      "path": "factual-addendum.json",
+      "sha256": "659b2c762827b4f34467c9fd9d5ded8fb712dc3d5736bf197a03603a0bd1d0ca"
+    }
+  ]
+}

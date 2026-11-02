@@ -12,6 +12,10 @@ test('workbook binds actual renderer and root map without credentials or invente
   assert(queries.some(item => item.name === 'business-lookup'));
   assert(queries.some(item => item.name === 'orphan-candidates'));
   assert(queries.some(item => item.name === 'physical-volume'));
+  const candidates = queries.find(item => item.name === 'conditional-root-candidates');
+  assert(candidates.content.query.includes('NativeEvidenceStatus="UNVERIFIED"'));
+  assert(candidates.content.query.includes('SourceProofRequired=true'));
+  assert(candidates.content.query.includes('ADR-A03/agent-framework-http-extraction'));
   assert(queries.every(item => item.content.crossComponentResources[0] === '{Workspace}'));
   const text = JSON.stringify(book);
   assert(!text.includes('{{'));

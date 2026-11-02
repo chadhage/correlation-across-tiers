@@ -1,0 +1,11 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "source-interface-handoff",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "handoff.json",
+      "sha256": "083f704af00e31050d69467d9507e1ad07b37a6b79fa5bba60d61587e6b28057"
+    }
+  ]
+}

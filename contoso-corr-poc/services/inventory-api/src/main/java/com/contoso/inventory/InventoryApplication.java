@@ -26,39 +26,78 @@ public class InventoryApplication {
         RuntimeGuard.verify("contoso-inventory-api", InventoryApplication.class.getClassLoader());
         SpringApplication.run(InventoryApplication.class, args);
     }
-    @Bean RequestAuthenticator authenticator() { return RequestAuthenticator.fromEnvironment("contoso-inventory-api"); }
+    @Bean(destroyMethod = "close") RequestAuthenticator authenticator() { return RequestAuthenticator.fromEnvironment("contoso-inventory-api"); }
     @Bean(destroyMethod = "close") InventoryDataAdapter adapter() { return PgRedisInventoryDataAdapter.fromEnvironment(); }
     @Bean AuthFilter authFilter(RequestAuthenticator authenticator) { return new AuthFilter(authenticator); }
 
     static final String INVOCATION = "contoso.invocation";
+    static final String OPERATION = "contoso.operation";
     static OperationContext operation(HttpServletRequest request) {
-        return new OperationContext((InvocationId) request.getAttribute(INVOCATION), Context.current(), Instant.now().plusSeconds(5));
+        if (request.getAttribute(OPERATION) instanceof OperationContext context) return context;
+        var context = new OperationContext((InvocationId) request.getAttribute(INVOCATION), Context.current(), Instant.now().plusSeconds(5));
+        request.setAttribute(OPERATION, context);
+        return context;
     }
 
     public static final class AuthFilter extends OncePerRequestFilter {
         private final RequestAuthenticator authenticator;
         AuthFilter(RequestAuthenticator authenticator) { this.authenticator = authenticator; }
+        @Override protected boolean shouldNotFilterAsyncDispatch() { return false; }
         @Override protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                                    FilterChain chain) throws IOException, ServletException {
-            if (List.of("/health/live", "/health/ready").contains(request.getRequestURI())) { chain.doFilter(request, response); return; }
-            if (Collections.list(request.getHeaders("Authorization")).size() != 1) {
-                response.setStatus(401); return;
+            var completed = BoundedRequestBody.dispatched(request);
+            if (completed != null) {
+                try (completed; var restored = completed.makeCurrent()) {
+                    if (completed.withinDeadline(response)) chain.doFilter(new BufferedRequest(request, completed.bytes()), response);
+                }
+                return;
             }
+            RuntimeGuard.WorkPermit work;
+            try { work = RuntimeGuard.admitWork(); }
+            catch (IllegalStateException draining) {
+                response.setStatus(503);
+                response.setContentType("application/json");
+                response.getWriter().write("{\"schemaVersion\":1,\"code\":\"SAMPLING_DRAINING\"}");
+                return;
+            }
+            boolean transferred = false;
             try {
-                var caller = authenticator.authenticate(request.getHeader("Authorization"), null);
-                var id = InvocationIds.resolve(Collections.list(request.getHeaders(InvocationIds.HEADER)),
-                    caller.trustedInvocationIssuer());
-                request.setAttribute(INVOCATION, id);
-                response.setHeader(InvocationIds.HEADER, id.value());
-                if (request.getContentLengthLong() > 16384) { response.sendError(413); return; }
-                byte[] body = request.getInputStream().readNBytes(16385);
-                if (body.length > 16384) { response.sendError(413); return; }
-                try (var scope = Correlation.bind(id)) { chain.doFilter(new BufferedRequest(request, body), response); }
+                if (List.of("/health/live", "/health/ready").contains(request.getRequestURI())) chain.doFilter(request, response);
+                else transferred = authenticateAndHandle(request, response, chain, work);
+            } finally { if (!transferred) work.close(); }
+        }
+
+        private boolean authenticateAndHandle(HttpServletRequest request, HttpServletResponse response,
+                                            FilterChain chain, RuntimeGuard.WorkPermit work) throws ServletException, IOException {
+            if (Collections.list(request.getHeaders("Authorization")).size() != 1) {
+                response.setStatus(401); return false;
+            }
+            Instant deadline = Instant.now().plusSeconds(5);
+            com.contoso.security.VerifiedCaller caller;
+            try {
+                caller = authenticator.authenticate(request.getHeader("Authorization"), null);
             } catch (SecurityException failure) {
+                com.contoso.security.SafeAuthenticationTelemetry.failure().forEach(io.opentelemetry.api.trace.Span.current()::setAttribute);
                 response.setStatus(401);
                 response.setContentType("application/json");
                 response.getWriter().write("{\"schemaVersion\":1,\"code\":\"UNAUTHENTICATED\"}");
+                return false;
             }
+            var id = InvocationIds.resolve(Collections.list(request.getHeaders(InvocationIds.HEADER)),
+                caller.trustedInvocationIssuer());
+            request.setAttribute(INVOCATION, id);
+            response.setHeader(InvocationIds.HEADER, id.value());
+            try (var scope = Correlation.bind(id, caller.pseudonym().orElse(null))) {
+                com.contoso.security.SafeAuthenticationTelemetry.success(caller).forEach(io.opentelemetry.api.trace.Span.current()::setAttribute);
+                request.setAttribute(OPERATION, new OperationContext(id, Context.current(), deadline));
+                var body = BoundedRequestBody.begin(request, response, deadline, work);
+                if (body == null) return false;
+                if (body.asynchronous()) return true;
+                try (body) {
+                    chain.doFilter(new BufferedRequest(request, body.bytes()), response);
+                }
+            }
+            return false;
         }
 
         static final class BufferedRequest extends HttpServletRequestWrapper {
@@ -109,11 +148,20 @@ public class InventoryApplication {
     static class Errors {
         @ExceptionHandler({org.springframework.web.servlet.resource.NoResourceFoundException.class,
             org.springframework.web.servlet.NoHandlerFoundException.class})
-        ResponseEntity<?> missing() { return ResponseEntity.status(404).body(Map.of("schemaVersion", 1, "code", "NOT_FOUND")); }
+        ResponseEntity<?> missing() { return error(404, "NOT_FOUND"); }
         @ExceptionHandler({IllegalArgumentException.class, org.springframework.http.converter.HttpMessageNotReadableException.class})
-        ResponseEntity<?> invalid() { return ResponseEntity.badRequest().body(Map.of("schemaVersion", 1, "code", "INVALID_REQUEST")); }
-        @ExceptionHandler(Exception.class) ResponseEntity<?> unavailable() {
-            return ResponseEntity.status(503).body(Map.of("schemaVersion", 1, "code", "DEPENDENCY_UNAVAILABLE"));
+        ResponseEntity<?> invalid() { return error(400, "INVALID_REQUEST"); }
+        @ExceptionHandler(Exception.class) ResponseEntity<?> unavailable(Exception failure) {
+            String category = failure instanceof DataAccessException data ? "DATA_" + data.kind().name() : "INTERNAL";
+            return error(503, "DEPENDENCY_UNAVAILABLE", category);
+        }
+        private static ResponseEntity<?> error(int status, String code) {
+            return error(status, code, code);
+        }
+        private static ResponseEntity<?> error(int status, String code, String category) {
+            Correlation.failure(category);
+            Correlation.log(org.slf4j.LoggerFactory.getLogger(Errors.class), "inventory.request", category);
+            return ResponseEntity.status(status).body(Map.of("schemaVersion", 1, "code", code));
         }
     }
 }

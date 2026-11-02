@@ -68,12 +68,16 @@ export interface WorkflowViewV1 {
   schemaVersion: 1;
   id: string;
   businessInvocationId: string;
+  workflowBusinessInvocationId?: string;
   state: string;
   details: Readonly<Record<string, string>>;
 }
+export interface WorkflowMutationViewV1 extends WorkflowViewV1 {
+  workflowBusinessInvocationId: string;
+}
 export interface IdentityViewV1 {
   schemaVersion: 1;
-  actorType: "HUMAN" | "WORKLOAD";
+  actorType: "user" | "workload";
   businessInvocationId: string;
   pseudonym?: string;
 }
@@ -127,6 +131,60 @@ export interface ContosoBrowserControllerV1 {
   result(runId: string): ContosoBrowserRunResultV1 | undefined;
   dependencyIdentities(): readonly ContosoSdkDependencyIdentity[];
   flushTelemetry(): Promise<void>;
+  runtimeState(): ContosoBrowserRuntimeStateV1;
+  browserContextIdentity(): ContosoBrowserContextReceiptV1 | undefined;
+  observeSampling(request: { runId: string; revision: string }): ContosoBrowserSamplingObservationV1;
+  stopTraffic(): void;
+  drain(): Promise<void>;
+}
+export interface ContosoBrowserContextReceiptV1 {
+  schemaVersion: 1;
+  sdkVersion: "3.4.5";
+  identityKind: "sdk-browser-context-not-span";
+  pageInstanceId: string;
+  traceId: string;
+  contextSpanId?: string;
+  observedAtUtc: string;
+}
+export interface ContosoBrowserRuntimeStateV1 {
+  schemaVersion: 1;
+  executionMode: ExecutionMode;
+  service: ContosoRole;
+  sdkVersion: "3.4.5";
+  providerActive: boolean;
+  samplingPercentage: number;
+  windowId: string | null;
+  expiresAtUtc: string | null;
+  trafficState: "accepting" | "quiesced";
+  inFlight: number;
+  certification: "NOT_CERTIFIED";
+}
+export interface ContosoBrowserSamplingObservationV1 {
+  schema: "contoso.sampling-runtime-observation.v1";
+  runId: string;
+  requestedRevision: string;
+  revision: string;
+  observedAtUtc: string;
+  runtimeInstanceId: string;
+  executionMode: ExecutionMode;
+  sourceKind: "contoso-js-sdk-runtime";
+  actualRevision: string;
+  nativeStateAvailable: boolean;
+  ready: boolean;
+  admitting: boolean;
+  inFlightRemaining: number;
+  guard: null;
+  ownedConfiguration: Readonly<Record<string, string | number | boolean | null>>;
+  effectiveSamplingPercentage: number;
+  requestsPerSecond: null;
+  activeLeaseId: string | null;
+  providerCount: number | null;
+  exporterCount: number | null;
+  admission: { state: "accepting" | "quiesced"; inFlight: number };
+  restartMechanism: "document-reload";
+  ownershipPending: true;
+  certificationEligible: false;
+  certification: "NOT_CERTIFIED";
 }
 declare global {
   interface Window { contosoDemos?: ContosoBrowserControllerV1 }
@@ -136,6 +194,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const UUID4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 export const SCENARIOS: readonly ContosoScenario[] =
   ["SYNC", "RETRY", "DLQ", "FAN_OUT", "FAN_IN", "BATCH", "EVENT_GRID", "STORAGE_QUEUE", "PRIVACY", "SAMPLING"];
+export const MAX_CERT_WINDOW_SECONDS = 7200;
 
 export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -181,7 +240,7 @@ export function canonicalOrigin(value: string, mode: ExecutionMode): string {
 function date(value: unknown): string | null {
   if (value === null) return null;
   const text = string(value, 40);
-  if (!/^\d{4}-\d{2}-\d{2}T/.test(text) || !Number.isFinite(Date.parse(text)))
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(text) || !Number.isFinite(Date.parse(text)))
     throw new ContosoError("CONFIG_INVALID");
   return text;
 }
@@ -244,7 +303,7 @@ export function parsePublicConfig(value: unknown): ContosoPublicRuntimeConfigV1 
   if (![tenantId, spaClientId, apiClientId].every(isUuid) || identity.apiAudience !== apiClientId)
     throw new ContosoError("CONFIG_INVALID");
   const scopes = strings(identity.scopes);
-  if (scopes.length !== 1 || !new RegExp(`^api://${apiClientId}/[A-Za-z][A-Za-z0-9.]{1,80}$`).test(scopes[0] ?? ""))
+  if (scopes.length !== 1 || scopes[0] !== `api://${apiClientId}/Orders.Invoke`)
     throw new ContosoError("CONFIG_INVALID");
   for (const uri of [string(identity.spaRedirectUri), string(identity.postLogoutRedirectUri)]) {
     const target = new URL(uri);
@@ -259,12 +318,24 @@ export function parsePublicConfig(value: unknown): ContosoPublicRuntimeConfigV1 
     || !Number.isFinite(telemetry.samplingPercentage)) throw new ContosoError("CONFIG_INVALID");
   const origins = strings(telemetry.approvedCorrelationOrigins).map(item => canonicalOrigin(item, mode));
   if (origins.length !== 1 || origins[0] !== apiOrigin) throw new ContosoError("CONFIG_INVALID");
+  const excludedCorrelationHosts = strings(telemetry.excludedCorrelationHosts);
+  if (!excludedCorrelationHosts.includes("login.microsoftonline.com")
+    || excludedCorrelationHosts.some(host => !/^[a-z0-9.-]+$/.test(host) || host === new URL(apiOrigin).hostname)
+    || ["login.microsoftonline.com", "js.monitor.azure.com", "js-cdn.monitor.azure.com"].includes(new URL(apiOrigin).hostname))
+    throw new ContosoError("CONFIG_INVALID");
   const connectionString = string(telemetry.connectionString);
   validateConnectionString(connectionString, mode);
+  const ingestionEndpoint = connectionString.split(";").find(entry => entry.startsWith("IngestionEndpoint="))?.slice(18);
+  if (mode === "live" && ingestionEndpoint && new URL(ingestionEndpoint).origin === apiOrigin)
+    throw new ContosoError("CONFIG_INVALID");
   const startsAtUtc = date(certification.startsAtUtc);
   const endsAtUtc = date(certification.endsAtUtc);
   const enabled = boolean(certification.enabled);
-  const windowId = certification.windowId === null ? null : string(certification.windowId, 80);
+  const windowId = certification.windowId === null ? null : string(certification.windowId, 36);
+  if (windowId !== null && !isUuid4(windowId)) throw new ContosoError("CONFIG_INVALID");
+  if (startsAtUtc && endsAtUtc && (Date.parse(startsAtUtc) >= Date.parse(endsAtUtc)
+    || Date.parse(endsAtUtc) - Date.parse(startsAtUtc) > MAX_CERT_WINDOW_SECONDS * 1000))
+    throw new ContosoError("CONFIG_INVALID");
   if (enabled && (!startsAtUtc || !endsAtUtc || !windowId || Date.parse(startsAtUtc) >= Date.parse(endsAtUtc)))
     throw new ContosoError("CONFIG_INVALID");
   if (demos.controllerVersion !== 1 || !Array.isArray(demos.allowedDemoIds)
@@ -280,7 +351,7 @@ export function parsePublicConfig(value: unknown): ContosoPublicRuntimeConfigV1 
       spaRedirectUri: string(identity.spaRedirectUri), postLogoutRedirectUri: string(identity.postLogoutRedirectUri) },
     portal: { origin: portalOrigin, entryPath: "/portal/", authProfile: "workload-only", enabled: boolean(portal.enabled) },
     telemetry: { connectionString, roleName, tracingMode: "W3C_TRACE", samplingPercentage: telemetry.samplingPercentage,
-      approvedCorrelationOrigins: origins, excludedCorrelationHosts: strings(telemetry.excludedCorrelationHosts) },
+      approvedCorrelationOrigins: origins, excludedCorrelationHosts },
     certification: { enabled, startsAtUtc, endsAtUtc, windowId },
     demos: { controllerVersion: 1, enabled: boolean(demos.enabled), allowedDemoIds }
   };
@@ -292,6 +363,7 @@ export function parsePublicConfig(value: unknown): ContosoPublicRuntimeConfigV1 
 const SAFE_DETAIL_KEYS = new Set(["operation", "status", "source", "transport", "target", "attempts", "orderId", "runId", "sku", "quantity", "producer", "delivery", "reason", "result"]);
 export function parseWorkflowView(value: unknown): WorkflowViewV1 {
   if (!isRecord(value) || value.schemaVersion !== 1 || !isUuid4(value.id) || !isUuid4(value.businessInvocationId)
+    || ("workflowBusinessInvocationId" in value && !isUuid4(value.workflowBusinessInvocationId))
     || typeof value.state !== "string" || !/^[A-Z][A-Z0-9_]{0,63}$/.test(value.state) || !isRecord(value.details))
     throw new ContosoError("API_RESPONSE_INVALID", 502);
   const details: Record<string, string> = {};
@@ -300,14 +372,25 @@ export function parseWorkflowView(value: unknown): WorkflowViewV1 {
       && /^[A-Za-z0-9 _.:/-]*$/.test(item) && !/eyJ|Bearer|https?:|password|token|secret/i.test(item))
       details[key] = item;
   }
-  return { schemaVersion: 1, id: value.id, businessInvocationId: value.businessInvocationId, state: value.state, details };
+  return { schemaVersion: 1, id: value.id, businessInvocationId: value.businessInvocationId,
+    ...(isUuid4(value.workflowBusinessInvocationId) ? { workflowBusinessInvocationId: value.workflowBusinessInvocationId } : {}),
+    state: value.state, details };
+}
+export function parseWorkflowMutationView(value: unknown): WorkflowMutationViewV1 {
+  const view = parseWorkflowView(value);
+  if (!view.workflowBusinessInvocationId) throw new ContosoError("API_RESPONSE_INVALID", 502);
+  return { ...view, workflowBusinessInvocationId: view.workflowBusinessInvocationId };
+}
+export function originalWorkflowInvocationId(view: WorkflowViewV1): string {
+  // GET's businessInvocationId already identifies the stored workflow.
+  return view.workflowBusinessInvocationId ?? view.businessInvocationId;
 }
 export function parseIdentityView(value: unknown): IdentityViewV1 {
-  if (!isRecord(value) || value.schemaVersion !== 1 || typeof value.actorType !== "string" || !["HUMAN", "WORKLOAD"].includes(value.actorType)
+  if (!isRecord(value) || value.schemaVersion !== 1 || typeof value.actorType !== "string" || !["user", "workload"].includes(value.actorType)
     || !isUuid4(value.businessInvocationId)) throw new ContosoError("API_RESPONSE_INVALID", 502);
-  const actorType = value.actorType as "HUMAN" | "WORKLOAD";
+  const actorType = value.actorType as "user" | "workload";
   const result: IdentityViewV1 = { schemaVersion: 1, actorType, businessInvocationId: value.businessInvocationId };
-  if (actorType === "HUMAN" && typeof value.pseudonym === "string" && /^h1\.[a-zA-Z0-9_-]{1,40}\.[A-Za-z0-9_-]{40,64}$/.test(value.pseudonym))
+  if (actorType === "user" && typeof value.pseudonym === "string" && /^h1:[0-9a-f]{32}:[A-Za-z0-9_-]{43}$/.test(value.pseudonym))
     result.pseudonym = value.pseudonym;
   return result;
 }

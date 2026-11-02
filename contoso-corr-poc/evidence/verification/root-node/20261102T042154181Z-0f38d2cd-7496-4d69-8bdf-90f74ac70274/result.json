@@ -1,0 +1,34 @@
+{
+  "schema": "contoso.parent-full-node-run.v1",
+  "result": "PASS",
+  "startedAtUtc": "2026-11-02T04:21:54.365Z",
+  "finishedAtUtc": "2026-11-02T04:22:20.733Z",
+  "launcherPid": 5008,
+  "commandLauncherPid": 62324,
+  "command": "npm test -- --test-reporter=tap",
+  "exitCode": 0,
+  "signal": null,
+  "executionError": null,
+  "counts": {
+    "tests": 419,
+    "pass": 419,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "sourceFiles": 204,
+  "sourcesStable": true,
+  "sourceSelection": "Prior203 explicit Node/source inputs plus current owned bindings and v7 freeze",
+  "all87ConditionalInputsBeforeAfterMatched": true,
+  "pinnedBicepSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+  "compilerEnvironment": [
+    "CONTOSO_BICEP_PATH",
+    "CONTOSO_BICEP_EXE"
+  ],
+  "conditionalSourceFreeze": "tools\\verification\\conditional-source-freeze.v7.json",
+  "conditionalSourceFreezeSha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4",
+  "stdoutSha256": "f378421100e6cf387091549dcc930dff7a557c28ba17669d71eec2efe16fe2fb",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "certified": false,
+  "scope": "Actual full configured Node/source suite and pinned compiler checks; not Java/native enrollment or Azure qualification."
+}

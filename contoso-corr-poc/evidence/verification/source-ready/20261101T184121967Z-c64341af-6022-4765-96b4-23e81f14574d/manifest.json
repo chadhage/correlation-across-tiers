@@ -1,0 +1,64 @@
+{
+  "schema": "contoso.r9-source-ready.v1",
+  "authorOriginalRole": "R9",
+  "readiness": "READY_FOR_NARROW_OTHER_ROLE_REVIEW",
+  "scope": "approved-acting-board-source-and-current-Node-only",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "startedAtUtc": "2026-11-01T18:41:21.967Z",
+  "finishedAtUtc": "2026-11-01T18:41:22.516Z",
+  "sourceHashMode": "raw-except-board-policy",
+  "beforeSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "hashMode": "raw",
+      "sha256": "7062ec7cdcbdd299819195fea1bb537c8648a51d09b793a3f6f44a080a9a131a"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "hashMode": "raw",
+      "sha256": "2b2623d83c561a22c79a45ae94c85154e0e8fec4f81cc111cf7b2879350d67e5"
+    },
+    {
+      "path": "config\\board-state.json",
+      "hashMode": "board-policy",
+      "sha256": "996b7f523a524eafb569dd0a32aed9b68e4ed502dbdbd3ddf53f399b12cb85b8"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "hashMode": "raw",
+      "sha256": "7062ec7cdcbdd299819195fea1bb537c8648a51d09b793a3f6f44a080a9a131a"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "hashMode": "raw",
+      "sha256": "2b2623d83c561a22c79a45ae94c85154e0e8fec4f81cc111cf7b2879350d67e5"
+    },
+    {
+      "path": "config\\board-state.json",
+      "hashMode": "board-policy",
+      "sha256": "996b7f523a524eafb569dd0a32aed9b68e4ed502dbdbd3ddf53f399b12cb85b8"
+    }
+  ],
+  "scopeSha256": "ce8c064854be9a5eac14e461d603bfe57c15646ab75514f919a14ae708e7fb35",
+  "sourcesStable": true,
+  "validation": {
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 22,
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "notReviewed": [
+    "native/Azure authority",
+    "source-build-loaded security or data lineage",
+    "all15 live demos",
+    "full R9 source closure"
+  ],
+  "priorReviewSha256": "ac3ac11e176bf326d0d26368ac738e1efc7d55af09f345508b84af0d7186c2ed"
+}

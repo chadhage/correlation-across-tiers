@@ -7,13 +7,19 @@ let appResourceId={{AppResourceId}};
 let compositeMappingApproved={{CompositeApproved}};
 let BoundaryAssignments={{Assignments}};
 let BoundaryMap={{BoundaryMap}};
+let ConditionalRootPolicies={{ConditionalRootPolicies}};
+let ConditionalRootProofs={{ConditionalRootProofs}};
 let ReferenceProofs={{ReferenceProofs}};
+let ViewContexts={{ViewContexts}};
 let NativeRecords={{LegacyTelemetry}};
 {{CanonicalProjection}}
 let Spans=Records | where RecordKind=="span";
 let Index=union
     (Spans | where isnotempty(SpanId) | project TargetTrace=TraceId,TargetSpan=SpanId),
-    (Records | where RecordKind=="view" and isnotempty(ViewId) | project TargetTrace=TraceId,TargetSpan=ViewId)
+    (Records | where RecordKind=="view" and isnotempty(ViewId)
+     | join kind=inner ViewContexts on $left.TraceId==$right.ContextTrace,$left.ViewId==$right.NativeViewId,$left.RoleName==$right.ContextRole
+     | where isnotempty(ContextEvidence)
+     | project TargetTrace=TraceId,TargetSpan=ContextSpan)
 | distinct TargetTrace,TargetSpan;
 let Parents=Spans
 | where EventTime>=windowStart
@@ -33,6 +39,8 @@ union Parents,MissingLinks,BadLinks
     TargetTrace,TargetSpan,Relation,RoleName,RawId,RawParentId,InvalidSpanMapping
 | join kind=leftouter BoundaryAssignments on $left.ChildTrace==$right.AssignedTrace,$left.ChildSpan==$right.AssignedSpan
 | join kind=leftouter BoundaryMap on BoundaryId
+| join kind=leftouter ConditionalRootPolicies on BoundaryId
+| join kind=leftouter ConditionalRootProofs on $left.ChildTrace==$right.ConditionalTrace,$left.ChildSpan==$right.ConditionalSpan,$left.BoundaryId==$right.ConditionalBoundary,$left.RoleName==$right.ConditionalRole
 | join kind=leftouter ReferenceProofs on ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation
 | extend EndTime=EventTime+DurationMs*1ms,
     InvalidReference=InvalidSpanMapping or Relation=="link-format"
@@ -41,14 +49,20 @@ union Parents,MissingLinks,BadLinks
         or (isnotempty(TargetSpan) and (not(TargetSpan matches regex "^[a-f0-9]{16}$") or TargetSpan=="0000000000000000"))
 | extend Classification=case(InvalidReference,"defect",
     isempty(TargetSpan) and Relation=="parent" and ParentMode=="root" and isnotempty(AssignmentEvidence),"expected-root",
+    isempty(TargetSpan) and Relation=="parent" and ParentMode=="conditional"
+        and RoleName==ExpectedRole and isnotempty(AssignmentEvidence)
+        and RootPolicyRef==ConditionalPolicyRef and isnotempty(RootEvidence)
+        and isnotempty(CarrierEvidence) and isnotempty(RootSourceEvidence)
+        and set_has_element(parse_json(AllowedRootDispositionsJson),RootDisposition),"expected-conditional-root",
+    isempty(TargetSpan) and Relation=="parent" and ParentMode=="conditional","conditional-root-unverified",
     isnotempty(ReferenceEvidence),ProvenClass,
     isnull(IngestedAt) or isnull(EndTime) or IngestedAt>queryTime-grace or EndTime>queryTime-grace,"delayed",
     "defect")
-| extend GateAction=case(Classification in ("expected-root","expected-remote"),"declared-boundary",
+| extend GateAction=case(Classification in ("expected-root","expected-conditional-root","expected-remote"),"declared-boundary",
     Classification=="delayed","requery-before-deadline",
     Classification in ("cross-resource","sampled","outside-window","outside-retention"),"required-coverage-not-waived",
     "fail-until-adjudicated"),IsProvenApplicationDefect=false
 | project EventTime,EndTime,IngestedAt,ChildTrace,ChildSpan,TargetTrace,TargetSpan,Relation,
     BoundaryId,RoleName,Classification,GateAction,IsProvenApplicationDefect,
-    AssignmentEvidence,ReferenceEvidence,RawId,RawParentId
+    AssignmentEvidence,ReferenceEvidence,ConditionalPolicyRef,RootDisposition,RootEvidence,CarrierEvidence,RootSourceEvidence,RawId,RawParentId
 | order by Classification asc,EventTime asc

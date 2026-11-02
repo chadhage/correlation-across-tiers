@@ -1,0 +1,141 @@
+{
+  "schema": "contoso.r4-recovery-r9-handoff.v1",
+  "ownerRole": "R9",
+  "independentReviewer": true,
+  "rootIntegrationOwner": "parent/coordinator taking original R4 ownership; no replacement agent",
+  "failedOriginalR4ContactProhibited": true,
+  "approval": "USER approve_okhttp",
+  "nativeMavenStatus": "HOLD until parent orphan-clearance and explicit scoped window",
+  "sourceAcceptanceIsCertification": false,
+  "currentGuardIntegrity": {
+    "file": "extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+    "version": "1.1.0",
+    "sdkAbi": "1.65.0",
+    "policy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+    "actualSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "scope": "Read-only current bytes/lock match; not isolation or source/build proof"
+  },
+  "observedSelectedBinaryRun": {
+    "resultPath": "evidence\\verification\\local-native\\20261101T103904678Z-65e6d3d4-c9bf-4052-84c2-9aaf43963227\\result.json",
+    "resultSha256": "5e23227475ba68af6d24516f627a87eba7e62a6c944c82b3803d48438153d408",
+    "junitOriginalXmlSha256": "50f683a8d11edc519bc7059ac5be243be6a155dc1cc28175ffbcba5b3f5c7a49",
+    "startedAtUtc": "2026-11-01T10:38:39.967Z",
+    "finishedAtUtc": "2026-11-01T10:39:04.675Z",
+    "spans": 103,
+    "retryAttempts": 3,
+    "fanInLinks": 4,
+    "batchLinks": 2,
+    "runtimeBinaries": [
+      {
+        "file": "contoso-correlation-core-1.0.0.jar",
+        "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\contoso-correlation-core\\1.0.0\\contoso-correlation-core-1.0.0.jar",
+        "postExecutionFileSha256": "df944cd85ee8309d2f279ab12bb540edf115e368f103f1338ebffab0bec4a9e3",
+        "loadedCodeSourceVerified": false,
+        "sourceBuildLineage": "UNVERIFIED"
+      },
+      {
+        "file": "inventory-data-1.0.0.jar",
+        "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\inventory-data\\1.0.0\\inventory-data-1.0.0.jar",
+        "postExecutionFileSha256": "b7a6cfc9a5bd5c1b146d9c8c7ecd03782a6cb365774f7c7bfafbe5ad11282529",
+        "loadedCodeSourceVerified": false,
+        "sourceBuildLineage": "UNVERIFIED"
+      }
+    ],
+    "sourceExecutionBinding": "UNVERIFIED",
+    "scope": "Historical authorized selected-binary local H2/carrier execution; not new OkHttp/current-source/Azure qualification"
+  },
+  "requiredLineageInterfaces": {
+    "A_actualBuild": {
+      "required": [
+        "executionId",
+        "root-authorized exact executed command",
+        "toolchain JDK/Maven identities and hashes",
+        "start/end/exit/test-skip scope",
+        "exact current Java/resources/POM/root dependency/lock/source closure before and after +digest",
+        "selected module/GAV scope",
+        "fresh produced artifact/member hashes",
+        "installed resolved owned-library identities/SHA before child admission and after exit",
+        "build artifact bound to same source closure, no stale incremental cache assumption"
+      ],
+      "targets": [
+        "services\\correlation-core\\target\\contoso-correlation-core-1.0.0.jar",
+        "services\\inventory-data\\target\\inventory-data-1.0.0.jar"
+      ],
+      "guardRule": "Do not clean/repackage/change frozen BB829 sampler during unrelated helper builds; a byte change needs a new identity/retake"
+    },
+    "B_actualRuntime": {
+      "required": [
+        "original child execution identity +real PID/startUTC",
+        "concrete USED owned classes",
+        "actual ClassLoader/ProtectionDomain CodeSource",
+        "actual backing archive/member hashes and observationUTC",
+        "loaded bytes agree with root built+installed pre/post frozen artifacts",
+        "actual agent/guard MBean SHA/version/ABI/policy/PID/codeSource; no expected-hash fallback"
+      ],
+      "candidateConcreteSymbols": [
+        "com.contoso.correlation.Correlation",
+        "com.contoso.inventory.data.EntraPgConnectionFactory"
+      ],
+      "absentUnused": "UNVERIFIED; classpath declaration or expected class name is not loaded-source proof",
+      "globalProviderCounts": "UNKNOWN; do not enumerate internal SDK or infer one from SPI"
+    },
+    "C_independentVerifier": {
+      "required": [
+        "R9 source-bound original execution/child observation intake",
+        "private non-forgeable receipt only after genuine A+B binding",
+        "exact finite covered module/class/role/runtime scope",
+        "structural fixtures checker-only"
+      ],
+      "notSufficient": [
+        "caller JSON labels",
+        "hash/manifest by itself",
+        "after-only JAR SHA",
+        "build success without loaded-source linkage",
+        "82 unit checks or reviewer votes"
+      ],
+      "azureAuthority": false
+    }
+  },
+  "approvedTransportInterfaces": {
+    "ordinaryHttpProviders": [
+      "Azure SDK azure-core-http-okhttp1.13.8",
+      "SDK-compatible OkHttp4.12.0/OkioJVM3.18.1/Core1.60.0 actual effective dependency tree and SBOM required"
+    ],
+    "instrumentation": "Documented purpose-only okhttp disabled property/env requires actual Microsoft3.7.10 honoring; no extra OTel SDK/provider/compiler waiver",
+    "preserveBusinessHttp": "Explicit existing Netty for default EventGrid/Queue/other business SDK creation paths; preserve injected clients and native trusted JDK/Inventory behavior; no ServiceLoader-order/global-default assumptions",
+    "preserveAuth": "One shared isolated credential factory/client for managed/default/injected/operator/bootstrap and PG/Redis/AuthX renewal paths; never force managed identity or duplicate suppression logic"
+  },
+  "rootReviewRequests": {
+    "currentSourceMap": [
+      "pom.xml",
+      "config\\versions.lock.json",
+      "infra\\modules\\compute.bicep",
+      "tools\\java\\startup.sh",
+      "tools\\java\\replay.sh",
+      "tools\\java\\Gate-02.ps1",
+      "services\\correlation-core",
+      "services\\orders-api",
+      "services\\inventory-api",
+      "services\\security-core",
+      "worker/data central credential +business Netty integrations"
+    ],
+    "runtimeValidation": [
+      "new approved R8 all-attempt JWKS/MI retry absence +trusted JDK parent advancement",
+      "existing TLS/deadline/cancel/auth-header controls with native scope stated",
+      "current bounded authenticated upload NativeApiIntegrationTest/Inventory/data Golden",
+      "R2 and R9 independent sequential review windows after source-ready and byte stability"
+    ],
+    "sourceReadyRule": "Current exact source SHA map/full authored scope, not old85/c3 manifest",
+    "rootMapOwner": "R1 single expected map/conditional and replay semantics +root composition/README/CI handoff"
+  },
+  "preservedUnchangedGaps": [
+    "Java AV23 FAIL990a; no API_READY until approved current native proof",
+    "R5a0eb/R7ordinary6bfa/fd5d old scoped proof is not OkHttp/source lineage",
+    "Full role/map/fidelity/global privacy/performance/owner/Azure unmet"
+  ],
+  "orphanObservation": {
+    "observedAtUtc": "2026-11-01T15:38:21.1736749Z",
+    "matchingJavaProcesses": 0,
+    "scope": "Read-only java.exe command-line match to repo/approved tools ONLY, not parent global orphan/writer clearance"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "schema": "contoso.root-structural-candidate.v1",
+  "revision": "v4",
+  "generatedAtUtc": "2026-11-01T23:57:57.556Z",
+  "historicalCandidatePreserved": "infra/root-preparation-candidate.v1.json",
+  "historicalAcceptedCompositionPreserved": "infra/root-preparation-candidate.v3.json",
+  "readiness": "READY_FOR_OTHER_ROLE_REVIEW",
+  "deploymentReady": false,
+  "certification": "NOT_CERTIFIED",
+  "implementationExecutor": "original-R3-acting-R1",
+  "logicalOwner": "R1",
+  "independentReviewers": [
+    "original-R5",
+    "original-R8"
+  ],
+  "target": {
+    "subscriptionId": "474c40eb-d385-40d8-baa2-06883dbdca2d",
+    "location": "centralus",
+    "workload": "contoso-corr",
+    "environment": "poc"
+  },
+  "validationScope": "current-source-local-Bicep-compile-and-Node-root-guards-no-Azure-no-Maven-no-native",
+  "compiler": {
+    "version": "0.48.1",
+    "file": "bicep.exe",
+    "sha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "url": "https://github.com/Azure/bicep/releases/download/v0.48.1/bicep-win-x64.exe",
+    "source": "https://github.com/Azure/bicep/releases/tag/v0.48.1"
+  },
+  "compiledOutputSha256": {
+    "main": "ca28cc9283080e20b0b0d974b285c9129865fe9561b5f6674a4c9fb1d27ad2e5",
+    "foundationParameters": "9318c2a448c224f0637c1a25531ebcb59dbf6334f6458a14460d2fbcf958ae6b"
+  },
+  "ownSources": [
+    {
+      "path": "infra/main.bicep",
+      "sha256": "a73cc85e566b87bd68523a8fbff019ffaf89583296cb660d55ba74cb0558b67e"
+    },
+    {
+      "path": "infra/params/poc.bicepparam",
+      "sha256": "df93a3b7084618ad2d3aed8801f1bdaa55b9ede19e92ba60747277bba6de5b42"
+    },
+    {
+      "path": "infra/params/frozen-names.v1.json",
+      "sha256": "cd94724496667d4b1d87fe83623cfe3611d4d74525ba041dc7b645b6980dc149"
+    },
+    {
+      "path": "infra/modules/network.bicep",
+      "sha256": "8fb48cbdb61568d6bcbbd429af78de6255b166b5ad6a085ef16f8b6086103298"
+    },
+    {
+      "path": "infra/modules/root-access.bicep",
+      "sha256": "29f5486be7035b31791da4a8c4ff77687dbbde937a6e41eeafc0d36543d9ed57"
+    },
+    {
+      "path": "contracts/expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "config/certification-dependencies.json",
+      "sha256": "b90304b1fbfccc3ecefe46c1195a12ee37ea14069ab428280516b64f78d01eca"
+    },
+    {
+      "path": "tools/architecture.mjs",
+      "sha256": "6e1c42ad96220b8a0e3c9c5f8b8d67a436750c571bf26f125ea7c16b894cf94e"
+    },
+    {
+      "path": "tools/names.mjs",
+      "sha256": "9a2876f887aa27c911589c599c9e5ad3e80a04059237d3e84432193985d5bb5f"
+    },
+    {
+      "path": "tools/root-preflight.mjs",
+      "sha256": "04960fc840b96a621ea1e7c9bf3a25f1cbd9a8bab8a319c830ada67f13b35875"
+    },
+    {
+      "path": "tools/Prepare-Root.ps1",
+      "sha256": "a9e42b3eaa1bcd92225deec688c6417f29f44a1f809e80cb59170dcbc05fc770"
+    },
+    {
+      "path": "tools/root-candidate.mjs",
+      "sha256": "e78dd633cb2f6684c3d45a86c18dae384fe32593b383231e46071b966183a23b"
+    },
+    {
+      "path": "tools/certification-path.mjs",
+      "sha256": "86fb405fa252caed7c69aec4eb2f854f2a012054445f41b4c3e7e8d0feb0c8e3"
+    },
+    {
+      "path": "tools/Prepare-DeploymentPackages.ps1",
+      "sha256": "c34dde758f0ed859b7671eed64f2fee703940ae2c4342fae90143cf60df626c1"
+    },
+    {
+      "path": "tests/root-composition.test.mjs",
+      "sha256": "86f1d49b4bff4ccf2e5d3b86386f3741bcf8a0daee79d9c4ef445d60891dda5d"
+    },
+    {
+      "path": "tests/architecture.test.mjs",
+      "sha256": "1f8db0e68fa628b457f072dbffdad140118f7c68dc721d9c1d04a03eb7573192"
+    },
+    {
+      "path": "tests/names.test.mjs",
+      "sha256": "b5af479fea17b4be57416638c806d0b360a00264f1b0bb173114a0b10cae9c28"
+    },
+    {
+      "path": "tests/certification-path.test.mjs",
+      "sha256": "efcf53086eec12239194d25e553df4f49a9a363e2ab75dd7ecfda85770d1b787"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e5c20449915f50a1114c63d09a61168f03cff6bf8f8ccbab8a4c352f66fb833d"
+    },
+    {
+      "path": "DECISIONS.md",
+      "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "baadfa42dcaeb4b1e8342e5fb70b280d2b077c12103e417509e5de38acff80db"
+    }
+  ],
+  "mergedModuleInputs": [
+    {
+      "path": "infra/modules/apim-service.bicep",
+      "sha256": "975d2905562468579e49eb6afdda7e28c2bd8034be24094e124e5eafd584173e"
+    },
+    {
+      "path": "infra/modules/apim-observability.bicep",
+      "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f"
+    },
+    {
+      "path": "infra/modules/apim-api-policies.bicep",
+      "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac"
+    },
+    {
+      "path": "infra/modules/compute.bicep",
+      "sha256": "32408d720c104ac1f6b02c048cf08a19a3b6d95b55f4f92e11251c091880dc0e"
+    },
+    {
+      "path": "infra/modules/data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra/modules/data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "infra/modules/messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c"
+    },
+    {
+      "path": "infra/modules/messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c"
+    },
+    {
+      "path": "infra/modules/network.bicep",
+      "sha256": "8fb48cbdb61568d6bcbbd429af78de6255b166b5ad6a085ef16f8b6086103298"
+    },
+    {
+      "path": "infra/modules/root-access.bicep",
+      "sha256": "29f5486be7035b31791da4a8c4ff77687dbbde937a6e41eeafc0d36543d9ed57"
+    },
+    {
+      "path": "infra/modules/security-keyvault.bicep",
+      "sha256": "0354e070bca20e17fecee44e3eb47f82f600b42dc09de07a282e26b1ad009814"
+    },
+    {
+      "path": "infra/modules/security-secret-readers.bicep",
+      "sha256": "30e81873884c69aedbcf14af8c227f8ce06e5af4796bd9e6c87af64996082d72"
+    },
+    {
+      "path": "infra/modules/telemetry.bicep",
+      "sha256": "55c165952c690839abff252882aa5cfa7e4e1dda6f0ee64d97dabcf95fc31c15"
+    }
+  ],
+  "mergedArtifactInputs": [
+    {
+      "path": "workbooks/contoso-correlation.workbook.json",
+      "sha256": "58797d569f59dca704bbd70c9947869ae79ee8e7f1fc48f71836dc36d192ccf9"
+    }
+  ],
+  "workbookComposition": {
+    "workbookArtifactSha256": "58797d569f59dca704bbd70c9947869ae79ee8e7f1fc48f71836dc36d192ccf9",
+    "sourceBoundaryMapSha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+    "compiledTextBinding": "fixed-string-compiler-variable",
+    "declaredResourceCounts": {
+      "logAnalyticsWorkspaces": 1,
+      "applicationInsights": 1,
+      "workbooks": 1
+    },
+    "sameTelemetryResourceBindings": true,
+    "azureResourceObservationOrImport": "NOT_RUN",
+    "certification": "NOT_CERTIFIED"
+  },
+  "commands": [
+    ".\\tools\\Prepare-Root.ps1 -BicepPath <existing-frozen-Bicep>",
+    "node --test --test-reporter=spec .\\tests\\root-composition.test.mjs .\\tests\\architecture.test.mjs .\\tests\\names.test.mjs .\\tests\\certification-path.test.mjs",
+    "node .\\tools\\architecture.mjs --check"
+  ],
+  "observedRootGuardTests": {
+    "tests": 25,
+    "passed": 25,
+    "failures": 0,
+    "skipped": 0
+  },
+  "rootTestOutputSha256": "8f18b77f22ae8badcfbc8eaed07ca3e21b5051250172a4a0efe27fa60140797e",
+  "sourcesStableBeforeAfterTests": true,
+  "certificationDependencyGatePassed": false,
+  "compilerWarnings": [
+    "BCP081: existing PostgreSQL2026-10-01 and ManagedRedis2026-09-01 resource families lack compiler type schemas; compile is not ARM/SKU validation"
+  ],
+  "unmetPrerequisites": [
+    "approved publisher contact and provisioning/cost/quota/policy/name-availability evidence",
+    "actual post-foundation Entra registrations/client-object/role/controller bindings",
+    "approved SDK KeyVault secret SET/existing HMAC version/named-reader reference resolution",
+    "separate SQL migration/dataset marker/OID-user/column-restricted grants",
+    "authenticated SCM runner route, host container permissions and API ingress live proof",
+    "unverified Node1.0.0-beta.46 exporter support/GA",
+    "source-bound native trust-root receipts and actual runtime/carrier observer enrollment",
+    "actual Azure workbook import/render, resource parameter selection and live screenshots",
+    "current-source/build/loaded-used-instance/native/identity/all-role/artifact/retention and live certification evidence",
+    "two accepted independent root source reviews"
+  ],
+  "booleansAndReferencesAreNotEvidenceAuthority": true
+}

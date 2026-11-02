@@ -1,0 +1,156 @@
+{
+  "schema": "contoso.av23-java-wire.v2",
+  "sourceKind": "real-local-agent-loopback",
+  "assessmentScope": "protected-Azure-OkHttp-JWKS-and-AppService-MI-all-attempts-with-unfiltered-native-context-negative-and-trusted-JDK-positive-controls-not-cloud",
+  "providerActive": true,
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "guardLoadedFromFrozenBytes": true,
+  "guardArtifactVersion": "1.1.0",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "sdkAbi": "1.65.0",
+  "mode": "header_isolation_only",
+  "headerPolicyVersion": 1,
+  "headerIsolation": {
+    "mode": "header_isolation_only",
+    "policyVersion": 1,
+    "productionAuthHeadersAbsent": true,
+    "negativeControlObserved": true,
+    "unfilteredControlExpectation": "native-context-present-without-public-header-isolation",
+    "switchHonoringClaim": "REMOVED_INEFFECTIVE_SWITCH_NOT_CLAIMED",
+    "verified": true
+  },
+  "rawTransportControlCompleted": true,
+  "rawNativeInterceptorPresent": true,
+  "identitySendCalls": 2,
+  "clientObservations": [
+    {
+      "concreteClass": "com.contoso.security.IdentityHttpClients$ContextFreeRestClient",
+      "usage": "USED_VIA_PUBLIC_HTTP_CLIENT_SEND",
+      "purpose": "identity-wrapper",
+      "classResourceSha256": "1cd2cd278faf1889e43749b7d00c6cacc88ec29103d35fae042f421aeab50a76",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "artifactSha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+      "codeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/target/security-core-1.0.0.jar"
+    },
+    {
+      "concreteClass": "com.azure.core.http.okhttp.OkHttpAsyncHttpClient",
+      "usage": "USED_VIA_PUBLIC_HTTP_CLIENT_SEND",
+      "purpose": "identity-sdk-client",
+      "classResourceSha256": "e7c68a59fb6206d315579ac6a834caacc2ee092ee37613316aeebcc3dd770b43",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "artifactSha256": "42f41cc327176141f258c00d5bdfe8e20c5bb599e3efc60df2ea1e2fcca26207",
+      "codeSource": "file:///C:/Users/chhage/.copilot/session-state/a2820816-7000-4e63-9cf2-cd2c8da2162f/files/tools/r4/m2/com/azure/azure-core-http-okhttp/1.13.8/azure-core-http-okhttp-1.13.8.jar"
+    },
+    {
+      "concreteClass": "okhttp3.OkHttpClient",
+      "usage": "CREATED_ONLY",
+      "purpose": "configured-okhttp-passed-to-sdk-builder",
+      "classResourceSha256": "49f80db3e816d71a8af59f6f9dfbe7f3c0ab50dae762519a3e294827978fa091",
+      "classLoader": "jdk.internal.loader.ClassLoaders$AppClassLoader",
+      "sourceBuildLineage": "UNVERIFIED_BY_THIS_OBSERVATION",
+      "artifactSha256": "b1050081b14bb7a3a7e55a4d3ef01b5dcfabc453b4573a4fc019767191d5f4e0",
+      "codeSource": "file:///C:/Users/chhage/.copilot/session-state/a2820816-7000-4e63-9cf2-cd2c8da2162f/files/tools/r4/m2/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar"
+    }
+  ],
+  "usedIdentityScope": {
+    "verified": true,
+    "findings": [],
+    "logicalIdentitySendCalls": 2,
+    "physicalIdentityWireAttempts": 3,
+    "retryLayer": "wire-attempts-may-exceed-logical-sends-via-OkHttp-or-SDK-retry",
+    "broaderSourceBuildLineage": "UNVERIFIED_BY_THIS_FINITE_CHECK"
+  },
+  "configuredNetworkInterceptorClasses": [
+    "io.opentelemetry.javaagent.shaded.instrumentation.okhttp.v3_0.internal.TracingInterceptor",
+    "com.contoso.security.IdentityHttpClients$Shared$$Lambda/0x000000003d63e878"
+  ],
+  "pid": 27460,
+  "processStartUtc": "2026-11-01T17:44:55.390Z",
+  "observedAtUtc": "2026-11-01T17:45:01.341160500Z",
+  "sdkTracingOptionsDisabled": false,
+  "isolatedCredentialTransport": true,
+  "extensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "qualified": true,
+  "securityArtifactSha256Before": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+  "securityArtifactSha256After": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+  "securityArtifactStable": true,
+  "capturedAtUtc": "2026-11-01T17:45:01.799Z",
+  "harnessSha256": "8214ea49a04cf544c7fafad88a77f7b1cc73607b79e27da4aebc48349a0f3d2d",
+  "checkerSha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+  "probeSourceSha256": "a5c0d70fdcf049aa0ad44887283a2c660c5cc69f7660ec2ca8f08092a10233eb",
+  "exitCode": 0,
+  "failureCategories": [],
+  "missingClasses": [],
+  "authHeadersAbsent": true,
+  "trustedPropagationObserved": true,
+  "trustedParentAdvanced": true,
+  "retryControlRequested": true,
+  "retryObserved": true,
+  "requestCounts": {
+    "jwks": 1,
+    "identity": 2,
+    "transportControl": 1,
+    "trusted": 1
+  },
+  "wireHeaderPresence": {
+    "jwks": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "identity": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      },
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "transportControl": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "trusted": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": true,
+        "x-business-correlation-id": false
+      }
+    ]
+  },
+  "result": "PASS",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "rawOutputRetained": false
+}

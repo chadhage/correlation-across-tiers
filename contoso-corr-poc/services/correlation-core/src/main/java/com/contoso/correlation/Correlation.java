@@ -26,10 +26,12 @@ public final class Correlation {
         "db.system", "db.system.name", "db.name", "db.namespace", "db.operation.name",
         "server.address", "server.port", "contoso.data.operation", "contoso.cache.outcome",
         "messaging.system", "messaging.destination.name", "messaging.operation.name",
+        "messaging.destination.partition.id", "messaging.eventhubs.message.offset",
         "messaging.message.id", "messaging.batch.message_count", "contoso.process.attempt",
         "contoso.publish.attempt", "contoso.message.id", "contoso.run.id", "contoso.workflow.id",
+        "contoso.original.message.id", "contoso.causation.id",
         "contoso.branch", "contoso.outcome", "contoso.span.kind", "contoso.transport",
-        "contoso.link.count", "error.type");
+        "contoso.link.count", "contoso.context.rejection", "error.type");
     private Correlation() {}
 
     public static String safeCode(String code) {
@@ -113,9 +115,20 @@ public final class Correlation {
             (!value.matches("[0-9]{1,10}") || Long.parseLong(value) > 1_000_000_000L)) {
             throw new IllegalArgumentException("invalid_numeric_attribute");
         }
+        if ((key.equals("messaging.destination.partition.id") || key.equals("messaging.eventhubs.message.offset")) &&
+            !value.matches("[0-9]{1,20}")) {
+            throw new IllegalArgumentException("invalid_message_position");
+        }
+        if ((key.equals("contoso.context.rejection") || key.equals("error.type")) &&
+            !CODE.matcher(value).matches()) {
+            throw new IllegalArgumentException("invalid_error_category");
+        }
+        if (key.equals("contoso.original.message.id") || key.equals("contoso.causation.id")) InvocationId.parse(value);
     }
 
     public static InvocationId invocation(Context context) { return context.get(INVOCATION); }
+
+    public static void failure(String code) { CorrelationSpan.failure(Span.current(), code); }
 
     public static Scope bind(InvocationId id) {
         return bind(id, null);

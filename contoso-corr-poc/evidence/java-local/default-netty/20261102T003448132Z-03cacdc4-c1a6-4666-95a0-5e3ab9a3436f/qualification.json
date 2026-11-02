@@ -1,0 +1,1195 @@
+{
+  "schema": "contoso.default-netty-isolated-qualification.v1",
+  "result": "PASS",
+  "executionId": "20261102T003448132Z-03cacdc4-c1a6-4666-95a0-5e3ab9a3436f",
+  "certified": false,
+  "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MI",
+  "routingBoundary": "USER_APPROVED_PROCESS_ONLY_LOOPBACK_CONNECT_PROXY_AND_TEMPORARY_JVM_TRUSTSTORE",
+  "azureSdkSendsRoutedOnlyToLoopback": true,
+  "globalTrustStoreChanged": false,
+  "buildWitnessSha256": "7fcc55d82b40d0aba0f73c312bd86f8aa84a559197e5d9eaa497cf24d8a5b915",
+  "probeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+  "beforeSources": [
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\DefaultNettyWireProbe.java",
+      "sha256": "aa8b53af005cd8c6c60575eae9f10ca66761f3c3051a2d6856352cfa7707e95e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\DefaultNettyWireProbe.java",
+      "sha256": "aa8b53af005cd8c6c60575eae9f10ca66761f3c3051a2d6856352cfa7707e95e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "classpathInputs": [
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\ch\\qos\\logback\\logback-classic\\1.5.38\\logback-classic-1.5.38.jar",
+      "sha256": "afb439c61fa287c9e1925523b13baab03617e724406a389d48b61c2c3e46b700"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\ch\\qos\\logback\\logback-core\\1.5.38\\logback-core-1.5.38.jar",
+      "sha256": "a855a0fc97b1d06f4efb1c3bba5ebd0eb508d8b58e68e89e4bbc23a85135c883"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\auth0\\java-jwt\\4.5.0\\java-jwt-4.5.0.jar",
+      "sha256": "defc50d5066630d46737ba3077e1e13df7201baf5817394c9a4d3d23e2ad3019"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-amqp\\2.12.2\\azure-core-amqp-2.12.2.jar",
+      "sha256": "2fe34b833517cf93985ce9c15870bd763eb8ffde85331cd2c8d86388ad267d0d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+      "sha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-okhttp\\1.13.8\\azure-core-http-okhttp-1.13.8.jar",
+      "sha256": "42f41cc327176141f258c00d5bdfe8e20c5bb599e3efc60df2ea1e2fcca26207"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core\\1.60.0\\azure-core-1.60.0.jar",
+      "sha256": "2b3b97c9138477969343fa715785250d2a6e9591b206d36611bffb23b71da53c"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-identity\\1.18.7\\azure-identity-1.18.7.jar",
+      "sha256": "726eb1ca6fa08d295a7d45b2e7816de24996a907d035e537daabe7879607e50e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-json\\1.5.1\\azure-json-1.5.1.jar",
+      "sha256": "bad21d5eb306d82b85951b58a1d9e501a9b09970e452bee6d4d445fd5a91c519"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-messaging-eventgrid\\4.31.9\\azure-messaging-eventgrid-4.31.9.jar",
+      "sha256": "19593d99759abc8ab5dab14ffab976166c529fc6bc03cd98a7828d383f127109"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-messaging-eventhubs\\5.21.7\\azure-messaging-eventhubs-5.21.7.jar",
+      "sha256": "f272b72c6a9d598a2e431c9a779b0909dca271796cce6d324170561cf4e731ea"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-messaging-servicebus\\7.18.1\\azure-messaging-servicebus-7.18.1.jar",
+      "sha256": "c7f0dc19263d24e088837acb55e69f7435ae69eecce6d2713f588f67f7f48715"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-security-keyvault-secrets\\4.11.3\\azure-security-keyvault-secrets-4.11.3.jar",
+      "sha256": "6caaf186dc5849c0df131b89798f824f5af04f52213e833a3a106be3b2279f86"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-storage-common\\12.35.0\\azure-storage-common-12.35.0.jar",
+      "sha256": "f7df7ea6c96e596e2580cd53930df836eca4d77310a8a4c6f4f9c4ba87f56511"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-storage-queue\\12.31.0\\azure-storage-queue-12.31.0.jar",
+      "sha256": "8f989223d6f64deafdbe553ca30f9582e92ba8dd749db12f65810401b2d186a6"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-xml\\1.2.1\\azure-xml-1.2.1.jar",
+      "sha256": "08b458481b656554605215ab0b165f68e6025359e52bea4736d032328d40ba3b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-annotations\\2.21\\jackson-annotations-2.21.jar",
+      "sha256": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-core\\2.21.7\\jackson-core-2.21.7.jar",
+      "sha256": "8c5623b98f32d5f7e1287ff61ed50e08ab7b11381e991fff89327faabba42261"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\core\\jackson-databind\\2.21.7\\jackson-databind-2.21.7.jar",
+      "sha256": "1290c2795e93e8a6861a6c4d9ff0d844d32f5ea178362cb2721edf5561e828b1"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\fasterxml\\jackson\\datatype\\jackson-datatype-jsr310\\2.21.7\\jackson-datatype-jsr310-2.21.7.jar",
+      "sha256": "5989b937f0aa5b6407e7a061077c9bfcac0590dc0a32e54b2fac6a3e2d49e812"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\h2database\\h2\\2.4.240\\h2-2.4.240.jar",
+      "sha256": "29b70e427cc1c40cdc376283adbb0cc62853073797bb5fe5761f81fe73d57ce0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\microsoft\\azure\\msal4j-persistence-extension\\1.3.0\\msal4j-persistence-extension-1.3.0.jar",
+      "sha256": "dfc41c817fbfa76057af6ffe4379dbca6a5e16b8e87df8bdda23f371756c2d09"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\microsoft\\azure\\msal4j\\1.26.0\\msal4j-1.26.0.jar",
+      "sha256": "2536ab4e804d79bcf86529e3413e27edca540bdfe2030f501ea52a0de1312a70"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\microsoft\\azure\\qpid-proton-j-extensions\\1.2.6\\qpid-proton-j-extensions-1.2.6.jar",
+      "sha256": "4dc77a5e1d22a804eb5d9b7c30f4accecb5415cde4a743611a9601fce30adda2"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\nimbusds\\nimbus-jose-jwt\\10.9.1\\nimbus-jose-jwt-10.9.1.jar",
+      "sha256": "33152ea83ec50d22706fdaf3b07acbcd716f9a68edcabdd7c4d02843cbdcdcf6"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okhttp3\\okhttp\\4.12.0\\okhttp-4.12.0.jar",
+      "sha256": "b1050081b14bb7a3a7e55a4d3ef01b5dcfabc453b4573a4fc019767191d5f4e0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okio\\okio-jvm\\3.18.1\\okio-jvm-3.18.1.jar",
+      "sha256": "b97b640557a650d15411f2be29aef558c4e422a83653cb18ba494311dbed18be"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\squareup\\okio\\okio\\3.6.0\\okio-3.6.0.jar",
+      "sha256": "8e63292e5c53bb93c4a6b0c213e79f15990fed250c1340f1c343880e1c9c39b5"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\zaxxer\\HikariCP\\7.0.2\\HikariCP-7.0.2.jar",
+      "sha256": "f1e612fa27345be3107a85431e8a8aeb205c15364ab2f2d411e40a9d7bb08095"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\lettuce\\lettuce-core\\7.9.0.RELEASE\\lettuce-core-7.9.0.RELEASE.jar",
+      "sha256": "d08f925e2f5b1207a6eb3724d07caaf79543b8c8687f4a7413047ccc397b5230"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-buffer\\4.2.19.Final\\netty-buffer-4.2.19.Final.jar",
+      "sha256": "863f09b46cfe7d83872c9499086b9681cd9878c30a319d9f1f3a681bbfb0b12f"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-base\\4.2.19.Final\\netty-codec-base-4.2.19.Final.jar",
+      "sha256": "5702c8097cc81e939dd12e5b39ac2e81f83737c320f6f4d88553577842f9ceb6"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-classes-quic\\4.2.19.Final\\netty-codec-classes-quic-4.2.19.Final.jar",
+      "sha256": "c6f5765ac2cb37ce23156fce40629ff0221b80e53cfa68af21bad08def370098"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-compression\\4.2.19.Final\\netty-codec-compression-4.2.19.Final.jar",
+      "sha256": "8935c51c7217780ae56d178c938b50ea5729b1e088cf3c2568674e331665554c"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-dns\\4.2.19.Final\\netty-codec-dns-4.2.19.Final.jar",
+      "sha256": "d8177c55f0864807f6ab02d0af7c72a6b88dd6bfd1a39f3a17e5954e0942fcad"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http\\4.2.19.Final\\netty-codec-http-4.2.19.Final.jar",
+      "sha256": "7c28809a4f527746fbce2369f5ac5d5fcef45cfe9da21aa3dd9d3f6bdf00cbe0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http2\\4.2.19.Final\\netty-codec-http2-4.2.19.Final.jar",
+      "sha256": "f45756b12a75b907e98cd0158dc947308ca463cd3d27b9035d11a025a4fdbc4d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-http3\\4.2.19.Final\\netty-codec-http3-4.2.19.Final.jar",
+      "sha256": "a13018427735554428a409c27ae679c44614b31fd402837caa7530a9fd688a26"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-marshalling\\4.2.19.Final\\netty-codec-marshalling-4.2.19.Final.jar",
+      "sha256": "5b24976fda31fd52a85fb7f79f2a5867a0416f68f7b03a9d6ea062b2959d50f7"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-linux-aarch_64.jar",
+      "sha256": "bdd044c7d6c2e67b647f203e304c551935693bba789c22a1920e45e00afc6c2b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-linux-x86_64.jar",
+      "sha256": "fd8d07e2a67a0d8574d02b698888cc4f604d1849cf20544c8f9af19cb33530c6"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-osx-aarch_64.jar",
+      "sha256": "16a0a99ae9a3261c9ed2f246ee6926a518dcf81d6b020d3b44abf5115792b998"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-osx-x86_64.jar",
+      "sha256": "1b2673f22efc0bb4240eb0b76b9592d80ef006a71d70ede884c9413093cd787d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-native-quic\\4.2.19.Final\\netty-codec-native-quic-4.2.19.Final-windows-x86_64.jar",
+      "sha256": "8979a2ab34a498ab447eaad71cd233ca3a3c5043695d57b0f035f1add776836f"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-protobuf\\4.2.19.Final\\netty-codec-protobuf-4.2.19.Final.jar",
+      "sha256": "f4d10c51f9237d4cffe78978dee2d2473c0eacdb021f0c04a0cc4f123e01f15d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec-socks\\4.2.19.Final\\netty-codec-socks-4.2.19.Final.jar",
+      "sha256": "b837044e8edbd977bafe4e643c13958a45cf0caefd1338b7e6660e716a769624"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-codec\\4.2.19.Final\\netty-codec-4.2.19.Final.jar",
+      "sha256": "9da978357522895ed6141e14c81f776173206f6cdd72e92b637c60e6e624735b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-common\\4.2.19.Final\\netty-common-4.2.19.Final.jar",
+      "sha256": "22fa74761f6e35c8c88972f35cf65664566b922dd73d3424528e97c34278fa79"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-handler-proxy\\4.2.19.Final\\netty-handler-proxy-4.2.19.Final.jar",
+      "sha256": "6a46fb5716c8b2a227e3d5e4533ab67abaccc6cb3a4f431ff0ed0859ae8a6993"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-handler\\4.2.19.Final\\netty-handler-4.2.19.Final.jar",
+      "sha256": "8b469cf23ddf21ba84291f4dff470d2277a28deac95e7084b0ff2ce853e58276"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns-classes-macos\\4.2.19.Final\\netty-resolver-dns-classes-macos-4.2.19.Final.jar",
+      "sha256": "434de28e1e21c9d1c3dd2ef497e3f8ff3abba000a963fcd5eb1d85970ce434f0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns-native-macos\\4.2.19.Final\\netty-resolver-dns-native-macos-4.2.19.Final-osx-x86_64.jar",
+      "sha256": "0c1eec26d9c0aa2629592080106b3c75eb7f10cdde4a6b251e2873f29c431c1e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver-dns\\4.2.19.Final\\netty-resolver-dns-4.2.19.Final.jar",
+      "sha256": "417aaf5cf25cd07865ea91d2e08916b6974995c54aa83730264fc0e06dd4ea90"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-resolver\\4.2.19.Final\\netty-resolver-4.2.19.Final.jar",
+      "sha256": "3ded47536faeb3c4c544a84871d82f461511589afb2a892a180ca425f281363e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-linux-aarch_64.jar",
+      "sha256": "610f92fa30ee2a4f5022ddb005728b6914b53101de195a99266f526ce1aeda1e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-linux-x86_64.jar",
+      "sha256": "19d7cd7c3081c80ebe417af870e2fe62be1ca5969683d9cd402bb3ebc754d257"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-osx-aarch_64.jar",
+      "sha256": "00e078d2296c987206a10a40bcc2328800e2233b1517a8254ed324a223301206"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-osx-x86_64.jar",
+      "sha256": "06131177483011b3fc5c7a6636da89df53551cca0ea0f843b3f2fbf932c147ec"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final-windows-x86_64.jar",
+      "sha256": "1aed01f988166b8c9c16381f885e5c521652167789b9d822e84f9992f9c1bae0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-boringssl-static\\2.0.84.Final\\netty-tcnative-boringssl-static-2.0.84.Final.jar",
+      "sha256": "15fe111906d28b1075da6362db6b76590b232dd400e1401cf4af36fc4f321add"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-tcnative-classes\\2.0.84.Final\\netty-tcnative-classes-2.0.84.Final.jar",
+      "sha256": "7a4437abf98b0cec053af4443fe321177d2cfccfec7bcad4e7d8b75571bbec4d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-classes-epoll\\4.2.19.Final\\netty-transport-classes-epoll-4.2.19.Final.jar",
+      "sha256": "4d96ba8dd98ace998f6ae7bfe53ae9e581bd92ad2f7ebe5bd994d1a24306db7e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-classes-kqueue\\4.2.19.Final\\netty-transport-classes-kqueue-4.2.19.Final.jar",
+      "sha256": "e1decb5bf69a45118dd8b7fa7ac815462275c5055f75959b7a8d5383196b9ae9"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-epoll\\4.2.19.Final\\netty-transport-native-epoll-4.2.19.Final-linux-x86_64.jar",
+      "sha256": "3dd01532f34540676c9e0153f96a44c78a73f2b0118ef46cb14247e512dde76b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-kqueue\\4.2.19.Final\\netty-transport-native-kqueue-4.2.19.Final-osx-x86_64.jar",
+      "sha256": "a9996715c0d43c35d948ee33e60cec9783e36bda16fed74e01d33d4d4089f7fd"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport-native-unix-common\\4.2.19.Final\\netty-transport-native-unix-common-4.2.19.Final.jar",
+      "sha256": "341e91b8e69e6b7d92c353c845ffd91f34e921b7186254c176a64c7089b3e721"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\netty\\netty-transport\\4.2.19.Final\\netty-transport-4.2.19.Final.jar",
+      "sha256": "d82d4e200456b8c5d8a1647a3724603f80616e5b35b9ada6e7a20d048f175075"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+      "sha256": "ffaad9334ac41c02b6820b19da589d13dca72d7c6663cc9621c3ca64901f7995"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar",
+      "sha256": "be2a8c3e458a3b3b8de0670c9f6649624b4b6f10f3bde64d3d340a029e86454e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+      "sha256": "7d763d701412dc10d5c70de8217a25d08bce1b7fe8fe3e3c6818568e14c1aabf"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\netty\\reactor-netty-core\\1.3.8\\reactor-netty-core-1.3.8.jar",
+      "sha256": "16bce1c64c6840085dd6b87c53569567e651e1df1c4bc93dc3ee2366fbe0e106"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\netty\\reactor-netty-http\\1.3.8\\reactor-netty-http-1.3.8.jar",
+      "sha256": "ec2c65de7092f8cf704df930be120fb0fbc6704d50403c5ce0a2ad4b5835b7f1"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\projectreactor\\reactor-core\\3.8.8\\reactor-core-3.8.8.jar",
+      "sha256": "0a4987b728de02b097ca4707493b12771a3b126013c7e25353be32383ede8f12"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\net\\java\\dev\\jna\\jna-platform\\5.17.0\\jna-platform-5.17.0.jar",
+      "sha256": "b7e3d46c87bad2eb409b0e704916bcd81206168e357312dfddd0e253679cd9e0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\net\\java\\dev\\jna\\jna\\5.13.0\\jna-5.13.0.jar",
+      "sha256": "66d4f819a062a51a1d5627bffc23fac55d1677f0e0a1feba144aabdd670a64bb"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\apache\\qpid\\proton-j\\0.34.1\\proton-j-0.34.1.jar",
+      "sha256": "e1b53dc9a1e54b23aff6ece693bbf3b2ab25004542031ec49018329b038888ea"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\apiguardian\\apiguardian-api\\1.1.2\\apiguardian-api-1.1.2.jar",
+      "sha256": "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\checkerframework\\checker-qual\\3.55.1\\checker-qual-3.55.1.jar",
+      "sha256": "857658c8bdcbff794949a8d9922f88d63ee3751c203c7cd7d21ea97f9e745288"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\annotations\\13.0\\annotations-13.0.jar",
+      "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk7\\2.3.21\\kotlin-stdlib-jdk7-2.3.21.jar",
+      "sha256": "e2243abac2bed6e0b47be18b2b7fe1c1b4cf6a431480353dcd49d1ed35f31199"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk8\\2.3.21\\kotlin-stdlib-jdk8-2.3.21.jar",
+      "sha256": "63091929246beba86b5fb2b020a6f5d06e01693a960b58a59959c8713667991c"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jetbrains\\kotlin\\kotlin-stdlib\\2.3.21\\kotlin-stdlib-2.3.21.jar",
+      "sha256": "6f64eac736db9434dd6925b4a518b9d1d17177652320c37916cf9ba3ce7d7d7a"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\jspecify\\jspecify\\1.0.1\\jspecify-1.0.1.jar",
+      "sha256": "070d75f261fe4c5b8202508366715f7f2d4660f88c8ef7e6d3575e48c9683b66"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-api\\6.0.3\\junit-jupiter-api-6.0.3.jar",
+      "sha256": "d655d7e6f0c7ae07f10a2f3bbaaebb6d30e9b26204a068ad9e9b3950aa28792c"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-engine\\6.0.3\\junit-jupiter-engine-6.0.3.jar",
+      "sha256": "1e2fab61ad27ea08fc7c70dd9677cf8c6d1ae5434d42dcfdd633b12c7e7c04d0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter-params\\6.0.3\\junit-jupiter-params-6.0.3.jar",
+      "sha256": "cf2947e2302b9f8c8a059259a277881c1cadae8fbc2514c16a925cfeb7beb2e5"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\jupiter\\junit-jupiter\\6.0.3\\junit-jupiter-6.0.3.jar",
+      "sha256": "784b65815f479a0c99a9d3a573b142e2a525efb6025d97f751b19e72f90aeda3"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\platform\\junit-platform-commons\\6.0.3\\junit-platform-commons-6.0.3.jar",
+      "sha256": "39f262d09c3d52719fe0b77f080e90a3695e285d779a41b232e17963ae5da200"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\junit\\platform\\junit-platform-engine\\6.0.3\\junit-platform-engine-6.0.3.jar",
+      "sha256": "491e9e4f745f161b8a8e4186a1a7c6a450ea12c70930c9aedae427215301d947"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\opentest4j\\opentest4j\\1.3.0\\opentest4j-1.3.0.jar",
+      "sha256": "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\postgresql\\postgresql\\42.7.14\\postgresql-42.7.14.jar",
+      "sha256": "73914527305a40cce504b0d3d90b23caf565136912d607ae8ae7c5895512332c"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\reactivestreams\\reactive-streams\\1.0.4\\reactive-streams-1.0.4.jar",
+      "sha256": "f75ca597789b3dac58f61857b9ac2e1034a68fa672db35055a8fb4509e325f28"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\org\\slf4j\\slf4j-api\\2.0.20\\slf4j-api-2.0.20.jar",
+      "sha256": "7e1446499b359675d8aabe6af2de86b85e72ae8a2a932c0b40d0e5ba57097439"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\redis\\clients\\authentication\\redis-authx-core\\0.2.0\\redis-authx-core-0.2.0.jar",
+      "sha256": "67875cfeb9ff9e8325045b9ac81d709eb6267b475cb8273fdb9139563458056d"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\redis\\clients\\authentication\\redis-authx-entraid\\0.2.0\\redis-authx-entraid-0.2.0.jar",
+      "sha256": "6f97214abc2266f0407cd4c87b3b29cdcddfcc75430d98de7ba4b8d0e9f673c4"
+    },
+    {
+      "path": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\tools\\jackson\\core\\jackson-core\\3.1.7\\jackson-core-3.1.7.jar",
+      "sha256": "7608c367fd8a92666d28711519599543c180298259963184ce04d2947a8f71e7"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\correlation-core\\target\\contoso-correlation-core-1.0.0.jar",
+      "sha256": "ac80828d4ef5a801426127b91806445452e310b75888ea2b8937f7054bd67cff"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\inventory-data\\target\\inventory-data-1.0.0.jar",
+      "sha256": "f2605ce5793a9acdf2e5a4a37cfed8187d1fcef5a0b81442a82d048fd6ddc3e7"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\target\\security-core-1.0.0.jar",
+      "sha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+      "sha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1"
+    }
+  ],
+  "classpathStable": true,
+  "commands": [
+    {
+      "actualPid": 17668,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\keytool.exe",
+      "executableSha256": "91c101e3a41d9194584beb170edc08605add43a9d5436edd304db9ed67aec7bf",
+      "startedAtUtc": "2026-11-02T00:34:48.250Z",
+      "finishedAtUtc": "2026-11-02T00:34:49.094Z",
+      "elapsedMs": 844,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 62408,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\javac.exe",
+      "executableSha256": "02160baa324a6a778e01962f14c748155c3172c37821df201bb201df110985c0",
+      "startedAtUtc": "2026-11-02T00:34:49.095Z",
+      "finishedAtUtc": "2026-11-02T00:34:54.627Z",
+      "elapsedMs": 5532,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 45044,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "executableSha256": "f961fb8db73c7c546821bc6d30fdaa8ce2458da460a5e75e2c39189cd107e6ba",
+      "startedAtUtc": "2026-11-02T00:34:54.674Z",
+      "finishedAtUtc": "2026-11-02T00:34:57.346Z",
+      "elapsedMs": 2672,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 23440,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "executableSha256": "f961fb8db73c7c546821bc6d30fdaa8ce2458da460a5e75e2c39189cd107e6ba",
+      "startedAtUtc": "2026-11-02T00:34:57.348Z",
+      "finishedAtUtc": "2026-11-02T00:34:59.670Z",
+      "elapsedMs": 2322,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 51124,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executableSha256": "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "startedAtUtc": "2026-11-02T00:35:07.524Z",
+      "finishedAtUtc": "2026-11-02T00:35:07.896Z",
+      "elapsedMs": 372,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 52288,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executableSha256": "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "startedAtUtc": "2026-11-02T00:35:09.207Z",
+      "finishedAtUtc": "2026-11-02T00:35:09.449Z",
+      "elapsedMs": 242,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 45228,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executableSha256": "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "startedAtUtc": "2026-11-02T00:35:09.208Z",
+      "finishedAtUtc": "2026-11-02T00:35:09.562Z",
+      "elapsedMs": 354,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 39576,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "executableSha256": "f961fb8db73c7c546821bc6d30fdaa8ce2458da460a5e75e2c39189cd107e6ba",
+      "startedAtUtc": "2026-11-02T00:34:59.725Z",
+      "finishedAtUtc": "2026-11-02T00:35:10.021Z",
+      "elapsedMs": 10296,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 53360,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executableSha256": "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "startedAtUtc": "2026-11-02T00:35:10.022Z",
+      "finishedAtUtc": "2026-11-02T00:35:10.234Z",
+      "elapsedMs": 212,
+      "exitCode": 0,
+      "bounded": true
+    }
+  ],
+  "reports": [
+    {
+      "phase": "untrusted-ca",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 45044,
+      "mode": "EXPECTED_TLS_REJECTION",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "00000000000000000000000000000000",
+      "rootSpanId": "0000000000000000",
+      "businessInvocationId": "3efea43b-f501-4877-9650-cb873655b07a",
+      "samplerObservation": {},
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "payloadTraceparent": "",
+          "entity": "contoso-corr-poc-egt",
+          "destination": "EVENT_GRID",
+          "messageId": "d6f480de-9e6d-43f0-963e-6139c28ee035",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true
+        },
+        {
+          "payloadTraceparent": "",
+          "entity": "contoso-legacy-jobs",
+          "destination": "STORAGE_QUEUE",
+          "messageId": "9a7bfed7-14a3-4c47-aaeb-90dc732ec965",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "member": "com/contoso/messaging/AzureMessagingTransport.class",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a"
+      },
+      "usedBusinessClientOrigin": {
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4",
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85"
+      }
+    },
+    {
+      "phase": "hostname-mismatch",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 23440,
+      "mode": "EXPECTED_TLS_REJECTION",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "00000000000000000000000000000000",
+      "rootSpanId": "0000000000000000",
+      "businessInvocationId": "676d0e41-49c4-437d-88ae-176e92f22aab",
+      "samplerObservation": {},
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "entity": "contoso-corr-poc-egt",
+          "destination": "EVENT_GRID",
+          "messageId": "a77316b1-ebd2-4430-9dba-f9c9cc0f66bf",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true,
+          "payloadTraceparent": ""
+        },
+        {
+          "entity": "contoso-legacy-jobs",
+          "destination": "STORAGE_QUEUE",
+          "messageId": "956bf72d-72bd-4297-ae1e-810e174c1908",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true,
+          "payloadTraceparent": ""
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a",
+        "member": "com/contoso/messaging/AzureMessagingTransport.class",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1"
+      },
+      "usedBusinessClientOrigin": {
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85",
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4"
+      }
+    },
+    {
+      "phase": "trusted-default",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 39576,
+      "mode": "DEFAULT_NETTY_USED_LOCAL_TLS_BOUNDARY",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "5ef1680312aaca528ff888bfa310fcec",
+      "rootSpanId": "78e0ef917c8ad0c6",
+      "businessInvocationId": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0",
+      "samplerObservation": {
+        "GuardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "ProviderClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "SdkAbi": "1.65.0",
+        "LoadedCount": 1,
+        "NativeStateAvailable": true,
+        "EffectiveSamplingPercentage": 100,
+        "RequestsPerSecond": null
+      },
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "producerSpanId": "6b666bf3186c973a",
+          "messageId": "e14a0510-e8f3-4259-9394-cc15c42391fe",
+          "destination": "EVENT_GRID",
+          "entity": "contoso-corr-poc-egt",
+          "payloadTraceparent": "00-5ef1680312aaca528ff888bfa310fcec-6b666bf3186c973a-03",
+          "tlsRejected": false
+        },
+        {
+          "producerSpanId": "33707e5425679c85",
+          "messageId": "ac5f8ac8-70d5-4b7a-ba93-13c6adcb4c47",
+          "destination": "STORAGE_QUEUE",
+          "entity": "contoso-legacy-jobs",
+          "payloadTraceparent": "00-5ef1680312aaca528ff888bfa310fcec-33707e5425679c85-03",
+          "tlsRejected": false
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a",
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "member": "com/contoso/messaging/AzureMessagingTransport.class"
+      },
+      "usedBusinessClientOrigin": {
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85",
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class"
+      },
+      "usedSdkOrigins": [
+        {
+          "memberSha256": "0cbba366b5f8a08b164d27906dcc4430cce45482e153fd9dc30bf1ecde2a2339",
+          "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-messaging-eventgrid\\4.31.9\\azure-messaging-eventgrid-4.31.9.jar",
+          "archiveSha256": "19593d99759abc8ab5dab14ffab976166c529fc6bc03cd98a7828d383f127109",
+          "className": "com.azure.messaging.eventgrid.EventGridPublisherClient",
+          "member": "com/azure/messaging/eventgrid/EventGridPublisherClient.class"
+        },
+        {
+          "memberSha256": "5c666d1a9b0bf865d0432b369bd171dda4470a8c91cfa7dba84ae10f3b7b016d",
+          "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-storage-queue\\12.31.0\\azure-storage-queue-12.31.0.jar",
+          "archiveSha256": "8f989223d6f64deafdbe553ca30f9582e92ba8dd749db12f65810401b2d186a6",
+          "className": "com.azure.storage.queue.QueueClient",
+          "member": "com/azure/storage/queue/QueueClient.class"
+        }
+      ],
+      "usedQueuePipelineClientIsDefaultNetty": true
+    }
+  ],
+  "tunnels": [
+    {
+      "phase": "untrusted-ca",
+      "authority": "contoso-default-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "untrusted-ca",
+      "authority": "contosodefaultnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "hostname-mismatch",
+      "authority": "contoso-mismatch-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "hostname-mismatch",
+      "authority": "contosomismatchnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "127.0.0.1:64649",
+      "route": "LOCAL_NATIVE_RECEIVER"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "contoso-default-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "contosodefaultnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "127.0.0.1:64649",
+      "route": "LOCAL_NATIVE_RECEIVER"
+    }
+  ],
+  "blockedProxyTargets": [
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "006e93a47f1a517784c98640ba047eff888cedb49eb42c6f8f5466fa8df28938",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "006e93a47f1a517784c98640ba047eff888cedb49eb42c6f8f5466fa8df28938",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "a6d359ac0434123fe01a1a1a4cadb827b97f8ee34dfe8a2ece32aecc6cdba059",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "a6d359ac0434123fe01a1a1a4cadb827b97f8ee34dfe8a2ece32aecc6cdba059",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    }
+  ],
+  "wire": [
+    {
+      "route": "EVENT_GRID",
+      "path": "/api/events",
+      "traceparent": "00-5ef1680312aaca528ff888bfa310fcec-17e480da76778b02-03",
+      "payloadTraceparent": "00-5ef1680312aaca528ff888bfa310fcec-6b666bf3186c973a-03",
+      "businessInvocationId": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0",
+      "messageId": "e14a0510-e8f3-4259-9394-cc15c42391fe",
+      "authorizationMatchedInMemory": true,
+      "tlsProtocol": "TLSv1.3"
+    },
+    {
+      "route": "STORAGE_QUEUE",
+      "path": "/contoso-legacy-jobs/messages",
+      "traceparent": "00-5ef1680312aaca528ff888bfa310fcec-bac6cd7b3a681810-03",
+      "payloadTraceparent": "00-5ef1680312aaca528ff888bfa310fcec-33707e5425679c85-03",
+      "businessInvocationId": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0",
+      "messageId": "ac5f8ac8-70d5-4b7a-ba93-13c6adcb4c47",
+      "authorizationMatchedInMemory": true,
+      "tlsProtocol": "TLSv1.3"
+    }
+  ],
+  "originalPrivacyCapture": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 53360,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 3,
+      "originalRawBytes": 2360,
+      "decodedBytes": 8847,
+      "envelopes": 11
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "eaaa043af0ef9891c50afe62db90a13f16b8845f064457ba656ebf608844c68d",
+        "originalPayloadBytes": 1112,
+        "decodedPayloadBytes": 4050,
+        "originalEnvelopeCount": 4,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "0087792a737fd8c6b0254f1338b5a38bf0c04b49ea662915436e994a1ffe2867",
+        "originalPayloadBytes": 655,
+        "decodedPayloadBytes": 2099,
+        "originalEnvelopeCount": 3,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "43a7dd8913bb9f88521b11b5c39217f1566adf8a30cc7084339de947b4aede20",
+        "originalPayloadBytes": 593,
+        "decodedPayloadBytes": 2698,
+        "originalEnvelopeCount": 4,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ],
+    "nativeEnvelopes": [
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T00:35:04.799Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "78e0ef917c8ad0c6"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "{\"az.sdk.message\":\"The following Netty versions were found on the classpath and have a mismatch with the versions used by azure-core-http-netty. If your application runs without issue this message can be ignored, otherwise please align the Netty versions used in your application. For more information, see https://aka.ms/azsdk/java/dependency/troubleshoot.\",\"azure-netty-version\":\"4.1.138.Final\",\"azure-netty-native-version\":\"2.0.84.Final\",\"classpath-netty-version-io.netty:netty-common\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-handler\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-handler-proxy\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-buffer\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec-http\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec-http2\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-unix-common\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-epoll\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-kqueue\":\"4.2.19.Final\",\"classpath-native-netty-version-io.netty:netty-tcnative-boringssl-static\":\"2.0.84.Final\"}",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.azure.core.http.netty.implementation.NettyUtility",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T00:35:07.347Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "6b666bf3186c973a"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "{\"az.sdk.message\":\"Retry attempts have been exhausted.\",\"tryCount\":0}",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.azure.core.http.policy.RetryPolicy",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:35:05.101Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "78e0ef917c8ad0c6"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty.publish",
+            "duration": "00:00:02.247614",
+            "id": "6b666bf3186c973a",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0",
+              "contoso.span.kind": "PRODUCER"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:35:07.214Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "6b666bf3186c973a"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "POST /api/events",
+            "duration": "00:00:00.135825",
+            "id": "17e480da76778b02",
+            "resultCode": "200",
+            "data": "https://contoso-default-netty.eventgrid.azure.net/api/events?api-version=2018-01-01",
+            "type": "Http",
+            "target": "contoso-default-netty.eventgrid.azure.net",
+            "success": true,
+            "properties": {
+              "_MS.ProcessedByMetricExtractors": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:35:07.582Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "33707e5425679c85"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "POST /contoso-legacy-jobs/messages",
+            "duration": "00:00:00.008936",
+            "id": "bac6cd7b3a681810",
+            "resultCode": "201",
+            "data": "https://contosodefaultnetty.queue.core.windows.net/contoso-legacy-jobs/messages?visibilitytimeout=0&messagettl=86400",
+            "type": "Http",
+            "target": "contosodefaultnetty.queue.core.windows.net",
+            "success": true,
+            "properties": {
+              "_MS.ProcessedByMetricExtractors": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:35:07.35Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "78e0ef917c8ad0c6"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty.publish",
+            "duration": "00:00:00.297255",
+            "id": "33707e5425679c85",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0",
+              "contoso.span.kind": "PRODUCER"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:35:04.343Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "5ef1680312aaca528ff888bfa310fcec",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty-wire",
+            "duration": "00:00:03.350865",
+            "id": "78e0ef917c8ad0c6",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "0ccf983e-d5c5-443c-9785-9ecfe8e07ce0"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:35:09.196Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 8.744399999999999,
+                "count": 1,
+                "min": 8.744399999999999,
+                "max": 8.744399999999999
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "operation/synthetic": "False",
+              "dependency/resultCode": "201",
+              "Dependency.Type": "Http",
+              "cloud/roleInstance": "DESKTOP-JFTHPKH",
+              "cloud/roleName": "contoso-default-netty-wire",
+              "dependency/target": "contosodefaultnetty.queue.core.windows.net:443",
+              "_MS.IsAutocollected": "True",
+              "_MS.MetricId": "dependencies/duration",
+              "Dependency.Success": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:35:09.196Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 132.889,
+                "count": 1,
+                "min": 132.889,
+                "max": 132.889
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "operation/synthetic": "False",
+              "dependency/resultCode": "200",
+              "Dependency.Type": "Http",
+              "cloud/roleInstance": "DESKTOP-JFTHPKH",
+              "cloud/roleName": "contoso-default-netty-wire",
+              "dependency/target": "contoso-default-netty.eventgrid.azure.net:443",
+              "_MS.IsAutocollected": "True",
+              "_MS.MetricId": "dependencies/duration",
+              "Dependency.Success": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:35:09.196Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 0.0087444,
+                "count": 1,
+                "min": 0.0087444,
+                "max": 0.0087444
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "server.address": "contosodefaultnetty.queue.core.windows.net",
+              "server.port": "443",
+              "http.response.status_code": "201"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:35:09.196Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 0.132889,
+                "count": 1,
+                "min": 0.132889,
+                "max": 0.132889
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "server.address": "contoso-default-netty.eventgrid.azure.net",
+              "server.port": "443",
+              "http.response.status_code": "200"
+            }
+          }
+        }
+      }
+    ],
+    "validatorCliSourceSha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+  },
+  "limitations": [
+    "Local explicit credential/default business HTTP factory only",
+    "Not production managed identity or Azure service acceptance"
+  ]
+}

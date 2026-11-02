@@ -2,23 +2,35 @@
   <set-variable name="contoso.callerDelegated" value="@{
     var jwt = (Jwt)context.Variables[&quot;contoso.validatedCallerJwt&quot;];
     string[] scopes;
-    if (!jwt.Claims.TryGetValue(&quot;scp&quot;, out scopes)) return false;
-    return scopes.SelectMany(value =&gt; value.Split(' ')).Contains(&quot;{{contoso-delegated-scope}}&quot;);
+    string[] identityTypes;
+    if (!jwt.Claims.TryGetValue(&quot;scp&quot;, out scopes) || scopes == null || scopes.Length != 1 || scopes[0] == null) return false;
+    if (jwt.Claims.TryGetValue(&quot;idtyp&quot;, out identityTypes)
+      &amp;&amp; (identityTypes == null || identityTypes.Length != 1 || identityTypes[0] == &quot;app&quot;)) return false;
+    return scopes[0].Split(' ').Contains(&quot;{{contoso-delegated-scope}}&quot;);
   }" />
   <set-variable name="contoso.callerTrustedInvocationIssuer" value="@{
     var jwt = (Jwt)context.Variables[&quot;contoso.validatedCallerJwt&quot;];
     string[] values;
     var clientId = &quot;&quot;;
-    if (jwt.Claims.TryGetValue(&quot;azp&quot;, out values) &amp;&amp; values.Length == 1) clientId = values[0];
-    else if (jwt.Claims.TryGetValue(&quot;appid&quot;, out values) &amp;&amp; values.Length == 1) clientId = values[0];
+    if (jwt.Claims.TryGetValue(&quot;azp&quot;, out values)) {
+      if (values == null || values.Length != 1 || values[0] == null) return false;
+      clientId = values[0].ToLowerInvariant();
+      string[] legacyClientIds;
+      if (jwt.Claims.TryGetValue(&quot;appid&quot;, out legacyClientIds)
+        &amp;&amp; (legacyClientIds == null || legacyClientIds.Length != 1 || legacyClientIds[0] == null || legacyClientIds[0].ToLowerInvariant() != clientId)) return false;
+    }
+    else if (jwt.Claims.TryGetValue(&quot;appid&quot;, out values) &amp;&amp; values != null &amp;&amp; values.Length == 1 &amp;&amp; values[0] != null) clientId = values[0].ToLowerInvariant();
     string[] roles;
     string[] identityTypes;
-    return !(bool)context.Variables[&quot;contoso.callerDelegated&quot;]
+    return clientId.Length == 36
+      &amp;&amp; Regex.IsMatch(clientId, &quot;^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$&quot;)
+      &amp;&amp; clientId != &quot;00000000-0000-0000-0000-000000000000&quot;
+      &amp;&amp; !(bool)context.Variables[&quot;contoso.callerDelegated&quot;]
       &amp;&amp; !jwt.Claims.ContainsKey(&quot;scp&quot;)
       &amp;&amp; jwt.Claims.TryGetValue(&quot;idtyp&quot;, out identityTypes)
-      &amp;&amp; identityTypes.Length == 1 &amp;&amp; identityTypes[0] == &quot;app&quot;
+      &amp;&amp; identityTypes != null &amp;&amp; identityTypes.Length == 1 &amp;&amp; identityTypes[0] == &quot;app&quot;
       &amp;&amp; jwt.Claims.TryGetValue(&quot;roles&quot;, out roles)
-      &amp;&amp; roles.Contains(&quot;Portal.Invoke&quot;)
+      &amp;&amp; roles != null &amp;&amp; roles.Contains(&quot;Portal.Invoke&quot;)
       &amp;&amp; &quot;{{contoso-portal-client-ids}}&quot;.Split(',').Contains(clientId);
   }" />
   <choose>

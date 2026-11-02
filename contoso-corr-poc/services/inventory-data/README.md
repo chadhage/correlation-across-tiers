@@ -49,6 +49,44 @@ logging fail startup. Provider/config/sampling attachment stays R4-owned.
 
 ## Authentication, bounds and privacy
 
+Current source uses the single security-core `IdentityHttpClients` factory for
+intended managed-identity entry points. The adapter creates one credential and
+passes that same instance to PostgreSQL and Redis. Compatible
+`EntraPgConnectionFactory.fromEnvironment(serviceName, TokenCredential)`,
+`LettuceInventoryCache.fromEnvironment(TokenCredential)` and
+`PgRedisInventoryDataAdapter.fromEnvironment(TokenCredential)` overloads preserve
+provided credentials. Operator/bootstrap callers can explicitly supply
+`IdentityHttpClients.defaultCredential()`; deployed defaults remain managed
+identity, not an operator's CLI identity. Existing injected constructors remain.
+
+AuthX 0.2.0's public
+`EntraIDTokenAuthConfigBuilder.customEntraIdAuthenticationSupplier` accepts the
+credential-backed `Supplier<IAuthenticationResult>`. Its bounded adapter creates
+no separate MSAL/HTTP client or header filter. The real
+`TokenBasedRedisCredentialsProvider` still owns streaming renewal and
+`ON_NEW_CREDENTIALS` reauthentication. PostgreSQL/JDBC and Lettuce retain their
+existing TLS/socket transports; there is no business REST SDK client selected
+through HTTP provider discovery in this module.
+
+The shared identity transport's local header/CLIENT-output qualification is not
+actual PostgreSQL/Managed Redis renewal, operator authentication, private-service
+connectivity or this changed module's loaded-instance lineage. The corrected
+credential/lifecycle/grant main sources compiled in the parent's Data v2 run;
+33 Java tests ran with one overbroad grant assertion failure, so no package or
+installation completed. The corrected assertion still requires a fresh parent
+retake. The old installed inventory-data JAR remains historical; source
+declarations do not retrofit it.
+
+The first Data source candidate's parent build failed during main compilation
+because AuthX builder cleanup declares a checked exception; no Java tests or new
+artifact ran in that attempt. Its failed witness is preserved. Current source
+handles the builder lifecycle explicitly: successful handoff closes the builder
+only; a failed handoff also disposes the created provider. Cleanup failure becomes
+a fixed unavailable category, never a swallowed or raw exception. The borrowed
+`TokenCredential` is not closed. The parent v2 run exercised the four lifecycle
+and two mocked marker tests successfully; that scoped observation does not turn
+its remaining grant assertion failure into a package/install PASS.
+
 PostgreSQL uses only the managed identity audience
 `https://ossrdbms-aad.database.windows.net/.default`. Internal single-flight refresh
 supplies valid tokens to **new physical connections**, not a permanent Hikari
@@ -97,7 +135,11 @@ runner applies V001 then R5's V002. `InventorySchemaHooks` exposes:
 * `registerPrincipal(postgresAdminFactory, Permit, Principal, OperationContext)` —
   OID-bound nonadmin principal mapping in database `postgres`.
 * `grantInventory(adminFactory, Permit, Principal, OperationContext)` — minimal
-  Inventory CONNECT/USAGE/table grants; no runtime DROP/CREATE/TRUNCATE/DELETE.
+  Inventory CONNECT/USAGE/column grants; no runtime DROP/CREATE/TRUNCATE/DELETE.
+* `grantWorkflow(adminFactory, Permit, Principal, WorkflowRole, OperationContext)` —
+  approved V002 column grants for `ORDERS`, `FULFILLMENT`, `NOTIFY` or
+  `AGGREGATOR`. It checks the bound marker, Entra object-ID mapping and nonadmin
+  role flags. It does not install V002 or register a principal.
 * `resetOwnedRows(adminFactory, ownedCache, Permit, OperationContext)` — approved
   resource/database/marker checks, known synthetic rows only and five known cache
   keys. Unrelated/non-synthetic records remain untouched. Reset returns stock20,
@@ -107,6 +149,29 @@ The permit is a target/execution guard, **not authentication**. Bootstrap requir
 the independently authorized administrative identity; these methods are not normal
 web routes. Drain demo mutation traffic before reset. Existing owned rows are locked
 with the dataset marker; a reset never broadens to other schemas or key namespaces.
+
+`db/grants/workflow` contains the common revocations/read grants and explicit
+role policies. Existing direct table/column INSERT/UPDATE permissions are revoked
+before narrower grants are added. `owner`, `publisher`, `receiver`, `creator` and
+creation timestamps remain server-controlled defaults. Only Orders can mutate
+targeted `async_fault.replay_requested`; fulfillment/notify can INSERT the
+composite `(original_message_id, source)` replay identity, never UPDATE it.
+Both Inventory and workflow privilege paths verify the locked resource/workload/
+environment/seed marker before any REVOKE/GRANT. Missing, unbound, foreign-restored
+or wrong-dataset markers fail closed. Aggregator may bind verified result-receipt
+source snapshots but cannot alter
+the fixed receiver or protected publication/contributor records. No generic
+table UPDATE is granted. Dedicated, OID-mapped nonadmin roles and independently
+verified effective/inherited permissions are prerequisites; authorized writer or
+receiver compromise remains a limitation.
+
+Aggregator retains SELECT-only access to replay ownership/source records for
+the shared trust and replay-delivery checks, and to publication/contributor
+records for verified result receipts and complete fan-in. It cannot INSERT,
+UPDATE or DELETE those protected records. An initial Java grant assertion
+incorrectly rejected the required common SELECT along with mutation privileges;
+the corrected assertion separately requires read and rejects every non-SELECT
+grant. SQL privileges were not broadened for that correction.
 
 ## Validation and remaining live acceptance
 
@@ -120,6 +185,20 @@ with loopback NDJSON ingestion receipts. Positive data graph, absent-manual-span
 negative control, raw sentinel/privacy scans, local sampled-0 suppression, native
 links/parentage and bounded 256-MiB heap are verified locally. H2/RESP/loopback are
 not Azure service certification or evidence of PostgreSQL-native spans.
+
+The preceding runtime results are historical construction evidence, not fresh
+execution of this credential/grant delta. Source-only checks can be run without
+Java or Azure:
+
+```powershell
+node --test --test-reporter=spec .\contoso-corr-poc\services\inventory-data\tools\data-source-contract.test.mjs
+```
+
+After an explicit coordinator Java grant, focused selectors are
+`PgTokenCacheTest,EntraPoolTest,RedisDataTest,RedisEntraIdAuthenticationSupplierTest,RedisCredentialsLifecycleTest,WorkflowGrantPolicyTest,InventoryGrantMarkerTest,InventoryDataTest,DataSafetyTest`.
+The new AuthX test exercises the real public credentials provider with an
+injected synthetic credential; it is not Azure identity or private Redis proof.
+Native `DataAgentQualificationTest` requires a separate grant.
 
 `tools/Test-DataModules.ps1 -BicepPath <existing-cli>` only compiles/checks the two
 owned modules. The compiler lacks types for the latest documented GA data APIs

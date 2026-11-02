@@ -32,6 +32,20 @@ labels do not waive required positive coverage. R9 separately checks entire
 missing boundaries, wrong existing parents, duplicates and contributor counts.
 Timestamp+duration requires source-confirmed start-time semantics.
 
+Separate `conditionalRoots` are candidate policies, not deliberate-root
+exemptions. Exact policy/disposition, actual null parent, role and source-bound
+runtime/carrier evidence are required. Default queries retain these as
+`conditional-root-unverified`; generic remote-reference labels, state-only
+errors or business UUID changes cannot waive them. Caller proof JSON is not
+native authority. The private R9 graph-session binding interface supplies
+adjudicated inputs only after genuine source/native intake.
+For in-process rendering, pass `verifiedGraphCapability`, its original
+`verifiedGraphRows`, and `verificationMode`. The renderer uses R9's sealed
+getter; copies, fixtures/LocalValidate and caller JSON cannot supply native
+conditional exemptions. Runtime/carrier observer enrollment is currently
+unavailable, so these roots remain unverified rather than being filled with
+expected map values.
+
 All six tables, field types/native ID mappings, query compilation/execution,
 complete source permissions/partial-result handling and actual delays remain
 **To Do** on deployed LAW. Local fixtures validate checker behavior, not Azure

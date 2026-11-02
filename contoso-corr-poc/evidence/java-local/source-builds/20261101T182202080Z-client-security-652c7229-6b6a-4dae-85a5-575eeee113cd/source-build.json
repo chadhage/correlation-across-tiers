@@ -1,0 +1,332 @@
+{
+  "schema": "contoso.parent-java-source-build.v1",
+  "executionId": "b3bd6eb1-890f-4ff5-88da-723880603515",
+  "scope": "actual-selected-owned-module-clean-build",
+  "module": "services\\security-core",
+  "certified": false,
+  "command": "call \"C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\apache-maven-3.10.0\\bin\\mvn.cmd\" -B -ntp -f \"C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\security-core\\pom.xml\" clean package",
+  "launcherPid": 5244,
+  "mavenJavaObservations": [
+    {
+      "pid": 62088,
+      "parentPid": 5244,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "createdAtUtc": "2026-11-01T18:22:11.6500560Z",
+      "observedAtUtc": "2026-11-01T18:22:43.0920441Z",
+      "kind": "observed-maven-java-child"
+    }
+  ],
+  "startedAtUtc": "2026-11-01T18:22:07.4992600Z",
+  "finishedAtUtc": "2026-11-01T18:22:43.9210148Z",
+  "exitCode": 0,
+  "toolchain": {
+    "mavenCommand": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\apache-maven-3.10.0\\bin\\mvn.cmd",
+    "mavenCommandSha256": "b7001067ae1a052a3853bc51df0e1a4c013aadae2005837a1e970c0d51b57fdf",
+    "java": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+    "javaSha256": "f961fb8db73c7c546821bc6d30fdaa8ce2458da460a5e75e2c39189cd107e6ba",
+    "javac": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\javac.exe",
+    "javacSha256": "02160baa324a6a778e01962f14c748155c3172c37821df201bb201df110985c0",
+    "versions": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.java-work\r\nApache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)\r\nMaven home: C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\apache-maven-3.10.0\r\nJava version: 25.0.5, vendor: Eclipse Adoptium, runtime: C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\r\nDefault locale: en_US, platform encoding: UTF-8, time zone: America/New_York\r\nOS name: \"windows 11\", version: \"10.0\", arch: \"amd64\", family: \"windows\"",
+    "witnessScriptSha256": "b7464e37860532a6d0aa8cc10baee59736d499bbe9308dcbaff90102c887c671"
+  },
+  "beforeSources": [
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5"
+    },
+    {
+      "path": "services\\security-core\\pom.xml",
+      "sha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\AuthorizationPolicy.java",
+      "sha256": "43ff295fe47bb04456697f6fdf14542322273a487d030dd721794edb051517ed"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\BoundedBodySubscriber.java",
+      "sha256": "40584c3f3ea7a4e2841df3e62ec0a7ee6e66bef7be518929c73be5d37b053f3f"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\BoundedTokenProvider.java",
+      "sha256": "af17fbf23ae3a25992805192e9b68f8307c13f097c9831b8bc505d27ecc43a27"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+      "sha256": "a6a6ccdfcdc2bee719915af9c1f673143f3f57f472c6bacdf33972280c1734b6"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacPseudonymizer.java",
+      "sha256": "b2fe30ecb5225a49b69de25117cf61406a3a35c226f202307bec6111bc01a352"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacSecretBootstrap.java",
+      "sha256": "8fb03a45a88990b5c46cacf710d73fa41e75557d081408c4f029991f0bc204a4"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\JwkKeySource.java",
+      "sha256": "690eb27d28712fb282da96efd1c904327b0d6bfa4cb399d632bbd740626b8a8c"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\RequestAuthenticator.java",
+      "sha256": "5c515a25ef9da3e1dd23074aace9fb757df57ac3fbdd69f37d64ca6d6bbde2f6"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SafeAuthenticationTelemetry.java",
+      "sha256": "aadca343f90f449a0fc5eabed9bcff52451ec38eabe847c820ef9455df078e14"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SecretVersionReference.java",
+      "sha256": "c84d844b40504f0d07d54d23d366c79579063651bbf43b1f7d581a7b7126e409"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SecurityLoggingGuard.java",
+      "sha256": "bd3331c8cf61083b9b4ca11204a0c542e5f520ee0486dfa744f2cb35c3489cb8"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SigningKeyProvider.java",
+      "sha256": "0af350be5e78e132c3c123d0e858db6dcb7c6e83f230fea0ab05719af0e8dd5d"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\VerifiedCaller.java",
+      "sha256": "dce1d675889ce1e630b40cdb8c2bcfd690f5e36306c1b498b670f0c990705b11"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\WorkloadIdentity.java",
+      "sha256": "fe13086d60c03e3cc37f1906217550a16cd05197cc9eac626df390ea246b1a1a"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+      "sha256": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\BoundedTokenProviderTest.java",
+      "sha256": "2e0737d2281c4d32fa8f5ab8ce14cc045f00ad2987912ddbc67676b651434d89"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\HmacPseudonymizerTest.java",
+      "sha256": "3fac0b04628e311589122b18cbe5db4a188937916fc856472feed8b3509f5bbe"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\IdentityHttpClientsTest.java",
+      "sha256": "93f1bd5d257259468f44f7769f1b6240f7a23fce5dac44793b31fc6ac3767ac9"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\KeyRotationTest.java",
+      "sha256": "ab7aed797a636f232d62d764223055ce97dc3ca01eacecfab19cc5b86efccfc9"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+      "sha256": "f938b4bf362a5953ed291c5d614310c394c03f6ee4f773c22fc559e02b92a9b1"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\SecurityFixture.java",
+      "sha256": "f333021240789c2456c5b69e6a5e424e947a8cc2d55cb64a20a5ed57170b71d8"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\SecurityLoggingGuardTest.java",
+      "sha256": "a9a3c841a0f01d3456f96976471986f9927180c0c9a7b6d21ad0faa92d52592a"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\resources\\logback-test.xml",
+      "sha256": "76ac0475411b950e532b97513754abe1cdd1a45ffa2f54eb9b41418b27b8c6e8"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5"
+    },
+    {
+      "path": "services\\security-core\\pom.xml",
+      "sha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\AuthorizationPolicy.java",
+      "sha256": "43ff295fe47bb04456697f6fdf14542322273a487d030dd721794edb051517ed"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\BoundedBodySubscriber.java",
+      "sha256": "40584c3f3ea7a4e2841df3e62ec0a7ee6e66bef7be518929c73be5d37b053f3f"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\BoundedTokenProvider.java",
+      "sha256": "af17fbf23ae3a25992805192e9b68f8307c13f097c9831b8bc505d27ecc43a27"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+      "sha256": "a6a6ccdfcdc2bee719915af9c1f673143f3f57f472c6bacdf33972280c1734b6"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacPseudonymizer.java",
+      "sha256": "b2fe30ecb5225a49b69de25117cf61406a3a35c226f202307bec6111bc01a352"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacSecretBootstrap.java",
+      "sha256": "8fb03a45a88990b5c46cacf710d73fa41e75557d081408c4f029991f0bc204a4"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\JwkKeySource.java",
+      "sha256": "690eb27d28712fb282da96efd1c904327b0d6bfa4cb399d632bbd740626b8a8c"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\RequestAuthenticator.java",
+      "sha256": "5c515a25ef9da3e1dd23074aace9fb757df57ac3fbdd69f37d64ca6d6bbde2f6"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SafeAuthenticationTelemetry.java",
+      "sha256": "aadca343f90f449a0fc5eabed9bcff52451ec38eabe847c820ef9455df078e14"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SecretVersionReference.java",
+      "sha256": "c84d844b40504f0d07d54d23d366c79579063651bbf43b1f7d581a7b7126e409"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SecurityLoggingGuard.java",
+      "sha256": "bd3331c8cf61083b9b4ca11204a0c542e5f520ee0486dfa744f2cb35c3489cb8"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SigningKeyProvider.java",
+      "sha256": "0af350be5e78e132c3c123d0e858db6dcb7c6e83f230fea0ab05719af0e8dd5d"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\VerifiedCaller.java",
+      "sha256": "dce1d675889ce1e630b40cdb8c2bcfd690f5e36306c1b498b670f0c990705b11"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\WorkloadIdentity.java",
+      "sha256": "fe13086d60c03e3cc37f1906217550a16cd05197cc9eac626df390ea246b1a1a"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+      "sha256": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\BoundedTokenProviderTest.java",
+      "sha256": "2e0737d2281c4d32fa8f5ab8ce14cc045f00ad2987912ddbc67676b651434d89"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\HmacPseudonymizerTest.java",
+      "sha256": "3fac0b04628e311589122b18cbe5db4a188937916fc856472feed8b3509f5bbe"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\IdentityHttpClientsTest.java",
+      "sha256": "93f1bd5d257259468f44f7769f1b6240f7a23fce5dac44793b31fc6ac3767ac9"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\KeyRotationTest.java",
+      "sha256": "ab7aed797a636f232d62d764223055ce97dc3ca01eacecfab19cc5b86efccfc9"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+      "sha256": "f938b4bf362a5953ed291c5d614310c394c03f6ee4f773c22fc559e02b92a9b1"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\SecurityFixture.java",
+      "sha256": "f333021240789c2456c5b69e6a5e424e947a8cc2d55cb64a20a5ed57170b71d8"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\SecurityLoggingGuardTest.java",
+      "sha256": "a9a3c841a0f01d3456f96976471986f9927180c0c9a7b6d21ad0faa92d52592a"
+    },
+    {
+      "path": "services\\security-core\\src\\test\\resources\\logback-test.xml",
+      "sha256": "76ac0475411b950e532b97513754abe1cdd1a45ffa2f54eb9b41418b27b8c6e8"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    }
+  ],
+  "beforeSourcesSha256": "fc8ba4b73f15a7b00e3333275a7c25f4d13370959e421b9ccdb3a35ad1383548",
+  "afterSourcesSha256": "fc8ba4b73f15a7b00e3333275a7c25f4d13370959e421b9ccdb3a35ad1383548",
+  "sourcesStable": true,
+  "tests": 32,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.BoundedTokenProviderTest.xml",
+      "sha256": "271b87e90e195ba0c2a7bc957026c9db60dde3ea016398940b0e08396e0b09aa",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.HmacPseudonymizerTest.xml",
+      "sha256": "afb238cf170912ccf71d51314c35afdefe8989e7a84b6ad283d0a42fb33fa3c0",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.IdentityHttpClientsTest.xml",
+      "sha256": "ebcc73775fcd4e8b9e14b02022b3e4751cb600671b42521ea24a9f7d9e0ebe5b",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.KeyRotationTest.xml",
+      "sha256": "b9017e2d27996f54946fc9bc0daf4e40df1cec6fa34678b8a0cadd45635330c2",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.RequestAuthenticatorTest.xml",
+      "sha256": "8be189fbbd9c2e83ee0b93df8d8e80344cf04fe9752a16cc196530208b2b1150",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.SecurityLoggingGuardTest.xml",
+      "sha256": "8cf2462112daec06e10b43668fbc191cf823fbd7d266b4e720e0d98531da3734",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "producedArtifact": {
+    "path": "services\\security-core\\target\\security-core-1.0.0.jar",
+    "sha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+    "bytes": 50595
+  },
+  "stdoutSha256": "e7d6b2777ea4a914f2ebc4632fef616d180596d2f5c0fa225d85fb2acc3ace5a",
+  "stderrSha256": "036599853b4bda0dfb46a5c6295339fec3c88c4a631936e4b75090e2e1c2f3b8",
+  "installedArtifactProof": "NOT_INSTALLED",
+  "actualLoadedCodeSourceProof": "PENDING_SEPARATE_NATIVE_EXECUTION",
+  "limitations": [
+    "No Azure/native wire/fidelity/privacy/owner certification",
+    "Selected module only; other owned modules are not inferred from classpath",
+    "This executed build witness does not itself grant verifier authority or API_READY"
+  ],
+  "result": "PASS"
+}

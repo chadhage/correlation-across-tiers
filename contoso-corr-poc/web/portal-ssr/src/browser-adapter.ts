@@ -1,7 +1,7 @@
 import type { BrowserContext, Page, Request, Response } from "@playwright/test";
 import {
   ContosoError, isUuid4, parsePublicConfig, safeRoute,
-  type ContosoBrowserRunResultV1, type ContosoBrowserRunSpecV1, type ContosoErrorCode,
+  type ContosoBrowserContextReceiptV1, type ContosoBrowserRunResultV1, type ContosoBrowserRunSpecV1, type ContosoErrorCode,
   type ContosoSdkDependencyIdentity, type ContosoPublicRuntimeConfigV1, type ExecutionMode
 } from "./shared/contracts.js";
 
@@ -28,6 +28,7 @@ export interface ContosoBrowserEvidenceV1 {
   driverKind: "browser-spa" | "browser-ssr";
   observations: readonly SanitizedBrowserObservation[];
   dependencies: readonly ContosoSdkDependencyIdentity[];
+  browserContexts: readonly ContosoBrowserContextReceiptV1[];
   outcome: "staged" | "rejected";
   backendId?: string;
   businessInvocationId?: string;
@@ -99,6 +100,7 @@ export async function driveContosoBrowser(
   let result: ContosoBrowserRunResultV1 | undefined;
   let dependencies: readonly ContosoSdkDependencyIdentity[] = [];
   let invocationVersion = 0;
+  const browserContexts: ContosoBrowserContextReceiptV1[] = [];
   try {
     const preparation = await page.evaluate(async (input): Promise<number | ContosoErrorCode> => {
       const controller = window.contosoDemos;
@@ -114,6 +116,8 @@ export async function driveContosoBrowser(
     if (typeof preparation === "string") throw new ContosoError(preparation, 409);
     if (!Number.isSafeInteger(preparation) || preparation < 1) throw new ContosoError("REQUEST_INVALID");
     invocationVersion = preparation;
+    const initialContext = await page.evaluate(() => window.contosoDemos?.browserContextIdentity());
+    if (initialContext) browserContexts.push(initialContext);
     page.on("request", requestEvent);
     page.on("response", responseEvent);
     if (spec.kind === "portal") {
@@ -131,6 +135,8 @@ export async function driveContosoBrowser(
     result = await page.evaluate(id => window.contosoDemos?.result(id), spec.runId);
     await page.evaluate(async () => { await window.contosoDemos?.flushTelemetry(); });
     dependencies = await page.evaluate(() => window.contosoDemos?.dependencyIdentities() ?? []);
+    const completedContext = await page.evaluate(() => window.contosoDemos?.browserContextIdentity());
+    if (completedContext) browserContexts.push(completedContext);
     await Promise.all(pending);
     if (result?.outcome !== "rejected" && !observations.some(item => item.status !== undefined && item.status >= 200 && item.status < 300))
       throw new ContosoError("API_RESPONSE_INVALID");
@@ -151,7 +157,7 @@ export async function driveContosoBrowser(
     runId: spec.runId, invocationVersion, demoId: spec.demoId, sdkVersion: "3.4.5",
     browserVersion: page.context().browser()?.version() ?? "unavailable",
     driverKind: spec.kind === "portal" ? "browser-ssr" : "browser-spa",
-    observations, dependencies, outcome: result.outcome === "rejected" ? "rejected" : "staged"
+    observations, dependencies, browserContexts, outcome: result.outcome === "rejected" ? "rejected" : "staged"
   };
   if (result.backend) {
     evidence.backendId = result.backend.id;

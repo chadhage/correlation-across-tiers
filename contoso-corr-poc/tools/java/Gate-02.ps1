@@ -1,6 +1,7 @@
 param(
   [string]$ProjectRoot = (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent),
-  [switch]$RequireArtifacts
+  [switch]$RequireArtifacts,
+  [switch]$RequireExtensionEvidence
 )
 $ErrorActionPreference = 'Stop'
 $failures = @()
@@ -13,6 +14,22 @@ if (Test-Path -LiteralPath $lockPath) {
 }
 $extensionPom = if ($extension) { [IO.Path]::GetFullPath((Join-Path $ProjectRoot "$($extension.module)\pom.xml")) } else { '' }
 $sdkArtifacts = @('opentelemetry-sdk-trace','opentelemetry-sdk-common','opentelemetry-sdk-extension-autoconfigure-spi')
+$requireExtension = $RequireArtifacts -or $RequireExtensionEvidence
+if ($RequireArtifacts) {
+  [xml]$reactor = Get-Content -Raw -LiteralPath (Join-Path $ProjectRoot 'pom.xml')
+  foreach ($entry in $reactor.SelectNodes("/*[local-name()='project']/*[local-name()='modules']/*[local-name()='module']")) {
+    $module = Join-Path $ProjectRoot $entry.InnerText.Replace('/', '\')
+    $pomPath = Join-Path $module 'pom.xml'
+    if (-not (Test-Path -LiteralPath $pomPath)) { $failures += "Declared reactor module is missing: $module"; continue }
+    [xml]$modulePom = Get-Content -Raw -LiteralPath $pomPath
+    $artifactId = $modulePom.SelectSingleNode("/*[local-name()='project']/*[local-name()='artifactId']").InnerText
+    $versionNode = $modulePom.SelectSingleNode("/*[local-name()='project']/*[local-name()='version']")
+    $moduleVersion = if ($versionNode) { $versionNode.InnerText } else { '1.0.0' }
+    if (-not (Test-Path -LiteralPath (Join-Path $module "target\$artifactId-$moduleVersion.jar"))) {
+      $failures += "Declared module has no real packaged artifact: $module"
+    }
+  }
+}
 function Test-ApplicationArchive([IO.Compression.ZipArchive]$Zip, [string]$Artifact, [int]$Depth = 0) {
   $errors = @()
   if ($Depth -gt 4 -or $Zip.Entries.Count -gt 20000) { return "Uninspectable application archive: $Artifact" }
@@ -35,6 +52,17 @@ function Test-ApplicationArchive([IO.Compression.ZipArchive]$Zip, [string]$Artif
         finally { $nested.Dispose() }
       } catch { $errors += "Unreadable nested archive: $Artifact/$name" }
       finally { $input.Dispose(); $memory.Dispose() }
+    }
+    if ($name.EndsWith('.class')) {
+      if ($entry.Length -gt 2097152) { $errors += "Uninspectable class: $Artifact/$name"; continue }
+      $input = $entry.Open()
+      $memory = [IO.MemoryStream]::new()
+      try {
+        $input.CopyTo($memory)
+        if ([Text.Encoding]::UTF8.GetString($memory.ToArray()).Contains('CONSTRUCTION_ONLY')) {
+          $errors += "Throw-only construction implementation in real artifact: $Artifact/$name"
+        }
+      } finally { $input.Dispose(); $memory.Dispose() }
     }
   }
   return $errors
@@ -115,7 +143,7 @@ if ($extension) {
       if ((Get-FileHash -LiteralPath $jar -Algorithm SHA256).Hash.ToLowerInvariant() -ne $extension.sha256) {
         $failures += 'Extension hash mismatch'
       }
-    } elseif ($RequireArtifacts) { $failures += 'Extension is not hash-frozen' }
+    } elseif ($requireExtension) { $failures += 'Extension is not hash-frozen' }
     $zip = [IO.Compression.ZipFile]::OpenRead($jar)
     try {
       foreach ($entry in $zip.Entries) {
@@ -140,10 +168,10 @@ if ($extension) {
         elseif ($extension.providerClass -and $providers[0].Trim() -ne $extension.providerClass) { $failures += 'Extension provider ABI mismatch' }
       }
     } finally { $zip.Dispose() }
-    if ($RequireArtifacts -and (-not $extension.runtimeLoaderArgument -or -not $extension.providerClass)) {
+    if ($requireExtension -and (-not $extension.runtimeLoaderArgument -or -not $extension.providerClass)) {
       $failures += 'Extension loader/classloader ABI evidence remains unfrozen'
     }
-    if ($RequireArtifacts) {
+    if ($requireExtension) {
       $probePath = Join-Path $ProjectRoot $extension.probeReport
       if (-not (Test-Path -LiteralPath $probePath)) { $failures += 'Actual extension loader probe evidence missing' }
       else {
@@ -175,8 +203,9 @@ if ($extension) {
         }
       }
     }
-  } elseif ($RequireArtifacts) { $failures += 'Required extension JAR missing' }
+  } elseif ($requireExtension) { $failures += 'Required extension JAR missing' }
 }
+if ($requireExtension -and -not $extension) { $failures += 'Required frozen extension inventory missing' }
 if ($failures.Count) { $failures | Write-Error; throw 'GATE-02 FAIL' }
 if ($RequireArtifacts) {
   Write-Output 'GATE-02 pinned artifact/all-scope/SPI/local-classloader evidence PASS; deployed startup and vendor support remain To Do.'

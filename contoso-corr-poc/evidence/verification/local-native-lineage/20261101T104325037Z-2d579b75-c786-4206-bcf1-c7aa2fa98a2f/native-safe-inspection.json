@@ -1,0 +1,1140 @@
+[ {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "9510e8649ed610e3"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "c178e5cf-641a-4d37-838d-79792999742a"
+  },
+  "traceId" : "e4ac774e3cc3a12941eff9e80d35db8b",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "22021f71e0fdc1fd"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "edc42fb8acb6eab3",
+  "id" : "53b4f0db1961ca2b"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "edc42fb8acb6eab3",
+  "id" : "99aa6b2fe081d458"
+}, {
+  "properties" : {
+    "contoso.span.kind" : "PRODUCER",
+    "contoso.message.id" : "c83b36d7-5c46-4b22-b6c9-b6d0d5f86683",
+    "contoso.publish.attempt" : "1",
+    "contoso.outcome" : "SENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.workflow.id" : "e24f4ba2-8b69-4b8b-84be-34c92422101a"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.servicebus.send",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "edc42fb8acb6eab3"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "6a9561d9-7aad-4ab4-9cd2-61ad9eb7d017"
+  },
+  "traceId" : "4e65bde733ff4c73d142b16478f538be",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "a600dce16b5d282d"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6c50d0be2902d3dc",
+  "id" : "d59f7703042fba6f"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6c50d0be2902d3dc",
+  "id" : "0e6d35226da255ad"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "e24f4ba2-8b69-4b8b-84be-34c92422101a",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "RETRY",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "c83b36d7-5c46-4b22-b6c9-b6d0d5f86683",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "edc42fb8acb6eab3",
+  "id" : "6c50d0be2902d3dc"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "77a8754f-5fb9-41c4-afe3-747ab3268ada"
+  },
+  "traceId" : "632e6b1f87beff9c6d0b6ea9216f93e0",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "948b2cb1cdfb3e58"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "2fdee3b6e6c08b07",
+  "id" : "78ba2c34166559f9"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "2fdee3b6e6c08b07",
+  "id" : "7c02d728e1c7f94e"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "e24f4ba2-8b69-4b8b-84be-34c92422101a",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "RETRY",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "2",
+    "contoso.message.id" : "c83b36d7-5c46-4b22-b6c9-b6d0d5f86683",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "edc42fb8acb6eab3",
+  "id" : "2fdee3b6e6c08b07"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "6bd30595-8723-44dd-871e-318912867b6a"
+  },
+  "traceId" : "75a0f3b8b9cd878d069a1ad5154582b1",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "4882de0095ef8b9c"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "cc88ad1a3cc1be06",
+  "id" : "f7ff18859b6fb634"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "cc88ad1a3cc1be06",
+  "id" : "75d4104dbded92bb"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "e24f4ba2-8b69-4b8b-84be-34c92422101a",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "3",
+    "contoso.message.id" : "c83b36d7-5c46-4b22-b6c9-b6d0d5f86683",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "edc42fb8acb6eab3",
+  "id" : "cc88ad1a3cc1be06"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "ba6bcfc1-318c-46a9-bcb8-8facb684db83"
+  },
+  "traceId" : "e0522be8af57e7b28d323a92cd245bd1",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "d616c1e077716e1c"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.select",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "c28e1c871543b1c4"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "1ef317d973149f38"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "fa01928f-b6b4-48a2-987a-21dbc5737a50"
+  },
+  "traceId" : "918040773e7a6dfd024a382e0bd9423c",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "8eafb21d366e90af"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6767d938f450a82e",
+  "id" : "e938d0ce29d4423e"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6767d938f450a82e",
+  "id" : "396102ef956c113f"
+}, {
+  "properties" : {
+    "contoso.span.kind" : "PRODUCER",
+    "contoso.message.id" : "b9439d7a-3cbb-4748-ae3b-ecbf3f2d23c8",
+    "contoso.publish.attempt" : "1",
+    "contoso.outcome" : "SENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.servicebus.send",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "6767d938f450a82e"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "16597b0f-bc98-48e9-b52a-b5b99aa2187d"
+  },
+  "traceId" : "a69077141027dc989bf35581f65f5d74",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "ecc8b3ccde9ce3f6"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "646533e5bf0edee0",
+  "id" : "0c4d5fff5f515162"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "646533e5bf0edee0",
+  "id" : "ecf262c0289fee58"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "RETRY",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "b9439d7a-3cbb-4748-ae3b-ecbf3f2d23c8",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "6767d938f450a82e",
+  "id" : "646533e5bf0edee0"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "ba837471-84a0-4983-abce-63f2eadfd627"
+  },
+  "traceId" : "ffe6807745fb41db021fdb367dc6667f",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "a09a65cb3544dd48"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "c1d6d84a0f57aecb",
+  "id" : "8c8b955d896172dc"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "c1d6d84a0f57aecb",
+  "id" : "3c54c7d5195b03db"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "DEAD_LETTERED",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "2",
+    "contoso.message.id" : "b9439d7a-3cbb-4748-ae3b-ecbf3f2d23c8",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "6767d938f450a82e",
+  "id" : "c1d6d84a0f57aecb"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "bc924d44f9579b83"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "c062ae1b0ac91de423f2c4d4495905d4",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "d896553f52ff683b"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "bf6fe913290b1b3706defb7158c97fd4",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "3e9e1bf9211cb6c6"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "59c5356de013850eaa848c36c4a3b546",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "14145b237c60c638",
+  "id" : "8d1b1620cdaf32b6"
+}, {
+  "properties" : {
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"6767d938f450a82e\"}]",
+    "contoso.outcome" : "REPLAY_QUEUED",
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.process.attempt" : "2",
+    "contoso.link.count" : "1"
+  },
+  "traceId" : "59c5356de013850eaa848c36c4a3b546",
+  "name" : "contoso.replay.process",
+  "parentId" : "",
+  "id" : "14145b237c60c638"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "c383e59f-3e81-4dd0-906e-09eef44a5b14"
+  },
+  "traceId" : "02bd7340b468c04195bac62df3bd2761",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "7dcaaf485208cbca"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "c7006cd62096c8df",
+  "id" : "8a2e1a9e2a0e218a"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "c7006cd62096c8df",
+  "id" : "8cd3253e1f42d010"
+}, {
+  "properties" : {
+    "contoso.outcome" : "SENT",
+    "contoso.message.id" : "1fbd9125-828e-4a28-aeae-8f3e07e8e6c9",
+    "contoso.original.message.id" : "b9439d7a-3cbb-4748-ae3b-ecbf3f2d23c8",
+    "contoso.causation.id" : "b9439d7a-3cbb-4748-ae3b-ecbf3f2d23c8",
+    "contoso.link.count" : "1",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"6767d938f450a82e\"}]",
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d",
+    "contoso.publish.attempt" : "1",
+    "contoso.span.kind" : "PRODUCER"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.replay.send",
+  "parentId" : "",
+  "id" : "c7006cd62096c8df"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "78a189c8-dea3-4893-9260-6cd450860987"
+  },
+  "traceId" : "f8e8fe8c7e1438d6197068dc3ce2ba4e",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "caa9560924045bae"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.pg.select",
+  "parentId" : "6eaad9c0bfe9f5e2",
+  "id" : "c00ac1784e91c128"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6eaad9c0bfe9f5e2",
+  "id" : "a8edbab57fbb7c0b"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "6eaad9c0bfe9f5e2",
+  "id" : "ed8435fe6d2f04a9"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "689ca013-f8dd-4ed0-aea9-7fba9939c16d",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "1fbd9125-828e-4a28-aeae-8f3e07e8e6c9",
+    "contoso.branch" : "ORDER"
+  },
+  "traceId" : "64210b75442da196b23b619c465cd65a",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "c7006cd62096c8df",
+  "id" : "6eaad9c0bfe9f5e2"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "583edbbae9b61997"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "4ce417bc-af93-41c3-9645-5cd8573d01b0"
+  },
+  "traceId" : "63e2793dbd286f247edc7b1a96733295",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "9bc37c91fa8008b5"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "a3b686580c1647fb",
+  "id" : "a38ae8f18ec33b32"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "a3b686580c1647fb",
+  "id" : "f8bc00ebccafe4e8"
+}, {
+  "properties" : {
+    "contoso.span.kind" : "PRODUCER",
+    "contoso.message.id" : "ae06a24d-434c-490a-aa18-34d5d2ead707",
+    "contoso.publish.attempt" : "1",
+    "contoso.outcome" : "SENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.servicebus.send",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "a3b686580c1647fb"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "da406137-1434-42b8-86b3-bf2f0681c9a4"
+  },
+  "traceId" : "a468a63a2277d38d2c771cb720b43d79",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "2abe552467c86098"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "13eb35c9f1a03d26",
+  "id" : "e69198161a36bd52"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "13eb35c9f1a03d26",
+  "id" : "d2e2225f8924ff50"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "ae06a24d-434c-490a-aa18-34d5d2ead707",
+    "contoso.branch" : "FULFILLMENT"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.fulfillment.process",
+  "parentId" : "a3b686580c1647fb",
+  "id" : "13eb35c9f1a03d26"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "d1e96892-45c2-42be-948e-0e583625e3cd"
+  },
+  "traceId" : "b71e13ab2b3096348d833d0e5f26bbed",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "01f4f8f7b89795c3"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "5fd62cfe17cbfa47",
+  "id" : "6fd561486280e349"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "5fd62cfe17cbfa47",
+  "id" : "a668a6371b1bdded"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "ae06a24d-434c-490a-aa18-34d5d2ead707",
+    "contoso.branch" : "NOTIFY"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.notify.process",
+  "parentId" : "a3b686580c1647fb",
+  "id" : "5fd62cfe17cbfa47"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "35a83cfc-ae80-4f87-b067-ea765f12bdfb"
+  },
+  "traceId" : "b78391d5bc16532c565f6afa42b7e806",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "ca4bc9407bf838cb"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "d0746d3d7cd6be76",
+  "id" : "dbc9300cc424c061"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "d0746d3d7cd6be76",
+  "id" : "599a92c2227863ca"
+}, {
+  "properties" : {
+    "contoso.outcome" : "SENT",
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.message.id" : "fb600082-6b5d-47ee-9e3a-ca0ef35b9140",
+    "contoso.span.kind" : "PRODUCER",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.causation.id" : "ae06a24d-434c-490a-aa18-34d5d2ead707",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"13eb35c9f1a03d26\"}]",
+    "contoso.publish.attempt" : "1",
+    "contoso.link.count" : "1"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.servicebus.send",
+  "parentId" : "",
+  "id" : "d0746d3d7cd6be76"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "6ddcd65a-4238-4c9d-b0b3-37eda7c62e0f"
+  },
+  "traceId" : "7ceff5d6c805f8644df8a338921bc3e0",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "22177a30faa4f5f2"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "ad08168caf556aee",
+  "id" : "d64d5fe1ae0df535"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "ad08168caf556aee",
+  "id" : "bfec870d2ac04a06"
+}, {
+  "properties" : {
+    "contoso.outcome" : "SENT",
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.message.id" : "6c6da1ae-bff7-459a-8dc9-27841ccd6815",
+    "contoso.span.kind" : "PRODUCER",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.causation.id" : "ae06a24d-434c-490a-aa18-34d5d2ead707",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"5fd62cfe17cbfa47\"}]",
+    "contoso.publish.attempt" : "1",
+    "contoso.link.count" : "1"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.servicebus.send",
+  "parentId" : "",
+  "id" : "ad08168caf556aee"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "0f0e8c22-4fb4-43f9-a910-e1df333b98df"
+  },
+  "traceId" : "e0bf7c94ffabcae472ef01131759da8b",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "248e44968bb944aa"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "d792afc08ebc8333",
+  "id" : "4f0eb4f1f171a9ac"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "d792afc08ebc8333",
+  "id" : "82da232b1c0ccfe0"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "dc9af55c45de70b5ddba539df2985bb1",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "9c03c66436f981fb"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "fb600082-6b5d-47ee-9e3a-ca0ef35b9140",
+    "contoso.branch" : "AGGREGATOR"
+  },
+  "traceId" : "fd2685f9bfb574802951010a77fb8735",
+  "name" : "contoso.results.process",
+  "parentId" : "d0746d3d7cd6be76",
+  "id" : "d792afc08ebc8333"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "f82dec52-37a0-462d-a671-90c5e380fc82"
+  },
+  "traceId" : "81820ec10cd0a8536e0bcbb2f6232a89",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "cf013523bd3b8b04"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "59ce5632111f6c87",
+  "id" : "352fa339930829ba"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "59ce5632111f6c87",
+  "id" : "86a41d42d2bae4e2"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "e89d9aebf15259ac767e176c8f0272e6",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "3abcd98d4ed76bb1"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "ae6461eeed5cfa03ea9e4ece6e78d4d3",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "10eca023d99fd178"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "4ba9e48166a92addfb7a5da34644a358",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "2ad9a15068828a63",
+  "id" : "34366a0641729117"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.span.kind" : "INTERNAL",
+    "contoso.link.count" : "4",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"13eb35c9f1a03d26\"},{\"operation_Id\":\"fd2685f9bfb574802951010a77fb8735\",\"id\":\"d0746d3d7cd6be76\"},{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"5fd62cfe17cbfa47\"},{\"operation_Id\":\"1a6217dc213e226a920226c82c082044\",\"id\":\"ad08168caf556aee\"}]",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.branch" : "AGGREGATOR"
+  },
+  "traceId" : "4ba9e48166a92addfb7a5da34644a358",
+  "name" : "contoso.fanin.process",
+  "parentId" : "",
+  "id" : "2ad9a15068828a63"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "a96af48a-33fc-4d2b-9e89-1f2236898534",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "6c6da1ae-bff7-459a-8dc9-27841ccd6815",
+    "contoso.branch" : "AGGREGATOR"
+  },
+  "traceId" : "1a6217dc213e226a920226c82c082044",
+  "name" : "contoso.results.process",
+  "parentId" : "ad08168caf556aee",
+  "id" : "59ce5632111f6c87"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "48909729-d7d8-41bc-8b1f-b3ee2d51761d"
+  },
+  "traceId" : "cacce1284539237283d718f0cc1b821a",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "17219dcf672e3de1"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "c7d2569e-4a54-44ab-a940-57dd44945bcc"
+  },
+  "traceId" : "c153d51cb96a5d94bc6bcd783684c88e",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "9d6b07255028529b"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.select",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "0ed679fb5b82b268"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "716f2435253aa639"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "8d0e5cdb-0da2-497c-bd68-4e8a5fe17458"
+  },
+  "traceId" : "3121c9c2f767db7d9c446c9aadd4a20b",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "52f04f05bb179305"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "84f48715b7b72ea55b5fe5c151b99f9a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "40ec55f7f00fda6d",
+  "id" : "d1dcc2a34a9e2bf8"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "84f48715b7b72ea55b5fe5c151b99f9a",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "40ec55f7f00fda6d",
+  "id" : "54a356860bd5fdb8"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "64180e37-842c-4549-954e-9a3839ed328f",
+    "contoso.span.kind" : "PRODUCER",
+    "contoso.link.count" : "1",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"3b781839697b5d7c\"}]",
+    "contoso.outcome" : "SENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.publish.attempt" : "1",
+    "contoso.message.id" : "bbae17c4-39be-4c25-91f9-dc2ae6a00983"
+  },
+  "traceId" : "84f48715b7b72ea55b5fe5c151b99f9a",
+  "name" : "contoso.eventhubs.send",
+  "parentId" : "",
+  "id" : "40ec55f7f00fda6d"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "557dfb900c159b18186c2dd44be8692b",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "a5aff5d96adb407e",
+  "id" : "e36ab199e38b5141"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "557dfb900c159b18186c2dd44be8692b",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "a5aff5d96adb407e",
+  "id" : "13f544473a215bc9"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "64180e37-842c-4549-954e-9a3839ed328f",
+    "contoso.span.kind" : "PRODUCER",
+    "contoso.link.count" : "1",
+    "_MS.links" : "[{\"operation_Id\":\"50fda5ca938f62a8cd9dce606a481a57\",\"id\":\"3b781839697b5d7c\"}]",
+    "contoso.outcome" : "SENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.publish.attempt" : "1",
+    "contoso.message.id" : "e37e7082-e3a4-46e6-be25-eec693b1321d"
+  },
+  "traceId" : "557dfb900c159b18186c2dd44be8692b",
+  "name" : "contoso.eventhubs.send",
+  "parentId" : "",
+  "id" : "a5aff5d96adb407e"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "358c696c-6a89-4103-bd34-106a57f3c807"
+  },
+  "traceId" : "0845249087599a0dd9aa9074c52d920c",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "f537c62fc194ef0c"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "6c0aca3b-0276-4074-9762-380e1b94e18b"
+  },
+  "traceId" : "9a8a4d585ddc01b765a010b857c68cd5",
+  "name" : "contoso.pg.select",
+  "parentId" : "",
+  "id" : "1492a4059e61a07a"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "9fac7f4aca56e967",
+  "id" : "ef9c70d4b8b666c6"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "9fac7f4aca56e967",
+  "id" : "f1eab4d80947d443"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "64180e37-842c-4549-954e-9a3839ed328f",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "bbae17c4-39be-4c25-91f9-dc2ae6a00983",
+    "contoso.branch" : "BATCH"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.eventhubs.batch.process",
+  "parentId" : "7359bcd0f5a8c66c",
+  "id" : "9fac7f4aca56e967"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "ded8dc47f60e3592",
+  "id" : "6444ef0d31719c4a"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "ded8dc47f60e3592",
+  "id" : "5497a4870d342fb1"
+}, {
+  "properties" : {
+    "contoso.workflow.id" : "64180e37-842c-4549-954e-9a3839ed328f",
+    "contoso.context.rejection" : "NONE",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1",
+    "contoso.message.id" : "e37e7082-e3a4-46e6-be25-eec693b1321d",
+    "contoso.branch" : "BATCH"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.eventhubs.batch.process",
+  "parentId" : "7359bcd0f5a8c66c",
+  "id" : "ded8dc47f60e3592"
+}, {
+  "properties" : {
+    "_MS.links" : "[{\"operation_Id\":\"84f48715b7b72ea55b5fe5c151b99f9a\",\"id\":\"40ec55f7f00fda6d\"},{\"operation_Id\":\"557dfb900c159b18186c2dd44be8692b\",\"id\":\"a5aff5d96adb407e\"}]",
+    "contoso.span.kind" : "CONSUMER",
+    "contoso.outcome" : "SUCCESS",
+    "contoso.link.count" : "2",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.process.attempt" : "1"
+  },
+  "traceId" : "7a8627160ad386a54259ddabbaea6be8",
+  "name" : "contoso.eventhubs.batch.process",
+  "parentId" : "",
+  "id" : "7359bcd0f5a8c66c"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "c6d2f6e8-af05-4b0a-9342-429eae3e5b89"
+  },
+  "traceId" : "06a67eb4359bd3a6fadb695a1e9b7fc6",
+  "name" : "contoso.pg.transaction",
+  "parentId" : "",
+  "id" : "f9edd0099e9ac374"
+}, {
+  "properties" : {
+    "contoso.process.attempt" : "1",
+    "contoso.span.kind" : "CLIENT",
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.pg.select",
+  "parentId" : "3b781839697b5d7c",
+  "id" : "41ce184913adead9"
+}, {
+  "properties" : {
+    "business.invocation_id" : "119248bd-cb20-4614-b2ec-85b0faf0f4af",
+    "contoso.span.kind" : "SERVER"
+  },
+  "traceId" : "50fda5ca938f62a8cd9dce606a481a57",
+  "name" : "contoso.async.oracle.root",
+  "parentId" : "",
+  "id" : "3b781839697b5d7c"
+} ]

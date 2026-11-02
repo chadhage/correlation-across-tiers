@@ -219,8 +219,8 @@ Traces to: Prompt §5.1, §5.4, §6 negative controls · Brief §3, §7, §24 No
 A CI scan that blocks any change that falsifies or bypasses W3C trace context.
 
 - [ ] Runs on every pull request over `apim/policies/`, `infra/`, `web/`, `services/` and `workers/`, and fails on: a trace-flags change from `-00` to `-01`; a `traceparent` or trace-id built from `context.RequestId`; an APIM diagnostic `httpCorrelationProtocol` other than `W3C`; a Storefront `distributedTracingMode` other than W3C (the SDK default `AI_AND_W3C` also fails).
-- [ ] Fails when the forbidden logic sits behind a feature flag, named value or disabled policy fragment.
-- [ ] Seeded fixtures in `tests/fixtures/` (excluded from every deployable path) make the scan fail; with them removed it passes.
+- [x] Fails when the forbidden logic sits behind a feature flag, named value or disabled policy fragment.
+- [x] Seeded fixtures in `tests/fixtures/` (excluded from every deployable path) make the scan fail; with them removed it passes.
 - [ ] Output is saved under `evidence/` and linked from the No falsification row of CERTIFICATION_REPORT.md.
 
 ### 6. GATE-02 · Single-provider-per-JVM check

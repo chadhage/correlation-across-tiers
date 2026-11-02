@@ -11,8 +11,23 @@
     "web/portal-ssr"
   ],
   "scripts": {
+    "microsite:build": "node web\\demo-microsite\\build.mjs",
+    "microsite:serve": "node web\\demo-microsite\\serve.mjs",
+    "microsite:test": "node --test tests\\microsite.test.mjs",
     "test": "node tools/run-tests.mjs",
     "board:check": "node tools/kanban.mjs --check",
-    "board:rehydrate": "node tools/kanban.mjs --write"
+    "board:rehydrate": "node tools/kanban.mjs --write",
+    "verify:register": "node tools\\verification\\register.mjs --check",
+    "verify:certify": "node tools\\verification\\register.mjs --certify",
+    "verify:invalidate": "node tools\\verification\\report.mjs --invalidate",
+    "verify:report": "node tools\\verification\\report.mjs --check",
+    "verify:local-native": "node tools\\verification\\local-native.mjs",
+    "verify:security-client": "node tools\\verification\\security-client-qualification.mjs",
+    "verify:conditional-native": "node tools\\verification\\run-conditional-observer.mjs --execute",
+    "verify:conditional-source": "node tools\\verification\\run-conditional-observer.mjs --source-check",
+    "verify:focused": "node tools\\verification\\run-focused.mjs",
+    "demos:check": "node tools\\verification\\demo.mjs --check",
+    "demos:run": "node tools\\verification\\demo.mjs --all",
+    "demos:reset": "node tools\\verification\\demo.mjs --reset"
   }
 }

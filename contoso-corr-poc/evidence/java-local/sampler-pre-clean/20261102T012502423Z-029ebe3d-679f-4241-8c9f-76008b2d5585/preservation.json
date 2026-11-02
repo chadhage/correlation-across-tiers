@@ -1,0 +1,90 @@
+{
+  "schema": "contoso.native-byte-preservation.v1",
+  "preservedAtUtc": "2026-11-02T01:25:02.6128045Z",
+  "sourceRoot": "extensions\\parent-safe-sampler\\target\\agent-probe",
+  "copiedFiles": [
+    {
+      "path": "1.1.0-bb829be676bd\\native-sampling-observation.json",
+      "sha256": "6534029e9c552977e72a260b4854e958479fff5541b5340f369da55312d09e61",
+      "bytes": 17885
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\result.json",
+      "sha256": "e0c6295b8ac1cdaca0bbbc2fdfba3243d21a8299e763ed0983475f31b4258f6b",
+      "bytes": 19241
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\delegate-off\\native-agent-envelopes.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\delegate-off\\observations.json",
+      "sha256": "9229f3f30fd70a4b0c1af5b31b1258bb7c907e6faf16fbf08d78bd02470cf376",
+      "bytes": 5392
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\delegate-off\\projection-disposition.json",
+      "sha256": "0fe0c63c399de4e58cfc1bfe50f70a05b717e2de351e2e3c1a2d36ed06e3c440",
+      "bytes": 272
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\eligible-on\\native-agent-envelopes.json",
+      "sha256": "da10675e35e8affdecd2641100debc82adc9c2f9386ead44f8ee0e2ad80f9736",
+      "bytes": 1051
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\eligible-on\\observations.json",
+      "sha256": "79980b6633f3374955ea6802df09316086b47c4c4a3f805974cb26ef82c7dcfc",
+      "bytes": 5447
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\eligible-on\\projection-disposition.json",
+      "sha256": "93a73ac15a488823fc95aeec8d7ad57e61abfde87d6a3bb7f95991b06625e219",
+      "bytes": 272
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\native-rate-five\\native-agent-envelopes.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\native-rate-five\\observations.json",
+      "sha256": "662263e37f9fe9d96ac14fe5a82c92c32a8e67031fee35c803129e1238f28da4",
+      "bytes": 13513
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\native-rate-five\\projection-disposition.json",
+      "sha256": "0fe0c63c399de4e58cfc1bfe50f70a05b717e2de351e2e3c1a2d36ed06e3c440",
+      "bytes": 272
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\restored-on\\native-agent-envelopes.json",
+      "sha256": "9f8b89ac9eeb76b953a654dae089cc59f29b1fc1fb63ff8baf58f100343bfcfb",
+      "bytes": 1051
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\restored-on\\observations.json",
+      "sha256": "769d8dd030d800a527e4a9bee5c6e58964eb2d14e8c6f99c230732c96edb2465",
+      "bytes": 5447
+    },
+    {
+      "path": "1.1.0-bb829be676bd\\restored-on\\projection-disposition.json",
+      "sha256": "93a73ac15a488823fc95aeec8d7ad57e61abfde87d6a3bb7f95991b06625e219",
+      "bytes": 272
+    },
+    {
+      "path": "diagnostic-retake-20261102T011520125Z-071ca232-9cb1-4d21-afb0-6b04828adc4d\\eligible-on\\failed-observation.json",
+      "sha256": "8082915680877dd1413352767edc8b8bdbb237c5c60e0531b215f1b6ee88868d",
+      "bytes": 1393
+    },
+    {
+      "path": "original-intake-20261102T004653210Z-76cede49-c6e8-44b6-938d-caf808074149\\eligible-on\\failed-observation.json",
+      "sha256": "af37cec53947a24d92d582f12d11b345358c7c1fd3a9429a6f4f1ecdb829d6a0",
+      "bytes": 912
+    }
+  ],
+  "scope": "Byte-for-byte actual metadata preservation only; failed runs remain failed and no original payload or authority is reconstructed.",
+  "selectedNestedProofWasActuallyIncluded": true,
+  "sourceAcceptanceIsCertification": false
+}

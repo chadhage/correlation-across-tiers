@@ -1,11 +1,139 @@
 {
   "schema": "contoso.board-acceptance.v1",
-  "revision": 1,
+  "revision": 48,
   "defaultStatus": "To Do",
   "phaseAwareConstructionApproved": true,
+  "explicitActiveFacetsRequired": true,
+  "acceptancePolicy": "config\\acceptance-scopes.json",
+  "implementationAssignments": {
+    "approval": "USER reassign_existing",
+    "owners": {
+      "R1": "R3",
+      "R6": "R5"
+    }
+  },
+  "currentImplementationRouting": {
+    "originalRoleCount": 9,
+    "additionalAgents": 0,
+    "stoppedOriginalWriters": [
+      "R1",
+      "R6"
+    ],
+    "R1": "Existing R3 implements Root/main/params/map/composition/README/DECISIONS; original R1 is read-review-only",
+    "R6": "Existing R5 implements Data/infra/ports source; parent coordinates Core edits and fresh builds; original R6 is read-review-only",
+    "R4": "Parent/coordinator directly implements recovery; original R4 agent failed and must not receive routing",
+    "reviewRing": {
+      "actingR1Root": [
+        "R5",
+        "R8"
+      ],
+      "actingR6Data": [
+        "parent-R4",
+        "R8"
+      ],
+      "originalR5Async": [
+        "R3",
+        "R2"
+      ],
+      "originalR7Observability": [
+        "R2",
+        "R3"
+      ],
+      "parentR4": [
+        "R2",
+        "R9"
+      ]
+    },
+    "acceptanceNote": "Logical backlog ownership/kickoff remain unchanged. WIP and priority use current physical implementation roles; aliases cannot authorize self-review or native acceptance."
+  },
+  "executableCards": [],
+  "acceptedLocalEvidenceRegister": {
+    "artifact": "config\\verification-register.v1.json",
+    "ordersNode": "boundedLocalEvidence.ordersConditionalV7",
+    "constructionNode": "boundedLocalEvidence.localConstructionBaseline",
+    "scope": "Metadata/doc-only status after genuine v7 execution; no runtime qualification is inherited from this status digest",
+    "formalLiveExecutorEnrolled": false,
+    "wholeClauseOrCardCompletionGranted": false,
+    "numericVerifyClaimsStillOpen": 628
+  },
+  "kickoff": {
+    "startedAtUtc": "2026-11-01T04:43:15.561Z",
+    "roleCount": 9,
+    "source": "User-provided original R1-R9 roster; owner construction messages are not live evidence.",
+    "roles": {
+      "R1": {
+        "agentId": "7aca20be-85f9-4bf9-93e8-b058ba27bbca",
+        "card": "GATE-11",
+        "readiness": "Assigned root construction; no observed deployment proof"
+      },
+      "R2": {
+        "agentId": "2d440b57-29b3-46a7-aba1-a1c35d9fa025",
+        "card": "WEB-01",
+        "readiness": "Owner-confirmed executable local source/browser audit"
+      },
+      "R3": {
+        "agentId": "a3b78273-42f6-4cf4-b90c-70457a096578",
+        "card": "GATE-01",
+        "readiness": "Owner-confirmed local facet; now handed off for R1/R9 review"
+      },
+      "R4": {
+        "agentId": "6fd99972-3968-4c26-b98e-c7ac27ff3271",
+        "card": "GATE-02",
+        "readiness": "Owner-confirmed real reactor/provider guard construction"
+      },
+      "R5": {
+        "agentId": "5d5396fc-080f-44b1-a3db-8ae93d0f7904",
+        "card": "GATE-09",
+        "readiness": "Owner-confirmed real async assertion/runtime integration"
+      },
+      "R6": {
+        "agentId": "8dd33429-33fe-44d5-afeb-c52022b498d1",
+        "card": "DAT-01",
+        "readiness": "INF-05 local compile handed off; next executable logical-operation lifecycle"
+      },
+      "R7": {
+        "agentId": "bd1583e0-1227-4c16-89dd-7af57117d8f9",
+        "card": "INF-01",
+        "readiness": "Owner-confirmed typed telemetry/sampling/raw-intake construction"
+      },
+      "R8": {
+        "agentId": "10d2e520-ed1d-419b-b90a-1018b6d117b6",
+        "card": "GATE-03",
+        "readiness": "Owner-confirmed genuine security/history/KV/source gates"
+      },
+      "R9": {
+        "agentId": "7be8280e-f8ce-4a33-bb58-3546d529d3da",
+        "card": "GATE-06",
+        "readiness": "Source register, exact scopes and native verification/demo harness executing"
+      }
+    }
+  },
   "sourceHashes": {
-    "backlog": "6449e6fc7a8405f4fb8ecbbf4b6b736a006d5edb34e3a53e3d20913b305f4abd",
-    "kanban": "f4e221ef8f789f55ab89775cba8d0189ce6a29d9e6af7d8d3cab2328fa74406d"
+    "backlog": "ff932fbeabe51648719d5f619fa54c52ee87aceb64252537ba83195626b8beea",
+    "kanban": "c2ac9bebeb6151baa8bd2178b40ce34f3e3cfb924493902a1b880dda382c0688"
+  },
+  "currentReadiness": {
+    "R1": "Original R1 implementation STOP/read-review-only. Existing R3 is acting Root R1; preserve original drafts and route Root writes/reviews through the approved assignment.",
+    "R2": "Current reset17ff/56/delta2 source frozen; BOTH original R7 c207 and R3 cad5 finite source26/real Chromium reset counter1 reviews accepted. Owner build26/Chromium8/packaging3/new36 are distinct finite epochs, not whole36 restore/smoke or old5655 promotion. Implementation drained/review-only; WEB01 stays ToDo pending deployed/native/owner clauses. Original generic f7/D3fa and supporting async3455 source/Node reviews accepted separately; no Java/native review execution inferred.",
+    "R3": "ACTING R1 Rootv4 d9f584 own21+13modules+1R7artifact=35 frozen; original R5/R8 both finite source25 reviews accepted, R5 independently pinned main/params compilation with6BCP081 lines each. Existing Workbook58797 is now wired to the sole telemetry input and actual root output, not Azure imported/rendered. Implementation drained/read-review-only. Original supporting async3455 source24 and sampler9d24 source35 reviews accepted finite; no Java/native rerun or card Done.",
+    "R4": "Actual parent d3ff182/11modules/197stableinputs/59supportcopies/133BOM/11freshJARs and recorded6ZIP/6missing-agent negatives retained; R9 package scope is source/receipt consistency, not independent target-ZIP inspection or healthy hosts. Actual configured Node419/69e55 is the genuine v7 run, not the post-status check. One v7 Orders/native execution5795 with graphbd926/c384 is now accepted finite by Parent a2da; no second run, windowSPENT/CLOSED. No global provider enumeration, API_READY, deployed-JDK/all-layer/Azure/privateC/Done claims.",
+    "R5": "FINALfiniteLOCAL two-actor Notifyreplay/topicisolation construction/runtime gapCLOSED: source73a9 pair0755/71cd separate from actualselected13/4JVM/b08a and BOTH originalcopied-runtime votesR2d11b/R3106504. R9 ownchecker01b4 verified154records/sidecar/directionlessdirect-original roots and27fieldstate, no independentrolecolumn/privatecap/rawrescan. Actual13 isnot43module/newRoot/JARinstall; javac15 ownerreported. Demo07/fullpath/MI/Azure/global stayToDo; oldd324fail/ca28positive/old40 unchanged. AllR5writersSTOPPED/contextretainedfornarrowblockers.",
+    "R6": "Original R6 implementation STOP/read-review-only. Existing R5 is acting Data R6; prior H2/RESP/source/module observations are preserved, not current Data acceptance.",
+    "R7": "CURRENT6dd/DFAF/fda source5/effective18 BOTH originalR2 3dcc/R3 2e49 finite45Node votes accepted; top-level/lifecycle correction closedCURRENTonly. Parent actualnew5c682 [2,0,2]/RPS5/fourPID proofpermanent and RootprobeReport explicitlyselected4075/generatedVERSIONS; this isnotR9conditionalenrollment/globalfidelity. Old875 effectiveBOTHlifecycleCHANGES_REQUIRED/43PASS andthreefailednativeepochs remainhistorical, no idle-socketcausalproof. SourcewritersSTOPPED/core originalR9v2 reviewactive, no cardDone.",
+    "R8": "FINAL generic v3 f7a6/D3fa has BOTH original R2 3dd2 and R5 finite source/Node reviews accepted on all10 stable inputs; original caller-marker/publisher finding is corrected at configuration before decode. Generic19/combined36 and real CLI10s input deadline are distinct CPU facts, not native intake timing or authority. Batch16/session128 and total16MiB/8192 bounds remain; no reset/waiver. Old060/67/c42/00e/b380/current-source C invalidation stay historical. All own implementation writers stopped; parent consumers must bind fresh D3fa/CLIc0b/values298 and execute actual retakes.",
+    "R9": "FINAL_METADATA_DOC_STATUS_ONLY after actualv7 c10e/2f52/test23da. Current source pair R7 9ef54 + Parent2dc54 sealed20cd; one authorized native run5795/df499/3442 plus graphbd926/89c3/private3 roots/c384 accepted finite by Parenta2da. Seven wire/SDK cases,6Request matches, strict00 SDKfalse/nonrecording/0related; 87inputs/source+runtimebeforeafter matched; three recorded PIDs stopped. WindowSPENT/CLOSED; no second run. Code/tests/shared/Java/pins/targets/M2 unchanged. Register628OPEN/all78ToDo; NOT_FULL_GRAPH, no Inventory/Gateway/realbroker/PG/Redis/MI/allTable/globalprivacy/SLO/owner/API_READY/Azure/Done."
+  },
+  "recovery": {
+    "originalR4State": "FAILED",
+    "replacementAgents": 0,
+    "executionOwner": "Parent/coordinator directly taking original R4 integration ownership",
+    "approval": "USER header_isolation_only; USER reassign_existing",
+    "historicalApproval": "USER approve_okhttp (ineffective native-disable requirement subsequently removed explicitly)",
+    "failedAgentRoutingProhibited": true,
+    "nativeMavenHold": "Parent must confirm no orphan writer and grant each next bounded window",
+    "approvedSourceScope": "Public identity REST/network header isolation with eligible CLIENT instrumentation retained; explicit prior business Netty/default/injected/operator/bootstrap behavior preserved; no new OTel provider/API waiver",
+    "handoff": "evidence\\verification\\handoffs\\20261101T154011252Z-8d806937-5f5e-40ac-b96c-12aaa77bd395\\handoff.json",
+    "handoffSha256": "083f704af00e31050d69467d9507e1ad07b37a6b79fa5bba60d61587e6b28057"
   },
   "records": {
     "GATE-07": {
@@ -27,81 +155,761 @@
       "scope": "construction",
       "phase": "returned",
       "constructionReady": true,
-      "nextAction": "Obtain two code reviews and link current protocol-scan evidence; APIM modules, XML and local tests are implemented.",
+      "nextAction": "R9 accepted the exact current 14-file source/local subset with actual41/41/0skip. R1 completes its assigned review and every-PR CI; approved actual APIM wire/export/native sampling/privacy still required.",
       "waitingOn": [
-        "Two accepted code reviews",
-        "Current integrated scan evidence"
+        "Two accepted current source reviews",
+        "Every-PR CI workflow outside R3 ownership",
+        "Native APIM wire/logger/privacy/control observations",
+        "Completion dependencies and explicit cloud authorization"
       ],
-      "criteria": [],
-      "reviews": []
+      "criteria": [
+        {
+          "index": 2,
+          "result": "PASS",
+          "scope": "unit",
+          "artifact": "evidence\\reviews\\code-r9.json",
+          "sha256": "954f3896091ba03ee2899b8080d1efc5d1e3338bfe0a8c047392a0bc62b4dc1d"
+        },
+        {
+          "index": 3,
+          "result": "PASS",
+          "scope": "unit",
+          "artifact": "evidence\\reviews\\code-r9.json",
+          "sha256": "954f3896091ba03ee2899b8080d1efc5d1e3338bfe0a8c047392a0bc62b4dc1d"
+        }
+      ],
+      "reviews": [
+        {
+          "role": "R9",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R3",
+          "artifact": "evidence\\reviews\\code-r9.json",
+          "sha256": "954f3896091ba03ee2899b8080d1efc5d1e3338bfe0a8c047392a0bc62b4dc1d",
+          "scopeSha256": "e8b4e8d349c7fa21a5aa8bf99bb07d588c3b72a471ccd097ebd738c488d4ce23"
+        }
+      ],
+      "completionSources": [
+        "apim\\README.md",
+        "apim\\demo03-cases.v1.json",
+        "apim\\openapi\\contoso-orders.v1.json",
+        "apim\\policies\\fragments\\contoso-authz-v1.xml",
+        "infra\\modules\\apim-api-policies.bicep",
+        "infra\\modules\\apim-observability.bicep",
+        "tools\\protocol.mjs",
+        "tests\\apim\\gate01.test.mjs",
+        "tests\\apim\\protocol.test.mjs",
+        "tests\\apim\\Invoke-PolicyExpressions.ps1",
+        "tests\\apim\\policy-expressions.test.mjs",
+        "tests\\apim\\deployment.test.mjs",
+        "tests\\apim\\sampling-adapter.test.mjs",
+        "tests\\apim\\scanner-regressions.test.mjs"
+      ]
     },
     "GATE-02": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "returned",
+      "phase": "finite-local-build-and-orders-evidence-accepted-full-runtime-and-owner-blocked",
       "constructionReady": true,
-      "nextAction": "Build the real complete reactor after security/messaging/sampler artifacts arrive, then verify every deployed JVM and obtain two code reviews.",
+      "currentR4DocumentationContext": {
+        "artifact": "evidence\\java-local\\r4-review-sources\\5054669e-0475-49ea-8b64-a193806bf117.json",
+        "sha256": "6583341b88ee9b20f34bd1902232eb7d71109409571b957bd543cb87ca807041",
+        "sourceDeltaCount": 1,
+        "changedSource": "docs\\JAVA_VALIDATION.md",
+        "retainedUnchangedSourceInputs": 97,
+        "R2ReviewArtifact": ".cache\\r2\\r4-final182-doc-refresh\\5054669e-narrow\\review.json",
+        "R2ReviewSha256": "35448afd5f3d7a8e28e41dbc60a6bc0b77a40c14e6f69cc3d0ffd2e36ad7512d",
+        "R2MetadataArtifact": ".cache\\r2\\r4-final182-doc-refresh\\5054669e-narrow\\actual182-metadata-consistency.json",
+        "R2MetadataSha256": "0107751256afc2751e9f51878a755585b91c2030b42cd316f9a8cfbabbbddf3c",
+        "R9ReviewArtifact": ".cache\\r9\\parent-r4-successor-review\\20261102T012447249Z-7974f2bb-3935-4012-8b16-bdc6653fe9ff\\documentation-addendum-5054.json",
+        "R9ReviewSha256": "2ce571931f0a806fbfb5b157195aaa436242d547dcda1efc85af381e47a40b0c",
+        "result": "BOTH_FINITE_NARROW_DOCUMENT_COPIED_BUILD_METADATA_ACCEPTED",
+        "actualBuildWitnessSha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+        "actualParentTests": 182,
+        "copiedSupportFiles": 59,
+        "bomComponents": 133,
+        "newReviewerJavaOrNativeRun": false,
+        "currentTargetZipBytesIndependentlyRead": false,
+        "sourceAcceptanceIsCertification": false,
+        "conditionalNativePermission": "HOLD"
+      },
+      "executionOwner": "Parent/coordinator, original R4 recovery; no replacement agent",
+      "nextAction": "Actual d3ff182 clean11module/59copies/133BOM, selected5c682/4075 sampler, Node419 and recorded6ZIP/6negative guards are finite evidence nodes in the register. One Orders conditional native/private3-root epoch5795/graphbd926 is accepted Parenta2da, not all-JVM provider/global enumeration or healthy deployment. Keep historical166/40/13/failed epochs separate. Obtain actual remaining host/JVM startup/export/image/USED lineage, full compatibility and owner acceptance; no API_READY or card Done.",
       "waitingOn": [
-        "Real security and messaging modules",
-        "Parent-safe extension proof",
-        "Per-JVM live startup/export evidence"
+        "Actual remaining per-JVM/host/image/provider/exporter and deployed compatibility evidence",
+        "Approved full-runtime/packaging/owner completion facets; no new native run is currently granted"
+      ],
+      "completionWaitingOn": [
+        "Actual per-JVM Azure startup/export/image/auth/schema evidence",
+        "Two current accepted source reviews",
+        "Native roster and full-path fidelity evidence"
       ],
       "criteria": [],
       "reviews": []
     },
     "GATE-09": {
-      "status": "In Progress",
-      "scope": "construction",
-      "phase": "draft",
-      "constructionReady": true,
-      "nextAction": "Implement the real async contracts and retry/link assertions with isolated checker fixtures.",
-      "waitingOn": [],
-      "criteria": [],
-      "reviews": []
-    },
-    "GATE-03": {
-      "status": "In Progress",
-      "scope": "construction",
-      "phase": "draft",
-      "constructionReady": true,
-      "nextAction": "Implement source/history/evidence secret checks and named-secret Key Vault wiring.",
-      "waitingOn": [],
-      "criteria": [],
-      "reviews": []
-    },
-    "WEB-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "returned",
+      "phase": "corrected-notify-v2-source-ready-review-wait",
       "constructionReady": true,
-      "nextAction": "Deploy the verified cohost artifact with real Entra/runtime configuration, run the first authenticated browser-to-Gateway trace, and obtain two code reviews.",
+      "sourceReadyHandoff": {
+        "artifact": "workers\\messaging-core\\docs\\notify-native-source-freeze.v2.json",
+        "sha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf",
+        "sourceInputs": 65,
+        "unchangedOldRuntimeInputs": 17,
+        "originalFailureInputs": 5,
+        "changedSuccessorSources": 4,
+        "sourceAcceptanceIsCertification": false,
+        "currentNativeNotifyCoverageVerified": true,
+        "verifiedCoverageScope": "FINITE_LOCAL_TWO_ACTOR_REPLAY_LINKS_AND_FIXTURE_STATE_ONLY_NOT_ALL_DEMO07_OR_GLOBAL",
+        "R3ScopedReview": {
+          "artifact": ".cache\\r3\\notify-native-v2-source-review\\20261102T014429644Z-fd323af8-df11-4b5a-ba81-944ea734c96c\\review-scoped.json",
+          "sha256": "0755bfc4511521cccc04ae56f62db7caa453041a009bd64c1b1693490e217011",
+          "result": "accepted",
+          "scope": "Listed65source+17oldcopies+5failure only; actual28NodeCPU, no Java/native or unlisted drift claim",
+          "actualReviewerCpuTests": 28
+        },
+        "R2CurrentReview": {
+          "artifact": ".cache\\r2\\notify-native-v2-review\\73a95637-frozen\\review.json",
+          "sha256": "71cd35e15a33f076c43e389e1b671f01f96a61f0f1aea04c2a1a841ff2f4446f",
+          "scopeArtifact": ".cache\\r2\\notify-native-v2-review\\73a95637-frozen\\review-scope.json",
+          "scopeSha256": "0d71de0ec9d29bc4135d1d8e9b89c39685b8f27ccc5fa2fc4d2b8a2628f16746",
+          "result": "accepted",
+          "actualReviewerCpuTests": 28,
+          "scopeFileIsExtraVoteOrExecution": false
+        },
+        "ownerObservedBothActorLocalSlice": true,
+        "currentCopiedRuntimeReview": "BOTH_ORIGINAL_R2_R3_FINITE_COPIED_CONSISTENCY_ACCEPTED_NOT_DEMO07_OR_GLOBAL",
+        "R2CopiedRuntimeReview": {
+          "artifact": ".cache\\r2\\notify-native13-consistency\\b08a07bb-copied-only\\review.json",
+          "sha256": "d11b4da157c47e4f013231e17a43443dbd9607e716df672c453588239ed54cba",
+          "semanticArtifact": ".cache\\r2\\notify-native13-consistency\\b08a07bb-copied-only\\runtime-semantic-consistency.json",
+          "semanticSha256": "6efa74a8e1c2ea6c41519c3999e1e660f789c7d32a910c88b7150128762aec4b",
+          "result": "FINITE_COPIED_RUNTIME_SOURCE_CONSISTENCY_ACCEPTED",
+          "copiedFilesVerified": 9,
+          "copiedJUnitTests": 13,
+          "spanCorrespondence": 154,
+          "javaOrNativeRerun": false,
+          "rawOriginalRescan": false,
+          "sourceAcceptanceIsCertification": false
+        },
+        "R3CopiedRuntimeReview": {
+          "artifact": ".cache\\r3\\notify-native13-consistency\\20261102T015148046Z-55bbad26-55db-4d2d-8808-566edb993be9\\review.json",
+          "sha256": "106504cd4396fe3eb54153fd05bc725b72e7169452c12a426aaf603ae55e5476",
+          "result": "FINITE_COPIED_RUNTIME_SOURCE_CONSISTENCY_ACCEPTED",
+          "copiedFilesVerified": 9,
+          "copiedJUnitTests": 13,
+          "spanCorrespondence": 154,
+          "javaOrNativeRerun": false,
+          "rawOriginalRescan": false,
+          "sourceAcceptanceIsCertification": false
+        },
+        "ownerLocalNativePreservation": {
+          "artifact": "evidence\\java-local\\notify-native\\20261102T014915354Z-f5f61c5f-1e28-402f-86aa-b032470531fe\\preservation.json",
+          "sha256": "b08a07bbd7c2af579a8a6af0de97acbefa3f892643061135456d4a2dc3f28dd0",
+          "actualSelectedTests": 13,
+          "r9CopiedConsistency": ".cache\\r9\\notify-native-consistency\\20261102T015359860Z-35b39d93-650f-4d44-92d6-8a8ed35c0469\\consistency.json",
+          "r9CopiedConsistencySha256": "01b4eeef8c380d5a9e7e5897f164f5021f0504677041f33cc366457e9c2c00a0",
+          "nativeExecutedByR9": false
+        }
+      },
+      "nextAction": "Earned finite LOCAL both-actor replay/isolation gap closure: actualselected13/4JVMs/b08a plus BOTHoriginalR2d11b/R3106504 copied-consistency reviews and R9actualchecker01b4 on154records. Preserve originalSDK/nativeIDs/emptyPROCESSmessageId/directORIGINALPROCESS+SENDlinks and27fieldstate; no rolebackfill/independentDBquery/rawrescan/privatecap. Full43module notexecuted byselected13; remaining wholeDemo07/fullpath/broker/Functions/Azure/owner requirements stayToDo. Oldd324fail/40/ca28 unchanged.",
       "waitingOn": [
-        "Root infrastructure and Entra grants",
-        "Live Application Insights rows",
-        "Two accepted code reviews"
+        "Actual remaining full-role/fullpath/broker/Functions/Azure/owner completion facets"
+      ],
+      "completionWaitingOn": [
+        "Actual new Notify-role source/compile/native case and both-actor Demo07 receipts",
+        "Approved native brokers/worker hosts and all completion edges",
+        "Real retry/DLQ/replay/fan-in/batch exported records",
+        "Two accepted current reviews"
       ],
       "criteria": [],
       "reviews": []
     },
-    "INF-01": {
-      "status": "In Progress",
+    "GATE-03": {
+      "status": "To Do",
       "scope": "construction",
-      "phase": "draft",
+      "phase": "returned",
       "constructionReady": true,
-      "nextAction": "Finish the typed telemetry/budget/alert module and sampling integration for root assembly.",
-      "waitingOn": [],
+      "nextAction": "FINAL generic f7/D3fa now has BOTH original R2/R5 finite source/Node acceptance including corrected exact caller-marker conflict. Parent must use actual current raw-byte/PID/source/count consumer retakes; input-policy approval never supplies SourceVerified/global privacy. Preserve historical A841/B380/C40 and c42/00e epochs; current-source C remains invalid after source drift. DefaultNetty c9a1 actual fixture TLS/SDK2 is a separate finite scope, not MI/Entra/KV/workers/fullAV23/API_READY. Actual approved KV/Entra/privacy/owner clauses remain unmet.",
+      "waitingOn": [
+        "Actual approved KV secret/SDK SET/reader/logger and Entra/cloud lifecycle evidence",
+        "Whole-worker/default-client/current installed consumer lineage and full native scope",
+        "Actual runtime KV and global native privacy/Entra/owner evidence"
+      ],
+      "completionWaitingOn": [
+        "Actual Entra/KV/RBAC/runtime/data privacy observations",
+        "Explicit owner approvals and two source reviews"
+      ],
+      "criteria": [],
+      "reviews": [],
+      "finiteLocalNativeObservation": {
+        "result": "HISTORICAL_FINITE_LOCAL_A_B_C_AT_EXECUTION_NOT_CURRENT_QUALIFIED",
+        "artifact": "services\\security-core\\docs\\av23-java-client-output-parent-20261101T182444029Z.json",
+        "sha256": "b380966e1858f455348dd9bbf071fb76f432ed664367f817a9ab860d8028742e",
+        "scope": "Selected Security current TestProbe/local USED clients only; actual JWKS1/MI2 HTTP CLIENT exports, direct published root parent/trace, header controls",
+        "r9SelectedQualification": "evidence\\verification\\security-client-epoch\\20261101T185623935Z-bc98d639-0bd8-4fae-b8ca-b26741662782\\qualification.json",
+        "r9SelectedQualificationSha256": "ab1ca00400e661764aaf1b306003a88f480ab6f6893d3e9f5b620ad3ba09a59a",
+        "originalSourceReceiptSha256": "8412700a7792eea3b1cf8dc7a321fd71aff16eb5762e3c2985695eb47589611b",
+        "recheckCurrentBindingToolSourcesRequired": true,
+        "currentSourceQualified": false,
+        "fullAv23Verified": false,
+        "apiReady": false,
+        "azureAccepted": false
+      }
+    },
+    "WEB-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "reset-successor-source-reviewed-live-blocked",
+      "constructionReady": true,
+      "nextAction": "Current reset17ff/56/delta2 has BOTH original R7c207/R3cad5 finite source26/real reset counter1 acceptances. SuccessA-to-prepareB-to-REQUEST_INVALIDB clears stale/fake workflowA with neutral label; no auth/trace/lease repair. Preserve old5655 findings/epochs and new ordered36 artifact as-recorded scope, not whole36 restore/smoke. Implementation drained; actual deployed Entra/browser/Gateway/SSR/full native path and accountable acceptance remain unmet.",
+      "waitingOn": [
+        "Parent coherent full-root current execution/probe/artifact/USED source handoff",
+        "Actual deployed Entra/browser/Gateway/SSR/native full-path and accountable acceptance"
+      ],
+      "completionWaitingOn": [
+        "INF-01 completion",
+        "Approved deployed runtime/Entra and live Application Insights rows",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": [],
+      "sourceReadyHandoff": {
+        "artifact": ".cache\\r2\\frontend-reset-fix\\20261101T230820824Z-r7-r2-mutation-01\\handoff.json",
+        "sha256": "17ff411b54f993fd5ac2641c9e0730b509cdfd7798c970e8bb9269000a3aea53",
+        "ownerSourceScopeSha256": "1b6511c1d410719dc794c4b20d0e74e5dbb0360c61310e8ccab59cf2e3818f7f",
+        "ownedSources": 56,
+        "changedFacetSources": 2,
+        "r9CurrentSourceHashesMatched": 56,
+        "r9R7ChangedInputIntersection": [],
+        "reviewAcceptanceIsCertification": false,
+        "ownerValidationIsR9Execution": false
+      }
+    },
+    "INF-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "source-merged-live-and-current-native-blocked",
+      "constructionReady": true,
+      "nextAction": "Rootv4 now composes the existing sole telemetry module and committed Workbook58797/map aefab source. R7 current sampler-intake9d24 has original R2/R3 finite source/loopback35 acceptance, not native retake. R9 local conditional factory/graph source is being implemented; runtime source cases need the exact parent Java port and approved execution, not JSON/query waivers. Actual deployment/owner/native roster/full-table privacy/cost/quota evidence remain unmet.",
+      "waitingOn": [
+        "Actual approved deployed root/telemetry/Workbook state, parameters and render evidence",
+        "Current accepted code reviews and actual empty-group deployment/idempotent what-if",
+        "Approved KV/bootstrap/grants/cost/quota/table plans/native caps/reset/action-group receiver/owner evidence"
+      ],
+      "completionWaitingOn": [
+        "ADR-02/INF-02 completion",
+        "Actual complete runtime/host roster and native ACKs",
+        "Approved all-table backend privacy/canary/drain/load evidence",
+        "Two current accepted source reviews"
+      ],
       "criteria": [],
       "reviews": []
     },
     "GATE-06": {
-      "status": "In Progress",
+      "status": "To Do",
       "scope": "construction",
-      "phase": "draft",
+      "phase": "accepted-local-evidence-recorded-numeric-support-and-deployed-verification-open",
       "constructionReady": true,
-      "nextAction": "Finish the source-bound verification register, exact acceptance-scope mapping, and real evidence harness.",
-      "waitingOn": [],
+      "nextAction": "Register boundedLocalEvidence now records actual Orders5795/graphbd926/c384 with Parent a2da plus genuine Node419/Java182/recorded6ZIP facts. This does not resolve any of628 numeric VERIFY/support/deployed-source items or close this card's clauses. Current executable2f52/test23da unchanged; final status is metadata/doc-only. Keep official-source, exact deployed-value, support/GA and broad live/owner requirements open; original failed epochs immutable and native window spent.",
+      "waitingOn": [
+        "Exact official-source content, support/GA and approved deployed-value verification for all628 numeric claims",
+        "Unrun Inventory/Gateway and real broker/PG/Redis/MI/fullgraph/all-layer privacy/retention/watchdog/overhead/SLO/owner acceptance",
+        "Parent final configured Node check after metadata/doc-only handoff"
+      ],
+      "acceptedLocalExecutionV7": {
+        "registerNode": "boundedLocalEvidence.ordersConditionalV7",
+        "qualificationScope": "LOCAL_ORDERS_CONDITIONAL_ONLY_NOT_FULL_GRAPH",
+        "adjudicationArtifact": "evidence\\verification\\conditional-adjudications\\20261102T042736620Z-bd49b993-97ed-4916-a010-aa253bc883d3\\adjudication.json",
+        "adjudicationSha256": "c384c72148af9fb614af809451530b4e4865817be9fac1ae08ad8db8bf114d73",
+        "parentReviewArtifact": ".cache\\parent\\conditional-v7-native-review\\20261102T043107482Z-f70352ce-4edb-4bea-9cc3-50b1f9f84f7a\\review.json",
+        "parentReviewSha256": "a2da8d55280ec83c602904bdc55fbbd98644f4f0b2ce69a904f75e68aa7f4b15",
+        "actualCases": 7,
+        "sampledNativeRequestMatches": 6,
+        "privateLocalRootBindings": 3,
+        "executionWindow": "SPENT_CLOSED",
+        "numericVerifyClaimsResolved": 0,
+        "formalClauseResult": "NOT RUN",
+        "historicalHandoffsBelowAreNotCurrentBlockers": true,
+        "statusDigestInheritsNativeQualification": false
+      },
+      "currentDiagnosticSourceReadyHandoff": {
+        "artifact": "tools\\verification\\conditional-source-freeze.v6.json",
+        "sha256": "0d1b24bb57cf1259a7de289cee6bbd3449163555b7824df7280f265763b8ec09",
+        "ownedSources": 15,
+        "importedSources": 59,
+        "effectiveInputs": 74,
+        "actualFrozenInputDrift": 0,
+        "ownedDeltaVsV4": 5,
+        "unchangedOwnedSinceV4": 10,
+        "retainedOriginalImports": 49,
+        "prepublicationFocusedArtifact": "evidence\\verification\\focused\\20261102T032353881Z-f246bdf1-fb1f-4dd8-bbfc-3b3e7d5b2178\\preparation-tests.json",
+        "prepublicationFocusedSha256": "9f08caa6d00a1747e4abee0aa48359b1fceacb72e5c522f6ac48ba62de33a4ad",
+        "postpublicationFocusedArtifact": "evidence\\verification\\focused\\20261102T032606505Z-0f84ecae-bd99-4fba-ab4d-ee42fb1586b5\\preparation-tests.json",
+        "postpublicationFocusedSha256": "12fbc8018f9c274bd4ad12144d7e7441ee42e9eaacb6dbfab2bc6ed6d1908012",
+        "actualPostpublicationTests": 140,
+        "actualHistoricalApplicationJvmInvocations": 1,
+        "qualifiedNativeExecutions": 0,
+        "nativeInvocationsDuringDiagnosticChanges": 0,
+        "originalR7Review": {
+          "artifact": ".cache\\r7\\r9-conditional-v6-review\\20261102T032854564Z-100e6f9b-59a2-46b9-9912-78bc01b125ed\\review.json",
+          "sha256": "e1a3beaffefaeacc1e3543cc7cacc4683a924cb18e303cbe5211733f62f001f4",
+          "exactSubjectSha256": "0d1b24bb57cf1259a7de289cee6bbd3449163555b7824df7280f265763b8ec09",
+          "result": "FINITE_SOURCE_NODE_CPU_DIAGNOSTIC_BOUNDARIES_ACCEPTED",
+          "actualReviewerTests": 50,
+          "actualReviewerFailures": 0,
+          "actualReviewerSkips": 0,
+          "actualReviewerCancelled": 0,
+          "author140IsReviewerRun": false,
+          "syntheticCounterIsNativeWitness": false,
+          "oldFailedAssertionRecovered": false,
+          "sourceAcceptanceIsCertification": false
+        },
+        "originalParentR4Review": "PENDING_CURRENT_V6",
+        "nativePermission": "HOLD_NEW_CURRENT_PAIR_AND_EXPLICIT_GRANT_REQUIRED",
+        "sourceAcceptanceIsCertification": false
+      },
+      "actualV4NativeFailure": {
+        "artifact": "evidence\\verification\\conditional-native\\20261102T030053559Z-50803ec1-a6f1-4ec1-a1d7-69ee2b08e670\\failure.json",
+        "sha256": "51a2a815122010c117e912edc708bf54c7f734f0dcc3c5f7f28b744daf7d1a65",
+        "manifestSha256": "68523454735f67883f0fa67e286586becd015752e23d2755206bd537e76ebde0",
+        "recordedStage": "ACTUAL_RUNTIME_NATIVE_CASE_BINDING",
+        "recordedMaskedCode": "E_CONDITIONAL_EXECUTION_FAILED",
+        "exactFailedAssertionKnown": false,
+        "actualJavaPid": 29608,
+        "actualCompilerPid": 59428,
+        "actualRuntimeRecords": 7,
+        "actualPayloads": 3,
+        "actualEnvelopes": 16,
+        "nativeEnrollment": false,
+        "nextNativePermission": "HOLD_NEW_SOURCE_PAIR_AND_EXPLICIT_GRANT_REQUIRED"
+      },
+      "currentV4SourceReadyHandoff": {
+        "artifact": "tools\\verification\\conditional-source-freeze.v4.json",
+        "sha256": "1f9f577ae6ab0853f257258faf4ef3b5bf525502349a8e17a97032876ad103dc",
+        "ownedSources": 15,
+        "importedSources": 49,
+        "effectiveInputs": 64,
+        "focusedArtifact": "evidence\\verification\\focused\\20261102T025044398Z-a93ca0ef-7bc7-4e87-a898-1ff5b8f1b1e2\\preparation-tests.json",
+        "focusedSha256": "1bd1dd7fd37738cf23cfeac63105abe9cd6176e3f0fb84f1678258de39c61194",
+        "actualTests": 136,
+        "rawClasspathEntries": 137,
+        "executedNonemptyClasspathEntries": 136,
+        "onlyTerminalImplicitCwdExcluded": true,
+        "authorizedAttemptCount": 1,
+        "originalFailure": "evidence\\verification\\conditional-native-attempts\\20261102T023649873Z-d794ba8f-5f5f-47da-990f-afb352f5ad6d\\failure.json",
+        "originalFailureSha256": "eb6ff220ca3a7ecb18f95b7322619a03b7ad60a9ff06e2d2b88bc1f3dc0dee6c",
+        "factualAddendum": "evidence\\verification\\conditional-native-attempts\\20261102T024452464Z-563e91ed-9758-484e-9149-ab6077b731ed\\factual-addendum.json",
+        "factualAddendumSha256": "659b2c762827b4f34467c9fd9d5ded8fb712dc3d5736bf197a03603a0bd1d0ca",
+        "javacActuallyReached": true,
+        "applicationJvmReached": false,
+        "nativeEnrollment": false,
+        "nativeRetryPerformed": false,
+        "sourceAcceptanceIsCertification": false,
+        "currentSourcePairStatus": "BOTH_ORIGINAL_FINITE_SOURCE_CPU_ACCEPTED_NOT_NATIVE_PERMISSION",
+        "currentSourcePairArtifact": ".cache\\r7\\r9-conditional-v4-review\\20261102T025240360Z-e371275e-0d61-438c-bfcc-c079dd1d0e8d\\source-review-pair.json",
+        "currentSourcePairSha256": "381be5174da9246a3d860ef7bc764f3084c7e5d7229d90e673f7470863df882a",
+        "originalR7Review": {
+          "artifact": ".cache\\r7\\r9-conditional-v4-review\\20261102T025240360Z-e371275e-0d61-438c-bfcc-c079dd1d0e8d\\review.json",
+          "sha256": "a23d61adfff2a053b1dcbe5b45a9984797bd8aee3bba9623f26927b0c22dd429",
+          "actualReviewerTests": 46
+        },
+        "originalParentR4Review": {
+          "artifact": ".cache\\parent\\conditional-v4-review\\20261102T025628410Z-04e88a90-0fcf-4df7-affd-054008674a3e\\review.json",
+          "sha256": "ccec81dc9a3881e6313b6a808188a820adf8ee9d29154dfea1be48d40e50d8c5",
+          "actualReviewerTests": 46
+        },
+        "nativePermission": "HOLD_NEW_EXPLICIT_WINDOW_REQUIRED"
+      },
+      "currentV3SourceReadyHandoff": {
+        "artifact": "tools\\verification\\conditional-source-freeze.v3.json",
+        "sha256": "7bd6a30f0977c28d1816e7dacf696ecd4d231fb0fc862d2cf59b392208280a2f",
+        "ownedSources": 15,
+        "importedSources": 46,
+        "effectiveInputs": 61,
+        "focusedArtifact": "evidence\\verification\\focused\\20261102T022519304Z-9e111e2a-651d-4a9d-8b0c-02ead2f2cf11\\preparation-tests.json",
+        "focusedSha256": "ed64880dc04a6003ce77a268cc919a49649e7507e2e5cc2173a24916c3224e86",
+        "actualTests": 134,
+        "runtimeBaselineSha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+        "sourceAcceptanceIsCertification": false,
+        "nativeExecutions": 0,
+        "currentOriginalR7Review": {
+          "artifact": ".cache\\r7\\r9-conditional-v3-review\\20261102T022641159Z-d9160d4a-0381-41aa-b01f-44128ec429ec\\review.json",
+          "sha256": "380c88cb4779cb3c959121363a842c5ec286d22a1fbe42bd7fdb655735e1967a",
+          "result": "FINITE_SOURCE_NODE_CPU_OWNED_LOOPBACK_ACCEPTED",
+          "actualReviewerTests": 44,
+          "owner134IsReviewerRerun": false,
+          "sourceAcceptanceIsCertification": false
+        },
+        "currentParentR4Review": "PENDING_SEPARATE_CURRENT_SOURCE_VOTE",
+        "nativePermission": "HOLD_EXPLICIT_SEPARATE_WINDOW_REQUIRED"
+      },
+      "correctedSourceReadyHandoff": {
+        "artifact": "tools\\verification\\conditional-source-freeze.v2.json",
+        "sha256": "ed4c3cd599d8ac0511061880ae745b9db2705dfb5ff56eca6af9ec425ccb0625",
+        "ownedSources": 15,
+        "importedSources": 43,
+        "effectiveInputs": 58,
+        "focusedArtifact": "evidence\\verification\\focused\\20261102T020200298Z-d5c31896-7b76-40f5-8817-8db4756facfa\\preparation-tests.json",
+        "focusedSha256": "fa22d87151cd384e67e7058a4ccdeefe8a9631ac6f2b6b9643876337ecb89b3e",
+        "actualTests": 130,
+        "sourceAcceptanceIsCertification": false,
+        "nativeExecutions": 0,
+        "currentReviewStatus": "CHANGES_REQUIRED_SOURCE_RUNTIME_PUBLISHER_AND_UTC",
+        "finding": "R7-R9-COND-03",
+        "counterArtifact": ".cache\\r7\\r9-conditional-v2-review\\20261102T020444926Z-e90d5f6e-c650-445c-976a-4bef7ee191b3\\runtime-publisher-counter.json",
+        "counterSha256": "4e5e9a3c8dd7efddd2028b469718443670bd4dcb78826436d75bb00612d8fd72",
+        "priorSourceCounterFixesClosed": true,
+        "actualNativeLeakOrFailureClaimed": false
+      },
+      "completionWaitingOn": [
+        "Stable R7 diagnostics/intake successor and original corrected-source R7/parent R4 reviews before native adoption",
+        "Actual direct conditional runtime/carrier factory execution/private graph positive after parent port and separately granted native window",
+        "Official source-content and approved deployed value confirmations",
+        "Actual Azure observer/runtime roster/full native path evidence",
+        "Global telemetry/privacy/performance/owner signoffs",
+        "Parent R4 current API capture/source and complete completion-source coverage; current accepted R7 board3 is not full R9 completion"
+      ],
+      "criteria": [],
+      "sourceReadyHandoff": {
+        "artifact": "tools\\verification\\conditional-source-freeze.v1.json",
+        "sha256": "6ce9e9168954b08f225535c7c1eb85a0144b7a209027987322564c4c3731314e",
+        "ownedSources": 14,
+        "importedSources": 34,
+        "effectiveInputs": 48,
+        "focusedArtifact": "evidence\\verification\\focused\\20261102T003634416Z-1c0151f3-e29d-45cf-875c-c470fde897d1\\preparation-tests.json",
+        "focusedSha256": "3b9d73462521a2f35b41c21a5e5280b60536a9bd2f237938711dc91c2cadea91",
+        "actualFocusedTests": 124,
+        "nativeExecutions": 0,
+        "sourceAcceptanceIsCertification": false,
+        "currentReviewStatus": "CHANGES_REQUIRED_NOT_ACCEPTED",
+        "findings": [
+          "R7-R9-COND-01",
+          "R7-R9-COND-02",
+          "R9-RUNTIME-PROOF-SCHEMA-01"
+        ],
+        "executedMissingAdapterBatch": ".cache\\r9\\demo-batch\\20261102T004317769Z-9b7fc113-49de-4dd4-ad47-74eac9510b3d\\execution.json",
+        "executedMissingAdapterBatchSha256": "1cd85ba4cfaafdfc17e3ab5b84001d2e9a4c9faf549224c57a2645b1c686ef0a",
+        "expectedMissingAdapterFailures": 30
+      },
+      "reviews": [
+        {
+          "role": "R7",
+          "result": "INVALIDATED",
+          "historicalResult": "accepted",
+          "invalidationReason": "Approved acting-owner policy and current kanban implementation/tests changed after the exact accepted16-file source snapshot; original review artifact remains unchanged",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R9",
+          "scope": "CORRECTED16FILE SOURCE/LOCAL CONSTRUCTION SUBSET ONLY",
+          "artifact": "evidence\\reviews\\code-r7-r9-p1-final.json",
+          "sha256": "ac3ac11e176bf326d0d26368ac738e1efc7d55af09f345508b84af0d7186c2ed",
+          "scopeSha256": "91c3b6a5b597bfcab5db57258cc1d1d1d7ac393c93e244ebac925832343c29f1"
+        },
+        {
+          "role": "R7",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R9",
+          "scope": "CORRECTED_MANDATORY_CURRENT_ACTING_BOARD3_SOURCE_NODE_ONLY",
+          "artifact": "evidence\\reviews\\code-r7-r9-acting-map-final.json",
+          "sha256": "b200355c64249541929410cf8d28d0926dc3cf2853133c132c6b37e3be22cb52",
+          "scopeSha256": "32034cd81498fbd0703f50483566114377f8dd83b7b227cca0d04c9b159cbf12"
+        }
+      ]
+    },
+    "GATE-11": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "source-ready-reviewed-partial-external-blockers",
+      "constructionReady": true,
+      "nextAction": "Rootv4 d9f584/all35 has BOTH original R5/R8 finite source25 acceptances; pinned Bicep main/params compile has6BCP081 diagnostic lines each, not ARM/provider/GA proof. Committed Workbook58797 now passes through existing sole telemetry input and actual root output; no new LAW/Appi/provider. Preserve v3 history without retrospective workbook claim. Implementation drained; actual Azure import/render/selected parameters/screenshots/Foundation/secret/SCM/GA/cost/owner and source-built package prerequisites remain unmet.",
+      "waitingOn": [
+        "Parent current source-built/qualified Java deployment packages; eight actual auditor prerequisites remain",
+        "Actual Azure Workbook import/render/selected resource parameters and screenshots",
+        "Actual Foundation URLs/principals/secret/SQL/SCM/native/GA/cost/quota/owner and cloud permissions"
+      ],
+      "completionWaitingOn": [
+        "Empty-group deployment and second-run what-if",
+        "Availability/quotas/cost and provisioning authorization",
+        "Teardown/redeploy evidence",
+        "Two accepted source reviews"
+      ],
       "criteria": [],
       "reviews": []
+    },
+    "INF-05": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "returned",
+      "constructionReady": true,
+      "nextAction": "ACTING R6 R5 supplies current private/Entra/grants source interfaces to ACTING R1 R3; preserve old R6 artifacts. Parent fresh builds/installed consumers and later authorized actual Inventory private connectivity smoke are separate requirements.",
+      "waitingOn": [
+        "ADR-02/INF-02 completion",
+        "Authorized Azure deployment/private connectivity",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DAT-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "corrected-source-ready-parent-build-owned",
+      "constructionReady": true,
+      "nextAction": "Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance.",
+      "waitingOn": [
+        "Parent current full-root source/execution/artifact and actual installed-consumer/USED handoff",
+        "Native actual default Data/identity/private TLS/role/grant/global/owner evidence"
+      ],
+      "completionWaitingOn": [
+        "INF-05/JVM-01 completion",
+        "Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "OBS-03": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "source-reviewed-native-and-observer-blocked",
+      "constructionReady": true,
+      "nextAction": "New sampler-intake9d24 own5/effective17 has BOTH original R2/R3 source/owned-loopback35 reviews accepted, with R2 separate actual absolute-deadline trickle control. Owner81/full portfolio tests are not independent native retakes. Oldcc91869 reviews are AT_EXECUTION/unchanged-code facts only, not current affected closure. Parent must explicitly execute/preserve/select new native epochs; no locked-Gate02 auto-adoption. R9 fixed conditional runtime/carrier graph source remains locally actionable, actual native cases NOT RUN; missing cases stay defects, never a generic query/map waiver.",
+      "waitingOn": [
+        "Actual locally source-bound runtime/carrier observer implementation and genuine executed conditional cases",
+        "Approved complete native graph/source-query/privacy/full-path and owner evidence"
+      ],
+      "completionWaitingOn": [
+        "Actual source-enrolled runtime/carrier/Azure query and complete native graph/root cases",
+        "Current R2/R3 independent source reviews after final frozen R7 integration",
+        "Privacy/full-path/canary/owner acceptance"
+      ],
+      "criteria": [],
+      "reviews": [
+        {
+          "role": "R2",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R7",
+          "scope": "CURRENT_CC918_OWN14_EFFECTIVE69_SOURCE_LOCAL_CONSTRUCTION_ONLY",
+          "artifact": "evidence\\reviews\\code-r2-r7-successor.json",
+          "sha256": "9ad4353888e248bd760567d8258dafe4d0378c2c9290210beedb525a79acaab7",
+          "scopeSha256": "e838b3cc1e7648ead8195e5a2cd1dfc1fd0ebf21be77765fbaeddda42b4499a6"
+        },
+        {
+          "role": "R3",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R7",
+          "scope": "CURRENT_CC918_OWN14_EFFECTIVE69_SOURCE_LOCAL_CONSTRUCTION_ONLY",
+          "artifact": "evidence\\reviews\\code-r3-r7-successor.json",
+          "sha256": "8591edce5a64aaa8cf7a374ef421330d0e3b6cd12b01120ae973f160e325854b",
+          "scopeSha256": "e838b3cc1e7648ead8195e5a2cd1dfc1fd0ebf21be77765fbaeddda42b4499a6"
+        }
+      ]
+    },
+    "GATE-08": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "finite-orders-root-exceptions-accepted-full-invariants-and-path-blocked",
+      "constructionReady": true,
+      "nextAction": "Actual v7 Orders-only three trust-root exceptions plus four continuation/state/business/strict00 controls are accepted finite: epoch5795/graphbd926/c384 and Parent a2da. This is a private LocalValidate NOT_FULL_GRAPH contribution, not full A/B/C or link/path coverage. Keep all required Azure/native full-path evidence, unrun Inventory/Gateway/data/broker roles, contributor/emission ledgers, canaries and owner acceptance open. Formal live executor remains unenrolled; saved files cannot mint it.",
+      "waitingOn": [
+        "Actual deployed/runtime boundary-map correspondence and remaining unrun conditional roles",
+        "Actual native Azure observer and full-path emission/canary capture",
+        "Two current accepted source reviews"
+      ],
+      "boundedRootExceptionContribution": {
+        "registerNode": "boundedLocalEvidence.ordersConditionalV7",
+        "actualLocalResult": "LOCAL_SELECTED_CASES_VERIFIED",
+        "scope": "Orders-only private LocalValidate, three documented root exceptions and four non-root controls",
+        "fullInvariantA": "NOT RUN",
+        "fullInvariantB": "NOT RUN",
+        "fullInvariantC": "NOT RUN",
+        "fullGraphVerified": false,
+        "wholeClauseComplete": false,
+        "formalLiveExecutorEnrolled": false
+      },
+      "criteria": [
+        {
+          "index": 1,
+          "result": "NOT RUN",
+          "scope": "unit",
+          "facets": [
+            {
+              "scope": "unit",
+              "result": "INVALIDATED",
+              "artifact": "evidence\\verification\\focused\\20261101T110748604Z-8a7395b4-87de-4f97-b19d-7268ad724923\\preparation-tests.json",
+              "sha256": "22bc8de695556d10f41a05bd21963e240bdebcee99caf478ea309351dbff58ad"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "result": "NOT RUN",
+          "scope": "unit",
+          "facets": [
+            {
+              "scope": "unit",
+              "result": "INVALIDATED",
+              "artifact": "evidence\\verification\\focused\\20261101T110748604Z-8a7395b4-87de-4f97-b19d-7268ad724923\\preparation-tests.json",
+              "sha256": "22bc8de695556d10f41a05bd21963e240bdebcee99caf478ea309351dbff58ad"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "result": "NOT RUN",
+          "scope": "unit",
+          "facets": [
+            {
+              "scope": "unit",
+              "result": "INVALIDATED",
+              "artifact": "evidence\\verification\\focused\\20261101T110748604Z-8a7395b4-87de-4f97-b19d-7268ad724923\\preparation-tests.json",
+              "sha256": "22bc8de695556d10f41a05bd21963e240bdebcee99caf478ea309351dbff58ad"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "result": "INVALIDATED",
+          "scope": "unit",
+          "artifact": "evidence\\verification\\focused\\20261101T110748604Z-8a7395b4-87de-4f97-b19d-7268ad724923\\preparation-tests.json",
+          "sha256": "22bc8de695556d10f41a05bd21963e240bdebcee99caf478ea309351dbff58ad"
+        }
+      ],
+      "currentUnitScopeInvalidation": {
+        "changedSources": [
+          "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+          "tools\\security\\native-identity-client.mjs",
+          "tests\\security\\native-identity-client.test.mjs",
+          "tools\\kanban.mjs",
+          "tests\\kanban.test.mjs",
+          "config\\board-state.json"
+        ],
+        "reason": "Approved header-only CLIENT helper/collector and acting-owner board/source changes alter the authoritative focused input closure; prior82 is historical, not current-source PASS",
+        "nextAction": "Run fresh focused tests after source-stable candidate handoff; never just update an old receipt hash or promote prior native82/103 scope"
+      },
+      "latestLocalExecution": {
+        "result": "PASS_AT_EXECUTION_CURRENT_CLOSURE_RECHECK_REQUIRED",
+        "scope": "Actual R9 Node verifier/source-window only; no native/card completion",
+        "artifact": "evidence\\verification\\focused\\20261101T194949889Z-7a1b934e-77cd-4568-a8ea-c595fca13bd9\\preparation-tests.json",
+        "sha256": "c4fafcf900594c652c6b24a2a0a1743aa092c0a3660baa661257405c5fc1595e",
+        "tests": 108,
+        "passed": 108,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "sourceBeforeAfterVerified": true,
+        "nativeEvidenceAccepted": false
+      },
+      "reviews": []
+    },
+    "OBS-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "current6dd-source-reviewed-local-retake-root-selected",
+      "constructionReady": true,
+      "effectiveCurrentSourceReview": {
+        "candidateSha256": "2bf3ec8422e366e30d2da9c99da83f11b73f7e7059ab33d5deb8bee2baf70b8e",
+        "result": "CHANGES_REQUIRED_TEST_LIFECYCLE_ONLY",
+        "sourceAcceptanceIsCertification": false,
+        "acceptedReviewCount": 0,
+        "finding": "R3-R7-NODE-SUBTEST-01",
+        "R2": {
+          "artifact": ".cache\\r2\\r7-first-receiver-cause-review\\2bf3ec84-frozen\\review-addendum.json",
+          "sha256": "a137c69fffa25cdd1f716f9348c96a7ef8d2e7ec628de817e9ac570f015b9848",
+          "supersedesEffectiveAcceptanceOnly": true,
+          "originalActual43PassUnchanged": true
+        },
+        "R3": {
+          "artifact": ".cache\\r3\\r7-first-receiver-cause-review\\20261102T013606533Z-9e62da7f-1078-457e-8a18-e3630576ab41\\review.json",
+          "sha256": "0a07af67450948a3622995be5c94926be42cac28ea2880721e118ec152d2f19d"
+        },
+        "nativeCauseOrQualificationInferred": false
+      },
+      "currentConnectionCloseSource": {
+        "artifact": ".cache\\r7\\connection-close\\20261102T014019283Z-c8c2c0b2-2989-4207-907b-2e0689daa60f\\handoff.json",
+        "sha256": "6dd864bdd56295027247c21cc3e9afbb27ed10238093eac659088b1fbfb9b314",
+        "intakeSourceSha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207",
+        "originalR2ReviewSha256": "3dccd3ad40dddac07d3a34d67e9318e26117b53f2677324067f1f991a1d4a453",
+        "originalR3ReviewSha256": "2e494d56d16735aabf48f1e4995c97ebde3be619bfa60f5cadcf399436005694",
+        "sourcePairReceiptSha256": "fda870f3fcbf79b2b69b04d7c6743daeb377f87efef92a330bd55251432a2788",
+        "sourceResult": "FINITE_ACCEPTED_CURRENT_SOURCE_NODE_ONLY",
+        "eachOriginalReviewerNodeTests": 45,
+        "ownerFullObservabilityTests": 91,
+        "selectedNativeProof": {
+          "artifact": "evidence\\java-local\\parent-safe-sampler\\connection-close-20261102T015117887Z-4fef5fe5-9d69-45ad-8178-f054073f3fd7\\result.json",
+          "sha256": "5c68274325d3824de4d7a152020a7b7f45e683c41fa8f0879d6c0a96f18a737d",
+          "nativeSpanCounts": [
+            2,
+            0,
+            2
+          ],
+          "runtimeExecutionOwner": "parent-R4",
+          "rootExplicitlySelected": true,
+          "selectedLockSha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+        },
+        "sourceAcceptanceIsCertification": false,
+        "r9ConditionalNativeEnrolled": false
+      },
+      "nextAction": "Current6dd/DFAF/fda has bothoriginal45SOURCEvotes and separatelyexecutedparent actual5c [2,0,2]/RPS5 proof explicitlyRootselected4075/VERSIONS. Retain old875 bothlifecycleCHANGES_REQUIRED/43PASS andthreefailedepochs unchanged; successdoesnotproveidle-socketcausality or allparticipants/globalfidelity. Actual fullmatrix/nativeowner/Azure clauses remainunmet, no cardDone. R7 supports originalR9ed4 source review without ownReader self-vote.",
+      "waitingOn": [
+        "Actual remaining complete participant/runtime/host sampling and bounded owner acceptance",
+        "Completion dependencies and approved fullpath/Azure evidence"
+      ],
+      "completionWaitingOn": [
+        "Successful separately granted actual current4JVM retake and explicit immutable RootGate02 selection",
+        "Current complete participant/native sampling matrix, Azure/owner evidence and completion dependencies"
+      ],
+      "criteria": [
+        {
+          "index": 3,
+          "result": "NOT RUN",
+          "scope": "unit",
+          "facets": [
+            {
+              "scope": "unit",
+              "result": "NOT RUN"
+            }
+          ]
+        }
+      ],
+      "localQualifiedSubset": {
+        "ownerRole": "R5",
+        "result": "PASS",
+        "scope": "Actual closed SDK/carrier/H2 literal00 decision and native export slice only",
+        "artifact": "evidence\\verification\\linked-root-sampling\\1.1.0\\20261101T094808461Z-b9cc8c74-13fd-4e5c-b5a3-60034c8594d8\\qualification.json",
+        "sha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+        "sourceAcceptanceIsCertification": false,
+        "completeMatrixVerified": false,
+        "r9IndependentRetake": false
+      },
+      "historicalResults": [
+        {
+          "result": "FAIL",
+          "guardScope": "c3 former policy; unchanged historical literal00 failure, not current qualification",
+          "artifact": "evidence\\verification\\linked-root-sampling\\qualification.json",
+          "sha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e"
+        }
+      ],
+      "reviews": [],
+      "sourceCorrectionReadiness": {
+        "ownerRole": "R7",
+        "result": "CHANGES_REQUIRED",
+        "scope": "Granted drain provenance source-only correction was completed; reviewer canonical-browser regression blocks current acceptance",
+        "artifact": ".cache\\r7\\drain-fix-ready\\20261101T191253514Z-23be5142-8b1f-4cef-8832-ab555f473520\\handoff.json",
+        "sha256": "1134e2182f66565b645a3ba390a379bc0731e192ac5ba29b3c1ab69dee8d7976",
+        "ownerFocusedTests": 9,
+        "ownerFullTests": 60,
+        "reviewsRequired": [
+          "R2",
+          "R3"
+        ],
+        "withdrawnAcceptance": "R3 finite SSR/JVM subset observations retained but overall three-file accepted vote withdrawn after browser regression reproduction",
+        "nextAction": "Preserve published browser layer and source, fix canonical browser key with active/expired positives; keep file/foreign-role negatives. Redirect and committed-workbook aefab integration require next owned source scope; no native permission or card completion."
+      }
     }
   }
 }

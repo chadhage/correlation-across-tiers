@@ -1,0 +1,93 @@
+{
+  "schema": "contoso.local-native-projection.v1",
+  "originalEnvelopesInMemoryOnly": true,
+  "projectedRecords": 0,
+  "publisherKeysPersisted": false,
+  "allTablePrivacyGateVerified": false,
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false,
+  "originalPrivacyCapture": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 61536,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 1,
+      "originalRawBytes": 522,
+      "decodedBytes": 1283,
+      "envelopes": 2
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "050205e47b3539635060314a9e65d1da71df294c518ccab08eddb5aa6e3abd85",
+        "originalPayloadBytes": 522,
+        "decodedPayloadBytes": 1283,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ]
+  },
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": false,
+    "receiverCode": null,
+    "sealed": true,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 1,
+      "parse": 1,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 0,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 1,
+      "nativePosts": 1,
+      "completedBodies": 1,
+      "rawBytesObserved": 522,
+      "acceptedPayloads": 1,
+      "acceptedRawBytes": 522,
+      "acceptedDecodedBytes": 1283,
+      "acceptedEnvelopes": 2
+    },
+    "firstPoison": null,
+    "lastRequest": {
+      "methodClass": "POST",
+      "routeClass": "native-v2.1-track",
+      "declaredLengthState": "in-range",
+      "declaredLength": 522,
+      "wireBytesObserved": 522
+    },
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 7,
+      "nativePosts": 1,
+      "echoGets": 2,
+      "rejectedRoutes": 4,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  }
+}

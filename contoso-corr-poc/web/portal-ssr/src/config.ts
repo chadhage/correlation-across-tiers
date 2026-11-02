@@ -1,5 +1,5 @@
 import {
-  canonicalOrigin, ContosoError, parsePublicConfig,
+  canonicalOrigin, ContosoError, isUuid4, MAX_CERT_WINDOW_SECONDS, parsePublicConfig,
   type ContosoPublicRuntimeConfigV1, type ContosoSurface, type ExecutionMode
 } from "./shared/contracts.js";
 
@@ -14,6 +14,20 @@ function percent(value: string | undefined, fallback: number): number {
   if (!Number.isFinite(parsed) || parsed <= 0 || parsed > 100) throw new ContosoError("CONFIG_INVALID", 503);
   return parsed;
 }
+export function runtimeWindow(env: ContosoEnvironment): { startsAtUtc: string | null; endsAtUtc: string | null; windowId: string | null } {
+  const startsAtUtc = env.CONTOSO_CERT_START ?? null;
+  const endsAtUtc = env.CONTOSO_CERT_END ?? null;
+  const windowId = env.CONTOSO_CERT_WINDOW_ID ?? null;
+  if ([startsAtUtc, endsAtUtc, windowId].some(value => value !== null)) {
+    const utc = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
+    if (!startsAtUtc || !endsAtUtc || !utc.test(startsAtUtc) || !utc.test(endsAtUtc)
+      || !Number.isFinite(Date.parse(startsAtUtc)) || !Number.isFinite(Date.parse(endsAtUtc))
+      || Date.parse(startsAtUtc) >= Date.parse(endsAtUtc)
+      || Date.parse(endsAtUtc) - Date.parse(startsAtUtc) > MAX_CERT_WINDOW_SECONDS * 1000 || !isUuid4(windowId))
+      throw new ContosoError("CONFIG_INVALID", 503);
+  }
+  return { startsAtUtc, endsAtUtc, windowId };
+}
 export function runtimeConfig(
   env: ContosoEnvironment,
   surface: ContosoSurface,
@@ -25,9 +39,7 @@ export function runtimeConfig(
   const publicOrigin = canonicalOrigin(required(env, "CONTOSO_PUBLIC_ORIGIN"), mode);
   const gatewayOrigin = canonicalOrigin(required(env, "CONTOSO_GATEWAY_ORIGIN"), mode);
   const apiClientId = required(env, "CONTOSO_ORDERS_API_CLIENT_ID");
-  const starts = env.CONTOSO_CERT_START ?? null;
-  const ends = env.CONTOSO_CERT_END ?? null;
-  const windowId = env.CONTOSO_CERT_WINDOW_ID ?? null;
+  const { startsAtUtc: starts, endsAtUtc: ends, windowId } = runtimeWindow(env);
   const active = starts !== null && ends !== null && windowId !== null && Date.parse(starts) <= now && now < Date.parse(ends);
   const roleName = surface === "storefront-spa" ? "contoso-storefront-spa" : "contoso-portal-ssr";
   return parsePublicConfig({

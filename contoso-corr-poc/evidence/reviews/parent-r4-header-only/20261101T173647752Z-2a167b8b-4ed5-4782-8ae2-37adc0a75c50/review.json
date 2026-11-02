@@ -1,0 +1,80 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "notReviewed": [
+    "Currentheader-onlyfactorymodule changes (R8 notrevieweduntildraftSourceReady)",
+    "MavenRuntimeGuard9/Node10/Compute/shellcurrentvalidation OWNERonly; noR9rerun",
+    "Freshheader-onlymoduleSourceBuildA/NativeB/privateexecutionC",
+    "Globalownership/unusedmodules/fidelity/privacy/Azure/fullRootAPI_READY"
+  ],
+  "roles": [
+    {
+      "role": "R4",
+      "executionOwner": "parent/coordinator originalR4recovery, no newagent",
+      "result": "accepted",
+      "scope": "CURRENT8FILE header_isolation_only ROOTSOURCE SUBSET ONLY",
+      "sources": [
+        {
+          "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java",
+          "sha256": "4b7da51485d427f9964b03265bb8541d442c7826bad92369d825e560ab25a91e"
+        },
+        {
+          "path": "services\\correlation-core\\src\\test\\java\\com\\contoso\\correlation\\RuntimeGuardTest.java",
+          "sha256": "af21cc9009868c1c5b990de0439ee56221f97d34f8881487726f7a3234e62a42"
+        },
+        {
+          "path": "tools\\java\\startup.sh",
+          "sha256": "a5389a20b0f7913a6d61d5ea0a0b5235fda63c97b843b2bc32ff819ac8222ba7"
+        },
+        {
+          "path": "tools\\java\\replay.sh",
+          "sha256": "49237b70ed79b4032632a8aaa1696dc141074204797e19e2cf49e06ad4e1bf91"
+        },
+        {
+          "path": "infra\\modules\\compute.bicep",
+          "sha256": "ba298b106ac3ab7a17a19bd82173365b12f887b202467718e4d6b167eccfbf3f"
+        },
+        {
+          "path": "docs\\JAVA_VALIDATION.md",
+          "sha256": "176c7dd51d8de9f954e8fb7efdb3896acaf1684918b005ff617eacf398f31afc"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "90779aad87e8a54225f20a09f1028f24b232a99f6399a9e743aa72d1899b0dce"
+        },
+        {
+          "path": "tests\\java\\gates.test.mjs",
+          "sha256": "469f9ed59a950a7bf90879ce1da3816bd01638345133661695689f3e8b40ee58"
+        }
+      ],
+      "scopeSha256": "2ba52b8209f2eaf66db626543e37710e284d1c5947487e40d92ebb5a6c5dfb99",
+      "mode": "USER header_isolation_only",
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "No ineffectiveOkHttpfalse inMANUAL/startup/replay/Function; nativeCLIENT defaultenabled andmisleadingdisabledaliases denied; businessJDK/Netty/Reactor/commonprotected",
+          "evidence": "Directactualsource/currentconditionalread and8-fileidentity map; correctedtestsourcefalse=>GATE05/trueallowed"
+        },
+        {
+          "label": "Verified",
+          "claim": "Documents publicidentityheaders isolation/retainedCLIENTspans andunfilterednegativecontrol; nofakeupstreamhonoring",
+          "evidence": "CurrentJAVA_VALIDATION history/currentmode/dataByte controls separated"
+        },
+        {
+          "label": "Unsupported",
+          "claim": "Newheader-onlyfactoryAPI/currentA/B/nativeAV23/certification",
+          "evidence": "Oldcfd requirefalse stillpendingR8moduleSourceupdate; source8scope cannotclaimthatfactoryusable orfresh4a/currentproof"
+        }
+      ],
+      "currentValidationOwnerReported": {
+        "runtimeGuardTests": 9,
+        "nodeToolingTests": 10,
+        "pinnedBicepAndShell": "PASS"
+      },
+      "r9MavenNativeExecuted": false,
+      "priorIndependentlyExecutedNode10": "Historicalpre-header-mode/sourcefixturevalidation only; notcurrentRoot9/10"
+    }
+  ]
+}

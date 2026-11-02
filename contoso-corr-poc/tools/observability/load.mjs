@@ -22,7 +22,8 @@ export async function sampleProcess(processId) {
     ['-NoProfile', '-File', join(root, 'tools', 'observability', 'process-metrics.ps1'), '-ProcessId', String(processId)],
     { windowsHide: true, timeout: 10000, maxBuffer: 32768 });
   const value = JSON.parse(stdout);
-  if (value.processId !== processId || !Number.isFinite(value.cpuSeconds) ||
+  if (value.processId !== processId || !Number.isFinite(value.cpuSeconds) || value.cpuSeconds < 0 ||
+      !Number.isFinite(Date.parse(value.processStartedAtUtc)) ||
       !Number.isFinite(value.workingSetBytes) || value.workingSetBytes <= 0) throw new TypeError('Missing actual service metric');
   return value;
 }
@@ -66,7 +67,7 @@ export async function runLoad({
         const start = performance.now();
         const receipt = { index, traceId, parentId, startedAtUtc: new Date().toISOString() };
         try {
-          const response = await fetch(url, { method, body: body === null ? undefined : JSON.stringify(body),
+          const response = await fetch(url, { method, redirect: 'error', body: body === null ? undefined : JSON.stringify(body),
             headers: { ...(body === null ? {} : { 'content-type': 'application/json' }), ...headers,
             traceparent: `00-${traceId}-${parentId}-01`, 'x-contoso-probe-case': `load-${index}` },
           signal: AbortSignal.timeout(requestTimeoutMs) });
@@ -96,7 +97,15 @@ export async function runLoad({
   }
   const first = samples[0], last = samples.at(-1);
   const elapsed = first && last ? (Date.parse(last.observedAtUtc) - Date.parse(first.observedAtUtc)) / 1000 : null;
-  const cpuAverage = elapsed > 0 ? 100 * (last.cpuSeconds - first.cpuSeconds) / elapsed / cpuNormalizationCores : null;
+  const continuity = samples.every((value, index) => value.processId === processId &&
+    Number.isFinite(value.cpuSeconds) && value.cpuSeconds >= 0 &&
+    Number.isFinite(value.workingSetBytes) && value.workingSetBytes > 0 &&
+    Number.isFinite(Date.parse(value.observedAtUtc)) &&
+    (!index || (value.cpuSeconds >= samples[index - 1].cpuSeconds &&
+      Date.parse(value.observedAtUtc) >= Date.parse(samples[index - 1].observedAtUtc))) &&
+    (sample !== sampleProcess || value.processStartedAtUtc === first?.processStartedAtUtc));
+  if (!continuity) metricErrors.push('ProcessMetricContinuity');
+  const cpuAverage = continuity && elapsed > 0 ? 100 * (last.cpuSeconds - first.cpuSeconds) / elapsed / cpuNormalizationCores : null;
   const peakMemory = samples.length ? Math.max(...samples.map(value => value.workingSetBytes)) : null;
   return {
     schema: 'contoso.observability-measurements.v1', sourceKind: sample === sampleProcess ? 'actual-http-and-local-process' : 'fixture-metrics-with-real-http',
@@ -107,7 +116,7 @@ export async function runLoad({
     p99Ms: percentile(receipts.map(value => value.durationMs), 99),
     unexpectedErrorPercent: receipts.length ? 100 * receipts.filter(value => value.unexpectedError).length / receipts.length : null,
     serviceCpuAveragePercent: Number.isFinite(cpuAverage) ? cpuAverage : null,
-    serviceCpuPeakPercent: percentages.length ? Math.max(...percentages) : null,
+    serviceCpuPeakPercent: continuity && percentages.length ? Math.max(...percentages) : null,
     servicePeakWorkingSetBytes: peakMemory,
     serviceMemoryLimitPercent: peakMemory === null ? null : peakMemory / memoryLimitBytes * 100,
     cpuNormalizationCores, memoryLimitBytes, metricErrors, samples, receipts,
@@ -128,33 +137,39 @@ export function evaluateMeasurements({ baseline, instrumented, nativeSpanCount, 
     ['serviceMemoryLimitPercent', thresholds.memoryLimitPercent]
   ];
   for (const [field, maximum] of pairs) {
-    if (!Number.isFinite(instrumented[field])) missing.push(field);
+    if (!Number.isFinite(instrumented[field]) || instrumented[field] < 0 ||
+        (field === 'unexpectedErrorPercent' && instrumented[field] > 100)) missing.push(field);
     else if (instrumented[field] > maximum) breaches.push(field);
   }
-  const overhead = Number.isFinite(baseline.p95Ms) && baseline.p95Ms > 0 && Number.isFinite(instrumented.p95Ms)
+  const overhead = Number.isFinite(baseline.p95Ms) && baseline.p95Ms > 0 && Number.isFinite(instrumented.p95Ms) && instrumented.p95Ms >= 0
     ? (instrumented.p95Ms / baseline.p95Ms - 1) * 100 : null;
   if (overhead === null) missing.push('baselineP95Overhead');
   else if (overhead > thresholds.instrumentationP95OverheadPercent) breaches.push('instrumentationP95Overhead');
-  if (!Number.isInteger(nativeSpanCount) || !Number.isInteger(expectedSpanCount)) missing.push('declaredSpanCoverage');
+  const validCoverage = Number.isSafeInteger(nativeSpanCount) && nativeSpanCount >= 0 &&
+    Number.isSafeInteger(expectedSpanCount) && expectedSpanCount > 0;
+  if (!validCoverage) missing.push('declaredSpanCoverage');
   else if (nativeSpanCount !== expectedSpanCount) breaches.push('declaredSpanCoverage');
-  if (!Number.isFinite(billableBytes)) missing.push('actualAzureBillableBytes');
-  if (!Number.isFinite(variableDailyUsd)) missing.push('actualVariableDailyMeters');
+  const validBilling = Number.isFinite(billableBytes) && billableBytes >= 0;
+  const validVariable = Number.isFinite(variableDailyUsd) && variableDailyUsd >= 0;
+  const validDuration = Number.isFinite(instrumented.requestedSeconds) && instrumented.requestedSeconds > 0 && instrumented.requestedSeconds <= 120;
+  if (!validBilling) missing.push('actualAzureBillableBytes');
+  if (!validVariable) missing.push('actualVariableDailyMeters');
+  if (!validDuration) missing.push('costMeasurementDuration');
   if (instrumented.metricErrors?.length || baseline.metricErrors?.length) missing.push('serviceMetricContinuity');
-  const billableGb = Number.isFinite(billableBytes) ? billableBytes / 1e9 : null;
+  const billableGb = validBilling ? billableBytes / 1e9 : null;
   const actualLogsCost = billableGb === null ? null : billableGb * approved.costInputs.analyticsLogsUsdPerBillableGb;
-  const actualDailyTotal = actualLogsCost !== null && Number.isFinite(variableDailyUsd) &&
-    Number.isFinite(instrumented.requestedSeconds) && instrumented.requestedSeconds > 0
+  const actualDailyTotal = actualLogsCost !== null && validVariable && validDuration
     ? approved.costInputs.rootFixedDailyUsd + actualLogsCost * 86400 / instrumented.requestedSeconds + variableDailyUsd : null;
   if (actualDailyTotal !== null && actualDailyTotal > approved.budget.dailyTargetUsd) breaches.push('dailyBudgetTarget');
-  const encodedEstimate = Number.isFinite(encodedEnvelopeBytes)
+  const encodedEstimate = Number.isFinite(encodedEnvelopeBytes) && encodedEnvelopeBytes >= 0
     ? encodedEnvelopeBytes / 1e9 * approved.costInputs.analyticsLogsUsdPerBillableGb : null;
   return {
     result: breaches.length ? 'FAIL' : missing.length ? 'INCONCLUSIVE' : 'PASS',
     missingMetrics: missing, thresholdBreaches: breaches, instrumentationP95OverheadPercent: overhead,
-    expectedSpanCount, nativeSpanCount, missingDeclaredSpans: Number.isInteger(nativeSpanCount) && Number.isInteger(expectedSpanCount)
+    expectedSpanCount, nativeSpanCount, missingDeclaredSpans: validCoverage
       ? Math.max(0, expectedSpanCount - nativeSpanCount) : null,
-    actualBillableBytes: billableBytes, actualLogsCostUsd: actualLogsCost,
-    actualVariableDailyUsd: variableDailyUsd, actualDailyTotalUsd: actualDailyTotal, encodedEnvelopeBytes,
+    actualBillableBytes: validBilling ? billableBytes : null, actualLogsCostUsd: actualLogsCost,
+    actualVariableDailyUsd: validVariable ? variableDailyUsd : null, actualDailyTotalUsd: actualDailyTotal, encodedEnvelopeBytes,
     encodedSizeCostEstimateUsd: encodedEstimate,
     costEstimateBasis: 'Encoded payload proxy is not _BilledSize/invoice; root fixed/variable meters remain independently owned by R1',
     dailyBudgetTargetUsd: approved.budget.dailyTargetUsd, intendedLifetimeHours: approved.budget.intendedLifetimeHours,

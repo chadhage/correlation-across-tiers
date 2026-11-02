@@ -1,0 +1,113 @@
+{
+  "schema": "contoso.r8-native-client-source-freeze.v2",
+  "readiness": "SOURCE_CPU_READY_FOR_CURRENT_REVIEWS_AND_EXPLICIT_NATIVE_RETAKE",
+  "mode": "header_isolation_only",
+  "originalScanPolicyVersion": 2,
+  "apiReady": false,
+  "certification": "NOT_CERTIFIED",
+  "finding": {
+    "id": "R2-R8-CLIENT-SCALAR-01",
+    "priorSource": "8166b4d3d7485d069aea69f717a0b046e67c6e0d19d140f3705635231eed5195",
+    "reproducer": "R2 isolated 64-KiB original string timed out despite the 1-MiB body limit",
+    "correction": "UTF-8 key and scalar bounds before forbiddenField/forbiddenString, whole-payload rejection without truncation",
+    "fieldKeyByteLimit": 128,
+    "scalarByteLimit": 4096,
+    "sourceCpuDisposition": "FIXED_PENDING_CURRENT_REVIEWS",
+    "nativeRetake": "NOT_EXECUTED"
+  },
+  "validation": {
+    "kind": "SOURCE_CPU_ONLY",
+    "allOwnedNodeTests": 45,
+    "passed": 45,
+    "failed": 0,
+    "skipped": 0,
+    "focusedNativeAndExistingCheckerTests": 17,
+    "nativeCollectorTests": 11,
+    "adversarialChild": "64-KiB scalar rejected with NATIVE_SCALAR_BOUND; isolated CPU child exits 0 within its 2000-ms timeout, no network/provider or fixture file writes",
+    "boundaries": [
+      "4096-byte ASCII and UTF-8 scalars accepted; one codepoint beyond rejected",
+      "128-byte ASCII and UTF-8 keys accepted; one codepoint beyond rejected",
+      "exact 1048576-byte valid multi-scalar payload accepted; one byte beyond rejected"
+    ],
+    "fourChangedSourceFileSecretScan": "PASS_ZERO_FINDINGS_SOURCE_MODE",
+    "ownedDiffWhitespace": "PASS",
+    "javaMavenOrNativeExecutedByR8": false,
+    "commandFromRepositoryRoot": "node --test .\\contoso-corr-poc\\tests\\security\\native-identity-client.test.mjs .\\contoso-corr-poc\\tests\\security\\av23-check.test.mjs .\\contoso-corr-poc\\tests\\security\\repository.test.mjs .\\contoso-corr-poc\\tests\\security\\identifiers.test.mjs .\\contoso-corr-poc\\tests\\security\\telemetry.test.mjs .\\contoso-corr-poc\\tests\\security\\keyvault-staging.test.mjs"
+  },
+  "changedSourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\security\\native-identity-client.test.mjs",
+      "sha256": "c95e03dc9c144a904fb2f65214803b0eac1ae1feaee84922dbdcc3b6326a3c3f"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\AV23.md",
+      "sha256": "3cd8c71a65f404e65585698fb3e41f1d6ba0058e2c560ca33d2854a8efaace63"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\README.md",
+      "sha256": "3b5f0cfe9724f627b5183ef6553d2e664207aaafabfa461fa1e8f62df6221465"
+    }
+  ],
+  "unchangedActualInputsFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "5b486c0d0f4d7693be7ea3f8691abf757cebb87c33f36cd5acd4c320ac39d279"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+      "sha256": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "preservedPriorEpochsFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\native-client-source-freeze.v1.json",
+      "sha256": "79f81525aec2b4a9e4d9c34d51d58667839476451dad1f32808f8830bcdad1a7",
+      "scope": "PRIOR_SOURCE_ORDINARY_CPU_TESTS_NOT_ADVERSARIAL_SCALAR_BOUNDEDNESS"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-client-output-parent-20261101T182444029Z.json",
+      "sha256": "b380966e1858f455348dd9bbf071fb76f432ed664367f817a9ab860d8028742e",
+      "scope": "UNCHANGED_ACTUAL_SMALL_NATIVE_HEADER_CLIENT_OUTPUT_PHYSICS_NOT_CURRENT_SCALAR_FIX"
+    }
+  ],
+  "production": {
+    "javaProbePomCoreSdkOrSamplerChanged": false,
+    "expectedSecurityJarSha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+    "existingProductionAndJavaProbeBuildWitness": "8412700a7792eea3b1cf8dc7a321fd71aff16eb5762e3c2985695eb47589611b",
+    "earlierBuildWitnessProvesChangedNodeSource": false,
+    "repackageRequiredForThisNodeOnlyFix": false
+  },
+  "decoderImportContract": {
+    "decodeNativePayloadBehaviorChanged": false,
+    "containingModuleByteHashChanged": true,
+    "parentApiMustRefreshActualImportSourceScope": true,
+    "oldApiSourceOrNativeAuthorityReused": false
+  },
+  "nativeCommandAfterExplicitGrantFromRepositoryRoot": ". .\\contoso-corr-poc\\tools\\java\\Use-Portable.ps1; $report = \".\\contoso-corr-poc\\services\\security-core\\docs\\av23-java-scalar-bound-$([guid]::NewGuid().ToString()).json\"; node .\\contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs --isolated-transport --retry-control --report $report",
+  "nativeRetakeRequirements": [
+    "current node source/import hashes captured before and after execution; existing actual Java probe compile/member/origin and current production e58/BB binding",
+    "positive actual JWKS and MI CLIENT native outputs with original real root/trace/parent linkage",
+    "all seven forbidden headers absent on every physical identity attempt plus raw native negative and trusted JDK parent advancement",
+    "CLIENT exports, logical sends and physical retries measured separately, no source/type/name/ID/URL or count backfill",
+    "new exclusive report path; prior native receipts remain immutable",
+    "original R2/R5 current source/CPU and finite native reviews, no extra provider/SDK or inferred Azure/global certification"
+  ],
+  "globalPrivacyOrExporterCompletenessVerified": false,
+  "r8WriterState": "STOPPED_AFTER_CURRENT_SOURCE_FREEZE_NO_NATIVE_MAVEN_INSTALL_TARGET_OR_PRODUCTION_WRITES"
+}

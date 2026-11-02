@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{{CSP}}">
+  <meta name="description" content="An engineering walkthrough of request correlation, asynchronous span relationships, and recorded local evidence in the Contoso correlation POC.">
+  <title>Correlation across tiers | Engineering walkthrough</title>
+  <script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-padding-top: 100px; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font: 16px/1.6 "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; }
+    button, input, select { font: inherit; }
+    button, a, input, select, [tabindex] { -webkit-tap-highlight-color: var(--cp-highlight); }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; color: var(--cp-text-soft); background: var(--cp-surface-soft); }
+    a { color: var(--cp-accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { color: var(--cp-accent-hover); }
+    :focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 4px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.15; font-weight: 600; }
+    h1 { font-size: clamp(2.6rem, 5.2vw, 4.5rem); letter-spacing: -0.055em; margin-bottom: 24px; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.035em; margin-bottom: 16px; }
+    h3 { font-size: 1.2rem; letter-spacing: -0.02em; }
+    code, pre, .eyebrow, .demo-number, .mono { font-family: Consolas, "Courier New", Courier, monospace; }
+    code { font-size: 0.83em; overflow-wrap: anywhere; }
+    pre { margin: 12px 0; padding: 16px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-surface-soft); font-size: 0.8rem; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+    pre code { font-size: inherit; }
+    .container { width: min(1240px, calc(100% - 80px)); margin-inline: auto; }
+    .skip-link { position: fixed; top: -80px; left: 16px; z-index: 20; padding: 12px; background: var(--cp-surface); }
+    .skip-link:focus { top: 12px; }
+    .topbar { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--cp-border); background: var(--cp-bg-elevated); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--cp-text); text-decoration: none; font-size: 0.95rem; font-weight: 600; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--cp-accent); border-radius: 10px; color: var(--cp-accent); font: 700 20px Consolas, monospace; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { color: var(--cp-text-muted); text-decoration: none; font-size: 0.85rem; }
+    .header-actions { display: flex; gap: 8px; align-items: center; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-surface); color: var(--cp-text); font-size: 0.85rem; font-weight: 600; text-decoration: none; line-height: 1.4; }
+    .button:hover:not(:disabled) { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .button.primary { border-color: var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); }
+    .button.primary:hover { background: var(--cp-accent-hover); color: var(--cp-accent-fg); }
+    .button.compact { padding: 8px 12px; min-height: 40px; font-size: 0.78rem; }
+    .text-button { padding: 4px 0; border: 0; background: none; color: var(--cp-accent); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
+    .eyebrow { color: var(--cp-accent); font-size: 0.68rem; letter-spacing: 0.13em; font-weight: 600; margin-bottom: 20px; }
+    .muted, .small, .section-description { color: var(--cp-text-muted); }
+    .small { font-size: 0.85rem; }
+    .section-description { max-width: 700px; margin-bottom: 28px; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 72px; padding-top: 72px; padding-bottom: 56px; }
+    .hero-description { max-width: 620px; color: var(--cp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .scope-card { border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-surface); padding: 28px; }
+    .scope-card h2 { font-size: 1.65rem; margin-bottom: 24px; letter-spacing: -0.035em; }
+    .scope-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 16px 0; border-top: 1px solid var(--cp-border); font-size: 0.85rem; }
+    .scope-row span:last-child { color: var(--cp-accent); font-weight: 600; }
+    .scope-note { border-left: 2px solid var(--cp-accent); padding-left: 16px; margin: 16px 0 0; color: var(--cp-text-muted); font-size: 0.8rem; }
+    .inventory-strip { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; border-block: 1px solid var(--cp-border); margin-bottom: 16px; }
+    .inventory-cell { padding: 24px 24px 24px 0; }
+    .inventory-cell + .inventory-cell { padding-left: 28px; border-left: 1px solid var(--cp-border); }
+    .inventory-number { display: block; font-size: 1.8rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.04em; }
+    .inventory-label { display: block; margin-top: 8px; color: var(--cp-text-muted); font-size: 0.78rem; }
+    .inventory-cell:last-child .inventory-number { font-size: 0.85rem; color: var(--cp-accent); letter-spacing: 0; padding-top: 4px; }
+    .notice { margin-top: 16px; padding: 12px 16px; border: 1px solid var(--cp-border-strong); border-radius: 10px; background: var(--cp-surface); font-size: 0.85rem; }
+    section.chapter { padding-top: 64px; padding-bottom: 4px; }
+    .section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    .tag { display: inline-flex; align-items: center; border: 1px solid var(--cp-border); border-radius: 6px; padding: 3px 8px; font-size: 0.7rem; color: var(--cp-text-muted); background: var(--cp-bg-elevated); }
+    .tag.accent { color: var(--cp-accent); border-color: var(--cp-accent); background: var(--cp-accent-soft); }
+    .walkthrough { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 24px; align-items: start; }
+    .catalog { background: var(--cp-bg-elevated); border: 1px solid var(--cp-border); border-radius: 16px; overflow: hidden; }
+    .catalog-tools { padding: 20px; border-bottom: 1px solid var(--cp-border); }
+    label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; }
+    input, select { width: 100%; padding: 10px 12px; border: 1px solid var(--cp-border-strong); border-radius: 10px; background: var(--cp-surface); color: var(--cp-text); min-height: 44px; }
+    input::placeholder { color: var(--cp-text-soft); }
+    .filter-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 12px; }
+    .filter { border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text-muted); border-radius: 6px; min-height: 36px; padding: 6px 9px; font-size: 0.72rem; }
+    .filter[aria-pressed="true"] { border-color: var(--cp-accent); color: var(--cp-accent); background: var(--cp-accent-soft); }
+    .catalog-count { font-size: 0.7rem; color: var(--cp-text-muted); margin: 12px 0 0; }
+    .demo-list { max-height: 472px; overflow: auto; padding: 8px; }
+    .demo-item { width: 100%; display: flex; align-items: baseline; gap: 14px; padding: 13px 12px; border: 1px solid var(--cp-bg-elevated); border-radius: 10px; background: var(--cp-bg-elevated); color: var(--cp-text); text-align: left; }
+    .demo-item:hover { border-color: var(--cp-border-strong); }
+    .demo-item[aria-pressed="true"] { border-color: var(--cp-border); background: var(--cp-surface); color: var(--cp-accent); }
+    .demo-number { font-size: 0.73rem; color: var(--cp-text-soft); }
+    .demo-item[aria-pressed="true"] .demo-number { color: var(--cp-accent); }
+    .demo-item-title { font-size: 0.83rem; font-weight: 500; }
+    .empty-search { padding: 20px; font-size: 0.85rem; }
+    .demo-detail { border: 1px solid var(--cp-border); background: var(--cp-surface); border-radius: 16px; padding: 32px; min-width: 0; }
+    .detail-topline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .detail-topline .eyebrow { margin: 0; }
+    .demo-detail h3 { font-size: 1.8rem; line-height: 1.2; margin-bottom: 16px; }
+    .demo-detail .purpose { font-size: 0.95rem; color: var(--cp-text-muted); }
+    .detail-label { color: var(--cp-text-muted); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; margin-top: 24px; margin-bottom: 10px; text-transform: uppercase; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .boundary-chip { border: 1px solid var(--cp-border); border-radius: 6px; background: var(--cp-surface-soft); color: var(--cp-text-muted); padding: 5px 8px; font: 0.7rem Consolas, monospace; }
+    .boundary-chip:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .owner-effect { margin: 20px 0; padding: 12px; border-left: 2px solid var(--cp-warning); background: var(--cp-bg-elevated); font-size: 0.82rem; }
+    .demo-detail .actions { margin-top: 24px; }
+    details { border-top: 1px solid var(--cp-border); margin-top: 24px; padding-top: 16px; }
+    summary { cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+    .demo-pagination { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--cp-border); padding-top: 20px; margin-top: 24px; }
+    .graph-shortcuts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .graph-shell { border: 1px solid var(--cp-border); border-radius: 16px; overflow: hidden; background: var(--cp-surface); }
+    .graph-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 24px; border-bottom: 1px solid var(--cp-border); background: var(--cp-bg-elevated); }
+    .graph-toolbar p { margin: 0; font-size: 0.8rem; }
+    .legend { display: flex; gap: 16px; font: 0.7rem Consolas, monospace; color: var(--cp-text-muted); }
+    .legend span { display: flex; align-items: center; gap: 8px; }
+    .legend-line { width: 24px; border-top: 1px solid var(--cp-text-muted); }
+    .legend-line.link { border-top: 1px dashed var(--cp-accent); }
+    .graph-content { display: grid; grid-template-columns: minmax(0, 1fr) 288px; }
+    .graph-viewport { min-width: 0; overflow: auto; align-self: start; padding: 16px 4px 0; }
+    .graph-canvas { min-width: 640px; }
+    .graph-canvas svg { display: block; width: 100%; }
+    .graph-role { fill: var(--cp-text-soft); font: 11px Consolas, monospace; }
+    .graph-edge { fill: none; stroke: var(--cp-border-strong); stroke-width: 1.5; }
+    .graph-edge.link { stroke: var(--cp-accent); stroke-dasharray: 5 4; }
+    .graph-edge.related { stroke: var(--cp-accent); stroke-width: 2; }
+    .arrow-head { fill: var(--cp-text-soft); }
+    .graph-node { cursor: pointer; }
+    .graph-node rect { fill: var(--cp-bg-elevated); stroke: var(--cp-border); stroke-width: 1; }
+    .graph-node:hover rect { stroke: var(--cp-border-strong); }
+    .graph-node[aria-pressed="true"] rect { fill: var(--cp-accent-soft); stroke: var(--cp-accent); stroke-width: 1.5; }
+    .graph-node:focus-visible { outline: none; }
+    .graph-node:focus-visible rect { stroke: var(--cp-accent); stroke-width: 3; }
+    .graph-label { fill: var(--cp-text); font: 13px "Segoe UI", sans-serif; font-weight: 500; }
+    .graph-kind { fill: var(--cp-accent); font: 10px Consolas, monospace; letter-spacing: 0.6px; }
+    .boundary-inspector { padding: 24px; border-left: 1px solid var(--cp-border); background: var(--cp-bg-elevated); min-width: 0; }
+    .boundary-inspector .eyebrow { font-size: 0.6rem; margin-bottom: 16px; }
+    .boundary-inspector h3 { font-size: 1.15rem; }
+    .boundary-inspector p, .boundary-inspector li { font-size: 0.77rem; color: var(--cp-text-muted); }
+    .boundary-inspector dl { margin-bottom: 20px; }
+    .boundary-inspector dt { font-size: 0.65rem; color: var(--cp-text-soft); margin-top: 12px; }
+    .boundary-inspector dd { margin: 0; font-size: 0.8rem; overflow-wrap: anywhere; }
+    .boundary-inspector ul { padding-left: 16px; }
+    .boundary-inspector li + li { margin-top: 12px; }
+    .graph-footnote { margin: 0; padding: 16px 24px; border-top: 1px solid var(--cp-border); color: var(--cp-text-muted); font-size: 0.77rem; }
+    .evidence-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .evidence-card { padding: 24px; border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-surface); min-width: 0; }
+    .evidence-card .eyebrow { font-size: 0.6rem; margin-bottom: 16px; }
+    .evidence-card h3 { font-size: 1.1rem; }
+    .evidence-metric { margin-block: 24px 16px; font-size: 2.8rem; line-height: 1.15; font-weight: 600; letter-spacing: -0.05em; }
+    .evidence-metric span { display: block; font-size: 0.77rem; letter-spacing: 0; font-weight: 400; color: var(--cp-text-muted); margin-top: 8px; }
+    .evidence-scope { font-size: 0.75rem; color: var(--cp-text-muted); overflow-wrap: anywhere; }
+    .receipt-state { font-size: 0.7rem; font-weight: 600; margin-top: 20px; margin-bottom: 8px; color: var(--cp-text-muted); }
+    .receipt-path { display: block; font-size: 0.64rem; color: var(--cp-text-soft); margin-bottom: 16px; }
+    .warning-text { color: var(--cp-danger); }
+    .evidence-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px; }
+    .evidence-notes > div { min-width: 0; overflow-wrap: anywhere; }
+    .evidence-notes p, .evidence-notes li { font-size: 0.85rem; color: var(--cp-text-muted); }
+    .evidence-notes ul { padding-left: 20px; }
+    .receipt-list { list-style: none; padding: 0; }
+    .receipt-list li { margin-top: 12px; font-size: 0.75rem; }
+    .receipt-list code { display: block; font-size: 0.7rem; margin-top: 4px; }
+    .operations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .operation-card { padding: 28px; border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-surface); min-width: 0; }
+    .operation-card h3 { font-size: 1.3rem; }
+    .operation-card .small { margin-bottom: 20px; }
+    .launch-panel { margin-top: 24px; padding: 28px; border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-bg-elevated); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .launch-panel h3 { margin-bottom: 8px; }
+    .launch-panel p { margin-bottom: 0; max-width: 600px; }
+    .resource-row { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 32px; }
+    footer { border-top: 1px solid var(--cp-border); margin-top: 64px; padding: 28px 0; color: var(--cp-text-muted); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 0.72rem; }
+    .footer-inner p { margin: 0; }
+    dialog { width: min(680px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 28px; border: 1px solid var(--cp-border-strong); border-radius: 16px; background: var(--cp-surface); color: var(--cp-text); }
+    dialog::backdrop { background: var(--cp-overlay); }
+    .dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 24px; }
+    .dialog-header h2 { margin: 0; font-size: 1.5rem; }
+    .field { margin-top: 20px; }
+    .field p { margin: 6px 0 0; font-size: 0.72rem; color: var(--cp-text-muted); }
+    .dialog-actions { margin-top: 28px; justify-content: space-between; }
+    .source-dialog { width: min(1000px, calc(100% - 32px)); }
+    .source-dialog pre { max-height: 52dvh; overflow: auto; font-size: 0.77rem; }
+    .source-dialog .digest { font-size: 0.67rem; margin: 12px 0; overflow-wrap: anywhere; }
+    .source-dialog .small { margin: 0; }
+    .form-error { color: var(--cp-danger); font-size: 0.85rem; margin-top: 12px; }
+    @media (min-width: 1600px) { .hero { padding-top: 96px; padding-bottom: 72px; } }
+    @media (max-width: 1100px) {
+      .container { width: calc(100% - 48px); }
+      .topbar-inner { gap: 16px; }
+      nav { gap: 14px; }
+      .hero { gap: 32px; }
+      .walkthrough { grid-template-columns: 300px minmax(0, 1fr); }
+      .graph-content { grid-template-columns: minmax(0, 1fr) 252px; }
+      .header-actions .theme-toggle { display: none; }
+    }
+    @media (max-width: 800px) {
+      .topbar-inner { flex-wrap: wrap; gap: 12px; padding-block: 12px; }
+      nav { order: 3; width: 100%; justify-content: space-between; }
+      html { scroll-padding-top: 140px; }
+      .hero { grid-template-columns: 1fr; padding-top: 44px; gap: 32px; }
+      .hero h1 br { display: none; }
+      .scope-card { padding: 24px; }
+      .inventory-strip { grid-template-columns: repeat(3, 1fr); }
+      .inventory-cell:last-child { grid-column: 1 / -1; border-top: 1px solid var(--cp-border); border-left: 0; padding: 16px 0; }
+      .inventory-cell { padding-block: 20px; }
+      .walkthrough { grid-template-columns: 1fr; }
+      .demo-list { max-height: 240px; }
+      .demo-detail { padding: 24px; }
+      .graph-content { grid-template-columns: 1fr; }
+      .boundary-inspector { border-left: 0; border-top: 1px solid var(--cp-border); }
+      .graph-canvas { min-width: 700px; }
+      .evidence-cards, .operations-grid, .evidence-notes { grid-template-columns: 1fr; }
+      .evidence-metric { font-size: 2.4rem; }
+      .evidence-notes { gap: 8px; }
+      section.chapter { padding-top: 48px; }
+    }
+    @media (max-width: 420px) {
+      .container { width: calc(100% - 32px); }
+      .brand { font-size: 0.78rem; gap: 8px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .header-actions .button { padding: 8px; font-size: 0.73rem; }
+      .inventory-cell + .inventory-cell { padding-left: 16px; }
+      .inventory-cell:last-child { padding-left: 0; }
+      .inventory-label { font-size: 0.68rem; }
+      .inventory-number { font-size: 1.6rem; }
+      .demo-detail, .operation-card, .launch-panel { padding: 20px; }
+      .graph-toolbar { padding: 16px; }
+      dialog { padding: 20px; }
+    }
+    @media print {
+      .topbar, .header-actions, .demo-pagination, .graph-shortcuts, .launch-panel, .skip-link { display: none; }
+      .container { width: 100%; }
+      .hero { padding-top: 0; }
+      .demo-list { max-height: none; }
+      .graph-canvas { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">[ ]</span>Correlation across tiers</a>
+      <nav aria-label="Main navigation">
+        <a href="#walkthrough">Walkthrough</a>
+        <a href="#topology">Topology</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#operations">Operations</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="button compact theme-toggle" type="button">Dark theme</button>
+        <button class="button compact" type="button" data-open-environment>Environment settings</button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <noscript><p class="notice">This offline walkthrough requires JavaScript to display its embedded source snapshot. No network connection or sign-in is required.</p></noscript>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">CONTOSO-CORR / ENGINEERING WALKTHROUGH</p>
+        <h1>Follow a request.<br>Inspect the boundaries.</h1>
+        <p class="hero-description">W3C trace context across a browser, API gateway, Java services, and message-driven workers. Explore the implemented contracts, the demo scenarios, and the limits of the recorded evidence.</p>
+        <div class="actions">
+          <a class="button primary" href="#walkthrough">Explore the demos <span aria-hidden="true">&nbsp;&rarr;</span></a>
+          <a class="button" href="#evidence">Review local evidence</a>
+        </div>
+      </div>
+      <aside class="scope-card" aria-label="Current project scope">
+        <p class="eyebrow">CURRENT SCOPE</p>
+        <h2>Implementation is not<br>certification.</h2>
+        <div class="scope-row"><span>Contracts and verification interfaces</span><span>Implemented</span></div>
+        <div class="scope-row"><span>Bounded local execution</span><span>Recorded</span></div>
+        <div class="scope-row"><span>Azure full-path acceptance</span><span>Not certified</span></div>
+        <p class="scope-note">This site is a read-only source snapshot. It does not emit traffic, query telemetry, or grant authorization.</p>
+      </aside>
+    </div>
+    <div class="inventory-strip" aria-label="Source inventory">
+      <div class="inventory-cell"><span class="inventory-number">{{DEMO_COUNT}}</span><span class="inventory-label">cataloged demo scenarios</span></div>
+      <div class="inventory-cell"><span class="inventory-number">{{BOUNDARY_COUNT}}</span><span class="inventory-label">declared span boundaries</span></div>
+      <div class="inventory-cell"><span class="inventory-number">{{ROLE_COUNT}}</span><span class="inventory-label">declared service roles</span></div>
+      <div class="inventory-cell"><span class="inventory-number">Source definitions, not live coverage</span><span class="inventory-label">Counts come from the catalog and boundary map.</span></div>
+    </div>
+
+    <section id="walkthrough" class="chapter" aria-labelledby="walkthrough-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / GUIDED WALKTHROUGH</p><h2 id="walkthrough-heading">Choose what to inspect.</h2></div>
+        <span class="tag accent">No demo traffic runs from this site</span>
+      </div>
+      <p class="section-description">Start with HTTP continuity, then inspect asynchronous relationships and trust controls. Each scenario shows its goal and expected boundaries, not a claim that the Azure run passed.</p>
+      <div class="walkthrough">
+        <div class="catalog">
+          <div class="catalog-tools">
+            <label for="demo-search">Find a scenario</label>
+            <input id="demo-search" type="search" placeholder="Search title, boundary, or criterion" autocomplete="off">
+            <div class="filter-row" role="group" aria-label="Scenario groups">
+              <button class="filter" type="button" data-group="all" aria-pressed="true">All</button>
+              <button class="filter" type="button" data-group="http" aria-pressed="false">HTTP</button>
+              <button class="filter" type="button" data-group="async" aria-pressed="false">Messaging</button>
+              <button class="filter" type="button" data-group="controls" aria-pressed="false">Controls</button>
+            </div>
+            <p id="demo-count" class="catalog-count" aria-live="polite"></p>
+          </div>
+          <div id="demo-list" class="demo-list" role="group" aria-label="Demo scenarios"></div>
+          <div id="empty-search" class="empty-search" hidden><p>No scenarios match this search.</p><button id="clear-search" class="text-button" type="button">Clear search and filters</button></div>
+        </div>
+        <article class="demo-detail" aria-labelledby="selected-demo-title">
+          <div class="detail-topline"><p id="selected-demo-number" class="eyebrow"></p><span id="demo-scenario" class="tag"></span></div>
+          <h3 id="selected-demo-title" aria-live="polite"></h3>
+          <p id="selected-demo-purpose" class="purpose"></p>
+          <p class="detail-label">Acceptance criteria to evaluate</p>
+          <div id="demo-criteria" class="chips"></div>
+          <p class="detail-label">Expected boundaries / select to inspect</p>
+          <div id="demo-boundaries" class="chips"></div>
+          <p id="owner-effect" class="owner-effect" hidden></p>
+          <div class="actions">
+            <button id="inspect-demo-topology" class="button compact" type="button">Inspect topology <span aria-hidden="true">&nbsp;&darr;</span></button>
+            <button id="demo-readme" class="text-button" type="button">Read scenario source</button>
+          </div>
+          <details>
+            <summary>Run and reset templates</summary>
+            <p class="small">Run from the POC root only after separate authorization. Replace the placeholders with an approved adapter and reviewed hash. No approved native adapter is bundled; missing adapters fail closed. LocalValidate is not certification.</p>
+            <pre><code id="run-template"></code></pre>
+            <button id="copy-run" class="text-button" type="button">Copy run template</button>
+            <pre><code id="reset-template"></code></pre>
+            <button id="copy-reset" class="text-button" type="button">Copy reset template</button>
+            <p class="small">Reset must demonstrate restoration of run-owned baseline state. Never purge shared queues or unowned messages.</p>
+          </details>
+          <div class="demo-pagination"><button id="previous-demo" class="button compact" type="button">&larr; Previous</button><button id="next-demo" class="button compact" type="button">Next scenario &rarr;</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="topology" class="chapter" aria-labelledby="topology-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / EXPECTED RELATIONSHIPS</p><h2 id="topology-heading">Parents and links are different.</h2></div>
+        <button class="text-button" type="button" data-source="contracts\expected-boundary-map.v1.json">Inspect the boundary map</button>
+      </div>
+      <p class="section-description">This graph is derived from the selected scenario's required boundary definitions. It is not a trace capture: repeated deliveries and distinct contributors require actual native evidence.</p>
+      <div class="graph-shortcuts" role="group" aria-label="Topology examples">
+        <button class="filter" type="button" data-graph-demo="01" aria-pressed="true">Synchronous HTTP</button>
+        <button class="filter" type="button" data-graph-demo="02" aria-pressed="false">Portal SSR</button>
+        <button class="filter" type="button" data-graph-demo="08" aria-pressed="false">Fan-out / fan-in</button>
+        <button class="filter" type="button" data-graph-demo="07" aria-pressed="false">DLQ / replay</button>
+        <button class="filter" type="button" data-graph-demo="09" aria-pressed="false">Mixed batch</button>
+      </div>
+      <div class="graph-shell">
+        <div class="graph-toolbar">
+          <p id="graph-demo-label"></p>
+          <div class="legend" aria-label="Graph legend"><span><i class="legend-line" aria-hidden="true"></i>parent</span><span><i class="legend-line link" aria-hidden="true"></i>link</span></div>
+        </div>
+        <div class="graph-content">
+          <div class="graph-viewport" tabindex="0" role="region" aria-label="Declared topology; scroll horizontally on narrow screens"><div id="graph-canvas" class="graph-canvas"></div></div>
+          <aside class="boundary-inspector" aria-label="Selected boundary contract">
+            <p class="eyebrow">BOUNDARY INSPECTOR / EXPECTATION ONLY</p>
+            <h3 id="boundary-title" tabindex="-1"></h3>
+            <code id="boundary-id"></code>
+            <dl><dt>Service role</dt><dd id="boundary-role" class="mono"></dd><dt>Semantic kind</dt><dd id="boundary-kind" class="mono"></dd></dl>
+            <div id="boundary-notes"></div>
+            <p class="detail-label">Relationships in this selection</p>
+            <ul id="boundary-edges"></ul>
+            <p id="no-edges" hidden>No relationship is declared between this boundary and the other selected definitions.</p>
+          </aside>
+        </div>
+        <p class="graph-footnote">PostgreSQL and Redis are CLIENT operations, not invented database server spans. Broker transport is not an emitted broker span. Root exemptions require the evidence specified by the contract.</p>
+      </div>
+    </section>
+
+    <section id="evidence" class="chapter" aria-labelledby="evidence-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / RECORDED EVIDENCE</p><h2 id="evidence-heading">What the local records establish.</h2></div>
+        <span class="tag accent">NOT CERTIFIED</span>
+      </div>
+      <p class="section-description">These are historical execution records referenced by the verification register, not tests rerun by this page. Receipt hashes are compared at site build time; a match does not establish current source/runtime parity or Azure acceptance.</p>
+      <div id="evidence-cards" class="evidence-cards"></div>
+      <div class="evidence-notes">
+        <div>
+          <h3>Keep the scope attached.</h3>
+          <p id="conditional-note"></p>
+          <p id="package-note"></p>
+          <details><summary>All included receipt checks</summary><ul id="receipt-list" class="receipt-list"></ul></details>
+        </div>
+        <div>
+          <h3>What still needs native acceptance.</h3>
+          <ul id="remaining-work"></ul>
+          <button class="text-button" type="button" data-source="docs\RESIDUAL_LIMITATIONS.md">Read the residual limitations</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="operations" class="chapter" aria-labelledby="operations-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 / PRESENTER OPERATIONS</p><h2 id="operations-heading">Inspect first. Execute deliberately.</h2></div>
+        <button class="text-button" type="button" data-source="docs\DEMO_RUNBOOK.md">Open the presenter runbook</button>
+      </div>
+      <p class="section-description">Commands are displayed for review and manual use. This microsite has no execution endpoint, telemetry connection, credentials, or deployment controls.</p>
+      <div class="operations-grid">
+        <article class="operation-card">
+          <p class="eyebrow">SOURCE CHECKS</p><h3>Check the local definitions.</h3>
+          <p class="small">From the POC root. These checks do not run the fifteen native demos, enroll observers, or certify an environment.</p>
+          <pre><code id="local-checks">npm run demos:check
+node .\tools\architecture.mjs --check
+npm run verify:register</code></pre>
+          <button id="copy-checks" class="text-button" type="button">Copy local check commands</button>
+        </article>
+        <article class="operation-card">
+          <p class="eyebrow">BACKEND INVESTIGATION</p><h3>Render a bounded KQL procedure.</h3>
+          <label for="query-select">Procedure</label>
+          <select id="query-select">
+            <option value="trace-reconstruct">Trace reconstruction</option>
+            <option value="business-lookup">Business invocation lookup</option>
+            <option value="orphan-candidates">Orphan-candidate triage</option>
+          </select>
+          <pre><code id="query-command"></code></pre>
+          <p class="small">Supply an approved parameter file with the actual scope, UTC interval, observed IDs, and required assignments. Rendering does not execute the query. A filtered query is not the global privacy scan.</p>
+          <div class="actions"><button id="copy-query" class="text-button" type="button">Copy render template</button><button id="view-query" class="text-button" type="button">Inspect source template</button></div>
+        </article>
+      </div>
+      <div class="launch-panel">
+        <div><h3>Open a configured demo environment.</h3><p class="small">Links only. No reachability, authentication, deployment, or telemetry status is inferred. URLs stay in this browser; never enter tokens or credentials.</p><p id="environment-status" class="small"></p></div>
+        <div class="actions" aria-label="Environment launch links">
+          <a id="launch-storefront" class="button" target="_blank" rel="noopener noreferrer" hidden>Storefront &nearr;</a><button id="launch-storefront-disabled" class="button" type="button" disabled>Storefront &nearr;</button>
+          <a id="launch-portal" class="button" target="_blank" rel="noopener noreferrer" hidden>Portal SSR &nearr;</a><button id="launch-portal-disabled" class="button" type="button" disabled>Portal SSR &nearr;</button>
+          <a id="launch-gateway" class="button" target="_blank" rel="noopener noreferrer" hidden>Gateway &nearr;</a><button id="launch-gateway-disabled" class="button" type="button" disabled>Gateway &nearr;</button>
+          <button class="text-button" type="button" data-open-environment>Configure URLs</button>
+        </div>
+      </div>
+      <div class="resource-row" aria-label="Embedded source documents">
+        <button class="text-button" type="button" data-source="docs\ARCHITECTURE.md">Architecture notes</button>
+        <button class="text-button" type="button" data-source="docs\CERTIFICATION_REPORT.md">Certification report</button>
+        <button class="text-button" type="button" data-source="kql\README.md">KQL contracts</button>
+        <button class="text-button" type="button" data-source="demos\catalog.json">Demo catalog</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <p>contoso-corr / poc &middot; Read-only walkthrough &middot; No analytics or external assets</p>
+      <p>Source snapshot built <time datetime="{{BUILT_AT}}">{{BUILT_AT}}</time>. Rebuild after source changes.</p>
+    </div>
+  </footer>
+
+  <dialog id="environment-dialog" aria-labelledby="environment-dialog-title">
+    <div class="dialog-header"><h2 id="environment-dialog-title">Environment launch URLs</h2><button class="button compact" type="button" data-close-dialog="environment-dialog" aria-label="Close environment settings">Close</button></div>
+    <p class="small">Use HTTPS, or HTTP on localhost for local apps. Leave unused fields empty. Base URLs cannot contain credentials, query parameters, or fragments. This site does not contact the configured endpoints.</p>
+    <form id="environment-form">
+      <div class="field"><label for="environment-storefront">Storefront SPA</label><input id="environment-storefront" type="url" autocomplete="off" placeholder="https://your-storefront-host"><p>The browser application's entry URL.</p></div>
+      <div class="field"><label for="environment-portal">Portal SSR</label><input id="environment-portal" type="url" autocomplete="off" placeholder="https://your-portal-host"><p>The server-rendered application's entry URL.</p></div>
+      <div class="field"><label for="environment-gateway">Gateway base URL</label><input id="environment-gateway" type="url" autocomplete="off" placeholder="https://your-gateway-host"><p>Opening a base URL is not an authenticated API test.</p></div>
+      <p id="environment-error" class="form-error" role="alert"></p>
+      <div class="actions dialog-actions"><button id="clear-environment" class="text-button" type="button">Clear URLs</button><button class="button primary" type="submit">Save launch URLs</button></div>
+    </form>
+  </dialog>
+  <dialog id="source-dialog" class="source-dialog" aria-labelledby="source-dialog-title">
+    <div class="dialog-header"><h2 id="source-dialog-title">Source snapshot</h2><button class="button compact" type="button" data-close-dialog="source-dialog" aria-label="Close source snapshot">Close</button></div>
+    <label for="source-select">Repository-relative source</label>
+    <select id="source-select"></select>
+    <p id="source-digest" class="digest mono"></p>
+    <p id="source-excerpt" class="small" hidden>Selected register fields only. The digest covers the complete source file, not just this excerpt. Raw execution payloads are not embedded.</p>
+    <pre id="source-text" tabindex="0"></pre>
+    <button id="copy-source" class="text-button" type="button">Copy displayed source</button>
+  </dialog>
+  <script id="site-data" type="application/json">{{SITE_DATA}}</script>
+  <script type="module">{{SITE_SCRIPT}}</script>
+</body>
+</html>

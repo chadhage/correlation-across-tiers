@@ -1,10 +1,25 @@
 import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 export const HASH = /^(?!0{64}$)[a-f0-9]{64}$/;
 export const TRACE = /^(?!0{32}$)[a-f0-9]{32}$/;
 export const SPAN = /^(?!0{16}$)[a-f0-9]{16}$/;
 export const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
+export const GUARD_POLICY = 'DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS';
+export const GUARD_ARTIFACT_VERSION = '1.1.0';
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+export const TELEMETRY_CONTRACT_SOURCE_SHA256 = sha256(await readFile(fileURLToPath(import.meta.url)));
+export function canonicalJson(value) {
+  if (value === null || ['string', 'boolean'].includes(typeof value)) return JSON.stringify(value);
+  if (typeof value === 'number' && Number.isFinite(value)) return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
+    return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(',')}}`;
+  }
+  throw new TypeError('Owned configuration requires finite canonical JSON values');
+}
+export const ownedConfigurationHash = value => sha256(canonicalJson(value));
 const KIND = new Map([
   ['AppRequests', 'span'], ['AppDependencies', 'span'], ['AppTraces', 'log'],
   ['AppExceptions', 'exception'], ['AppPageViews', 'view'], ['AppEvents', 'event'],
@@ -14,10 +29,12 @@ const KIND = new Map([
 const SAFE_PROPERTIES = new Set([
   'business.invocation_id', 'contoso.span.kind', 'contoso.run.id', 'contoso.workflow.id',
   'contoso.branch', 'contoso.outcome', 'contoso.transport', 'contoso.process.attempt',
-  'contoso.publish.attempt', 'contoso.message.id', 'contoso.link.count', 'error.type',
+  'contoso.publish.attempt', 'contoso.message.id', 'contoso.original.message.id', 'contoso.causation.id',
+  'contoso.context.rejection', 'contoso.link.count', 'error.type',
   'db.system', 'db.system.name', 'db.namespace', 'db.name', 'db.operation.name',
   'contoso.data.operation', 'contoso.cache.outcome', 'messaging.system',
   'messaging.destination.name', 'messaging.operation.name', 'messaging.message.id',
+  'messaging.destination.partition.id', 'messaging.eventhubs.message.offset',
   'messaging.batch.message_count', 'user.pseudonym', 'auth.outcome', 'user.pseudonym.epoch'
 ]);
 
@@ -152,8 +169,13 @@ export function normalizeTelemetryRows(rows, {
     if (['log', 'exception', 'event'].includes(recordKind)) {
       item.associatedSpanId = hasTrace ? canonicalSpanId(rawParent, trace, mapping) : null;
       item.businessInvocationId = props['business.invocation_id'] ?? null;
+      if (recordKind === 'exception') item.exceptionType = row.ExceptionType ?? row.type ?? null;
     } else if (recordKind === 'view') {
-      item.viewId = hasTrace ? canonicalSpanId(rawId, trace, mapping) : rawId;
+      if (rawId !== null && (typeof rawId !== 'string' || rawId.length > 256)) {
+        throw new TypeError('Unreviewed native view display identity');
+      }
+      item.viewId = rawId;
+      item.contextSpanId = null;
     }
     return [item];
   });
@@ -168,8 +190,25 @@ export function validateSamplingControlAck(ack, expected) {
   if (expected.eligibleFull && (ack.percentage !== 100 || ack.requestsPerSecond !== null)) {
     throw new TypeError('Eligible-full native sampling requires 100 and absent RPS');
   }
+  if (expected.guardRequired && (ack.guardPolicy !== (expected.guardPolicy ?? GUARD_POLICY) ||
+      ack.guardArtifactVersion !== (expected.guardArtifactVersion ?? GUARD_ARTIFACT_VERSION))) {
+    throw new TypeError('Native acknowledgement does not identify the actual approved parent/link guard policy');
+  }
   if (ack.privacyChanged !== false || ack.secretsIncluded !== false || ack.providerConstruction !== false || ack.extraExporter !== false) {
     throw new TypeError('Unsafe sampling acknowledgement');
+  }
+  if (expected.runId) {
+    const observedAt = Date.parse(requireUtc(ack.observedAtUtc, 'observedAtUtc'));
+    if (ack.runId !== expected.runId || ack.activeLeaseId !== expected.activeLeaseId ||
+        typeof ack.runtimeInstanceId !== 'string' || !ack.runtimeInstanceId ||
+        observedAt < Date.parse(expected.observedNotBeforeUtc) ||
+        ownedConfigurationHash(ack.ownedConfiguration) !== ack.configSha256 ||
+        ack.sourceKind !== 'trusted-runtime-observation') {
+      throw new TypeError('Stale/unbound or configuration-only runtime acknowledgement');
+    }
+    if (expected.independentProvider && (ack.providerCount !== 1 || ack.exporterCount !== 1)) {
+      throw new TypeError('Independent runtime provider/exporter ownership is unproven');
+    }
   }
   return ack;
 }

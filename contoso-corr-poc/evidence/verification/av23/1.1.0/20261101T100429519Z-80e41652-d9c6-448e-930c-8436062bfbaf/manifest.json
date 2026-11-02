@@ -1,0 +1,15 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "real-local-agent-loopback",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "java-isolated-qualification.json",
+      "sha256": "990a9b06e9e57a8445d328d76be8f1415576d7de27207c62583628e686b2d6a0"
+    },
+    {
+      "path": "source-receipt.json",
+      "sha256": "f8dc49628d1ae8a9afc3752536a99559bb08ab4f6dd2b975adbdd8e76720bc2a"
+    }
+  ]
+}

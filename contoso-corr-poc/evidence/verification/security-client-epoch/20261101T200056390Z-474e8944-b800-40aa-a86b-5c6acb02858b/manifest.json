@@ -1,0 +1,12 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "R9-bound-original-parent-selected-local-A-B-epoch",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "files": [
+    {
+      "path": "qualification.json",
+      "sha256": "34bd3c95aa7435af886a38ff56acb353f25afdf17eeaacd1feda5b7e7b8c42f2"
+    }
+  ]
+}

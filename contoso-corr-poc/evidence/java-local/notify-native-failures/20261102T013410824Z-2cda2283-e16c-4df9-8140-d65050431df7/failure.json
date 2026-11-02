@@ -1,0 +1,36 @@
+{
+  "schema": "contoso.notify-native-failure-preservation.v1",
+  "preservedAtUtc": "2026-11-02T01:34:10.8849005Z",
+  "result": "FAIL_OR_UNVERIFIED",
+  "selectedTests": 13,
+  "failures": 1,
+  "errors": 1,
+  "skipped": 0,
+  "sourceChecks": 92,
+  "afterSourceDrift": 0,
+  "reason": "NOTIFY_TOPIC_TRUSTED_NOTIFY_PRINCIPAL; actual Notify native child exited1",
+  "originalReports": [
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NotifyTopicReplayFixtureTest.xml",
+      "copy": "TEST-com.contoso.messaging.NotifyTopicReplayFixtureTest.xml",
+      "sha256": "93c8e9fbb5e4b9373b862ee0b1c7bc72257c37e8b99b810b6d67fc42589d5d03"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.NativeTestCaptureTest.xml",
+      "copy": "TEST-com.contoso.messaging.NativeTestCaptureTest.xml",
+      "sha256": "ad679718e3e1e2487ffa42815ed60c3b34b837de73ad725984ea048f9a98b265"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "copy": "TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "sha256": "001e4420a68ae7f0d6cfb7949c699a207268e4a1b75e6ed5f79a67cc2e7e1dca"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "copy": "TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "sha256": "591c58c3746d3fa47a463e0aee3c7016efa9ac0449defdde3e05c26f1a6125d6"
+    }
+  ],
+  "scope": "Actual selected execution failure; separate successful linked-root test is not a successful combined Notify run.",
+  "certified": false
+}

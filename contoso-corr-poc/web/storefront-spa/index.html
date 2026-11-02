@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <title>Contoso Storefront — correlation across tiers</title>
+  <script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
 </head>
 <body>
   <!--CONTOSO_RUNTIME_CONFIG-->
@@ -61,7 +69,7 @@
     <section class="panel results" data-testid="contoso-run-result" aria-live="polite">
       <p class="eyebrow">ACTUAL BACKEND RESPONSE</p><h2 id="result-state">No run yet</h2>
       <p id="result-note">Live Azure certification remains To Do. SDK/network success alone is not a passing evidence pack.</p>
-      <dl><dt>Order / run ID</dt><dd id="result-id">—</dd><dt>Canonical business invocation ID</dt><dd id="result-business-id">—</dd><dt>Driver</dt><dd id="result-driver">—</dd></dl>
+      <dl><dt>Order / run ID</dt><dd id="result-id">—</dd><dt id="result-business-id-label">Business invocation ID</dt><dd id="result-business-id">—</dd><dt>Original workflow invocation ID</dt><dd id="result-workflow-business-id">—</dd><dt>Driver</dt><dd id="result-driver">—</dd></dl>
       <div id="result-details"></div>
       <button type="button" class="secondary" id="refresh-result" disabled>Read actual backend state</button>
     </section>

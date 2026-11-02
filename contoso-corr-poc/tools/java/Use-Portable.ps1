@@ -2,7 +2,7 @@ param([string]$ToolsRoot = 'C:\Users\chhage\.copilot\session-state\a2820816-7000
 $ErrorActionPreference = 'Stop'
 $jdk = Get-ChildItem -LiteralPath $ToolsRoot -Directory | Where-Object Name -Like 'jdk-*' | Select-Object -First 1
 if (-not $jdk) { throw 'Portable JDK not installed' }
-$scratch = Join-Path $ToolsRoot 'scratch'
+$scratch = Join-Path (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent) '.java-work'
 New-Item -ItemType Directory -Path $scratch -Force | Out-Null
 $env:JAVA_HOME = $jdk.FullName
 $env:PATH = "$($jdk.FullName)\bin;$ToolsRoot\apache-maven-3.10.0\bin;$env:PATH"

@@ -1,0 +1,50 @@
+{
+  "schema": "contoso.native-byte-preservation.v1",
+  "preservedAtUtc": "2026-11-02T02:02:24.2559766Z",
+  "files": [
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-proof.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-proof.json",
+      "sha256": "cdc8441f5d41fa5267eafe43b0dd16f235b540605dfad02ed772824105bbe89a",
+      "bytes": 44062
+    },
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-safe-inspection.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T001924070Z-6ca16fb3-4358-4d91-b2ca-facbfca3dddd\\native-safe-inspection.json",
+      "sha256": "fac4d7985717b046f4e5086987cf2beed4cbbc9d8bb2a926ec3f45614433812c",
+      "bytes": 39983
+    },
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-proof.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-proof.json",
+      "sha256": "730ddebce442d94ba324e6f374ecdc8c7778fa0f29c03cd50dcc7f50dcf5f08a",
+      "bytes": 69853
+    },
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-safe-inspection.json",
+      "copy": "support\\workers\\messaging-core\\target\\native-agent\\epochs\\20261102T014507630Z-cb3e1b0e-7483-490e-bf58-842da5b03557\\native-safe-inspection.json",
+      "sha256": "17ed58d662702989043aa992bc077c1dae6c5fbce72b25229186759e06a1ff27",
+      "bytes": 58975
+    },
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T001941635Z-0d2464bf-31f5-4aa3-8fb8-ca75f8719578\\qualification.json",
+      "copy": "support\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T001941635Z-0d2464bf-31f5-4aa3-8fb8-ca75f8719578\\qualification.json",
+      "sha256": "37c68a92036308f1dda52391be330e9bf5cf62e6b98cbe98fd692d918eee5f0e",
+      "bytes": 66740
+    },
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T013234564Z-71102226-eab5-4db7-b4ee-fa0fd3c83202\\qualification.json",
+      "copy": "support\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T013234564Z-71102226-eab5-4db7-b4ee-fa0fd3c83202\\qualification.json",
+      "sha256": "ca280afc16c1520841bdd68a8b8b43db663536cf88dd83aa2f06cf758448ff67",
+      "bytes": 64743
+    },
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T014555095Z-c134fa05-688f-4d99-ae6e-86ae12c42a91\\qualification.json",
+      "copy": "support\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T014555095Z-c134fa05-688f-4d99-ae6e-86ae12c42a91\\qualification.json",
+      "sha256": "3735b3ac25b63cd8e2ad93d09f456af1a872fca6d9b55915f586341d95e22101",
+      "bytes": 64731
+    }
+  ],
+  "scope": "Actual existing metadata copied before Maven clean; no reconstruction, raw rescan, failure promotion or enrollment authority.",
+  "sourceAcceptanceIsCertification": false
+}

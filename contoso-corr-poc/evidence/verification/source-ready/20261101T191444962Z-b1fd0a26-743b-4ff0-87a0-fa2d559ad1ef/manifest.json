@@ -1,0 +1,64 @@
+{
+  "schema": "contoso.r9-source-ready.v1",
+  "authorOriginalRole": "R9",
+  "readiness": "READY_FOR_NARROW_OTHER_ROLE_REVIEW",
+  "scope": "mandatory-current-approved-acting-board-source-and-Node-only",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "startedAtUtc": "2026-11-01T19:14:44.962Z",
+  "finishedAtUtc": "2026-11-01T19:14:45.393Z",
+  "beforeSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "hashMode": "raw",
+      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "hashMode": "raw",
+      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+    },
+    {
+      "path": "config\\board-state.json",
+      "hashMode": "board-policy",
+      "sha256": "996b7f523a524eafb569dd0a32aed9b68e4ed502dbdbd3ddf53f399b12cb85b8"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "hashMode": "raw",
+      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "hashMode": "raw",
+      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+    },
+    {
+      "path": "config\\board-state.json",
+      "hashMode": "board-policy",
+      "sha256": "996b7f523a524eafb569dd0a32aed9b68e4ed502dbdbd3ddf53f399b12cb85b8"
+    }
+  ],
+  "scopeSha256": "32034cd81498fbd0703f50483566114377f8dd83b7b227cca0d04c9b159cbf12",
+  "sourcesStable": true,
+  "validation": {
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "fixedFinding": "R7 currentboard omission/delete/null bypass; no historical validation fallback",
+  "supersededSourceReadySha256": "5775b78b773c8fd9ae3f8f8a50ebbecf86af1dca7c24b7b70bc28c11698685d5",
+  "notReviewed": [
+    "native/Azure authority",
+    "source-build-loaded whole Security/Data/root lineage",
+    "all15 live demos",
+    "full R9 source closure"
+  ]
+}

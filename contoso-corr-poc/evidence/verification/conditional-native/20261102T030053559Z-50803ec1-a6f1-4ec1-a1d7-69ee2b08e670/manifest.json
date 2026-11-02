@@ -1,0 +1,44 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "result": "FAIL_OR_UNVERIFIED",
+  "files": [
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$1.class",
+      "sha256": "e0ae2ca28852fde6f5b1ff0b2ec2114ea242ab29f8bc097630badd6c64ee9b81"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$LocalResp.class",
+      "sha256": "3eee4eab08b61214edccf3e2c8ac0010813d311982d3dfe8b91d1ff65f16ec92"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$UnavailableBroker.class",
+      "sha256": "c340a03521ea84bca7fd546135f91607ac254e9d6e66fcb507c40e47a126ae3c"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture.class",
+      "sha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeTrustRootObservationFilter.class",
+      "sha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702"
+    },
+    {
+      "path": "classpath-selection.json",
+      "sha256": "8f868c05e07a2d9525404769da5aeb35ef81bafccaffa85b90efe554a7160e6a"
+    },
+    {
+      "path": "failure.json",
+      "sha256": "51a2a815122010c117e912edc708bf54c7f734f0dcc3c5f7f28b744daf7d1a65"
+    },
+    {
+      "path": "java-agent.json",
+      "sha256": "90cb0784f5e67e1913b55b296c6e2119b3cd2461a0ddbe7f476d45c16eb9ca9b"
+    },
+    {
+      "path": "sampling-lease.json",
+      "sha256": "d7318169af016dd2081d82fbbe2e6bd7cf9211d0ec0d8677605f7516ba95fd28"
+    }
+  ]
+}

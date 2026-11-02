@@ -1,0 +1,27 @@
+{
+  "schema": "contoso.sampling-runtime-lease.v1",
+  "runId": "9fa81256-2ad3-44bf-8b52-8759a5c2d2d6",
+  "layerId": "contoso-orders-api",
+  "revision": "cert-9fa81256-2ad3-44bf-8b52-8759a5c2d2d6",
+  "startsAtUtc": "2026-11-02T04:06:17.006Z",
+  "expiresAtUtc": "2026-11-02T04:08:48.006Z",
+  "drainAtUtc": "2026-11-02T04:08:38.006Z",
+  "restoreDeadlineUtc": "2026-11-02T04:09:08.006Z",
+  "hashAlgorithm": "contoso.canonical-json.sha256.v1",
+  "ownedConfigSha256": "a5a42133b82c79d7be37503e5636d5ce2b721cc85b3c5963e292299b96247a69",
+  "baselineOwnedConfigSha256": "a18698d6e1c2f2932226923388ca5778df24933b3441e08bb5cbc0e90a58e81c",
+  "ownedConfiguration": {
+    "sampling.percentage": 100,
+    "sampling.requestsPerSecond": {
+      "$contosoAbsent": true
+    },
+    "sampling.overrides": []
+  },
+  "guard": {
+    "sha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+    "sdkAbi": "1.65.0",
+    "version": "1.1.0",
+    "policy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS"
+  }
+}

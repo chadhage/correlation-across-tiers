@@ -35,7 +35,8 @@ test("FIXTURE cohost requires a fixed controller, CSRF and live window before wo
     gateway: {
       async createOrder(body, businessInvocationId) {
         mutations++;
-        return { schemaVersion: 1, id: body.orderId ?? randomUUID(), businessInvocationId, state: "DURABLE_STAGED", details: { source: "fixture" } };
+        return { schemaVersion: 1, id: body.orderId ?? randomUUID(), businessInvocationId,
+          workflowBusinessInvocationId: businessInvocationId, state: "DURABLE_STAGED", details: { source: "fixture" } };
       },
       async readOrder(id, businessInvocationId) { return { schemaVersion: 1, id, businessInvocationId, state: "DURABLE_STAGED", details: {} }; }
     }
@@ -105,13 +106,15 @@ test("FIXTURE anonymous landings cannot consume authenticated capacity and login
     authorizeControl: async bearer => { if (!bearer.startsWith("fixture-control-")) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403); },
     gateway: {
       async createOrder(body, businessInvocationId) {
-        return { schemaVersion: 1, id: body.orderId ?? randomUUID(), businessInvocationId, state: "DURABLE_STAGED", details: {} };
+        return { schemaVersion: 1, id: body.orderId ?? randomUUID(), businessInvocationId,
+          workflowBusinessInvocationId: businessInvocationId, state: "DURABLE_STAGED", details: {} };
       },
       async readOrder(id, businessInvocationId) {
         return { schemaVersion: 1, id, businessInvocationId, state: "DURABLE_STAGED", details: {} };
       }
     }
   });
+
   await new Promise<void>(resolveReady => server.listen(port, "127.0.0.1", resolveReady));
   async function login(): Promise<Response> {
     return fetch(`${origin}/portal/session`, {

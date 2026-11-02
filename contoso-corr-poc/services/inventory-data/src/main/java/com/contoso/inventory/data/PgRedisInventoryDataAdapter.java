@@ -1,5 +1,6 @@
 package com.contoso.inventory.data;
 
+import com.azure.core.credential.TokenCredential;
 import com.contoso.correlation.data.DataAccessException;
 import com.contoso.correlation.data.DataErrorKind;
 import com.contoso.correlation.data.DataValidation;
@@ -10,6 +11,7 @@ import com.contoso.correlation.data.PgConnectionFactory;
 import com.contoso.correlation.data.PgOperation;
 import com.contoso.correlation.data.PgOperations;
 import com.contoso.correlation.data.Reservation;
+import com.contoso.security.IdentityHttpClients;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.UUID;
@@ -24,8 +26,16 @@ public final class PgRedisInventoryDataAdapter implements InventoryDataAdapter {
     public static InventoryDataAdapter fromEnvironment() {
         DataInstrumentationGuard.verify();
         DataLoggingGuard.verify();
-        PgConnectionFactory connections = EntraPgConnectionFactory.fromEnvironment("contoso-inventory-api");
-        try { return new PgRedisInventoryDataAdapter(connections, LettuceInventoryCache.fromEnvironment(),
+        PgSettings settings = PgSettings.fromEnvironment("contoso-inventory-api");
+        return fromEnvironment(IdentityHttpClients.managedIdentity(settings.clientId()));
+    }
+
+    public static InventoryDataAdapter fromEnvironment(TokenCredential credential) {
+        DataInstrumentationGuard.verify();
+        DataLoggingGuard.verify();
+        java.util.Objects.requireNonNull(credential);
+        PgConnectionFactory connections = EntraPgConnectionFactory.fromEnvironment("contoso-inventory-api", credential);
+        try { return new PgRedisInventoryDataAdapter(connections, LettuceInventoryCache.fromEnvironment(credential),
             System.getenv("CONTOSO_PG_RESOURCE_ID")); }
         catch (RuntimeException failure) { connections.close(); throw failure; }
     }

@@ -1,0 +1,432 @@
+{
+  "schema": "contoso.r5-authored-async-source-freeze.v1",
+  "actualAuthor": "original-R5",
+  "scope": "ALL5_REAL_WORKER_MODULES_ENVELOPE_ASYNC_SQL_TRANSPORTS_TRUST_AND_REPLAY_NODE_BICEP",
+  "readiness": "SOURCE_READY_FOR_ORIGINAL_R2_SECOND_OTHER_ROLE_REVIEW",
+  "independentReviewers": [
+    "original-R3-retained",
+    "original-R2-reassigned"
+  ],
+  "excludesSelfReviewedActingData": true,
+  "createdAtUtc": "2026-11-01T21:00:13.3255597Z",
+  "modules": [
+    {
+      "module": "workers\\messaging-core",
+      "sourceFileCount": 37
+    },
+    {
+      "module": "workers\\fulfillment",
+      "sourceFileCount": 6
+    },
+    {
+      "module": "workers\\notify",
+      "sourceFileCount": 6
+    },
+    {
+      "module": "workers\\aggregator",
+      "sourceFileCount": 6
+    },
+    {
+      "module": "workers\\replay",
+      "sourceFileCount": 5
+    }
+  ],
+  "ownedSourceCount": 67,
+  "ownedSources": [
+    {
+      "path": "contracts\\message-envelope.v1.json",
+      "sha256": "37aad2df23055f0a2ccaa072baec5ae209a6bc956ef1caaa9626c3dc9dc7ad4b"
+    },
+    {
+      "path": "infra\\modules\\messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c"
+    },
+    {
+      "path": "infra\\modules\\messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c"
+    },
+    {
+      "path": "tests\\messaging\\async-honesty.test.mjs",
+      "sha256": "4acea10ce046b2f765a90421171d32afafca79ef28e527cda6fd51ced6a92a53"
+    },
+    {
+      "path": "tests\\messaging\\contracts.test.mjs",
+      "sha256": "83c523ac9845fb0400556558c95f790c2c6f087f081b476328e68a195e87c8fd"
+    },
+    {
+      "path": "tests\\messaging\\infra.test.mjs",
+      "sha256": "f7e85e014b2d45ecfe90ddfee35197a13229d9b51f4847c28e0a0b200f30bf32"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "workers\\aggregator\\host.json",
+      "sha256": "06295d7cede19a1d806f78b8af8784b8b179869ff90d0753e6f6e3fbdd958e24"
+    },
+    {
+      "path": "workers\\aggregator\\pom.xml",
+      "sha256": "94ace98f67b1d3cf63e7c4a53df90402c9bc2770686f2d05c21527b837ead5c5"
+    },
+    {
+      "path": "workers\\aggregator\\README.md",
+      "sha256": "2fc042bb6dac859a2442aa07444eb9c7715358b3ad1ba57eb0d9957ca3985e90"
+    },
+    {
+      "path": "workers\\aggregator\\src\\main\\java\\com\\contoso\\aggregator\\AggregatorFunctions.java",
+      "sha256": "c8f8ebfe08a1c0c3d6e091e9839defecb183bbee4bfc7963c78655e44e1d2aa0"
+    },
+    {
+      "path": "workers\\aggregator\\src\\main\\resources\\logback.xml",
+      "sha256": "9380f37d904b6e8c54b343675b5d9976d3fd4969b1ad29f08538279cbdc8dcda"
+    },
+    {
+      "path": "workers\\aggregator\\src\\test\\java\\com\\contoso\\aggregator\\AggregatorFunctionsTest.java",
+      "sha256": "22ac83e393f42b5a210ebe89a7cf71c4684cd3c373142848c711e7f371b305df"
+    },
+    {
+      "path": "workers\\fulfillment\\host.json",
+      "sha256": "06295d7cede19a1d806f78b8af8784b8b179869ff90d0753e6f6e3fbdd958e24"
+    },
+    {
+      "path": "workers\\fulfillment\\pom.xml",
+      "sha256": "aa55e87dc450b43f080b38a76262a9a0c968f3787008acb68cc142324f467595"
+    },
+    {
+      "path": "workers\\fulfillment\\README.md",
+      "sha256": "510134ff8e0fe7aa4f5965c1bd093a5ad674e156fd3ab40d1dcbb08066cac4c3"
+    },
+    {
+      "path": "workers\\fulfillment\\src\\main\\java\\com\\contoso\\fulfillment\\FulfillmentFunctions.java",
+      "sha256": "9bc9a44c3ce7d20db9de09e3a80627571b2741d606e782a13859a84890fca5db"
+    },
+    {
+      "path": "workers\\fulfillment\\src\\main\\resources\\logback.xml",
+      "sha256": "9380f37d904b6e8c54b343675b5d9976d3fd4969b1ad29f08538279cbdc8dcda"
+    },
+    {
+      "path": "workers\\fulfillment\\src\\test\\java\\com\\contoso\\fulfillment\\FulfillmentFunctionsTest.java",
+      "sha256": "248142d81c83ca4bf52138a5c3fb364967188e57b25663e638bd931715d751cc"
+    },
+    {
+      "path": "workers\\messaging-core\\pom.xml",
+      "sha256": "c762a0a26088521f381a38dacf8e37040b42215da33370535efbf6eb756567ab"
+    },
+    {
+      "path": "workers\\messaging-core\\README.md",
+      "sha256": "2fcf0dc42f60435c43a128b400337ae884851b71f5170cd661fc9f282ae373a5"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AsyncProcessor.java",
+      "sha256": "cba99111baf0d89626f77b1d77ba32d9ba63cac332d66b9eb41d34931ff3f91f"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureCarriers.java",
+      "sha256": "95d3c2e3683133dc27ba665feb514dc93845acf2e2dd08a4de507545b6d94176"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureMessagingTransport.java",
+      "sha256": "1509708bf2eb080a6d9e022b51bd2e0379c2260de9d437cbfe6a3b1228f11df1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Branch.java",
+      "sha256": "b4e85d0a6e59347965b1cb88ad9a1df912bb552aa7308ad3eba6c9260dab1d2d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Delivery.java",
+      "sha256": "5613788ba8d97f0787d257242767d46f970e649625c9d7773a82235bb8bcca7d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Destination.java",
+      "sha256": "0209f28fd5c938165e32ae0e76459aeaa921da7e3877160caa93df49355d7689"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Envelope.java",
+      "sha256": "6d88e26d03b8ece77c5347dff5b508432a29bc93dc401cafaba1a401aab132b8"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\EnvelopeCodec.java",
+      "sha256": "9b1376a151a61e37ab0f50ac5e3c8153ff411e99bd915d5fc7e0ec1b326689a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingFailure.java",
+      "sha256": "8c11b0f9dacc90fc68c46e6c1097f8c80b41c9b5d4ca13127a251bef36672c39"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingLoggingGuard.java",
+      "sha256": "f055d037cfeed7163c99b827cd4c14ddc0bbc3dffe3151829510adeed63dffeb"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingRuntime.java",
+      "sha256": "f868e7675e13218117dcdbb0b4e3d39ca87bea68fa297098d224e77cc7f02589"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingSettings.java",
+      "sha256": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingStore.java",
+      "sha256": "6a19c8d4fc76daec7308fe70f0ab4c9c3082851146a555520d9309a8722846e2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingTransport.java",
+      "sha256": "af2add40dc0fa475b5a852b83afae4483c5a51282160c4b0f1fe1230761b5e81"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java",
+      "sha256": "9bc25811764d8c1e6ba20c9bf2daf17e05574163182dcbf4c2e9b28de75c9d8d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\OutboxPublisher.java",
+      "sha256": "51a9b31c747e9d6c860d42a820bfda6844f30fe753920eb9399cd5f1b14ac1a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\PgMessagingStore.java",
+      "sha256": "405b862786c551079d1f4dc18ae7f35b4b00954305eae76c15d5067b5483db55"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ProcessingLease.java",
+      "sha256": "d823ca21343fa93f2d105458d6beaf24417282f7d2ec74582c87519e4481f3c2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ReplayProcessor.java",
+      "sha256": "5396b5f376ce32aa02f0fdf3a2cd0e333d6f892eb21a6161a9995874a007f668"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Source.java",
+      "sha256": "73fe067cb4b743e45d7335befc05bfe9ac1818e7cc765a22a5f2916fcb61b91c"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\TraceContexts.java",
+      "sha256": "144b1109028f830b1b1c5d1239b1f5902b104ebcf9d5e36c3eb0855d05217264"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkerRuntimeHolder.java",
+      "sha256": "7a03694d4a040607ca30904070fd5ccc31ba5d173de5c51e0f9729bcac0ea515"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkPayload.java",
+      "sha256": "46a0c210d2eb7dfaa77ed077f3498db030bcf97ff72c2b75ee4cb32491d986f4"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+      "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
+      "sha256": "d5b71197152553f930bd80e8e0bf45fb4e87aa455764f17e32846ed7032a7b85"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeProbe.java",
+      "sha256": "ecbc0630afaefce8afa74c3085c0fe2f31ce82051f3d0c979193ee2d712f3553"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AzureSdkBoundaryTest.java",
+      "sha256": "8e47ce74ac35585cacbf6ab95d12f159f5f12dc9f5974291014bd1ebc342bcdc"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\EnvelopeTest.java",
+      "sha256": "8e9409b72d61824125b7063ed00acfa792955b6a4484d5bb717c2f0e5cb24123"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+      "sha256": "c1a95ae769a4086c9fcfc9b72abf4b16857cd4995067877e6bb7eabd5d5e41bf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java",
+      "sha256": "e7cc01d773868dbb9edbe1c37053fa738631d38a284d691dc2378fae219cb348"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LocalCarrierTransport.java",
+      "sha256": "f2d4a57932b0705313cd23fc52b2794a5c040daffdb3cb9ae388131056383cec"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\MessagingFixture.java",
+      "sha256": "8a09147fe6009425ab5ac602990e6d8ab5aca23774c4fc8cd8ee37cfb8038cbf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\PgMessagingStoreTest.java",
+      "sha256": "8f2e4fb8c46ce0e82d8c08051f006b1ff68dabc72b2a02fc262278eaae372c4d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\ProcessingLeaseTest.java",
+      "sha256": "4b1d110b5a44cfa0a9dc064c574d0b48ffeafea72ac505f8496bb0bade4db4d1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\resources\\logback-test.xml",
+      "sha256": "f4f49a49c961e36b32bc7b477c3349ad3faf46b3654cca475a8a79b34d0b6d67"
+    },
+    {
+      "path": "workers\\notify\\host.json",
+      "sha256": "06295d7cede19a1d806f78b8af8784b8b179869ff90d0753e6f6e3fbdd958e24"
+    },
+    {
+      "path": "workers\\notify\\pom.xml",
+      "sha256": "110c90e1e62d0750d95af1d8b7a66ac5d95b5a5ee9d466a96732749d5e5d9950"
+    },
+    {
+      "path": "workers\\notify\\README.md",
+      "sha256": "c76094b6cc42e599439f87d753a09ea5b0e2cbdd3798522dc99e57222ba80a63"
+    },
+    {
+      "path": "workers\\notify\\src\\main\\java\\com\\contoso\\notify\\NotificationFunctions.java",
+      "sha256": "57a2affab8d4bd09d1752d4393efbc007b87cee423bcb88135a1b919a0b00191"
+    },
+    {
+      "path": "workers\\notify\\src\\main\\resources\\logback.xml",
+      "sha256": "9380f37d904b6e8c54b343675b5d9976d3fd4969b1ad29f08538279cbdc8dcda"
+    },
+    {
+      "path": "workers\\notify\\src\\test\\java\\com\\contoso\\notify\\NotificationFunctionsTest.java",
+      "sha256": "52da8f7384c7c379b5a1ef88582b8348c908d39764f0a07cbe1f559d83be2b55"
+    },
+    {
+      "path": "workers\\replay\\pom.xml",
+      "sha256": "366b35200e14a73392c9454b797f7c551a6915e57ed3db6172cfc9b74c32e0fb"
+    },
+    {
+      "path": "workers\\replay\\README.md",
+      "sha256": "4b84b1d24eef5ee0d4809cb419f977fee081d2782b59477a291ce74af4302717"
+    },
+    {
+      "path": "workers\\replay\\src\\main\\java\\com\\contoso\\replay\\ReplayMain.java",
+      "sha256": "fa58b65852caafb42d1a83056f5a8f83da54c739f83c8b69251760da687f8735"
+    },
+    {
+      "path": "workers\\replay\\src\\main\\resources\\logback.xml",
+      "sha256": "9380f37d904b6e8c54b343675b5d9976d3fd4969b1ad29f08538279cbdc8dcda"
+    },
+    {
+      "path": "workers\\replay\\src\\test\\java\\com\\contoso\\replay\\ReplayMainTest.java",
+      "sha256": "720fe52aaaaef067d6f4999c41fd7067287fbdd8675c9ed87ec144986453eb33"
+    }
+  ],
+  "referenceCount": 7,
+  "sharedReferences": [
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-source-freeze.v3.json",
+      "sha256": "9d2200dd99bbbcea86bae6a93256613cd328e62d5aa8dfd2dc0a030b7f3e6ace",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\module-source-freeze.v1.json",
+      "sha256": "b1a428109775a50bdf390fb4d5b2e1a0d62a565d9c472f94480cd7b8881c7766",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    },
+    {
+      "path": "evidence\\verification\\messaging-history\\20261101T202549987Z-addc0b56-d4c7-4c1d-b861-f3dc6c2f7b4e\\preservation.json",
+      "sha256": "0ec784f1666cea76b5851b0b73e521d4de5398df15905d07fd876c9fb3eb7b03",
+      "ownership": "REFERENCE_ONLY_NOT_AUTHORED_ASYNC"
+    }
+  ],
+  "noCodeJavaPomSdkTargetOrParentInputEdits": true,
+  "noMavenNativeOrTargetReads": true,
+  "frozenModuleClosure": "workers\\messaging-core\\docs\\module-source-freeze.v1.json b1a428109775a50bdf390fb4d5b2e1a0d62a565d9c472f94480cd7b8881c7766",
+  "currentCompilationAndPackageLineage": {
+    "currentParentMessagingA": "IN_PROGRESS_EXPLICIT_PARENT_SLOT_SOURCE_b1a_CURRENT_Dataf260_Coreac80_Securitye58_BB1.1",
+    "currentNewMessagingPackageOrInstallProof": "NOT_YET_PUBLISHED_DO_NOT_USE_OLD80fa",
+    "currentTargetsReadableDuringParentA": false,
+    "currentCoreJar": "ac80828d4ef5a801426127b91806445452e310b75888ea2b8937f7054bd67cff",
+    "currentSecurityJar": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+    "currentDataJar": "f2605ce5793a9acdf2e5a4a37cfed8187d1fcef5a0b81442a82d048fd6ddc3e7",
+    "currentDataParentA": "3032eec387b5319ac91ea771d220edeaa5bc54a642e6882373f51cbbc8ddefa1 ACTUAL33/33_ROOTOWNER_NOT_ASYNC_FULLPROOF",
+    "approvedHttpDelta": "POMc762 Settings08edd Transport150970 SDKTest8e47 README2fc unchanged",
+    "earlierFOnly": "ACTUAL23main/10test compiled+4SDKtests usingCoreac80/Securitye58/OLDDataB7;99actualtestClasspath hashes archived; noPackage/Install/Native/currentDefaultNettyUSED",
+    "laterDataCannotRetroactivelyQualifyEarlierF": true,
+    "earlierFSource40SnapshotContains": "READMEb654, notpostrun2fc; immutableoriginalFAILexpect5collector3f5 +read-only4-testadjudication3e67",
+    "fiveWorkerCurrentWholePackage": "PENDING_PARENT_REACTOR_OR_SCOPED_PACKAGES_AFTER_CURRENT_MESSAGING_INSTALL"
+  },
+  "historicalExecutionScopes": [
+    {
+      "kind": "PRE_HTTP_DELTA_RUNTIME_SOURCE_TESTS",
+      "tests": "HistoricalrealJava30/0skip+Node11+Bicep2+all4workerpackages/entrytests, R3independentwhole65-source review/rerun",
+      "scope": "Targetedreplaycorrected80fad4 oldinstalledJAR; NOTcurrentgenuineall-modulebuild/Data/HTTPadoption",
+      "preservedOnly": true
+    },
+    {
+      "kind": "ORIGINAL_PARENT_ONLY_LINKED_ROOT",
+      "receiptSha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+      "result": "STRICT_REQUIRED_OUTGOING_00_FAILED_WITH_OLD_c3_GUARD",
+      "preservedOnly": true
+    },
+    {
+      "kind": "USER_APPROVED_EXTEND_GUARD_RETAKE",
+      "receiptSha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+      "tests": "Actual1/1/0skip BB1.1 strict00/01/mixed/unlinked decision/outputflag+nativeexport qualification",
+      "scope": "Test-onlyalgorithm/H2/in-memorySDKcarriers+oneactualcanonicalFulfillmentrole, noAzure/fullcurrentmodulelineage",
+      "preservedOnly": true
+    },
+    {
+      "kind": "R9_SELECTED_BINARY_ALGORITHMS_103",
+      "scope": "Actual103nativeitems fromselectedoldcompiledlibraries; SOURCE_BUILD_LINEAGE_UNVERIFIED, notowner-current-root/adoption/Notifycoverage",
+      "preservedOnly": true
+    }
+  ],
+  "runtimeAndTrustContract": [
+    "REAL AzureSDK ServiceBus DiagnosticId/properties +EventGrid structuredCloudEvents +EventHubs properties +StorageQueue BASE64 envelope managedidentity clients",
+    "Strict32KiB/version1/unknown-duplicate-coercion rejection; technical/message/causation/business/workflow IDs distinct",
+    "Fresh PROCESS perphysicalattempt, transaction/idempotency/effects/outbox/result/contributor/checkpoint/quarantine state realJDBC, noDBretry/SDKexporter/provider",
+    "ProtectedCURRENT_USERpublication/contributor/receiver/owner plusfixedregisteredpermissions establishtrust, notproducerclaims",
+    "45sec durabletoken/expiry fencing, brokerserializedsettlement/renewal andQueue latestpopreceipt, uncertainack neverundoescommit",
+    "TargetREPLAY perasync_fault.replay_requested; sourceCompositePK, independentnewUUID, preservesotherfaults; non-targettopicdeliverySKIPPED_TARGET beforeeffect",
+    "Fan-in awaits2effects+2acceptedresultreceipts, INTERNALrootall4persistedContributorlinks; mixedBatchboundedlinks +eachfreshitemPROCESS, noarbitraryparent/truncation",
+    "ReplayFulfilling+NotifyProcess andSend rootlinkORIGINALproducerINDEPENDENTLY, NO PROCESS-to-SENDedge; originalNativefixtureONLYFulfillmentrole",
+    "No inventedbroker/databaseSERVERspans, fixtureCarrier/localhost/H2 neverAzurecoverage",
+    "BusinessHTTPdefaultNettyCREATED_ONLY; injectedGrid/QueueSDKcarrierrequestsINJECTED_USED; DEFAULT_PRODUCTION_USED andworkerMIwire remainUNVERIFIED"
+  ],
+  "alreadyExecutedTestsNotRerunHere": [
+    "HistoricalRuntimeJava30/Node11/Bicep2 describedabove",
+    "BB1.1 LinkedRootSampling1/1 describedabove",
+    "Currentf-onlyAzureSdkBoundary4/4(3f5originalcollectorFAILexpected5preserved;3e67countinspectionnotnewbuild)",
+    "ParentcurrentData33/33 separateactingDataScope",
+    "CurrentParentMessagingcleanpackage/native2 INPROGRESS unknownoutcome"
+  ],
+  "expectedCurrentFocusedSelectors": [
+    "EnvelopeTest",
+    "PgMessagingStoreTest",
+    "ProcessingLeaseTest",
+    "AzureSdkBoundaryTest",
+    "AsyncNativeAgentTest",
+    "LinkedRootSamplingTest"
+  ],
+  "currentNativeSelectorsRequireParentGrant": [
+    "AsyncNativeAgentTest",
+    "LinkedRootSamplingTest"
+  ],
+  "preservationReference": {
+    "path": "evidence\\verification\\messaging-history\\20261101T202549987Z-addc0b56-d4c7-4c1d-b861-f3dc6c2f7b4e\\preservation.json",
+    "sha256": "0ec784f1666cea76b5851b0b73e521d4de5398df15905d07fd876c9fb3eb7b03",
+    "scope": "R9ACTUALbyteidentical9-filepreservation/sourceorigafterstable, NOTnewexecutedsource/nativeauthority"
+  },
+  "limitations": [
+    "CurrentParentMessagingA/package/classpath/loadedmembers mustbeactualafterrun; noTargetinspectionduringslot",
+    "CurrentdefaultNettytransport/request/pipeline/instance wire notprovedbyconstructorclassprefix",
+    "NoNativeSDKbroker/MI/RBAC/PGRedis/Functions/fullmultiroleAzure/privateC/globalprivacy/GA/owneracceptance",
+    "NoR2runnergrant implied; read-onlySource/trust/state reviewnow, exactcurrentartifact witnessfollow-upafterParentA",
+    "NoActingDataR5selfreview/oldR6vote reused; RootR4/SDK/Data/Core/reference sources notauthoredasync"
+  ],
+  "apiReady": false,
+  "certification": "NOT_CERTIFIED",
+  "writerState": "ALL_AUTHORED_ASYNC_JAVA_POM_SDK_CODE_FROZEN_ONLY_THIS_REQUESTED_METADATA_MANIFEST_WRITTEN_OUTSIDE_PARENT49"
+}

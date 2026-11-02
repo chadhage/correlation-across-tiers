@@ -1,0 +1,4870 @@
+{
+  "schema": "contoso.acceptance-scopes.v1",
+  "sourceBacklogSha256": "6449e6fc7a8405f4fb8ecbbf4b6b736a006d5edb34e3a53e3d20913b305f4abd",
+  "authority": "Prompt, Brief and approved construction/completion distinction; source review is not live acceptance",
+  "sourceAcceptanceIsCertification": false,
+  "boundedLocalEvidenceAnnotations": {
+    "ordersConditionalV7": {
+      "registerArtifact": "config\\verification-register.v1.json",
+      "registerNode": "boundedLocalEvidence.ordersConditionalV7",
+      "result": "LOCAL_SELECTED_CASES_VERIFIED",
+      "scope": "LOCAL_ORDERS_CONDITIONAL_ONLY_NOT_FULL_GRAPH",
+      "partialContribution": "GATE-08 clause 1 documented Orders trust-boundary exceptions only; four non-root controls also executed",
+      "doesNotResolveNumericVerifyItems": true,
+      "doesNotSatisfyWholeClause": true,
+      "doesNotReplaceRequiredLiveEvidenceKinds": true,
+      "doesNotEnrollBoardLiveExecutor": true,
+      "allRequiredFacetsAndClauseHashesUnchanged": true,
+      "remaining": "Unrun Inventory/Gateway, real broker/PG/Redis/MI/fullgraph/all-layer privacy/retention/watchdog/overhead/SLO and accountable-owner acceptance"
+    }
+  },
+  "cards": {
+    "GATE-03": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "7ad40e04a148f7385bdc2aa2c19b38a769b50287c60ec55263139c8076848484",
+          "requiredFacets": [
+            "static",
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "d2e6e12a1bebbf80222b8959c2a9d19fd0416efaf1117fa9a194883817ceff87",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "2cab0ef036c5a9b8ae3c9a55b4a08ea361d7509ebf78c1c2d488e5127f0afa44",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "f34170be0c65cf073d8cd9ee4e7f4d0fdb9ceb7515d6f6e3a8a281c59f84dc5f",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-07": {
+      "clauseCount": 4,
+      "liveClauses": [
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "7576171772c9957a4321e7bc15875d4caae589f9ffdb56fdaaf92042597281d7",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "f604c1fbfa164077ccc4f914366da9293afdfa1617f45b4628089686b9b7fa64",
+          "requiredFacets": [
+            "static",
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "158913bb5498568c144469907cf5bc2ac42ed24384eb46b179f1066e52eafc13",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "95db0000eccbeef7f256b5ff652ef2f8d5c70216a978c0d2a15d7e4717277f9a",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-06": {
+      "clauseCount": 4,
+      "liveClauses": [
+        2
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "14e26a4997c4696e7556ba95302f3c82aca288ea144a7ea3a3dbcf300507bac5",
+          "requiredFacets": [
+            "static",
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "516eaad93f45d8bf87679c6db60851cbfe0b44d224e6ed7d63d23e0be4784150",
+          "requiredFacets": [
+            "static",
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "2a4af48dc06b5ab96975e63b996694a2bc1e0b754e795fd9ff8f418741cbf34a",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "753eb109cbaffe48de9f71ca1502b948ef455af79c4222e599037826d078da94",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-11": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "a6ef05a67f7cd0c335326415c2ddc3d78311b2dd5989e6695f33fe16b5e3e093",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "d02c74dd0de2de98a8ff03596957a7ef51e4bccd3d19828273776dedfd4acb1c",
+          "requiredFacets": [
+            "static",
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "087592f618a41f25a445bff71f4872ec9195d1b32c75470ef0454d7ebca155c9",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "93957f77afbd05f12c8ef88df3cb0f1ab40415e395650194f816a2befc21f0cf",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "GATE-01": {
+      "clauseCount": 4,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "6437bee9e6e727d7c0679fa68e0ac5c12fd2ddbe042be6dc01184f6ca9f5475c",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "59f4a2b916360ce8687628c4a8d440eb499c358dad62caf50868018495d4bb68",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "7b61718b0a036402d9855d6536534f75b5f5ff3eec1f679c59523bf6860a7dac",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "0f8ecfa3e3553d55ed73841ba1dc31da83ed7ed8eedab1baf5f79fdfbdaf9573",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-02": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        5
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "70e6cb8f46506643b26f265996e39821819090e3f1e790d3c073e4063431058c",
+          "requiredFacets": [
+            "static",
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "ffea81ae17d4b954876f4bc4604933ac23513a54dddb844fa9fc4ac579f23874",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "090a31ac788b10dff2a5d1c36dc082669a6c6147ff8683f54f34268b8afb2e94",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "eef7dea36fbe0d1834cb87cd128f1c70a8062d75b5f03c971758e28f5639e70d",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 5,
+          "textSha256": "46da4117907f5ef44f0403f07d5f3663735900634b22ab399998ee71e232948e",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "GATE-09": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "0df66c8fbe4ed8ab0c9d5c9152a896b7d8d6713962e797852fe4a97bebcdb522",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "44fb7bd8a591c7195a4aa1a51f3aa4d6e6d604f565a87664fbb7c9dfafd8a18d",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "efdbf065a6d74217cb091dff3aef126d9a3d42a78b2b8e19ee43a764226641bc",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "4919c6c71001cad815d178be2b36c568f530c640ccbb7cfec4b0c06415e36913",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 5,
+          "textSha256": "1ae81a4e015ce0c048993848a5d9c7c8f3937b9a5bd9800174411f4ec1948926",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "GATE-04": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "abe6a69ccb43f40789ac148e44bddb69b0d7d6351ae88addc4259fe3c4a769a6",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "6f1eabae9634a2ecd26561b7ce47e4c7d06db4df5e8e39f71710221246471466",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "a34bed1ef09408c0cae88f85d3f2680cb437d815b50fddbdc27694a781a39b7c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "a7b6cbaa78f452ee55df8df7b180d65074f4abd96cdc1cc2a36241738f154cd4",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "GATE-08": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "9496e9a9300a0a65162f12ccaa879d93066f3533e4708453c52f07edca925c6d",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "fc7e6405436e1eb7ec108a08c4b284fec806411a3566b14afaf7916996406fd0",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "30721711cf8b8638dc5fad28bbfb28ac96d8a8857255db28a85c0f6f129f7243",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "09161db55cbc39aa936ffb7762d2c7701537c2f4b4dea3989985f1d5a9e1b36e",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 5,
+          "textSha256": "09ade1c4c906c398dd873a18211a896d94697dfabc541c7a6dfae6a08dc183be",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-10": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "8249cfa616675144ed0b2bfbd76cda5cb8382a5d913f0855737a755c9811099c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "ec6a034466df05c630670b0327c1c783c09e1a0dda969d8c71cd32bf4bff24a7",
+          "requiredFacets": [
+            "static",
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "d30d839322a038d36880a0e4d0210d7f9009993b9f04ce272af4415f31ab820f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "93249fc525eb77e42070e92d3cf718667a1fbd2f2683f9a4a8a1c6894de0553e",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 5,
+          "textSha256": "1da7e1b3ece090ef68fcb508ae5d8e8101fa9403820a623d9d4d2545475ab1db",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-12": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "111a5981139f41896986b043b69cf9aa68101cad6304ce7f73d112ed64e42d39",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "8d13d6a409e34eca8876bd227446edddf5698702bf096cd12d2dbbc810245290",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "7c59284172c47a8fbef8662f8263d5544ea262afe870d89ae57f5b75b48e4896",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "0666da684ddf695a479f66aa3139ac7f235ebfc87aa0eedcbd5898b9c5074e0c",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-13": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "dd6edfda39b2631c947103a7049ce01b9367cb6bdc85f89416a65dca9b5ce515",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "20136b220d083cd686efa5b3b7ec4e7fb78003b79f08f255754cc0459c002c15",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "55d48d263c7d54d8b77c984ab5d19a3b740412bf5c6dec068e92809d859816a2",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "5c5fc42fbf36882cc89a2784edff3b09302a5f5606de9bd6b41d20497f56e08b",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GATE-05": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "f28abf781f094a4070e9b1ac10ed713af28d671660b4b6054ce16e80684465a7",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "52df09a378cddaee25840eae973b1c633752096505dd422c64d294d81bc14c92",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "065c31a0aa193c88cf23fad71c3c1d4c81d5d01192bde7a57e06f0cf66162385",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "29b65e8026e255ce3ad19bcd5fd123ad8d0d1a93186557b1e9b2a19cd8a9cc27",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 5,
+          "textSha256": "951a8726f12053d3cf2bc7d70fb113433a70b3e04aa4109a2ec5823e227289bf",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-02": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "e61f10d6581f1511d9e04a158fa5146fcb0e800522405fba2b55ee1cd7132e92",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "87d71548092b41aa4fbedb562d3f4700fe8d5931d04726e1de1864ff9976de78",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "43b30e78dfd41cd06e4d1195857791e5534bbbd10e0fa89be942ba8ce75780a5",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "4b44981f4d6444e571405113f52b8c0379495e9b99cb28d7fdc620369907a437",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "JVM-05": {
+      "clauseCount": 4,
+      "liveClauses": [
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "0a8e2fe3d434a07abec8088fe81fecf33bdf07db729fb72eecb4e7d6b5271ff5",
+          "requiredFacets": [
+            "static",
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "1bb12b72d84c0e784653d32eb64c34347f705eb37bc72ad002638749a09190be",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "03dc0f1462bf67c2000d01362bf0cb0dc74bf31c3a3d596345206d0a3ec4b423",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "9018fa7e00637dae69dbf820483f8937f9dd5f9dd38e5620e33f59098ac3402d",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "CRT-01": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "592c956be516a2237440cf8f92c075f5e29286558277d7311a28ecb9bcdd20b7",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "23f9083b1383a771491abe2a3af8226d5dadd0992227ba742ced89f5025dfc86",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "c3791d661a8cec17dfb21a15f51eeeb6c090c074f5f340afb207ee4d352146e0",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "GOV-01": {
+      "clauseCount": 4,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "9fac35006f14e5ad2c38c71e5fe550dc465c3b7bab397545a8c484ea8dd0c8e8",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "380138a1de89dc5e28896154876bada94ebead91a9cd2de974368aa912d78e8b",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "3318c9de991c09ab3435ceba87a975ddec0fa26940431e22ae31b76e15b4897b",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "b8d0a5c29368e7204d9ff9e3d2330382ef402c03a34b9aa98faffcba9ac998ab",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "ADR-01": {
+      "clauseCount": 4,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "031612cf393b0feb44724c61c192329588192b6a83c999cd0d38be8492f13e96",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        },
+        {
+          "index": 2,
+          "textSha256": "d537461c19fb2b7cf596578e48f1e1058e358b7b47dc3392b7f47cb70a6beb07",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "fa1b1074137adcccb4f7674bae2693ed4515d657db178b9d450521a594c9994e",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        },
+        {
+          "index": 4,
+          "textSha256": "41ac2b309be693f41a6bc25f7a36d92ad638f2926ab0e4e4688a865d05a16e43",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "ARC-01": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "830b2516fdfeb7750f2ea081c3436650a1dff70e67b949f03ff8807d1c030e2c",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "1a56959947bf9bca40492d0ff5d0c26a4af0211326b478477174363e8a12b954",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "f0e25c3d76e6a8d8fa4812aa8fb28411eaa05b6f00fa0d64821c25c25eb47f5b",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "ADR-02": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "616225b67c4740abdb6c059a5acf853f9d352123446d1f1531e5e88b1e3cd7e6",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        },
+        {
+          "index": 2,
+          "textSha256": "a124ad6c6d70cde15f691e68e63e763e04d9d82a446519813f0238060db3005a",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "11d7bed4d266190c788a266d5466358906092f9a3e30ffa48caab520fa269cbe",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "INF-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "e915e35b71acd94d9442332f5b29d4bbb09168ab658a51bf02ea5c13b9e0597c",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "b124c6c06697d791c99100829e86a848cf5d337d4486d7844a7e5034dc1dfc51",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "f9563e7ba468b014aeee82f8289c784129643dd292322a589c14cc3d739e645f",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "98654e7d1ea15daea88fa3dca0a890aa78804e2e07053ada3ce1e1e192d7c24b",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "OBS-03": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "57a43fdc1864bdbf3979a93e20182b80086a6fc778d5131906f7c4a8a77e13ab",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "0abe80efd6b3b7250a36d9d8a291a9d364d0d08645547832308d946b04ea1849",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "54a8a91f050eeb763b1b05eae05c90dfd6166fd8bc709e5e82654388f5344fe8",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-04": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "d5a8137df18fe2555467d978c2cb428d7cc14fe4b6c5634c63dc6b3d77e1db65",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "e37940c92c6944c48226faf39b082839ef0c02a99065c898438e492a9cca9b21",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "194795d854760ad9a2c824d38ca93024962559372e66fb6d817aa45f1cae6565",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "47ab85d922ecba521dc225abc0a1e1cebac8e0230b447b6a4403adeedd73f54c",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "API-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "6f390c1a76baddec562ff3f7540662034a2a2a730244548b118f79aa5e0673f2",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "015135620e4e36cdd4a3d85aeac38860f4f6fc802a15442453ed6db63db39731",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "761986bac0f51fd3edfbf9cda2a8c6eb5be5481747b260cffa4258f5505d37b7",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "API-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "b2fd301846f30f307b6eb20d8f5be4eaf17c9fccd875eb38e991639889707fcf",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "d7b2657580ecdbfcbba4bde71c7ad81df4574105b1e2aa024d759ea4a9cc34ad",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "a408b6c66a55cb3efe91cf0f7cf7053a65c340ee2e7a088c1c37a13460bd6ae6",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "55bc55e006eafbcc47695e8c77c30697abd5f444ee1e7e6b9cb486f6c88c2e6d",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-03": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "98073af1b4ef1075da1e28b7617b1510db73624b5da3acc25450e2159ceb6c05",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "b57a19b39c14db842af117ba9e7943ab0ec34dadbd7701549d30bab9671f60b7",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "083aa18a17a834ae7207f4a839ae82be9e1683f5602ba20ae5bea4271ae579b7",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "1ed14994a7fb78afae661d0d54477976d4f0dddb14845be14681b3a2c69e3f2c",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "JVM-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "24b1623d4c23c2914c87a761eb8f59c2911e9eda5fb6c10b258db809161804c5",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "d54b1243471b3522740110f350d75fdd8462ba1be9f79b448b0da04563a2e38d",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "504766d99cb753c78e071bc46cfdc273be42862a23141aedb837173a05c599e9",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "6377b6bff1b65bafde8b60cff77255186c56cbc0468f7e9a7626d36da1df00f1",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "JVM-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "3be627535e6fb5fae4a6091ee2b4464e346d2f5b9ed0f0160e37c0dda064070f",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "cf9f75e370d2a4983ef3b3e2650471c48f89c187eeeea397a3c2c95574fbc909",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "27263e36c6176ab226f616d8060d02919ce48dd5af60bd75c4b17268bae5920f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-06": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "ea6bfa3d0cf3bfe17f1f123710257e54aec22cc80182f818112e3f27ab793d3f",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "eb1fbb21940f58078c55d004fee8e1056ded7288a05291807779ac2d1aa1d5a8",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "0890d21509a9dfcce32448ecb8579700663f9246b500148ce8770bbc73016074",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "db0c252adb58e1ef56419e28e5e9e1a639ffaa06c6f7f7e90664b4de811bc685",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "9a1cdd5661303b92a79769f2294a3f788fc987e8a7a35e7687307e5cef47df5e",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "71834c15aca71dbc300641924a3d8ca76452fe62dd2c7455107a76c183e6cfcd",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "d0900c83ee28695ebff5985f01ec68df39a1b348639cfb8534d83796d99a9b58",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "ad3826b0c89657a215c4d4c53ddc1cd9cb6c06b4a7c3f035f47e8ee5d063f541",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "MSG-07": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "d2db2be7792a397bbeeb6fc085c4495061b2ca7fba195d5fb3dcbea4d432082c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "b7163209eeef913e3cf1faa3538e2a1b1740964a9c68392a96da8ff1398f7898",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "e4be1ca8d2777805e8a0a9cefd0376fe3683ec9c44c1f7fc2f166ae235bf5d29",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "JVM-04": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "a2283e22b5e4fd3f008eb9cf8e2739e2a11b240c701d9bba52a98a2df992ff11",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "4a3e381474e7688e82e102304aff2501fdaf4ef0dca3881fea3e0a1d5ac8142e",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "28a66a9b35bfb89db823ba78d1ff6f13f1ba7d162642645800f7ca8f49474d49",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "0d2a30fad35814d4a57345835065b563206d42d1dd643d95f9d40ed09bcaf266",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-05": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "3a82023f18c0777b9c6576cd437a877065fde4e49b223960d227004213214c9f",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "cb0ee4ab5b5bfc1536810360a16241f4f97fd18d0a7327eecbeaf71583644007",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "df68c26678119bf0553b980c83d633e9093f3e6565191522fac783f4d3f750ab",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "70820b72330c646cdf2ee88effa4d01fd6b345e90fa418944dd6e6b53d507890",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "DAT-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "1daf7632221b0f817011389d13d9af5ba387c571a7adfd8da786c52ada44cae8",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "b6b13ccf27dc22833f28eb912a896889a4a70dfa7e6fae40f8bcd51a3269782b",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "c3b96be2e085764a0b0df649aecb9e126ab5d91a5bf25e21476058889d343aa3",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "3cc16485c418bd73032fbc1e02715596ed2491643e03c409213156296e517763",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "DAT-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "eada6ab60860d96a44eae42b609c3c7bf82c2bd7c7ea2c27af1f888c842b7d27",
+          "requiredFacets": [
+            "static",
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "1a428b99e250d10fec45ccbe16e5a5cf9d9b167da9000172f0cd9fabd33462e3",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "59cf6a0e2a6c33b384a0adb4d81c1e6b62152fff7fe3060df6cb4a2c028c58df",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "WEB-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "c48cfde87e5c601029999ad5c6d33721c8d24bdba9c866f66d604fafde4c8902",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "f009491d817514dd3ed1e5b051fd0583d1b7e377c1af4b52a5e6f5ca02c579de",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "05ce208b1c7068fe55d3f836011a8ea9a7df5fe449c6be4458e7f6134de7279f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "9030bdf5e9083efdaf35cd78b00e62ed448dd1719a00b6f96a890febe18e9d86",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "IDN-01": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "bd634f3a9e8a1e7cb41c9134b1f6737c458baead75ac8c497039a42f4e481455",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "7d336676df0199e90419a1f03006ae1981324010dccca1a49b6348bebb249852",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "cfcd1fee118e3595c1d40110e073d33d7bc4cad8ade1f226e62c496cba1a9e4f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "IDN-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "45f1a6dddb175060d994092653b27bb76fea35206355376b4d3787e5d7de9e4d",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "c1ff03cf4b891c538087d56297844072a4902e87853ecc158c69a537e2357d68",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        },
+        {
+          "index": 3,
+          "textSha256": "2af354957491dcf5117b390554b5a11b9c7f1d4aa7e860897a0dd1729f6a9612",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "WEB-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "45aaf774fe0b148ad367954d02e6f8f4be1b2540b0e0b074a686b2b5881f8a6c",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "7186b0e797a89807f6e99ca0f51623557cf83a82beeed8d96ca0b750aa8d7b06",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "9d8e97a50e7e6c98e8e482d2d60c6ccb49281d136b9a287cac88b2eaca035a62",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DOC-01": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "653384dafa57532edf2c8ec9d7a48aa08cd9cc728e169f138157af3cbf99ae91",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "9629052e7162b3a6e1f0c514d197b393270087e641df365a44104df7f41d7b56",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "759b21a87900cef2c8784e2052a549adf2aaa6f90a2a57d57fa48378036ffd7d",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "JVM-03": {
+      "clauseCount": 3,
+      "liveClauses": [
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "0f8d723c6ed080f5efa8b2d5b6cb8a7b541b6c811fc6105409bccf612a57af2b",
+          "requiredFacets": [
+            "static",
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "f67226868a3412964efc5a8804c5ddc1b56556ead5286c6740c8dc409f6ce274",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "99c7c4fc249c7e306d3bcead6d29153178ab1505b4f1b32a077fe7674d1cc9cb",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-02": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "75d28be53ca74dd037ea9e6b6ef497b80484ce1f5f2b615de694643be08fb555",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "5998e85b04dc5dfa4f7d542a884bcebf872f84f2e455a0f0ce8c4e2454ef3a24",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "5ee03d79303d85d44aba2dbbdc7265eee7f6c6a811008eeba903dcc3222db960",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "63ddcb81260752d717d6b29cce8fd038a52f6951294b9a23aacc21f5e2436118",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-03": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "3c1e62b290076e27a55e49c0818ee2675e441850a63a53fa7ba8184462a624f3",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "c71ec0edd9202272be00f0348d75c8c8f7459b91f592a9a0f48a1bf0ccf89028",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "2e6d60694599d5eef0888cd733efe5333a73b83064c9239e6746b7e71e32dd7c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "OBS-01": {
+      "clauseCount": 3,
+      "liveClauses": [
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "37f8036b2ca8da3e70c50b0129985a35eb1634224885dfc7c0f207e3d0bb4e0a",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "efd46d230169fd87eb885eddadaa472e0c1d9e03d557913b140fe45c33b01ddb",
+          "requiredFacets": [
+            "static",
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "be62780a1e0e2a2cfc7abdfe2384150d2d45e994580f856d621b9b8561867493",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "OBS-02": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "46475699f94b8886de9ab099f97d5d17904009b88033e1ce24e61ec74bb583b7",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "ca11309802a377f9c9aed68fb8c7afc887ddedf6001297a77b7d5c54e28fda4f",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "ee0102dd4d4cd0cf076a53f61e3d12eea08a3fb122450b65f3acea3752397dc8",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "866e887abfc7abfe73aa670ebd0f39e8071cb30ce789adb96323449e1d58c620",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-00": {
+      "clauseCount": 5,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "7732eebba3397c0347baef41f36bbc16baad252c2ce4dabcb85f3982bcf9ca16",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "eb12d368c7740221b144ab82ebcbba9a87109d77ce6a4afe13802b5280b9e728",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "31006459c8e9848616c490d58f6dabc614cb9eeeb35f06b34ab8b4b84e4758fd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "d4300c4d24dc9b36df5d489e304a296236f4e325c661c070b7fca2a586dd6905",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 5,
+          "textSha256": "478256f8538c20ab252b81c6690f0a53d377ead5263f616e3fcb99d1728a56fa",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "DEM-03": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "59394ff5be1d9916baf62f2968ff07de2090507e56476632c803eaf9bdbd96fc",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "2ce9ad2293c19d3943ce6248d82b8484f4e2f18b437e2f657d15f9ea6c271341",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "e355212a7d191830d156f56b0dc386d25277f23ae81de89a4b49d2ca7d21d0f5",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-04": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "bd0cfb0d1925a9e3bc5eebbef386f993ae35bc64f79d8afb8e24185bf53eef73",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "2cd93d56cc6082c3ac73f0dfad7af4e3c44294785f820f64c38255d5b0a86f07",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "f40554722282d935866ffca282ef4e8b4235a6f1d50423f496f47bf3bfbd16ab",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-06": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "55740eea7dafbb63bff4366278c1646528f01c5e0eebf0dcde74d20273c4fd9b",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "f53829f72c646eef402b358a1d5f4946353d376ca094dada97e9d31a512a946d",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-12": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "9e5cc59ce9f09fb18b3f5ef6e3d24ee6872cc84097baf53076632a7fc9e00f74",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "722ac24cb3975da037f6777ac0f06a6deec516399d8b94f89aa9053fbac21368",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "f322a5b4e44e1c1872778e9706eb4bf581476ba06292800e76bd640392d4c1fc",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-13": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "90376014327e143a3a9dce7f612cd4c1228f6c1993f6b3817ec1c3c4b94141c2",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "7724a97987243810b28dc6c518972d3b9673d9a23ddbcefdda7ad00d09c41512",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "9d01dd5385b6a21939ca3dc647acab61cbf23871d82fc01feafbaf2d876180ed",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-01": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "5d3555e057083c94467a1e35bdd98a91d613a4e450594fea60bd283074518166",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "d7c44c9f93ae623b2003e7cebb6c4af50685f04824c1fe0264131fe33283c39f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "97e12b4b02271153a341c8a2f174d94dfd4a017b113e32c3c9b4736730d1efe8",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-11": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "cf1871e366c64b604ba0a5ccae621aa5816cbb2f22e660c2317e81de5a3bb6c8",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "4ecb46ff27796df81af03404cb8d1a5c0f86ea351f12d7a2aa95bac3ac183e50",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-04": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "fec54e75e33eb6f8a18857c5dcc10a6f424477dc9c90085a837449bb0dba8b64",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "adf48593b2b29bb4ca3c425261c989dd88c09efa48002f90085e1baf53d107e5",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "dfc9494108cc53a1ce61e32ee197a13f2e7d4f4c43a98625f2ac8dac83c6b4c0",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-07": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "ec7cb2214f02bd627da85750f8074f85f169a47895c43a2d9d74743a8b951415",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "56a44089c60d890a99071aab40f22e37948231cc975ddd2155f66e786769457b",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-08": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "87c346979ee801366a4b611e6acd43efda04ccc925b9127eb928a28edde644e0",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "43319244f7b24342fa875f10414cac92173330a162914a0342f32ce2d2dc5810",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "21909197d108cc939b4c82f7469f267209189c5c6e4cd6aca57c1b1b37d72aa7",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-08": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "f2a0566f579fb510df3ffc0230fa339756ed6df52bb3569782389e0353394045",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "f6c1e0ffa47b45e3d57298b63a805a588b25ecd67d9b1431ee542262a3f1f574",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-14": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "ec08bf2bb51d4a04e6af401236191c4358929616fdcdc5d52099a047170ade3a",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "362459771ef4c8b5faa22fbfa3118c1bb93de9a4eac3ecc997288f9a518fb18c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DOC-02": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "0c89a09690fea28822049edf357bc5c26155d030bad7fa9a62666c6a521d56d7",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "787ba51a283ab788e56891714654ba84231808ee05e2185929baf3fdb296b9d5",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "713bfc299a927bbfae81e84540d6a36684205d3b145d9b600f58d7bef8e606de",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "WEB-03": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "d6ca743bd1eac15c6bbffecea1f7ce8b303d6b6799e588a52a3365f15cffeb96",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "702b7806f151081ec3987bcaa32469d4101ccc47f7dbe5548d0f2932f7a9d742",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "92b921a74e1b81106c25732cb6d9e6588ab42e3f17bbdb9f35ead14c8642c609",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 4,
+          "textSha256": "6a28e6acf6c0dac23263df7ed6ba43def20c362f67dc02a4c4f37aae1e7ca163",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-02": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "059ea894d4818bde88a54b87e9f2ce58f3b770f5b989e22e1eae336343568c99",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "28d372dd7c555a8a97afaf94727815815b501d94f7df5f21cbbd55d10170d965",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-06": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "3882214809cbe7c517bb0ba19cf22805b779d25f45016c09c670aa35bef06218",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "fed414a243129ed141c0878ebc30c795965787d4865472852ea9c7479328970e",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b4e1dcceeaac5c25ee3e160827a40dbfd47c5b96fa5e6360697762fb3ddd9b80",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-09": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "6152e003476ed3de5231d1ab0e96c4037e29a1bc22eaf0e93c586810133d85b8",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "9790e0556e2fc1dd85a06ee0b1b1f99328c501924974a7fb4eae25df73e2d04a",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "OBS-04": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "799e865c979e33601b53a750ec80936f032622816bf6ca3710917ba10f4c10c6",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "e32b1f5336c808a73a7172190224853b1b999bdbbaaa9f52ab947760f40e53a6",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "18a430859ffb4c8a4fd45b8c21e54485788b93260663bc556a8821ce4177952e",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "aea69e24531f2c3ba28b0c1446761c0e28ede7454a048d9c2fa1a089ae746b7a",
+          "requiredFacets": [
+            "live",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "OBS-07": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "c7dc2ebb51cb5badcbaeeea4bbb0eff9ea7244600a8cc2f67edc5182de841210",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "6e97af763889a58fa43aa69cb81f6e5b603b8060b8fd9308ce0d59881a0e3d7d",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "53f16c62f4dfb1329fe243f96ffb13ddca4e2b1cc7729c77c2d48c66a9ddc8a0",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "DEM-15": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "a20b990c229e1be149f8ab04bd7677ffdd5739cd4b2f16a5d354c9db40a997a5",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "0fb53fa2bb0802b602506963f64f7688df574b2f59c2ffa3b6aa5f5808095cc6",
+          "requiredFacets": [
+            "live",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "77397efb4939a0f9e242078686ef6535fed7a28468a43226ce00a5c0b215fb6d",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "MSG-05": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "3eebe2d6f8cab3e8ddf3939af5c5a797a6712dec2b5df7aaf4433330653d59d0",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "bc33ffc55c4c14bfc0639b0a925979cae0663d08f1e09cef010c288d5e6084e4",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "8d1988bccd16a349bfe44fe9d2bd75f9f2746cef2b96fd22c9c5db6db7c5ef4c",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "INF-07": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "edc8a0341dd51430be49e8625317103807edc6bed94ace94cb57311865fd643f",
+          "requiredFacets": [
+            "live",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "2dee027ef99a039923c18b5c8aef482c9c8ae3dfd4780fc73bcaf7951b41fe57",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b152c27d3813abbee6e1fcaf0f4d63b21c7f1387ed7ec38614d7c81c7f35d2e5",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "64e2c5aa1f08217ef55461cada010411bdd5585b9cf31ddcf9357950dc921ba1",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        }
+      ]
+    },
+    "DEM-05": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "a7ad3c63293611a21ca1a023789c82f9c8d39e2c1d0bff0ae2ddd2431af9940f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "111055ae5d607fcf1077f5b04d97518d3f4869f83664796f8eb2fba1223485d6",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DEM-10": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "0f685c9c566c32eb8cfd92628e44f316880f6f14d4a52c703a8b6e9471865611",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "31d2a2472e6d436aafb1dfe5b76e44f7e644cfabdd9dcbce11a8fdc577aab379",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "b0ed33a267a60675f0738c822e12af07231f434c061570beb1e6de3602b23ebd",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DOC-03": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "e0aa00b5bee271306d3a16cb0997d277f42296ee5e746d2505b3deb4745ff97e",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "986328bd6a49c3c6880e520e867860978f7d0c4112bc414566d1745207dd50b6",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "ba27a841bc2b04b3da23fb905ae48ed275d6a76dbf432dc6d6d905cef9e3d859",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "CRT-03": {
+      "clauseCount": 3,
+      "liveClauses": [],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "2f398260935622356d43c1c6e091b54e83ddf03ea7dd50d96c51c417e3febd9a",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "762f741d9baba27381eac4cb1c474eeb256bc221d67414e49aae7a7476cfb6c3",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "346816dae86bb4dfbfb67b732e6ddd01bb4e4e9a40dad2b468b98baaf1bec832",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "OBS-05": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "23f5b46c0c6832e07a11872cc556f6cd289d631c44e1dccbd07443b08086f571",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "325be8e08a2ef85c59bd01fe1993d4021d8e6f331352b36eb21081d6d85fc04c",
+          "requiredFacets": [
+            "static"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "b95c21fdd28c64995e2d488c636b8fe245b52dd7ae19817c0ab8b4d194a6c640",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "DOC-04": {
+      "clauseCount": 3,
+      "liveClauses": [
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "b36d6ced9539c546d9f5437d9be4d7cf5b2978911b47bdacc425776abf335e94",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 2,
+          "textSha256": "e023818a903efc25241eb3b5248b2756377c78e518b8a0695e61fe69110767d5",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "bdf4adefe8a5b85f2a1c6ac56967fb535031cbadeacfa7b6778467b1c230d07b",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "CRT-02": {
+      "clauseCount": 4,
+      "liveClauses": [
+        1,
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "2584c00f3daf8366abc6b08637faecf27a2280e4b887a553062be1a5fa202da3",
+          "requiredFacets": [
+            "live",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "5a41a90dd3c38d51cbfbbbf187955c9a623fc672dfd00a97df60217eef25f8cf",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "1e35593e53d62313b7ba8b5fbda55fb875c6d92c04f25d66173e43ba44e8f127",
+          "requiredFacets": [
+            "live",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 4,
+          "textSha256": "7e2db8d9342c617148640469ba98ae285bf622ac66e2a4620cb3a7a35ca2ccfe",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "OBS-06": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "f72ee639474048a382b47bedba059e81a3455fe8e64e8515dc684eb3b1aac324",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "7c72c8e0a02cbcfa2e101c92f8e94118f4b9ea8d2628694eef7f82ba2fd6a744",
+          "requiredFacets": [
+            "unit"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        },
+        {
+          "index": 3,
+          "textSha256": "2252f816ce13aa34b09208f96974da1a2c4742bde54ccad335da9be3a46e7a6f",
+          "requiredFacets": [
+            "unit",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    },
+    "EVL-B": {
+      "clauseCount": 3,
+      "liveClauses": [
+        1,
+        2
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "d7e3432458f2b975e13f6a5b2bc73f1fd33f49c84d85023a3f8d3270b2440fb7",
+          "requiredFacets": [
+            "documentation",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 2,
+          "textSha256": "80cead2cee6cfe82c1ad653b185d4c52780a1b8d1a1fcdecd401ec83786654f3",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "ad7e00bf95da3111c9c2fe1839d5f4e30a31f78fcd9dde1d5fd6d1f791d59172",
+          "requiredFacets": [
+            "documentation"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the source-bound local check or review the completed document and link current evidence."
+        }
+      ]
+    },
+    "EVL-A": {
+      "clauseCount": 3,
+      "liveClauses": [
+        2,
+        3
+      ],
+      "clauses": [
+        {
+          "index": 1,
+          "textSha256": "efdc75c4548bc3bbe2e5df8313e65d9849a95cfa98c2e41157de727f2bbe7254",
+          "requiredFacets": [
+            "documentation",
+            "signoff"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Obtain the named accountable owner decision; role review votes do not substitute."
+        },
+        {
+          "index": 2,
+          "textSha256": "b82b38036870950c4b15e926e0e06c9ec31bd299548d7cd3714ef928d97be460",
+          "requiredFacets": [
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        },
+        {
+          "index": 3,
+          "textSha256": "dc39f3c18821598dcd3ee321fc562fac32ebc169ae67b905a5977a52cf1bdff9",
+          "requiredFacets": [
+            "static",
+            "live"
+          ],
+          "liveEvidenceKinds": [
+            "azure-monitor-logs",
+            "azure-arm-state",
+            "approved-native-runtime",
+            "approved-native-wire",
+            "ci-execution"
+          ],
+          "nextAction": "Execute the implemented checker on approved bounded native Azure evidence; retain local checks separately."
+        }
+      ]
+    }
+  }
+}

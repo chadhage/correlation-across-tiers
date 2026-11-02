@@ -1,6 +1,6 @@
 # Contoso Gateway implementation
 
-This folder and the three APIM modules implement R3's preparation scope. They do not deploy resources, register applications or assign RBAC. R1 owns root network/entrypoints, frozen legal physical names, the shared P1v3 Dedicated compute plan and board. R8 owns identity contracts/JWT validators and assignments. R2's workload-only Portal/SPA cohost and R4's Orders/Inventory are separate modules.
+This folder and the three APIM modules implement R3's preparation scope. They do not deploy resources, register applications or assign RBAC. R1 owns root network/entrypoints and frozen legal physical names; R4 owns compute, R9 owns the board, and R8 owns identity contracts/JWT validators and assignments. R2's workload-only Portal/SPA cohost and R4's Orders/Inventory are separate modules.
 
 ## Module contracts
 
@@ -9,8 +9,10 @@ All APIM resources use **`2024-05-01`**. Internal API/policy/logger names are lo
 | Module | Inputs | Non-secret outputs |
 |---|---|---|
 | `infra\modules\apim-service.bicep` | `serviceName`, `location=centralus`, approved `publisherName/publisherEmail`, root `subnetResourceId`, optional `ownedPublicIpResourceId`, `tags` | Service ID/name, gateway URL/host, principal/tenant IDs, management API version, logical resource name |
-| `infra\modules\apim-observability.bicep` | `serviceName`, `applicationInsightsResourceId`, secure **versionless reference** `connectionSecretIdentifier`, `samplingPercentage=10`, `diagnosticVerbosity=error`, capture flags/evidence below | Logger/named-value/diagnostic IDs, `diagnosticScope=allApis`, configured percentage, actual configured capture guard result |
-| `infra\modules\apim-api-policies.bicep` | `serviceName`, R8 `tenantId/publicAudience/ordersTokenResource`, fixed `ordersBackendBaseUrl` ending `/api`, `allowedCallerClientIds[]`, `portalClientIds[]`, exact `frontendOrigins[]`, `delegatedScope=Orders.Invoke`, response/observation flags, timeout | API/backend/policy/fragment IDs, public/backend paths, proof-header name, required scope/roles and management API version |
+| `infra\modules\apim-observability.bicep` | `serviceName`, `applicationInsightsResourceId`, secure **versionless reference** `connectionSecretIdentifier`, `samplingPercentage=10`, `diagnosticVerbosity=error`, capture flags/evidence below | Logger/named-value/diagnostic IDs, `diagnosticScope=allApis`, configured percentage/verbosity, reference kind, external lease requirement, actual configured capture guard result |
+| `infra\modules\apim-api-policies.bicep` | `serviceName`, R8 `tenantId/publicAudience/ordersTokenResource`, fixed `ordersBackendBaseUrl` ending `/api`, `allowedCallerClientIds[]`, `portalClientIds[]`, exact `frontendOrigins[]`, `delegatedScope=Orders.Invoke`, response/observation flags, timeout | API/backend/policy/fragment IDs, public/backend paths, separate caller/proof-header names, required scope/roles and management API version |
+
+Configuration named values deploy before policy fragments; the composed API policy waits for named values, fragments, the inherited service policy and the fixed TLS backend. GUID-only tenant/audience/caller/Portal IDs are normalized to lower case before materialization and authenticated client GUID lookup; resource URIs, scopes, roles and the original JWT are not rewritten. Root can preflight inputs with `validateModuleParameters` and the App Insights-only `validateSecretReference` in `tools\protocol.mjs`. The latter rejects inline values, versioned App Insights URIs, nonstandard ports, invalid vault names and URL normalization tricks. R8's explicitly versioned HMAC URI is a different contract.
 
 The service is **Developer / 1 / External VNet / SystemAssigned** with public APIM ingress. Root supplies the nondelegated APIM subnet, required NSG/DNS/control-plane/telemetry connectivity and optional public IP. Private Apps need an independently verified App/SCM deployment path before public App access is disabled.
 
@@ -27,7 +29,7 @@ The all-APIs diagnostic fixes W3C/fixed/allErrors, all four body byte settings *
 
 Known sensitive query-parameter **names** use GA `Hide` masking at all four positions. No wildcard masking support is invented. No query parameter is accepted by the public API. Rejection and exact-name masking do **not** prove that arbitrary frontend URLs were sanitized before capture; native URL/query privacy remains **To Do**.
 
-`samplingPercentage=100` must be applied only by R7's acknowledged bounded lease/restore controller. Source defaults are 10/error with business Trace disabled. The Trace policy is not sampled down by changing diagnostic percentage.
+`samplingPercentage=100` must be applied only by R7's acknowledged bounded lease/restore controller. Bicep cannot autonomously expire a diagnostic; `fullSamplingRequiresExternalLeaseController` is a requirement indicator, not proof of a running watchdog. Source defaults are 10/error with business Trace disabled. The Trace policy is not sampled down by changing diagnostic percentage. Enabling its information-level metadata also needs diagnostic verbosity and the named observation switch, an independent volume budget and restoration; percentage-only control does not prove metadata collection.
 
 ## Authorization and HTTP routing
 
@@ -54,6 +56,8 @@ The original token is never traced, returned or exported as configuration. Porta
 
 The OpenAPI file freezes the finite endpoint/request DTOs shared by R2/R4, UUIDv4 shape, scenario and WorkTarget enums, and honest `202 DURABLE_STAGED` semantics. OpenAPI import alone is not runtime body validation; the service DTO validators enforce the payload contract.
 
+`GET /me` returns `actorType=user|workload`, not invented upper-case names. Optional user-only pseudonyms match `h1:<32 lower-case hex secret-version>:<43 base64url characters>`; a workload actor cannot carry one. For creation POSTs, the edge response invocation header equals the response body's `businessInvocationId`, not its order/run ID. Workflow GET bodies retain the original durable invocation, which may differ from the new GET's ingress response header.
+
 ## Policies and context
 
 The service policy owns one **direct first inbound CORS** policy. It accepts only exact frontend origins, GET/POST, Authorization/Content-Type/W3C/business headers plus SDK **Request-Context appId metadata**, no cookie credentials, and no client gateway-proof header. Request-Context is not W3C causality or an authorization proof; it is not logged/exposed, and legacy Request-Id is not granted. Optional response exposure is only the canonical edge business header. Unmatched preflight can be empty 200 without a CORS grant. SSR/backend calls do not require browser CORS or Origin.
@@ -70,22 +74,37 @@ Only a validated allowlisted Portal invocation issuer can supply an accepted UUI
 
 Business Trace metadata belongs to log telemetry, not automatically to all gateway request/dependency rows. R7/R9 must prove a native attachment/observed binding and distinguish direct/descendant membership from broader trace co-membership, especially with two invocations sharing one trace.
 
+## Preparation-only native sampling hooks
+
+`createApimSamplingAdapter` in `tools\protocol.mjs` implements the pinned GA ARM diagnostic GET/PATCH protocol. It requires an injected, independently authorized `request({method,url,headers,body,redirect})` transport returning `{status,headers,body}`. The transport must enforce `redirect=error` and keep its credentials private. No transport, token acquisition or cloud operation is supplied by default.
+
+| Hook | Input / result |
+|---|---|
+| `prepare({lease})` | Checks the all-APIs diagnostic and paginated API diagnostics for overrides; returns a persistable safe production snapshot, owned-field hash and GET ETag. |
+| `apply({lease,snapshot,ownedPatch})` | Requires explicit `allowAzureWrites=true` plus a separate approval reference, active pre-drain lease, unchanged baseline and real conditional ETag; PATCH includes required logger ID and preserves query masking. |
+| `observe({lease,ownedPatch})` | Independent GET readback, owned-field hash, percentage and match result. |
+| `restore({lease,snapshot,appliedOwnedPatch})` | Conditional, idempotent production restoration; refuses foreign owned-field changes. A late restore is still attempted but reports the missed deadline. |
+
+Lease fields are R7's `runId`, `startsAtUtc`, `expiresAtUtc`, `drainAtUtc`, `restoreDeadlineUtc`: UUIDv4, UTC, maximum two-hour window and maximum 120-second restore reserve. Prepared snapshots bind all five fields in `leaseBinding`; changing the expiry/window under the same ID cannot revive a stale snapshot. The twelve exported `APIM_SAMPLING_OWNED_FIELDS` match R7's current percentage/W3C/allErrors/body/header patch. They cannot add RPS, body/header capture, arbitrary sinks or sampled-flag mutation. Source scanner checks also reject disguised context deletions, composed mixed SDK modes, undeclared policy egress and unresolved body capture.
+
+Results are **`sourceKind=management-plane-observation`**, **`runtimeAcknowledgement=false`**, with effective sampling and wire parentage **To Do**. They are not `contoso.sampling-control-ack.v1` and must not be relabelled as trusted runtime observations. R7 owns prepare/quiesce/apply/observe/drain/restore orchestration, independent watchdog, traffic control and native request/export proof. A stored snapshot, GET result, approval string or unit-test transport is not a live attestation. No approved cloud writes were performed to validate these hooks.
+
 ## Local validation
 
 Use the existing Node/Bicep tools; no root package changes are needed:
 
 ```powershell
 $tests = Get-ChildItem .\tests\apim -Filter *.test.mjs -File | Select-Object -ExpandProperty FullName
-node --test $tests
+$env:CONTOSO_BICEP_PATH = '<path-to-existing-frozen-bicep.exe>'
+node --test --test-reporter=spec $tests
 node .\tools\protocol.mjs .
-az bicep build --file .\infra\modules\apim-service.bicep --stdout
-az bicep build --file .\infra\modules\apim-observability.bicep --stdout
-az bicep build --file .\infra\modules\apim-api-policies.bicep --stdout
 ```
 
-Tests cover context limits/forward compatibility/duplicates/zero IDs/state rejection, business trust, separate caller/proof header observations, CORS negatives, all capture positions, exact source/version-pinned SDK **3.4.5 W3C_TRACE=18**, unsafe defaults/flag writes/RequestId provenance, inactive bad fragments, API schema and test-only fixture exclusion.
+The compiler test checks the executable's version/hash against the existing version lock, compiles all three modules and inspects emitted dependencies, credential references, scope, body/header settings and paths. With no compiler configured or on PATH it explicitly skips compilation; that run supplies no compiler evidence. It never downloads a substitute.
 
-`tools\protocol.mjs` reports source/configuration findings without credential values and returns nonzero for violations. Its Node helpers are parsing/checker/transport models, **not R8 JWT validators or APIM C# runtime execution**. The XML reader is additionally checked with native .NET XML parsing; all three Bicep modules are locally compiled.
+Tests cover context limits/forward compatibility/duplicates/zero IDs/state rejection, business trust, case-variant/folded dual-token headers, CORS negatives, all capture positions, exact source/version-pinned SDK **3.4.5 W3C_TRACE=18**, unsafe defaults/flag writes/RequestId provenance, inactive bad fragments, API schema, native-management CAS/restore and test-only fixture exclusion.
+
+`Invoke-PolicyExpressions.ps1` loads the actual fragment XML with DTD/resolver disabled, extracts and compiles its C# expressions, and executes context/business/auth-shape cases against local context/Jwt carrier bindings. This is real local CLR expression execution, **not APIM hosting, native extraction/root reset, JWT signature validation or wire evidence**. `tools\protocol.mjs` reports source/configuration findings without credential values and returns nonzero for violations.
 
 SDK enum provenance is frozen in `sdk-source-pin.json`: v3.4.5 commit `9f3440d9ac3dd8941f7d004dbae43108b08baf7e`, enum value18 and full source digest. Old mode2 and mixed mode17 are not accepted for this contract. Installed SDK and actual wire behavior require their own observations.
 
@@ -102,11 +121,12 @@ Negative scanner policies under `tests\apim\fixtures` are not deployable inputs.
 - Verify actual SDK/agent/runtime/host/cloud-role/physical-name mapping, complete source/resource/version freeze, private App/SCM reachability and no competing attachment.
 - Apply/acknowledge/revert all producer/scope settings only inside an approved lease; inspect actual diagnostic/logger state, allErrors and Trace-policy volume, cost/overhead and reset.
 
-No live card is advanced by a local parser/compile/checker PASS. Root owns final approvals, board and deployment.
+No live card is advanced by a local parser/compile/checker PASS. Root owns approval/deployment integration; R9 alone owns board state and completion adjudication.
 
 ## Supported sources
 
 - [GA service](https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service), [logger](https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service/loggers), [diagnostic](https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service/diagnostics), [named value](https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service/namedvalues), [policy fragments](https://learn.microsoft.com/en-us/azure/templates/microsoft.apimanagement/2024-05-01/service/policyfragments).
 - [Application Insights publisher/sampling/overhead](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights), [MI policy](https://learn.microsoft.com/en-us/azure/api-management/authentication-managed-identity-policy), [Entra validation](https://learn.microsoft.com/en-us/azure/api-management/validate-azure-ad-token-policy), [context whitelist](https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions).
+- [Pinned diagnostic GET/ETag](https://learn.microsoft.com/en-us/rest/api/apimanagement/diagnostic/get?view=rest-apimanagement-2024-05-01), [PATCH/If-Match/logger ID](https://learn.microsoft.com/en-us/rest/api/apimanagement/diagnostic/update?view=rest-apimanagement-2024-05-01).
 - [CORS](https://learn.microsoft.com/en-us/azure/api-management/cors-policy), [Trace metadata](https://learn.microsoft.com/en-us/azure/api-management/trace-policy), [forwarding](https://learn.microsoft.com/en-us/azure/api-management/forward-request-policy), [private App/SCM](https://learn.microsoft.com/en-us/azure/app-service/overview-private-endpoint).
 - [W3C Recommendation](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/), [exact SDK enum source](https://github.com/microsoft/ApplicationInsights-JS/blob/9f3440d9ac3dd8941f7d004dbae43108b08baf7e/shared/AppInsightsCore/src/enums/ai/Enums.ts).

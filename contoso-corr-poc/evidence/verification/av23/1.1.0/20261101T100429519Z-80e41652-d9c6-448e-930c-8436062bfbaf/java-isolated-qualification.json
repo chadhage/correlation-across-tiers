@@ -1,0 +1,79 @@
+{
+  "schema": "contoso.av23-java-wire.v1",
+  "sourceKind": "real-local-agent-loopback",
+  "assessmentScope": "credential-only-Azure-Netty-JWKS-and-AppService-MI-with-trusted-JDK-control-not-cloud",
+  "providerActive": true,
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "guardLoadedFromFrozenBytes": true,
+  "guardArtifactVersion": "1.1.0",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "sdkAbi": "1.65.0",
+  "sdkTracingOptionsDisabled": false,
+  "isolatedCredentialTransport": true,
+  "extensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "qualified": true,
+  "capturedAtUtc": "2026-11-01T09:56:43.676Z",
+  "harnessSha256": "5f60f57d8580de1a04af059def5ca812c51a53ad73f17f6b4e8b4c03fe1f7a03",
+  "probeSourceSha256": "6e22a01b4eab7a7f902cd99c247814e350416e4cad55286684903ed620fc1ebd",
+  "exitCode": 0,
+  "failureCategories": [],
+  "missingClasses": [],
+  "authHeadersAbsent": false,
+  "trustedPropagationObserved": true,
+  "trustedParentAdvanced": true,
+  "retryControlRequested": true,
+  "retryObserved": true,
+  "requestCounts": {
+    "jwks": 1,
+    "identity": 2,
+    "trusted": 1
+  },
+  "wireHeaderPresence": {
+    "jwks": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "identity": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      },
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false,
+        "x-business-correlation-id": false
+      }
+    ],
+    "trusted": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": true,
+        "x-business-correlation-id": false
+      }
+    ]
+  },
+  "result": "FAIL",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "rawOutputRetained": false
+}

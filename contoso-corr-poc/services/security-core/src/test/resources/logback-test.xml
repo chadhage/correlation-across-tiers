@@ -1,0 +1,7 @@
+<configuration>
+  <logger name="com.azure" level="OFF"/>
+  <logger name="com.microsoft.aad.msal4j" level="OFF"/>
+  <logger name="reactor.netty" level="OFF"/>
+  <logger name="io.netty" level="OFF"/>
+  <root level="WARN"/>
+</configuration>

@@ -1,0 +1,11 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "files": [
+    {
+      "path": "adjudication.json",
+      "sha256": "c384c72148af9fb614af809451530b4e4865817be9fac1ae08ad8db8bf114d73"
+    }
+  ]
+}

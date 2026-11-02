@@ -1,0 +1,26 @@
+{
+  "schema": "contoso.preserved-observation.v1",
+  "sourceAcceptanceIsCertification": false,
+  "sources": [
+    {
+      "path": "services\\security-core\\docs\\av23-java-local.v1.json",
+      "sha256": "9bb4ffbc4ed407938d66e504b17d58d8333371521d5230ac8caa31b41d3e7c8d",
+      "preservedPath": "evidence\\verification\\av23\\av23-java-local.v1.json"
+    },
+    {
+      "path": "services\\security-core\\docs\\av23-java-sdk-tracing-options.v1.json",
+      "sha256": "db0aec312812380766cebc4a5db4d3e2ae231557626b987cfe6c0f325f171bb7",
+      "preservedPath": "evidence\\verification\\av23\\av23-java-sdk-tracing-options.v1.json"
+    },
+    {
+      "path": "services\\security-core\\docs\\av23-node-local.v1.json",
+      "sha256": "17fc55f60fa453b0f696806cc39fa13beece3ecc0a0d2b83d077922e471ed252",
+      "preservedPath": "evidence\\verification\\av23\\av23-node-local.v1.json"
+    }
+  ],
+  "scope": "Actual R8 local installed-provider auth-wire helpers, R2 independently reran; no literal Azure HTTPS host/Entra certification",
+  "javaLocalResult": "FAIL",
+  "nodeLocalResult": "PASS",
+  "javaSDKTracingOptionResult": "FAIL",
+  "nextAction": "R4/R8 supported purpose/domain exclusion preserving trusted API; exact literal host verification remains To Do"
+}

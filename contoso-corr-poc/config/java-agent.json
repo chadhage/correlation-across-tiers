@@ -1,5 +1,5 @@
 {
-  "sampling": {"requestsPerSecond": 5},
+  "sampling": {"requestsPerSecond": 5, "overrides": []},
   "instrumentation": {
     "azureSdk": {"enabled": false},
     "jdbc": {"enabled": false, "masking": {"enabled": true}},

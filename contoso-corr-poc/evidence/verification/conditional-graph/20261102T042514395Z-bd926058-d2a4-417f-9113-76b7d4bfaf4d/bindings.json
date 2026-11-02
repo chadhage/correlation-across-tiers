@@ -1,0 +1,83 @@
+{
+  "schema": "contoso.executed-local-conditional-bindings.v1",
+  "nativeExecutionManifest": "evidence\\verification\\conditional-native\\20261102T042453638Z-579533aa-6a76-42b3-b269-7b354cdfe317\\manifest.json",
+  "nativeExecutionManifestSha256": "3442ff5aa8d4dd56adb7b5e11413f4579195159ad0a60cfaa843ad1f62aef03c",
+  "bindings": {
+    "schema": "contoso.verified-trust-root-bindings.v1",
+    "mode": "LocalValidate",
+    "mapSha256": "839a0b8e9341ac8d154d3cecdab64dcffeb6421cec8d03f1cf0de21bb0033858",
+    "rowsSha256": "637e551f8f0b5d7d1e6457359ec7aeff7160c9608f8c61e3934b1792c493e69d",
+    "checkerOnly": false,
+    "actualSourceVerified": true,
+    "sourceAcceptanceIsCertification": false,
+    "nativeRuntimeCarrierObserverEnrolled": true,
+    "roots": [
+      {
+        "boundaryId": "orders.request",
+        "traceId": "aeac15c95714fc53e651fadc26533ef8",
+        "spanId": "8763df6c9cf3c80e",
+        "parentSpanId": null,
+        "roleName": "contoso-orders-api",
+        "disposition": "absent",
+        "policyRef": "ADR-A03/agent-framework-http-extraction",
+        "rootEvidenceSha256": "1596d5efd86eafa34d96611a4dd3cb86651de99f8495b34c69a4ae12faffacf1",
+        "carrierEvidenceSha256": "71914103d4acd7ba6e826c0d11542c9e7c172110be38dbd74f57e9b03c66d79c",
+        "sourceLocator": {
+          "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+          "nativeTable": "requests",
+          "rowOrdinal": 6,
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 6,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        },
+        "nativeRowSha256": "fad9697c5f34e5986910e3b1f97a1dd6bf8ad1fc6676fa6b0ecb9e3dd8db44a3"
+      },
+      {
+        "boundaryId": "orders.request",
+        "traceId": "9f76244c7506883e8891897a4b46602e",
+        "spanId": "1310205f1a042784",
+        "parentSpanId": null,
+        "roleName": "contoso-orders-api",
+        "disposition": "invalid",
+        "policyRef": "ADR-A03/agent-framework-http-extraction",
+        "rootEvidenceSha256": "bb9c96eecb89b395c616fcd14dca92fdd7383c5cf5c09d4606353691591c87c4",
+        "carrierEvidenceSha256": "cca75a5ddc78dac09abbe69d2c56b2d2af064b4a51cdcd8334cc628517961e8a",
+        "sourceLocator": {
+          "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+          "nativeTable": "requests",
+          "rowOrdinal": 7,
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 7,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        },
+        "nativeRowSha256": "bc629e7bc7f6c3f5d12ee1f37e3c34ba833ea23cab0beeae61e6a57714ee06c4"
+      },
+      {
+        "boundaryId": "orders.request",
+        "traceId": "5001500bcb830554752e48e8a833561e",
+        "spanId": "38ddcdb8be06173a",
+        "parentSpanId": null,
+        "roleName": "contoso-orders-api",
+        "disposition": "invalid",
+        "policyRef": "ADR-A03/agent-framework-http-extraction",
+        "rootEvidenceSha256": "b7f10248783aa6680438604c3966f0098ecee67725f81b3455554e1f0c743d14",
+        "carrierEvidenceSha256": "293c5bef9dbc44a1b1b459511d25e4f0235ac1fe26f4977a89b322f605fc928c",
+        "sourceLocator": {
+          "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+          "nativeTable": "requests",
+          "rowOrdinal": 8,
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 8,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        },
+        "nativeRowSha256": "055c8846cdaa84922246065ca8bbb681998b1797281a7128b29bba60e079ea01"
+      }
+    ],
+    "originScope": "DIRECT_EXECUTED_LOCAL_ORDERS_CONDITIONAL_CASES_ONLY_NOT_FULL_GRAPH"
+  },
+  "result": "LOCAL_SELECTED_CASES_VERIFIED",
+  "fullGraphVerified": false,
+  "azureAuthority": false,
+  "certification": "NOT_CERTIFIED",
+  "savedJsonCanEnroll": false
+}

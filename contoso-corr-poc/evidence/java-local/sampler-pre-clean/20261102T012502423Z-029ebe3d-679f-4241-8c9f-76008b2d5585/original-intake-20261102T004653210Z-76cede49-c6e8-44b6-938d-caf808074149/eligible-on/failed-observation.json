@@ -1,0 +1,22 @@
+{
+  "result": "FAIL",
+  "sourceKind": "real-local-agent-loopback",
+  "actualObservation": {
+    "nativeStateAvailable": true,
+    "effectiveSamplingPercentage": 100,
+    "requestsPerSecond": null,
+    "loadedCount": 1,
+    "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+    "artifactVersion": "1.1.0",
+    "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+    "sdkAbi": "1.65.0",
+    "runtimeInstanceId": "53672",
+    "providerCount": null,
+    "exporterCount": null,
+    "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+    "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+  },
+  "expectedExtensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "certificationEligible": false
+}

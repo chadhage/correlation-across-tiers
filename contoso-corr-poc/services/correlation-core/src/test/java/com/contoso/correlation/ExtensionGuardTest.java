@@ -9,7 +9,7 @@ class ExtensionGuardTest {
         assertThrows(IllegalStateException.class, ExtensionGuard::verify);
     }
     @Test void absentOrWrongHashExtensionCannotBeLoadedByApplication() {
-        System.setProperty("otel.javaagent.extensions", "contoso-parent-safe-sampler-1.0.0.jar");
+        System.setProperty("otel.javaagent.extensions", "contoso-parent-safe-sampler-1.1.0.jar");
         try { assertThrows(IllegalStateException.class, ExtensionGuard::verify); }
         finally { System.clearProperty("otel.javaagent.extensions"); }
     }

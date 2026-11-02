@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ignored = new Set(['node_modules', 'target', 'dist', 'tests', 'evidence', 'eval', 'evaluation', '.git', '.azure']);
+const ignored = new Set(['node_modules', 'target', 'dist', 'tests', 'evidence', 'eval', 'evaluation', '.git', '.azure', '.cache', '.java-work', 'deployment-artifact', 'test-results', 'playwright-report']);
 const sourceExtensions = new Set(['.bicep', '.bicepparam', '.json', '.xml', '.yml', '.yaml', '.java', '.ts', '.js', '.mjs', '.sh', '.ps1', '.csproj']);
 
 export function checkCertificationSource(name, text) {

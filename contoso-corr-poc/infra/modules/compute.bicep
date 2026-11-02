@@ -13,6 +13,12 @@ param applicationInsightsConnectionStringReference string
 param runtimeSettings object = {}
 @description('Per canonical service-name settings; fixed telemetry ownership settings always win.')
 param serviceSettings object = {}
+@description('Approved main-site API rules. An unmatched request is always denied.')
+param apiIpSecurityRestrictions array = []
+@description('Approved main-site Functions rules. An unmatched request is always denied.')
+param workerIpSecurityRestrictions array = []
+@description('Approved deployment-runner SCM rules, separate from public Portal/main-site access.')
+param scmIpSecurityRestrictions array = []
 
 var commonJava = {
   APPLICATIONINSIGHTS_CONNECTION_STRING: applicationInsightsConnectionStringReference
@@ -26,6 +32,11 @@ var commonJava = {
   JAVA_TOOL_OPTIONS: ''
   JDK_JAVA_OPTIONS: ''
   _JAVA_OPTIONS: ''
+  JAVA_OPTS: ''
+  ApplicationInsightsAgent_EXTENSION_VERSION: 'disabled'
+  APPLICATIONINSIGHTS_ENABLE_AGENT: 'false'
+  JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY: 'false'
+  INITIALIZED_FROM_PLACEHOLDER: 'false'
 }
 var apiDefinitions = [
   { name: names.orders, role: 'contoso-orders-api' }
@@ -66,6 +77,11 @@ resource apis 'Microsoft.Web/sites@2025-03-01' = [for api in apiDefinitions: {
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
       scmMinTlsVersion: '1.2'
+      ipSecurityRestrictions: apiIpSecurityRestrictions
+      ipSecurityRestrictionsDefaultAction: 'Deny'
+      scmIpSecurityRestrictions: scmIpSecurityRestrictions
+      scmIpSecurityRestrictionsDefaultAction: 'Deny'
+      scmIpSecurityRestrictionsUseMain: false
       http20Enabled: true
       healthCheckPath: '/health/ready'
       appCommandLine: 'sh /home/site/wwwroot/startup.sh'
@@ -78,7 +94,6 @@ resource apis 'Microsoft.Web/sites@2025-03-01' = [for api in apiDefinitions: {
           APPLICATIONINSIGHTS_ROLE_NAME: api.role
           OTEL_SERVICE_NAME: api.role
           CONTOSO_HEAP_MB: '384'
-          CONTOSO_INVENTORY_BASE_URL: 'https://${names.inventory}.azurewebsites.net/api'
         }
       )): { name: setting.key, value: string(setting.value) }]
     }
@@ -102,6 +117,11 @@ resource workers 'Microsoft.Web/sites@2025-03-01' = [for worker in workerDefinit
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
       scmMinTlsVersion: '1.2'
+      ipSecurityRestrictions: workerIpSecurityRestrictions
+      ipSecurityRestrictionsDefaultAction: 'Deny'
+      scmIpSecurityRestrictions: scmIpSecurityRestrictions
+      scmIpSecurityRestrictionsDefaultAction: 'Deny'
+      scmIpSecurityRestrictionsUseMain: false
       appSettings: [for setting in items(union(
         runtimeSettings,
         serviceSettings[?worker.role] ?? {},
@@ -112,8 +132,7 @@ resource workers 'Microsoft.Web/sites@2025-03-01' = [for worker in workerDefinit
           FUNCTIONS_WORKER_PROCESS_COUNT: '1'
           AzureWebJobsStorage__accountName: hostStorageAccountName
           AzureWebJobsStorage__credential: 'managedidentity'
-          JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY: 'true'
-          JAVA_OPTS: '-Xms32m -Xmx256m -javaagent:/home/site/wwwroot/agent/applicationinsights-agent-3.7.10.jar -Dotel.javaagent.extensions=/home/site/wwwroot/agent/extensions/contoso-parent-safe-sampler-1.0.0.jar -Dotel.instrumentation.ai-azure-functions.enabled=false'
+          JAVA_OPTS: '-Xms32m -Xmx256m -javaagent:/home/site/wwwroot/agent/applicationinsights-agent-3.7.10.jar -Dotel.javaagent.extensions=/home/site/wwwroot/agent/extensions/contoso-parent-safe-sampler-1.1.0.jar -Dotel.instrumentation.jdbc.enabled=false -Dotel.instrumentation.jdbc-datasource.enabled=false -Dotel.instrumentation.lettuce.enabled=false -Dotel.instrumentation.jedis.enabled=false -Dotel.instrumentation.redisson.enabled=false -Dotel.instrumentation.azure-core.enabled=false -Dotel.instrumentation.ai-azure-functions.enabled=false'
           CONTOSO_SERVICE_NAME: worker.role
           APPLICATIONINSIGHTS_ROLE_NAME: worker.role
           OTEL_SERVICE_NAME: worker.role
@@ -140,6 +159,9 @@ resource portal 'Microsoft.Web/sites@2025-03-01' = {
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
       scmMinTlsVersion: '1.2'
+      scmIpSecurityRestrictions: scmIpSecurityRestrictions
+      scmIpSecurityRestrictionsDefaultAction: 'Deny'
+      scmIpSecurityRestrictionsUseMain: false
       appCommandLine: 'node dist/bootstrap.js'
       appSettings: [for setting in items(union(
         runtimeSettings,
@@ -160,6 +182,8 @@ output apiIds array = [for (_, index) in apiDefinitions: apis[index].id]
 output workerIds array = [for (_, index) in workerDefinitions: workers[index].id]
 output portalId string = portal.id
 output ordersBaseUrl string = 'https://${apis[0].properties.defaultHostName}/api'
+output inventoryBaseUrl string = 'https://${apis[1].properties.defaultHostName}/api'
+output portalOrigin string = 'https://${portal.properties.defaultHostName}'
 output principalIds object = {
   orders: apis[0].identity.principalId
   inventory: apis[1].identity.principalId

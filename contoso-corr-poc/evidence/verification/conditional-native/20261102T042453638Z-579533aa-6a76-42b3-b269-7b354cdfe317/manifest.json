@@ -1,0 +1,57 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "real-local-agent-loopback",
+  "sourceAcceptanceIsCertification": false,
+  "scope": "LOCAL_ORDERS_CONDITIONAL_CASES_ONLY",
+  "certification": "NOT_CERTIFIED",
+  "files": [
+    {
+      "path": "actual-cases.json",
+      "sha256": "373babec84fcc63f0906fcd3907dfabcf7487b88695ec3bfb4ed84d2b9855756"
+    },
+    {
+      "path": "case-proofs.json",
+      "sha256": "f52c7fb058b4c7db661cd31b71a58a68dc2c838b72da80a6a90b7a87a1bb118b"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$1.class",
+      "sha256": "e0ae2ca28852fde6f5b1ff0b2ec2114ea242ab29f8bc097630badd6c64ee9b81"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$LocalResp.class",
+      "sha256": "3eee4eab08b61214edccf3e2c8ac0010813d311982d3dfe8b91d1ff65f16ec92"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$UnavailableBroker.class",
+      "sha256": "c340a03521ea84bca7fd546135f91607ac254e9d6e66fcb507c40e47a126ae3c"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture.class",
+      "sha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeTrustRootObservationFilter.class",
+      "sha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702"
+    },
+    {
+      "path": "classpath-selection.json",
+      "sha256": "cd9708654b5fb27571bfd8a930a95ce4c698edb5fd2884540aeb38466ab10228"
+    },
+    {
+      "path": "execution.json",
+      "sha256": "df49938ec5b0b7f8e92a3ca57f0d080c016a2697fa89b11c383f073a1334f37b"
+    },
+    {
+      "path": "java-agent.json",
+      "sha256": "90cb0784f5e67e1913b55b296c6e2119b3cd2461a0ddbe7f476d45c16eb9ca9b"
+    },
+    {
+      "path": "native-safe-capture.json",
+      "sha256": "9d8fc49ac3009e51af6fe48c2c42c4f2fe19b343d0432ee133c981481331430c"
+    },
+    {
+      "path": "sampling-lease.json",
+      "sha256": "96de63544ae9b7ce5e87dde5652ee997839e29d299963ff281386334172a7e8a"
+    }
+  ]
+}

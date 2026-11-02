@@ -1,0 +1,71 @@
+{
+  "schema": "contoso.av23-node-wire.v1",
+  "sourceKind": "real-local-Microsoft-distro-loopback",
+  "assessmentScope": "actual-Portal-JOSE-fetch-MI-and-trusted-Gateway-loopback-not-cloud",
+  "capturedAtUtc": "2026-11-01T07:39:07.779Z",
+  "harnessSha256": "bbdbffe17f38e3646bb0dca5091ca1283c24053b7860823cc2de22efa8c0e0dc",
+  "productionSourceSha256": {
+    "telemetry.ts": "b230a943b9c028be6fa40ed82e47f5f7d0070a95c2c0d89ced2646ff56dcc247",
+    "gateway.ts": "6488de818d1cfafc26914a8a112c35cac0520144debd403b27e83aff26ef78de",
+    "control-auth.ts": "a104936f659f8b9a94bf0b23fc0809636c1547fd6189f75dad561743ab36fbec"
+  },
+  "qualified": true,
+  "failureCategory": null,
+  "authHeadersAbsent": true,
+  "trustedPropagationObserved": true,
+  "externalConnectionsBlocked": 0,
+  "metadataConnectionsRerouted": 1,
+  "metadataWireObserved": true,
+  "requestCounts": {
+    "jwks": 1,
+    "identity": 1,
+    "metadata": 1,
+    "trusted": 1
+  },
+  "wireHeaderPresence": {
+    "jwks": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false
+      }
+    ],
+    "identity": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false
+      }
+    ],
+    "metadata": [
+      {
+        "traceparent": false,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false
+      }
+    ],
+    "trusted": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": true
+      }
+    ]
+  },
+  "result": "PASS",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "rawOutputRetained": false
+}

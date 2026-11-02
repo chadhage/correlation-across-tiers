@@ -26,7 +26,11 @@ const webOrigin = `http://127.0.0.1:${webPort}`;
 const apiOrigin = `http://127.0.0.1:${apiPort}`;
 const excludedOrigin = `http://127.0.0.1:${excludedPort}`;
 const config = fixtureConfig(webOrigin, apiOrigin);
-const telemetry = await initializeTelemetry(config, { CONTOSO_SERVER_SAMPLING_PERCENTAGE: "10" }, {
+config.certification.windowId = randomUUID();
+const telemetry = await initializeTelemetry(config, {
+  CONTOSO_SERVER_SAMPLING_PERCENTAGE: "10", CONTOSO_CERT_START: config.certification.startsAtUtc ?? undefined,
+  CONTOSO_CERT_END: config.certification.endsAtUtc ?? undefined, CONTOSO_CERT_WINDOW_ID: config.certification.windowId
+}, {
   async sendRequest(request) {
     const destination = new URL(request.url);
     const payload = typeof request.body === "string" || request.body instanceof Uint8Array ? request.body : undefined;
@@ -58,11 +62,14 @@ const telemetry = await initializeTelemetry(config, { CONTOSO_SERVER_SAMPLING_PE
 const { createServer } = await import("node:http");
 const { createContosoServer } = await import("../../dist/server.js");
 const { createPortalGateway } = await import("../../dist/gateway.js");
-type Observation = { method: string; path: string; traceparent?: string; tracestate?: string; businessInvocationId?: string; actor: "fixture-user" | "fixture-workload" | "none" };
-type Span = { type: string; id: string; operationId: string; parentId: string; role: string };
+type Observation = { method: string; path: string; traceparent?: string; tracestate?: string; businessInvocationId?: string; actor: "fixture-user" | "fixture-workload" | "none";
+  legacyRequestId?: boolean; legacyCorrelationContext?: boolean; authorizationPresent?: boolean };
+type Span = { type: string; id: string; operationId: string; parentId: string; role: string; unsafeUrl: boolean;
+  unsafeMetadata: boolean; businessInvocationId?: string };
 const observations: Observation[] = [];
 const spans: Span[] = [];
 const workflows = new Map<string, { schemaVersion: 1; id: string; businessInvocationId: string; state: string; details: Record<string, string> }>();
+const delayedReads = new Set<string>();
 async function readBody(request: import("node:http").IncomingMessage): Promise<unknown> {
   const chunks: Buffer[] = [];
   let length = 0;
@@ -92,7 +99,11 @@ function collect(items: unknown): void {
     spans.push({ type: String(item.data.baseType ?? ""), id: base.id,
       operationId: typeof tags["ai.operation.id"] === "string" ? tags["ai.operation.id"] : "",
       parentId: typeof tags["ai.operation.parentId"] === "string" ? tags["ai.operation.parentId"] : "",
-      role: typeof tags["ai.cloud.role"] === "string" ? tags["ai.cloud.role"] : "" });
+      role: typeof tags["ai.cloud.role"] === "string" ? tags["ai.cloud.role"] : "",
+      unsafeUrl: ["url", "uri", "refUri", "data"].some(key => typeof base[key] === "string" && /[?#]|Bearer|eyJ/.test(base[key])),
+      unsafeMetadata: /fixture-sensitive|Bearer\s|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\./.test(JSON.stringify(item)),
+      ...(isRecord(base.properties) && isUuid4(base.properties["business.invocation_id"])
+        ? { businessInvocationId: base.properties["business.invocation_id"] } : {}) });
     if (spans.length > 500) spans.shift();
   }
 }
@@ -114,7 +125,9 @@ const api = createServer((request, response) => {
     const auth = request.headers.authorization ?? "";
     const actor = auth.startsWith("Bearer fixture-workload-") ? "fixture-workload"
       : auth.startsWith("Bearer fixture-user-") ? "fixture-user" : "none";
-    const observation: Observation = { method: request.method ?? "", path: url.pathname, actor };
+    const observation: Observation = { method: request.method ?? "", path: url.pathname, actor,
+      legacyRequestId: "request-id" in request.headers, legacyCorrelationContext: "correlation-context" in request.headers,
+      authorizationPresent: Boolean(request.headers.authorization) };
     if (typeof request.headers.traceparent === "string") observation.traceparent = request.headers.traceparent;
     if (typeof request.headers.tracestate === "string") observation.tracestate = request.headers.tracestate;
     const incoming = request.headers["x-business-invocation-id"];
@@ -124,25 +137,45 @@ const api = createServer((request, response) => {
     response.setHeader("x-business-invocation-id", business);
     response.setHeader("Content-Type", "application/json");
     if (url.pathname === "/contoso/v1/me") {
-      response.end(JSON.stringify({ schemaVersion: 1, actorType: actor === "fixture-workload" ? "WORKLOAD" : "HUMAN",
-        businessInvocationId: business, ...(actor !== "fixture-workload" ? { pseudonym: `h1.fixture.${randomBytes(32).toString("base64url")}` } : {}) })); return;
+      response.end(JSON.stringify({ schemaVersion: 1, actorType: actor === "fixture-workload" ? "workload" : "user",
+        businessInvocationId: business, ...(actor !== "fixture-workload" ? {
+          pseudonym: `h1:${randomBytes(16).toString("hex")}:${randomBytes(32).toString("base64url")}`
+        } : {}) })); return;
     }
     if (actor === "none") { response.writeHead(401); response.end(JSON.stringify({ errorCode: "FIXTURE_AUTH_REQUIRED" })); return; }
     if (request.method === "POST") {
       const input = await readBody(request);
       const command = url.pathname === "/contoso/v1/orders" ? validateOrderRequest(input) : validateDemoRequest(input);
+      if ("sku" in command && command.sku === "CONTOSO-NOTREADY") {
+        response.writeHead(503); response.end(JSON.stringify({ errorCode: "FIXTURE_NOT_READY" })); return;
+      }
+      if ("sku" in command && command.sku === "CONTOSO-REDIRECT") {
+        response.writeHead(307, { Location: `${excludedOrigin}/fixture-excluded` }); response.end(); return;
+      }
+      if ("sku" in command && command.sku === "CONTOSO-CONNECTION-FAIL") { request.socket.destroy(); return; }
       if ("quantity" in command && command.quantity === 2)
         await new Promise<void>(resolveDelay => setTimeout(resolveDelay, 500));
       const id = "orderId" in command && isUuid4(command.orderId) ? command.orderId
         : "runId" in command && isUuid4(command.runId) ? command.runId : randomUUID();
-      const view = { schemaVersion: 1 as const, id, businessInvocationId: business, state: "DURABLE_STAGED",
-        details: { operation: "ORDER", source: "fixture" } };
-      workflows.set(id, view);
+      const original = workflows.get(id) ?? { schemaVersion: 1 as const, id,
+        businessInvocationId: "sku" in command && command.sku === "CONTOSO-ORIGINAL-WORKFLOW" ? randomUUID() : business,
+        state: "DURABLE_STAGED", details: { operation: "ORDER", source: "fixture" } };
+      workflows.set(id, original);
+      const view = { ...original,
+        businessInvocationId: "sku" in command && command.sku === "CONTOSO-HEADER-MISMATCH" ? randomUUID() : business,
+        ...("sku" in command && command.sku === "CONTOSO-MISSING-DURABLE" ? {} : {
+          workflowBusinessInvocationId: "sku" in command && command.sku === "CONTOSO-INVALID-DURABLE"
+            ? "invalid" : original.businessInvocationId
+        }) };
+      if ("sku" in command && command.sku === "CONTOSO-REFRESH-RACE") delayedReads.add(id);
       response.writeHead(202); response.end(JSON.stringify(view)); return;
     }
     const id = url.pathname.split("/").at(-1) ?? "";
     const found = workflows.get(id);
-    if (found) response.end(JSON.stringify(found));
+    if (found) {
+      if (delayedReads.has(id)) await new Promise<void>(resolve => setTimeout(resolve, 1000));
+      response.end(JSON.stringify(found));
+    }
     else { response.writeHead(404); response.end(JSON.stringify({ errorCode: "FIXTURE_NOT_FOUND" })); }
   })().catch(() => { response.writeHead(400); response.end(JSON.stringify({ errorCode: "FIXTURE_INVALID" })); });
 });
@@ -156,7 +189,9 @@ const excluded = createServer((request, response) => {
     method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer fixture-only"},body:"{}"});
     return "unexpected";}catch{return "browser-blocked";}}</script></body></html>`); return;
   }
-  const observation: Observation = { method: request.method ?? "", path: "/fixture-excluded", actor: "none" };
+  const observation: Observation = { method: request.method ?? "", path: "/fixture-excluded", actor: "none",
+    legacyRequestId: "request-id" in request.headers, legacyCorrelationContext: "correlation-context" in request.headers,
+    authorizationPresent: Boolean(request.headers.authorization) };
   if (typeof request.headers.traceparent === "string") observation.traceparent = request.headers.traceparent;
   if (typeof request.headers.tracestate === "string") observation.tracestate = request.headers.tracestate;
   if (typeof request.headers["x-business-invocation-id"] === "string") observation.businessInvocationId = request.headers["x-business-invocation-id"];
@@ -170,10 +205,31 @@ const fixtureHandler = (request: import("node:http").IncomingMessage, response: 
     response.setHeader("Content-Type", "application/json");
     response.end(JSON.stringify({ fixture: true, observations, spans, excludedOrigin })); return true;
   }
-  if (path === "/fixtures/storefront" || path === "/fixtures/veto-throw") {
+  if (path === "/fixtures/no-config") {
+    void readFile(resolve("../storefront-spa/dist/index.html"), "utf8").then(html => {
+      response.setHeader("Content-Type", "text/html");
+      response.end(html.replace("<!--CONTOSO_RUNTIME_CONFIG-->", ""));
+    }).catch(() => { response.writeHead(503); response.end("FIXTURE_PRODUCTION_BUILD_REQUIRED"); });
+    return true;
+  }
+  if (path === "/portal/" && request.headers["x-contoso-fixture-probe"] === "outbound") {
+    void (async () => {
+      const { probeOutgoingBoundary } = await import("./outbound-probe.mjs");
+      await probeOutgoingBoundary([
+        `${excludedOrigin}/fixture-excluded`, `${apiOrigin}/contoso/v1/orders/${randomUUID()}`,
+        new URL(`${excludedOrigin}/fixture-excluded`), new URL(`${apiOrigin}/contoso/v1/orders/${randomUUID()}`)
+      ]);
+      response.setHeader("Content-Type", "application/json"); response.end(JSON.stringify({ fixture: true }));
+    })().catch(() => { response.writeHead(500); response.end("FIXTURE_OUTBOUND_FAILED"); });
+    return true;
+  }
+  if (["/fixtures/storefront", "/fixtures/veto-throw", "/fixtures/auth-interaction", "/fixtures/expiring"].includes(path)) {
     void (async () => {
       const template = await readFile(resolve("../storefront-spa/index.html"), "utf8");
-      const script = JSON.stringify(config).replace(/</g, "\\u003c");
+      const pageConfig = path === "/fixtures/expiring" ? {
+        ...config, certification: { ...config.certification, endsAtUtc: new Date(Date.now() + 2000).toISOString() }
+      } : config;
+      const script = JSON.stringify(pageConfig).replace(/</g, "\\u003c");
       const injected = `<script type="application/json" id="contoso-runtime-config">${script}</script>
         <script type="application/json" id="contoso-fixture-endpoints">${JSON.stringify({ excludedOrigin })}</script>`;
       const html = template.replace("<!--CONTOSO_RUNTIME_CONFIG-->", injected)
@@ -192,7 +248,8 @@ const web = createContosoServer({
   env: {}, config, storefrontRoot: resolve("../storefront-spa/dist"), portalPublicRoot: resolve("dist/public"),
   gateway: createPortalGateway(config, async () => `fixture-workload-${randomUUID()}`),
   authorizeControl: async bearer => { if (!bearer.startsWith("fixture-control-")) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403); },
-  fixtureConnectOrigins: [excludedOrigin], fixtureRequestHandler: fixtureHandler, telemetryStatus: () => telemetry.status()
+  fixtureConnectOrigins: [excludedOrigin], fixtureRequestHandler: fixtureHandler,
+  telemetryStatus: () => telemetry.status(), shutdownTelemetry: () => telemetry.shutdown()
 });
 await new Promise<void>(resolveReady => web.listen(webPort, "127.0.0.1", resolveReady));
 process.stdout.write(`Contoso FIXTURE servers ready on ${webPort}; not Azure certification.\n`);

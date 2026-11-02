@@ -10,6 +10,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 class InventoryApiTest {
+    @Test void oneHttpOperationKeepsItsOriginalAbsoluteDeadline() {
+        var request = new org.springframework.mock.web.MockHttpServletRequest();
+        request.setAttribute(InventoryApplication.INVOCATION, InvocationId.generate());
+        var first = InventoryApplication.operation(request);
+        assertSame(first, InventoryApplication.operation(request));
+    }
+
     @Test void actualRoutesCallTypedAdapterAndRejectBadInputs() throws Exception {
         var adapter = new StubData();
         var mvc = MockMvcBuilders.standaloneSetup(new InventoryApplication.Api(adapter))

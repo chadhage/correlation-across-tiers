@@ -1,0 +1,492 @@
+{
+  "schema": "contoso.pre-reactor-target-byte-preservation.v1",
+  "capturedAtUtc": "2026-11-01T22:32:45.7324747Z",
+  "authority": "BYTE_PRESERVATION_ONLY_NOT_CURRENT_SOURCE_RUNTIME_OR_AZURE_QUALIFICATION",
+  "entries": [
+    {
+      "originalPath": "extensions\\parent-safe-sampler\\target\\agent-probe\\result.json",
+      "sha256": "4785e6175c35d3fb62b353ea7f9301757a1cc8a34e7d9a933874a661085f00b1",
+      "bytes": 18054
+    },
+    {
+      "originalPath": "extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.0.0.jar",
+      "sha256": "c3f552d170f599a625ef25a2974e32ccc9215fa849038d49aad654d8c53a9ee7",
+      "bytes": 11947
+    },
+    {
+      "originalPath": "extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+      "sha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "bytes": 12672
+    },
+    {
+      "originalPath": "extensions\\parent-safe-sampler\\target\\surefire-reports\\com.contoso.correlation.sampling.ParentSafeSamplerTest.txt",
+      "sha256": "a624b0e2df7f072069dcaca52679bdd29c3997cc1adae0deee4a10f711fd2535",
+      "bytes": 363
+    },
+    {
+      "originalPath": "extensions\\parent-safe-sampler\\target\\surefire-reports\\TEST-com.contoso.correlation.sampling.ParentSafeSamplerTest.xml",
+      "sha256": "eba242b46da4bdb396616adb07a5b90b6f80ef998fee84967860328e9b018d5b",
+      "bytes": 14020
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\contoso-correlation-core-1.0.0.jar",
+      "sha256": "ac80828d4ef5a801426127b91806445452e310b75888ea2b8937f7054bd67cff",
+      "bytes": 84466
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.BoundedRequestBodyTest.txt",
+      "sha256": "51b8b63429fde6c79caaae18b41c1dacaf41da0a296dadc4ce98e2eaadc6b6b1",
+      "bytes": 346
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.CorrelationTest.txt",
+      "sha256": "9159ea17983cfb0dfc34ac69c6f878f45b6d5dc999f9ce46f2c66122d8d01107",
+      "bytes": 332
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.ExtensionGuardTest.txt",
+      "sha256": "302d45c2e1ea5683e4bcccf8d8817d46589fbc028cf51057c8d39d4bebaa35fb",
+      "bytes": 338
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.RuntimeClasspathGuardTest.txt",
+      "sha256": "3acd58ffa8138f9efc0503145d47ac9e08fcc079c622ee4e10e56c8a3f3db95b",
+      "bytes": 352
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.RuntimeGuardTest.txt",
+      "sha256": "26cee80f5a2cc85e2c4081cdf5907a02ec5f367340b7c651c547a71681b5a3f1",
+      "bytes": 334
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.SamplingRuntimeTest.txt",
+      "sha256": "5ae5921972c1a4da7315a23ff45e8d0fb63b6060b9391655cad91e9b4513a049",
+      "bytes": 340
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.SingleAgentExportTest.txt",
+      "sha256": "546723573126a4ac7d12154fcc1fb267e147dbca62562bcfdd3601006dcc6548",
+      "bytes": 344
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\com.contoso.correlation.SpanOracleTest.txt",
+      "sha256": "28df7c189941abf14239ee8dedf33a41eb88be67445bd31af946db667b821d90",
+      "bytes": 330
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.BoundedRequestBodyTest.xml",
+      "sha256": "cc8fdb28387f5d6831f29f103778e342e35b5d74d256a9d470c46d7b928a27cc",
+      "bytes": 26007
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.CorrelationTest.xml",
+      "sha256": "d944dc7eddae568c718c3da8b6e6c163dfebaf76a25ccdaa396ec473af57cc24",
+      "bytes": 26419
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.ExtensionGuardTest.xml",
+      "sha256": "07a18b8c380969cd2c36e945a89f8d331cced852c80d7c01350da6941a857e61",
+      "bytes": 25681
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.RuntimeClasspathGuardTest.xml",
+      "sha256": "68fc053cd4cd7da6d06c4d4ee8094f7d0ba077fa1d74137630729243bf6d0bc2",
+      "bytes": 25711
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.RuntimeGuardTest.xml",
+      "sha256": "6b8d6583a1301c3bc1dd5fbed70a53169b88e8e003a58fb92ff4b2596566547c",
+      "bytes": 26614
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.SamplingRuntimeTest.xml",
+      "sha256": "6560c433c96e9b066f4123d6fb4734c81d1eb19eccd655504810d4fad109f948",
+      "bytes": 25990
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.SingleAgentExportTest.xml",
+      "sha256": "3f7057ff3f35f21ef7a458476e3fa3f1df582600f4fea32e22af44850490236e",
+      "bytes": 25854
+    },
+    {
+      "originalPath": "services\\correlation-core\\target\\surefire-reports\\TEST-com.contoso.correlation.SpanOracleTest.xml",
+      "sha256": "15dc2df1c7e01793d2beb24b242a4101dedac653da611f5f0e7383957031c542",
+      "bytes": 25795
+    },
+    {
+      "originalPath": "services\\inventory-api\\target\\inventory-api-1.0.0.jar",
+      "sha256": "6dd2abc94935da63ae014bb43ec7b74bbeaa0b532e64391c2cb8dddcfc202bb2",
+      "bytes": 60882885
+    },
+    {
+      "originalPath": "services\\inventory-api\\target\\surefire-reports\\com.contoso.inventory.InventoryApiTest.txt",
+      "sha256": "5da3fbaeb30883f96df206ac8a6c9b8217ec06ac4cfe09d9feb9a50bb6f6a47f",
+      "bytes": 330
+    },
+    {
+      "originalPath": "services\\inventory-api\\target\\surefire-reports\\com.contoso.inventory.InventoryAuthenticationTest.txt",
+      "sha256": "76126eb9e23a1f6ccf2a3ebaca808048700be70e48e936c6466313f46901b59e",
+      "bytes": 352
+    },
+    {
+      "originalPath": "services\\inventory-api\\target\\surefire-reports\\TEST-com.contoso.inventory.InventoryApiTest.xml",
+      "sha256": "1f0031bd12697c18b709c50df7562529a0e65230c6848a5b9c792a450df5a0e4",
+      "bytes": 50438
+    },
+    {
+      "originalPath": "services\\inventory-api\\target\\surefire-reports\\TEST-com.contoso.inventory.InventoryAuthenticationTest.xml",
+      "sha256": "80454f72c0682f99a4f1f99f1d9a24e38bc55e3602a5ff1034b83c43705870a4",
+      "bytes": 49703
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\inventory-data-1.0.0.jar",
+      "sha256": "f2605ce5793a9acdf2e5a4a37cfed8187d1fcef5a0b81442a82d048fd6ddc3e7",
+      "bytes": 55187
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.DataAgentQualificationTest.txt",
+      "sha256": "722af28e99360c25edfcce152b20ce6fc7d77e0c87dd968b5576cf6823c3f8f2",
+      "bytes": 360
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.DataSafetyTest.txt",
+      "sha256": "04691b75e5b227986da7d2df8e43ae36b4baafddb43a2db0d0e799ca7ff9aa79",
+      "bytes": 336
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.EntraPoolTest.txt",
+      "sha256": "55471b8e502089b05d090b1300c29b8dab27be49b4585ec45ab54ef4e970eed7",
+      "bytes": 334
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.InventoryDataTest.txt",
+      "sha256": "3b23cad58d98eb822133a60110c6d63c05f0d135ffea777916172576455328f7",
+      "bytes": 342
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.InventoryGrantMarkerTest.txt",
+      "sha256": "bd335fd2d59ed1891b90eb22d493ca3c345c7a1dd48395fa23c7d048a2c4654a",
+      "bytes": 356
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.PgTokenCacheTest.txt",
+      "sha256": "f2a600de91ec9826c07ddbdb735c1fde6d7f7bc6a5aaa91362af2df6f2c50e51",
+      "bytes": 340
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.RedisCredentialsLifecycleTest.txt",
+      "sha256": "af7bc379585303fd9fa16e1a474aee2cd2dbb2027b6a0e2be2d945fe24ca6691",
+      "bytes": 366
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.RedisDataTest.txt",
+      "sha256": "6657c75f4798eaa01f70ff61c2fa12d41664745a8c4bb650efa4829fb74a70f1",
+      "bytes": 334
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.RedisEntraIdAuthenticationSupplierTest.txt",
+      "sha256": "5a3573f3517e9131c6df7d724310fbc6673c8f8ffbd338a0b67db3225dad6a17",
+      "bytes": 384
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\com.contoso.inventory.data.WorkflowGrantPolicyTest.txt",
+      "sha256": "41aa327412b642acbaf707d01e7e99842bc149c897c0ad388493f10cc60ed834",
+      "bytes": 354
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.DataAgentQualificationTest.xml",
+      "sha256": "e41423c3fef0ba6d948099c41e7706334c67fe50cf66284a26e4f1e7744a683f",
+      "bytes": 38491
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.DataSafetyTest.xml",
+      "sha256": "42fe07942caef38f038a8449a120665cc9035a9b9a2bef6dc7720688d983c4fa",
+      "bytes": 38976
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.EntraPoolTest.xml",
+      "sha256": "c6b8a8dca98afefa900b055bf9d7dcaf1d7950226d13c875cd5738f8e4e04853",
+      "bytes": 38300
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.InventoryDataTest.xml",
+      "sha256": "8c824d2e258d42567d94cfc919815a3c70a2f0e68c889bbe925a402ac64c6ad3",
+      "bytes": 38815
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.InventoryGrantMarkerTest.xml",
+      "sha256": "2dfc89773ce4c650fdd2fb6955872792c697e5e84091b7b282b490652cd44db4",
+      "bytes": 38482
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.PgTokenCacheTest.xml",
+      "sha256": "3e1570830409fb3de34a636d3f1536e14268285cbf6b0927880e49355ec12f0a",
+      "bytes": 38723
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.RedisCredentialsLifecycleTest.xml",
+      "sha256": "948c76e2a4d130b0544962f5dd5d0939c2dfeb53354c6b24316c81099e1349b0",
+      "bytes": 38848
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.RedisDataTest.xml",
+      "sha256": "d39d0821d591bbfcbf46466435625821a0b3c498ddfbb763455704878bdff591",
+      "bytes": 38570
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.RedisEntraIdAuthenticationSupplierTest.xml",
+      "sha256": "4ca04967efc95d21f2dab8f8e47f1d641335a4f6a58e3bb4cd9028bf091cfccd",
+      "bytes": 38711
+    },
+    {
+      "originalPath": "services\\inventory-data\\target\\surefire-reports\\TEST-com.contoso.inventory.data.WorkflowGrantPolicyTest.xml",
+      "sha256": "8949bc03c34a70d9a499434d0c331081138b43dea3878546d5c944ef3d0667a4",
+      "bytes": 38670
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\orders-api-1.0.0.jar",
+      "sha256": "04d62c79f177268048e6857e50eb5abffbebd27260326d13a3f439badbbac69c",
+      "bytes": 64293533
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\com.contoso.orders.InventoryHttpClientTest.txt",
+      "sha256": "666588716097df3d000cb9479a7fb4c8732abd093e8e67bd48ed822c03615a98",
+      "bytes": 338
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\com.contoso.orders.NativeApiIntegrationTest.txt",
+      "sha256": "ae0a93aa5527ceb7224d80809d06067284feec3623e0ca75abc01b17a910408b",
+      "bytes": 340
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\com.contoso.orders.OrdersApiTest.txt",
+      "sha256": "61539e242c99630271513ccb6321e6fae10bd3f774725add86c0025e6210eaec",
+      "bytes": 318
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\com.contoso.orders.ProductionLaunchGuardTest.txt",
+      "sha256": "4f95f64d10efebbf8d57527ba834054bcd8d3ef66fdde662ee10c4b0a6ecda27",
+      "bytes": 342
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.InventoryHttpClientTest.xml",
+      "sha256": "356f464230761fd8097d44e4018acef660140121b4fb30efdc94459e8a7df883",
+      "bytes": 54177
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.NativeApiIntegrationTest.xml",
+      "sha256": "ec6045ed3803f4838b07e33f8b259aae33f2aed2d2107117d0f4623f6040b651",
+      "bytes": 53377
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.OrdersApiTest.xml",
+      "sha256": "e733d1d454c317c5a73e2be46590ea6d1a5c3ba9e3bc4e94162a7c1ad6b35bdc",
+      "bytes": 54153
+    },
+    {
+      "originalPath": "services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.ProductionLaunchGuardTest.xml",
+      "sha256": "c4c757c8375e3a7df8385945edc8cf64c8e174e09c52cf5d85c856c7563c590f",
+      "bytes": 50144
+    },
+    {
+      "originalPath": "services\\security-core\\target\\security-core-1.0.0.jar",
+      "sha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+      "bytes": 50595
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.BoundedTokenProviderTest.txt",
+      "sha256": "4ba0e3ae31e43350b665fc76be9858daf5a6cc96f5c87c362700b4ddb91cb63f",
+      "bytes": 344
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.HmacPseudonymizerTest.txt",
+      "sha256": "f9031320fae562e29975ac5407c6c47d9d927d053ccef035e66d3381190a85cf",
+      "bytes": 338
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.IdentityHttpClientsTest.txt",
+      "sha256": "8a38aa940c4049634e1ddc3e445a16f4116f8bc2f5cab84ae9e1fed94dd1e977",
+      "bytes": 342
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.KeyRotationTest.txt",
+      "sha256": "934bd1b5eb452f82021236c5c873e35a500b60152cf39398cae6b1eaf8f45836",
+      "bytes": 326
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.RequestAuthenticatorTest.txt",
+      "sha256": "fed80898ef3ead6c53ae2d41707cd515ee92f4e954f4ac95044230e03eaea92e",
+      "bytes": 345
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\com.contoso.security.SecurityLoggingGuardTest.txt",
+      "sha256": "9b117e13605fa95b1435da3733045f1f0708ce606eb706d46d9f8567f1231f30",
+      "bytes": 344
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.BoundedTokenProviderTest.xml",
+      "sha256": "271b87e90e195ba0c2a7bc957026c9db60dde3ea016398940b0e08396e0b09aa",
+      "bytes": 35402
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.HmacPseudonymizerTest.xml",
+      "sha256": "afb238cf170912ccf71d51314c35afdefe8989e7a84b6ad283d0a42fb33fa3c0",
+      "bytes": 35717
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.IdentityHttpClientsTest.xml",
+      "sha256": "ebcc73775fcd4e8b9e14b02022b3e4751cb600671b42521ea24a9f7d9e0ebe5b",
+      "bytes": 35293
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.KeyRotationTest.xml",
+      "sha256": "b9017e2d27996f54946fc9bc0daf4e40df1cec6fa34678b8a0cadd45635330c2",
+      "bytes": 35495
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.RequestAuthenticatorTest.xml",
+      "sha256": "8be189fbbd9c2e83ee0b93df8d8e80344cf04fe9752a16cc196530208b2b1150",
+      "bytes": 36853
+    },
+    {
+      "originalPath": "services\\security-core\\target\\surefire-reports\\TEST-com.contoso.security.SecurityLoggingGuardTest.xml",
+      "sha256": "8cf2462112daec06e10b43668fbc191cf823fbd7d266b4e720e0d98531da3734",
+      "bytes": 34964
+    },
+    {
+      "originalPath": "workers\\aggregator\\target\\aggregator-1.0.0.jar",
+      "sha256": "54e8345538adedad4fdb847afa9c75235a98cab82911233771258cde2c2350dd",
+      "bytes": 3510
+    },
+    {
+      "originalPath": "workers\\aggregator\\target\\surefire-reports\\com.contoso.aggregator.AggregatorFunctionsTest.txt",
+      "sha256": "0bd934fbebf4b5130fe21b6ed5418868ddaeb85a16db43b91ba9a0ef55c65700",
+      "bytes": 346
+    },
+    {
+      "originalPath": "workers\\aggregator\\target\\surefire-reports\\TEST-com.contoso.aggregator.AggregatorFunctionsTest.xml",
+      "sha256": "dfa3078920ed6780b3aa09c0f1e2e013611d503ef2eec63f5ae41ef4ee536beb",
+      "bytes": 37796
+    },
+    {
+      "originalPath": "workers\\fulfillment\\target\\fulfillment-1.0.0.jar",
+      "sha256": "e9af15773ae0d2e1ea8000aef85baf0393db055d1ca55f8b9fd4566f706623f1",
+      "bytes": 3525
+    },
+    {
+      "originalPath": "workers\\fulfillment\\target\\surefire-reports\\com.contoso.fulfillment.FulfillmentFunctionsTest.txt",
+      "sha256": "5938153d5c72b75f858d229c97c16ddd330ffedc324b64d6100d3fd8074ecf73",
+      "bytes": 350
+    },
+    {
+      "originalPath": "workers\\fulfillment\\target\\surefire-reports\\TEST-com.contoso.fulfillment.FulfillmentFunctionsTest.xml",
+      "sha256": "9b85f366c6bb1eaacb0e49f3f5f274314a95dd7d9fd9f7b91c91d674e5d056d7",
+      "bytes": 37817
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "sha256": "000a6167b396d0fd410648aa58cc45160de22a9eacb485ac5f40685c9b4444e6",
+      "bytes": 47558
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+      "sha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+      "bytes": 105087
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "sha256": "cc69d087377e407ca426c05be44d7163ab1aa092b29bd5ab115a7fa7002fdd74",
+      "bytes": 41362
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.AsyncNativeAgentTest.txt",
+      "sha256": "ac9939291fe1766e14cc27ca7e6b95d0bf8a1ed99b52f9a6e9a67732eddf919c",
+      "bytes": 338
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.AzureSdkBoundaryTest.txt",
+      "sha256": "63575eca05a85760bd5dfc26df1df0d55585c13a6f8cbc579b6db4220b7f290f",
+      "bytes": 338
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.EnvelopeTest.txt",
+      "sha256": "785f35ac7e34b4920691b1f504fc731c9d449e63a552d0267d50f62de71d6f52",
+      "bytes": 323
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.LinkedRootSamplingTest.txt",
+      "sha256": "b648733d3ce2f787d0f49a8a984fc3b1d788ba1ab725e413d86bbeb9f43a99fe",
+      "bytes": 342
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.PgMessagingStoreTest.txt",
+      "sha256": "0e185907aa4d4d65cd6dcccd71add969b20bc82e59966297e1a019a7ea8cf72b",
+      "bytes": 339
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\com.contoso.messaging.ProcessingLeaseTest.txt",
+      "sha256": "8797713c3c941e9ff5ba0a1845fbb8233d603f4cb2622c4be749b2c202274ff4",
+      "bytes": 336
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "sha256": "6db440c36436f66ba3aa97d74f95c3674cbe00f7650ee042be31c9b09bcf4a43",
+      "bytes": 41265
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AzureSdkBoundaryTest.xml",
+      "sha256": "566f0810a22ef7b0a7e5e12d38b51c165754a43ded009f5854f2b25bb939d711",
+      "bytes": 41713
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.EnvelopeTest.xml",
+      "sha256": "954f835d678f3def60eb1726eb8086781d1f812c8a17525a31c448f98ed2a5ea",
+      "bytes": 42464
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "sha256": "c742d2ac32a18645ae8349cd2f02a91323dbdcc2a548378f7ff39bf77734c1eb",
+      "bytes": 41283
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.PgMessagingStoreTest.xml",
+      "sha256": "cfaa2da5abeebe29caf1413519c464a7d7848d0ed7b2d7668c65b8acf31e710a",
+      "bytes": 43106
+    },
+    {
+      "originalPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.ProcessingLeaseTest.xml",
+      "sha256": "5715cd049c99be488ea030f4b713838e4168661709da399358064f2f061c2bec",
+      "bytes": 41502
+    },
+    {
+      "originalPath": "workers\\notify\\target\\notify-1.0.0.jar",
+      "sha256": "e93c9ec1ecbbe9503e77daa1d614c42eacbd99a40f482dc1a21f06d1c67760a4",
+      "bytes": 3462
+    },
+    {
+      "originalPath": "workers\\notify\\target\\surefire-reports\\com.contoso.notify.NotificationFunctionsTest.txt",
+      "sha256": "fb5d3e76c8e04af2a49652201b2b8249b68a52d8fbdd4d33f67fbd6cbc7d4e91",
+      "bytes": 342
+    },
+    {
+      "originalPath": "workers\\notify\\target\\surefire-reports\\TEST-com.contoso.notify.NotificationFunctionsTest.xml",
+      "sha256": "f17fff01b15d6fb234363e906302c22cbd7b366c6d9d741ffc30a0d62ef2c38d",
+      "bytes": 37759
+    },
+    {
+      "originalPath": "workers\\replay\\target\\replay-1.0.0.jar",
+      "sha256": "e300c072f7d133da26a8b2a337e06314cb5cc77dd39b4b67f2370ce125fd6376",
+      "bytes": 4648
+    },
+    {
+      "originalPath": "workers\\replay\\target\\surefire-reports\\com.contoso.replay.ReplayMainTest.txt",
+      "sha256": "04065f856b98eb57a4b94f813252ee57607ecafb95f64971859ea1b92e019e52",
+      "bytes": 320
+    },
+    {
+      "originalPath": "workers\\replay\\target\\surefire-reports\\TEST-com.contoso.replay.ReplayMainTest.xml",
+      "sha256": "56e72e892b0d5d564a0c145815d9a90a962e95bac0ccd59f7fa0ceb0aa2e7c84",
+      "bytes": 36928
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "contoso.local-native-async-result.v1",
+  "result": "PASS",
+  "sourceKind": "real-local-agent-loopback",
+  "certificationStatus": "NOT CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "scope": "Actual R9-launched one-agent JVM algorithm; H2 PostgreSQL-mode/in-memory carrier fixtures; NOT Azure/broker/Functions/multi-role/full-map/privacy certification",
+  "sources": [
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "65e33627e4ed1189c98bd98cfee3f366d4d7e1897b0e42e124179da89f2541e3"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
+      "sha256": "d5b71197152553f930bd80e8e0bf45fb4e87aa455764f17e32846ed7032a7b85"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeProbe.java",
+      "sha256": "ecbc0630afaefce8afa74c3085c0fe2f31ce82051f3d0c979193ee2d712f3553"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LocalCarrierTransport.java",
+      "sha256": "f2d4a57932b0705313cd23fc52b2794a5c040daffdb3cb9ae388131056383cec"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\MessagingFixture.java",
+      "sha256": "8a09147fe6009425ab5ac602990e6d8ab5aca23774c4fc8cd8ee37cfb8038cbf"
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\RuntimeGuard.java",
+      "sha256": "b93edc6b18e9857fdfb22eb8c4bf22f698ef6c3ce823dd1fef09ff1df226dc74"
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\ExtensionGuard.java",
+      "sha256": "1819490ec8ed1dd4f43b1b8253cbbd90ebb578af0ca932b8848fa4daed9639b8"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "2de048465e6c0e34a3a9dbee09ce3ae356c49ace2a3e1796fdc2065d77a7b72b"
+    }
+  ],
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "proofSha256": "336edbdee3ffc39203f3744bff2691b0f7dcb6c145ca788f166b925a473fdce6",
+  "inspectionSha256": "e88496a47605caaea2a4ad3b2a07922520d3b91539a621bf7679c893bc928d1f",
+  "junitSha256": "ff7756e0e2cbc3dadf69944cc5ebf82e94f12cf10b0c54ecaf532305d387549e",
+  "startedAtUtc": "2026-11-01T06:49:47.806Z",
+  "finishedAtUtc": "2026-11-01T06:50:00.458Z",
+  "spans": 103,
+  "retryAttempts": 3,
+  "replayLinks": 1,
+  "fanInLinks": 4,
+  "batchLinks": 2,
+  "actualRoles": [
+    "contoso-fulfillment-worker"
+  ],
+  "azureNativeAcceptance": "NOT RUN",
+  "fullPathCoverage": "NOT RUN",
+  "globalTelemetryPrivacy": "NOT RUN",
+  "completePersistedContributorLedger": "NOT RUN — independently observed native contexts; H2 durable effects asserted by actual source driver, no Azure/PG actor proof"
+}

@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>com.contoso</groupId><artifactId>contoso-corr-poc</artifactId><version>1.0.0</version><relativePath>../../pom.xml</relativePath></parent>
+  <artifactId>security-core</artifactId>
+  <name>Contoso verified identity and privacy boundary</name>
+  <dependencies>
+    <dependency><groupId>com.nimbusds</groupId><artifactId>nimbus-jose-jwt</artifactId><version>10.9.1</version></dependency>
+    <dependency><groupId>tools.jackson.core</groupId><artifactId>jackson-core</artifactId></dependency>
+    <dependency><groupId>com.azure</groupId><artifactId>azure-identity</artifactId></dependency>
+    <dependency><groupId>com.azure</groupId><artifactId>azure-security-keyvault-secrets</artifactId></dependency>
+    <dependency><groupId>com.azure</groupId><artifactId>azure-core-http-okhttp</artifactId></dependency>
+    <dependency><groupId>com.squareup.okhttp3</groupId><artifactId>okhttp</artifactId><version>4.12.0</version></dependency>
+    <dependency><groupId>com.squareup.okio</groupId><artifactId>okio-jvm</artifactId><version>3.18.1</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId></dependency>
+    <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-api</artifactId><version>${opentelemetry.version}</version><scope>test</scope></dependency>
+    <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-context</artifactId><version>${opentelemetry.version}</version><scope>test</scope></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><scope>test</scope></dependency>
+  </dependencies>
+</project>

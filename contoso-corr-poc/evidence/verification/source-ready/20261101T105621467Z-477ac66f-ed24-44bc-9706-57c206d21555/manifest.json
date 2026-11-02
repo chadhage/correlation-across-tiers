@@ -1,0 +1,102 @@
+{
+  "schema": "contoso.r9-source-review-handoff.v1",
+  "ownerRole": "R9",
+  "reviewKind": "code",
+  "scope": "READY P1/P2 correction SOURCE/local only; no current-source/Azure/certificate",
+  "sourceAcceptanceIsCertification": false,
+  "sources": [
+    {
+      "path": "tools\\verification\\report.mjs",
+      "sha256": "0865c8bd0abf0aba5efef2c447c249296479681c30825acfa61f458cb9df72bd"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "2e0a47a85f86b4212f325f807a695e7f30fd1b6101580ea5cdea2496b0035ace"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "f52623189a8c8ce6fe974eaad40fec530bf806d01e8e0f812a630abbdf31b936"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tests\\verification\\report.test.mjs",
+      "sha256": "0c08e9ca66bb65fd27884cfc5d6d99753326218415d14f0a6c1a76ced2c7275f"
+    },
+    {
+      "path": "tests\\verification\\sampling-qualification.test.mjs",
+      "sha256": "9ec6439d62d4abe77f355d4304e4fff997100df997a79e37ecbbcab3dee19667"
+    },
+    {
+      "path": "tests\\verification\\sampling-fixture.mjs",
+      "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca"
+    },
+    {
+      "path": "tests\\verification\\local-native.test.mjs",
+      "sha256": "fdcf54a7fe26eef6b7543d084c479879e4f4366e57130b064f7c264e828e4fbe"
+    },
+    {
+      "path": "tests\\verification\\run-focused.test.mjs",
+      "sha256": "a0dafe006a0f58abffe4031533eb70b7fb33b884b3dca47ae44a07c524eccacf"
+    },
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d25126e81badb46d0ac2a5d0075c83986599db34d1039740e70294ad2dd67781"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "830e444bb86f1d714278d1bc9cdbd4402bf3f9392dab6ad3433d45215c6c0ac6"
+    },
+    {
+      "path": "contracts\\verification-acceptance.v1.json",
+      "sha256": "fd6358243d4926297926a8afa50a095f92242de85eef585538e98ac184a9a273"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "98b9b56310823703e05b664ad6473154a56aecfa5abbddf09479f1e181e5d662"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "b5a282dd613d61a5d3925e9dca2b6103332d92f2fb926d92cb2112d52773d1f8"
+    },
+    {
+      "path": "config\\board-state.json",
+      "sha256": "4272011c03685eb213f4c4aa84e909defbc6ee68374171f1ef14e737e3b88f9d",
+      "hashMode": "board-policy"
+    }
+  ],
+  "scopeSha256": "a0623545df792df1ae0862b51e6e8e7b0b0b29f38a1ecc516407c359b41bb0e6",
+  "tests": {
+    "passed": 79,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "testReceipt": "evidence\\verification\\focused\\20261101T105448637Z-91b3bb7a-dbe0-4406-aae1-70eab6dff314\\preparation-tests.json",
+  "testReceiptSha256": "526d97b9d4bcef6a6b4a0039817bf3563a550807511906924fc7dd576a71a8d3",
+  "independentGenuineCapNegativeMetadataCases": 5,
+  "currentNativeAlgorithm": {
+    "observedBy": "R9",
+    "result": "PASS_LOCAL_SELECTED_BINARIES",
+    "spans": 103,
+    "retryAttempts": 3,
+    "faninLinks": 4,
+    "batchLinks": 2,
+    "sourceExecutionBinding": "UNVERIFIED",
+    "originalEvidence": "evidence\\verification\\local-native\\20261101T103904678Z-65e6d3d4-c9bf-4052-84c2-9aaf43963227",
+    "lineageLimits": "evidence\\verification\\local-native-lineage\\20261101T104325037Z-2d579b75-c786-4206-bcf1-c7aa2fa98a2f"
+  },
+  "remaining": [
+    "R7 retained P1/P2 rereview",
+    "R4 current fullsource/README review handoff",
+    "R1 root expectedmap/catalog/composition",
+    "Actual Azure/global privacy/fidelity/owner evidence",
+    "Java AV23 actual wire FAIL990a; noAPI_READY"
+  ]
+}

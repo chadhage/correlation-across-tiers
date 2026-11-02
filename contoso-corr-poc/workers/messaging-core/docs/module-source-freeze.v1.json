@@ -1,0 +1,308 @@
+{
+  "schema": "contoso.r5-messaging-module-source-freeze.v1",
+  "createdAtUtc": "2026-11-01T20:14:08.7889552Z",
+  "readiness": "SOURCE_READY_FOR_PARENT_FRESH_MESSAGING_PACKAGE_AFTER_CURRENT_DATA_INSTALL",
+  "artifact": "com.contoso:messaging-core:1.0.0",
+  "sourceClosureCount": 37,
+  "mainJavaSources": 23,
+  "testJavaSources": 10,
+  "sourceClosure": [
+    {
+      "path": "workers\\messaging-core\\pom.xml",
+      "sha256": "c762a0a26088521f381a38dacf8e37040b42215da33370535efbf6eb756567ab"
+    },
+    {
+      "path": "workers\\messaging-core\\README.md",
+      "sha256": "2fcf0dc42f60435c43a128b400337ae884851b71f5170cd661fc9f282ae373a5"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AsyncProcessor.java",
+      "sha256": "cba99111baf0d89626f77b1d77ba32d9ba63cac332d66b9eb41d34931ff3f91f"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureCarriers.java",
+      "sha256": "95d3c2e3683133dc27ba665feb514dc93845acf2e2dd08a4de507545b6d94176"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureMessagingTransport.java",
+      "sha256": "1509708bf2eb080a6d9e022b51bd2e0379c2260de9d437cbfe6a3b1228f11df1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Branch.java",
+      "sha256": "b4e85d0a6e59347965b1cb88ad9a1df912bb552aa7308ad3eba6c9260dab1d2d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Delivery.java",
+      "sha256": "5613788ba8d97f0787d257242767d46f970e649625c9d7773a82235bb8bcca7d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Destination.java",
+      "sha256": "0209f28fd5c938165e32ae0e76459aeaa921da7e3877160caa93df49355d7689"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Envelope.java",
+      "sha256": "6d88e26d03b8ece77c5347dff5b508432a29bc93dc401cafaba1a401aab132b8"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\EnvelopeCodec.java",
+      "sha256": "9b1376a151a61e37ab0f50ac5e3c8153ff411e99bd915d5fc7e0ec1b326689a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingFailure.java",
+      "sha256": "8c11b0f9dacc90fc68c46e6c1097f8c80b41c9b5d4ca13127a251bef36672c39"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingLoggingGuard.java",
+      "sha256": "f055d037cfeed7163c99b827cd4c14ddc0bbc3dffe3151829510adeed63dffeb"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingRuntime.java",
+      "sha256": "f868e7675e13218117dcdbb0b4e3d39ca87bea68fa297098d224e77cc7f02589"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingSettings.java",
+      "sha256": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingStore.java",
+      "sha256": "6a19c8d4fc76daec7308fe70f0ab4c9c3082851146a555520d9309a8722846e2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingTransport.java",
+      "sha256": "af2add40dc0fa475b5a852b83afae4483c5a51282160c4b0f1fe1230761b5e81"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java",
+      "sha256": "9bc25811764d8c1e6ba20c9bf2daf17e05574163182dcbf4c2e9b28de75c9d8d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\OutboxPublisher.java",
+      "sha256": "51a9b31c747e9d6c860d42a820bfda6844f30fe753920eb9399cd5f1b14ac1a7"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\PgMessagingStore.java",
+      "sha256": "405b862786c551079d1f4dc18ae7f35b4b00954305eae76c15d5067b5483db55"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ProcessingLease.java",
+      "sha256": "d823ca21343fa93f2d105458d6beaf24417282f7d2ec74582c87519e4481f3c2"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\ReplayProcessor.java",
+      "sha256": "5396b5f376ce32aa02f0fdf3a2cd0e333d6f892eb21a6161a9995874a007f668"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Source.java",
+      "sha256": "73fe067cb4b743e45d7335befc05bfe9ac1818e7cc765a22a5f2916fcb61b91c"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\TraceContexts.java",
+      "sha256": "144b1109028f830b1b1c5d1239b1f5902b104ebcf9d5e36c3eb0855d05217264"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkerRuntimeHolder.java",
+      "sha256": "7a03694d4a040607ca30904070fd5ccc31ba5d173de5c51e0f9729bcac0ea515"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\WorkPayload.java",
+      "sha256": "46a0c210d2eb7dfaa77ed077f3498db030bcf97ff72c2b75ee4cb32491d986f4"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+      "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
+      "sha256": "d5b71197152553f930bd80e8e0bf45fb4e87aa455764f17e32846ed7032a7b85"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeProbe.java",
+      "sha256": "ecbc0630afaefce8afa74c3085c0fe2f31ce82051f3d0c979193ee2d712f3553"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AzureSdkBoundaryTest.java",
+      "sha256": "8e47ce74ac35585cacbf6ab95d12f159f5f12dc9f5974291014bd1ebc342bcdc"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\EnvelopeTest.java",
+      "sha256": "8e9409b72d61824125b7063ed00acfa792955b6a4484d5bb717c2f0e5cb24123"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+      "sha256": "c1a95ae769a4086c9fcfc9b72abf4b16857cd4995067877e6bb7eabd5d5e41bf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java",
+      "sha256": "e7cc01d773868dbb9edbe1c37053fa738631d38a284d691dc2378fae219cb348"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LocalCarrierTransport.java",
+      "sha256": "f2d4a57932b0705313cd23fc52b2794a5c040daffdb3cb9ae388131056383cec"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\MessagingFixture.java",
+      "sha256": "8a09147fe6009425ab5ac602990e6d8ab5aca23774c4fc8cd8ee37cfb8038cbf"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\PgMessagingStoreTest.java",
+      "sha256": "8f2e4fb8c46ce0e82d8c08051f006b1ff68dabc72b2a02fc262278eaae372c4d"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\ProcessingLeaseTest.java",
+      "sha256": "4b1d110b5a44cfa0a9dc064c574d0b48ffeafea72ac505f8496bb0bade4db4d1"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\resources\\logback-test.xml",
+      "sha256": "f4f49a49c961e36b32bc7b477c3349ad3faf46b3654cca475a8a79b34d0b6d67"
+    }
+  ],
+  "sharedAndAsyncSourceReferences": [
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5",
+      "packagingInput": true,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e",
+      "packagingInput": true,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-source-freeze.v3.json",
+      "sha256": "9d2200dd99bbbcea86bae6a93256613cd328e62d5aa8dfd2dc0a030b7f3e6ace",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "contracts\\message-envelope.v1.json",
+      "sha256": "37aad2df23055f0a2ccaa072baec5ae209a6bc956ef1caaa9626c3dc9dc7ad4b",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "tests\\messaging\\async-honesty.test.mjs",
+      "sha256": "4acea10ce046b2f765a90421171d32afafca79ef28e527cda6fd51ced6a92a53",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "tests\\messaging\\contracts.test.mjs",
+      "sha256": "83c523ac9845fb0400556558c95f790c2c6f087f081b476328e68a195e87c8fd",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "tests\\messaging\\infra.test.mjs",
+      "sha256": "f7e85e014b2d45ecfe90ddfee35197a13229d9b51f4847c28e0a0b200f30bf32",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "infra\\modules\\messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    },
+    {
+      "path": "infra\\modules\\messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c",
+      "packagingInput": false,
+      "sourceEditedByThisIdentification": false
+    }
+  ],
+  "sourceOnlyIdentification": true,
+  "sourceJavaPomOrSdkEdits": false,
+  "targetOrBinaryReadOrWrites": false,
+  "MavenOrJavaNativeExecuted": false,
+  "prerequisite": "Parent exclusive Data9d2200 A+exactgenuineinstall first; current installedCoreac808/Securitye58 remainparent-established; Dataoldb7 isNOTcurrent",
+  "currentLibraryPorts": [
+    "MessagingWorkflowPort.fromEnvironment(PgConnectionFactory)",
+    "MessagingWorkflowPort(MessagingStore,MessagingTransport)",
+    "PgMessagingStore(PgConnectionFactory,EnvelopeCodec)",
+    "AzureMessagingTransport settings/credential/codec constructors and explicitHttpClient injection"
+  ],
+  "credentialAndTransportScope": {
+    "credential": "ONE shared security-core IdentityHttpClients.managedIdentity(optionalGUID); intendedMIonly, providedcredentials unchanged",
+    "businessHttp": "EXPLICIT NettyAsyncHttpClientBuilder default once, SAME configuredfield passedtoGrid+Queue; nonnull injectedHttpClient exactreference preserved",
+    "amqp": "ServiceBus/EventHubs transports/retry/settlement unchanged",
+    "codeScope": "Current F-onlysourcecompile23main/10test and4SDKJUnitactualpass—notcleanpackaging/newM2/source-nativeauthority",
+    "defaultNetty": "CREATED_ONLY",
+    "injectedHttp": "INJECTED_USED_ACTUAL_GRID_QUEUE_SDK_FIXTURE_REQUESTS",
+    "actualDefaultNettyUsed": "UNVERIFIED",
+    "actualWorkerMiWire": "UNVERIFIED"
+  },
+  "currentFiveSourceBindings": {
+    "pom": "c762a0a26088521f381a38dacf8e37040b42215da33370535efbf6eb756567ab",
+    "settings": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e",
+    "transport": "1509708bf2eb080a6d9e022b51bd2e0379c2260de9d437cbfe6a3b1228f11df1",
+    "sdkBoundaryTest": "8e47ce74ac35585cacbf6ab95d12f159f5f12dc9f5974291014bd1ebc342bcdc",
+    "readme": "2fcf0dc42f60435c43a128b400337ae884851b71f5170cd661fc9f282ae373a5"
+  },
+  "packageScope": "Plain library; no current Messaging clean package/install executed byR5. Old80fad4 historicaljar mustnot be called current transportadoption.",
+  "expectedJavaSelectors": [
+    "EnvelopeTest",
+    "PgMessagingStoreTest",
+    "ProcessingLeaseTest",
+    "AzureSdkBoundaryTest",
+    "AsyncNativeAgentTest",
+    "LinkedRootSamplingTest"
+  ],
+  "nativeSelectorsRequireExplicitParentGrant": [
+    "AsyncNativeAgentTest",
+    "LinkedRootSamplingTest"
+  ],
+  "preserveBeforeParentClean": [
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\qualification.json",
+      "knownHistoricalSha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e",
+      "role": "Originalparent-only linked00failure receipt, not currentBBPASS"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "knownHistoricalSha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+      "role": "Actual scopedBB strict00/01/mixed/unlinkedretake preserved epoch"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "role": "Historical local single-roleH2/native—notcurrent sourceData/Core/JARlineage"
+    },
+    {
+      "path": "workers\\messaging-core\\target\\r5-focused-sdk\\20261101T175855765Z-1c1c883b-79e4-4a94-94e3-4ce1dc3a6974",
+      "role": "ActualF-only4pass+originalFAILcountcollector3f5/adjudication3e67/beforeafter, preserveunchanged beforeclean"
+    }
+  ],
+  "historicalTargetsInspectedDuringParentDataA": false,
+  "readyNotAcceptance": true,
+  "currentPackagedOrInstalledJar": null,
+  "apiReady": false,
+  "certification": "NOT_CERTIFIED",
+  "externalBlockers": [
+    "parent currentDataA successfulbuild/exactinstall",
+    "parent captured messagingcleanpackage before/after/tool/process/actualJUnit/artifact",
+    "preservehistorical targetreceipts BEFOREclean viaR9/parent immutablecopies, copiesnotnewauthority",
+    "actualDefaultNettyGrid/Queue used-instance/SDK wire binding; no relaxedAzureHTTPS/host/portguards",
+    "freshcurrentlibrary/native+Core/Data/API/compute loadedmember/privateorigin/fullrole/pipeline evidence",
+    "realAzurebroker/MI/grants/PG/Redis/host/privacy/retention/owner approval"
+  ],
+  "writerState": "UNCHANGED_SOURCE_FROZEN_NO_MAVEN_NATIVE_SDK_SOURCE_OR_PARENT_DATA_INPUT_TARGET_TOUCH"
+}

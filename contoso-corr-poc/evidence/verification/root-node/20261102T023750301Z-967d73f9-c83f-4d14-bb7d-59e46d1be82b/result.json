@@ -1,0 +1,27 @@
+{
+  "schema": "contoso.parent-full-node-run.v1",
+  "result": "PASS",
+  "startedAtUtc": "2026-11-02T02:37:50.3308304Z",
+  "finishedAtUtc": "2026-11-02T02:38:12.9914627Z",
+  "launcherPid": 57600,
+  "command": "npm test -- --test-reporter=tap",
+  "exitCode": 0,
+  "counts": {
+    "tests": 409,
+    "pass": 409,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "sourceFiles": 198,
+  "sourcesStable": true,
+  "pinnedBicepSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+  "compilerEnvironment": [
+    "CONTOSO_BICEP_PATH",
+    "CONTOSO_BICEP_EXE"
+  ],
+  "stdoutSha256": "1d8790631b2f2be905eb0c613313d587aba8dcb2340f3a3305bdeae5e477d206",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Configured root Node suite including actual frozen APIM/telemetry Bicep compilation and inventory-data tools. No cloud authority.",
+  "certified": false
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R7",
+  "sourceAcceptanceIsCertification": false,
+  "sourceKind": "preserved-explicit-original-reviewer-source-and-independent-node-review",
+  "authorSourceReadyManifest": "evidence\\verification\\source-ready\\20261101T191444962Z-b1fd0a26-743b-4ff0-87a0-fa2d559ad1ef\\manifest.json",
+  "authorSourceReadySha256": "ed1d6d30d1222bfa55a050ff0d87013c995859919f3797fccc2519446ab26fb5",
+  "roles": [
+    {
+      "role": "R9",
+      "result": "accepted",
+      "scope": "Corrected mandatory current acting-role board policy/source/Node subset only",
+      "scopeSha256": "32034cd81498fbd0703f50483566114377f8dd83b7b227cca0d04c9b159cbf12",
+      "sources": [
+        {
+          "path": "tools\\kanban.mjs",
+          "hashMode": "raw",
+          "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+        },
+        {
+          "path": "tests\\kanban.test.mjs",
+          "hashMode": "raw",
+          "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+        },
+        {
+          "path": "config\\board-state.json",
+          "hashMode": "board-policy",
+          "sha256": "996b7f523a524eafb569dd0a32aed9b68e4ed502dbdbd3ddf53f399b12cb85b8"
+        }
+      ],
+      "tests": {
+        "command": "node --test --test-reporter=spec .\\tests\\kanban.test.mjs",
+        "executedBy": "original-R7",
+        "passed": 24,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "durationMs": 359
+      },
+      "verified": [
+        "Original actual current-board DELETE and NULL assignment counterexamples now reject in validateState and implementationOwner",
+        "Exact approved two assignments are mandatory for current validation/rendering; no historical acceptance fallback",
+        "Mapped implementation WIP, priority, author/self-review and duplicate-alias vote guards are retained",
+        "Current before/after/source hashes match the corrected source-ready manifest"
+      ]
+    }
+  ],
+  "notReviewed": [
+    "All R9 files outside the exact three-file scope",
+    "Selected Security A/B/C intake, forty-source/native-byte scope, reports and docs",
+    "Root composition or all fifteen live demos",
+    "Native/Azure observer authority, full fidelity, global privacy and accountable signoffs",
+    "Completion-source coverage of any full backlog card"
+  ],
+  "historicalScopesNotUpgraded": [
+    "Original corrected sixteen-file source review",
+    "Source-ready 5775/22/ce8 changes-required omission-bypass epoch",
+    "Original native and focused execution receipts"
+  ]
+}

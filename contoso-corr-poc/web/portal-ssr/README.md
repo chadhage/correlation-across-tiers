@@ -4,6 +4,11 @@ One process cohosts the Vite Storefront and workload-only Portal. One
 `@microsoft/opentelemetry` **1.5.0** provider instruments the native Node HTTP(S)
 SSR path. No MSAL Node, Portal delegated login, caller-claim forwarding or
 fabricated human pseudonym is used.
+Public resource API **2.12.0** pins the canonical server role and an opaque
+instance identity. Azure logger **1.4.0** is explicitly disabled, including its
+diagnostic sink. HTTP hooks replace raw user-agent, caller Host URL and client
+IP metadata; request/response header capture lists are empty. The
+`enableSensitiveData` vendor option alone is not a blanket HTTP privacy guard.
 
 OpenTelemetry API is pinned to **1.9.1**, matching the published NodeSDK
 0.221.0 peer constraint `>=1.3.0 <1.10.0`; blindly choosing latest API1.10.0
@@ -17,22 +22,28 @@ are regression assertions.
 From the repository root, after the root-owned workspace restore:
 
 ```powershell
+npm run compile --workspace @contoso/portal-ssr
 npm run build --workspace @contoso/storefront-spa
 npm run build --workspace @contoso/portal-ssr
 npm run typecheck --workspace @contoso/portal-ssr
 npm run test --workspace @contoso/portal-ssr
 npm run test --workspace @contoso/storefront-spa
+npm run test:browser --workspace @contoso/portal-ssr
 ```
 
+The first command emits the shared Portal declarations before Storefront's
+test typecheck consumes them. It uses the same declared compiler as the build,
+not an install; stale declarations must not be mistaken for the new contract.
+The following two builds still create the actual production/cohost artifact.
+
 Browser fixtures require the already-declared Playwright 1.64.1 package and its
-pinned Chromium revision 1248. Build the fixture entry separately; it is not in
-the production Vite input/deployment:
+pinned Chromium revision 1248. The browser script rebuilds production and fixture entrypoints before running;
+fixtures are not production Vite input/deployment:
 
 ```powershell
 Set-Location .\web\portal-ssr
-.\node_modules\.bin\vite.cmd build --config .\tests\browser\vite.fixture.config.ts
 $env:PLAYWRIGHT_BROWSERS_PATH = Join-Path $PWD '.cache\browsers'
-.\node_modules\.bin\playwright.cmd test --config .\playwright.config.ts
+npm run test:browser
 ```
 
 If the declared binary is missing, install that local browser with
@@ -56,7 +67,7 @@ source, parameters, command lines, snapshots or evidence:
 | `APPLICATIONINSIGHTS_CONNECTION_STRING` | Server-resolved Key Vault reference; browser-public routing config, never persisted as a resolved value |
 | `CONTOSO_EXECUTION_MODE` | `live` or `local`; production bootstrap rejects `fixture` |
 | `CONTOSO_DEPLOYMENT_STAMP` | Safe non-sensitive build identifier |
-| `CONTOSO_CERT_START` / `CONTOSO_CERT_END` / `CONTOSO_CERT_WINDOW_ID` | Explicit bounded UTC certification window |
+| `CONTOSO_CERT_START` / `CONTOSO_CERT_END` / `CONTOSO_CERT_WINDOW_ID` | UTC `Z` timestamps, UUIDv4 lease, positive duration at most 7200 seconds; partial/malformed values fail closed |
 | `CONTOSO_DEMOS_ENABLED` / `CONTOSO_PORTAL_DEMO_ENABLED` | Explicit enablement, not authorization |
 | `CONTOSO_BROWSER_SAMPLING_PERCENTAGE` / `CONTOSO_SERVER_SAMPLING_PERCENTAGE` | Production values below 100; active declared certification uses 100 |
 | `CONTOSO_PORTAL_MI_CLIENT_ID` | Optional user-assigned Portal identity selection; otherwise explicit system-assigned ManagedIdentityCredential |
@@ -77,6 +88,19 @@ directory by default, not an external monorepo sibling. The artifact rooted at
 `node web/portal-ssr/dist/bootstrap.js`. Packaging fails closed if the SPA is
 missing or contains statically resolved runtime config. It does not run Azure
 deployment or write any secret value.
+It also refuses missing redirect/assets, source maps, fixture/cache payloads,
+symlinks and static connection strings/JWTs before replacing the generated
+cohost directory.
+
+For a source-free production package, run `npm run package:deployment` after
+both builds. `deployment-artifact` contains only `dist`, `package.json` and a
+frozen lockfile; its manifest has only the runtime start script and production
+dependencies, not dev build/test entrypoints. From that artifact run
+`npm ci --omit=dev --ignore-scripts --workspaces=false`, then `npm start`.
+The production-only restore and standalone loopback missing-config smoke have
+actually passed locally. Packaging is not Azure deployment or certification.
+The root deployment owner must use this artifact or an equivalent explicit
+exclusion/restore pipeline; do not upload `.cache`, tests or browser binaries.
 
 ## Identity and controller separation
 
@@ -106,6 +130,28 @@ Portal form pages use same-origin referrer policy, preserving a nonopaque
 Origin for strict CSRF checking without sending a cross-origin referrer.
 Business URLs reject query strings and fragments. Other public pages default
 to no-referrer.
+
+## Current action and original workflow identity
+
+Successful workflow mutations preserve `schemaVersion: 1`, ID, state and
+details. `businessInvocationId` identifies the **current HTTP action** and
+must match its validated response header. A separate required
+`workflowBusinessInvocationId` identifies the **original stored workflow**.
+Both are UUIDv4 values; a missing or invalid original identity rejects the
+mutation, even if the action identity and header agree. It is never inferred
+from the action ID.
+
+GET retains the stored `businessInvocationId`, may have a different current
+ingress response header, and does not need the added field. Refresh compares
+the durable workflow identity, not the previous mutation's action identity;
+session/invocation generation fences remain in force. SSR HTML and browser
+controller backend results preserve the two identities separately. These
+values are not authentication claims, HMAC pseudonyms or manufactured trace
+IDs; telemetry still uses its actual validated current-action carrier.
+
+No frontend control API was added. Existing order/demo methods and the shared
+workflow mutation parser implement this approved contract; Java control
+responses are the backend owner's separate interface.
 
 `authorizeContosoPortalController(context, config, bearer)` in the built
 browser adapter authenticates that actual session in memory using the context's
@@ -177,23 +223,66 @@ Application Map/Transaction Diagnostics, resource privacy/cost/retention and
 restart/reset remain live To Do until independently observed. Never substitute
 fixture gateway responses or SDK collector summaries for Azure rows.
 
-## Locally verified implementation
+## Earlier locally verified implementation
 
 On Windows/Node **22.23.4**, both production packages and the separate fixture
-bundle build/typecheck with the pinned TypeScript/Vite versions. **11 native
-unit/server/auth tests and 9 real Chromium tests pass**. The browser is the
-Playwright-pinned **156.0.8078.4 / revision1248**. Checks include genuine JS SDK
-Fetch/XHR state and dependency receipts, active veto with a throwing reporter,
-browser-enforced CORS denial, actual emitted Node request/CLIENT parent joins,
-sampled=00 preservation/parent advancement, authenticated controller/CSRF, and
-truthful staged SSR rendering without a human pseudonym.
+bundle built/typechecked with the pinned TypeScript/Vite versions. **23 Portal
+Node tests, 3 Storefront Node tests and 24 Chromium tests passed** before the
+current-action/original-workflow contract addition. These are historical counts,
+not tests retroactively attached to the updated parser. The full
+corrected browser suite was also independently rerun by the assigned core
+reviewer. Checks cover actual SDK Fetch/XHR and native request/CLIENT parent
+joins, strict unsampled propagation, domain/CORS veto, authenticated
+controller/CSRF, generation-fenced refresh, absolute streaming/token deadlines,
+foreign-lease refusal, independent expiry, response-free CLIENT business
+enrichment, metadata privacy and truthful staged SSR results. Packaging
+negative controls and isolated production-only restore/smoke also passed.
 
-The session/run-lifecycle follow-up separately passes **2 focused native
-checks and 5 real Chromium checks**, including anonymous bursts, authenticated
-capacity/expiry, sequential-run isolation, reuse/in-progress rejection and
-bounded page capacity. These are fixture qualifications, not additional live
-certificates. Build Portal before its test typecheck, since tests consume the
-actual compiled adapter declarations.
+These are local qualifications, not live certificates. Use the compile/build
+sequence above before test typecheck; tests consume the actual declarations.
+
+## Scoped runtime control and observed identities
+
+The fixed signed app controller can call `POST /portal/runtime-state`,
+`/portal/runtime-stop-traffic`, or `/portal/runtime-drain` with exactly
+`{schemaVersion:1, runId, revision:"cert-"+runId}`, fixed `Origin`, JSON content
+type and an in-memory bearer. Authentication runs independently of those
+fields. Mutating calls must match the original startup certification lease:
+foreign requests are rejected before quiescing; the same expired lease can
+drain, but a restored production process with no original lease rejects it.
+Node drain uses the vendor's official shutdown; apply/restore require a process
+restart, and browser apply/restore require reload. Delayed Portal reads cannot
+overwrite a newer admitted mutation.
+
+The response discriminator is `contoso.sampling-runtime-observation.v1`.
+`actualRevision` is distinct from `requestedRevision`; safe observations report
+actual PID/page identity, mode, initialized configuration, admission and time.
+Global Node provider/exporter enumeration stays **null**, not 1; observations
+are `ownershipPending`, `certificationEligible: false`, `NOT_CERTIFIED`.
+Host `/health/ready` covers configuration/provider readiness, not backend,
+Entra, complete graph or certification readiness.
+
+Outbound credential acquisition plus HTTP/body handling has one absolute,
+lease-clamped abort deadline, including continuously active responses. The
+CLIENT business attribute comes from the actual validated outbound header
+before a response, with response enrichment retained. No expected-ID or
+normalizer backfill is used. A failed SERVER invocation keeps its own generated
+opaque business header without pretending it reached the backend.
+
+The public `/me` shape is `user` / `workload`, with a user-only colon HMAC
+format. Native page-view IDs are preserved as context/display identities;
+`browserContexts` reads the existing SDK context and never mints a span or
+normalizes a view's 32-hex Id into a 16-hex span ID.
+
+## Remaining qualification boundary
+
+The actually resolved Node exporter is
+`@azure/monitor-opentelemetry-exporter` **1.0.0-beta.46**. Its support/GA
+classification must be adjudicated against the frozen certification path;
+the distro's version/name does not certify its transitive dependencies.
+Local SDK/HTTP/browser checks do not prove deployed Node24, real Entra/MI
+grants, APIM parentage/CORS, Application Insights/KQL/visualizations, independent
+ownership, full-path fidelity, approved retention or operational reset.
 
 These are labeled local fixtures, not a live Azure pass. Production startup,
 scope/client/role grants, managed identity, Node24 platform image and live

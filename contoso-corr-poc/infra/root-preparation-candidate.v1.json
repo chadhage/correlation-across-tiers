@@ -1,0 +1,193 @@
+{
+  "schema": "contoso.root-structural-candidate.v1",
+  "generatedAtUtc": "2026-11-01T18:52:57.300Z",
+  "readiness": "READY_FOR_OTHER_ROLE_REVIEW",
+  "deploymentReady": false,
+  "certification": "NOT_CERTIFIED",
+  "implementationExecutor": "original-R3-acting-R1",
+  "logicalOwner": "R1",
+  "independentReviewers": [
+    "original-R5",
+    "original-R8"
+  ],
+  "target": {
+    "subscriptionId": "474c40eb-d385-40d8-baa2-06883dbdca2d",
+    "location": "centralus",
+    "workload": "contoso-corr",
+    "environment": "poc"
+  },
+  "validationScope": "current-source-local-Bicep-compile-and-Node-root-guards-no-Azure-no-Maven-no-native",
+  "compiler": {
+    "version": "0.48.1",
+    "file": "bicep.exe",
+    "sha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "url": "https://github.com/Azure/bicep/releases/download/v0.48.1/bicep-win-x64.exe",
+    "source": "https://github.com/Azure/bicep/releases/tag/v0.48.1"
+  },
+  "compiledOutputSha256": {
+    "main": "48df28c8383d5cd9cc0145787fd26e9cf3ede96f729a440ff77853b8346b4ffc",
+    "foundationParameters": "656cb993d72191daa1ed9d1707c0fd7c1b9d05e691cb5635939e3e4b944cc6af"
+  },
+  "ownSources": [
+    {
+      "path": "infra/main.bicep",
+      "sha256": "6bee7ef8953826eb32019b3aaa12c7f4b1a537f163070840fcd5fcc0915a17c6"
+    },
+    {
+      "path": "infra/params/poc.bicepparam",
+      "sha256": "df93a3b7084618ad2d3aed8801f1bdaa55b9ede19e92ba60747277bba6de5b42"
+    },
+    {
+      "path": "infra/params/frozen-names.v1.json",
+      "sha256": "cd94724496667d4b1d87fe83623cfe3611d4d74525ba041dc7b645b6980dc149"
+    },
+    {
+      "path": "infra/modules/network.bicep",
+      "sha256": "8fb48cbdb61568d6bcbbd429af78de6255b166b5ad6a085ef16f8b6086103298"
+    },
+    {
+      "path": "infra/modules/root-access.bicep",
+      "sha256": "1d6f8c8089d7dad4359a03d310ba36458d8157bacd9dc01231bf2690af0ed89a"
+    },
+    {
+      "path": "contracts/expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "config/certification-dependencies.json",
+      "sha256": "bfcf5d1762cfb726852a9ff4958aba3be795f47126f5c75fd65f909447924cd6"
+    },
+    {
+      "path": "tools/architecture.mjs",
+      "sha256": "6e1c42ad96220b8a0e3c9c5f8b8d67a436750c571bf26f125ea7c16b894cf94e"
+    },
+    {
+      "path": "tools/names.mjs",
+      "sha256": "9a2876f887aa27c911589c599c9e5ad3e80a04059237d3e84432193985d5bb5f"
+    },
+    {
+      "path": "tools/root-preflight.mjs",
+      "sha256": "4e6c3a2642000995b9c3e52b3fb0b303e199146ec106905a562e2ae7d929a387"
+    },
+    {
+      "path": "tools/Prepare-Root.ps1",
+      "sha256": "a9e42b3eaa1bcd92225deec688c6417f29f44a1f809e80cb59170dcbc05fc770"
+    },
+    {
+      "path": "tools/root-candidate.mjs",
+      "sha256": "597cfee2e011d75f259866c568b0bf8a8acc1a23197897a74bac511b39e32092"
+    },
+    {
+      "path": "tools/certification-path.mjs",
+      "sha256": "86fb405fa252caed7c69aec4eb2f854f2a012054445f41b4c3e7e8d0feb0c8e3"
+    },
+    {
+      "path": "tests/root-composition.test.mjs",
+      "sha256": "7d3fd6db64e103084b32b16f36bc139d0fd2297002b1b3ceef9c82c1d39edaf7"
+    },
+    {
+      "path": "tests/architecture.test.mjs",
+      "sha256": "1f8db0e68fa628b457f072dbffdad140118f7c68dc721d9c1d04a03eb7573192"
+    },
+    {
+      "path": "tests/names.test.mjs",
+      "sha256": "b5af479fea17b4be57416638c806d0b360a00264f1b0bb173114a0b10cae9c28"
+    },
+    {
+      "path": "tests/certification-path.test.mjs",
+      "sha256": "efcf53086eec12239194d25e553df4f49a9a363e2ab75dd7ecfda85770d1b787"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2230cef7f26bf420a714b4de0259aa108f461252497b67cb4d4fdf023a965499"
+    },
+    {
+      "path": "DECISIONS.md",
+      "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "baadfa42dcaeb4b1e8342e5fb70b280d2b077c12103e417509e5de38acff80db"
+    }
+  ],
+  "mergedModuleInputs": [
+    {
+      "path": "infra/modules/apim-service.bicep",
+      "sha256": "975d2905562468579e49eb6afdda7e28c2bd8034be24094e124e5eafd584173e"
+    },
+    {
+      "path": "infra/modules/apim-observability.bicep",
+      "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f"
+    },
+    {
+      "path": "infra/modules/apim-api-policies.bicep",
+      "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac"
+    },
+    {
+      "path": "infra/modules/compute.bicep",
+      "sha256": "ba298b106ac3ab7a17a19bd82173365b12f887b202467718e4d6b167eccfbf3f"
+    },
+    {
+      "path": "infra/modules/data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra/modules/data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "infra/modules/messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c"
+    },
+    {
+      "path": "infra/modules/messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c"
+    },
+    {
+      "path": "infra/modules/network.bicep",
+      "sha256": "8fb48cbdb61568d6bcbbd429af78de6255b166b5ad6a085ef16f8b6086103298"
+    },
+    {
+      "path": "infra/modules/root-access.bicep",
+      "sha256": "1d6f8c8089d7dad4359a03d310ba36458d8157bacd9dc01231bf2690af0ed89a"
+    },
+    {
+      "path": "infra/modules/security-keyvault.bicep",
+      "sha256": "0354e070bca20e17fecee44e3eb47f82f600b42dc09de07a282e26b1ad009814"
+    },
+    {
+      "path": "infra/modules/security-secret-readers.bicep",
+      "sha256": "30e81873884c69aedbcf14af8c227f8ce06e5af4796bd9e6c87af64996082d72"
+    },
+    {
+      "path": "infra/modules/telemetry.bicep",
+      "sha256": "55c165952c690839abff252882aa5cfa7e4e1dda6f0ee64d97dabcf95fc31c15"
+    }
+  ],
+  "commands": [
+    ".\\tools\\Prepare-Root.ps1 -BicepPath <existing-frozen-Bicep>",
+    "node --test --test-reporter=spec .\\tests\\root-composition.test.mjs .\\tests\\architecture.test.mjs .\\tests\\names.test.mjs .\\tests\\certification-path.test.mjs",
+    "node .\\tools\\architecture.mjs --check"
+  ],
+  "observedRootGuardTests": {
+    "tests": 16,
+    "failures": 0,
+    "skipped": 0
+  },
+  "certificationDependencyGatePassed": false,
+  "compilerWarnings": [
+    "BCP081: existing PostgreSQL2026-10-01 and ManagedRedis2026-09-01 resource families lack compiler type schemas; compile is not ARM/SKU validation"
+  ],
+  "unmetPrerequisites": [
+    "approved publisher contact and provisioning/cost/quota/policy/name-availability evidence",
+    "actual post-foundation Entra registrations/client-object/role/controller bindings",
+    "approved SDK KeyVault secret SET/existing HMAC version/named-reader reference resolution",
+    "separate SQL migration/dataset marker/OID-user/column-restricted grants",
+    "authenticated SCM runner route, host container permissions and API ingress live proof",
+    "unverified Node1.0.0-beta.46 exporter support/GA",
+    "conditionalRoots consumer integration and actual source-bound native trust-root receipts",
+    "current-source/build/loaded-used-instance/native/identity/all-role/artifact/retention and live certification evidence",
+    "two accepted independent root source reviews"
+  ],
+  "booleansAndReferencesAreNotEvidenceAuthority": true
+}

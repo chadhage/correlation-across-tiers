@@ -47,14 +47,14 @@ param backendTimeoutSeconds int = 30
 
 func xml(value string) string => replace(replace(replace(replace(value, '&', '&amp;'), '<', '&lt;'), '>', '&gt;'), '"', '&quot;')
 
-var callerIdsXml = join(map(allowedCallerClientIds, id => '<application-id>${xml(id)}</application-id>'), '')
+var callerIdsXml = join(map(allowedCallerClientIds, id => '<application-id>${xml(toLower(id))}</application-id>'), '')
 var originsXml = join(map(frontendOrigins, origin => '<origin>${xml(origin)}</origin>'), '')
 var servicePolicyXml = replace(replace(loadTextContent('../../apim/policies/service-policy.xml'), '__FRONTEND_ORIGINS__', originsXml), '__EXPOSED_HEADERS__', exposeBusinessInvocationId ? '<header>x-business-invocation-id</header>' : '')
 var configuration = [
-  { name: 'contoso-tenant-id', value: tenantId }
-  { name: 'contoso-public-audience', value: publicAudience }
+  { name: 'contoso-tenant-id', value: toLower(tenantId) }
+  { name: 'contoso-public-audience', value: toLower(publicAudience) }
   { name: 'contoso-orders-token-resource', value: ordersTokenResource }
-  { name: 'contoso-portal-client-ids', value: join(portalClientIds, ',') }
+  { name: 'contoso-portal-client-ids', value: join(map(portalClientIds, id => toLower(id)), ',') }
   { name: 'contoso-delegated-scope', value: delegatedScope }
   { name: 'contoso-backend-timeout', value: string(backendTimeoutSeconds) }
   { name: 'contoso-business-observation-enabled', value: enableBusinessObservation ? 'true' : 'false' }
@@ -98,6 +98,9 @@ resource policyFragments 'Microsoft.ApiManagement/service/policyFragments@2024-0
     format: 'rawxml'
     value: item.value
   }
+  dependsOn: [
+    policyConfiguration
+  ]
 }]
 
 resource backend 'Microsoft.ApiManagement/service/backends@2024-05-01' = {
@@ -164,6 +167,7 @@ output apiPolicyResourceId string = apiPolicy.id
 output publicApiPath string = '/contoso/v1'
 output backendBasePath string = '/api'
 output gatewayProofHeader string = 'X-Contoso-Gateway-Authorization'
+output callerAuthorizationHeader string = 'Authorization'
 output requiredDelegatedScope string = delegatedScope
 output requiredGatewayRole string = 'Gateway.Invoke'
 output requiredPortalRole string = 'Portal.Invoke'

@@ -1,0 +1,765 @@
+{
+  "schema": "contoso.default-netty-isolated-qualification.v1",
+  "result": "PASS",
+  "executionId": "20261102T000941074Z-53628968-45db-487c-8246-b077db6b5193",
+  "certified": false,
+  "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MI",
+  "routingBoundary": "USER_APPROVED_PROCESS_ONLY_LOOPBACK_CONNECT_PROXY_AND_TEMPORARY_JVM_TRUSTSTORE",
+  "azureSdkSendsRoutedOnlyToLoopback": true,
+  "globalTrustStoreChanged": false,
+  "buildWitnessSha256": "7fcc55d82b40d0aba0f73c312bd86f8aa84a559197e5d9eaa497cf24d8a5b915",
+  "probeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+  "beforeSources": [
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\DefaultNettyWireProbe.java",
+      "sha256": "aa8b53af005cd8c6c60575eae9f10ca66761f3c3051a2d6856352cfa7707e95e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "52dc86c6f66bebedb344131423430d2d10d85148e916f43eab011b73d3e58de0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\DefaultNettyWireProbe.java",
+      "sha256": "aa8b53af005cd8c6c60575eae9f10ca66761f3c3051a2d6856352cfa7707e95e"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "52dc86c6f66bebedb344131423430d2d10d85148e916f43eab011b73d3e58de0"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\Scan-NativePayloads.mjs",
+      "sha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "commands": [
+    {
+      "actualPid": 19792,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\keytool.exe",
+      "elapsedMs": 1167,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 51740,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\javac.exe",
+      "elapsedMs": 2527,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 64264,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "elapsedMs": 3952,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 37236,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "elapsedMs": 3568,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 50716,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "elapsedMs": 280,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 15752,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "elapsedMs": 211,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 45272,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "elapsedMs": 209,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 40752,
+      "executable": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\jdk-25.0.5+8\\bin\\java.exe",
+      "elapsedMs": 12929,
+      "exitCode": 0,
+      "bounded": true
+    },
+    {
+      "actualPid": 26288,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "elapsedMs": 142,
+      "exitCode": 0,
+      "bounded": true
+    }
+  ],
+  "reports": [
+    {
+      "phase": "untrusted-ca",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 64264,
+      "mode": "EXPECTED_TLS_REJECTION",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "00000000000000000000000000000000",
+      "rootSpanId": "0000000000000000",
+      "businessInvocationId": "16bf26aa-771e-4fc9-9414-b8e0753b5aa2",
+      "samplerObservation": {},
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "entity": "contoso-corr-poc-egt",
+          "destination": "EVENT_GRID",
+          "messageId": "1b576a1a-864b-4081-9211-c60a835edc67",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true,
+          "payloadTraceparent": ""
+        },
+        {
+          "entity": "contoso-legacy-jobs",
+          "destination": "STORAGE_QUEUE",
+          "messageId": "92c29c73-e4f3-4196-ac71-71e9f2920f82",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true,
+          "payloadTraceparent": ""
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a",
+        "member": "com/contoso/messaging/AzureMessagingTransport.class",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1"
+      },
+      "usedBusinessClientOrigin": {
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85",
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4"
+      }
+    },
+    {
+      "phase": "hostname-mismatch",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 37236,
+      "mode": "EXPECTED_TLS_REJECTION",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "00000000000000000000000000000000",
+      "rootSpanId": "0000000000000000",
+      "businessInvocationId": "a4d82322-7058-49f5-84ac-74d8dd6b8c28",
+      "samplerObservation": {},
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "payloadTraceparent": "",
+          "entity": "contoso-corr-poc-egt",
+          "destination": "EVENT_GRID",
+          "messageId": "b6e3347e-4dc4-4884-b487-9a3e2b755865",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true
+        },
+        {
+          "payloadTraceparent": "",
+          "entity": "contoso-legacy-jobs",
+          "destination": "STORAGE_QUEUE",
+          "messageId": "716dd037-bef3-4d31-a935-b096557d8c87",
+          "producerSpanId": "0000000000000000",
+          "tlsRejected": true
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "member": "com/contoso/messaging/AzureMessagingTransport.class",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a"
+      },
+      "usedBusinessClientOrigin": {
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4",
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85"
+      }
+    },
+    {
+      "phase": "trusted-default",
+      "schema": "contoso.default-netty-local-wire.v1",
+      "actualPid": 40752,
+      "mode": "DEFAULT_NETTY_USED_LOCAL_TLS_BOUNDARY",
+      "credentialMode": "EXPLICIT_FIXTURE_NOT_PRODUCTION_MANAGED_IDENTITY",
+      "proxyVerifiedBeforeSend": true,
+      "traceId": "b260547b786cedbd01cacb045c9038dd",
+      "rootSpanId": "93bdf85f2f74ecf5",
+      "businessInvocationId": "f50446c7-3064-496e-ad33-8567787dc61a",
+      "samplerObservation": {
+        "GuardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "ProviderClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "SdkAbi": "1.65.0",
+        "LoadedCount": 1,
+        "NativeStateAvailable": true,
+        "EffectiveSamplingPercentage": 100,
+        "RequestsPerSecond": null
+      },
+      "executedProbeClassSha256": "64075214699be75b0e1ab573e97e7d8c51a3dfb57ff604c610093fd27a7693fd",
+      "sends": [
+        {
+          "payloadTraceparent": "00-b260547b786cedbd01cacb045c9038dd-a84dc1983672350d-03",
+          "entity": "contoso-corr-poc-egt",
+          "destination": "EVENT_GRID",
+          "messageId": "5f88bb02-1ecd-4599-8d4c-73c1886b9709",
+          "producerSpanId": "a84dc1983672350d",
+          "tlsRejected": false
+        },
+        {
+          "payloadTraceparent": "00-b260547b786cedbd01cacb045c9038dd-a60f2005ece78161-03",
+          "entity": "contoso-legacy-jobs",
+          "destination": "STORAGE_QUEUE",
+          "messageId": "6fd040a9-2d3b-406a-86d2-c0a7f2edb825",
+          "producerSpanId": "a60f2005ece78161",
+          "tlsRejected": false
+        }
+      ],
+      "requestedScopes": [
+        "https://eventgrid.azure.net/.default",
+        "https://storage.azure.com/.default"
+      ],
+      "transportOrigin": {
+        "member": "com/contoso/messaging/AzureMessagingTransport.class",
+        "className": "com.contoso.messaging.AzureMessagingTransport",
+        "archiveSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+        "archivePath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+        "memberSha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a"
+      },
+      "usedBusinessClientOrigin": {
+        "member": "com/azure/core/http/netty/NettyAsyncHttpClient.class",
+        "className": "com.azure.core.http.netty.NettyAsyncHttpClient",
+        "archiveSha256": "68bfa628fc72e18c8602ec7a61b700f240fb3976106b0512cefcbb3b20340ba4",
+        "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-core-http-netty\\1.16.8\\azure-core-http-netty-1.16.8.jar",
+        "memberSha256": "da1501115bae73108e6cc453fffb7e6843ee672f65202467a75bc9df4fcdcb85"
+      },
+      "usedSdkOrigins": [
+        {
+          "member": "com/azure/messaging/eventgrid/EventGridPublisherClient.class",
+          "className": "com.azure.messaging.eventgrid.EventGridPublisherClient",
+          "archiveSha256": "19593d99759abc8ab5dab14ffab976166c529fc6bc03cd98a7828d383f127109",
+          "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-messaging-eventgrid\\4.31.9\\azure-messaging-eventgrid-4.31.9.jar",
+          "memberSha256": "0cbba366b5f8a08b164d27906dcc4430cce45482e153fd9dc30bf1ecde2a2339"
+        },
+        {
+          "member": "com/azure/storage/queue/QueueClient.class",
+          "className": "com.azure.storage.queue.QueueClient",
+          "archiveSha256": "8f989223d6f64deafdbe553ca30f9582e92ba8dd749db12f65810401b2d186a6",
+          "archivePath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\azure\\azure-storage-queue\\12.31.0\\azure-storage-queue-12.31.0.jar",
+          "memberSha256": "5c666d1a9b0bf865d0432b369bd171dda4470a8c91cfa7dba84ae10f3b7b016d"
+        }
+      ],
+      "usedQueuePipelineClientIsDefaultNetty": true
+    }
+  ],
+  "tunnels": [
+    {
+      "phase": "untrusted-ca",
+      "authority": "contoso-default-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "untrusted-ca",
+      "authority": "contosodefaultnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "hostname-mismatch",
+      "authority": "contoso-mismatch-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "hostname-mismatch",
+      "authority": "contosomismatchnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "127.0.0.1:61440",
+      "route": "LOCAL_NATIVE_RECEIVER"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "127.0.0.1:61440",
+      "route": "LOCAL_NATIVE_RECEIVER"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "contoso-default-netty.eventgrid.azure.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    },
+    {
+      "phase": "trusted-default",
+      "authority": "contosodefaultnetty.queue.core.windows.net:443",
+      "route": "LOCAL_TLS_FIXTURE"
+    }
+  ],
+  "blockedProxyTargets": [
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "006e93a47f1a517784c98640ba047eff888cedb49eb42c6f8f5466fa8df28938",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "006e93a47f1a517784c98640ba047eff888cedb49eb42c6f8f5466fa8df28938",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "a6d359ac0434123fe01a1a1a4cadb827b97f8ee34dfe8a2ece32aecc6cdba059",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    },
+    {
+      "phase": "trusted-default",
+      "authoritySha256": "a6d359ac0434123fe01a1a1a4cadb827b97f8ee34dfe8a2ece32aecc6cdba059",
+      "outcome": "DENIED_WITHOUT_OUTBOUND_CONNECTION"
+    }
+  ],
+  "wire": [
+    {
+      "route": "EVENT_GRID",
+      "path": "/api/events",
+      "traceparent": "00-b260547b786cedbd01cacb045c9038dd-dcbe618b8c613ecb-03",
+      "payloadTraceparent": "00-b260547b786cedbd01cacb045c9038dd-a84dc1983672350d-03",
+      "businessInvocationId": "f50446c7-3064-496e-ad33-8567787dc61a",
+      "messageId": "5f88bb02-1ecd-4599-8d4c-73c1886b9709",
+      "authorizationMatchedInMemory": true,
+      "tlsProtocol": "TLSv1.3"
+    },
+    {
+      "route": "STORAGE_QUEUE",
+      "path": "/contoso-legacy-jobs/messages",
+      "traceparent": "00-b260547b786cedbd01cacb045c9038dd-b4fc53d4fc64395a-03",
+      "payloadTraceparent": "00-b260547b786cedbd01cacb045c9038dd-a60f2005ece78161-03",
+      "businessInvocationId": "f50446c7-3064-496e-ad33-8567787dc61a",
+      "messageId": "6fd040a9-2d3b-406a-86d2-c0a7f2edb825",
+      "authorizationMatchedInMemory": true,
+      "tlsProtocol": "TLSv1.3"
+    }
+  ],
+  "originalPrivacyCapture": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 26288,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 3,
+      "originalRawBytes": 2275,
+      "decodedBytes": 8820,
+      "envelopes": 11
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "aa2d56d8af10ca1a5f47173fb7dbf3d59296840521227d5f6bf4610667085b01",
+        "originalPayloadBytes": 744,
+        "decodedPayloadBytes": 1897,
+        "originalEnvelopeCount": 1,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "0e5f3b81f182db16a94acbd94e76ec8f4afe67ec34ad32aac5df954bc9d18d5f",
+        "originalPayloadBytes": 941,
+        "decodedPayloadBytes": 4252,
+        "originalEnvelopeCount": 6,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "0b5224972b730818066f75e9aae8a755cffa8c6f8b3fde80d2d716a5527980ea",
+        "originalPayloadBytes": 590,
+        "decodedPayloadBytes": 2671,
+        "originalEnvelopeCount": 4,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ],
+    "nativeEnvelopes": [
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T00:10:00.213Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "93bdf85f2f74ecf5"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "{\"az.sdk.message\":\"The following Netty versions were found on the classpath and have a mismatch with the versions used by azure-core-http-netty. If your application runs without issue this message can be ignored, otherwise please align the Netty versions used in your application. For more information, see https://aka.ms/azsdk/java/dependency/troubleshoot.\",\"azure-netty-version\":\"4.1.138.Final\",\"azure-netty-native-version\":\"2.0.84.Final\",\"classpath-netty-version-io.netty:netty-common\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-handler\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-handler-proxy\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-buffer\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec-http\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-codec-http2\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-unix-common\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-epoll\":\"4.2.19.Final\",\"classpath-netty-version-io.netty:netty-transport-native-kqueue\":\"4.2.19.Final\",\"classpath-native-netty-version-io.netty:netty-tcnative-boringssl-static\":\"2.0.84.Final\"}",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.azure.core.http.netty.implementation.NettyUtility",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:10:02.833Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "a84dc1983672350d"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "POST /api/events",
+            "duration": "00:00:00.109193",
+            "id": "dcbe618b8c613ecb",
+            "resultCode": "200",
+            "data": "https://contoso-default-netty.eventgrid.azure.net/api/events?api-version=2018-01-01",
+            "type": "Http",
+            "target": "contoso-default-netty.eventgrid.azure.net",
+            "success": true,
+            "properties": {
+              "_MS.ProcessedByMetricExtractors": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Message",
+        "time": "2026-11-02T00:10:02.94Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "a84dc1983672350d"
+        },
+        "data": {
+          "baseType": "MessageData",
+          "baseData": {
+            "ver": 2,
+            "message": "{\"az.sdk.message\":\"Retry attempts have been exhausted.\",\"tryCount\":0}",
+            "severityLevel": "Information",
+            "properties": {
+              "LoggerName": "com.azure.core.http.policy.RetryPolicy",
+              "SourceType": "Logger",
+              "ThreadName": "main"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:10:00.596Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "93bdf85f2f74ecf5"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty.publish",
+            "duration": "00:00:02.344734",
+            "id": "a84dc1983672350d",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "f50446c7-3064-496e-ad33-8567787dc61a",
+              "contoso.span.kind": "PRODUCER"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:10:03.181Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "a60f2005ece78161"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "POST /contoso-legacy-jobs/messages",
+            "duration": "00:00:00.008327",
+            "id": "b4fc53d4fc64395a",
+            "resultCode": "201",
+            "data": "https://contosodefaultnetty.queue.core.windows.net/contoso-legacy-jobs/messages?visibilitytimeout=0&messagettl=86400",
+            "type": "Http",
+            "target": "contosodefaultnetty.queue.core.windows.net",
+            "success": true,
+            "properties": {
+              "_MS.ProcessedByMetricExtractors": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:10:02.942Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.operation.name": "contoso.default-netty-wire",
+          "ai.cloud.role": "contoso-default-netty-wire",
+          "ai.operation.parentId": "93bdf85f2f74ecf5"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty.publish",
+            "duration": "00:00:00.291387",
+            "id": "a60f2005ece78161",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "f50446c7-3064-496e-ad33-8567787dc61a",
+              "contoso.span.kind": "PRODUCER"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "RemoteDependency",
+        "time": "2026-11-02T00:09:59.605Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.operation.id": "b260547b786cedbd01cacb045c9038dd",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "RemoteDependencyData",
+          "baseData": {
+            "ver": 2,
+            "name": "contoso.default-netty-wire",
+            "duration": "00:00:03.672320",
+            "id": "93bdf85f2f74ecf5",
+            "type": "InProc",
+            "success": true,
+            "properties": {
+              "business.invocation_id": "f50446c7-3064-496e-ad33-8567787dc61a"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:10:04.781Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 8.1636,
+                "count": 1,
+                "min": 8.1636,
+                "max": 8.1636
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "operation/synthetic": "False",
+              "dependency/resultCode": "201",
+              "Dependency.Type": "Http",
+              "cloud/roleInstance": "DESKTOP-JFTHPKH",
+              "cloud/roleName": "contoso-default-netty-wire",
+              "dependency/target": "contosodefaultnetty.queue.core.windows.net:443",
+              "_MS.IsAutocollected": "True",
+              "_MS.MetricId": "dependencies/duration",
+              "Dependency.Success": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:10:04.781Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 106.5051,
+                "count": 1,
+                "min": 106.5051,
+                "max": 106.5051
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "operation/synthetic": "False",
+              "dependency/resultCode": "200",
+              "Dependency.Type": "Http",
+              "cloud/roleInstance": "DESKTOP-JFTHPKH",
+              "cloud/roleName": "contoso-default-netty-wire",
+              "dependency/target": "contoso-default-netty.eventgrid.azure.net:443",
+              "_MS.IsAutocollected": "True",
+              "_MS.MetricId": "dependencies/duration",
+              "Dependency.Success": "True"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:10:04.781Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 0.0081636,
+                "count": 1,
+                "min": 0.0081636,
+                "max": 0.0081636
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "server.address": "contosodefaultnetty.queue.core.windows.net",
+              "server.port": "443",
+              "http.response.status_code": "201"
+            }
+          }
+        }
+      },
+      {
+        "ver": 1,
+        "name": "Metric",
+        "time": "2026-11-02T00:10:04.781Z",
+        "tags": {
+          "ai.internal.sdkVersion": "java:3.7.10",
+          "ai.cloud.role": "contoso-default-netty-wire"
+        },
+        "data": {
+          "baseType": "MetricData",
+          "baseData": {
+            "ver": 2,
+            "metrics": [
+              {
+                "name": "http.client.request.duration",
+                "value": 0.1065051,
+                "count": 1,
+                "min": 0.1065051,
+                "max": 0.1065051
+              }
+            ],
+            "properties": {
+              "_MS.SentToAMW": "False",
+              "server.address": "contoso-default-netty.eventgrid.azure.net",
+              "server.port": "443",
+              "http.response.status_code": "200"
+            }
+          }
+        }
+      }
+    ],
+    "validatorCliSourceSha256": "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181"
+  },
+  "limitations": [
+    "Local explicit credential/default business HTTP factory only",
+    "Not production managed identity or Azure service acceptance"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "contoso.av23-source-verification.v1",
+  "linkedOriginalQualificationSha256": "990a9b06e9e57a8445d328d76be8f1415576d7de27207c62583628e686b2d6a0",
+  "linkedPreservedEpoch": "evidence\\verification\\av23\\1.1.0\\20261101T100429519Z-80e41652-d9c6-448e-930c-8436062bfbaf",
+  "source": {
+    "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+    "sha256": "5f60f57d8580de1a04af059def5ca812c51a53ad73f17f6b4e8b4c03fe1f7a03"
+  },
+  "sourceBytesMatched": true,
+  "verifiedByRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "apiReady": false,
+  "r9IndependentRetake": false,
+  "actualAzureAcceptance": "NOT RUN"
+}

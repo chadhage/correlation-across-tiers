@@ -1,0 +1,108 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "notReviewed": [
+    "Actual native APIM/JWT/logger/MI/publisher/runtime/sampling/privacy/deployment",
+    "Every-PR CI outside R3 ownership",
+    "Other owners or undisclosed source scope"
+  ],
+  "roles": [
+    {
+      "role": "R3",
+      "result": "accepted",
+      "scope": "SOURCE/LOCAL SUBSET ONLY",
+      "sources": [
+        {
+          "path": "apim\\README.md",
+          "sha256": "23a6aaa881b45b96e4059fef8f71223d69f86147e07224aa142a688e2348ff53"
+        },
+        {
+          "path": "apim\\demo03-cases.v1.json",
+          "sha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3"
+        },
+        {
+          "path": "apim\\openapi\\contoso-orders.v1.json",
+          "sha256": "debcfb9ff54abca30d03bae98c6feada79480dbe68d3f762601555ac76d59d9d"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-authz-v1.xml",
+          "sha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4"
+        },
+        {
+          "path": "infra\\modules\\apim-api-policies.bicep",
+          "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac"
+        },
+        {
+          "path": "infra\\modules\\apim-observability.bicep",
+          "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f"
+        },
+        {
+          "path": "tools\\protocol.mjs",
+          "sha256": "0281304b3c3e1f1f1307e20984a05f30edba3aa59f350f17f2656869cd997b64"
+        },
+        {
+          "path": "tests\\apim\\gate01.test.mjs",
+          "sha256": "a88114ce39fb9344a8b474e940e3f1ca6dca32f7b50730938cbee70ea8fad882"
+        },
+        {
+          "path": "tests\\apim\\protocol.test.mjs",
+          "sha256": "eb59ef1f01f01e0f9777341320d4ab28f61f0cbdd3fb89d03f6dcc7bfe836318"
+        },
+        {
+          "path": "tests\\apim\\Invoke-PolicyExpressions.ps1",
+          "sha256": "e09f8b1a133905a96aa546bcb59e94f9e9bb6b09444fb24507c01e920ded83e2"
+        },
+        {
+          "path": "tests\\apim\\policy-expressions.test.mjs",
+          "sha256": "7ba047f071767a74d3b3f29addb604a1597bd1f39f80e0382c0459d1e00ea1a7"
+        },
+        {
+          "path": "tests\\apim\\deployment.test.mjs",
+          "sha256": "36cb3f6a35444465df5cd962f5d76d6d561b93502c8ed18cc1d5e64ae0b6b49d"
+        },
+        {
+          "path": "tests\\apim\\sampling-adapter.test.mjs",
+          "sha256": "73288e827c51d6634a2a028ec426b24ba7b08f95d2fb021d69420a34bed31763"
+        },
+        {
+          "path": "tests\\apim\\scanner-regressions.test.mjs",
+          "sha256": "87ef79b6882465f426f020cbb6105802ada42e64c7f4685056ee812d69d76f68"
+        }
+      ],
+      "scopeSha256": "e8b4e8d349c7fa21a5aa8bf99bb07d588c3b72a471ccd097ebd738c488d4ce23",
+      "claims": [
+        {
+          "label": "Verified",
+          "claim": "Actual source C# guard expressions execute in local CLR; pinned Bicep compiles W3C/KV/headers/body/scope/dependencies; explicit protocol negatives reject",
+          "evidence": "R9 fresh Node APIM41/41 PASS0skip with pinned Bicep0.48.1 SHA and actual CLR"
+        },
+        {
+          "label": "Verified",
+          "claim": "GUID-only preflight/config/claim case normalization and immutable original lease binding corrections",
+          "evidence": "R9 fresh compiled config transforms/actual alpha GUID CLR positives and foreign/shifted lease negatives PASS"
+        },
+        {
+          "label": "Partially verified",
+          "claim": "W3C carrier/trust edge and management-plane snapshot behavior",
+          "evidence": "Source/local observations only; runtimeAcknowledgement=false and no APIM-native root/wire claims"
+        },
+        {
+          "label": "Unsupported",
+          "claim": "Live native extraction/reset/parent advance/strict00/logger ingestion/privacy/Entra/runtime ownership",
+          "evidence": "No actual Azure evidence; completion remains To Do"
+        }
+      ],
+      "commands": [
+        "$env:CONTOSO_BICEP_PATH=<existing pinned compiler>; node --test --test-reporter=spec tests\\apim\\*.test.mjs",
+        "node tools\\protocol.mjs ."
+      ],
+      "tests": {
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

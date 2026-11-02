@@ -3,6 +3,7 @@ $ErrorActionPreference = 'Stop'
 $process = Get-Process -Id $ProcessId
 [pscustomobject]@{
     processId = $ProcessId
+    processStartedAtUtc = $process.StartTime.ToUniversalTime().ToString('o')
     observedAtUtc = [DateTimeOffset]::UtcNow.ToString('o')
     cpuSeconds = $process.CPU
     workingSetBytes = $process.WorkingSet64

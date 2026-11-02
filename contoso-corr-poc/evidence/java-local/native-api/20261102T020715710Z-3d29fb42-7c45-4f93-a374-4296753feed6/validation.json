@@ -1,0 +1,138 @@
+{
+  "schema": "contoso.java-module-observations.v2",
+  "generatedAtUtc": "2026-11-02T02:20:37.5504108Z",
+  "observationCutoffUtc": "2026-11-02T02:02:43.9536142+00:00",
+  "result": "OBSERVED_PASSING_TEST_OUTPUTS",
+  "certified": false,
+  "sourceKind": "local-module-files-with-separate-selected-native-receipts",
+  "deployedQualification": false,
+  "fullReactorExecutionVerified": false,
+  "commonSourceBuildEpochVerified": false,
+  "scope": "Passing module files since the supplied cutoff; files can come from different executions. This reader does not establish a fresh full-reactor run or a shared source/test/artifact epoch.",
+  "lockSha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+  "moduleCount": 11,
+  "modules": [
+    {
+      "module": "services/correlation-core",
+      "artifactId": "contoso-correlation-core",
+      "tests": 34,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "ac80828d4ef5a801426127b91806445452e310b75888ea2b8937f7054bd67cff",
+      "pomSha256": "60a33021010dc1049b351871061a9c5ddae53ba08a0c03456a5ddeda0c9b9802"
+    },
+    {
+      "module": "services/security-core",
+      "artifactId": "security-core",
+      "tests": 32,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+      "pomSha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c"
+    },
+    {
+      "module": "services/inventory-data",
+      "artifactId": "inventory-data",
+      "tests": 33,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "f2605ce5793a9acdf2e5a4a37cfed8187d1fcef5a0b81442a82d048fd6ddc3e7",
+      "pomSha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+    },
+    {
+      "module": "workers/messaging-core",
+      "artifactId": "messaging-core",
+      "tests": 43,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+      "pomSha256": "c762a0a26088521f381a38dacf8e37040b42215da33370535efbf6eb756567ab"
+    },
+    {
+      "module": "services/inventory-api",
+      "artifactId": "inventory-api",
+      "tests": 4,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "2bdbe9dd7a0856d958140651bca42b23fc46e3ba25dfcface1d6debdfd7075d3",
+      "pomSha256": "0e46dede0d1c557d0de4b21e7a54cd1b9344e78ec9cfa24edbb66f2d6c65908a"
+    },
+    {
+      "module": "services/orders-api",
+      "artifactId": "orders-api",
+      "tests": 21,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "053c065f6ce0aa81ddcb241f8204f70147141d15b32a582b371113c95983475d",
+      "pomSha256": "a1c065a6a69bbdaf1e6c36f50e63d3dd818dd4540e4cd52b0871a1160e48065c"
+    },
+    {
+      "module": "workers/fulfillment",
+      "artifactId": "fulfillment",
+      "tests": 1,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "e9af15773ae0d2e1ea8000aef85baf0393db055d1ca55f8b9fd4566f706623f1",
+      "pomSha256": "aa55e87dc450b43f080b38a76262a9a0c968f3787008acb68cc142324f467595"
+    },
+    {
+      "module": "workers/notify",
+      "artifactId": "notify",
+      "tests": 1,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "e93c9ec1ecbbe9503e77daa1d614c42eacbd99a40f482dc1a21f06d1c67760a4",
+      "pomSha256": "110c90e1e62d0750d95af1d8b7a66ac5d95b5a5ee9d466a96732749d5e5d9950"
+    },
+    {
+      "module": "workers/aggregator",
+      "artifactId": "aggregator",
+      "tests": 1,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "54e8345538adedad4fdb847afa9c75235a98cab82911233771258cde2c2350dd",
+      "pomSha256": "94ace98f67b1d3cf63e7c4a53df90402c9bc2770686f2d05c21527b837ead5c5"
+    },
+    {
+      "module": "workers/replay",
+      "artifactId": "replay",
+      "tests": 1,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "69d0db296e4253ffd1305d5570d510bf740ecc17689c64d81773d15e1b25912b",
+      "pomSha256": "366b35200e14a73392c9454b797f7c551a6915e57ed3db6172cfc9b74c32e0fb"
+    },
+    {
+      "module": "extensions/parent-safe-sampler",
+      "artifactId": "contoso-parent-safe-sampler",
+      "tests": 11,
+      "failed": 0,
+      "skipped": 0,
+      "artifactSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "pomSha256": "4984d885795bee6372eb19e87d80521c3d6a868be256fd72d3a952fc8ae7bfe1"
+    }
+  ],
+  "expectedLiveRequirements": [
+    "Actual App Service/Functions vendor, JDK patch, image, host/worker version and per-instance native roster",
+    "Azure Entra/Key Vault/managed identity/RBAC/private ingress and PostgreSQL/Managed Redis access",
+    "Four deployed SDK transports, settlement/replay/fan-in/batch and independently observed business effects",
+    "Authenticated Azure ingestion, exact one-provider/export ownership and native links for every participant",
+    "Finite sampling restart/watchdog/restore, overhead/SLO and governance owner approvals",
+    "Direct business attribute on automatic HTTP client spans; preview inheritance remains excluded"
+  ],
+  "parentSafeExtension": {
+    "result": "PASS",
+    "sha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "sdkAbi": "1.65.0",
+    "nativeSpanCounts": [
+      2,
+      0,
+      2
+    ],
+    "scope": "Contoso-owned local pinned-agent qualification only; not Azure or vendor support certification"
+  },
+  "apiReceiptPath": "evidence\\java-local\\native-api\\20261102T020715710Z-3d29fb42-7c45-4f93-a374-4296753feed6\\receipts.json",
+  "apiReceiptSha256": "cfd44b2c3771eadd9280bd52e8f5c165d7b95eaa482b7ffe9a79dc6a16b0b936",
+  "apiCaptureSha256": "1bc6abd345869e500898c8e61afc951cf4b952d625d84f9821e02a6aa6d857bb",
+  "totalTests": 182
+}

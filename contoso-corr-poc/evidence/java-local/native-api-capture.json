@@ -1,0 +1,2255 @@
+{
+  "schema" : "contoso.native-api-capture.v1",
+  "sourceKind" : "real-two-jvm-agent-loopback",
+  "certificationEligible" : false,
+  "generatedAtUtc" : "2026-11-01T07:46:23.410722100Z",
+  "oracleStatus" : "PENDING",
+  "nativeEnvelopes" : [ {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:45:50.841Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting NativeApiFixture using Java 25.0.5 with PID 648 (C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\orders-api\\target\\test-classes started by chhage in C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\orders-api)",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:45:50.873Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "No active profile set, falling back to 1 default profile: \"default\"",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:45:52.316Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting service [Tomcat]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardService",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:45:52.329Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting Servlet engine: [Apache Tomcat/11.0.27]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardEngine",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:45:53.239Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Started NativeApiFixture in 2.98 seconds (process running for 9.956)",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:04.446Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1a7e426b12aef4e6480d8ac7672b7f87",
+      "ai.operation.name" : "POST",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "834defdabb17ef1e"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Initializing Spring DispatcherServlet 'dispatcherServlet'",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "SourceType" : "Logger",
+          "ThreadName" : "http-nio-auto-1-exec-1"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:02.048Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting NativeApiFixture using Java 25.0.5 with PID 11652 (C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\orders-api\\target\\test-classes started by chhage in C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\orders-api)",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:02.082Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "No active profile set, falling back to 1 default profile: \"default\"",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:03.745Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting service [Tomcat]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardService",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:03.748Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Starting Servlet engine: [Apache Tomcat/11.0.27]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardEngine",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:04.359Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Started NativeApiFixture in 2.955 seconds (process running for 11.017)",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "com.contoso.orders.NativeApiFixture",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:04.411Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1a7e426b12aef4e6480d8ac7672b7f87",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "834defdabb17ef1e",
+        "duration" : "00:00:05.057192",
+        "success" : false,
+        "responseCode" : "408",
+        "name" : "POST /api/inventory/reservations",
+        "url" : "http://127.0.0.1/api/inventory/reservations",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Exception",
+    "time" : "2026-11-01T07:46:09.463Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1a7e426b12aef4e6480d8ac7672b7f87",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "834defdabb17ef1e"
+    },
+    "data" : {
+      "baseType" : "ExceptionData",
+      "baseData" : {
+        "ver" : 2,
+        "exceptions" : [ {
+          "message" : "REQUEST_TIMEOUT",
+          "typeName" : "com.contoso.correlation.CorrelationSpan.SafeTelemetryFailure",
+          "stack" : "com.contoso.correlation.CorrelationSpan$SafeTelemetryFailure: REQUEST_TIMEOUT\r\n"
+        } ],
+        "properties" : {
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:09.548Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "6d5cd7008dfdb6b5aad497a7bc32fe83",
+      "ai.operation.name" : "POST",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "210ea714dac1ef50"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Initializing Spring DispatcherServlet 'dispatcherServlet'",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "SourceType" : "Logger",
+          "ThreadName" : "http-nio-auto-1-exec-1"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:19.966Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "aef0772c70b1e58c"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.get",
+        "duration" : "00:00:00.010958",
+        "id" : "d8d56ed6b47948ed",
+        "data" : "GET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.cache.outcome" : "MISS",
+          "contoso.data.operation" : "GET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:19.984Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "aef0772c70b1e58c"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.select",
+        "duration" : "00:00:00.017908",
+        "id" : "b80dba01b4565c16",
+        "data" : "SELECT",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SELECT",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.003Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "aef0772c70b1e58c"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.set",
+        "duration" : "00:00:00.004362",
+        "id" : "013944a9dd447755",
+        "data" : "SET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:19.881Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5",
+      "ai.operation.parentId" : "193040c187d11607"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "aef0772c70b1e58c",
+        "duration" : "00:00:00.182107",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/inventory/{sku}",
+        "url" : "http://127.0.0.1:53133/api/inventory/CONTOSO-001",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.353Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dd98f2d97d57e833ebc05891fd0f53f2",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "efd693a1ec23f8c0"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.012984",
+        "id" : "c93151dfadd9874f",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.366Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dd98f2d97d57e833ebc05891fd0f53f2",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "efd693a1ec23f8c0"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.del",
+        "duration" : "00:00:00.001323",
+        "id" : "5b5a1902261aedfa",
+        "data" : "DEL",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "DEL",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.274Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dd98f2d97d57e833ebc05891fd0f53f2",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "efd693a1ec23f8c0",
+        "duration" : "00:00:00.095878",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "POST /api/inventory/reservations",
+        "url" : "http://127.0.0.1:53133/api/inventory/reservations",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.376Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1eccc3ee46711904dba8e2bc18f3eb6b",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "613651db1dc5b83f"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.get",
+        "duration" : "00:00:00.000874",
+        "id" : "1859d9e5a1bc3c09",
+        "data" : "GET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.cache.outcome" : "MISS",
+          "contoso.data.operation" : "GET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.377Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1eccc3ee46711904dba8e2bc18f3eb6b",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "613651db1dc5b83f"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.select",
+        "duration" : "00:00:00.000531",
+        "id" : "2ee752027bcea006",
+        "data" : "SELECT",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SELECT",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.378Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1eccc3ee46711904dba8e2bc18f3eb6b",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "613651db1dc5b83f"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.set",
+        "duration" : "00:00:00.000739",
+        "id" : "38b4c5fc7dc29985",
+        "data" : "SET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.374Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "1eccc3ee46711904dba8e2bc18f3eb6b",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "613651db1dc5b83f",
+        "duration" : "00:00:00.006267",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/inventory/{sku}",
+        "url" : "http://127.0.0.1:53133/api/inventory/CONTOSO-001",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.385Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d6003855d703ab7506a18be05492bc41",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "56aa90fca105b634"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.001834",
+        "id" : "851f9ac2cacb4d46",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.387Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d6003855d703ab7506a18be05492bc41",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "56aa90fca105b634"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.del",
+        "duration" : "00:00:00.001070",
+        "id" : "7872e9417856357b",
+        "data" : "DEL",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "DEL",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.382Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d6003855d703ab7506a18be05492bc41",
+      "ai.operation.name" : "POST /api/inventory/reservations",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "56aa90fca105b634",
+        "duration" : "00:00:00.007258",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "POST /api/inventory/reservations",
+        "url" : "http://127.0.0.1:53133/api/inventory/reservations",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.394Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dc33add14f294732d9e1ec394bcdd821",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "eeb84ecd6e15f8fd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.get",
+        "duration" : "00:00:00.001197",
+        "id" : "2e2062f336c2de49",
+        "data" : "GET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.cache.outcome" : "MISS",
+          "contoso.data.operation" : "GET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.397Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dc33add14f294732d9e1ec394bcdd821",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "eeb84ecd6e15f8fd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.select",
+        "duration" : "00:00:00.000937",
+        "id" : "29c7f2577d959470",
+        "data" : "SELECT",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SELECT",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.398Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dc33add14f294732d9e1ec394bcdd821",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "eeb84ecd6e15f8fd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.set",
+        "duration" : "00:00:00.001163",
+        "id" : "0fc2854f887394d9",
+        "data" : "SET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.392Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "dc33add14f294732d9e1ec394bcdd821",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "eeb84ecd6e15f8fd",
+        "duration" : "00:00:00.008348",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/inventory/{sku}",
+        "url" : "http://127.0.0.1:53133/api/inventory/CONTOSO-001",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.409Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "5c6a1c61cd1d59d25103254c6dd475d6",
+      "ai.operation.name" : "POST /api/inventory/reservations/{id}/release",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "d57bcad9cfb87d16"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.003604",
+        "id" : "2b368afd035e62b4",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.413Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "5c6a1c61cd1d59d25103254c6dd475d6",
+      "ai.operation.name" : "POST /api/inventory/reservations/{id}/release",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "d57bcad9cfb87d16"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.del",
+        "duration" : "00:00:00.001195",
+        "id" : "e9475e3f3c019277",
+        "data" : "DEL",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "DEL",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.403Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "5c6a1c61cd1d59d25103254c6dd475d6",
+      "ai.operation.name" : "POST /api/inventory/reservations/{id}/release",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "d57bcad9cfb87d16",
+        "duration" : "00:00:00.012469",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "POST /api/inventory/reservations/{id}/release",
+        "url" : "http://127.0.0.1:53133/api/inventory/reservations/b41f75a3-d4bb-4e9f-a0c4-dd4906030a77/release",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.42Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "c6bccf86b25e02c3f5e617aeecfc9c65",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "8e1271dbe7d07db5"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.get",
+        "duration" : "00:00:00.001203",
+        "id" : "e7ccfa4e6fbcb0b9",
+        "data" : "GET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.cache.outcome" : "MISS",
+          "contoso.data.operation" : "GET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.422Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "c6bccf86b25e02c3f5e617aeecfc9c65",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "8e1271dbe7d07db5"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.select",
+        "duration" : "00:00:00.000625",
+        "id" : "ec2be2a77f332c5c",
+        "data" : "SELECT",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SELECT",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.422Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "c6bccf86b25e02c3f5e617aeecfc9c65",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.operation.parentId" : "8e1271dbe7d07db5"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.redis.set",
+        "duration" : "00:00:00.000865",
+        "id" : "c0d9839aabc30048",
+        "data" : "SET",
+        "type" : "redis",
+        "target" : "contoso-local-redis:10000 | default",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "SET",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.418Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "c6bccf86b25e02c3f5e617aeecfc9c65",
+      "ai.operation.name" : "GET /api/inventory/{sku}",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-inventory-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "8e1271dbe7d07db5",
+        "duration" : "00:00:00.006331",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/inventory/{sku}",
+        "url" : "http://127.0.0.1:53133/api/inventory/CONTOSO-001",
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "workload",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:09.516Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "6d5cd7008dfdb6b5aad497a7bc32fe83",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "210ea714dac1ef50",
+        "duration" : "00:00:10.051617",
+        "success" : false,
+        "responseCode" : "408",
+        "name" : "POST /api/orders",
+        "url" : "http://127.0.0.1/api/orders",
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "user",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Exception",
+    "time" : "2026-11-01T07:46:19.563Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "6d5cd7008dfdb6b5aad497a7bc32fe83",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "210ea714dac1ef50"
+    },
+    "data" : {
+      "baseType" : "ExceptionData",
+      "baseData" : {
+        "ver" : 2,
+        "exceptions" : [ {
+          "message" : "REQUEST_TIMEOUT",
+          "typeName" : "com.contoso.correlation.CorrelationSpan.SafeTelemetryFailure",
+          "stack" : "com.contoso.correlation.CorrelationSpan$SafeTelemetryFailure: REQUEST_TIMEOUT\r\n"
+        } ],
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "contoso.auth.actor_type" : "user",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:19.796Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "9d9fc2e6b743dcdd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "orders.validate",
+        "duration" : "00:00:00.004834",
+        "id" : "5a3b9c4c64c58c20",
+        "type" : "InProc",
+        "success" : true,
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "INTERNAL"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:19.821Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "9d9fc2e6b743dcdd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "GET /api/inventory/CONTOSO-001",
+        "duration" : "00:00:00.262781",
+        "id" : "193040c187d11607",
+        "resultCode" : "200",
+        "data" : "http://127.0.0.1:53133/api/inventory/CONTOSO-001",
+        "type" : "Http",
+        "target" : "127.0.0.1:53133",
+        "success" : true,
+        "properties" : {
+          "_MS.ProcessedByMetricExtractors" : "True"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.099Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "9d9fc2e6b743dcdd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.057659",
+        "id" : "f0f083a6c422654b",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.158Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "961b322ebb8b66833ff92255a3d7f98d",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.032047",
+        "id" : "737a685119a39730",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "9945169d-c59f-402d-ac50-0c639051de52",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.195Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "contoso.servicebus.send",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "364c17e85225e2b1"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.004333",
+        "id" : "08fd78f9d78faeda",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.2Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "contoso.servicebus.send",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "364c17e85225e2b1"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.000891",
+        "id" : "f3a70c27b44f7402",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.194Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "9d9fc2e6b743dcdd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.servicebus.send",
+        "duration" : "00:00:00.007046",
+        "id" : "364c17e85225e2b1",
+        "type" : "Queue Message | servicebus",
+        "target" : "contoso-orders",
+        "success" : false,
+        "properties" : {
+          "contoso.transport" : "SERVICE_BUS_ORDER",
+          "contoso.workflow.id" : "b46de64a-c94d-4698-907b-bde3683c47f7",
+          "contoso.publish.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.message.id" : "bce663a3-4c5e-4653-ba48-82e56f82232d",
+          "contoso.span.kind" : "PRODUCER"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Exception",
+    "time" : "2026-11-01T07:46:20.2Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "364c17e85225e2b1"
+    },
+    "data" : {
+      "baseType" : "ExceptionData",
+      "baseData" : {
+        "ver" : 2,
+        "exceptions" : [ {
+          "message" : "PUBLISH_UNCERTAIN",
+          "typeName" : "com.contoso.correlation.CorrelationSpan.SafeTelemetryFailure",
+          "stack" : "com.contoso.correlation.CorrelationSpan$SafeTelemetryFailure: PUBLISH_UNCERTAIN\r\n"
+        } ],
+        "properties" : {
+          "contoso.transport" : "SERVICE_BUS_ORDER",
+          "contoso.workflow.id" : "b46de64a-c94d-4698-907b-bde3683c47f7",
+          "contoso.publish.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.message.id" : "bce663a3-4c5e-4653-ba48-82e56f82232d",
+          "contoso.span.kind" : "PRODUCER"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:19.608Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "POST /api/orders",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "9d9fc2e6b743dcdd",
+        "duration" : "00:00:00.624032",
+        "success" : true,
+        "responseCode" : "202",
+        "name" : "POST /api/orders",
+        "url" : "http://127.0.0.1:49670/api/orders",
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "user",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.253Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "44cba0e8a2a4e201edcb18f0356f2b92",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.002409",
+        "id" : "3db7137e078b0d15",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f50874d3-d582-4e3a-a049-4d4c9386fc32",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.256Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "contoso.servicebus.send",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "f3dbf8f3327d9386"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.002282",
+        "id" : "babebc795854a74e",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.259Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.operation.name" : "contoso.servicebus.send",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "f3dbf8f3327d9386"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.transaction",
+        "duration" : "00:00:00.000926",
+        "id" : "b1876040126b8ca8",
+        "data" : "TRANSACTION",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "contoso.data.operation" : "TRANSACTION",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.255Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "9d9fc2e6b743dcdd"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.servicebus.send",
+        "duration" : "00:00:00.004688",
+        "id" : "f3dbf8f3327d9386",
+        "type" : "Queue Message | servicebus",
+        "target" : "contoso-orders",
+        "success" : false,
+        "properties" : {
+          "contoso.transport" : "SERVICE_BUS_ORDER",
+          "contoso.workflow.id" : "b46de64a-c94d-4698-907b-bde3683c47f7",
+          "contoso.publish.attempt" : "2",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.message.id" : "bce663a3-4c5e-4653-ba48-82e56f82232d",
+          "contoso.span.kind" : "PRODUCER"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Exception",
+    "time" : "2026-11-01T07:46:20.258Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "d065b71fd06099b21a11b439c4fe3fb0",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "f3dbf8f3327d9386"
+    },
+    "data" : {
+      "baseType" : "ExceptionData",
+      "baseData" : {
+        "ver" : 2,
+        "exceptions" : [ {
+          "message" : "PUBLISH_UNCERTAIN",
+          "typeName" : "com.contoso.correlation.CorrelationSpan.SafeTelemetryFailure",
+          "stack" : "com.contoso.correlation.CorrelationSpan$SafeTelemetryFailure: PUBLISH_UNCERTAIN\r\n"
+        } ],
+        "properties" : {
+          "contoso.transport" : "SERVICE_BUS_ORDER",
+          "contoso.workflow.id" : "b46de64a-c94d-4698-907b-bde3683c47f7",
+          "contoso.publish.attempt" : "2",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.message.id" : "bce663a3-4c5e-4653-ba48-82e56f82232d",
+          "contoso.span.kind" : "PRODUCER"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "RemoteDependency",
+    "time" : "2026-11-01T07:46:20.262Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "f1392db71864200ab41d02e8d4172ba6",
+      "ai.operation.name" : "GET /api/orders/{id}",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.operation.parentId" : "456a14f90d2e7790"
+    },
+    "data" : {
+      "baseType" : "RemoteDependencyData",
+      "baseData" : {
+        "ver" : 2,
+        "name" : "contoso.pg.select",
+        "duration" : "00:00:00.002053",
+        "id" : "2614a87c78617a7d",
+        "data" : "SELECT",
+        "type" : "postgresql",
+        "target" : "contoso-local-jdbc | contoso_orders",
+        "success" : true,
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "contoso.data.operation" : "SELECT",
+          "contoso.process.attempt" : "1",
+          "business.invocation_id" : "21a054cf-c689-4f9e-8c47-a9a311ac74c6",
+          "contoso.span.kind" : "CLIENT"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.248Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "f1392db71864200ab41d02e8d4172ba6",
+      "ai.operation.name" : "GET /api/orders/{id}",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "456a14f90d2e7790",
+        "duration" : "00:00:00.018429",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/orders/{id}",
+        "url" : "http://127.0.0.1:49670/api/orders/b46de64a-c94d-4698-907b-bde3683c47f7",
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "user",
+          "business.invocation_id" : "21a054cf-c689-4f9e-8c47-a9a311ac74c6",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.45Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Stopping service [Tomcat]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardService",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.453Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Destroying Spring FrameworkServlet 'dispatcherServlet'",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.457Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-request-body-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.457Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-request-body-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)\n java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)\n java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.458Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-inventory-call] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)\n java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)\n java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)\n java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:421)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.458Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-pg-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:20.458Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-pg-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)\n java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)\n java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Request",
+    "time" : "2026-11-01T07:46:20.428Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.operation.id" : "21519d0adc3b9d9212d5cccf7a0c3289",
+      "ai.operation.name" : "GET /api/me",
+      "ai.location.ip" : "127.0.0.1",
+      "ai.cloud.role" : "contoso-orders-api",
+      "ai.user.userAgent" : "Java-http-client/25.0.5"
+    },
+    "data" : {
+      "baseType" : "RequestData",
+      "baseData" : {
+        "ver" : 2,
+        "id" : "de1e49a6f9931a59",
+        "duration" : "00:00:00.005575",
+        "success" : true,
+        "responseCode" : "200",
+        "name" : "GET /api/me",
+        "url" : "http://127.0.0.1:49670/api/me",
+        "properties" : {
+          "user.pseudonym" : "h1:386b72223cf84a839d452a4ac9060bb9:XQ8guDbKdt0CwLUem59lbm86OLurTmT_Ch-RjCZFyuA",
+          "_MS.ProcessedByMetricExtractors" : "True",
+          "contoso.auth.actor_type" : "user",
+          "business.invocation_id" : "f5562603-5993-4fe5-84ca-b9537a060e0f",
+          "contoso.auth.outcome" : "authenticated",
+          "contoso.auth.role_category" : "invoker"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 623.8457,
+          "count" : 1,
+          "min" : 623.8457,
+          "max" : 623.8457
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "Request.Success" : "True",
+          "cloud/roleName" : "contoso-orders-api",
+          "request/resultCode" : "202",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "requests/duration"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 10049.2849,
+          "count" : 1,
+          "min" : 10049.2849,
+          "max" : 10049.2849
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "Request.Success" : "False",
+          "cloud/roleName" : "contoso-orders-api",
+          "request/resultCode" : "408",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "requests/duration"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 23.7702,
+          "count" : 2,
+          "min" : 5.4619,
+          "max" : 18.3083
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "Request.Success" : "True",
+          "cloud/roleName" : "contoso-orders-api",
+          "request/resultCode" : "200",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "requests/duration"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 0.6238457,
+          "count" : 1,
+          "min" : 0.6238457,
+          "max" : 0.6238457
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "http.response.status_code" : "202"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 10.0492849,
+          "count" : 1,
+          "min" : 10.0492849,
+          "max" : 10.0492849
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "http.response.status_code" : "408"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 0.0237702,
+          "count" : 2,
+          "min" : 0.0054619,
+          "max" : 0.0183083
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "http.response.status_code" : "200"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.client.request.duration",
+          "value" : 262.6444,
+          "count" : 1,
+          "min" : 262.6444,
+          "max" : 262.6444
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "dependency/resultCode" : "200",
+          "Dependency.Type" : "Http",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "cloud/roleName" : "contoso-orders-api",
+          "dependency/target" : "127.0.0.1:53133",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "dependencies/duration",
+          "Dependency.Success" : "True"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:21.485Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-orders-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.client.request.duration",
+          "value" : 0.2626444,
+          "count" : 1,
+          "min" : 0.2626444,
+          "max" : 0.2626444
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "server.address" : "127.0.0.1",
+          "server.port" : "53133",
+          "http.response.status_code" : "200"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.887Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Stopping service [Tomcat]",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.StandardService",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.892Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "Destroying Spring FrameworkServlet 'dispatcherServlet'",
+        "severityLevel" : "Information",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.899Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-request-body-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.899Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-pg-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.9Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-request-body-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)\n java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)\n java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Message",
+    "time" : "2026-11-01T07:46:21.9Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MessageData",
+      "baseData" : {
+        "ver" : 2,
+        "message" : "The web application [ROOT] appears to have started a thread named [contoso-pg-deadline] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread: \n java.base/jdk.internal.misc.Unsafe.park(Native Method)\n java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)\n java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)\n java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)\n java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)\n java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)\n java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)\n java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)\n java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n java.base/java.lang.Thread.run(Thread.java:1474)",
+        "severityLevel" : "Warning",
+        "properties" : {
+          "LoggerName" : "org.apache.catalina.loader.WebappClassLoaderBase",
+          "SourceType" : "Logger",
+          "ThreadName" : "main"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:23.039Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 5054.9,
+          "count" : 1,
+          "min" : 5054.9,
+          "max" : 5054.9
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "Request.Success" : "False",
+          "cloud/roleName" : "contoso-inventory-api",
+          "request/resultCode" : "408",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "requests/duration"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:23.039Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 317.8688,
+          "count" : 7,
+          "min" : 6.1682999999999995,
+          "max" : 181.8496
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "operation/synthetic" : "False",
+          "cloud/roleInstance" : "DESKTOP-JFTHPKH",
+          "Request.Success" : "True",
+          "cloud/roleName" : "contoso-inventory-api",
+          "request/resultCode" : "200",
+          "_MS.IsAutocollected" : "True",
+          "_MS.MetricId" : "requests/duration"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:23.039Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 5.0549,
+          "count" : 1,
+          "min" : 5.0549,
+          "max" : 5.0549
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "http.response.status_code" : "408"
+        }
+      }
+    }
+  }, {
+    "ver" : 1,
+    "name" : "Metric",
+    "time" : "2026-11-01T07:46:23.039Z",
+    "tags" : {
+      "ai.internal.sdkVersion" : "java:3.7.10",
+      "ai.cloud.role" : "contoso-inventory-api"
+    },
+    "data" : {
+      "baseType" : "MetricData",
+      "baseData" : {
+        "ver" : 2,
+        "metrics" : [ {
+          "name" : "http.server.request.duration",
+          "value" : 0.3178688,
+          "count" : 7,
+          "min" : 0.0061683,
+          "max" : 0.1818496
+        } ],
+        "properties" : {
+          "_MS.SentToAMW" : "False",
+          "http.response.status_code" : "200"
+        }
+      }
+    }
+  } ]
+}

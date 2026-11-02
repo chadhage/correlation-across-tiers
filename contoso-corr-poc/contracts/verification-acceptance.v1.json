@@ -1,0 +1,70 @@
+{
+  "schema": "contoso.verifier-acceptance.v1",
+  "sourceAcceptanceIsCertification": false,
+  "actualNativeAcceptance": "NOT RUN",
+  "localQualificationBoundary": {
+    "linkedSampling": "Affirmative local wording requires independently witnessed execution enrollment, original immutable source/execution receipts, exact owner/policy/assertion counts, ALL0/positive/MIX actual SDK/native predicates and a private validated report receipt",
+    "metadataIdentity": "Strict plain-JSON metadata is descriptor-checked, deep-cloned and frozen before any await; accessors/proxies/custom objects reject. Validation/hash/storage use the same immutable snapshot and affirmative owner/version/path/SHA formatting uses only sealed receipt metadata",
+    "unknown": "Missing/failing/current-policy/execution evidence stays UNVERIFIED; NOT CERTIFIED does not excuse a false local-success claim",
+    "compiledAlgorithm": "R9 observed the current1.1.0 selected-binary local algorithm; owned correlation-core/inventory-data source/build/loaded-code lineage remains UNVERIFIED",
+    "sourceSnapshots": "Input-tree immutability only; never current-source execution provenance",
+    "binaryHashes": "Fresh Surefire classpath declarations and post-execution file hashes are recorded; loaded-code/source-build identity is not inferred",
+    "azureAuthority": false
+  },
+  "boardFacetAuthority": {
+    "unit": "Actual focused run with exact executed/pass counts, zero skips/cancellations and regenerated current source closure, or current source-bound independently executed scoped local review",
+    "immutableReceipts": "evidence\\verification\\focused\\<UTC-run-id>\\preparation-tests.json and complete SHA manifest; canonical preparation-tests.json is convenience only",
+    "live": "Requires actual root-enrolled live acceptance execution; private live executor registry is intentionally empty during preparation",
+    "missingExecutor": "Fail closed even when persisted JSON claims PASS, full coverage, fixture=false, authentication, source hashes or owner approval",
+    "certification": "Unit/source/code review never supplies native authority or accountable signoff"
+  },
+  "evidencePipeline": {
+    "entry": "tools\\verification\\pipeline.mjs#verifyGraphIntake",
+    "assertion": "assertVerifiedScenario",
+    "structuralLibrary": "tools\\messaging\\async-honesty.mjs#assertAsyncStructure",
+    "retiredGuard": "assertAsyncEvidence deliberately rejects direct origin acceptance",
+    "authority": "Private identity-backed R9 verifier receipt and graph session; caller JSON, labels, booleans or hashes cannot mint native authority",
+    "fixtureScope": "CHECKER FIXTURE ONLY; never BootstrapValidate, Certify or Azure acceptance",
+    "nativeScope": "Actual registered native collector/source plus independently enrolled root tool/auth/scope/native responses; observer registry remains empty"
+  },
+  "audienceVersusTokenResource": {
+    "status": "Verified local signed-JWT/TokenCredential contract; NOT live Entra certification",
+    "verifierInput": "CONTOSO_INVENTORY_AUDIENCE",
+    "acquisitionInput": "CONTOSO_INVENTORY_TOKEN_RESOURCE",
+    "v2Audience": "Actual nonzero API client-ID GUID; reject token resource URI even if a migration alias is declared",
+    "v1Audience": "URI aliases only when explicitly configured and token version is v1",
+    "tokenResource": "Explicit bare resource URI; append /.default exactly once. Missing, relative, CSV or already-suffixed inputs reject; never derive from verifier audience",
+    "source": "https://learn.microsoft.com/en-us/entra/identity-platform/access-token-claims-reference",
+    "sourceHierarchy": 2,
+    "ownerSourceFiles": [
+      "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java",
+      "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\InventoryHttpClientTest.java",
+      "services\\inventory-api\\src\\test\\java\\com\\contoso\\inventory\\InventoryAuthenticationTest.java",
+      "services\\security-core"
+    ],
+    "ownerReportedResults": "R4 Orders13/13 + Inventory4/4; R8 complete29/29. Exact current source hashes/review required before completion",
+    "remaining": "Root compute/env binding, actual Entra-issued tokens, data/service principals and accountable approvals"
+  },
+  "nativeRecordKinds": {
+    "actualSpans": ["AppRequests", "AppDependencies"],
+    "associated": ["AppTraces", "AppExceptions", "AppEvents"],
+    "views": ["AppPageViews"],
+    "viewId": "Preserve opaque native display/context Id; never cast it into a new request/dependency span or authorize parentage by shape",
+    "browserContext": "Existing public SDK getter only, separately observed/source-bound; absent contextSpanId stays absent",
+    "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apppageviews"
+  },
+  "reviewFindings": [
+    { "id": "R7-R9-LOCAL-SUCCESS", "status": "Implemented semantic/execution/private-receipt correction; retained source rereview pending", "predicate": "Caller owner/policy/count/result/hash metadata cannot render actual literal00 success" },
+    { "id": "R7-R9-BINARY-LINEAGE", "status": "Claim narrowed explicitly UNVERIFIED; actual source/build lineage remains open", "predicate": "Installed library execution is not proved current source by before/after source snapshots" },
+    { "id": "R3-R5-CONTRIBUTOR-IDENTITY", "status": "Accepted structural/local correction only", "predicate": "Fresh PROCESS/aggregate context cannot equal or self-link a contributor" },
+    { "id": "R3-R5-REPLAY-BOUND", "status": "Accepted structural/local correction only", "predicate": "Valid unique links, no self-link, configured maximum <=32" },
+    { "id": "R3-R5-ORIGIN-LABEL", "status": "Retired spoofable guard; usable R9 pipeline wired and undergoing scoped positive/negative regression", "predicate": "No self-labelled live-azure origin can grant authority" }
+  ],
+  "externalGaps": [
+    "Actually observed full Azure participant/instance/worker/replay roster",
+    "Authenticated independently enrolled query observer and native transport responses",
+    "Bounded full-path native emission ledger, native rows, distinct pre/post full-path canaries and delay/drop accounting",
+    "All native tables/global privacy, real Entra/KV/private data/broker delivery, performance/cost and accountable-owner signoffs",
+    "Live KQL/Application Map/Transaction Diagnostics and actual run-scoped reset/deploy/teardown repeatability"
+  ]
+}

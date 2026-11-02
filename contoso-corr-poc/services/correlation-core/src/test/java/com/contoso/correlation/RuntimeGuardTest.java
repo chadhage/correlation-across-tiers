@@ -21,6 +21,86 @@ class RuntimeGuardTest {
         assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(
             Map.of("OTEL_INSTRUMENTATION_JDBC_ENABLED", "false")));
     }
+    @Test void ineffectiveOkHttpDisableCannotReplaceHeaderIsolation() {
+        assertFalse(RuntimeGuard.MANUAL_MODULES.contains("okhttp"));
+        assertFalse(RuntimeGuard.MANUAL_MODULES.contains("java-http-client"));
+        for (String module : List.of("okhttp", "okhttp-3.0", "okhttp-2.2")) {
+            String key = "otel.instrumentation." + module + ".enabled";
+            String previous = System.getProperty(key);
+            try {
+                System.setProperty(key, "false");
+                var failure = assertThrows(IllegalStateException.class,
+                    () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+                assertEquals("GATE_05_REQUIRED_HTTP_INSTRUMENTATION", failure.getMessage());
+                System.setProperty(key, "true");
+                assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+            } finally {
+                if (previous == null) System.clearProperty(key);
+                else System.setProperty(key, previous);
+            }
+        }
+        for (String key : List.of("OTEL_INSTRUMENTATION_OKHTTP_ENABLED",
+                "OTEL_INSTRUMENTATION_OKHTTP_3_0_ENABLED")) {
+            assertThrows(IllegalStateException.class,
+                () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of(key, "false")));
+            assertDoesNotThrow(
+                () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of(key, "true")));
+        }
+        String key = "otel.instrumentation.java-http-client.enabled";
+        String previous = System.getProperty(key);
+        try {
+            System.setProperty(key, "false");
+            var failure = assertThrows(IllegalStateException.class,
+                () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+            assertEquals("GATE_05_REQUIRED_HTTP_INSTRUMENTATION", failure.getMessage());
+            System.setProperty(key, "true");
+            assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+        } finally {
+            if (previous == null) System.clearProperty(key);
+            else System.setProperty(key, previous);
+        }
+    }
+    @Test void businessNettyAndCommonDefaultsCannotBeDisabled() {
+        for (String module : List.of("netty", "netty-4.1", "reactor-netty",
+                "reactor-netty-1.0")) {
+            String key = "otel.instrumentation." + module + ".enabled";
+            String previous = System.getProperty(key);
+            try {
+                System.setProperty(key, "false");
+                var failure = assertThrows(IllegalStateException.class,
+                    () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+                assertEquals("GATE_05_REQUIRED_HTTP_INSTRUMENTATION", failure.getMessage());
+                System.setProperty(key, "true");
+                assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+            } finally {
+                if (previous == null) System.clearProperty(key);
+                else System.setProperty(key, previous);
+            }
+        }
+        for (String key : List.of("OTEL_INSTRUMENTATION_NETTY_ENABLED",
+                "OTEL_INSTRUMENTATION_NETTY_4_1_ENABLED",
+                "OTEL_INSTRUMENTATION_REACTOR_NETTY_ENABLED",
+                "OTEL_INSTRUMENTATION_REACTOR_NETTY_1_0_ENABLED",
+                "OTEL_INSTRUMENTATION_COMMON_DEFAULT_ENABLED")) {
+            var failure = assertThrows(IllegalStateException.class,
+                () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of(key, "false")));
+            assertEquals("GATE_05_REQUIRED_HTTP_INSTRUMENTATION", failure.getMessage());
+            assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of(key, "true")));
+        }
+        String key = "otel.instrumentation.common.default-enabled";
+        String previous = System.getProperty(key);
+        try {
+            System.setProperty(key, "false");
+            var failure = assertThrows(IllegalStateException.class,
+                () -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+            assertEquals("GATE_05_REQUIRED_HTTP_INSTRUMENTATION", failure.getMessage());
+            System.setProperty(key, "true");
+            assertDoesNotThrow(() -> RuntimeGuard.verifyNativeInstrumentationOverrides(Map.of()));
+        } finally {
+            if (previous == null) System.clearProperty(key);
+            else System.setProperty(key, previous);
+        }
+    }
     @Test void falsePropertyCannotDisableProductionGuard() {
         System.setProperty("contoso.requireAgent", "false");
         try { assertThrows(IllegalStateException.class, () -> RuntimeGuard.verify("contoso-orders-api")); }

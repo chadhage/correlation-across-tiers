@@ -4,6 +4,7 @@
   <artifactId>inventory-data</artifactId>
   <dependencies>
     <dependency><groupId>com.contoso</groupId><artifactId>contoso-correlation-core</artifactId></dependency>
+    <dependency><groupId>com.contoso</groupId><artifactId>security-core</artifactId></dependency>
     <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId></dependency>
     <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId></dependency>
     <dependency><groupId>io.lettuce</groupId><artifactId>lettuce-core</artifactId></dependency>

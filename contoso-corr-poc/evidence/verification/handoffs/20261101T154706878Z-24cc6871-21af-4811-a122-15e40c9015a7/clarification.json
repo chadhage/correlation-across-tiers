@@ -1,0 +1,16 @@
+{
+  "schema": "contoso.recovery-lineage-clarification.v1",
+  "linkedHandoff": "evidence\\verification\\handoffs\\20261101T154011252Z-8d806937-5f5e-40ac-b96c-12aaa77bd395\\handoff.json",
+  "linkedSha256": "083f704af00e31050d69467d9507e1ad07b37a6b79fa5bba60d61587e6b28057",
+  "sourceAcceptanceIsCertification": false,
+  "clarification": "EntraPgConnectionFactory is candidate only. Current103 MessagingFixture uses anonymous PgConnectionFactory/DriverManager/H2 and does NOT instantiate that inventory class. Inventory-data classpath/posthash is NOT used-instance/source proof; it remains UNVERIFIED until separately exercised.",
+  "requiredRuntimeObservation": "Actual USED class/instance +public ProtectionDomain/ClassLoader/backing artifact/member SHA in authorized child; source classpresence or expected-symbol list is not observation",
+  "businessHttp": "R5 explicit same actual Netty client passedGrid/Queue; retain injection seams; capture safe concrete used-client origins where publicSDK allows, not ServiceLoader/default guesses",
+  "identityHttp": "R8 one wrapper+delegatedOkHttp created/USED actualorigin captured in ownedtestprobe, preserving managed/default/operator/injected/bootstrap andPG/Redis/AuthXrenewal; no assumedclasspresence",
+  "coverage": "An identity-only probe cannot qualify unusedInventory/workers/PG/Redis/fullrole/fullmap/Azure. Claimed module/class coverage must be finite.",
+  "approval": "USER approve_okhttp; SOURCE_ONLY R8/R5/R6 patch permissions reported by owners. Native/Maven/restore still requires parent explicit bounded phase grant.",
+  "nativeStatus": "HOLD; no R9native/Maven run",
+  "failedR4": "No messages or replacement agent",
+  "parentOrphanClearance": "Reported by R5; independent R9 java.exe0 filter was not global clearance",
+  "lineageStatus": "UNVERIFIED until actualA+B+genuineprivateC"
+}

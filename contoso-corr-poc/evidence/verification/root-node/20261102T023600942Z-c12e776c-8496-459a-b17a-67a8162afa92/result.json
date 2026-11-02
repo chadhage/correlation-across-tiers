@@ -1,0 +1,22 @@
+{
+  "schema": "contoso.parent-full-node-run.v1",
+  "startedAtUtc": "2026-11-02T02:36:00.9701685Z",
+  "finishedAtUtc": "2026-11-02T02:36:23.3272506Z",
+  "launcherPid": 55164,
+  "command": "npm test -- --test-reporter=tap",
+  "exitCode": 0,
+  "counts": {
+    "tests": 409,
+    "pass": 407,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 2
+  },
+  "sourceFiles": 198,
+  "sourcesStable": true,
+  "rootPackageLockPresent": false,
+  "stdoutSha256": "3414a90fe7633133eaa74c0772e9fcb047ab6f9b33e5a713065f16a54723443a",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Configured root Node suite including inventory-data tools; no Java/native observer grant or cloud authority from this execution.",
+  "certified": false
+}

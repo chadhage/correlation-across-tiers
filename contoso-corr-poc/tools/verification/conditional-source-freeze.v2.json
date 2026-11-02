@@ -1,0 +1,316 @@
+{
+  "schema": "contoso.r9-conditional-source-freeze.v2",
+  "publishedAtUtc": "2026-11-02T02:01:33.909Z",
+  "publicationPid": 62392,
+  "readiness": "SOURCE_ONLY_FINISHED_FROZEN_FOR_ORIGINAL_R7_AND_PARENT_R4_REVIEW_NATIVE_NOT_RUN",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "supersedes": {
+    "artifact": "tools\\verification\\conditional-source-freeze.v1.json",
+    "sha256": "6ce9e9168954b08f225535c7c1eb85a0144b7a209027987322564c4c3731314e",
+    "historicalResult": "CHANGES_REQUIRED",
+    "oldActual124AndOriginalR7ReviewUnchanged": true
+  },
+  "ownedSources": [
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "5a05d37d645185db339bac20dcb890d2c267b6ee48ffd4b8b70bb4391c3b107f"
+    },
+    {
+      "path": "contracts\\conditional-native-observer.v1.json",
+      "sha256": "4dcc1a811171b650e963ca138511f82d44e064d07cd78b36d23327b384954921"
+    },
+    {
+      "path": "contracts\\verification-observer-registry.v1.json",
+      "sha256": "7a3645edda1b55757dbe9a866a892196c24fba3c2913d8f502878e4746aec1d9"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "b7c6fdad881215a54d12656399954cb81c5e5061e10900f05154f246879a5f0a"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "7616e975893e382f2d6179ad804c71330617844965a1efc3d0452071950d611f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "48683a5afaee27765b4a580a0673a0ad92ed3655f23a447b7fb5a8023a59dfcd"
+    },
+    {
+      "path": "tests\\verification\\async-capture-receipts.test.mjs",
+      "sha256": "5ee24f58ba5088df3a2650416e31e7ad2aaab28757d9c6cd0b9a857ef777b5f0"
+    },
+    {
+      "path": "tests\\verification\\conditional-observer.test.mjs",
+      "sha256": "33d1b96de2708afc05435fbb4117a7e3d9367ef0a1868b88bfef132eb2894e48"
+    },
+    {
+      "path": "tests\\verification\\local-native.test.mjs",
+      "sha256": "eb696ef56a8f31b5c849550856ad1189774bf92db630f469c1f86fc955d882f3"
+    },
+    {
+      "path": "tools\\verification\\async-capture-receipts.mjs",
+      "sha256": "0f7438fd3716656f2f2c6d2c9069eec5853ea435856ea5566c42d291b0642a97"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "e0f70e2a5a48e1c79874b4b55afdc8addba3a26c7d073440618dda35ee2756f3"
+    },
+    {
+      "path": "tools\\verification\\local-native.mjs",
+      "sha256": "6d2dee783ceb3efbb018a5af2ddf2bcc46f047a98b91ae8b31b5b858a7d1891b"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "c7ebc2ade134a75c2d73b553330fe93de8378912f98e7620c484287a7948b5b6"
+    },
+    {
+      "path": "tools\\verification\\run-conditional-observer.mjs",
+      "sha256": "508078731e95937dadced7c3301a36b3b68c6db91447fb2ba94a1d773d7b41fc"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    }
+  ],
+  "importedSources": [
+    {
+      "path": ".cache\\r2\\notify-native-v2-review\\73a95637-frozen\\review.json",
+      "sha256": "71cd35e15a33f076c43e389e1b671f01f96a61f0f1aea04c2a1a841ff2f4446f"
+    },
+    {
+      "path": ".cache\\r2\\r7-connection-close-review\\6dd864bd-frozen\\review.json",
+      "sha256": "3dccd3ad40dddac07d3a34d67e9318e26117b53f2677324067f1f991a1d4a453"
+    },
+    {
+      "path": ".cache\\r3\\notify-native-v2-source-review\\20261102T014429644Z-fd323af8-df11-4b5a-ba81-944ea734c96c\\review-scoped.json",
+      "sha256": "0755bfc4511521cccc04ae56f62db7caa453041a009bd64c1b1693490e217011"
+    },
+    {
+      "path": ".cache\\r3\\r7-connection-close-review\\20261102T015051699Z-b2ce6ad9-6801-4a63-9a02-1ddb152978da\\review.json",
+      "sha256": "2e494d56d16735aabf48f1e4995c97ebde3be619bfa60f5cadcf399436005694"
+    },
+    {
+      "path": ".cache\\r7\\connection-close\\20261102T014019283Z-c8c2c0b2-2989-4207-907b-2e0689daa60f\\handoff.json",
+      "sha256": "6dd864bdd56295027247c21cc3e9afbb27ed10238093eac659088b1fbfb9b314"
+    },
+    {
+      "path": ".cache\\r7\\connection-close\\20261102T014019283Z-c8c2c0b2-2989-4207-907b-2e0689daa60f\\source-review-complete.json",
+      "sha256": "fda870f3fcbf79b2b69b04d7c6743daeb377f87efef92a330bd55251432a2788"
+    },
+    {
+      "path": "config\\acceptance-scopes.json",
+      "sha256": "5d1fdfdf50cb9f810a19fef2b796ffefe6430f6700e8439d4b478fa80fd44fa6"
+    },
+    {
+      "path": "config\\java-agent.json",
+      "sha256": "9d6907c173cdfe0e0585646de5c11234dc6a7b8e3aeb0386051a1ade3d227c26"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "evidence\\java-local\\parent-safe-sampler\\connection-close-20261102T015117887Z-4fef5fe5-9d69-45ad-8178-f054073f3fd7\\result.json",
+      "sha256": "5c68274325d3824de4d7a152020a7b7f45e683c41fa8f0879d6c0a96f18a737d"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261101T230912858Z-full-reactor-v2-cca4c1bb-a913-417c-a057-6c39328f20cb\\source-build.json",
+      "sha256": "7fcc55d82b40d0aba0f73c312bd86f8aa84a559197e5d9eaa497cf24d8a5b915"
+    },
+    {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiFixture.java",
+      "sha256": "7e9140855643d816feb0c3ee6e97ac16f4034ceb6300bd346a16e225be8594a0"
+    },
+    {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeTrustRootObservationFilter.java",
+      "sha256": "9550c022e6502ca426e170eaec3efa9961cdecb773c9cf9e92318ad82ec7d8ee"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+    },
+    {
+      "path": "tests\\verification\\pipeline.test.mjs",
+      "sha256": "af3efd762db060dc419826ccd6231ae6081588a708c4e6b41c79c9f3cd2b3984"
+    },
+    {
+      "path": "tests\\verification\\trust-roots.test.mjs",
+      "sha256": "caf21fa3ba61dd0f3d95d2d5bf70a59a489f501eddb99149d8e466dae6729f25"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "c49bc2cc8e1175e3b5b9140016924d7d7b949a640cd914a4a893625962511794"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "b956fa97064e4e67904b9d4277ffe669e5277b910d3be64a118354962c38cef8"
+    },
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "3c066c11191bbfb3643c1706ad3b56a5ff5170dbdb4ac682e422d598ad995ff7"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\native-payload-source-freeze.v3.json",
+      "sha256": "f7a6fdd1216500f69fdb14b352a815c315261072702fb7da37e44ede301e42a3"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\evidence.mjs",
+      "sha256": "2d6e540e326e8773dbe68b2a125ac17e1a8178409cdf8b6cbc1b3fd79eb04180"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\Invoke-LocalAsyncQualification.ps1",
+      "sha256": "165465213f30191f6dce391cb2536c174c948e6880d228b1611a95e47271e014"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\raw-intake.mjs",
+      "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "ed1a42f70fb8cf3c6761143497933fd5165e89b1b76d4762da30d93f98baec38"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+    },
+    {
+      "path": "tools\\verification\\scenarios.mjs",
+      "sha256": "7433dec3e3b04beaedba1b36e3420b7c929dedcef5d177c43a91fdadc371417a"
+    },
+    {
+      "path": "VERSIONS.md",
+      "sha256": "db3b5a11896ef83d38c90d4ad59812e529e1e82a46fad77184de58746ae85583"
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\native-intake-source-freeze.v2.json",
+      "sha256": "34551a07302539026299d472fac9087068a9566953457a1b2ad7b0d3e2c4e7b5"
+    },
+    {
+      "path": "workers\\messaging-core\\docs\\notify-native-source-freeze.v2.json",
+      "sha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf"
+    }
+  ],
+  "effectiveInputs": 58,
+  "sourceBeforeAfterMatched": true,
+  "actualExecutedValidation": {
+    "artifact": "evidence\\verification\\focused\\20261102T020100582Z-10806863-0fb8-4f54-830a-6288409794c0\\preparation-tests.json",
+    "sha256": "a8f943de3a965c4cb668f74b2f4ff405293961da80676e16ad5c21e1c4d796e4",
+    "tests": 130,
+    "passed": 130,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "sourcesVerified": true,
+    "scope": "Actual Node CPU/own synthetic loopback/genuine non-native Node source child; no Java/native",
+    "publicationMetadataAddedAfterReferencedRun": true
+  },
+  "resolvedSourceFindings": [
+    "R7-R9-COND-01 related RequestData/RemoteDependency strict00 exports",
+    "R7-R9-COND-02 exact original runtime DTO/type/sharedpolicy/markers/strictUTF8+decodeddup parsing",
+    "R9-RUNTIME-PROOF-SCHEMA-01 CodeSource protocol/query/hash/auth",
+    "Current actual730d/154span consumer Fulfillment-only predicate; two-declared-role preservation plus explicit unverified-sidecarrole status"
+  ],
+  "registry": {
+    "schema": "contoso.local-conditional-source-registry.v1",
+    "observerId": "r9-local-api-conditional-v1",
+    "factory": "executeLocalConditionalObserver",
+    "sourceKind": "real-local-agent-loopback",
+    "allowedMode": "LocalValidate",
+    "allowedBoundaries": [
+      "orders.request"
+    ],
+    "sourceFactoryRegistered": true,
+    "completedNativeExecutions": 0,
+    "reviewedIntakeReady": true,
+    "savedJsonCanEnroll": false,
+    "queryCapabilityCanEnroll": false,
+    "azureAuthority": false,
+    "certificationEligible": false
+  },
+  "sharedImports": {
+    "intakeSha256": "dfaf82c159277b721c0f4e3f939110af5452235c106a3e6e2374d4994c814207",
+    "candidateSha256": "6dd864bdd56295027247c21cc3e9afbb27ed10238093eac659088b1fbfb9b314",
+    "sourcePairReceiptSha256": "fda870f3fcbf79b2b69b04d7c6743daeb377f87efef92a330bd55251432a2788",
+    "genericSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "notifySourceSha256": "73a95637957e01e2cd681a14b05764dc1c2e3aa4786ba0188bf0c57ca91abdaf"
+  },
+  "nativePort": {
+    "contract": "contracts\\conditional-native-observer.v1.json",
+    "implementationOwner": "parent-R4",
+    "filterSourceSha256": "9550c022e6502ca426e170eaec3efa9961cdecb773c9cf9e92318ad82ec7d8ee",
+    "fixtureSourceSha256": "7e9140855643d816feb0c3ee6e97ac16f4034ceb6300bd346a16e225be8594a0",
+    "nativeExecutions": 0,
+    "nativePermissionFromThisFile": false
+  },
+  "rootSelectionContext": {
+    "probeReport": "evidence/java-local/parent-safe-sampler/connection-close-20261102T015117887Z-4fef5fe5-9d69-45ad-8178-f054073f3fd7/result.json",
+    "selectedProofSha256": "5c68274325d3824de4d7a152020a7b7f45e683c41fa8f0879d6c0a96f18a737d",
+    "versionsMarkdownSha256": "db3b5a11896ef83d38c90d4ad59812e529e1e82a46fad77184de58746ae85583",
+    "rootPointerSelectionPending": false,
+    "laterPointerChangesRequireNarrowContextRefresh": true
+  },
+  "limitations": [
+    "Source review only; private native enrollment requires real direct7case execution and original source reviews plus parent explicit native window",
+    "Root probeReport/VERSIONS selection is parent-only, later pointer bytes require narrow successor context; not old vote retrofit",
+    "Native dynamic JAR/class/tool/main-source closure rechecked by fixed runner; no current target/M2/class bytes were read for this publication",
+    "Input policy/PID/source digests and saved copied Notify data do not mint producer/Azure/global privacy/fullpath authority",
+    "Full-root Node suite and actual Azure/fullpath/canary/performance/accountableowner acceptance remain separate"
+  ]
+}

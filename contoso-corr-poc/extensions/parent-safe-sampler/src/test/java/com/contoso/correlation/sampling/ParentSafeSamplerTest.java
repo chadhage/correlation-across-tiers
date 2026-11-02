@@ -22,6 +22,32 @@ class ParentSafeSamplerTest {
     private static final String PARENT = "aaaaaaaaaaaaaaaa";
     private static final Attributes ATTRIBUTES = Attributes.of(AttributeKey.stringKey("flow"), "critical");
 
+    @Test void allValidUnsampledLinksDropOnlyADeclaredRoot() {
+        var delegate = new MutableSampler();
+        var guard = new ParentSafeSampler(delegate);
+        var links = List.of(LinkData.create(Span.fromContext(parent(false, true)).getSpanContext()));
+        assertEquals(SamplingResult.drop().getDecision(),
+            guard.shouldSample(Context.root(), TRACE, "linked-work", SpanKind.INTERNAL, ATTRIBUTES, links).getDecision());
+        assertEquals(0, delegate.calls);
+        assertSame(delegate.result,
+            guard.shouldSample(parent(true, true), TRACE, "linked-work", SpanKind.INTERNAL, ATTRIBUTES, links));
+        assertEquals(1, delegate.calls);
+    }
+
+    @Test void sampledMixedEmptyAndInvalidLinkedInputsDelegateUnchanged() {
+        var delegate = new MutableSampler();
+        var guard = new ParentSafeSampler(delegate);
+        var zero = LinkData.create(Span.fromContext(parent(false, true)).getSpanContext());
+        var one = LinkData.create(Span.fromContext(parent(true, true)).getSpanContext());
+        var invalid = LinkData.create(SpanContext.getInvalid());
+        for (List<LinkData> links : List.of(List.of(one), List.of(zero, one), List.<LinkData>of(), List.of(zero, invalid))) {
+            assertSame(delegate.result,
+                guard.shouldSample(Context.root(), TRACE, "linked-work", SpanKind.INTERNAL, ATTRIBUTES, links));
+            assertSame(links, delegate.links);
+        }
+        assertEquals(4, delegate.calls);
+    }
+
     @Test void remoteUnsampledParentDropsBeforeTheDelegate() {
         var delegate = new MutableSampler();
         var guard = new ParentSafeSampler(delegate);
@@ -72,6 +98,21 @@ class ParentSafeSamplerTest {
 
     @Test void nullDelegateIsRejected() {
         assertThrows(NullPointerException.class, () -> new ParentSafeSampler(null));
+    }
+
+    @Test void observationCountsRealDecisionsAndFailsClosedForUnknownNativeAbi() {
+        var delegate = new MutableSampler();
+        var sampler = new ParentSafeSampler(delegate);
+        var observation = new SamplingObservation(sampler);
+        sample(sampler, parent(false, true));
+        sample(sampler, parent(true, true));
+        assertEquals(1, observation.getUnsampledDropCount());
+        assertEquals(1, observation.getDelegateDecisionCount());
+        assertFalse(observation.isNativeStateAvailable());
+        assertNull(observation.getEffectiveSamplingPercentage());
+        assertNull(observation.getRequestsPerSecond());
+        assertNull(observation.getOwnedConfigurationJson());
+        assertEquals(1, delegate.calls, "Observing must not call or mutate the supplied sampler");
     }
 
     @Test void exactlyOneSpiServiceIsDeclared() throws Exception {

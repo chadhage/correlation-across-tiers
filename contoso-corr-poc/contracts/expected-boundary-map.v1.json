@@ -35,8 +35,14 @@
     { "id": "aggregator.result", "roleName": "contoso-order-aggregator", "semanticKind": "CONSUMER", "label": "Contoso Aggregator result PROCESS" },
     { "id": "aggregator.batch", "roleName": "contoso-order-aggregator", "semanticKind": "CONSUMER", "label": "Contoso mixed-context batch" },
     { "id": "aggregator.fanin", "roleName": "contoso-order-aggregator", "semanticKind": "INTERNAL", "label": "Contoso fan-in aggregation" },
-    { "id": "aggregator.replay", "roleName": "contoso-order-aggregator", "semanticKind": "INTERNAL", "label": "Contoso authorized replay coordination" },
-    { "id": "orders.replay.send", "roleName": "contoso-orders-api", "semanticKind": "PRODUCER", "label": "Contoso replay SEND" }
+    { "id": "aggregator.batch.item", "roleName": "contoso-order-aggregator", "semanticKind": "CONSUMER", "label": "Contoso Event Hubs item PROCESS" },
+    { "id": "fulfillment.replay.process", "roleName": "contoso-fulfillment-worker", "semanticKind": "CONSUMER", "label": "Contoso Fulfillment replay PROCESS" },
+    { "id": "notify.replay.process", "roleName": "contoso-notify-worker", "semanticKind": "CONSUMER", "label": "Contoso Notification replay PROCESS" },
+    { "id": "fulfillment.replay.send", "roleName": "contoso-fulfillment-worker", "semanticKind": "PRODUCER", "label": "Contoso Fulfillment replay SEND" },
+    { "id": "notify.replay.send", "roleName": "contoso-notify-worker", "semanticKind": "PRODUCER", "label": "Contoso Notification replay SEND" },
+    { "id": "fulfillment.rejected", "roleName": "contoso-fulfillment-worker", "semanticKind": "CONSUMER", "label": "Contoso Fulfillment rejected PROCESS" },
+    { "id": "notify.rejected", "roleName": "contoso-notify-worker", "semanticKind": "CONSUMER", "label": "Contoso Notification rejected PROCESS" },
+    { "id": "aggregator.rejected", "roleName": "contoso-order-aggregator", "semanticKind": "CONSUMER", "label": "Contoso Aggregator rejected PROCESS" }
   ],
   "edges": [
     { "from": "storefront.http", "to": "gateway.request", "type": "parent", "path": "spa" },
@@ -62,15 +68,37 @@
     { "from": "fulfillment.result", "to": "aggregator.fanin", "type": "link", "path": "fanin" },
     { "from": "notify.result", "to": "aggregator.fanin", "type": "link", "path": "fanin" },
     { "from": "orders.eventhubs.send", "to": "aggregator.batch", "type": "link", "path": "mixed-batch", "cardinality": "each-contributor" },
-    { "from": "orders.servicebus.send", "to": "aggregator.replay", "type": "link", "path": "replay" },
-    { "from": "aggregator.replay", "to": "orders.replay.send", "type": "link", "path": "replay-outbox" }
+    { "from": "aggregator.batch", "to": "aggregator.batch.item", "type": "parent", "path": "mixed-batch-items", "cardinality": "each-item" },
+    { "from": "orders.servicebus.send", "to": "fulfillment.replay.process", "type": "link", "path": "replay-original" },
+    { "from": "orders.servicebus.send", "to": "notify.replay.process", "type": "link", "path": "replay-original" },
+    { "from": "orders.servicebus.send", "to": "fulfillment.replay.send", "type": "link", "path": "replay-outbox-original" },
+    { "from": "orders.servicebus.send", "to": "notify.replay.send", "type": "link", "path": "replay-outbox-original" },
+    { "from": "orders.storage.send", "to": "fulfillment.replay.process", "type": "link", "path": "storage-replay-original" },
+    { "from": "orders.storage.send", "to": "fulfillment.replay.send", "type": "link", "path": "storage-replay-outbox-original" },
+    { "from": "fulfillment.replay.send", "to": "fulfillment.process", "type": "parent", "path": "replayed-delivery" },
+    { "from": "notify.replay.send", "to": "notify.process", "type": "parent", "path": "replayed-delivery" }
   ],
   "deliberateRoots": [
     { "boundary": "portal.request", "reason": "A document render and browser page telemetry are distinct roots unless context is actually propagated." },
     { "boundary": "aggregator.fanin", "reason": "Complete persisted contributors are links; arrival order never selects a parent." },
     { "boundary": "aggregator.batch", "reason": "Mixed-message contexts are bounded links; the first message is never parent." },
-    { "boundary": "aggregator.replay", "reason": "Replay is new linked work, not continuation of an active ancient parent." },
-    { "boundary": "orders.replay.send", "reason": "Durable replay/outbox dispatch links its authorized predecessor." }
+    { "boundary": "fulfillment.result", "reason": "The result SEND is a new root linked to the persisted actual Fulfillment PROCESS context." },
+    { "boundary": "notify.result", "reason": "The result SEND is a new root linked to the persisted actual Notification PROCESS context." },
+    { "boundary": "fulfillment.replay.process", "reason": "The actual Fulfillment identity processes its requested DLQ source as new work linked to the original context." },
+    { "boundary": "notify.replay.process", "reason": "The actual Notification identity processes its requested DLQ source as new work linked to the original context." },
+    { "boundary": "fulfillment.replay.send", "reason": "The owning Fulfillment outbox starts new SEND work linked to the original publication context, not an invented Orders actor." },
+    { "boundary": "notify.replay.send", "reason": "The owning Notification outbox starts new SEND work linked to the original publication context, not an invented Orders actor." }
+  ],
+  "conditionalRoots": [
+    { "boundary": "gateway.request", "allowedDispositions": ["absent", "duplicate", "invalid"], "policyRef": "apim/policies/fragments/contoso-context-v1.xml", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "orders.request", "allowedDispositions": ["absent", "invalid"], "policyRef": "ADR-A03/agent-framework-http-extraction", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "inventory.request", "allowedDispositions": ["absent", "invalid"], "policyRef": "ADR-A03/agent-framework-http-extraction", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "fulfillment.process", "allowedDispositions": ["ABSENT", "INVALID_CONTEXT"], "policyRef": "workers/messaging-core/TraceContexts.extract", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "notify.process", "allowedDispositions": ["ABSENT", "INVALID_CONTEXT"], "policyRef": "workers/messaging-core/TraceContexts.extract", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "aggregator.batch.item", "allowedDispositions": ["ABSENT", "INVALID_CONTEXT"], "policyRef": "workers/messaging-core/TraceContexts.extract", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "fulfillment.rejected", "allowedDispositions": ["UNTRUSTED_PUBLICATION", "INVALID_ENVELOPE", "INVALID_CARRIER", "ENVELOPE_TOO_LARGE"], "policyRef": "workers/messaging-core/AsyncProcessor.reject", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "notify.rejected", "allowedDispositions": ["UNTRUSTED_PUBLICATION", "INVALID_ENVELOPE", "INVALID_CARRIER", "ENVELOPE_TOO_LARGE"], "policyRef": "workers/messaging-core/AsyncProcessor.reject", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true },
+    { "boundary": "aggregator.rejected", "allowedDispositions": ["UNTRUSTED_PUBLICATION", "INVALID_CARRIER", "INVALID_ENVELOPE", "ENVELOPE_TOO_LARGE"], "policyRef": "workers/messaging-core/AsyncProcessor.quarantine", "receiptType": "source-bound-native-trust-root", "parentMustBeNull": true, "sourceProofRequired": true }
   ],
   "expectedRemoteBoundaries": [
     { "id": "servicebus", "reason": "Broker delivery does not imply emitted broker spans; retain actual producer context." },
@@ -87,6 +115,11 @@
     "unsampledVectorDoesNotClaimCompleteExport": true,
     "noArbitraryBatchParent": true,
     "noDatabaseServerContinuation": true,
-    "noExpectedValuesSubstitutedIntoObservedRows": true
+    "noExpectedValuesSubstitutedIntoObservedRows": true,
+    "conditionalRootsRequireActualNativeReceipts": true,
+    "invalidStateAloneNeverBreaksValidParent": true,
+    "businessIdReplacementNeverChangesTraceContext": true,
+    "identityClientSpansMayExistWithoutIdentityHeaderPropagation": true,
+    "rootLinkSamplingPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "schema": "contoso.r9-authorized-conditional-attempt-failure.v1",
+  "recordedAtUtc": "2026-11-02T02:36:49.873Z",
+  "actualAuthorizedAttemptCount": 1,
+  "command": "node tools\\verification\\run-conditional-observer.mjs --execute",
+  "toolShellId": "2435",
+  "actualExitCode": 1,
+  "observedConsoleResult": {
+    "result": "FAIL_OR_UNVERIFIED",
+    "code": "E_CONDITIONAL_CLASSPATH",
+    "certification": "NOT_CERTIFIED"
+  },
+  "failureStage": "FIXED_EXECUTION_INPUT_CLASSPATH_PRECHECK",
+  "sourceOrdering": "executionInputs() failed before run directory creation, fixture javac, receiver open or Java child spawn. No native case/private capability was minted.",
+  "javaOrJavacLaunchReached": false,
+  "httpControlStageReached": false,
+  "existingRuntimeRunDirectoryCreated": false,
+  "rawProcessOutputFileRetained": false,
+  "sourceFrozenArtifact": "tools\\verification\\conditional-source-freeze.v3.json",
+  "sourceFrozenSha256": "7bd6a30f0977c28d1816e7dacf696ecd4d231fb0fc862d2cf59b392208280a2f",
+  "parentCurrentSourceReview": ".cache\\parent\\conditional-v3-review\\20261102T023338791Z-56613ffa-eada-44f0-bbe2-3892a79158c5\\review.json",
+  "parentCurrentSourceReviewSha256": "2afd7a9744dc57320981258405e0edc9039f0d74f642c1289826d6dfad5368b5",
+  "runtimeBaselineSha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "privateNativeEnrollment": false,
+  "globalAuthority": false,
+  "nextAction": "STOPPED for parent diagnosis. No source patch, waiver or retry until new explicit grant.",
+  "postFailureActions": "Failure metadata preservation only; no Java/Maven/native/target/M2/source/lock edits or second execution."
+}

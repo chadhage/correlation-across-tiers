@@ -1,0 +1,103 @@
+{
+  "schema": "contoso.local-native-projection.v1",
+  "originalEnvelopesInMemoryOnly": true,
+  "projectedRecords": 2,
+  "publisherKeysPersisted": false,
+  "allTablePrivacyGateVerified": false,
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false,
+  "originalPrivacyCapture": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 61536,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 2,
+      "originalRawBytes": 1075,
+      "decodedBytes": 2637,
+      "envelopes": 4
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "511557dccd966ab355c3e8e2c8bd92b64c49aee5e4a195f2c8ae3799e1c2468e",
+        "originalPayloadBytes": 559,
+        "decodedPayloadBytes": 1367,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "a135730c7c1be5b255fc6d65d7758a0b3181e76b01f2d3f243c7abba0b1e2420",
+        "originalPayloadBytes": 516,
+        "decodedPayloadBytes": 1270,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ]
+  },
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": false,
+    "receiverCode": null,
+    "sealed": true,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 2,
+      "parse": 2,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 0,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 2,
+      "nativePosts": 2,
+      "completedBodies": 2,
+      "rawBytesObserved": 1075,
+      "acceptedPayloads": 2,
+      "acceptedRawBytes": 1075,
+      "acceptedDecodedBytes": 2637,
+      "acceptedEnvelopes": 4
+    },
+    "firstPoison": null,
+    "lastRequest": {
+      "methodClass": "POST",
+      "routeClass": "native-v2.1-track",
+      "declaredLengthState": "in-range",
+      "declaredLength": 516,
+      "wireBytesObserved": 516
+    },
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 8,
+      "nativePosts": 2,
+      "echoGets": 2,
+      "rejectedRoutes": 4,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  }
+}

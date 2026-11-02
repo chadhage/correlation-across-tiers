@@ -1,0 +1,143 @@
+{
+  "schema": "contoso.r2-other-role-source-review.v1",
+  "reviewerRole": "R2",
+  "reviewerAgentId": "2d440b57-29b3-46a7-aba1-a1c35d9fa025",
+  "authorRole": "R7",
+  "result": "ACCEPTED_FINITE_SOURCE_LOCAL_CONSTRUCTION",
+  "recordedAfterExecution": true,
+  "recordPurpose": "Persist the already completed current-successor review and its actual tool results; no new tests or native execution.",
+  "sourceScope": {
+    "handoffPath": ".cache\\r7\\integration-ready\\20261101T203636622Z-6aa463ef-8579-4a2b-8b43-014488d70da4\\handoff.json",
+    "handoffSha256": "cc918df7c82bbd9932cf8eaacde843104976695f2279d1e975d998be3c138603",
+    "ownedSourceCount": 14,
+    "ownedScopeSha256": "e838b3cc1e7648ead8195e5a2cd1dfc1fd0ebf21be77765fbaeddda42b4499a6",
+    "declaredInputCount": 69,
+    "reviewerCurrentBeforeCheck": {
+      "matchedInputs": 69,
+      "driftCount": 0,
+      "separateReviewerBeforeSnapshotPersisted": false,
+      "basis": "The retained R2 current-successor check preceding execution; the owner's immutable beforeSources and afterSources arrays were also equal."
+    },
+    "reviewerPostValidationCheck": {
+      "matchedInputs": 69,
+      "driftCount": 0,
+      "executionTool": "functions.powershell",
+      "completedShellId": "1907",
+      "basis": "Actual current SHA256 of each of the handoff's 69 beforeSources entries, checked after the workbook/compiler command."
+    },
+    "changedDependency": {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9",
+      "reviewScope": "Retained independent current c42b source/CPU review of UTF8 key/scalar bounds before privacy patterns; no new native retake."
+    },
+    "changedDocumentation": [
+      {
+        "path": "docs\\OBSERVABILITY.md",
+        "sha256": "3c196334ac4925c1cac3df529da087f905a612044c41abeef881a05fe43c19ab"
+      },
+      {
+        "path": "workbooks\\README.md",
+        "sha256": "2c42d7776a2cf52c988ba7a87e74e0745d65b970704a30c501d6d16fbc8912e5"
+      }
+    ],
+    "retainedReview": "The complete prior review of the other 12 unchanged R7 code/test/query/artifact paths is retained. The two documentation deltas and current bounded decoder dependency were reviewed for this successor."
+  },
+  "independentValidation": [
+    {
+      "label": "Verified",
+      "executionTool": "functions.powershell",
+      "completedShellId": "1906",
+      "workingDirectory": "contoso-corr-poc",
+      "command": "node --test --test-reporter=spec .\\tests\\observability\\runtime-adapters.test.mjs .\\tests\\observability\\load.test.mjs .\\tests\\observability\\kql-contract.test.mjs .\\tests\\observability\\workbook.test.mjs .\\tests\\verification\\trust-roots.test.mjs .\\tests\\verification\\pipeline.test.mjs",
+      "exitCode": 0,
+      "tests": 44,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "durationMs": 972.8294
+    },
+    {
+      "label": "Verified",
+      "executionTool": "functions.powershell",
+      "completedShellId": "1907",
+      "workingDirectory": "contoso-corr-poc",
+      "command": "node .\\tools\\observability\\workbook.mjs --check",
+      "exitCode": 0,
+      "result": "PASS",
+      "sourceMapSha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+      "workbookSha256": "58797d569f59dca704bbd70c9947869ae79ee8e7f1fc48f71836dc36d192ccf9",
+      "certificationEligible": false,
+      "azureImport": "To Do"
+    },
+    {
+      "label": "Verified",
+      "executionTool": "functions.powershell",
+      "completedShellId": "1907",
+      "workingDirectory": "contoso-corr-poc",
+      "command": ".\\tools\\observability\\Validate-Kql.ps1",
+      "exitCode": 0,
+      "localAnalysesPassed": 39,
+      "scope": "Existing local rendered checks and declared-schema Kusto compiler analyses; not a fresh R2 rendering, Azure query, Azure workbook import or live telemetry check."
+    }
+  ],
+  "findings": [
+    {
+      "id": "R2-R7-01",
+      "label": "Verified",
+      "status": "CLOSED_CURRENT_SOURCE_TEST_SCOPE",
+      "scope": "Drain ACK requires correct native source/layer/instance/role/flags and zero inflight work; file/local-config and foreign-role/source observations cannot qualify."
+    },
+    {
+      "id": "R2-R7-BROWSER-REGRESSION",
+      "label": "Verified",
+      "status": "CLOSED_CURRENT_SOURCE_TEST_SCOPE",
+      "scope": "The published browser layer uses the canonical browser key; valid active and expired/restored drain observations pass while wrong source/role/layer fail."
+    },
+    {
+      "id": "R2-R7-02",
+      "label": "Verified",
+      "status": "CLOSED_CURRENT_SOURCE_TEST_SCOPE",
+      "scope": "Actual two-loopback 302 foreign-origin and 307 same-origin redirects fail without implicit follow or destination context/body forwarding; explicit owned direct 200 remains valid."
+    }
+  ],
+  "otherMaterialClaims": [
+    {
+      "label": "Verified",
+      "claim": "Nine conditional policies remain separate from deliberate parent modes and require exact source-bound disposition/policy/null-parent proof. Caller JSON and generic reference proofs cannot waive conditional missing parents."
+    },
+    {
+      "label": "Verified",
+      "claim": "The original private R9 getter requires the original capability/map/full rows/mode and actual runtime/carrier observer enrollment. Current unavailable native observer enrollment leaves actual conditional cases unverified."
+    },
+    {
+      "label": "Verified",
+      "claim": "The corrected documentation marks 55 Node/38 Kusto as historical and later recorded 65/39 as at-execution closure evidence subject to input invalidation."
+    },
+    {
+      "label": "Verified",
+      "claim": "Current Rootv3 omits optional workbookSerializedData and its default is empty. The committed workbook check does not establish root wiring or Azure import; a new acting-root preparation facet requires parent approval."
+    }
+  ],
+  "ownerEvidenceNotReviewerExecution": {
+    "currentFullObservabilityTestsPassed": 65,
+    "basis": "R7's cc918 immutable successor handoff only. R2 did not rerun the full 65 for this successor.",
+    "noRetroactivePromotion": "R2's earlier full65/focused44/compiler39 results belong to the original 9fa epoch, not this successor. Old 9fa/1134/3f27 and R3's paused 5d1ac record remain unchanged history."
+  },
+  "limitations": {
+    "liveAcceptance": false,
+    "cardDone": false,
+    "nativeRuntimeExecution": false,
+    "nativeConditionalObserverEnrollment": false,
+    "privateVerifierCAuthority": false,
+    "azureQueriesDeploymentImportOrGrants": false,
+    "apiReady": false,
+    "fullExporterCompletenessOrGlobalPrivacy": false,
+    "fullFidelityCertification": false,
+    "reviewRecordIsNativeEvidence": false,
+    "peerSourceEdits": false,
+    "mavenJavaTargetSdkProviderOrGuardWrites": false,
+    "oldNativeReceiptReclassification": false
+  },
+  "rawExecutionLogRetention": "This record preserves exact already returned summary results and completed shell references, not a newly executed or reconstructed full raw test log."
+}

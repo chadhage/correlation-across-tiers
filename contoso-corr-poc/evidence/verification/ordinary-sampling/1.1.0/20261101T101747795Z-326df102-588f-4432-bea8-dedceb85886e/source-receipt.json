@@ -1,0 +1,51 @@
+{
+  "schema": "contoso.ordinary-sampling-preservation.v1",
+  "ownerRole": "R7",
+  "preserverRole": "R9",
+  "originals": [
+    {
+      "path": "extensions\\parent-safe-sampler\\target\\agent-probe\\1.1.0-bb829be676bd\\result.json",
+      "sha256": "6bfa1d1e8904e795b22b161ca80cb08663ff0c63b5b7a607296e500c4a5d687e"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\target\\agent-probe\\1.1.0-bb829be676bd\\native-sampling-observation.json",
+      "sha256": "fd5d6931f8f3b54a87332fb0c99a82747623160e1e9bad65a881acc853916c8a"
+    }
+  ],
+  "sources": [
+    {
+      "path": "tools\\observability\\probe-parent-safe.mjs",
+      "sha256": "a199a58eb845b4575aa174285888fc4d7cebe42bcc6fda1d49eb4c40b8542ddd"
+    },
+    {
+      "path": "tools\\observability\\measure-parent-safe.mjs",
+      "sha256": "1c3865ae572caf38e3e8e736867dff9cdafd791f434ce257cec63f6b909ceab4"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+      "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling\\SamplingObservation.java",
+      "sha256": "095d1f616a38650081912204fc871cc0927256f8fc3e54a6a354176779ff6b05"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "8ddc34e7a9450da5fbead8798c5d6b37a0281c5295dee1621d41acfc604b4dcd"
+    }
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "r9IndependentSameProbeRetake": false,
+  "actualRoles": "Closed local probe JVMs only",
+  "scope": "Actual ordinary parent00/01 fixed100/0/100 and RPS5 with local MBean/PID/JAR policy/version; not full-role/full-path/Azure/AV23 qualification",
+  "nativeSpanCounts": [
+    2,
+    0,
+    2
+  ],
+  "providerCount": null,
+  "exporterCount": null,
+  "completeMatrixVerified": false,
+  "javaIdentityIsolation": "FAIL990a remains OPEN",
+  "actualAzureAcceptance": "NOT RUN"
+}

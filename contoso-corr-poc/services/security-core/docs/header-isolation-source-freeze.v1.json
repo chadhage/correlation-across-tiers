@@ -1,0 +1,101 @@
+{
+  "schema": "contoso.r8-header-isolation-source-freeze.v1",
+  "mode": "header_isolation_only",
+  "headerPolicyVersion": 1,
+  "readiness": "SOURCE_READY_FOR_PARENT_FRESH_A_ONLY",
+  "certification": "NOT_CERTIFIED",
+  "apiReady": false,
+  "newModeProductionBuild": "NOT_EXECUTED_BY_R8",
+  "newModeNativeValidation": "NOT_EXECUTED",
+  "sourceScope": "security-core production factory, probe, unit test, finite checker and owned documentation",
+  "correlationCoreDependencyOrExercise": false,
+  "validation": {
+    "kind": "SOURCE_AND_CPU_ONLY",
+    "nodeTests": 30,
+    "nodePassed": 30,
+    "nodeFailed": 0,
+    "nodeSkipped": 0,
+    "focusedCheckerTests": 6,
+    "helperSyntax": "PASS",
+    "ownedDiffWhitespace": "PASS",
+    "javaTestsForChangedSource": "PENDING_PARENT_FRESH_A",
+    "commandFromRepositoryRoot": "node --test .\\contoso-corr-poc\\tests\\security\\av23-check.test.mjs .\\contoso-corr-poc\\tests\\security\\repository.test.mjs .\\contoso-corr-poc\\tests\\security\\identifiers.test.mjs .\\contoso-corr-poc\\tests\\security\\telemetry.test.mjs"
+  },
+  "targetReadiness": {
+    "pathFromRepositoryRoot": "contoso-corr-poc\\services\\security-core\\target\\security-core-1.0.0.jar",
+    "status": "STALE_PRE_POLICY_SOURCE_CHANGE_REQUIRES_FRESH_CAPTURED_CLEAN_PACKAGE",
+    "previousModeArtifactSha256": "4a77dd7c8bd4fff5a767db869f20cb8e7439d5c4092cb138e71e27abddf38946",
+    "previousModeBuildWitnessSha256": "67fbfe6710cb1d1d0e80b2c5c5e21f173c23b9bc680cb49dd5f3e4caed69cb0d",
+    "previousModeFactsAreCurrentLineage": false,
+    "m2InstalledForNewMode": false,
+    "newModeArtifactSha256": null
+  },
+  "sourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+      "sha256": "a5c0d70fdcf049aa0ad44887283a2c660c5cc69f7660ec2ca8f08092a10233eb"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\test\\java\\com\\contoso\\security\\IdentityHttpClientsTest.java",
+      "sha256": "93f1bd5d257259468f44f7769f1b6240f7a23fce5dac44793b31fc6ac3767ac9"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "8214ea49a04cf544c7fafad88a77f7b1cc73607b79e27da4aebc48349a0f3d2d"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\security\\av23-check.test.mjs",
+      "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\README.md",
+      "sha256": "bc18281762f60642354433ac46772ad7051f2ed9bfa95dca23b44e5a7ceff7d3"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\AV23.md",
+      "sha256": "ca2fc421c8d73e243cea045bff8f2f1a347c908e61949d443dbd72bdac11ea8e"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\pom.xml",
+      "sha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c",
+      "changedForThisPolicy": false
+    }
+  ],
+  "immutableFailedReportsFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-isolated-1.1.0.v1.json",
+      "sha256": "990a9b06e9e57a8445d328d76be8f1415576d7de27207c62583628e686b2d6a0",
+      "result": "FAIL"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-okhttp-parent-20261101T170633366Z.json",
+      "sha256": "9cf5e38d2ffdec73230df93d808f2769096db832b8f518e7230c4c34bbdb7200",
+      "result": "FAIL"
+    }
+  ],
+  "nativeCommandAfterExplicitGrantFromRepositoryRoot": ". .\\contoso-corr-poc\\tools\\java\\Use-Portable.ps1; $report = \".\\contoso-corr-poc\\services\\security-core\\docs\\av23-java-header-isolation-$([guid]::NewGuid().ToString()).json\"; node .\\contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs --isolated-transport --retry-control --report $report",
+  "nativeRequiredControls": [
+    "fresh current TARGET JAR and actual USED wrapper/SDK origin, artifact, member and original child PID binding",
+    "positive production JWKS and MI receipts and all seven forbidden headers absent on every physical attempt",
+    "logical sends measured separately from physical wire attempts with actual 503 retry evidence",
+    "raw unfiltered OkHttp native context/interceptor presence retained as an explicit negative control",
+    "active existing provider, immutable current guard and trusted JDK trace/business propagation plus parent advancement",
+    "no ineffective instrumentation-disable switch, header bit repair, masking, additional provider or fabricated receipt"
+  ],
+  "exportedIdentityClientSpanCount": "NOT_COUNTED_BY_HEADER_WIRE_PROBE",
+  "externalBlockers": [
+    "parent fresh source/build A capture after changed production/test source",
+    "separately granted current-artifact native B without the obsolete flag",
+    "both original R2/R5 current-source and native reviews",
+    "separate unused-module lineage, full telemetry completeness and Azure acceptance"
+  ],
+  "r8WriterState": "HOLD_AFTER_THIS_SOURCE_FREEZE_NO_MAVEN_NATIVE_INSTALL_TARGET_ROOT_OR_BB_WRITES"
+}

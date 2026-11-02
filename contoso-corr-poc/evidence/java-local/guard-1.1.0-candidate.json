@@ -1,0 +1,22 @@
+{
+  "schema": "contoso.java-guard-candidate.v1",
+  "state": "CANDIDATE_QUALIFICATION_READY",
+  "generatedAtUtc": "2026-11-01T09:02:07.4445158Z",
+  "gav": "com.contoso:contoso-parent-safe-sampler:1.1.0",
+  "path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+  "sha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "sdkAbi": "1.65.0",
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "unitTests": 11,
+  "unitFailures": 0,
+  "coreFocusedTests": 29,
+  "coreFocusedFailures": 0,
+  "compilerSdkScope": "provided-only-approved-trace-common-spi",
+  "bundledSdkClasses": 0,
+  "singleSpi": true,
+  "actualNewLoaderQualification": "PENDING CONSUMER NATIVE RETAKE",
+  "actualNewLinked00Qualification": "PENDING R5 PRODUCER/CONSUMER RETAKE",
+  "actualNewIdentityWire": "PENDING R8 CANDIDATE TRANSPORT RETAKE",
+  "certified": false,
+  "frozenBytes": true
+}

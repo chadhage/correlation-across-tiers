@@ -1,0 +1,27 @@
+{
+  "schema": "contoso.qualification-preservation.v1",
+  "ownerRole": "R5",
+  "preserverRole": "R9",
+  "qualificationSha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+  "artifactFile": "extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+  "artifactSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "guardArtifactVersion": "1.1.0",
+  "expectedGuardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "sources": [
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java",
+      "sha256": "e7cc01d773868dbb9edbe1c37053fa738631d38a284d691dc2378fae219cb348"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+      "sha256": "c1a95ae769a4086c9fcfc9b72abf4b16857cd4995067877e6bb7eabd5d5e41bf"
+    }
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "ownerExecutedLocalNativeRetake": true,
+  "r9IndependentRetake": false,
+  "scope": "Actual R5 closed local SDK/provider carriers/H2 decision and native export slice; NOT Azure/AV23/all-role/full-path/global privacy",
+  "azureNativeAcceptance": "NOT RUN",
+  "globalTelemetrySafetyVerified": false,
+  "oldFailureSha256": "b81339a200aeafd21ee062dfdbcb29e20445abd2da36b26b326b11311d2c614e"
+}

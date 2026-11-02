@@ -1,0 +1,132 @@
+{
+  "schema": "contoso.r8-native-client-source-freeze.v1",
+  "readiness": "TEST_SOURCE_CPU_READY_FOR_EXPLICIT_NATIVE_GRANT",
+  "mode": "header_isolation_only",
+  "headerPolicyVersion": 1,
+  "nativeReportSchema": "contoso.av23-java-wire.v3",
+  "clientOutputSchema": "contoso.identity-client-output.v1",
+  "apiReady": false,
+  "certification": "NOT_CERTIFIED",
+  "realIdentityClientSpanCounts": null,
+  "realIdentityClientSpanCountDisposition": "UNKNOWN_UNTIL_ACTUAL_NEW_NATIVE_CAPTURE",
+  "newCollectorNativeExecution": "NOT_EXECUTED",
+  "productionModuleRebuiltByR8": false,
+  "productionSourceChanged": false,
+  "productionScope": {
+    "expectedJarSha256": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+    "parentSourceBuildWitnessSha256": "72e632c0820259bbdb1a06eb6c66ef441ec161c577bd913f7469891154bf8b1e",
+    "r8ReadTargetsDuringThisPreparation": false,
+    "oldCompleteTestSourceClosureExtendedToChangedProbe": false,
+    "nextTestProbeCompileBinding": "SEPARATE_ACTUAL_COMPILER_PID_TOOL_TIME_SOURCE_CLASS_ORIGIN_MEMBER_SCOPE"
+  },
+  "validation": {
+    "kind": "SOURCE_CPU_ONLY",
+    "allOwnedNodeTests": 37,
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0,
+    "nativeCollectorCpuTests": 7,
+    "focusedCollectorAndExistingCheckerTests": 13,
+    "helperSyntax": "PASS",
+    "ownedDiffWhitespace": "PASS",
+    "sixOwnedSourceFileSecretScan": "PASS_ZERO_FINDINGS_SOURCE_MODE",
+    "sourceScanIsFullRepositoryHistoryOrEvidenceSafety": false,
+    "javaProbeCompile": "PENDING_EXPLICIT_NATIVE_GRANT",
+    "commandFromRepositoryRoot": "node --test .\\contoso-corr-poc\\tests\\security\\native-identity-client.test.mjs .\\contoso-corr-poc\\tests\\security\\av23-check.test.mjs .\\contoso-corr-poc\\tests\\security\\repository.test.mjs .\\contoso-corr-poc\\tests\\security\\identifiers.test.mjs .\\contoso-corr-poc\\tests\\security\\telemetry.test.mjs"
+  },
+  "changedSourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\security\\native-identity-client.mjs",
+      "sha256": "8166b4d3d7485d069aea69f717a0b046e67c6e0d19d140f3705635231eed5195"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "5b486c0d0f4d7693be7ea3f8691abf757cebb87c33f36cd5acd4c320ac39d279"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\security\\native-identity-client.test.mjs",
+      "sha256": "a3925f4374cc44e1d702403d666eafddbdc61744f3be797516426bc016c5f14a"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+      "sha256": "da3363eee98e544e05cd65fe6b20ae18327ff7e898b13e1e20b4c80bfc2df1b6"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\AV23.md",
+      "sha256": "067cfc245bebbd5a82d53daa68d61e6e7d462fdf10d12c0fc686774134b2dcc7"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\README.md",
+      "sha256": "5f077bb5fff1f362783aae2a253ad3432df2f3659ad2a0c9e66098acf47a33a3"
+    }
+  ],
+  "importedPureSourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    }
+  ],
+  "unchangedProductionSourcesFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\pom.xml",
+      "sha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c"
+    }
+  ],
+  "immutablePriorEpochsFromRepositoryRoot": [
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\header-isolation-source-freeze.v1.json",
+      "sha256": "0ac7fff03e9f18f66e40c1a3724e09075320255f9d709c47843c9765f7d95222",
+      "scope": "PRIOR_HEADER_HELPER_SOURCE_NOT_THIS_CHANGED_TEST_HELPER"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-header-isolation-parent-20261101T174453438Z.json",
+      "sha256": "6a2cb691070e4c6c30378fd578877c819fd82d35048d054e41c6347a28162cfd",
+      "scope": "ACTUAL_FINITE_HEADER_PASS_IDENTITY_CLIENT_COUNT_NOT_MEASURED"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-isolated-1.1.0.v1.json",
+      "sha256": "990a9b06e9e57a8445d328d76be8f1415576d7de27207c62583628e686b2d6a0",
+      "result": "FAIL"
+    },
+    {
+      "path": "contoso-corr-poc\\services\\security-core\\docs\\av23-java-okhttp-parent-20261101T170633366Z.json",
+      "sha256": "9cf5e38d2ffdec73230df93d808f2769096db832b8f518e7230c4c34bbdb7200",
+      "result": "FAIL"
+    }
+  ],
+  "parserReuse": {
+    "localCliReferenceNotImported": "tools\\observability\\probe-parent-safe.mjs:62-103",
+    "pattern": "bounded JSON/single-array/NDJSON/gzip; ORIGINAL recursive field/string privacy scan before whitelist projection",
+    "actualHttpTypeEvidence": "Http observed in preserved evidence\\java-local\\native-api-capture.json and independently reported R7 actual3.7.10 receiver output",
+    "nativeTypePreservedNotCaseNormalized": true,
+    "absoluteOriginalUrlShape": "UNVERIFIED_UNTIL_GRANTED_CAPTURE_STRICT_MATCH_OR_FAIL_NO_EXPECTED_NAME_BACKFILL"
+  },
+  "requiredNativeControls": [
+    "actual native HTTP JWKS and MI outputs with positive separate counts",
+    "original actual native IDs/parent/trace/role/time and direct-parent equality to measured in-app root SpanContext",
+    "actual CLIENT exports, logical SDK sends and physical wire retries counted separately, never forced equal",
+    "all previous production seven-header absence, raw native negative, trusted JDK parent advancement, current guard and used-client PID/artifact/member checks",
+    "separately compiled test probe actual tool/PID/time/source/member/origin and before-after stability",
+    "bounded original native payload scanning/projection in memory only, no raw URLs/targets/queries/iKey/headers/tokens/body persisted",
+    "missing, malformed, partial, unsafe, duplicate, wrong-root or unsupported native output must fail or remain unverified"
+  ],
+  "nativeCommandAfterExplicitGrantFromRepositoryRoot": ". .\\contoso-corr-poc\\tools\\java\\Use-Portable.ps1; $report = \".\\contoso-corr-poc\\services\\security-core\\docs\\av23-java-client-output-$([guid]::NewGuid().ToString()).json\"; node .\\contoso-corr-poc\\tools\\security\\Run-JavaAuthPropagationProbe.mjs --isolated-transport --retry-control --report $report",
+  "fullExporterCompletenessVerified": false,
+  "globalTelemetrySafetyVerified": false,
+  "unusedModuleLineageVerified": false,
+  "externalBlockers": [
+    "explicit parent current test-only compile/native window",
+    "actual combined header and identity CLIENT output capture",
+    "original R2/R5 current-source and native-scope reviews",
+    "independent producer authority, broader native graph and Azure acceptance remain separate"
+  ],
+  "r8WriterState": "STOPPED_AFTER_SOURCE_FREEZE_NO_NATIVE_MAVEN_INSTALL_TARGET_ROOT_OR_PRODUCTION_WRITES"
+}

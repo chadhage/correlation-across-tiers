@@ -63,6 +63,16 @@
         "executable": { "type": "string" },
         "sha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
         "arguments": { "type": "array", "items": { "type": "string" } },
+        "codeFiles": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+            "properties": {
+              "path": { "type": "string" },
+              "sha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" }
+            }
+          }
+        },
         "capability": { "enum": ["read-only", "local-write", "azure-write"] }
       }
     }

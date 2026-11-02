@@ -26,8 +26,14 @@ flowchart LR
   aggregator_result["Contoso Aggregator result PROCESS<br/>CONSUMER"]
   aggregator_batch["Contoso mixed-context batch<br/>CONSUMER"]
   aggregator_fanin["Contoso fan-in aggregation<br/>INTERNAL"]
-  aggregator_replay["Contoso authorized replay coordination<br/>INTERNAL"]
-  orders_replay_send["Contoso replay SEND<br/>PRODUCER"]
+  aggregator_batch_item["Contoso Event Hubs item PROCESS<br/>CONSUMER"]
+  fulfillment_replay_process["Contoso Fulfillment replay PROCESS<br/>CONSUMER"]
+  notify_replay_process["Contoso Notification replay PROCESS<br/>CONSUMER"]
+  fulfillment_replay_send["Contoso Fulfillment replay SEND<br/>PRODUCER"]
+  notify_replay_send["Contoso Notification replay SEND<br/>PRODUCER"]
+  fulfillment_rejected["Contoso Fulfillment rejected PROCESS<br/>CONSUMER"]
+  notify_rejected["Contoso Notification rejected PROCESS<br/>CONSUMER"]
+  aggregator_rejected["Contoso Aggregator rejected PROCESS<br/>CONSUMER"]
   storefront_http -->|parent| gateway_request
   portal_request -->|parent| portal_gateway
   portal_gateway -->|parent| gateway_request
@@ -51,8 +57,15 @@ flowchart LR
   fulfillment_result -.->|link| aggregator_fanin
   notify_result -.->|link| aggregator_fanin
   orders_eventhubs_send -.->|link| aggregator_batch
-  orders_servicebus_send -.->|link| aggregator_replay
-  aggregator_replay -.->|link| orders_replay_send
+  aggregator_batch -->|parent| aggregator_batch_item
+  orders_servicebus_send -.->|link| fulfillment_replay_process
+  orders_servicebus_send -.->|link| notify_replay_process
+  orders_servicebus_send -.->|link| fulfillment_replay_send
+  orders_servicebus_send -.->|link| notify_replay_send
+  orders_storage_send -.->|link| fulfillment_replay_process
+  orders_storage_send -.->|link| fulfillment_replay_send
+  fulfillment_replay_send -->|parent| fulfillment_process
+  notify_replay_send -->|parent| notify_process
   Entra["Microsoft Entra authentication"]
   Vault["Contoso Key Vault references / HMAC storage"]
   Appi["Contoso Application Insights"]
@@ -73,8 +86,27 @@ PostgreSQL and Redis nodes are CLIENT operations, not database server continuati
 - portal.request: A document render and browser page telemetry are distinct roots unless context is actually propagated.
 - aggregator.fanin: Complete persisted contributors are links; arrival order never selects a parent.
 - aggregator.batch: Mixed-message contexts are bounded links; the first message is never parent.
-- aggregator.replay: Replay is new linked work, not continuation of an active ancient parent.
-- orders.replay.send: Durable replay/outbox dispatch links its authorized predecessor.
+- fulfillment.result: The result SEND is a new root linked to the persisted actual Fulfillment PROCESS context.
+- notify.result: The result SEND is a new root linked to the persisted actual Notification PROCESS context.
+- fulfillment.replay.process: The actual Fulfillment identity processes its requested DLQ source as new work linked to the original context.
+- notify.replay.process: The actual Notification identity processes its requested DLQ source as new work linked to the original context.
+- fulfillment.replay.send: The owning Fulfillment outbox starts new SEND work linked to the original publication context, not an invented Orders actor.
+- notify.replay.send: The owning Notification outbox starts new SEND work linked to the original publication context, not an invented Orders actor.
+
+## Conditional A03 root candidates
+
+These are not unconditional parent-edge exemptions. R7/R9 must verify a separately source-bound native trust-root receipt, actual null parent and real native IDs before accepting an edge break.
+Policy deletion, a caller label, valid context with invalid state, or business-ID replacement is not such a receipt.
+
+- gateway.request: absent, duplicate, invalid; native receipt required.
+- orders.request: absent, invalid; native receipt required.
+- inventory.request: absent, invalid; native receipt required.
+- fulfillment.process: ABSENT, INVALID_CONTEXT; native receipt required.
+- notify.process: ABSENT, INVALID_CONTEXT; native receipt required.
+- aggregator.batch.item: ABSENT, INVALID_CONTEXT; native receipt required.
+- fulfillment.rejected: UNTRUSTED_PUBLICATION, INVALID_ENVELOPE, INVALID_CARRIER, ENVELOPE_TOO_LARGE; native receipt required.
+- notify.rejected: UNTRUSTED_PUBLICATION, INVALID_ENVELOPE, INVALID_CARRIER, ENVELOPE_TOO_LARGE; native receipt required.
+- aggregator.rejected: UNTRUSTED_PUBLICATION, INVALID_CARRIER, INVALID_ENVELOPE, ENVELOPE_TOO_LARGE; native receipt required.
 
 ## Transport and trust limits
 

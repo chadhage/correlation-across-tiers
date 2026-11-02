@@ -1,0 +1,41 @@
+[
+  {
+    "name": "RemoteDependency",
+    "time": "2026-11-01T23:46:16.901Z",
+    "tags": {
+      "ai.operation.id": "9920ef0e4172c6883addb00ea35b2b30",
+      "ai.operation.parentId": "4236983aa2981f48",
+      "ai.cloud.role": "contoso-parent-safe-probe"
+    },
+    "data": {
+      "baseType": "RemoteDependencyData",
+      "baseData": {
+        "id": "0471fe9523337617",
+        "name": "GET /echo",
+        "duration": "00:00:00.100052",
+        "resultCode": "200",
+        "success": true,
+        "type": "Http"
+      }
+    }
+  },
+  {
+    "name": "Request",
+    "time": "2026-11-01T23:46:16.851Z",
+    "tags": {
+      "ai.operation.id": "9920ef0e4172c6883addb00ea35b2b30",
+      "ai.operation.parentId": "53203239a8f2c3e8",
+      "ai.cloud.role": "contoso-parent-safe-probe"
+    },
+    "data": {
+      "baseType": "RequestData",
+      "baseData": {
+        "id": "4236983aa2981f48",
+        "name": "contoso.parent-safe.probe.server",
+        "duration": "00:00:00.158038",
+        "responseCode": "0",
+        "success": true
+      }
+    }
+  }
+]

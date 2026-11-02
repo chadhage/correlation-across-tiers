@@ -1,0 +1,43 @@
+{
+  "schema": "contoso.parent-okhttp-epoch-preservation.v1",
+  "recordedByRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "sourceKind": "parent-authorized-build-and-native-local-observation",
+  "originalA": {
+    "path": "C:\\Users\\chhage\\.copilot\\session-state\\3de83ad7-93ef-4788-aee8-de78a568fd0d\\files\\build-witness\\20261101T170346723Z-security-1ecce551-7fc1-4af3-a2a2-005b581124ed\\source-build.json",
+    "sha256": "67fbfe6710cb1d1d0e80b2c5c5e21f173c23b9bc680cb49dd5f3e4caed69cb0d",
+    "executionId": "b887006a-62e1-427b-aaba-e76beec39a6f",
+    "tests": 32,
+    "result": "PASS",
+    "sourceBeforeAfterEqual": true,
+    "installed": "NOT_INSTALLED"
+  },
+  "originalB": {
+    "path": "services\\security-core\\docs\\av23-java-okhttp-parent-20261101T170633366Z.json",
+    "sha256": "9cf5e38d2ffdec73230df93d808f2769096db832b8f518e7230c4c34bbdb7200",
+    "pid": 44052,
+    "processStartUtc": "2026-11-01T17:06:35.195Z",
+    "capturedAtUtc": "2026-11-01T17:06:42.139Z",
+    "result": "FAIL",
+    "exitCode": 0,
+    "logicalIdentitySends": 2,
+    "physicalIdentityAttempts": 3
+  },
+  "finiteFindings": {
+    "productionJwks1Mi2All7HeadersAbsent": true,
+    "trustedJdkParentAdvance": true,
+    "wrapperAndObservedSdkOriginMatchA2Package": true,
+    "rawUnfilteredTransportTraceparentPresent": true,
+    "nativeTracingInterceptorPresent": true,
+    "upstreamExclusionHonoring": "FAILED_OR_UNSUPPORTED_UNDER_CURRENT_AGENT",
+    "overallAuthPredicate": false,
+    "apiReady": false
+  },
+  "limits": [
+    "Read-only witnessed source/build/file/observed-class consistency only; private verifier execution lineage C not minted from JSON/hashes",
+    "Finite security-only build/use; no installedM2/Core/inventory/workers/fullrole/Azure inference",
+    "Rawcontrol cannotbesilentlygreen; USERdecisionneededbeforecontractscopechanges",
+    "FirstfailedAcollector original preserved separately/no retrofill"
+  ],
+  "writerStatus": "HOLD source/helper/POM/BB/targets/native/no rerun pending parent USERdecision"
+}

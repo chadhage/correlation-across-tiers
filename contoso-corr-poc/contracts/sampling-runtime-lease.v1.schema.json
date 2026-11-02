@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:contoso:sampling-runtime-lease:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runId", "layerId", "revision", "startsAtUtc", "expiresAtUtc", "drainAtUtc", "restoreDeadlineUtc", "ownedConfigSha256", "baselineOwnedConfigSha256", "hashAlgorithm", "ownedConfiguration", "guard"],
+  "properties": {
+    "schema": { "const": "contoso.sampling-runtime-lease.v1" },
+    "runId": { "type": "string", "format": "uuid" },
+    "layerId": { "type": "string", "pattern": "^contoso-[a-z0-9-]+$" },
+    "revision": { "type": "string", "pattern": "^cert-[a-f0-9-]{36}$" },
+    "startsAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "expiresAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "drainAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "restoreDeadlineUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "ownedConfigSha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+    "baselineOwnedConfigSha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+    "hashAlgorithm": { "const": "contoso.canonical-json.sha256.v1" },
+    "ownedConfiguration": { "type": "object" },
+    "guard": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["sha256", "providerClass", "sdkAbi", "version", "policy"],
+      "properties": {
+        "sha256": { "type": "string", "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+        "providerClass": { "const": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer" },
+        "sdkAbi": { "const": "1.65.0" },
+        "version": { "const": "1.1.0" },
+        "policy": { "const": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS" }
+      }
+    }
+  },
+  "description": "Immutable startup/restart lease, not authentication, native configuration proof or certification. Semantic validation checks canonical owned hash and absolute admission/drain/restore bounds."
+}

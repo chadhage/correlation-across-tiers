@@ -1,7 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { HASH, TRACE, SPAN, UUID, sha256, requireUtc, validateBoundaryMap } from './telemetry-contract.mjs';
+import { HASH, TRACE, SPAN, UUID, sha256, requireUtc, validateBoundaryMap, ownedConfigurationHash } from './telemetry-contract.mjs';
+import { requireVerifiedTrustRootBindings } from '../verification/pipeline.mjs';
 
 const project = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const rootMapPath = join(project, 'contracts', 'expected-boundary-map.v1.json');
@@ -12,6 +13,30 @@ const table = (columns, rows) => `datatable(${columns})[\n${rows.map(row => row.
 export async function loadRootMap() {
   const bytes = await readFile(rootMapPath);
   return { map: validateBoundaryMap(JSON.parse(bytes.toString('utf8'))), mapSha256: sha256(bytes), path: rootMapPath };
+}
+
+export function conditionalRootPolicies(map) {
+  validateBoundaryMap(map);
+  const boundaries = new Set(map.spans.map(value => value.id));
+  const deliberate = new Set((map.deliberateRoots ?? []).map(value => value.boundary));
+  const seen = new Set();
+  const keys = ['boundary', 'allowedDispositions', 'policyRef', 'receiptType', 'parentMustBeNull', 'sourceProofRequired'];
+  const dispositions = new Set(['absent', 'duplicate', 'invalid', 'ABSENT', 'INVALID_CONTEXT',
+    'UNTRUSTED_PUBLICATION', 'INVALID_ENVELOPE', 'INVALID_CARRIER', 'ENVELOPE_TOO_LARGE']);
+  if (map.conditionalRoots !== undefined && !Array.isArray(map.conditionalRoots)) throw new TypeError('Invalid conditional-root map');
+  return (map.conditionalRoots ?? []).map(rule => {
+    if (!rule || Object.keys(rule).some(key => !keys.includes(key)) || keys.some(key => !Object.hasOwn(rule, key)) ||
+        !boundaries.has(rule.boundary) || deliberate.has(rule.boundary) || seen.has(rule.boundary) ||
+        typeof rule.policyRef !== 'string' || !rule.policyRef.trim() || rule.policyRef.length > 512 ||
+        rule.receiptType !== 'source-bound-native-trust-root' || rule.parentMustBeNull !== true ||
+        rule.sourceProofRequired !== true || !Array.isArray(rule.allowedDispositions) || !rule.allowedDispositions.length ||
+        new Set(rule.allowedDispositions).size !== rule.allowedDispositions.length ||
+        rule.allowedDispositions.some(value => !dispositions.has(value))) {
+      throw new TypeError('Conditional roots require exact source policy, bounded dispositions and native null-parent proof');
+    }
+    seen.add(rule.boundary);
+    return rule;
+  });
 }
 
 export function compileBoundaryBindings(map, assignments = [], proofs = []) {
@@ -26,8 +51,11 @@ export function compileBoundaryBindings(map, assignments = [], proofs = []) {
     return [value.traceId, value.spanId, value.boundaryId, value.evidenceSha256];
   });
   const roots = new Set(map.deliberateRoots.map(value => value.boundary));
+  const conditional = conditionalRootPolicies(map);
+  const candidates = new Set(conditional.map(value => value.boundary));
   const boundaries = map.spans.map(value => [value.id, value.roleName, value.semanticKind,
-    roots.has(value.id) ? 'root' : map.edges.some(edge => edge.to === value.id && edge.type === 'parent') ? 'parent' : 'unspecified',
+    roots.has(value.id) ? 'root' : candidates.has(value.id) ? 'conditional'
+      : map.edges.some(edge => edge.to === value.id && edge.type === 'parent') ? 'parent' : 'unspecified',
     JSON.stringify(map.edges.filter(edge => edge.to === value.id && edge.type === 'parent').map(edge => edge.from))]);
   const proofKeys = new Set();
   const proofRows = proofs.map(value => {
@@ -46,8 +74,64 @@ export function compileBoundaryBindings(map, assignments = [], proofs = []) {
   return {
     Assignments: table('AssignedTrace:string,AssignedSpan:string,BoundaryId:string,AssignmentEvidence:string', assigned),
     BoundaryMap: table('BoundaryId:string,ExpectedRole:string,ExpectedKind:string,ParentMode:string,AllowedParentsJson:string', boundaries),
+    ConditionalRootPolicies: table('BoundaryId:string,ConditionalPolicyRef:string,AllowedRootDispositionsJson:string,RequiredRootReceiptType:string',
+      conditional.map(rule => [rule.boundary, rule.policyRef, JSON.stringify(rule.allowedDispositions), rule.receiptType])),
     ReferenceProofs: table('ChildTrace:string,ChildSpan:string,TargetTrace:string,TargetSpan:string,Relation:string,ProvenClass:string,ReferenceEvidence:string', proofRows)
   };
+}
+
+const emptyConditionalProofs = () => table(
+  'ConditionalTrace:string,ConditionalSpan:string,ConditionalBoundary:string,ConditionalRole:string,RootDisposition:string,RootPolicyRef:string,RootEvidence:string,CarrierEvidence:string,RootSourceEvidence:string', []);
+
+export function compileVerifiedConditionalRootBindings(map, capability, { rows, mode } = {}) {
+  const bindings = requireVerifiedTrustRootBindings(capability, { map, rows, mode });
+  if (bindings.schema !== 'contoso.verified-trust-root-bindings.v1' ||
+      bindings.mapSha256 !== ownedConfigurationHash(map) || bindings.mode !== mode ||
+      bindings.checkerOnly !== false || bindings.actualSourceVerified !== true ||
+      bindings.nativeRuntimeCarrierObserverEnrolled !== true) {
+    throw new TypeError('Conditional roots remain unverified without native runtime/carrier enrollment; checker-only bindings cannot waive parents');
+  }
+  const rules = new Map(conditionalRootPolicies(map).map(rule => [rule.boundary, rule]));
+  const seen = new Set();
+  const roots = bindings.roots.map(root => {
+    const rule = rules.get(root.boundaryId);
+    const boundary = map.spans.find(value => value.id === root.boundaryId);
+    const locator = root.sourceLocator;
+    const key = `${root.traceId}:${root.spanId}`;
+    if (!rule || !boundary || root.parentSpanId !== null || root.roleName !== boundary.roleName ||
+        root.policyRef !== rule.policyRef || !rule.allowedDispositions.includes(root.disposition) ||
+        !TRACE.test(root.traceId ?? '') || !SPAN.test(root.spanId ?? '') || seen.has(key) ||
+        !HASH.test(root.rootEvidenceSha256 ?? '') || !HASH.test(root.carrierEvidenceSha256 ?? '') ||
+        !HASH.test(root.nativeRowSha256 ?? '') || !locator?.captureId ||
+        !['AppRequests', 'AppDependencies', 'requests', 'dependencies'].includes(locator.nativeTable) ||
+        !Number.isInteger(locator.rowOrdinal) || locator.rowOrdinal < 0) {
+      throw new TypeError('Native conditional root binding differs from its exact policy, parent, role or source row');
+    }
+    seen.add(key);
+    return [root.traceId, root.spanId, root.boundaryId, root.roleName, root.disposition, root.policyRef,
+      root.rootEvidenceSha256, root.carrierEvidenceSha256, ownedConfigurationHash(locator)];
+  });
+  return table(
+    'ConditionalTrace:string,ConditionalSpan:string,ConditionalBoundary:string,ConditionalRole:string,RootDisposition:string,RootPolicyRef:string,RootEvidence:string,CarrierEvidence:string,RootSourceEvidence:string', roots);
+}
+
+export function compileViewContextBindings(proofs = []) {
+  const keys = new Set();
+  const rows = proofs.map(proof => {
+    const locator = proof.sourceLocator;
+    const key = `${proof.traceId}:${proof.nativeViewId}:${proof.roleName}`;
+    if (!TRACE.test(proof.traceId ?? '') || !SPAN.test(proof.contextSpanId ?? '') ||
+        typeof proof.nativeViewId !== 'string' || !proof.nativeViewId || proof.nativeViewId.length > 256 ||
+        !/^contoso-[a-z0-9-]+$/.test(proof.roleName ?? '') || !HASH.test(proof.evidenceSha256 ?? '') ||
+        proof.observed !== true || proof.observationKind !== 'sdk-context-and-outbound-carrier' ||
+        !locator?.captureId || !['AppPageViews', 'pageViews'].includes(locator.nativeTable) ||
+        !Number.isInteger(locator.rowOrdinal) || locator.rowOrdinal < 0 || keys.has(key)) {
+      throw new TypeError('Browser context requires separately source-located actual SDK/carrier evidence');
+    }
+    keys.add(key);
+    return [proof.traceId, proof.nativeViewId, proof.roleName, proof.contextSpanId, proof.evidenceSha256];
+  });
+  return table('ContextTrace:string,NativeViewId:string,ContextRole:string,ContextSpan:string,ContextEvidence:string', rows);
 }
 
 function nativeSource(schema) {
@@ -88,7 +172,7 @@ let Records = NativeRecords
 | extend SpanId=iff(RecordKind=="span",CanonicalId(RawId,TraceId,RoleName),""),
          ParentSpanId=iff(RecordKind=="span",CanonicalId(RawParentId,TraceId,RoleName),""),
          AssociatedSpanId=iff(RecordKind in ("log","exception","event"),CanonicalId(RawParentId,TraceId,RoleName),""),
-         ViewId=iff(RecordKind=="view",CanonicalId(RawId,TraceId,RoleName),""),
+         ViewId=iff(RecordKind=="view",RawId,""),
          InvocationId=tostring(NativeProperties["business.invocation_id"]),
          LinksText=tostring(NativeProperties["_MS.links"])
 | extend Links=iff(RecordKind=="span" and isnotempty(LinksText),parse_json(LinksText),dynamic([])),
@@ -110,7 +194,14 @@ export async function renderKql(procedure, parameters) {
   if (procedure === 'business-lookup' && !UUID.test(parameters.invocationId ?? '')) throw new TypeError('Trusted canonical UUIDv4 required');
   const { map, mapSha256 } = await loadRootMap();
   if (parameters.boundaryMapSha256 && parameters.boundaryMapSha256 !== mapSha256) throw new TypeError('Root boundary-map drift');
+  if (parameters.conditionalRootProofs !== undefined || parameters.conditionalRootBindings !== undefined) {
+    throw new TypeError('Caller conditional-root JSON cannot replace private verified native bindings');
+  }
   const bindings = compileBoundaryBindings(map, parameters.assignments, parameters.referenceProofs);
+  const conditionalProofs = parameters.verifiedGraphCapability === undefined ? emptyConditionalProofs()
+    : compileVerifiedConditionalRootBindings(map, parameters.verifiedGraphCapability, {
+      rows: parameters.verifiedGraphRows, mode: parameters.verificationMode
+    });
   if (parameters.compositeMappingApproved && !HASH.test(parameters.serializationEvidenceSha256 ?? '')) throw new TypeError('Serialization proof required');
   const compositeRoles = parameters.compositeMappingApproved ? parameters.compositeRoleNames : [];
   if (!Array.isArray(compositeRoles) || (parameters.compositeMappingApproved && compositeRoles.length === 0) ||
@@ -126,7 +217,9 @@ export async function renderKql(procedure, parameters) {
     TraceId: quote(parameters.traceId ?? ''), InvocationId: quote(parameters.invocationId ?? ''),
     CompositeApproved: String(parameters.compositeMappingApproved === true),
     WorkspaceTelemetry: nativeSource('workspace'), LegacyTelemetry: nativeSource('legacy'),
-    CanonicalProjection: `let compositeRoles=dynamic(${JSON.stringify(compositeRoles)});\n${canonical}`, ...bindings
+    CanonicalProjection: `let compositeRoles=dynamic(${JSON.stringify(compositeRoles)});\n${canonical}`,
+    ViewContexts: compileViewContextBindings(parameters.viewContextProofs ?? []), ...bindings,
+    ConditionalRootProofs: conditionalProofs
   };
   const path = join(project, 'kql', ...(parameters.schema === 'legacy' ? ['legacy'] : []), `${procedure}.kql`);
   const template = await readFile(path, 'utf8');

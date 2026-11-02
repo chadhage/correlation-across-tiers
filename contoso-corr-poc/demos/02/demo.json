@@ -1,0 +1,5 @@
+{
+  "schema": "contoso.demo.v1",
+  "demoId": "02",
+  "catalog": "..\\catalog.json"
+}

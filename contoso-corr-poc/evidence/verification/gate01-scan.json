@@ -1,0 +1,21 @@
+{
+  "gateId": "GATE-01",
+  "codePassed": true,
+  "scannedFiles": 225,
+  "findings": [],
+  "sourcePin": {
+    "sdkVersion": "3.4.5",
+    "enumName": "eDistributedTracingModes.W3C_TRACE",
+    "enumValue": 18,
+    "sourceSha256": "2ddecab74cebebbb36be69e03f9b4ad92f7b97a21011a7671d048148b5e842d9"
+  },
+  "liveAcceptance": {
+    "strictSampled00": "To Do",
+    "gatewayWireParentage": "To Do",
+    "loggerIngestion": "To Do",
+    "captureTiming": "To Do",
+    "nativeUrlPrivacy": "To Do"
+  },
+  "sourceAcceptanceIsCertification": false,
+  "executedAtUtc": "2026-11-01T06:21:49.259Z"
+}

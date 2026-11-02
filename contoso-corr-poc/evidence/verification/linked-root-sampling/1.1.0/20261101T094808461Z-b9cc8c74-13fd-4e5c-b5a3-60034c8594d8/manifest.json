@@ -1,0 +1,15 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "owner-executed-local-agent-qualified-slice",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "qualification.json",
+      "sha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd"
+    },
+    {
+      "path": "source-receipt.json",
+      "sha256": "3eeb0950cde5d407ad0771c0a9b6f2f2f8047c975e1077a7ae40576fe6832a8a"
+    }
+  ]
+}

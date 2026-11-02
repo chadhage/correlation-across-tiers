@@ -1,0 +1,41 @@
+{
+  "schema": "contoso.local-junit-execution.v1",
+  "ownerRole": "R5",
+  "preserverRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "sourceKind": "preserved-original-local-junit-execution",
+  "originalXmlPath": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+  "originalXmlSha256": "892ff2f70e9412b00247dea58b47f3fc9fdd061e77d0f6b741f515c615520c85",
+  "observedXmlMtimeUtc": "2026-11-01T09:41:33.009Z",
+  "testSuite": "com.contoso.messaging.LinkedRootSamplingTest",
+  "testMethod": "keepRequired00RootsUnsampledAndDelegate01MixedAndUnlinkedToExistingProvider",
+  "testClass": "com.contoso.messaging.LinkedRootSamplingTest",
+  "tests": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "durationSeconds": 34.54,
+  "scope": "Actual closed local algorithm against recorded compiled classpath; source/build/loaded-code lineage UNVERIFIED",
+  "sourceExecutionBinding": "UNVERIFIED",
+  "runtimeBinaries": [
+    {
+      "file": "contoso-correlation-core-1.0.0.jar",
+      "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\contoso-correlation-core\\1.0.0\\contoso-correlation-core-1.0.0.jar",
+      "postExecutionFileSha256": "df944cd85ee8309d2f279ab12bb540edf115e368f103f1338ebffab0bec4a9e3",
+      "loadedCodeSourceVerified": false,
+      "sourceBuildLineage": "UNVERIFIED"
+    },
+    {
+      "file": "inventory-data-1.0.0.jar",
+      "classpathPath": "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\com\\contoso\\inventory-data\\1.0.0\\inventory-data-1.0.0.jar",
+      "postExecutionFileSha256": "b7a6cfc9a5bd5c1b146d9c8c7ecd03782a6cb365774f7c7bfafbe5ad11282529",
+      "loadedCodeSourceVerified": false,
+      "sourceBuildLineage": "UNVERIFIED"
+    }
+  ],
+  "rawXmlRetained": false,
+  "qualificationSha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
+  "apiReady": false,
+  "azureAcceptance": "NOT RUN"
+}

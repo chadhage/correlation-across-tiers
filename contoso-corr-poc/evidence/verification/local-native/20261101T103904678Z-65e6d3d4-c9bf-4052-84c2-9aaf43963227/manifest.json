@@ -1,0 +1,13 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "real-local-agent-loopback",
+  "sourceAcceptanceIsCertification": false,
+  "startedAtUtc": "2026-11-01T10:38:39.967Z",
+  "finishedAtUtc": "2026-11-01T10:39:04.675Z",
+  "files": [
+    {
+      "path": "result.json",
+      "sha256": "5e23227475ba68af6d24516f627a87eba7e62a6c944c82b3803d48438153d408"
+    }
+  ]
+}

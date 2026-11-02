@@ -1,0 +1,214 @@
+{
+  "name": "restored-on",
+  "percentage": 100,
+  "requestsPerSecond": null,
+  "pid": 29488,
+  "spiLoads": [
+    "abi=1.65.0 delegate=com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler extensionLoader=io.opentelemetry.javaagent.tooling.ExtensionClassLoader delegateLoader=io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+  ],
+  "observations": [
+    {
+      "caseId": "restored-on-sampled",
+      "traceId": "ac3dcc8a8f31d71a753c5127126113c1",
+      "parentId": "20fd36844e1bcd8d",
+      "serverSpanId": "7600d61cef4a6b4a",
+      "clientSpanId": "c2dad5b0e499c457",
+      "serverSampled": true,
+      "clientSampled": true,
+      "serverRecording": true,
+      "clientRecording": null,
+      "clientObservation": "actual-downstream-carrier",
+      "providerIdentity": 854536714,
+      "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+      "inputTraceparent": "00-ac3dcc8a8f31d71a753c5127126113c1-20fd36844e1bcd8d-01",
+      "wire": {
+        "traceparent": "00-ac3dcc8a8f31d71a753c5127126113c1-c2dad5b0e499c457-01",
+        "tracestate": "contoso=local"
+      }
+    },
+    {
+      "caseId": "restored-on-unsampled",
+      "traceId": "2a69d13d76a5ddb5660ab5ad42c51217",
+      "parentId": "0afceb0c77bea42b",
+      "serverSpanId": "7abd33e54e6f6328",
+      "clientSpanId": "1b58fe7c151d5aa7",
+      "serverSampled": false,
+      "clientSampled": false,
+      "serverRecording": false,
+      "clientRecording": null,
+      "clientObservation": "actual-downstream-carrier",
+      "providerIdentity": 854536714,
+      "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+      "inputTraceparent": "00-2a69d13d76a5ddb5660ab5ad42c51217-0afceb0c77bea42b-00",
+      "wire": {
+        "traceparent": "00-2a69d13d76a5ddb5660ab5ad42c51217-1b58fe7c151d5aa7-00",
+        "tracestate": "contoso=local"
+      }
+    }
+  ],
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "artifactVersion": "1.1.0",
+  "nativeObservation": {
+    "nativeStateAvailable": true,
+    "ownedConfiguration": {
+      "sampling.overrides": [],
+      "sampling.percentage": 100,
+      "sampling.requestsPerSecond": {
+        "$contosoAbsent": true
+      }
+    },
+    "effectiveSamplingPercentage": 100,
+    "requestsPerSecond": null,
+    "loadedCount": 1,
+    "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+    "sdkAbi": "1.65.0",
+    "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+    "artifactVersion": "1.1.0",
+    "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+    "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+    "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+    "unsampledDropCount": 0,
+    "delegateDecisionCount": 0,
+    "runtimeInstanceId": "29488",
+    "providerCount": null,
+    "exporterCount": null
+  },
+  "observationSamples": [
+    {
+      "nativeStateAvailable": true,
+      "ownedConfiguration": {
+        "sampling.overrides": [],
+        "sampling.percentage": 100,
+        "sampling.requestsPerSecond": {
+          "$contosoAbsent": true
+        }
+      },
+      "effectiveSamplingPercentage": 100,
+      "requestsPerSecond": null,
+      "loadedCount": 1,
+      "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+      "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+      "sdkAbi": "1.65.0",
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+      "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+      "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+      "unsampledDropCount": 0,
+      "delegateDecisionCount": 0,
+      "runtimeInstanceId": "29488",
+      "providerCount": null,
+      "exporterCount": null
+    }
+  ],
+  "nativeObservationHash": "a5a42133b82c79d7be37503e5636d5ce2b721cc85b3c5963e292299b96247a69",
+  "nativeSpanCount": 2,
+  "nativeSpanIds": [
+    "c2dad5b0e499c457",
+    "7600d61cef4a6b4a"
+  ],
+  "runtimeClasspath": [
+    "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\test-classes",
+    "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+    "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+    "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar"
+  ],
+  "loaderArgument": "-Dotel.javaagent.extensions=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+  "sourceKind": "real-local-agent-loopback",
+  "certificationEligible": false,
+  "originalPrivacyCapture": {
+    "schema": "contoso.native-api-safe-capture.v1",
+    "privacyPolicy": "contoso.original-native-payload.v1",
+    "validatorPid": 61536,
+    "nodeVersion": "v22.23.4",
+    "validatorSourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "verified": true,
+    "sourceAcceptanceIsCertification": false,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "certification": "NOT_CERTIFIED",
+    "actualCounts": {
+      "payloads": 2,
+      "originalRawBytes": 1075,
+      "decodedBytes": 2651,
+      "envelopes": 4
+    },
+    "payloadReceipts": [
+      {
+        "originalPayloadSha256": "3193d8175485164e72a0cb66805be9ac3d1d3bc241f61fae591e917445e72e07",
+        "originalPayloadBytes": 554,
+        "decodedPayloadBytes": 1367,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "59e5a93aa9ac261a4ab2d11e13e2a0483579491ba60751489ec0fe93b2d611e9",
+        "originalPayloadBytes": 521,
+        "decodedPayloadBytes": 1284,
+        "originalEnvelopeCount": 2,
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ]
+  },
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": false,
+    "receiverCode": null,
+    "sealed": true,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 2,
+      "parse": 2,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 0,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 2,
+      "nativePosts": 2,
+      "completedBodies": 2,
+      "rawBytesObserved": 1075,
+      "acceptedPayloads": 2,
+      "acceptedRawBytes": 1075,
+      "acceptedDecodedBytes": 2651,
+      "acceptedEnvelopes": 4
+    },
+    "firstPoison": null,
+    "lastRequest": {
+      "methodClass": "POST",
+      "routeClass": "native-v2.1-track",
+      "declaredLengthState": "in-range",
+      "declaredLength": 521,
+      "wireBytesObserved": 521
+    },
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 8,
+      "nativePosts": 2,
+      "echoGets": 2,
+      "rejectedRoutes": 4,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  }
+}

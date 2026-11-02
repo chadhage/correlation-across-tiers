@@ -1,0 +1,89 @@
+{
+  "schema": "contoso.local-conditional-failure.v2",
+  "result": "FAIL_OR_UNVERIFIED",
+  "verificationStage": "ACTUAL_RUNTIME_NATIVE_CASE_BINDING",
+  "code": "E_CONDITIONAL_EXECUTION_FAILED",
+  "bindingCase": null,
+  "diagnosticsOnly": true,
+  "authorityGranted": false,
+  "savedJsonCanEnroll": false,
+  "actualJavaPid": 24260,
+  "compilerPid": 37256,
+  "observedRuntimeRecordCount": 7,
+  "expectedRuntimeRecordCount": 7,
+  "failureArtifactState": "PUBLISHED_VALIDATED_DIAGNOSTICS_ONLY",
+  "publishedFailureArtifacts": [
+    {
+      "path": "failure-actual-cases.json",
+      "sha256": "fa36c1aa76287ec237bd3417139ff54ba97fb0900c5722d7b0f6bbeccd23c655",
+      "bytes": 16907
+    },
+    {
+      "path": "failure-native-safe-capture.json",
+      "sha256": "4c5ef55ff8b5a95f830f882068c70e3f4ac5a5f109f4a2c6c30428ce1182a73e",
+      "bytes": 16874
+    },
+    {
+      "path": "failure-input-context.json",
+      "sha256": "31cb32ed2bc3ce7cd7ff8808baa536cd593178c877052545ee39bf1dd1141e49",
+      "bytes": 128483
+    }
+  ],
+  "receiverDiagnostics": {
+    "schema": "contoso.sampler-receiver-diagnostics.v1",
+    "diagnosticsOnly": true,
+    "poisoned": false,
+    "receiverCode": null,
+    "sealed": true,
+    "pendingReceives": 0,
+    "transportPhase": "closed",
+    "events": {
+      "receive": 3,
+      "parse": 3,
+      "finish": 1,
+      "pending": 0,
+      "clientError": 0,
+      "drop": 0,
+      "serverError": 0,
+      "close": 0
+    },
+    "counts": {
+      "receiveCalls": 3,
+      "nativePosts": 3,
+      "completedBodies": 3,
+      "rawBytesObserved": 2312,
+      "acceptedPayloads": 3,
+      "acceptedRawBytes": 2312,
+      "acceptedDecodedBytes": 10977,
+      "acceptedEnvelopes": 16
+    },
+    "firstPoison": null,
+    "lastRequest": {
+      "methodClass": "POST",
+      "routeClass": "native-v2.1-track",
+      "declaredLengthState": "in-range",
+      "declaredLength": 1306,
+      "wireBytesObserved": 1306
+    },
+    "lastBarrierFailure": null,
+    "countersSaturateAt": 4294967295,
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false,
+    "http": {
+      "requests": 8,
+      "nativePosts": 3,
+      "echoGets": 0,
+      "rejectedRoutes": 5,
+      "closeCalls": 1
+    },
+    "limits": {
+      "maxConnections": 8,
+      "bodyBytes": 1048576,
+      "bodyDeadlineMs": 5000
+    }
+  },
+  "diagnosticsTiming": "AT_FAILURE_BEFORE_FINALLY_STOP",
+  "rawRuntimeOrProcessDiagnosticsPersisted": false,
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED"
+}

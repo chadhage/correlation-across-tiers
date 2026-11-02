@@ -1,0 +1,57 @@
+{
+  "schema": "contoso.entra-preparation.v1",
+  "status": "PREPARATION_ONLY",
+  "cloudWritesAuthorized": false,
+  "tenant": "single-tenant-from-approved-runtime-configuration",
+  "accessTokenVersion": 2,
+  "accessTokenOptionalClaims": [
+    { "name": "idtyp", "essential": true, "source": null }
+  ],
+  "apiPermissions": [
+    {
+      "resource": "Orders application registration",
+      "delegatedScope": "Orders.Invoke",
+      "delegatedClient": "Contoso Storefront",
+      "appRoles": [
+        { "value": "Gateway.Invoke", "allowedMemberTypes": ["Application"], "assignee": "Contoso Gateway managed identity" },
+        { "value": "Portal.Invoke", "allowedMemberTypes": ["Application"], "assignee": "Contoso Portal managed identity" },
+        { "value": "Demo.Control", "allowedMemberTypes": ["User", "Application"], "assignee": "separately approved bounded demo controllers only" }
+      ]
+    },
+    {
+      "resource": "Inventory application registration",
+      "delegatedScopes": [],
+      "appRoles": [
+        { "value": "Inventory.Invoke", "allowedMemberTypes": ["Application"], "assignee": "Contoso Orders managed identity" }
+      ]
+    }
+  ],
+  "requiredRuntimeBindings": [
+    "CONTOSO_TENANT_ID",
+    "CONTOSO_PUBLIC_AUDIENCE",
+    "CONTOSO_ORDERS_AUDIENCE",
+    "CONTOSO_INVENTORY_AUDIENCE",
+    "CONTOSO_STOREFRONT_CLIENT_ID",
+    "CONTOSO_GATEWAY_CLIENT_ID",
+    "CONTOSO_GATEWAY_OBJECT_ID",
+    "CONTOSO_PORTAL_CLIENT_ID",
+    "CONTOSO_PORTAL_OBJECT_ID",
+    "CONTOSO_ORDERS_CLIENT_ID",
+    "CONTOSO_ORDERS_OBJECT_ID",
+    "CONTOSO_HMAC_SECRET_URI"
+  ],
+  "trustRequirements": [
+    "workload client ID and service-principal object ID must both match verified signed claims",
+    "app-only means signed idtyp=app and absent scp, not simply a roles claim",
+    "gateway proof is checked independently before the original caller",
+    "Portal is workload-only and never carries an invented user assertion",
+    "business invocation IDs and trace IDs are never authentication credentials"
+  ],
+  "approvalRequirements": [
+    "directory application registration and consent",
+    "managed-identity app-role assignments",
+    "secret-scoped Key Vault reader assignments",
+    "HMAC cloud SET and exact expiration/rotation/retention policy",
+    "network ingress and Key Vault reachability validation"
+  ]
+}

@@ -21,6 +21,9 @@ public final class CorrelationSpan implements AutoCloseable {
     public SpanContext spanContext() { return span.getSpanContext(); }
     public Scope makeCurrent() { return Correlation.bind(context); }
     public void failure(String code) {
+        failure(span, code);
+    }
+    static void failure(Span span, String code) {
         String safe = Correlation.safeCode(code);
         span.setAttribute("error.type", safe);
         span.setStatus(StatusCode.ERROR, safe);

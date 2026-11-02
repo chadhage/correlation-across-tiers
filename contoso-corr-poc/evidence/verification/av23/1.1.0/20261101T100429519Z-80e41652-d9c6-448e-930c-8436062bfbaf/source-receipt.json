@@ -1,0 +1,23 @@
+{
+  "schema": "contoso.av23-preservation.v1",
+  "ownerRole": "R8",
+  "preserverRole": "R9",
+  "originalPath": "services\\security-core\\docs\\av23-java-isolated-1.1.0.v1.json",
+  "originalSha256": "990a9b06e9e57a8445d328d76be8f1415576d7de27207c62583628e686b2d6a0",
+  "probe": {
+    "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\AuthPropagationProbe.java",
+    "sha256": "6e22a01b4eab7a7f902cd99c247814e350416e4cad55286684903ed620fc1ebd"
+  },
+  "harnessOwnerReportedSha256": "5f60f57d8580de1a04af059def5ca812c51a53ad73f17f6b4e8b4c03fe1f7a03",
+  "harnessSourcePathVerification": "PENDING exact owner path",
+  "capturedAtUtc": "2026-11-01T09:56:43.676Z",
+  "qualificationExecutionExitCode": 0,
+  "result": "FAIL",
+  "sourceAcceptanceIsCertification": false,
+  "r9IndependentRetake": false,
+  "guardLoaderScope": "Current local observed1.1.0/ABI/policy/BB829 only; not all providers/hosts/Azure",
+  "isolationScope": "Actual local JWK1 + MI503/retry2 carry traceparent; trusted JDK advancement remains positive",
+  "apiReady": false,
+  "globalTelemetrySafetyVerified": false,
+  "actualAzureAcceptance": "NOT RUN"
+}

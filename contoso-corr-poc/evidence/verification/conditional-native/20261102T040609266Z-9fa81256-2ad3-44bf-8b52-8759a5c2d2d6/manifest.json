@@ -1,0 +1,56 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED",
+  "result": "FAIL_OR_UNVERIFIED",
+  "files": [
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$1.class",
+      "sha256": "e0ae2ca28852fde6f5b1ff0b2ec2114ea242ab29f8bc097630badd6c64ee9b81"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$LocalResp.class",
+      "sha256": "3eee4eab08b61214edccf3e2c8ac0010813d311982d3dfe8b91d1ff65f16ec92"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture$UnavailableBroker.class",
+      "sha256": "c340a03521ea84bca7fd546135f91607ac254e9d6e66fcb507c40e47a126ae3c"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeApiFixture.class",
+      "sha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e"
+    },
+    {
+      "path": "classes\\com\\contoso\\orders\\NativeTrustRootObservationFilter.class",
+      "sha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702"
+    },
+    {
+      "path": "classpath-selection.json",
+      "sha256": "0c8d4b5bd782e7c5c738b22cd7eef5b85040ec81cb40a9c8cc7f8d2fdd525e82"
+    },
+    {
+      "path": "failure-actual-cases.json",
+      "sha256": "fa36c1aa76287ec237bd3417139ff54ba97fb0900c5722d7b0f6bbeccd23c655"
+    },
+    {
+      "path": "failure-input-context.json",
+      "sha256": "31cb32ed2bc3ce7cd7ff8808baa536cd593178c877052545ee39bf1dd1141e49"
+    },
+    {
+      "path": "failure-native-safe-capture.json",
+      "sha256": "4c5ef55ff8b5a95f830f882068c70e3f4ac5a5f109f4a2c6c30428ce1182a73e"
+    },
+    {
+      "path": "failure.json",
+      "sha256": "761040529192e7af43735073806ada437c897bb452d16b915f592d59110067a1"
+    },
+    {
+      "path": "java-agent.json",
+      "sha256": "90cb0784f5e67e1913b55b296c6e2119b3cd2461a0ddbe7f476d45c16eb9ca9b"
+    },
+    {
+      "path": "sampling-lease.json",
+      "sha256": "569131086a1133b3d6bcb539b2131021eb3578a5324c9fd4263054039388fc71"
+    }
+  ]
+}

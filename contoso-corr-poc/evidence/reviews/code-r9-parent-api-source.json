@@ -1,0 +1,77 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "scopeKind": "SOURCE_ONLY_BOUNDED_PARENT_DEFAULT_CTOR_AND_NATIVE_CAPTURE_REVIEW",
+  "roles": [
+    {
+      "role": "R4",
+      "implementationOwner": "parent/coordinator after original R4 failure",
+      "result": "changes-required",
+      "scopeSha256": "3a67abed5710744fa5e1910f9eebeee4533a64de68807402ded8fca9cd37866d",
+      "sources": [
+        {
+          "path": "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\InventoryHttpClient.java",
+          "sha256": "4c856a1151a61eb9ff8d9e87b202c0c35c89ea92a4fac9100f080f02ad6bf5b4"
+        },
+        {
+          "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\InventoryHttpClientTest.java",
+          "sha256": "e66cd8722c6d2b446b4c7be2c1893916c2ac56fe92b0c1d2558b1d5de65f20f6"
+        },
+        {
+          "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiIntegrationTest.java",
+          "sha256": "11783f445752f0457becbfb820ed3b02b5351846fa546bff29c0d015b45857af"
+        }
+      ],
+      "claimLabels": [
+        {
+          "label": "Verified",
+          "claim": "Default InventoryHttpClient credential is the genuine shared IdentityHttpClients.managedIdentity() factory",
+          "scope": "Current constructor source only; prior managed-identity intent and injected TokenCredential/Supplier constructors remain",
+          "sourceLines": "InventoryHttpClient.java:33-47"
+        },
+        {
+          "label": "Verified",
+          "claim": "Injected resource/.default, operation budget/context, business header and JDK Redirect.NEVER source paths are retained",
+          "scope": "Read source and current related test cases; no R9 Java/native rerun"
+        },
+        {
+          "label": "Partially verified",
+          "claim": "Parent reports actual focused Java tests9/9/0skip after the tightly coupled test syntax correction",
+          "scope": "Owner execution fact, not independent R9 execution or current NativeApi/default-MI-wire acceptance"
+        },
+        {
+          "label": "Incorrect",
+          "claim": "Current NativeApiIntegrationTest capture could establish original-first privacy or bounded safe evidence",
+          "scope": "Source counterevidence below; no new observed leak or native failure is claimed"
+        }
+      ],
+      "findings": [
+        {
+          "id": "R9-R4-CAPTURE-01",
+          "severity": "material",
+          "source": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiIntegrationTest.java",
+          "lines": "49-52; 205-224",
+          "detail": "The receiver reads/decompresses unbounded payloads. persistCaptured removes iKey, roleInstance, user and authenticated-user fields before an original-column scan, then writes the remaining full envelopes including raw data/URL/target/query into a mutable historical capture path.",
+          "requiredAction": "Before fresh native acceptance, owner must add bounded payload/envelope/decompression/depth/field handling, original-field/string scan before any projection, explicit safe native whitelist projection and a new immutable run-specific capture. Preserve actual IDs/types/context; never synthesize missing native facts or rewrite the old functional observation.",
+          "reproductionKind": "independent current-source read only; original R2 separately confirmed the same source gap",
+          "observedCredentialLeakClaimed": false
+        }
+      ]
+    }
+  ],
+  "notReviewed": [
+    "Whole API/Data/Core/Security source/build/loaded-code lineage",
+    "New default-MI wire or native API execution",
+    "Unused classes/modules, default Netty actual use and installed consumer adoption",
+    "Full Azure path, global privacy, exporter completeness and accountable owner signoff"
+  ],
+  "separateEvidenceNotPromoted": [
+    "Selected Security A841270/B380 and R9 private finite selected C",
+    "Older c3 API functional/trickle/Data observations",
+    "Parent prospective eleven-module witness helper, not yet executed at this review"
+  ],
+  "r9MavenJavaNativeExecutionDuringReview": false,
+  "cardCompletionAccepted": false
+}

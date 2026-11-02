@@ -1,6 +1,8 @@
 import "../../../storefront-spa/src/style.css";
 import { createStorefront } from "../../../storefront-spa/src/app.js";
-import { parsePublicConfig } from "../../src/shared/contracts.js";
+import { ContosoError, parsePublicConfig } from "../../src/shared/contracts.js";
+import type { WorkflowViewV1 } from "../../src/shared/contracts.js";
+import { createBrowserApi } from "../../src/shared/browser-api.js";
 import { createBrowserTelemetry } from "../../src/shared/browser-telemetry.js";
 
 declare global {
@@ -9,6 +11,7 @@ declare global {
       fetchExcluded(): Promise<void>;
       xhrApproved(): Promise<void>;
       xhrExcluded(): Promise<void>;
+      repeatWorkflow(kind: "order" | "demo", id: string): Promise<WorkflowViewV1[]>;
     };
   }
 }
@@ -23,13 +26,17 @@ const raw: unknown = JSON.parse(endpoints.textContent);
 if (typeof raw !== "object" || raw === null || !("excludedOrigin" in raw) || typeof raw.excludedOrigin !== "string")
   throw new Error("FIXTURE_ENDPOINTS_INVALID");
 const excluded = raw.excludedOrigin;
+const interactionRequired = location.pathname.includes("auth-interaction");
+const fixtureToken = `fixture-user-${crypto.randomUUID()}`;
 if (location.pathname.includes("veto-throw")) {
   createBrowserTelemetry(config, () => { throw new Error("FIXTURE_REPORTER_FAILURE"); }, true);
 } else {
-  const fixtureToken = `fixture-user-${crypto.randomUUID()}`;
   window.contosoDemos = createStorefront(config, {
     async initialize() {}, async signIn() {}, async signOut() {},
-    signedIn() { return true; }, async token() { return fixtureToken; }
+    signedIn() { return true; }, async token() {
+      if (interactionRequired) throw new ContosoError("AUTH_INTERACTION_REQUIRED", 401);
+      return fixtureToken;
+    }
   }, true);
 }
 async function xhr(url: string): Promise<void> {
@@ -44,5 +51,12 @@ async function xhr(url: string): Promise<void> {
 window.contosoFixture = {
   async fetchExcluded() { await fetch(`${excluded}/fixture-excluded`, { mode: "cors", credentials: "omit", redirect: "error" }); },
   async xhrApproved() { await xhr(`${config.api.origin}/contoso/v1/me`); },
-  async xhrExcluded() { await xhr(`${excluded}/fixture-excluded`); }
+  async xhrExcluded() { await xhr(`${excluded}/fixture-excluded`); },
+  async repeatWorkflow(kind, id) {
+    const api = createBrowserApi(config, async () => fixtureToken);
+    const send = () => kind === "order"
+      ? api.order({ schemaVersion: 1, orderId: id, sku: "CONTOSO-001", quantity: 1 })
+      : api.demo({ schemaVersion: 1, runId: id, demoId: 8, scenario: "FAN_IN", failureBudget: 0 });
+    return [await send(), await send(), await api.workflow(kind === "order" ? "orders" : "demo-runs", id)];
+  }
 };

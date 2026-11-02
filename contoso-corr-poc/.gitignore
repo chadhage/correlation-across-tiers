@@ -2,6 +2,7 @@ node_modules/
 dist/
 target/
 .cache/
+.java-work/
 .env
 .env.*
 !.env.example

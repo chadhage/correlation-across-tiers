@@ -1,12 +1,12 @@
 package com.contoso.inventory.data;
 
 import com.azure.core.credential.TokenCredential;
-import com.azure.identity.ManagedIdentityCredentialBuilder;
 import com.contoso.correlation.data.DataAccessException;
 import com.contoso.correlation.data.DataErrorKind;
 import com.contoso.correlation.data.OperationContext;
 import com.contoso.correlation.data.PgConnectionFactory;
 import com.contoso.correlation.data.PgOperations;
+import com.contoso.security.IdentityHttpClients;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import java.io.PrintWriter;
@@ -42,9 +42,13 @@ public final class EntraPgConnectionFactory implements PgConnectionFactory {
         DataInstrumentationGuard.verify();
         DataLoggingGuard.verify();
         PgSettings settings = PgSettings.fromEnvironment(serviceName);
-        ManagedIdentityCredentialBuilder builder = new ManagedIdentityCredentialBuilder();
-        if (settings.clientId() != null) builder.clientId(settings.clientId());
-        return new EntraPgConnectionFactory(settings, builder.build());
+        return new EntraPgConnectionFactory(settings, IdentityHttpClients.managedIdentity(settings.clientId()));
+    }
+
+    public static PgConnectionFactory fromEnvironment(String serviceName, TokenCredential credential) {
+        DataInstrumentationGuard.verify();
+        DataLoggingGuard.verify();
+        return new EntraPgConnectionFactory(PgSettings.fromEnvironment(serviceName), credential);
     }
 
     public EntraPgConnectionFactory(PgSettings settings, TokenCredential credential) {

@@ -1,0 +1,140 @@
+{
+  "schema": "contoso.r9-post-execution-metadata-consistency.v1",
+  "publishedAtUtc": "2026-11-02T04:40:54.734Z",
+  "publicationPid": 10832,
+  "result": "PASS_METADATA_DOC_STATUS_ONLY",
+  "nativeQualificationInheritedFromStatus": false,
+  "metadataSources": [
+    {
+      "path": "config\\board-state.json",
+      "sha256": "4b1db5142e9a383be0f38ab9be38d386b98b16b424f74b55144064d411344cec"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "ea58fd2686ce21562c07baec3399761142831fd61e5e7d893e9fdb694324158f"
+    },
+    {
+      "path": "config\\acceptance-scopes.json",
+      "sha256": "787e9ac01d62f370d716a77dfeff189390277340ac77b53b987f26f4a2222060"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "sha256": "d100385af175102243a5d73cdf8e9c0eff00be877aa2302f45a8a86bf13b6de9"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "7fec6cb47822cd02a5969ece8a2cda86316ab0f0d256489389dfa464f3f985a7"
+    }
+  ],
+  "inheritedV7MetadataDeltas": [
+    {
+      "path": "config\\verification-register.v1.json",
+      "beforeSha256": "5a05d37d645185db339bac20dcb890d2c267b6ee48ffd4b8b70bb4391c3b107f",
+      "afterSha256": "ea58fd2686ce21562c07baec3399761142831fd61e5e7d893e9fdb694324158f"
+    },
+    {
+      "path": "docs\\DEMO_RUNBOOK.md",
+      "beforeSha256": "846b151df4e88fedef7242a9fe94c124f14ea9d2ce784ef6a7f51b904e5920e0",
+      "afterSha256": "d100385af175102243a5d73cdf8e9c0eff00be877aa2302f45a8a86bf13b6de9"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "beforeSha256": "5308d58e94e9ac31b56379f29275d42037fffcb008f68998309fb8f9fd809f69",
+      "afterSha256": "7fec6cb47822cd02a5969ece8a2cda86316ab0f0d256489389dfa464f3f985a7"
+    },
+    {
+      "path": "config\\acceptance-scopes.json",
+      "beforeSha256": "5d1fdfdf50cb9f810a19fef2b796ffefe6430f6700e8439d4b478fa80fd44fa6",
+      "afterSha256": "787e9ac01d62f370d716a77dfeff189390277340ac77b53b987f26f4a2222060"
+    }
+  ],
+  "unchangedV7BoundInputs": 83,
+  "executable": {
+    "path": "tools\\verification\\conditional-observer.mjs",
+    "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+  },
+  "test": {
+    "path": "tests\\verification\\conditional-observer.test.mjs",
+    "sha256": "23da8c2e7c34e3e654f6461484f0cdc12dd1a96b169823cac1b79a38f4390e79"
+  },
+  "verifiedEvidenceNodes": [
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v7.json",
+      "sha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T042453638Z-579533aa-6a76-42b3-b269-7b354cdfe317\\execution.json",
+      "sha256": "df49938ec5b0b7f8e92a3ca57f0d080c016a2697fa89b11c383f073a1334f37b"
+    },
+    {
+      "path": "evidence\\verification\\conditional-graph\\20261102T042514395Z-bd926058-d2a4-417f-9113-76b7d4bfaf4d\\bindings.json",
+      "sha256": "89c3ff6f8d41db9322f926b88124ced87e788ac861b4d1e70159c630598a8874"
+    },
+    {
+      "path": "evidence\\verification\\conditional-adjudications\\20261102T042736620Z-bd49b993-97ed-4916-a010-aa253bc883d3\\adjudication.json",
+      "sha256": "c384c72148af9fb614af809451530b4e4865817be9fac1ae08ad8db8bf114d73"
+    },
+    {
+      "path": ".cache\\parent\\conditional-v7-native-review\\20261102T043107482Z-f70352ce-4edb-4bea-9cc3-50b1f9f84f7a\\review.json",
+      "sha256": "a2da8d55280ec83c602904bdc55fbbd98644f4f0b2ce69a904f75e68aa7f4b15"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T042154181Z-0f38d2cd-7496-4d69-8bdf-90f74ac70274\\result.json",
+      "sha256": "69e55de465544b669f6e54b1521eab17e16b1fd6138485cdc03f1ddb951f9ceb"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+      "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\package-results.json",
+      "sha256": "554cc8ab42a44335ba8b49e2762671ca2859ca9e50f3ccf5f89001339c8993e0"
+    },
+    {
+      "path": "evidence\\java-local\\packaged-launch-guards\\20261102T021846197Z-14587d8c-bb9e-42df-8ec5-d365bf06928a.json",
+      "sha256": "b9d9b679b2e62162da7aaa3b991d2bdf93c2d7241678cfe55355e085bd90de5d"
+    }
+  ],
+  "board": {
+    "revision": 48,
+    "cards": 78,
+    "toDo": 78,
+    "inProgress": 0,
+    "done": 0,
+    "formalLivePasses": 0
+  },
+  "scopes": {
+    "cards": 78,
+    "clauses": 281,
+    "requiredFacetsAndLiveKindsUnchanged": true
+  },
+  "register": {
+    "registered": 628,
+    "open": 628,
+    "labels": {
+      "Partially verified": 628
+    }
+  },
+  "localOrders": {
+    "actualCases": 7,
+    "nativeRequestMatches": 6,
+    "privateLocalRoots": 3,
+    "scope": "LOCAL_ORDERS_CONDITIONAL_ONLY_NOT_FULL_GRAPH",
+    "parentAccepted": true,
+    "executionWindow": "SPENT_CLOSED"
+  },
+  "construction": {
+    "historicalActualNodeTests": 419,
+    "historicalActualJavaTests": 182,
+    "modules": 11,
+    "recordedPackages": 6,
+    "missingAgentNegatives": 6,
+    "targetArchivesReadInThisCheck": false
+  },
+  "newNativeOrJavaOrMavenExecutions": 0,
+  "allHistoricEpochsPreserved": true,
+  "fullGraphVerified": false,
+  "apiReady": false,
+  "azureAccepted": false,
+  "certification": "NOT_CERTIFIED"
+}

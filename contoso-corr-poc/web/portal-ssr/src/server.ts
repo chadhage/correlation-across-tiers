@@ -1,13 +1,15 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from "node:http";
-import { randomUUID, randomBytes, timingSafeEqual } from "node:crypto";
+import { randomUUID, randomBytes, timingSafeEqual, createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { dirname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { inlineConfig, runtimeConfig, type ContosoEnvironment } from "./config.js";
 import { createPortalGateway, managedIdentityTokenProvider, type PortalGateway } from "./gateway.js";
 import { portalControlAuthorizer, type PortalControlAuthorizer } from "./control-auth.js";
+import type { ContosoServerTelemetryStatus } from "./telemetry.js";
+import { THEME_SCRIPT } from "./shared/theme.js";
 import {
-  certificationActive, ContosoError, isUuid4, safeErrorCode, validateOrderRequest,
+  certificationActive, ContosoError, isUuid4, originalWorkflowInvocationId, parseWorkflowMutationView, safeErrorCode, validateOrderRequest,
   type ContosoErrorCode, type ContosoPublicRuntimeConfigV1, type WorkflowViewV1
 } from "./shared/contracts.js";
 
@@ -20,7 +22,8 @@ export interface ContosoServerOptions {
   portalPublicRoot?: string;
   fixtureConnectOrigins?: readonly string[];
   fixtureRequestHandler?: (request: IncomingMessage, response: ServerResponse) => boolean;
-  telemetryStatus?: () => { active: boolean; samplingPercentage: number };
+  telemetryStatus?: () => { active: boolean; samplingPercentage: number } | ContosoServerTelemetryStatus;
+  shutdownTelemetry?: () => Promise<void>;
 }
 interface PortalSession {
   csrf: string;
@@ -29,10 +32,12 @@ interface PortalSession {
   latest?: WorkflowViewV1;
   busy: boolean;
   lastActionAt: number;
+  generation: number;
 }
 const MAX_BODY = 8192;
 const MAX_PORTAL_SESSIONS = 100;
 const PORTAL_SESSION_TTL_MS = 15 * 60_000;
+const THEME_HASH = createHash("sha256").update(THEME_SCRIPT).digest("base64");
 function escapeHtml(value: string): string {
   return value.replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char] ?? "");
 }
@@ -52,17 +57,18 @@ function cookies(request: IncomingMessage): Record<string, string> {
   }
   return result;
 }
-function portalHtml(config: ContosoPublicRuntimeConfigV1, session: PortalSession, error?: ContosoErrorCode): string {
-  const enabled = config.portal.enabled && certificationActive(config) && session.authorized;
+function portalHtml(config: ContosoPublicRuntimeConfigV1, session: PortalSession, error?: ContosoErrorCode, accepting = true): string {
+  const enabled = accepting && config.portal.enabled && certificationActive(config) && session.authorized;
   const view = session.latest;
   const resultData = view ? `<script type="application/json" id="contoso-portal-backend-result">${JSON.stringify(view).replace(/</g, "\\u003c").replace(/&/g, "\\u0026")}</script>` : "";
   const rows = view
     ? `<h2 id="result-state">${escapeHtml(view.state)}</h2>
        <p>Actual backend state; a staged 202 is not broker/worker completion or certification.</p>
        <dl><dt>Order ID</dt><dd id="result-id">${escapeHtml(view.id)}</dd>
-       <dt>Canonical business ID</dt><dd id="result-business-id">${escapeHtml(view.businessInvocationId)}</dd></dl>`
+       <dt>${view.workflowBusinessInvocationId ? "Current action invocation ID" : "Workflow invocation ID"}</dt><dd id="result-business-id">${escapeHtml(view.businessInvocationId)}</dd>
+       <dt>Original workflow invocation ID</dt><dd id="result-workflow-business-id">${escapeHtml(originalWorkflowInvocationId(view))}</dd></dl>`
     : `<h2 id="result-state">No workload order submitted</h2><p>The Portal will render the real Gateway result, never a fabricated order or human pseudonym.</p>`;
-  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script>${THEME_SCRIPT}</script>
   <meta name="referrer" content="same-origin"><title>Contoso Portal — workload SSR</title><link rel="stylesheet" href="/portal/assets/portal.css"></head>
   <body>${inlineConfig({ ...config, surface: "portal-page", telemetry: { ...config.telemetry, roleName: "contoso-portal-ssr" } })}
   <header><a href="/storefront/">CONTOSO Storefront</a><strong>Contoso Portal</strong><span>WORKLOAD-ONLY · no delegated SSR login</span></header>
@@ -115,10 +121,18 @@ export function createContosoServer(options: ContosoServerOptions): Server {
   const portalPublicRoot = options.portalPublicRoot ?? resolve(base, "public");
   const sessions = new Map<string, PortalSession>();
   const config = options.config;
+  const originalLeaseId = config?.certification.enabled ? config.certification.windowId : null;
+  let quiesced = false;
+  let inFlight = 0;
+  const drained = new Set<() => void>();
+  function requireTraffic(): void {
+    if (quiesced || !config || !certificationActive(config) || (options.telemetryStatus && !options.telemetryStatus().active))
+      throw new ContosoError("CERT_WINDOW_INACTIVE", 409);
+  }
   if (config?.executionMode !== "fixture" && (options.gateway || options.authorizeControl || options.fixtureConnectOrigins || options.fixtureRequestHandler))
     throw new ContosoError("CONFIG_INVALID", 503);
   const gateway = options.gateway ?? (config ? createPortalGateway(config,
-    managedIdentityTokenProvider(config.identity.apiClientId, options.env.CONTOSO_PORTAL_MI_CLIENT_ID)) : undefined);
+    managedIdentityTokenProvider(config.identity.apiClientId, options.env.CONTOSO_PORTAL_MI_CLIENT_ID), 10000, requireTraffic) : undefined);
   const authorizeControl = options.authorizeControl ?? portalControlAuthorizer(options.env);
   function security(request: IncomingMessage, response: ServerResponse): void {
     response.setHeader("X-Content-Type-Options", "nosniff");
@@ -132,7 +146,7 @@ export function createContosoServer(options: ContosoServerOptions): Server {
       const telemetryOrigin = ingestion ? new URL(ingestion).origin : "";
       const fixtureOrigins = config.executionMode === "fixture" ? (options.fixtureConnectOrigins ?? []).join(" ") : "";
       response.setHeader("Content-Security-Policy",
-        `default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self' ${config.api.origin} ${telemetryOrigin} ${fixtureOrigins} https://login.microsoftonline.com; img-src 'self' data:; frame-src 'self' https://login.microsoftonline.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self' https://login.microsoftonline.com`);
+        `default-src 'self'; script-src 'self' 'sha256-${THEME_HASH}'; style-src 'self'; connect-src 'self' ${config.api.origin} ${telemetryOrigin} ${fixtureOrigins} https://login.microsoftonline.com; img-src 'self' data:; frame-src 'self' https://login.microsoftonline.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self' https://login.microsoftonline.com`);
     }
   }
   function reapSessions(now: number): void {
@@ -145,7 +159,7 @@ export function createContosoServer(options: ContosoServerOptions): Server {
     const key = randomBytes(32).toString("base64url");
     const value: PortalSession = { csrf: randomBytes(32).toString("base64url"), authorized: true,
       expires: Math.min(now + PORTAL_SESSION_TTL_MS, Date.parse(config?.certification.endsAtUtc ?? "")),
-      busy: false, lastActionAt: 0 };
+      busy: false, lastActionAt: 0, generation: 0 };
     if (!Number.isFinite(value.expires) || value.expires <= now)
       throw new ContosoError("CERT_WINDOW_INACTIVE", 409);
     sessions.set(key, value);
@@ -159,7 +173,7 @@ export function createContosoServer(options: ContosoServerOptions): Server {
     const id = cookies(request)["contoso-portal-session"];
     const existing = id ? sessions.get(id) : undefined;
     if (existing) return existing;
-    return { csrf: "", authorized: false, expires: 0, busy: false, lastActionAt: 0 };
+    return { csrf: "", authorized: false, expires: 0, busy: false, lastActionAt: 0, generation: 0 };
   }
   return createServer((request, response) => {
     security(request, response);
@@ -179,6 +193,39 @@ export function createContosoServer(options: ContosoServerOptions): Server {
       }
       if (url.pathname === "/" && request.method === "GET") {
         response.writeHead(302, { Location: "/storefront/" }); response.end(); return;
+      }
+      if (["/portal/runtime-state", "/portal/runtime-stop-traffic", "/portal/runtime-drain"].includes(url.pathname) && request.method === "POST") {
+        if (!config) throw new ContosoError("CONFIG_UNAVAILABLE", 503);
+        if (request.headers.origin !== config.portal.origin || request.headers["content-type"]?.split(";")[0] !== "application/json")
+          throw new ContosoError("PORTAL_CONTROL_REJECTED", 403);
+        const authCount = request.rawHeaders.filter((value, index) => index % 2 === 0 && value.toLowerCase() === "authorization").length;
+        const authorization = request.headers.authorization;
+        if (authCount !== 1 || !authorization?.startsWith("Bearer ")) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403);
+        await authorizeControl(authorization.slice("Bearer ".length));
+        const raw: unknown = JSON.parse(await body(request));
+        if (typeof raw !== "object" || raw === null || Array.isArray(raw) || Object.keys(raw).length !== 3
+          || !("schemaVersion" in raw) || raw.schemaVersion !== 1 || !("runId" in raw) || !isUuid4(raw.runId)
+          || !("revision" in raw) || raw.revision !== `cert-${raw.runId}`) throw new ContosoError("REQUEST_INVALID");
+        if (url.pathname !== "/portal/runtime-state") {
+          if (!originalLeaseId || raw.runId !== originalLeaseId) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403);
+          quiesced = true;
+        }
+        if (url.pathname === "/portal/runtime-drain") {
+          if (inFlight > 0) await new Promise<void>(resolve => drained.add(resolve));
+          if (!options.shutdownTelemetry) throw new ContosoError("CONFIG_UNAVAILABLE", 503);
+          await options.shutdownTelemetry();
+        }
+        const state = options.telemetryStatus?.();
+        if (!state || !("runtimeInstanceId" in state)) throw new ContosoError("CONFIG_UNAVAILABLE", 503);
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.end(JSON.stringify({ schema: "contoso.sampling-runtime-observation.v1", schemaVersion: 1, operation: url.pathname.split("/").at(-1),
+          runId: raw.runId, requestedRevision: raw.revision, ...state,
+          effectiveSamplingPercentage: state.samplingPercentage, requestsPerSecond: null,
+          actualRevision: state.revision, sourceKind: "contoso-node-sdk-runtime", nativeStateAvailable: true,
+          ready: state.active, admitting: !quiesced && state.active, inFlightRemaining: inFlight, guard: null,
+          admission: { state: quiesced || !state.active ? "quiesced" : "accepting", inFlight },
+          restartMechanism: "process-restart", ownershipPending: true, certificationEligible: false, certification: "NOT_CERTIFIED" }));
+        return;
       }
       if (["/storefront/runtime-config.v1.json", "/portal/runtime-config.v1.json"].includes(url.pathname) && request.method === "GET") {
         if (!config) throw new ContosoError("CONFIG_UNAVAILABLE", 503);
@@ -234,12 +281,33 @@ export function createContosoServer(options: ContosoServerOptions): Server {
       if ((url.pathname === "/portal/" || url.pathname === "/portal/orders") && config) {
         const state = session(request);
         if (url.pathname === "/portal/" && request.method === "GET") {
-          if (state.latest && gateway && config.portal.enabled && certificationActive(config))
-            state.latest = await gateway.readOrder(state.latest.id, state.latest.businessInvocationId);
-          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" }); response.end(portalHtml(config, state)); return;
+          if (state.latest && gateway && config.portal.enabled && certificationActive(config)) {
+            requireTraffic();
+            const previous = state.latest;
+            const generation = state.generation;
+            response.setHeader("x-business-invocation-id", previous.businessInvocationId);
+            inFlight++;
+            try {
+              const refreshed = await gateway.readOrder(previous.id, previous.businessInvocationId);
+              if (state.generation !== generation || state.latest?.id !== previous.id)
+                throw new ContosoError("RUN_IN_PROGRESS", 409);
+              if (refreshed.id !== previous.id || originalWorkflowInvocationId(refreshed) !== originalWorkflowInvocationId(previous))
+                throw new ContosoError("API_RESPONSE_INVALID", 502);
+              state.latest = refreshed;
+            }
+            finally {
+              inFlight--;
+              if (inFlight === 0) { for (const resolve of drained) resolve(); drained.clear(); }
+            }
+            response.setHeader("x-business-invocation-id", state.latest.businessInvocationId);
+          }
+          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+          response.end(portalHtml(config, state, undefined, !quiesced && (!options.telemetryStatus || options.telemetryStatus().active)));
+          return;
         }
         if (url.pathname === "/portal/orders" && request.method === "POST") {
-          if (!config.portal.enabled || !certificationActive(config)) throw new ContosoError("CERT_WINDOW_INACTIVE", 409);
+          requireTraffic();
+          if (!config.portal.enabled) throw new ContosoError("PORTAL_DISABLED", 409);
           if (!state.authorized) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403);
           if (!gateway) throw new ContosoError("PORTAL_TOKEN_UNAVAILABLE", 503);
           if (request.headers.origin !== config.portal.origin || request.headers["content-type"]?.split(";")[0] !== "application/x-www-form-urlencoded")
@@ -254,16 +322,28 @@ export function createContosoServer(options: ContosoServerOptions): Server {
           if (!isUuid4(runId)) throw new ContosoError("REQUEST_INVALID");
           const order = validateOrderRequest({ schemaVersion: 1, orderId: runId, sku: form.get("sku"), quantity: Number(form.get("quantity")) });
           state.busy = true;
+          state.generation++;
+          inFlight++;
           state.lastActionAt = Date.now();
           try {
             // The workload chooses the invocation ID; no public form/header grants trusted-ID authority.
-            state.latest = await gateway.createOrder(order, randomUUID());
+            const businessId = randomUUID();
+            response.setHeader("x-business-invocation-id", businessId);
+            const created = await gateway.createOrder(order, businessId);
+            state.latest = parseWorkflowMutationView(created);
             state.csrf = randomBytes(32).toString("base64url");
             response.setHeader("x-business-invocation-id", state.latest.businessInvocationId);
-            response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" }); response.end(portalHtml(config, state)); return;
-          } finally { state.busy = false; }
+            response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+            response.end(portalHtml(config, state, undefined, !quiesced && (!options.telemetryStatus || options.telemetryStatus().active)));
+            return;
+          } finally {
+            state.busy = false;
+            inFlight--;
+            if (inFlight === 0) { for (const resolve of drained) resolve(); drained.clear(); }
+          }
         }
       }
+      if (["/portal/", "/portal/orders"].includes(url.pathname) && !config) throw new ContosoError("CONFIG_UNAVAILABLE", 503);
       throw new ContosoError("NOT_FOUND", 404);
     };
     void handle().catch((error: unknown) => {

@@ -1,0 +1,84 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "sourceAcceptanceIsCertification": false,
+  "notReviewed": [
+    "R9 unfinished demo/catalog and local-native source factory",
+    "Azure full-map/native-roster/owner certification"
+  ],
+  "roles": [
+    {
+      "role": "R9",
+      "result": "accepted",
+      "scopeSha256": "6c04de608c77860eff78e4920077c3ee8d9b3d47e6030f6153ad1e99bfe189f7",
+      "sources": [
+        {
+          "path": "tools\\verification\\acceptance.mjs",
+          "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+        },
+        {
+          "path": "tools\\verification\\register.mjs",
+          "sha256": "9c3c4b35035d8adf75647a171699e7cfa8bbd73ce94e4af82d18cfbea2a5bcbb"
+        },
+        {
+          "path": "tools\\verification\\invariants.mjs",
+          "sha256": "46489ea746b049ed6dfb0ebacd615b217629542d005e284fafe198f85b3d4493"
+        },
+        {
+          "path": "tools\\verification\\observers.mjs",
+          "sha256": "33ebf5a643f2c3c05c20a2c30c49f9f30dc0982d7382c51a9537ee7e800a24da"
+        },
+        {
+          "path": "tools\\verification\\trust-roots.mjs",
+          "sha256": "d564869172c1d46ab91dc5b3bc196d0eda3c7c58c9034e5dd974161babc0d412"
+        },
+        {
+          "path": "tools\\verification\\pipeline.mjs",
+          "sha256": "242140f3329457d0fe729b6ea7451a6dcb48b5b097dc1d8a30766e9892fe20ed"
+        },
+        {
+          "path": "tools\\verification\\raw-intake.mjs",
+          "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+        },
+        {
+          "path": "tools\\kanban.mjs",
+          "sha256": "a2952421d294cba05a413b87c1d15ff8792e7225f4112559ed408ce71d4cc7c2"
+        },
+        {
+          "path": "tests\\kanban.test.mjs",
+          "sha256": "050fdb7ce2fe60f432d553a333fd68e9e9b5f2b87e9267b837343d9b6bb3ffa1"
+        },
+        {
+          "path": "tests\\verification\\register.test.mjs",
+          "sha256": "8add4e0d67a212fedead3ab23ee373acb55f45faf1686fcc8644d8fc307538fd"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "label": "Verified",
+      "claim": "Authoritative acceptance facets and native evidence kinds reject the original GATE-02 live-facet downgrade",
+      "evidence": "Independent 58 focused and 18 board/register tests passed; source regenerates exact approved scope."
+    },
+    {
+      "label": "Verified",
+      "claim": "Native identity, duplicates/links, data CLIENT boundary, private observer source/query/scope and UTC checks fail closed in reviewed source/local tests",
+      "evidence": "invariants/observers/trust-roots/pipeline exact source; no expected field backfill."
+    },
+    {
+      "label": "Unsupported",
+      "claim": "Source/local checker proof is not complete deployed Azure provenance, every-role coverage or certification",
+      "evidence": "Native Azure observer enrollment and accountable live ownership remain unmet."
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "R4-R9-01",
+      "claimLabel": "Incorrect",
+      "original": "Policy could remove live facet and recompute liveClauses without changing backlog hash",
+      "resolution": "Exact authoritative requiredFacets/liveEvidenceKinds regeneration plus retained negative regression verified."
+    }
+  ]
+}

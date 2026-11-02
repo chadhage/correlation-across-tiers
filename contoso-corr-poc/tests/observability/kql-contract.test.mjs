@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderKql, loadRootMap, compileBoundaryBindings, PROCEDURES } from '../../tools/observability/kql.mjs';
-import { canonicalSpanId, normalizeTelemetryRows, nativeLinks, validateSamplingControlAck, legacyDurationMilliseconds } from '../../tools/observability/telemetry-contract.mjs';
+import { renderKql, loadRootMap, compileBoundaryBindings, compileViewContextBindings, conditionalRootPolicies, compileVerifiedConditionalRootBindings, PROCEDURES } from '../../tools/observability/kql.mjs';
+import { GUARD_POLICY, GUARD_ARTIFACT_VERSION, canonicalSpanId, normalizeTelemetryRows, nativeLinks, validateSamplingControlAck, legacyDurationMilliseconds } from '../../tools/observability/telemetry-contract.mjs';
 
 const project = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const trace = '11111111111111111111111111111111';
@@ -45,6 +45,65 @@ test('missing map parent edges never silently create declared roots', async () =
   const { map } = await loadRootMap();
   const bindings = compileBoundaryBindings(map);
   assert(bindings.BoundaryMap.includes('"orders.servicebus.send","contoso-orders-api","PRODUCER","unspecified"'));
+});
+
+test('conditional roots retain policy and exact dispositions without becoming deliberate-root exemptions', async () => {
+  const { map } = await loadRootMap();
+  const rules = conditionalRootPolicies(map);
+  assert.equal(rules.length, 9);
+  const bindings = compileBoundaryBindings(map);
+  assert(bindings.BoundaryMap.includes('"orders.request","contoso-orders-api","SERVER","conditional"'));
+  assert(bindings.ConditionalRootPolicies.includes('ADR-A03/agent-framework-http-extraction'));
+  assert(bindings.ConditionalRootPolicies.includes('INVALID_CONTEXT'));
+  assert(!map.deliberateRoots.some(root => root.boundary === 'orders.request'));
+  for (const schema of ['workspace', 'legacy']) {
+    const rendered = await renderKql('orphan-candidates', { ...input, schema });
+    assert(rendered.query.includes('conditional-root-unverified'));
+    assert(rendered.query.includes('RootPolicyRef==ConditionalPolicyRef'));
+    assert(rendered.query.includes('RoleName==ExpectedRole'));
+    assert(rendered.query.indexOf('"conditional-root-unverified"') < rendered.query.indexOf('isnotempty(ReferenceEvidence),ProvenClass'));
+    assert(rendered.query.includes('ConditionalRootProofs=datatable('));
+  }
+});
+
+test('conditional map candidates reject missing policy, wrong receipt, unsafe dispositions or duplicate roots', async () => {
+  const { map } = await loadRootMap();
+  for (const mutate of [
+    value => { delete value.conditionalRoots[0].policyRef; },
+    value => { value.conditionalRoots[0].sourceProofRequired = false; },
+    value => { value.conditionalRoots[0].parentMustBeNull = false; },
+    value => { value.conditionalRoots[0].receiptType = 'caller-json'; },
+    value => { value.conditionalRoots[0].allowedDispositions = ['valid']; },
+    value => { value.conditionalRoots[0].allowedDispositions = ['INVALID_TRACESTATE_ONLY']; },
+    value => { value.conditionalRoots[0].allowedDispositions = ['BUSINESS_RESTART']; },
+    value => { value.conditionalRoots.push(value.conditionalRoots[0]); },
+    value => { value.deliberateRoots.push({ boundary: value.conditionalRoots[0].boundary }); }
+  ]) {
+    const value = structuredClone(map);
+    mutate(value);
+    assert.throws(() => conditionalRootPolicies(value), /Conditional roots/);
+  }
+  await assert.rejects(renderKql('orphan-candidates', { ...input,
+    conditionalRootProofs: [{ observed: true, evidenceSha256: hash, boundaryId: 'orders.request' }] }), /private verified native/);
+  for (const capability of [{}, { verified: true, checkerOnly: false, actualSourceVerified: true,
+    nativeRuntimeCarrierObserverEnrolled: true, roots: [] }]) {
+    assert.throws(() => compileVerifiedConditionalRootBindings(map, capability, { rows: [], mode: 'Certify' }),
+      /private verified graph/);
+    await assert.rejects(renderKql('orphan-candidates', { ...input, verifiedGraphCapability: capability,
+      verifiedGraphRows: [], verificationMode: 'Certify' }), /private verified graph/);
+  }
+});
+
+test('replay and result roots use real Fulfillment/Notify actors and retain four fan-in contributor edges', async () => {
+  const { map } = await loadRootMap();
+  for (const actor of ['fulfillment', 'notify']) {
+    assert.equal(map.spans.find(span => span.id === `${actor}.replay.process`).semanticKind, 'CONSUMER');
+    assert.equal(map.spans.find(span => span.id === `${actor}.replay.send`).roleName, `contoso-${actor}-worker`);
+    assert(map.deliberateRoots.some(root => root.boundary === `${actor}.result`));
+    assert(!map.edges.some(edge => edge.from === `${actor}.replay.process` &&
+      edge.to === `${actor}.replay.send` && edge.type === 'parent'));
+  }
+  assert.equal(map.edges.filter(edge => edge.to === 'aggregator.fanin' && edge.type === 'link').length, 4);
 });
 
 test('query inputs reject injection, zero identities, unapproved windows and map drift', async () => {
@@ -111,6 +170,7 @@ test('sampling acknowledgements cannot turn stale RPS or a missing guard into el
   const expected = { layerId: 'orders', revision: 'cert-1', guardRequired: true, guardSha256: hash, eligibleFull: true };
   const ack = { schema: 'contoso.sampling-control-ack.v1', layerId: 'orders', revision: 'cert-1',
     guardPresent: true, guardSha256: hash, configSha256: hash, percentage: 100, requestsPerSecond: null,
+    guardPolicy: GUARD_POLICY, guardArtifactVersion: GUARD_ARTIFACT_VERSION,
     privacyChanged: false, secretsIncluded: false, providerConstruction: false, extraExporter: false };
   assert.equal(validateSamplingControlAck(ack, expected), ack);
   assert.throws(() => validateSamplingControlAck({ ...ack, requestsPerSecond: 5 }, expected));
@@ -124,4 +184,25 @@ test('native link-count disagreement and legacy duration do not default to fabri
     'contoso.link.count': 2, '_MS.links': JSON.stringify([{ operation_Id: '2'.repeat(32), id: 'b'.repeat(16) }])
   } };
   assert.throws(() => normalizeTelemetryRows([row], options));
+});
+
+test('opaque native view IDs never become spans or implicit browser parent contexts', async () => {
+  const view = { Type: 'AppPageViews', OperationId: trace, Id: 'd7e820dc-44b0-4730-b70e-bbedfd97eb5b',
+    ParentId: '', Properties: {} };
+  const normalized = normalizeTelemetryRows([view], options)[0];
+  assert.equal(normalized.viewId, view.Id);
+  assert.equal(normalized.contextSpanId, null);
+  assert.equal(normalized.recordKind, 'view');
+  assert(!Object.hasOwn(normalized, 'spanId'));
+  const rendered = await renderKql('orphan-candidates', input);
+  assert(rendered.query.includes('ContextEvidence'));
+  assert(!rendered.query.includes('TargetSpan=ViewId'));
+  assert.throws(() => compileViewContextBindings([{ traceId: trace, nativeViewId: view.Id,
+    contextSpanId: span, roleName: 'contoso-storefront-spa', evidenceSha256: hash }]));
+  const proof = { traceId: trace, nativeViewId: view.Id, contextSpanId: span,
+    roleName: 'contoso-storefront-spa', evidenceSha256: hash, observed: true,
+    observationKind: 'sdk-context-and-outbound-carrier',
+    sourceLocator: { captureId: 'unit-fixture', nativeTable: 'AppPageViews', rowOrdinal: 0 } };
+  assert(compileViewContextBindings([proof]).includes(span));
+  assert.throws(() => compileViewContextBindings([proof, proof]));
 });

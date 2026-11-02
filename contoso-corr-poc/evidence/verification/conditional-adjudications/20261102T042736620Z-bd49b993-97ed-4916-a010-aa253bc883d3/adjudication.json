@@ -1,0 +1,505 @@
+{
+  "schema": "contoso.executed-local-conditional-adjudication.v1",
+  "publishedAtUtc": "2026-11-02T04:27:36.620Z",
+  "publicationPid": 53276,
+  "result": "LOCAL_SELECTED_CASES_VERIFIED",
+  "scope": "LOCAL_ORDERS_CONDITIONAL_ONLY_NOT_FULL_GRAPH",
+  "executedGrantedV7Attempts": 1,
+  "sourceReviewPair": {
+    "artifact": ".cache\\r9\\conditional-v7-source-pair\\20261102T042449916Z-5fad02b0-e3ab-4522-9455-bcccab0f0c05\\source-review-pair.json",
+    "sha256": "20cd358bd380e6452c5dd66d549960d668c8b2758ff33e57bc89ff26dc15f689",
+    "sourceOnly": true
+  },
+  "sourceFreeze": {
+    "artifact": "tools\\verification\\conditional-source-freeze.v7.json",
+    "sha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4",
+    "actualInputsMatched": 87,
+    "actualInputDrift": 0,
+    "actualInputsSha256": "9c6cd9bf92df9a964c3502d77566f31f8a39013206eb94daf2a143d340853c13"
+  },
+  "nativeExecution": {
+    "artifact": "evidence\\verification\\conditional-native\\20261102T042453638Z-579533aa-6a76-42b3-b269-7b354cdfe317\\execution.json",
+    "sha256": "df49938ec5b0b7f8e92a3ca57f0d080c016a2697fa89b11c383f073a1334f37b",
+    "manifest": "evidence\\verification\\conditional-native\\20261102T042453638Z-579533aa-6a76-42b3-b269-7b354cdfe317\\manifest.json",
+    "manifestSha256": "3442ff5aa8d4dd56adb7b5e11413f4579195159ad0a60cfaa843ad1f62aef03c",
+    "actualJavaPid": 26044,
+    "compilerPid": 29872,
+    "compilerExitCode": 0,
+    "originalValidatorPid": 14928,
+    "startedAtUtc": "2026-11-02T04:24:53.638Z",
+    "finishedAtUtc": "2026-11-02T04:25:14.369Z",
+    "sourceBeforeAfterMatched": true,
+    "runtimeBeforeAfterMatched": true,
+    "actualRuntimeByteClosureSha256": "09c5d9bffad345f8260d94e972c1d51c9b9bb3ae16bc97ed321662a00ec0cde6",
+    "fixtureClassSha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+    "observerClassSha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+    "applicationOrigins": {
+      "applicationCodeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/orders-api/target/classes/",
+      "applicationClassSha256": "2b205bbdfed33e20bc3730c62796780812645d614dd5ecb3f0dc2fc22b469e4a",
+      "runtimeGuardCodeSource": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/target/contoso-correlation-core-1.0.0.jar",
+      "runtimeGuardClassSha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+    },
+    "rawClasspathEntries": 137,
+    "executedNonemptyClasspathEntries": 136,
+    "actualJvmClasspathEntries": 137,
+    "implicitCurrentDirectoryExecuted": false
+  },
+  "originalPrivacyIntake": {
+    "sourceSha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+    "sharedPolicySha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+    "actualCounts": {
+      "payloads": 2,
+      "originalRawBytes": 1987,
+      "decodedBytes": 10970,
+      "envelopes": 16
+    },
+    "strictOriginalReceiptFlags": [
+      {
+        "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36",
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      },
+      {
+        "originalPayloadSha256": "3269ec819abfc7ab9ae498d0b4ca39c36c22e355b49c58d435087141fd7907f9",
+        "strictDuplicateKeysVerified": true,
+        "scannedAllOriginalValues": true,
+        "projectedAfterScan": true,
+        "originalPayloadRetained": false
+      }
+    ],
+    "receiverDiagnostics": {
+      "schema": "contoso.sampler-receiver-diagnostics.v1",
+      "diagnosticsOnly": true,
+      "poisoned": false,
+      "receiverCode": null,
+      "sealed": true,
+      "pendingReceives": 0,
+      "transportPhase": "closed",
+      "events": {
+        "receive": 2,
+        "parse": 2,
+        "finish": 1,
+        "pending": 0,
+        "clientError": 0,
+        "drop": 0,
+        "serverError": 0,
+        "close": 0
+      },
+      "counts": {
+        "receiveCalls": 2,
+        "nativePosts": 2,
+        "completedBodies": 2,
+        "rawBytesObserved": 1987,
+        "acceptedPayloads": 2,
+        "acceptedRawBytes": 1987,
+        "acceptedDecodedBytes": 10970,
+        "acceptedEnvelopes": 16
+      },
+      "firstPoison": null,
+      "lastRequest": {
+        "methodClass": "POST",
+        "routeClass": "native-v2.1-track",
+        "declaredLengthState": "in-range",
+        "declaredLength": 466,
+        "wireBytesObserved": 466
+      },
+      "lastBarrierFailure": null,
+      "countersSaturateAt": 4294967295,
+      "independentProducerAuthorityVerified": false,
+      "allTablePrivacyGateVerified": false,
+      "http": {
+        "requests": 7,
+        "nativePosts": 2,
+        "echoGets": 0,
+        "rejectedRoutes": 5,
+        "closeCalls": 1
+      },
+      "limits": {
+        "maxConnections": 8,
+        "bodyBytes": 1048576,
+        "bodyDeadlineMs": 5000
+      }
+    },
+    "independentProducerAuthorityVerified": false,
+    "allTablePrivacyGateVerified": false
+  },
+  "graph": {
+    "artifact": "evidence\\verification\\conditional-graph\\20261102T042514395Z-bd926058-d2a4-417f-9113-76b7d4bfaf4d\\bindings.json",
+    "sha256": "89c3ff6f8d41db9322f926b88124ced87e788ac861b4d1e70159c630598a8874",
+    "manifestSha256": "9d557674da5711d2d58f07d1e0e69d7446571698ef3a63f8b9ccd75a0bd5833e",
+    "bindings": {
+      "schema": "contoso.verified-trust-root-bindings.v1",
+      "mode": "LocalValidate",
+      "mapSha256": "839a0b8e9341ac8d154d3cecdab64dcffeb6421cec8d03f1cf0de21bb0033858",
+      "rowsSha256": "637e551f8f0b5d7d1e6457359ec7aeff7160c9608f8c61e3934b1792c493e69d",
+      "checkerOnly": false,
+      "actualSourceVerified": true,
+      "sourceAcceptanceIsCertification": false,
+      "nativeRuntimeCarrierObserverEnrolled": true,
+      "roots": [
+        {
+          "boundaryId": "orders.request",
+          "traceId": "aeac15c95714fc53e651fadc26533ef8",
+          "spanId": "8763df6c9cf3c80e",
+          "parentSpanId": null,
+          "roleName": "contoso-orders-api",
+          "disposition": "absent",
+          "policyRef": "ADR-A03/agent-framework-http-extraction",
+          "rootEvidenceSha256": "1596d5efd86eafa34d96611a4dd3cb86651de99f8495b34c69a4ae12faffacf1",
+          "carrierEvidenceSha256": "71914103d4acd7ba6e826c0d11542c9e7c172110be38dbd74f57e9b03c66d79c",
+          "sourceLocator": {
+            "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+            "nativeTable": "requests",
+            "rowOrdinal": 6,
+            "payloadOrdinal": 0,
+            "envelopeOrdinal": 6,
+            "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+          },
+          "nativeRowSha256": "fad9697c5f34e5986910e3b1f97a1dd6bf8ad1fc6676fa6b0ecb9e3dd8db44a3"
+        },
+        {
+          "boundaryId": "orders.request",
+          "traceId": "9f76244c7506883e8891897a4b46602e",
+          "spanId": "1310205f1a042784",
+          "parentSpanId": null,
+          "roleName": "contoso-orders-api",
+          "disposition": "invalid",
+          "policyRef": "ADR-A03/agent-framework-http-extraction",
+          "rootEvidenceSha256": "bb9c96eecb89b395c616fcd14dca92fdd7383c5cf5c09d4606353691591c87c4",
+          "carrierEvidenceSha256": "cca75a5ddc78dac09abbe69d2c56b2d2af064b4a51cdcd8334cc628517961e8a",
+          "sourceLocator": {
+            "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+            "nativeTable": "requests",
+            "rowOrdinal": 7,
+            "payloadOrdinal": 0,
+            "envelopeOrdinal": 7,
+            "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+          },
+          "nativeRowSha256": "bc629e7bc7f6c3f5d12ee1f37e3c34ba833ea23cab0beeae61e6a57714ee06c4"
+        },
+        {
+          "boundaryId": "orders.request",
+          "traceId": "5001500bcb830554752e48e8a833561e",
+          "spanId": "38ddcdb8be06173a",
+          "parentSpanId": null,
+          "roleName": "contoso-orders-api",
+          "disposition": "invalid",
+          "policyRef": "ADR-A03/agent-framework-http-extraction",
+          "rootEvidenceSha256": "b7f10248783aa6680438604c3966f0098ecee67725f81b3455554e1f0c743d14",
+          "carrierEvidenceSha256": "293c5bef9dbc44a1b1b459511d25e4f0235ac1fe26f4977a89b322f605fc928c",
+          "sourceLocator": {
+            "captureId": "579533aa-6a76-42b3-b269-7b354cdfe317",
+            "nativeTable": "requests",
+            "rowOrdinal": 8,
+            "payloadOrdinal": 0,
+            "envelopeOrdinal": 8,
+            "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+          },
+          "nativeRowSha256": "055c8846cdaa84922246065ca8bbb681998b1797281a7128b29bba60e079ea01"
+        }
+      ],
+      "originScope": "DIRECT_EXECUTED_LOCAL_ORDERS_CONDITIONAL_CASES_ONLY_NOT_FULL_GRAPH"
+    }
+  },
+  "caseFacts": [
+    {
+      "index": 0,
+      "kind": "absent",
+      "caseId": "7e12319a-f574-42a7-a323-74adb2c1812a",
+      "businessInvocationId": "bb94d7a8-6c52-4af1-bcf3-bb578053ace5",
+      "sentTraceparentFields": [],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:11.992Z",
+      "observedTraceparentFields": [],
+      "observedTracestateFields": [],
+      "sdkTraceId": "aeac15c95714fc53e651fadc26533ef8",
+      "sdkSpanId": "8763df6c9cf3c80e",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.134400Z",
+      "rootEligible": true,
+      "disposition": "absent",
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 1,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 6,
+        "traceId": "aeac15c95714fc53e651fadc26533ef8",
+        "spanId": "8763df6c9cf3c80e",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.053Z",
+        "rawParentFieldPresent": false,
+        "rawParentId": null,
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 6,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "kind": "invalid-zero-trace",
+      "caseId": "79d5414a-e94f-488e-b1df-f86a8e2f6a5e",
+      "businessInvocationId": "8481787b-0f00-4ecf-9ad5-a183abbdab7f",
+      "sentTraceparentFields": [
+        "00-00000000000000000000000000000000-31fe47bbad33f8bd-01"
+      ],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:12.289Z",
+      "observedTraceparentFields": [
+        "00-00000000000000000000000000000000-31fe47bbad33f8bd-01"
+      ],
+      "observedTracestateFields": [],
+      "sdkTraceId": "9f76244c7506883e8891897a4b46602e",
+      "sdkSpanId": "1310205f1a042784",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.298818800Z",
+      "rootEligible": true,
+      "disposition": "invalid",
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 1,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 7,
+        "traceId": "9f76244c7506883e8891897a4b46602e",
+        "spanId": "1310205f1a042784",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.297Z",
+        "rawParentFieldPresent": false,
+        "rawParentId": null,
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 7,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "kind": "invalid-zero-parent",
+      "caseId": "0392c9db-4daa-4d42-ac42-c212cbb78855",
+      "businessInvocationId": "71843e15-a4d5-4edc-8e16-559066872687",
+      "sentTraceparentFields": [
+        "00-0227f9422445927d865e65e5c93bd43d-0000000000000000-01"
+      ],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:12.303Z",
+      "observedTraceparentFields": [
+        "00-0227f9422445927d865e65e5c93bd43d-0000000000000000-01"
+      ],
+      "observedTracestateFields": [],
+      "sdkTraceId": "5001500bcb830554752e48e8a833561e",
+      "sdkSpanId": "38ddcdb8be06173a",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.310339900Z",
+      "rootEligible": true,
+      "disposition": "invalid",
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 1,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 8,
+        "traceId": "5001500bcb830554752e48e8a833561e",
+        "spanId": "38ddcdb8be06173a",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.309Z",
+        "rawParentFieldPresent": false,
+        "rawParentId": null,
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 8,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "kind": "valid-parent",
+      "caseId": "da96b20f-54d8-44b3-9d64-6b7bc48464ff",
+      "businessInvocationId": "4c7a2b03-7437-46e8-bd38-9cdda67d8367",
+      "sentTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:12.313Z",
+      "observedTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "observedTracestateFields": [],
+      "sdkTraceId": "7fa2a93f72da5501dd7b44953c617963",
+      "sdkSpanId": "55b968364649c55a",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.320338700Z",
+      "rootEligible": false,
+      "disposition": null,
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 3,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 9,
+        "traceId": "7fa2a93f72da5501dd7b44953c617963",
+        "spanId": "55b968364649c55a",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.319Z",
+        "rawParentFieldPresent": true,
+        "rawParentId": "d68a9b76fb5bed66",
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 9,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "kind": "invalid-tracestate-only",
+      "caseId": "895a942f-827f-48d2-8c8f-b5f2fd4828a0",
+      "businessInvocationId": "4c7a2b03-7437-46e8-bd38-9cdda67d8367",
+      "sentTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "sentTracestateFields": [
+        "bad key=value"
+      ],
+      "sentAtUtc": "2026-11-02T04:25:12.322Z",
+      "observedTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "observedTracestateFields": [
+        "bad key=value"
+      ],
+      "sdkTraceId": "7fa2a93f72da5501dd7b44953c617963",
+      "sdkSpanId": "e2fec0acf6013de1",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.330335700Z",
+      "rootEligible": false,
+      "disposition": null,
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 3,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 10,
+        "traceId": "7fa2a93f72da5501dd7b44953c617963",
+        "spanId": "e2fec0acf6013de1",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.329Z",
+        "rawParentFieldPresent": true,
+        "rawParentId": "d68a9b76fb5bed66",
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 10,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "kind": "changed-business-id-valid-parent",
+      "caseId": "250619f6-709c-4268-9589-91b934b24349",
+      "businessInvocationId": "0b965df2-e6ab-4f48-bb4b-0078dde8de2d",
+      "sentTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:12.333Z",
+      "observedTraceparentFields": [
+        "00-7fa2a93f72da5501dd7b44953c617963-d68a9b76fb5bed66-01"
+      ],
+      "observedTracestateFields": [],
+      "sdkTraceId": "7fa2a93f72da5501dd7b44953c617963",
+      "sdkSpanId": "58968c1bbc3fa89e",
+      "sdkSampled": true,
+      "sdkRecording": true,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.339338100Z",
+      "rootEligible": false,
+      "disposition": null,
+      "unsampledControl": false,
+      "nativeRelatedSpanCount": 3,
+      "matchedNativeRequest": {
+        "nativeEnvelopeOrdinal": 11,
+        "traceId": "7fa2a93f72da5501dd7b44953c617963",
+        "spanId": "58968c1bbc3fa89e",
+        "roleName": "contoso-orders-api",
+        "timeUtc": "2026-11-02T04:25:12.338Z",
+        "rawParentFieldPresent": true,
+        "rawParentId": "d68a9b76fb5bed66",
+        "sourceLocator": {
+          "payloadOrdinal": 0,
+          "envelopeOrdinal": 11,
+          "originalPayloadSha256": "0f178c89f25c4d010ff4cd2fe9d15be7161df7b665878545f6a6ea8ae3e3ee36"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "kind": "valid-unsampled-parent",
+      "caseId": "640fcb21-6e09-410d-9be7-5afe93f8a951",
+      "businessInvocationId": "310bd46b-7f64-4b48-800d-bdeb649fae23",
+      "sentTraceparentFields": [
+        "00-27d3dc4c2b9688b3558544fc2d9ffce7-22da93bdee15c9c6-00"
+      ],
+      "sentTracestateFields": [],
+      "sentAtUtc": "2026-11-02T04:25:12.343Z",
+      "observedTraceparentFields": [
+        "00-27d3dc4c2b9688b3558544fc2d9ffce7-22da93bdee15c9c6-00"
+      ],
+      "observedTracestateFields": [],
+      "sdkTraceId": "27d3dc4c2b9688b3558544fc2d9ffce7",
+      "sdkSpanId": "96c55d04f5d7ce7b",
+      "sdkSampled": false,
+      "sdkRecording": false,
+      "actualJavaPid": 26044,
+      "processStartUtc": "2026-11-02T04:25:00.855Z",
+      "observedAtUtc": "2026-11-02T04:25:12.350339200Z",
+      "rootEligible": false,
+      "disposition": null,
+      "unsampledControl": true,
+      "nativeRelatedSpanCount": 0,
+      "matchedNativeRequest": null
+    }
+  ],
+  "postPublicationSavedProjectionFactReadIsNewNativeExecution": false,
+  "postPublicationOriginalMarkerRescanPerformed": false,
+  "cleanup": {
+    "checkedAtUtc": "2026-11-02T04:27:36.620Z",
+    "recordedPids": [
+      {
+        "pid": 26044,
+        "state": "PID_NOT_RUNNING"
+      },
+      {
+        "pid": 29872,
+        "state": "PID_NOT_RUNNING"
+      },
+      {
+        "pid": 14928,
+        "state": "PID_NOT_RUNNING"
+      }
+    ],
+    "allRecordedPidsNotRunning": true,
+    "sourceFactoryFinallyStoppedReceiver": true
+  },
+  "savedJsonCanEnroll": false,
+  "azureAuthority": false,
+  "fullGraphVerified": false,
+  "globalPrivacyVerified": false,
+  "privateSecurityCQualified": false,
+  "cardDone": false,
+  "certification": "NOT_CERTIFIED",
+  "priorFailureEpochsPreserved": true,
+  "sourceDocsRegisterBoardStillHeld": true
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "contoso.r9-conditional-attempt-factual-addendum.v1",
+  "recordedAtUtc": "2026-11-02T02:44:52.464Z",
+  "corrects": "evidence\\verification\\conditional-native-attempts\\20261102T023649873Z-d794ba8f-5f5f-47da-990f-afb352f5ad6d\\failure.json",
+  "originalSha256": "eb6ff220ca3a7ecb18f95b7322619a03b7ad60a9ff06e2d2b88bc1f3dc0dee6c",
+  "originalBytesPreserved": true,
+  "result": "FAIL_OR_UNVERIFIED",
+  "originalCode": "E_CONDITIONAL_CLASSPATH",
+  "correction": "Prior generic-code stage inference was INCORRECT. Actual run directory and freshly compiled fixture/filter class bytes exist: javac stage WAS reached. This addendum never retroedits eb6.",
+  "actualRunDirectory": "evidence\\verification\\conditional-native\\20261102T023543645Z-469a9472-96af-45e0-a471-a9f45545a0f1",
+  "actualCompiledArtifacts": [
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T023543645Z-469a9472-96af-45e0-a471-a9f45545a0f1\\classes\\com\\contoso\\orders\\NativeApiFixture.class",
+      "sha256": "7df1abc5a3bde402877f82f2cd3a75b709fcf674018f85c97eef57253d59734e",
+      "bytes": 19477,
+      "createdAtUtc": "2026-11-02T02:35:52.194Z",
+      "modifiedAtUtc": "2026-11-02T02:35:52.196Z"
+    },
+    {
+      "path": "evidence\\verification\\conditional-native\\20261102T023543645Z-469a9472-96af-45e0-a471-a9f45545a0f1\\classes\\com\\contoso\\orders\\NativeTrustRootObservationFilter.class",
+      "sha256": "0bf6dab0f5488d52947fb5330f46cf8e9be29aeeea66ed2d3cd6a9dbe1912702",
+      "bytes": 9569,
+      "createdAtUtc": "2026-11-02T02:35:52.257Z",
+      "modifiedAtUtc": "2026-11-02T02:35:52.260Z"
+    }
+  ],
+  "observedCopiedXml": {
+    "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\support\\services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.NativeApiIntegrationTest.xml",
+    "sha256": "9dbd63fb7904b43df70a5495fb9ab7f571eafdb5d2531e7aa5e31ef5cb6ec9ce",
+    "rawDecodedClasspathSha256": "c877431df7d00b02693fb92a6db65650374712667d91150ae256dee0af19cc20",
+    "rawEntryCount": 137,
+    "nonemptyAbsoluteEntryCount": 136,
+    "singleTerminalEmptyIndex": 136,
+    "interiorEmptyCount": 0
+  },
+  "parentDiagnosedFailedStage": "runtimeSnapshot fixed runtime file-list construction rejected the single terminal implicit-CWD empty element",
+  "javaApplicationOrNativeEnrollmentReached": false,
+  "basisForNoApplicationLaunch": "Parent diagnosis and fixed source ordering: runtimeSnapshot precedes receiver open/application spawn; no Java application/native proof asserted.",
+  "authorizedAttemptCountUnchanged": 1,
+  "newJavaOrJavacOrNativeExecution": false,
+  "sourcePatchOrRetryPerformed": false,
+  "sourceAcceptanceIsCertification": false,
+  "certification": "NOT_CERTIFIED"
+}

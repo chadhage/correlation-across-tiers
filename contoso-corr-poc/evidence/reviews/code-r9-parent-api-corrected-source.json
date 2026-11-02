@@ -1,0 +1,114 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "sourceAcceptanceIsCertification": false,
+  "scopeKind": "CORRECTED_MUTATION_AND_IMMUTABLE_NATIVE_CAPTURE_SOURCE_CPU_ONLY",
+  "roles": [
+    {
+      "role": "R4",
+      "implementationOwner": "parent/coordinator",
+      "result": "accepted",
+      "scopeSha256": "722bbce6736b09db71301da1311ae91dc45edac20e0a8c84edfcffb3af71cb7c",
+      "sources": [
+        {
+          "path": "services\\orders-api\\src\\main\\java\\com\\contoso\\orders\\OrdersApplication.java",
+          "sha256": "5844d325e332ca87d0753caabee0d67eead43c1a6cc3349cbb622913cc153f1e"
+        },
+        {
+          "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\OrdersApiTest.java",
+          "sha256": "849f4a64ae13eb1e67bd6f18a22de86d818881b3a682d3cd4c593e4d4eeae70a"
+        },
+        {
+          "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiIntegrationTest.java",
+          "sha256": "b57c991328f85c9afbc50f92b571f1ab35a142e3c25758afa407f5dbc29831f2"
+        },
+        {
+          "path": "tools\\java\\native-api-capture.mjs",
+          "sha256": "74ad39c1b388f9c41209a44872d0c66d6853a0a0665c3ae9084449e76e6ceaf3"
+        },
+        {
+          "path": "tests\\java\\native-api-capture.test.mjs",
+          "sha256": "2b851ee257de2835cc7967db721540807302a9cbb07e4167f5e29e88207ca418"
+        },
+        {
+          "path": "tools\\java\\Write-ValidationReport.ps1",
+          "sha256": "8af22c6cca29748f1a571ea83fde0edd861cc0bb019f6654717ad3a2b779d640"
+        },
+        {
+          "path": "tools\\java\\Write-ReviewManifest.ps1",
+          "sha256": "11b0dca5821719f0063003dfdc6c3a17bf9a5db4d233689a1f3448a580723206"
+        },
+        {
+          "path": "docs\\JAVA_VALIDATION.md",
+          "sha256": "8b5bcd44ecad410283e30bb8469a973a4345d509e7fbe562150717659f0ea5d9"
+        },
+        {
+          "path": "tools\\security\\native-identity-client.mjs",
+          "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+        },
+        {
+          "path": "tools\\security\\values.mjs",
+          "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+        }
+      ],
+      "tests": {
+        "command": "node --test --test-reporter=tap tests\\java\\native-api-capture.test.mjs",
+        "executedBy": "R9",
+        "nodeVersion": "v22.23.4",
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "sourcesBeforeAfterMatched": true
+      },
+      "claimLabels": [
+        {
+          "label": "Verified",
+          "claim": "All three workflow mutation responses use the validated current action businessInvocationId, with the immutable stored workflowBusinessInvocationId separately exposed",
+          "scope": "Current source; GET stored workflow identity and ingress response header remain distinct, no durable-store identity rewrite"
+        },
+        {
+          "label": "Verified",
+          "claim": "Original payload scan occurs before projection and field removal with bounded raw/decompressed payloads, counts, scalars and keys",
+          "scope": "Current Java source plus independently executed Node8 controls using exact current00e dependency; actual child PID/hash/count correspondence is source-reviewed"
+        },
+        {
+          "label": "Verified",
+          "claim": "UTC/UUID execution directories and CREATE_NEW capture/receipts preserve old fixed-path evidence and reject collisions",
+          "scope": "Source/sentinel-regression review; R9 did not execute Java or create a native epoch"
+        },
+        {
+          "label": "Verified",
+          "claim": "Validation reader requires an explicit fresh execution-specific API receipt, exact capture hash/epoch and original-scan metadata, with exclusive validation output",
+          "scope": "Current reader source, not a new whole-reactor qualification"
+        },
+        {
+          "label": "Partially verified",
+          "claim": "Parent actually ran focused Java14 and native2, including repeated order/run/control and immutable sentinel cases",
+          "scope": "Parent execution facts; immutable 22:29 a4e630b6 receipt/5d1abf7 capture read for consistency, not R9 native rerun or current reactor source-build/loaded-code authority"
+        }
+      ],
+      "closedSourceFindings": [
+        "R9-R4-CAPTURE-01 original-first scan/boundedness",
+        "Fixed-path CREATE/TRUNCATE would overwrite historical native capture",
+        "R2-ASYNC-API-RESPONSE-01 current mutation action versus original workflow identity"
+      ],
+      "nonblockingMetadataCaution": "Write-ReviewManifest still names the former flat agent-probe/result.json. The actual current versioned lock probe path and independently retaken probe must govern qualification; align the metadata in a later owner-permitted source phase, never copy old probe bytes as new authority."
+    }
+  ],
+  "notReviewed": [
+    "R2 successor frontend implementation/build/runtime under the new response contract",
+    "Parent in-progress eleven-module reactor A and its outputs",
+    "New R9 native execution, default managed-identity/Netty wire or packaged class-loading",
+    "Conditional-root runtime/carrier observer enrollment",
+    "Global privacy, exporter completeness, all fifteen full-path demos, Azure or owner signoffs"
+  ],
+  "historicalReviewNotRewritten": "evidence\\reviews\\code-r9-parent-api-source.json",
+  "r9MavenJavaNativeOrTargetAccessDuringReview": false,
+  "cardCompletionAccepted": false
+}

@@ -1,0 +1,2470 @@
+
+> contoso-corr-poc@1.0.0 test
+> node tools/run-tests.mjs --test-reporter=tap
+
+TAP version 13
+# Subtest: SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+ok 1 - SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+  ---
+  duration_ms: 9.6623
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+ok 2 - SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+  ---
+  duration_ms: 4.3724
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+ok 3 - SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+  ---
+  duration_ms: 6.9463
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+ok 4 - SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+  ---
+  duration_ms: 1.6974
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+ok 5 - SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+  ---
+  duration_ms: 2.6435
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+ok 6 - SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+  ---
+  duration_ms: 4.6066
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+ok 7 - SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+  ---
+  duration_ms: 3.3448
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+ok 8 - SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+  ---
+  duration_ms: 2.0612
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+ok 9 - SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+  ---
+  duration_ms: 1.7163
+  type: 'test'
+  ...
+# Subtest: pinned Bicep compiles all APIM modules and preserves real deployment/security contracts
+ok 10 - pinned Bicep compiles all APIM modules and preserves real deployment/security contracts # SKIP Set CONTOSO_BICEP_PATH to the existing frozen compiler; compilation is not verified by this run.
+  ---
+  duration_ms: 6.5183
+  type: 'test'
+  ...
+# Subtest: isolated rewrite and RequestId fixtures fail even behind a false flag
+ok 11 - isolated rewrite and RequestId fixtures fail even behind a false flag
+  ---
+  duration_ms: 13.7822
+  type: 'test'
+  ...
+# Subtest: legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+ok 12 - legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+  ---
+  duration_ms: 2.7306
+  type: 'test'
+  ...
+# Subtest: composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+ok 13 - composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+  ---
+  duration_ms: 1.3005
+  type: 'test'
+  ...
+# Subtest: SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+ok 14 - SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+  ---
+  duration_ms: 1.218
+  type: 'test'
+  ...
+# Subtest: all owned policy templates pass the protocol/security structure checks
+ok 15 - all owned policy templates pass the protocol/security structure checks
+  ---
+  duration_ms: 47.1073
+  type: 'test'
+  ...
+# Subtest: caller/workload policy is post-validation, app-only and separate from raw-header trust
+ok 16 - caller/workload policy is post-validation, app-only and separate from raw-header trust
+  ---
+  duration_ms: 22.9648
+  type: 'test'
+  ...
+# Subtest: CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+ok 17 - CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+  ---
+  duration_ms: 0.6524
+  type: 'test'
+  ...
+# Subtest: real service CORS permits SDK metadata without capture or credential exposure
+ok 18 - real service CORS permits SDK metadata without capture or credential exposure
+  ---
+  duration_ms: 10.1904
+  type: 'test'
+  ...
+# Subtest: malformed XML, DTD and nested fragment controls fail without fetching external entities
+ok 19 - malformed XML, DTD and nested fragment controls fail without fetching external entities
+  ---
+  duration_ms: 0.9502
+  type: 'test'
+  ...
+# Subtest: negative fixture manifest excludes every test artifact from deployment
+ok 20 - negative fixture manifest excludes every test artifact from deployment
+  ---
+  duration_ms: 8.6923
+  type: 'test'
+  ...
+# Subtest: OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+ok 21 - OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+  ---
+  duration_ms: 3.6304
+  type: 'test'
+  ...
+# Subtest: actual deployed C\# context, auth-shape and business guards execute in the local CLR
+ok 22 - actual deployed C\# context, auth-shape and business guards execute in the local CLR
+  ---
+  duration_ms: 4701.9441
+  type: 'test'
+  ...
+# Subtest: valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+ok 23 - valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+  ---
+  duration_ms: 2.6366
+  type: 'test'
+  ...
+# Subtest: version-forward-compatible known prefix accepts extensions without parsing them
+ok 24 - version-forward-compatible known prefix accepts extensions without parsing them
+  ---
+  duration_ms: 0.4421
+  type: 'test'
+  ...
+# Subtest: malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+ok 25 - malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+  ---
+  duration_ms: 1.344
+  type: 'test'
+  ...
+# Subtest: invalid state drops state only and never invalidates a valid parent
+ok 26 - invalid state drops state only and never invalidates a valid parent
+  ---
+  duration_ms: 1.5565
+  type: 'test'
+  ...
+# Subtest: Demo03 carrier manifest describes policy behavior without fabricated telemetry
+ok 27 - Demo03 carrier manifest describes policy behavior without fabricated telemetry
+  ---
+  duration_ms: 20.7369
+  type: 'test'
+  ...
+# Subtest: state order/multi-fields/empty OWS and strict member grammar
+ok 28 - state order/multi-fields/empty OWS and strict member grammar
+  ---
+  duration_ms: 0.5576
+  type: 'test'
+  ...
+# Subtest: state accepts 32 and 512 but not 33/513; long values are bounded
+ok 29 - state accepts 32 and 512 but not 33/513; long values are bounded
+  ---
+  duration_ms: 0.5649
+  type: 'test'
+  ...
+# Subtest: business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+ok 30 - business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+  ---
+  duration_ms: 1.3454
+  type: 'test'
+  ...
+# Subtest: transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+ok 31 - transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+  ---
+  duration_ms: 0.9701
+  type: 'test'
+  ...
+# Subtest: case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+ok 32 - case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+  ---
+  duration_ms: 0.9834
+  type: 'test'
+  ...
+# Subtest: CORS grants only frontend origin/custom-header list and never grants the gateway proof
+ok 33 - CORS grants only frontend origin/custom-header list and never grants the gateway proof
+  ---
+  duration_ms: 0.622
+  type: 'test'
+  ...
+# Subtest: SDK appId metadata preflight remains permitted on a subsequent approved request
+ok 34 - SDK appId metadata preflight remains permitted on a subsequent approved request
+  ---
+  duration_ms: 0.2658
+  type: 'test'
+  ...
+# Subtest: public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+ok 35 - public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+  ---
+  duration_ms: 0.7235
+  type: 'test'
+  ...
+# Subtest: source/version guard accepts only SDK3.4.5 W3C_TRACE18
+ok 36 - source/version guard accepts only SDK3.4.5 W3C_TRACE18
+  ---
+  duration_ms: 23.9163
+  type: 'test'
+  ...
+# Subtest: module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+ok 37 - module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+  ---
+  duration_ms: 4.9689
+  type: 'test'
+  ...
+# Subtest: all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+ok 38 - all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+  ---
+  duration_ms: 1.2799
+  type: 'test'
+  ...
+# Subtest: native ARM substrate snapshots, conditionally patches and restores without claiming a runtime ACK
+ok 39 - native ARM substrate snapshots, conditionally patches and restores without claiming a runtime ACK
+  ---
+  duration_ms: 15.4404
+  type: 'test'
+  ...
+# Subtest: default adapter cannot perform cloud writes even after read-only preparation
+ok 40 - default adapter cannot perform cloud writes even after read-only preparation
+  ---
+  duration_ms: 4.2657
+  type: 'test'
+  ...
+# Subtest: overlapping service/API scopes, paging and foreign continuations fail closed
+ok 41 - overlapping service/API scopes, paging and foreign continuations fail closed
+  ---
+  duration_ms: 2.2789
+  type: 'test'
+  ...
+# Subtest: activation and restoration reject stale ETags and foreign owned-field changes
+ok 42 - activation and restoration reject stale ETags and foreign owned-field changes
+  ---
+  duration_ms: 3.985
+  type: 'test'
+  ...
+# Subtest: lease gates reject early/draining/expired activation but late restoration still ends full collection
+ok 43 - lease gates reject early/draining/expired activation but late restoration still ends full collection
+  ---
+  duration_ms: 2.6849
+  type: 'test'
+  ...
+# Subtest: an expired prepared snapshot cannot be revived by shifting the same lease ID to a later window
+ok 44 - an expired prepared snapshot cannot be revived by shifting the same lease ID to a later window
+  ---
+  duration_ms: 1.0155
+  type: 'test'
+  ...
+# Subtest: no privacy, RPS, protocol or snapshot tampering is admitted by native control
+ok 45 - no privacy, RPS, protocol or snapshot tampering is admitted by native control
+  ---
+  duration_ms: 1.8603
+  type: 'test'
+  ...
+# Subtest: management failures omit response/credential data and require an actual GET ETag
+ok 46 - management failures omit response/credential data and require an actual GET ETag
+  ---
+  duration_ms: 2.822
+  type: 'test'
+  ...
+# Subtest: textual guard mentions do not authorize deletion behind unconditional alternatives
+ok 47 - textual guard mentions do not authorize deletion behind unconditional alternatives
+  ---
+  duration_ms: 3.71
+  type: 'test'
+  ...
+# Subtest: hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+ok 48 - hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+  ---
+  duration_ms: 0.9941
+  type: 'test'
+  ...
+# Subtest: named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+ok 49 - named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+  ---
+  duration_ms: 4.6604
+  type: 'test'
+  ...
+# Subtest: a W3C constant in another file cannot certify an unbound SDK initialization
+ok 50 - a W3C constant in another file cannot certify an unbound SDK initialization
+  ---
+  duration_ms: 53.6071
+  type: 'test'
+  ...
+# Subtest: declares all eight synchronous boundaries and separate SSR, replay, fan-in and batch roots
+ok 51 - declares all eight synchronous boundaries and separate SSR, replay, fan-in and batch roots
+  ---
+  duration_ms: 1.4146
+  type: 'test'
+  ...
+# Subtest: conditional A03 roots cannot waive valid parents or replace actual native receipts
+ok 52 - conditional A03 roots cannot waive valid parents or replace actual native receipts
+  ---
+  duration_ms: 2.7275
+  type: 'test'
+  ...
+# Subtest: data tiers are client boundaries and actual contributors are bounded links
+ok 53 - data tiers are client boundaries and actual contributors are bounded links
+  ---
+  duration_ms: 0.4131
+  type: 'test'
+  ...
+# Subtest: renders the graph from one map and rejects unknown/malformed edges
+ok 54 - renders the graph from one map and rejects unknown/malformed edges
+  ---
+  duration_ms: 1.152
+  type: 'test'
+  ...
+# Subtest: rejects each removed claim/resource even when hidden in a disabled fragment
+ok 55 - rejects each removed claim/resource even when hidden in a disabled fragment
+  ---
+  duration_ms: 2.9876
+  type: 'test'
+  ...
+# Subtest: rejects evaluation references on the certification deployment path
+ok 56 - rejects evaluation references on the certification deployment path
+  ---
+  duration_ms: 0.2717
+  type: 'test'
+  ...
+# Subtest: does not confuse a validation-tool rejection predicate with a deployment requirement
+ok 57 - does not confuse a validation-tool rejection predicate with a deployment requirement
+  ---
+  duration_ms: 0.1894
+  type: 'test'
+  ...
+# Subtest: fails closed on preview/unknown dependencies and missing official sources
+ok 58 - fails closed on preview/unknown dependencies and missing official sources
+  ---
+  duration_ms: 1.4456
+  type: 'test'
+  ...
+# Subtest: Contoso-owned customization is not presented as a Microsoft GA announcement
+ok 59 - Contoso-owned customization is not presented as a Microsoft GA announcement
+  ---
+  duration_ms: 0.3224
+  type: 'test'
+  ...
+# Subtest: calculates exact listed fixed meters without double-counting service equivalents
+ok 60 - calculates exact listed fixed meters without double-counting service equivalents
+  ---
+  duration_ms: 1.3879
+  type: 'test'
+  ...
+# Subtest: fails closed on an unknown/zero meter or removed spend warning
+ok 61 - fails closed on an unknown/zero meter or removed spend warning
+  ---
+  duration_ms: 0.9154
+  type: 'test'
+  ...
+# Subtest: GATE-02 accepts API only and fails a never-deployed second-SDK fixture
+ok 62 - GATE-02 accepts API only and fails a never-deployed second-SDK fixture
+  ---
+  duration_ms: 3094.3636
+  type: 'test'
+  ...
+# Subtest: GATE-02 fails provider construction before deployment
+ok 63 - GATE-02 fails provider construction before deployment
+  ---
+  duration_ms: 1840.0255
+  type: 'test'
+  ...
+# Subtest: PROVIDED SDK APIs outside the one approved extension remain forbidden
+ok 64 - PROVIDED SDK APIs outside the one approved extension remain forbidden
+  ---
+  duration_ms: 1808.6266
+  type: 'test'
+  ...
+# Subtest: extension compiler exception is exact ABI and PROVIDED, not a subtree exclusion
+ok 65 - extension compiler exception is exact ABI and PROVIDED, not a subtree exclusion
+  ---
+  duration_ms: 4826.7568
+  type: 'test'
+  ...
+# Subtest: agent pin, runtime guard and generated VERSIONS refer to the same lock
+ok 66 - agent pin, runtime guard and generated VERSIONS refer to the same lock
+  ---
+  duration_ms: 2.4141
+  type: 'test'
+  ...
+# Subtest: startup owns one pinned agent and never promotes a sampled flag
+ok 67 - startup owns one pinned agent and never promotes a sampled flag
+  ---
+  duration_ms: 0.995
+  type: 'test'
+  ...
+# Subtest: compute exposes actual hostnames and defaults backend and independent SCM ingress to deny
+ok 68 - compute exposes actual hostnames and defaults backend and independent SCM ingress to deny
+  ---
+  duration_ms: 0.6943
+  type: 'test'
+  ...
+# Subtest: the serial reactor builds current Inventory classes before Orders launches its two-JVM test
+ok 69 - the serial reactor builds current Inventory classes before Orders launches its two-JVM test
+  ---
+  duration_ms: 0.4772
+  type: 'test'
+  ...
+# Subtest: module observations never promote mixed build epochs into a fresh full-reactor PASS
+ok 70 - module observations never promote mixed build epochs into a fresh full-reactor PASS
+  ---
+  duration_ms: 694.4862
+  type: 'test'
+  ...
+# Subtest: BOOT-INF SDK resources and unlabelled nested libraries cannot evade admission
+ok 71 - BOOT-INF SDK resources and unlabelled nested libraries cannot evade admission
+  ---
+  duration_ms: 3092.878
+  type: 'test'
+  ...
+# Subtest: startup log guard rejects duplicate loads, transformation failures and exporter rejection
+ok 72 - startup log guard rejects duplicate loads, transformation failures and exporter rejection
+  ---
+  duration_ms: 2264.7688
+  type: 'test'
+  ...
+# Subtest: throw-only construction bytecode cannot enter a real application package
+ok 73 - throw-only construction bytecode cannot enter a real application package
+  ---
+  duration_ms: 1244.1897
+  type: 'test'
+  ...
+# Subtest: deployment ZIP bytes are stable despite changing filesystem timestamps
+ok 74 - deployment ZIP bytes are stable despite changing filesystem timestamps
+  ---
+  duration_ms: 1172.9156
+  type: 'test'
+  ...
+# Subtest: original values are scanned before publisher/machine projection; technical values remain exact
+ok 75 - original values are scanned before publisher/machine projection; technical values remain exact
+  ---
+  duration_ms: 30.4615
+  type: 'test'
+  ...
+# Subtest: redactable tags cannot conceal original personal values, credentials or exact identity markers
+ok 76 - redactable tags cannot conceal original personal values, credentials or exact identity markers
+  ---
+  duration_ms: 2.5845
+  type: 'test'
+  ...
+# Subtest: original properties reject credential fields, SQL capture and JWT-shaped strings without synthetic waivers
+ok 77 - original properties reject credential fields, SQL capture and JWT-shaped strings without synthetic waivers
+  ---
+  duration_ms: 1.9788
+  type: 'test'
+  ...
+# Subtest: unknown or nested publisher credentials are rejected before any projection
+ok 78 - unknown or nested publisher credentials are rejected before any projection
+  ---
+  duration_ms: 1.8751
+  type: 'test'
+  ...
+# Subtest: NDJSON and gzip preserve separate original payload and envelope counts
+ok 79 - NDJSON and gzip preserve separate original payload and envelope counts
+  ---
+  duration_ms: 3.165
+  type: 'test'
+  ...
+# Subtest: compressed, envelope-count, payload-count and prototype bounds fail closed
+ok 80 - compressed, envelope-count, payload-count and prototype bounds fail closed
+  ---
+  duration_ms: 37.1988
+  type: 'test'
+  ...
+# Subtest: the exact 512-envelope and one-MiB thresholds accept at the boundary and reject above it
+ok 81 - the exact 512-envelope and one-MiB thresholds accept at the boundary and reject above it
+  ---
+  duration_ms: 602.5524
+  type: 'test'
+  ...
+# Subtest: the actual CLI binds its PID and never emits unsafe originals on stdout or stderr
+ok 82 - the actual CLI binds its PID and never emits unsafe originals on stdout or stderr
+  ---
+  duration_ms: 551.0368
+  type: 'test'
+  ...
+# Subtest: the API consumer rejects duplicate original fields and publisher-marker conflicts through the shared policy
+ok 83 - the API consumer rejects duplicate original fields and publisher-marker conflicts through the shared policy
+  ---
+  duration_ms: 2.7282
+  type: 'test'
+  ...
+# Subtest: default Netty qualification tests the sampled bit without rejecting or rewriting other W3C bits
+ok 84 - default Netty qualification tests the sampled bit without rejecting or rewriting other W3C bits
+  ---
+  duration_ms: 236.4293
+  type: 'test'
+  ...
+# Subtest: imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+ok 85 - imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+  ---
+  duration_ms: 2.5166
+  type: 'test'
+  ...
+# Subtest: expands range dependencies without dropping final certification edges
+ok 86 - expands range dependencies without dropping final certification edges
+  ---
+  duration_ms: 2.4956
+  type: 'test'
+  ...
+# Subtest: rejects Blocked and unknown card states instead of silently defaulting
+ok 87 - rejects Blocked and unknown card states instead of silently defaulting
+  ---
+  duration_ms: 1.1213
+  type: 'test'
+  ...
+# Subtest: enforces one active card per role and returns stalled work to To Do
+ok 88 - enforces one active card per role and returns stalled work to To Do
+  ---
+  duration_ms: 0.6034
+  type: 'test'
+  ...
+# Subtest: approved acting roles retain logical ownership but share one implementation WIP limit
+ok 89 - approved acting roles retain logical ownership but share one implementation WIP limit
+  ---
+  duration_ms: 2.2083
+  type: 'test'
+  ...
+# Subtest: acting authors cannot count their own reviews through logical-role aliases
+ok 90 - acting authors cannot count their own reviews through logical-role aliases
+  ---
+  duration_ms: 1.0109
+  type: 'test'
+  ...
+# Subtest: two accepted logical-role aliases cannot count as two implementation reviewers
+ok 91 - two accepted logical-role aliases cannot count as two implementation reviewers
+  ---
+  duration_ms: 0.6533
+  type: 'test'
+  ...
+# Subtest: unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+ok 92 - unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+  ---
+  duration_ms: 0.6662
+  type: 'test'
+  ...
+# Subtest: current synchronization/rendering cannot remove or null the approved acting assignment
+ok 93 - current synchronization/rendering cannot remove or null the approved acting assignment
+  ---
+  duration_ms: 17.8159
+  type: 'test'
+  ...
+# Subtest: cross-role WIP and author protection cannot fall back to parked roles without the map
+ok 94 - cross-role WIP and author protection cannot fall back to parked roles without the map
+  ---
+  duration_ms: 5.8526
+  type: 'test'
+  ...
+# Subtest: highest executable facet is compared across logical roles sharing an implementation owner
+ok 95 - highest executable facet is compared across logical roles sharing an implementation owner
+  ---
+  duration_ms: 4.9336
+  type: 'test'
+  ...
+# Subtest: rendered implementation lanes show acting owner instead of stopped original writer
+ok 96 - rendered implementation lanes show acting owner instead of stopped original writer
+  ---
+  duration_ms: 3.078
+  type: 'test'
+  ...
+# Subtest: construction does not satisfy completion dependencies or evidence
+ok 97 - construction does not satisfy completion dependencies or evidence
+  ---
+  duration_ms: 0.7809
+  type: 'test'
+  ...
+# Subtest: does not mark a card Done on a draft, a vote, or missing acceptance
+ok 98 - does not mark a card Done on a draft, a vote, or missing acceptance
+  ---
+  duration_ms: 0.5611
+  type: 'test'
+  ...
+# Subtest: code completion cannot count earlier design-only or generic review markers
+ok 99 - code completion cannot count earlier design-only or generic review markers
+  ---
+  duration_ms: 0.2749
+  type: 'test'
+  ...
+# Subtest: review envelopes bind verdict, explicit completion sources, and source-scope hashes
+ok 100 - review envelopes bind verdict, explicit completion sources, and source-scope hashes
+  ---
+  duration_ms: 6.8748
+  type: 'test'
+  ...
+# Subtest: source digest detects code changes but does not self-invalidate on operational board transitions
+ok 101 - source digest detects code changes but does not self-invalidate on operational board transitions
+  ---
+  duration_ms: 0.478
+  type: 'test'
+  ...
+# Subtest: partial passing checkboxes require scope policy and current evidence too
+ok 102 - partial passing checkboxes require scope policy and current evidence too
+  ---
+  duration_ms: 0.6126
+  type: 'test'
+  ...
+# Subtest: persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+ok 103 - persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+  ---
+  duration_ms: 0.436
+  type: 'test'
+  ...
+# Subtest: rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+ok 104 - rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+  ---
+  duration_ms: 48.7756
+  type: 'test'
+  ...
+# Subtest: exact scopes cover all clauses and invalidate on a semantic source change
+ok 105 - exact scopes cover all clauses and invalidate on a semantic source change
+  ---
+  duration_ms: 14.1437
+  type: 'test'
+  ...
+# Subtest: partial local facet is rendered separately and cannot tick a whole live clause
+ok 106 - partial local facet is rendered separately and cannot tick a whole live clause
+  ---
+  duration_ms: 40.555
+  type: 'test'
+  ...
+# Subtest: arbitrary live PASS and reviewer votes are not native acceptance
+ok 107 - arbitrary live PASS and reviewer votes are not native acceptance
+  ---
+  duration_ms: 2.1936
+  type: 'test'
+  ...
+# Subtest: source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+ok 108 - source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+  ---
+  duration_ms: 17.2816
+  type: 'test'
+  ...
+# Subtest: retry checks N failures followed by success as N+1 actual deliveries
+ok 109 - retry checks N failures followed by success as N+1 actual deliveries
+  ---
+  duration_ms: 4.3657
+  type: 'test'
+  ...
+# Subtest: replay must be fresh linked work with preserved business and original identity
+ok 110 - replay must be fresh linked work with preserved business and original identity
+  ---
+  duration_ms: 2.1188
+  type: 'test'
+  ...
+# Subtest: fan-in rejects arbitrary parents, missing/invented contributors and unbounded links
+ok 111 - fan-in rejects arbitrary parents, missing/invented contributors and unbounded links
+  ---
+  duration_ms: 2.2718
+  type: 'test'
+  ...
+# Subtest: mixed-context batch is root-with-bounded-links, never first-message-parent
+ok 112 - mixed-context batch is root-with-bounded-links, never first-message-parent
+  ---
+  duration_ms: 0.4637
+  type: 'test'
+  ...
+# Subtest: INTERNAL aggregation validates native causality without inventing consumer attempts
+ok 113 - INTERNAL aggregation validates native causality without inventing consumer attempts
+  ---
+  duration_ms: 0.4769
+  type: 'test'
+  ...
+# Subtest: synthetic vectors are negative controls, never certification evidence
+ok 114 - synthetic vectors are negative controls, never certification evidence
+  ---
+  duration_ms: 0.5706
+  type: 'test'
+  ...
+# Subtest: published v1 envelope is bounded, exact-named and version-invalidating
+ok 115 - published v1 envelope is bounded, exact-named and version-invalidating
+  ---
+  duration_ms: 1.9814
+  type: 'test'
+  ...
+# Subtest: synthetic payload and UUIDs have explicit immutable bounds
+ok 116 - synthetic payload and UUIDs have explicit immutable bounds
+  ---
+  duration_ms: 1.1801
+  type: 'test'
+  ...
+# Subtest: real messaging ARM compiles all carriers with identity-only local auth disabled
+ok 117 - real messaging ARM compiles all carriers with identity-only local auth disabled
+  ---
+  duration_ms: 3263.1803
+  type: 'test'
+  ...
+# Subtest: CloudEvents relay uses topic identity and declares durable dead-letter destination
+ok 118 - CloudEvents relay uses topic identity and declares durable dead-letter destination
+  ---
+  duration_ms: 2900.3499
+  type: 'test'
+  ...
+# Subtest: runtime messaging permissions are fixed entity scopes, never namespace data owners
+ok 119 - runtime messaging permissions are fixed entity scopes, never namespace data owners
+  ---
+  duration_ms: 2482.9203
+  type: 'test'
+  ...
+# Subtest: fixture-only original NDJSON/gzip keeps actual supplied retry IDs, kinds, parents and links after shared scan
+ok 120 - fixture-only original NDJSON/gzip keeps actual supplied retry IDs, kinds, parents and links after shared scan
+  ---
+  duration_ms: 44.9606
+  type: 'test'
+  ...
+# Subtest: duplicate plain, escaped and nested names fail before any async projection
+ok 121 - duplicate plain, escaped and nested names fail before any async projection
+  ---
+  duration_ms: 5.572
+  type: 'test'
+  ...
+# Subtest: exact synthetic token/OID markers and values in removed tags reject the complete original capture
+ok 122 - exact synthetic token/OID markers and values in removed tags reject the complete original capture
+  ---
+  duration_ms: 23.2588
+  type: 'test'
+  ...
+# Subtest: actual CPU-only stdin CLI binds child PID, raw digest, counts and current shared source bytes
+ok 123 - actual CPU-only stdin CLI binds child PID, raw digest, counts and current shared source bytes
+  ---
+  duration_ms: 701.9006
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: both supporting Java tests consume policy-approved rows before any immutable proof write
+ok 124 - SOURCE ONLY: both supporting Java tests consume policy-approved rows before any immutable proof write
+  ---
+  duration_ms: 5.6946
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: Notify replay and the other topic subscription run in separate fixed-role child JVM phases
+ok 125 - SOURCE ONLY: Notify replay and the other topic subscription run in separate fixed-role child JVM phases
+  ---
+  duration_ms: 15.5974
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: actual trusted store, NOTIFY_DLQ replay and non-target settlement/effect/fault checks are executable
+ok 126 - SOURCE ONLY: actual trusted store, NOTIFY_DLQ replay and non-target settlement/effect/fault checks are executable
+  ---
+  duration_ms: 2.7511
+  type: 'test'
+  ...
+# Subtest: SOURCE REGRESSION ONLY: ORDER Notify provenance uses the exact protected publication, not RESULT-only inbox source metadata
+ok 127 - SOURCE REGRESSION ONLY: ORDER Notify provenance uses the exact protected publication, not RESULT-only inbox source metadata
+  ---
+  duration_ms: 5.2327
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: shared original-first approval precedes all projections and both independent replay roots link actual original IDs
+ok 128 - SOURCE ONLY: shared original-first approval precedes all projections and both independent replay roots link actual original IDs
+  ---
+  duration_ms: 3.2039
+  type: 'test'
+  ...
+# Subtest: reproduces the same legal physical map for teardown/redeploy
+ok 129 - reproduces the same legal physical map for teardown/redeploy
+  ---
+  duration_ms: 8.5029
+  type: 'test'
+  ...
+# Subtest: normalizes storage, respects vault length and avoids reserved namespace/host IDs
+ok 130 - normalizes storage, respects vault length and avoids reserved namespace/host IDs
+  ---
+  duration_ms: 1.4086
+  type: 'test'
+  ...
+# Subtest: never uses a discriminator/instance ID as the logical role
+ok 131 - never uses a discriminator/instance ID as the logical role
+  ---
+  duration_ms: 0.3876
+  type: 'test'
+  ...
+# Subtest: rejects the former overlength inventory alias while retaining its canonical role
+ok 132 - rejects the former overlength inventory alias while retaining its canonical role
+  ---
+  duration_ms: 0.4535
+  type: 'test'
+  ...
+# Subtest: six procedures render complete distinct schemas without broad materialization
+ok 133 - six procedures render complete distinct schemas without broad materialization
+  ---
+  duration_ms: 79.1348
+  type: 'test'
+  ...
+# Subtest: root map is the only topology source and contains eight mandatory core boundaries
+ok 134 - root map is the only topology source and contains eight mandatory core boundaries
+  ---
+  duration_ms: 4.2835
+  type: 'test'
+  ...
+# Subtest: missing map parent edges never silently create declared roots
+ok 135 - missing map parent edges never silently create declared roots
+  ---
+  duration_ms: 2.3697
+  type: 'test'
+  ...
+# Subtest: conditional roots retain policy and exact dispositions without becoming deliberate-root exemptions
+ok 136 - conditional roots retain policy and exact dispositions without becoming deliberate-root exemptions
+  ---
+  duration_ms: 38.2065
+  type: 'test'
+  ...
+# Subtest: conditional map candidates reject missing policy, wrong receipt, unsafe dispositions or duplicate roots
+ok 137 - conditional map candidates reject missing policy, wrong receipt, unsafe dispositions or duplicate roots
+  ---
+  duration_ms: 13.9929
+  type: 'test'
+  ...
+# Subtest: replay and result roots use real Fulfillment/Notify actors and retain four fan-in contributor edges
+ok 138 - replay and result roots use real Fulfillment/Notify actors and retain four fan-in contributor edges
+  ---
+  duration_ms: 1.974
+  type: 'test'
+  ...
+# Subtest: query inputs reject injection, zero identities, unapproved windows and map drift
+ok 139 - query inputs reject injection, zero identities, unapproved windows and map drift
+  ---
+  duration_ms: 9.0742
+  type: 'test'
+  ...
+# Subtest: actual boundary/reference keys require evidence and cannot fan out through duplicates
+ok 140 - actual boundary/reference keys require evidence and cannot fan out through duplicates
+  ---
+  duration_ms: 6.432
+  type: 'test'
+  ...
+# Subtest: native ID deserialization is source/role-bound and never an arbitrary GUID conversion
+ok 141 - native ID deserialization is source/role-bound and never an arbitrary GUID conversion
+  ---
+  duration_ms: 1.1442
+  type: 'test'
+  ...
+# Subtest: logs and views do not become duplicate span records; physical span duplicates remain
+ok 142 - logs and views do not become duplicate span records; physical span duplicates remain
+  ---
+  duration_ms: 7.1122
+  type: 'test'
+  ...
+# Subtest: links use their own trace/span context; unsupported native fields stay null
+ok 143 - links use their own trace/span context; unsupported native fields stay null
+  ---
+  duration_ms: 0.8865
+  type: 'test'
+  ...
+# Subtest: normalization requires prior privacy disposition, known source/schema and actual span identity
+ok 144 - normalization requires prior privacy disposition, known source/schema and actual span identity
+  ---
+  duration_ms: 0.4883
+  type: 'test'
+  ...
+# Subtest: sampling acknowledgements cannot turn stale RPS or a missing guard into eligible-full mode
+ok 145 - sampling acknowledgements cannot turn stale RPS or a missing guard into eligible-full mode
+  ---
+  duration_ms: 0.4727
+  type: 'test'
+  ...
+# Subtest: native link-count disagreement and legacy duration do not default to fabricated values
+ok 146 - native link-count disagreement and legacy duration do not default to fabricated values
+  ---
+  duration_ms: 0.6374
+  type: 'test'
+  ...
+# Subtest: opaque native view IDs never become spans or implicit browser parent contexts
+ok 147 - opaque native view IDs never become spans or implicit browser parent contexts
+  ---
+  duration_ms: 17.6672
+  type: 'test'
+  ...
+# Subtest: user-approved profile is exact and missing measured fields never become zero
+ok 148 - user-approved profile is exact and missing measured fields never become zero
+  ---
+  duration_ms: 2.0514
+  type: 'test'
+  ...
+# Subtest: latency/CPU/memory/errors/overhead/span breaches are nonpassing
+ok 149 - latency/CPU/memory/errors/overhead/span breaches are nonpassing
+  ---
+  duration_ms: 0.3656
+  type: 'test'
+  ...
+# Subtest: bounded real HTTP measurement keeps actual metrics and source separate from certification
+ok 150 - bounded real HTTP measurement keeps actual metrics and source separate from certification
+  ---
+  duration_ms: 365.9981
+  type: 'test'
+  ...
+# Subtest: remote traffic and excessive duration/RPS require bounded explicit approval
+ok 151 - remote traffic and excessive duration/RPS require bounded explicit approval
+  ---
+  duration_ms: 1.4117
+  type: 'test'
+  ...
+# Subtest: approved load target never forwards correlation or request data through redirects
+ok 152 - approved load target never forwards correlation or request data through redirects
+  ---
+  duration_ms: 357.8009
+  type: 'test'
+  ...
+# Subtest: negative metrics, zero-denominator coverage and missing cost duration never PASS
+ok 153 - negative metrics, zero-denominator coverage and missing cost duration never PASS
+  ---
+  duration_ms: 0.5606
+  type: 'test'
+  ...
+# Subtest: raw six-table capture preserves physical duplicates, scans original columns and seals only ingested slice
+ok 154 - raw six-table capture preserves physical duplicates, scans original columns and seals only ingested slice
+  ---
+  duration_ms: 39.6452
+  type: 'test'
+  ...
+# Subtest: 200 partial errors, warnings, truncated rows and invented native schemas fail closed
+ok 155 - 200 partial errors, warnings, truncated rows and invented native schemas fail closed
+  ---
+  duration_ms: 4.6519
+  type: 'test'
+  ...
+# Subtest: short/missing pages and source-label promotion cannot establish complete live capture
+ok 156 - short/missing pages and source-label promotion cannot establish complete live capture
+  ---
+  duration_ms: 9.4468
+  type: 'test'
+  ...
+# Subtest: all-original-column privacy failure never releases rows or raw violation details
+ok 157 - all-original-column privacy failure never releases rows or raw violation details
+  ---
+  duration_ms: 6.6293
+  type: 'test'
+  ...
+# Subtest: changed count/watermark and missing canary remain nonpassing rather than loss-zero
+ok 158 - changed count/watermark and missing canary remain nonpassing rather than loss-zero
+  ---
+  duration_ms: 32.443
+  type: 'test'
+  ...
+# Subtest: raw capture rejects future/overlong scopes and approved pagination limits
+ok 159 - raw capture rejects future/overlong scopes and approved pagination limits
+  ---
+  duration_ms: 6.3159
+  type: 'test'
+  ...
+# Subtest: unobserved/nonunique native physical keys cannot mint stable multipage coverage
+ok 160 - unobserved/nonunique native physical keys cannot mint stable multipage coverage
+  ---
+  duration_ms: 18.9199
+  type: 'test'
+  ...
+# Subtest: JSON flags/clones and injected fixtures cannot mint private native capture/response authority
+ok 161 - JSON flags/clones and injected fixtures cannot mint private native capture/response authority
+  ---
+  duration_ms: 11.254
+  type: 'test'
+  ...
+# Subtest: actual R8 scoped scanner sees original native metadata without granting a global privacy gate
+ok 162 - actual R8 scoped scanner sees original native metadata without granting a global privacy gate
+  ---
+  duration_ms: 15.0677
+  type: 'test'
+  ...
+# Subtest: owner control projection never sends hashes/configuration or authentication values to web state API
+ok 163 - owner control projection never sends hashes/configuration or authentication values to web state API
+  ---
+  duration_ms: 4.0125
+  type: 'test'
+  ...
+# Subtest: stale/requested-only/file observations cannot become native runtime acknowledgements
+ok 164 - stale/requested-only/file observations cannot become native runtime acknowledgements
+  ---
+  duration_ms: 3.2676
+  type: 'test'
+  ...
+# Subtest: unknown admission and nonzero in-flight work never manufacture drain completion
+ok 165 - unknown admission and nonzero in-flight work never manufacture drain completion
+  ---
+  duration_ms: 0.8914
+  type: 'test'
+  ...
+# Subtest: finite actual-control envelope preserves unknown ownership instead of inventing global counts
+ok 166 - finite actual-control envelope preserves unknown ownership instead of inventing global counts
+  ---
+  duration_ms: 1.053
+  type: 'test'
+  ...
+# Subtest: valid expired and restored runtime drains do not require active sampling or the leased patch
+ok 167 - valid expired and restored runtime drains do not require active sampling or the leased patch
+  ---
+  duration_ms: 0.9094
+  type: 'test'
+  ...
+# Subtest: expired leases cannot promote file, management, missing or wrong-layer sources into drain evidence
+ok 168 - expired leases cannot promote file, management, missing or wrong-layer sources into drain evidence
+  ---
+  duration_ms: 0.7976
+  type: 'test'
+  ...
+# Subtest: drain observations reject foreign roles, invalid instances and contradictory ownership claims
+ok 169 - drain observations reject foreign roles, invalid instances and contradictory ownership claims
+  ---
+  duration_ms: 1.0259
+  type: 'test'
+  ...
+# Subtest: expired source-bound JVM drain preserves supported JMX shape without global ownership flags
+ok 170 - expired source-bound JVM drain preserves supported JMX shape without global ownership flags
+  ---
+  duration_ms: 0.657
+  type: 'test'
+  ...
+# Subtest: drain freshness, lease ownership and immutable lease validation remain fail closed after expiry
+ok 171 - drain freshness, lease ownership and immutable lease validation remain fail closed after expiry
+  ---
+  duration_ms: 1.0591
+  type: 'test'
+  ...
+# Subtest: published browser layer accepts real SDK activation and source-bound expired drain
+ok 172 - published browser layer accepts real SDK activation and source-bound expired drain
+  ---
+  duration_ms: 1.5323
+  type: 'test'
+  ...
+# Subtest: cross-owner canonical hash ignores object insertion order but preserves absence and array order
+ok 173 - cross-owner canonical hash ignores object insertion order but preserves absence and array order
+  ---
+  duration_ms: 2.1267
+  type: 'test'
+  ...
+# Subtest: immutable runtime lease binds actual owned configuration and absolute admission/drain deadlines
+ok 174 - immutable runtime lease binds actual owned configuration and absolute admission/drain deadlines
+  ---
+  duration_ms: 3.5067
+  type: 'test'
+  ...
+# Subtest: runtime acknowledgement rejects stale leases, file echoes and unproven independent ownership
+ok 175 - runtime acknowledgement rejects stale leases, file echoes and unproven independent ownership
+  ---
+  duration_ms: 1.2538
+  type: 'test'
+  ...
+# Subtest: sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+ok 176 - sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+  ---
+  duration_ms: 18.4583
+  type: 'test'
+  ...
+# Subtest: zero observed native payloads are explicit absence, never an invented successful privacy scan
+ok 177 - zero observed native payloads are explicit absence, never an invented successful privacy scan
+  ---
+  duration_ms: 0.6333
+  type: 'test'
+  ...
+# (node:50448) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+ok 178 - a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+  ---
+  duration_ms: 21.6653
+  type: 'test'
+  ...
+# Subtest: strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+ok 179 - strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+  ---
+  duration_ms: 2.0366
+  type: 'test'
+  ...
+# Subtest: scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+ok 180 - scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+  ---
+  duration_ms: 63.1942
+  type: 'test'
+  ...
+# Subtest: raw body limit is checked while reading and does not drain an oversized stream
+ok 181 - raw body limit is checked while reading and does not drain an oversized stream
+  ---
+  duration_ms: 12.8408
+  type: 'test'
+  ...
+# Subtest: oversized declared or truncated body rejects without fabricated native receipts
+ok 182 - oversized declared or truncated body rejects without fabricated native receipts
+  ---
+  duration_ms: 1.2525
+  type: 'test'
+  ...
+# Subtest: fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+ok 183 - fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+  ---
+  duration_ms: 2.1532
+  type: 'test'
+  ...
+# Subtest: gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+ok 184 - gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+  ---
+  duration_ms: 13.8065
+  type: 'test'
+  ...
+# Subtest: one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+ok 185 - one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+  ---
+  duration_ms: 124.8748
+  type: 'test'
+  ...
+# Subtest: known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+ok 186 - known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+  ---
+  duration_ms: 2.0459
+  type: 'test'
+  ...
+# Subtest: pending original scan cannot be finalized or mislabeled as a complete receiver
+ok 187 - pending original scan cannot be finalized or mislabeled as a complete receiver
+  ---
+  duration_ms: 1.168
+  type: 'test'
+  ...
+# Subtest: only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+ok 188 - only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+  ---
+  duration_ms: 125.8594
+  type: 'test'
+  ...
+# Subtest: real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+ok 189 - real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+  ---
+  duration_ms: 36.5268
+  type: 'test'
+  ...
+# Subtest: fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+ok 190 - fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+  ---
+  duration_ms: 22.3295
+  type: 'test'
+  ...
+# Subtest: failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+ok 191 - failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+  ---
+  duration_ms: 1.0254
+  type: 'test'
+  ...
+# Subtest: echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+ok 192 - echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+  ---
+  duration_ms: 50.252
+  type: 'test'
+  ...
+# Subtest: safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+ok 193 - safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+  ---
+  duration_ms: 0.6046
+  type: 'test'
+  ...
+# Subtest: scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+ok 194 - scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+  ---
+  duration_ms: 1.7242
+  type: 'test'
+  ...
+# Subtest: forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+ok 195 - forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+  ---
+  duration_ms: 76.8601
+  type: 'test'
+  ...
+# Subtest: receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+ok 196 - receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+  ---
+  duration_ms: 2.5544
+  type: 'test'
+  ...
+# Subtest: receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+ok 197 - receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+  ---
+  duration_ms: 1.2037
+  type: 'test'
+  ...
+# Subtest: actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+ok 198 - actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+  ---
+  duration_ms: 7.3282
+  type: 'test'
+  ...
+# Subtest: actual ninth connection records drop and retains the unchanged eight-connection poison limit
+ok 199 - actual ninth connection records drop and retains the unchanged eight-connection poison limit
+  ---
+  duration_ms: 14.561
+  type: 'test'
+  ...
+# Subtest: successful native and echo responses explicitly close completed connections
+ok 200 - successful native and echo responses explicitly close completed connections
+  ---
+  duration_ms: 24.6962
+  type: 'test'
+  ...
+# Subtest: aborted native upload still poisons a previously accepted prefix after connection-close change
+ok 201 - aborted native upload still poisons a previously accepted prefix after connection-close change
+  ---
+  duration_ms: 72.2681
+  type: 'test'
+  ...
+# Subtest: production restoration reuses complete acknowledgement safety validation
+ok 202 - production restoration reuses complete acknowledgement safety validation
+  ---
+  duration_ms: 2.9446
+  type: 'test'
+  ...
+# Subtest: drain acknowledgement requires no in-flight work and safe native source
+ok 203 - drain acknowledgement requires no in-flight work and safe native source
+  ---
+  duration_ms: 1.0091
+  type: 'test'
+  ...
+# Subtest: an attempted/partially acknowledged native drain cannot satisfy completion
+ok 204 - an attempted/partially acknowledged native drain cannot satisfy completion
+  ---
+  duration_ms: 2.1516
+  type: 'test'
+  ...
+# Subtest: activation completion cannot report active at drain-start or after expiry
+ok 205 - activation completion cannot report active at drain-start or after expiry
+  ---
+  duration_ms: 0.5156
+  type: 'test'
+  ...
+# Subtest: SSR keeps R2 configured production base below100 while the window derives eligible100
+ok 206 - SSR keeps R2 configured production base below100 while the window derives eligible100
+  ---
+  duration_ms: 756.7024
+  type: 'test'
+  ...
+# Subtest: all layer local activation and restoration preserve unrelated security fields
+ok 207 - all layer local activation and restoration preserve unrelated security fields
+  ---
+  duration_ms: 1674.3833
+  type: 'test'
+  ...
+# Subtest: owned sampling revision conflict fails instead of overwriting a concurrent change
+ok 208 - owned sampling revision conflict fails instead of overwriting a concurrent change
+  ---
+  duration_ms: 310.2923
+  type: 'test'
+  ...
+# Subtest: expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+ok 209 - expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+  ---
+  duration_ms: 11.8283
+  type: 'test'
+  ...
+# Subtest: independent watchdog restores after controller interruption
+ok 210 - independent watchdog restores after controller interruption
+  ---
+  duration_ms: 1995.4152
+  type: 'test'
+  ...
+# Subtest: independent watchdog enforces expiry even while the owner stays alive
+ok 211 - independent watchdog enforces expiry even while the owner stays alive
+  ---
+  duration_ms: 3066.2507
+  type: 'test'
+  ...
+# Subtest: partial activation failure restores the write-ahead baseline
+ok 212 - partial activation failure restores the write-ahead baseline
+  ---
+  duration_ms: 84.4423
+  type: 'test'
+  ...
+# Subtest: watchdog starts drain before expiry without changing the full sampling profile early
+ok 213 - watchdog starts drain before expiry without changing the full sampling profile early
+  ---
+  duration_ms: 4915.187
+  type: 'test'
+  ...
+# Subtest: late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+ok 214 - late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+  ---
+  duration_ms: 2274.3869
+  type: 'test'
+  ...
+# Subtest: recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+ok 215 - recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+  ---
+  duration_ms: 92.3929
+  type: 'test'
+  ...
+# Subtest: duplicate lease entry preserves the original write-ahead journal and rollback
+ok 216 - duplicate lease entry preserves the original write-ahead journal and rollback
+  ---
+  duration_ms: 81.9615
+  type: 'test'
+  ...
+# Subtest: interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+ok 217 - interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+  ---
+  duration_ms: 378.0482
+  type: 'test'
+  ...
+# Subtest: exclusive journal ownership is fully published and survives actual owner interruption
+ok 218 - exclusive journal ownership is fully published and survives actual owner interruption
+  ---
+  duration_ms: 333.6875
+  type: 'test'
+  ...
+# Subtest: real Windows file-sharing contention is retried without swallowing permanent/schema faults
+ok 219 - real Windows file-sharing contention is retried without swallowing permanent/schema faults
+  ---
+  duration_ms: 1548.4864
+  type: 'test'
+  ...
+# Subtest: telemetry source declares one shared GA backbone, delayed limits and no credentials/RBAC
+ok 220 - telemetry source declares one shared GA backbone, delayed limits and no credentials/RBAC
+  ---
+  duration_ms: 11.9578
+  type: 'test'
+  ...
+# Subtest: actual portable Bicep compiler builds telemetry
+ok 221 - actual portable Bicep compiler builds telemetry # SKIP
+  ---
+  duration_ms: 0.336
+  type: 'test'
+  ...
+# Subtest: workbook binds actual renderer and root map without credentials or invented live status
+ok 222 - workbook binds actual renderer and root map without credentials or invented live status
+  ---
+  duration_ms: 71.5681
+  type: 'test'
+  ...
+# Subtest: unresolved workbook bindings or credential literals cannot be accepted
+ok 223 - unresolved workbook bindings or credential literals cannot be accepted
+  ---
+  duration_ms: 15.3326
+  type: 'test'
+  ...
+# Subtest: foundation has no invented client IDs, secret versions or deployment authority
+ok 224 - foundation has no invented client IDs, secret versions or deployment authority
+  ---
+  duration_ms: 18.2666
+  type: 'test'
+  ...
+# Subtest: application rejects absent bindings, zero IDs, broad SCM and inline secrets
+ok 225 - application rejects absent bindings, zero IDs, broad SCM and inline secrets
+  ---
+  duration_ms: 1.7379
+  type: 'test'
+  ...
+# Subtest: SCM scope rejects every host-bits spelling of IPv4 /0 before rendering
+ok 226 - SCM scope rejects every host-bits spelling of IPv4 /0 before rendering
+  ---
+  duration_ms: 2.4162
+  type: 'test'
+  ...
+# Subtest: prefixed and normalized credential keys or unused foundation admin data cannot enter parameters
+ok 227 - prefixed and normalized credential keys or unused foundation admin data cannot enter parameters
+  ---
+  duration_ms: 3.3569
+  type: 'test'
+  ...
+# Subtest: complete synthetic application references pass syntax without becoming deployment approval
+ok 228 - complete synthetic application references pass syntax without becoming deployment approval
+  ---
+  duration_ms: 2.0289
+  type: 'test'
+  ...
+# Subtest: Inventory URL is an explicit captured HTTPS app-host API root, never a name-derived fallback
+ok 229 - Inventory URL is an explicit captured HTTPS app-host API root, never a name-derived fallback
+  ---
+  duration_ms: 6.314
+  type: 'test'
+  ...
+# Subtest: sealed application and ARM schemas reject unknown or decorated credential fields before rendering
+ok 230 - sealed application and ARM schemas reject unknown or decorated credential fields before rendering
+  ---
+  duration_ms: 4.878
+  type: 'test'
+  ...
+# Subtest: creation-time ingress and dynamic host output bindings do not produce compute cycles or partial web updates
+ok 231 - creation-time ingress and dynamic host output bindings do not produce compute cycles or partial web updates
+  ---
+  duration_ms: 20.9813
+  type: 'test'
+  ...
+# Subtest: published root candidates cannot be overwritten while source and module revisions advance
+ok 232 - published root candidates cannot be overwritten while source and module revisions advance
+  ---
+  duration_ms: 25.7107
+  type: 'test'
+  ...
+# Subtest: root passes the accepted derived workbook to its sole existing telemetry module
+ok 233 - root passes the accepted derived workbook to its sole existing telemetry module
+  ---
+  duration_ms: 44.1135
+  type: 'test'
+  ...
+# Subtest: compiled workbook guards reject omitted/stale bytes, duplicate telemetry or foreign resource bindings
+ok 234 - compiled workbook guards reject omitted/stale bytes, duplicate telemetry or foreign resource bindings
+  ---
+  duration_ms: 13.9222
+  type: 'test'
+  ...
+# Subtest: root composes real modules with scoped secret/logger ordering and correct audience/resource separation
+ok 235 - root composes real modules with scoped secret/logger ordering and correct audience/resource separation
+  ---
+  duration_ms: 23.3145
+  type: 'test'
+  ...
+# Subtest: finite USED scope permits logical sends fewer than actual 503 wire attempts
+ok 236 - finite USED scope permits logical sends fewer than actual 503 wire attempts
+  ---
+  duration_ms: 3.084
+  type: 'test'
+  ...
+# Subtest: R2 missing clients/send-zero counter cannot qualify identity-used scope
+ok 237 - R2 missing clients/send-zero counter cannot qualify identity-used scope
+  ---
+  duration_ms: 0.5595
+  type: 'test'
+  ...
+# Subtest: old package, class-resource, creation-only or different original child all fail
+ok 238 - old package, class-resource, creation-only or different original child all fail
+  ---
+  duration_ms: 1.4786
+  type: 'test'
+  ...
+# Subtest: JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+ok 239 - JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+  ---
+  duration_ms: 3.1304
+  type: 'test'
+  ...
+# Subtest: user-selected header isolation preserves raw native negative-control observations
+ok 240 - user-selected header isolation preserves raw native negative-control observations
+  ---
+  duration_ms: 2.0848
+  type: 'test'
+  ...
+# Subtest: empty identity receipts or silently greened raw control never pass
+ok 241 - empty identity receipts or silently greened raw control never pass
+  ---
+  duration_ms: 0.5645
+  type: 'test'
+  ...
+# Subtest: real-format distinct business/trace/span IDs pass identifier guard
+ok 242 - real-format distinct business/trace/span IDs pass identifier guard
+  ---
+  duration_ms: 4.6242
+  type: 'test'
+  ...
+# Subtest: each foreign carrier identifier is forbidden as W3C identity even across rows
+ok 243 - each foreign carrier identifier is forbidden as W3C identity even across rows
+  ---
+  duration_ms: 2.5634
+  type: 'test'
+  ...
+# Subtest: nonopaque business IDs/raw Entra namespaces/high-cardinality metrics fail
+ok 244 - nonopaque business IDs/raw Entra namespaces/high-cardinality metrics fail
+  ---
+  duration_ms: 1.6419
+  type: 'test'
+  ...
+# Subtest: business IDs cannot enter authorization method or metric dimensions
+ok 245 - business IDs cannot enter authorization method or metric dimensions
+  ---
+  duration_ms: 2.004
+  type: 'test'
+  ...
+# Subtest: view IDs remain opaque display identity; nested repeated identifiers are never omitted
+ok 246 - view IDs remain opaque display identity; nested repeated identifiers are never omitted
+  ---
+  duration_ms: 0.7964
+  type: 'test'
+  ...
+# Subtest: foundation requires an explicit phase and cannot carry a placeholder version/value
+ok 247 - foundation requires an explicit phase and cannot carry a placeholder version/value
+  ---
+  duration_ms: 5.7993
+  type: 'test'
+  ...
+# Subtest: application requires exact nonzero lowercase version syntax but never certifies a cloud secret
+ok 248 - application requires exact nonzero lowercase version syntax but never certifies a cloud secret
+  ---
+  duration_ms: 1.0799
+  type: 'test'
+  ...
+# Subtest: missing, empty, zero, malformed, padded and foreign phase inputs fail without defaults
+ok 249 - missing, empty, zero, malformed, padded and foreign phase inputs fail without defaults
+  ---
+  duration_ms: 22.1346
+  type: 'test'
+  ...
+# Subtest: vault source preserves protections and phase-discriminated required application version
+ok 250 - vault source preserves protections and phase-discriminated required application version
+  ---
+  duration_ms: 53.647
+  type: 'test'
+  ...
+# Subtest: actual-format HTTP client outputs retain native context while counts remain layer-separated
+ok 251 - actual-format HTTP client outputs retain native context while counts remain layer-separated
+  ---
+  duration_ms: 12.1351
+  type: 'test'
+  ...
+# Subtest: JSON, NDJSON and gzip use the existing native ingestion format without file writes
+ok 252 - JSON, NDJSON and gzip use the existing native ingestion format without file writes
+  ---
+  duration_ms: 3.5753
+  type: 'test'
+  ...
+# Subtest: zero/missing identity outputs, missing root or zero physical receipts never pass
+ok 253 - zero/missing identity outputs, missing root or zero physical receipts never pass
+  ---
+  duration_ms: 2.5295
+  type: 'test'
+  ...
+# Subtest: duplicates, wrong actual trace/parent/window and root-span substitution fail without deduplication
+ok 254 - duplicates, wrong actual trace/parent/window and root-span substitution fail without deduplication
+  ---
+  duration_ms: 10.4892
+  type: 'test'
+  ...
+# Subtest: foreign publisher/host/role, arbitrary native ID serialization, malformed or partial payload fail closed
+ok 255 - foreign publisher/host/role, arbitrary native ID serialization, malformed or partial payload fail closed
+  ---
+  duration_ms: 25.2699
+  type: 'test'
+  ...
+# Subtest: original prohibited fields/values are scanned before projection and never retained
+ok 256 - original prohibited fields/values are scanned before projection and never retained
+  ---
+  duration_ms: 2.1881
+  type: 'test'
+  ...
+# Subtest: wrong native kind cannot substitute for emitted identity CLIENT outputs
+ok 257 - wrong native kind cannot substitute for emitted identity CLIENT outputs
+  ---
+  duration_ms: 1.0045
+  type: 'test'
+  ...
+# Subtest: original scalar bounds are checked before shared regex without truncation
+ok 258 - original scalar bounds are checked before shared regex without truncation
+  ---
+  duration_ms: 22.5036
+  type: 'test'
+  ...
+# Subtest: original UTF-8 field-key bounds apply before forbidden-field patterns
+ok 259 - original UTF-8 field-key bounds apply before forbidden-field patterns
+  ---
+  duration_ms: 2.0487
+  type: 'test'
+  ...
+# Subtest: R2 64-KiB adversarial scalar is rejected in a finite isolated CPU child
+ok 260 - R2 64-KiB adversarial scalar is rejected in a finite isolated CPU child
+  ---
+  duration_ms: 584.2039
+  type: 'test'
+  ...
+# Subtest: exact 1-MiB multi-scalar native payload remains valid; one extra byte fails
+ok 261 - exact 1-MiB multi-scalar native payload remains valid; one extra byte fails
+  ---
+  duration_ms: 1224.9939
+  type: 'test'
+  ...
+# Subtest: one generic port preserves the API shape and actual native context without authority
+ok 262 - one generic port preserves the API shape and actual native context without authority
+  ---
+  duration_ms: 23.2736
+  type: 'test'
+  ...
+# Subtest: single, array, NDJSON, gzip and multiple known publishers keep actual separate counters
+ok 263 - single, array, NDJSON, gzip and multiple known publishers keep actual separate counters
+  ---
+  duration_ms: 4.524
+  type: 'test'
+  ...
+# Subtest: duplicate JSON names including escaped equivalents fail at every nesting before projection
+ok 264 - duplicate JSON names including escaped equivalents fail at every nesting before projection
+  ---
+  duration_ms: 9.7618
+  type: 'test'
+  ...
+# Subtest: malformed, partial, nonfinite, invalid UTF-8 and unsupported encodings fail redacted
+ok 265 - malformed, partial, nonfinite, invalid UTF-8 and unsupported encodings fail redacted
+  ---
+  duration_ms: 6.3602
+  type: 'test'
+  ...
+# Subtest: publisher membership and top-level placement cannot be hidden by later projection
+ok 266 - publisher membership and top-level placement cannot be hidden by later projection
+  ---
+  duration_ms: 2.2001
+  type: 'test'
+  ...
+# Subtest: shared credential, personal, SQL and Redis fields/values reject before removals
+ok 267 - shared credential, personal, SQL and Redis fields/values reject before removals
+  ---
+  duration_ms: 3.8135
+  type: 'test'
+  ...
+# Subtest: exact caller markers apply to keys and removed original tags without any waiver
+ok 268 - exact caller markers apply to keys and removed original tags without any waiver
+  ---
+  duration_ms: 2.096
+  type: 'test'
+  ...
+# Subtest: explicit forbidden markers cannot be waived by known publisher membership
+ok 269 - explicit forbidden markers cannot be waived by known publisher membership
+  ---
+  duration_ms: 1.2886
+  type: 'test'
+  ...
+# Subtest: known publisher and marker configuration is sealed, bounded and cannot disable policy
+ok 270 - known publisher and marker configuration is sealed, bounded and cannot disable policy
+  ---
+  duration_ms: 2.4322
+  type: 'test'
+  ...
+# Subtest: canonical Base64 and payload object schema fail closed
+ok 271 - canonical Base64 and payload object schema fail closed
+  ---
+  duration_ms: 2.3179
+  type: 'test'
+  ...
+# Subtest: exact UTF-8 key/scalar limits precede shared regex; oversized originals are not truncated
+ok 272 - exact UTF-8 key/scalar limits precede shared regex; oversized originals are not truncated
+  ---
+  duration_ms: 36.6152
+  type: 'test'
+  ...
+# Subtest: depth and field limits reject original nested/node expansion before projection
+ok 273 - depth and field limits reject original nested/node expansion before projection
+  ---
+  duration_ms: 285.0929
+  type: 'test'
+  ...
+# Subtest: raw and gzip exact one-MiB multi-scalar boundary accepts while one byte beyond rejects
+ok 274 - raw and gzip exact one-MiB multi-scalar boundary accepts while one byte beyond rejects
+  ---
+  duration_ms: 1278.057
+  type: 'test'
+  ...
+# Subtest: session total byte limits accept exact 16-MiB multi-payload boundaries without retaining originals
+ok 275 - session total byte limits accept exact 16-MiB multi-payload boundaries without retaining originals
+  ---
+  duration_ms: 1825.5951
+  type: 'test'
+  ...
+# Subtest: 512 envelopes and 16 payloads accept exactly; session state rejects beyond and stays poisoned
+ok 276 - 512 envelopes and 16 payloads accept exactly; session state rejects beyond and stays poisoned
+  ---
+  duration_ms: 1145.8976
+  type: 'test'
+  ...
+# Subtest: one streaming session permits 128 bounded POSTs while API batches stay limited to 16
+ok 277 - one streaming session permits 128 bounded POSTs while API batches stay limited to 16
+  ---
+  duration_ms: 25.949
+  type: 'test'
+  ...
+# Subtest: failed later input poisons a session and cannot return partial projection as a successful capture
+ok 278 - failed later input poisons a session and cannot return partial projection as a successful capture
+  ---
+  duration_ms: 0.7983
+  type: 'test'
+  ...
+# Subtest: the actual CLI binds PID/source/hash/counts and emits only static redacted failures
+ok 279 - the actual CLI binds PID/source/hash/counts and emits only static redacted failures
+  ---
+  duration_ms: 749.9151
+  type: 'test'
+  ...
+# Subtest: CLI request bytes are bounded without weakening strict wrapper parsing
+ok 280 - CLI request bytes are bounded without weakening strict wrapper parsing
+  ---
+  duration_ms: 275.9913
+  type: 'test'
+  ...
+# Subtest: seeded secret forms are detected with location/code only
+ok 281 - seeded secret forms are detected with location/code only
+  ---
+  duration_ms: 8.5653
+  type: 'test'
+  ...
+# Subtest: known credential literals fail for short, punctuated, escaped and prefixed assignments
+ok 282 - known credential literals fail for short, punctuated, escaped and prefixed assignments
+  ---
+  duration_ms: 23.9879
+  type: 'test'
+  ...
+# Subtest: R2-R8-01 project-local settings reproducer fails without persisting matched values
+ok 283 - R2-R8-01 project-local settings reproducer fails without persisting matched values
+  ---
+  duration_ms: 59.649
+  type: 'test'
+  ...
+# Subtest: whole references cannot hide concatenated or modified right-hand assignment expressions
+ok 284 - whole references cannot hide concatenated or modified right-hand assignment expressions
+  ---
+  duration_ms: 5.6941
+  type: 'test'
+  ...
+# Subtest: R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+ok 285 - R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+  ---
+  duration_ms: 17.3566
+  type: 'test'
+  ...
+# Subtest: project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+ok 286 - project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+  ---
+  duration_ms: 39.3555
+  type: 'test'
+  ...
+# Subtest: history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+ok 287 - history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+  ---
+  duration_ms: 1.7363
+  type: 'test'
+  ...
+# Subtest: missing history fails closed rather than claiming a clean full-history scan
+ok 288 - missing history fails closed rather than claiming a clean full-history scan
+  ---
+  duration_ms: 297.9673
+  type: 'test'
+  ...
+# Subtest: AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+ok 289 - AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+  ---
+  duration_ms: 3.0534
+  type: 'test'
+  ...
+# Subtest: all raw classified columns are scanned; verdict contains no raw metadata or identity
+ok 290 - all raw classified columns are scanned; verdict contains no raw metadata or identity
+  ---
+  duration_ms: 10.9525
+  type: 'test'
+  ...
+# Subtest: JWT/cookie/body/PII/raw object ID/SQL/Redis negative controls fail without leaking values
+ok 291 - JWT/cookie/body/PII/raw object ID/SQL/Redis negative controls fail without leaking values
+  ---
+  duration_ms: 5.6683
+  type: 'test'
+  ...
+# Subtest: unclassified raw top-level/dynamic fields fail even when normalization would drop them
+ok 292 - unclassified raw top-level/dynamic fields fail even when normalization would drop them
+  ---
+  duration_ms: 0.7629
+  type: 'test'
+  ...
+# Subtest: missing table inventory/pagination/canary/schema/count fails closed
+ok 293 - missing table inventory/pagination/canary/schema/count fails closed
+  ---
+  duration_ms: 1.4673
+  type: 'test'
+  ...
+# Subtest: scoped six-table graph intake can pass without claiming global privacy or changing receipt
+ok 294 - scoped six-table graph intake can pass without claiming global privacy or changing receipt
+  ---
+  duration_ms: 1.263
+  type: 'test'
+  ...
+# Subtest: raw client IP and plain authentication identifiers are rejected; approved HMAC is accepted
+ok 295 - raw client IP and plain authentication identifiers are rejected; approved HMAC is accepted
+  ---
+  duration_ms: 1.1516
+  type: 'test'
+  ...
+# Subtest: business/user/message identifiers are not approved metric dimensions
+ok 296 - business/user/message identifiers are not approved metric dimensions
+  ---
+  duration_ms: 10.4914
+  type: 'test'
+  ...
+# Subtest: APIM header/body and automatic data collection settings are fail closed
+ok 297 - APIM header/body and automatic data collection settings are fail closed
+  ---
+  duration_ms: 1.1847
+  type: 'test'
+  ...
+# Subtest: source-backed async scalar fields are bounded and prototype keys cannot become classifications
+ok 298 - source-backed async scalar fields are bounded and prototype keys cannot become classifications
+  ---
+  duration_ms: 2.0358
+  type: 'test'
+  ...
+# Subtest: AppPageViews display ID is opaque metadata and never classified as an actual span
+ok 299 - AppPageViews display ID is opaque metadata and never classified as an actual span
+  ---
+  duration_ms: 0.9736
+  type: 'test'
+  ...
+# Subtest: actual printed native and linked epoch locators are distinct, key-order independent receipt claims only
+ok 300 - actual printed native and linked epoch locators are distinct, key-order independent receipt claims only
+  ---
+  duration_ms: 5.2635
+  type: 'test'
+  ...
+# Subtest: missing receipts, old fixed paths, caller-relative, foreign and traversal paths never fall back
+ok 301 - missing receipts, old fixed paths, caller-relative, foreign and traversal paths never fall back
+  ---
+  duration_ms: 1.1083
+  type: 'test'
+  ...
+# Subtest: receipt JSON rejects duplicate and escaped-equivalent keys, extras, wrong hashes and certification
+ok 302 - receipt JSON rejects duplicate and escaped-equivalent keys, extras, wrong hashes and certification
+  ---
+  duration_ms: 0.699
+  type: 'test'
+  ...
+# Subtest: multiple same-kind epochs, oversized stdout and fabricated inspection records reject
+ok 303 - multiple same-kind epochs, oversized stdout and fabricated inspection records reject
+  ---
+  duration_ms: 1.9457
+  type: 'test'
+  ...
+# Subtest: new current proof must bind its actual sibling inspection hash, not merely a printed proof receipt
+ok 304 - new current proof must bind its actual sibling inspection hash, not merely a printed proof receipt
+  ---
+  duration_ms: 1.1436
+  type: 'test'
+  ...
+# Subtest: absent/invalid structural case checking does not enroll native source authority
+ok 305 - absent/invalid structural case checking does not enroll native source authority
+  ---
+  duration_ms: 24.7003
+  type: 'test'
+  ...
+# Subtest: missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+ok 306 - missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+  ---
+  duration_ms: 27.7234
+  type: 'test'
+  ...
+# Subtest: invalid partial context cannot retain a carrier trace while being labelled a technical restart
+ok 307 - invalid partial context cannot retain a carrier trace while being labelled a technical restart
+  ---
+  duration_ms: 3.6282
+  type: 'test'
+  ...
+# Subtest: malformed native parents and oversize original carriers cannot be normalized into absent roots
+ok 308 - malformed native parents and oversize original carriers cannot be normalized into absent roots
+  ---
+  duration_ms: 2.5333
+  type: 'test'
+  ...
+# Subtest: valid parent, state-only and business-identity controls never authorize a null-parent waiver
+ok 309 - valid parent, state-only and business-identity controls never authorize a null-parent waiver
+  ---
+  duration_ms: 5.4809
+  type: 'test'
+  ...
+# Subtest: unsampled continuation needs actual SDK state and never treats export absence alone as proof
+ok 310 - unsampled continuation needs actual SDK state and never treats export absence alone as proof
+  ---
+  duration_ms: 2.4888
+  type: 'test'
+  ...
+# Subtest: strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+ok 311 - strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+  ---
+  duration_ms: 3.3744
+  type: 'test'
+  ...
+# Subtest: original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+ok 312 - original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+  ---
+  duration_ms: 8.5668
+  type: 'test'
+  ...
+# Subtest: runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+ok 313 - runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+  ---
+  duration_ms: 7.1092
+  type: 'test'
+  ...
+# Subtest: original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+ok 314 - original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+  ---
+  duration_ms: 1.4446
+  type: 'test'
+  ...
+# Subtest: runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+ok 315 - runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+  ---
+  duration_ms: 7.4285
+  type: 'test'
+  ...
+# Subtest: actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+ok 316 - actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+  ---
+  duration_ms: 12.5067
+  type: 'test'
+  ...
+# Subtest: real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+ok 317 - real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+  ---
+  duration_ms: 135.2643
+  type: 'test'
+  ...
+# Subtest: real continuously active response still reaches the absolute ten-second control deadline
+ok 318 - real continuously active response still reaches the absolute ten-second control deadline
+  ---
+  duration_ms: 10006.2884
+  type: 'test'
+  ...
+# Subtest: original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+ok 319 - original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+  ---
+  duration_ms: 1.0703
+  type: 'test'
+  ...
+# Subtest: genuine directly executed CPU source enrolls only its private non-native process identity
+ok 320 - genuine directly executed CPU source enrolls only its private non-native process identity
+  ---
+  duration_ms: 113.8677
+  type: 'test'
+  ...
+# Subtest: JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+ok 321 - JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+  ---
+  duration_ms: 119.6598
+  type: 'test'
+  ...
+# Subtest: declared local factory and altered registry JSON never stand in for direct native execution
+ok 322 - declared local factory and altered registry JSON never stand in for direct native execution
+  ---
+  duration_ms: 4.099
+  type: 'test'
+  ...
+# Subtest: one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+ok 323 - one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+  ---
+  duration_ms: 137.5137
+  type: 'test'
+  ...
+# Subtest: adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+ok 324 - adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+  ---
+  duration_ms: 10.992
+  type: 'test'
+  ...
+# Subtest: exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+ok 325 - exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+  ---
+  duration_ms: 81.9006
+  type: 'test'
+  ...
+# Subtest: all fifteen missing native adapters fail explicitly, not mock PASS or certification
+ok 326 - all fifteen missing native adapters fail explicitly, not mock PASS or certification
+  ---
+  duration_ms: 189.9445
+  type: 'test'
+  ...
+# Subtest: bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+ok 327 - bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+  ---
+  duration_ms: 13.6189
+  type: 'test'
+  ...
+# Subtest: exception and deadline abort always stop/reset captured own pre-state
+ok 328 - exception and deadline abort always stop/reset captured own pre-state
+  ---
+  duration_ms: 726.5649
+  type: 'test'
+  ...
+# Subtest: failed native reset cannot leave a passing demo result
+ok 329 - failed native reset cannot leave a passing demo result
+  ---
+  duration_ms: 432.2309
+  type: 'test'
+  ...
+# Subtest: missing-adapter failure packs are immutable, safe and tamper checked
+ok 330 - missing-adapter failure packs are immutable, safe and tamper checked
+  ---
+  duration_ms: 69.8575
+  type: 'test'
+  ...
+# Subtest: seeded agent bump and newly added runtime dependency invalidate affected claims
+ok 331 - seeded agent bump and newly added runtime dependency invalidate affected claims
+  ---
+  duration_ms: 1.0738
+  type: 'test'
+  ...
+# Subtest: complete fixture tests the checker but cannot qualify as bounded Azure full-path evidence
+ok 332 - complete fixture tests the checker but cannot qualify as bounded Azure full-path evidence
+  ---
+  duration_ms: 8.6045
+  type: 'test'
+  ...
+# Subtest: six explicit native tables include zero-count queries and exhaustive pages
+ok 333 - six explicit native tables include zero-count queries and exhaustive pages
+  ---
+  duration_ms: 1.4325
+  type: 'test'
+  ...
+# Subtest: query/page tampering and duplicate/mixed rows fail closed
+ok 334 - query/page tampering and duplicate/mixed rows fail closed
+  ---
+  duration_ms: 1.1267
+  type: 'test'
+  ...
+# Subtest: filtering before scanning all raw columns/tables cannot count as privacy evidence
+ok 335 - filtering before scanning all raw columns/tables cannot count as privacy evidence
+  ---
+  duration_ms: 0.7157
+  type: 'test'
+  ...
+# Subtest: no 100% claim from weighted counts, missing source ledger, or sampled00 absence
+ok 336 - no 100% claim from weighted counts, missing source ledger, or sampled00 absence
+  ---
+  duration_ms: 4.1722
+  type: 'test'
+  ...
+# Subtest: canaries must be distinct, bracket work and cover every actual expected boundary
+ok 337 - canaries must be distinct, bracket work and cover every actual expected boundary
+  ---
+  duration_ms: 2.9835
+  type: 'test'
+  ...
+# Subtest: delay/watermark and unaccounted emitted-span records are not hidden
+ok 338 - delay/watermark and unaccounted emitted-span records are not hidden
+  ---
+  duration_ms: 1.2661
+  type: 'test'
+  ...
+# Subtest: classification proof hashes must bind actual native content, not be invented
+ok 339 - classification proof hashes must bind actual native content, not be invented
+  ---
+  duration_ms: 0.7366
+  type: 'test'
+  ...
+# Subtest: exact A/B/C fixture check never claims live or certification
+ok 340 - exact A/B/C fixture check never claims live or certification
+  ---
+  duration_ms: 9.8753
+  type: 'test'
+  ...
+# Subtest: empty telemetry and logs-only cannot pass
+ok 341 - empty telemetry and logs-only cannot pass
+  ---
+  duration_ms: 2.2512
+  type: 'test'
+  ...
+# Subtest: A fails a split, zero, or silently absent expected trace
+ok 342 - A fails a split, zero, or silently absent expected trace
+  ---
+  duration_ms: 2.8212
+  type: 'test'
+  ...
+# Subtest: B rejects duplicate emitted records, nonzero ID reuse and bad parents
+ok 343 - B rejects duplicate emitted records, nonzero ID reuse and bad parents
+  ---
+  duration_ms: 2.488
+  type: 'test'
+  ...
+# Subtest: missing Gateway request/backend hop names the actual broken boundary
+ok 344 - missing Gateway request/backend hop names the actual broken boundary
+  ---
+  duration_ms: 1.1214
+  type: 'test'
+  ...
+# Subtest: logs/events/exceptions and page-view display IDs are not counted as new spans
+ok 345 - logs/events/exceptions and page-view display IDs are not counted as new spans
+  ---
+  duration_ms: 3.2025
+  type: 'test'
+  ...
+# Subtest: kind/role expectations cannot overwrite missing native facts
+ok 346 - kind/role expectations cannot overwrite missing native facts
+  ---
+  duration_ms: 1.2689
+  type: 'test'
+  ...
+# Subtest: APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+ok 347 - APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+  ---
+  duration_ms: 0.5146
+  type: 'test'
+  ...
+# Subtest: native fan-in links equal every contributor, not an arbitrary first parent
+ok 348 - native fan-in links equal every contributor, not an arbitrary first parent
+  ---
+  duration_ms: 3.5038
+  type: 'test'
+  ...
+# Subtest: actual result SEND links require independent complete ledgers, not just renamed expected roots
+ok 349 - actual result SEND links require independent complete ledgers, not just renamed expected roots
+  ---
+  duration_ms: 2.3457
+  type: 'test'
+  ...
+# Subtest: map deliberate roots alone never authorize a split-trace claim
+ok 350 - map deliberate roots alone never authorize a split-trace claim
+  ---
+  duration_ms: 3.1409
+  type: 'test'
+  ...
+# Subtest: an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+ok 351 - an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+  ---
+  duration_ms: 0.7138
+  type: 'test'
+  ...
+# Subtest: browser context-only events require a separately observed SDK context, not a display-ID cast
+ok 352 - browser context-only events require a separately observed SDK context, not a display-ID cast
+  ---
+  duration_ms: 0.9717
+  type: 'test'
+  ...
+# Subtest: a caller file/hash/origin/boolean cannot forge the actual local-native source capability
+ok 353 - a caller file/hash/origin/boolean cannot forge the actual local-native source capability
+  ---
+  duration_ms: 2.7949
+  type: 'test'
+  ...
+# Subtest: local record correspondence is checker-only and immutable, not an execution capability
+ok 354 - local record correspondence is checker-only and immutable, not an execution capability
+  ---
+  duration_ms: 1.6373
+  type: 'test'
+  ...
+# Subtest: local native correspondence rejects missing, added and repeated emitted spans
+ok 355 - local native correspondence rejects missing, added and repeated emitted spans
+  ---
+  duration_ms: 0.5476
+  type: 'test'
+  ...
+# Subtest: both declared worker roles are preserved, never filled from configuration or claimed sidecar-verified
+ok 356 - both declared worker roles are preserved, never filled from configuration or claimed sidecar-verified
+  ---
+  duration_ms: 1.0051
+  type: 'test'
+  ...
+# Subtest: local native proof cannot change actual names, parents, attempts or native links
+ok 357 - local native proof cannot change actual names, parents, attempts or native links
+  ---
+  duration_ms: 1.1786
+  type: 'test'
+  ...
+# Subtest: local native links reject duplicates, self-link and over-bound representations
+ok 358 - local native links reject duplicates, self-link and over-bound representations
+  ---
+  duration_ms: 0.6743
+  type: 'test'
+  ...
+# Subtest: owned installed library classpath is explicit but never a current-source/build qualification
+ok 359 - owned installed library classpath is explicit but never a current-source/build qualification
+  ---
+  duration_ms: 1.1055
+  type: 'test'
+  ...
+# Subtest: missing, duplicated or relative owned library classpaths fail without a build-lineage guess
+ok 360 - missing, duplicated or relative owned library classpaths fail without a build-lineage guess
+  ---
+  duration_ms: 0.5197
+  type: 'test'
+  ...
+# Subtest: source/binary hashes alone cannot enroll an actual Azure observer
+ok 361 - source/binary hashes alone cannot enroll an actual Azure observer
+  ---
+  duration_ms: 13.0537
+  type: 'test'
+  ...
+# Subtest: authoritative observer source closure rejects omitted/duplicate/changed dependencies
+ok 362 - authoritative observer source closure rejects omitted/duplicate/changed dependencies
+  ---
+  duration_ms: 1.2412
+  type: 'test'
+  ...
+# Subtest: private-response structure must bind exact actual query, resource, workspace and content
+ok 363 - private-response structure must bind exact actual query, resource, workspace and content
+  ---
+  duration_ms: 2.7128
+  type: 'test'
+  ...
+# Subtest: persisted caller JSON cannot replace an original private post-query capability
+ok 364 - persisted caller JSON cannot replace an original private post-query capability
+  ---
+  duration_ms: 0.5537
+  type: 'test'
+  ...
+# Subtest: receipt metadata snapshots cannot alias caller scope or getter-copy nested objects
+ok 365 - receipt metadata snapshots cannot alias caller scope or getter-copy nested objects
+  ---
+  duration_ms: 0.6638
+  type: 'test'
+  ...
+# Subtest: observed assignment locators/digests bind the actual native trace/span, never the expected map
+ok 366 - observed assignment locators/digests bind the actual native trace/span, never the expected map
+  ---
+  duration_ms: 1.7231
+  type: 'test'
+  ...
+# Subtest: usable pipeline invokes async structure only after original privacy/source/native checks; fixture positive is checker-only
+ok 367 - usable pipeline invokes async structure only after original privacy/source/native checks; fixture positive is checker-only
+  ---
+  duration_ms: 45.5141
+  type: 'test'
+  ...
+# Subtest: root binding getter requires the original graph capability and exact map/rows/mode
+ok 368 - root binding getter requires the original graph capability and exact map/rows/mode
+  ---
+  duration_ms: 18.4348
+  type: 'test'
+  ...
+# Subtest: caller claimed trusted origin, missing origin and JSON capabilities all fail closed
+ok 369 - caller claimed trusted origin, missing origin and JSON capabilities all fail closed
+  ---
+  duration_ms: 3.258
+  type: 'test'
+  ...
+# Subtest: fixture label can never be promoted to BootstrapValidate or Certify
+ok 370 - fixture label can never be promoted to BootstrapValidate or Certify
+  ---
+  duration_ms: 18.2868
+  type: 'test'
+  ...
+# Subtest: callback privacy PASS or filtering raw inputs cannot bypass the actual trusted R8 scanner
+ok 371 - callback privacy PASS or filtering raw inputs cannot bypass the actual trusted R8 scanner
+  ---
+  duration_ms: 4.7018
+  type: 'test'
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 372 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 3.2793
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 373 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 0.5878
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 374 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 0.8117
+  type: 'test'
+  ...
+# Subtest: checker-only replay fixture uses actual actor assignments and original-producer links
+ok 375 - checker-only replay fixture uses actual actor assignments and original-producer links
+  ---
+  duration_ms: 4.8839
+  type: 'test'
+  ...
+# Subtest: missing actor and retired Orders/Aggregator replay aliases fail rather than selecting the first SEND
+ok 376 - missing actor and retired Orders/Aggregator replay aliases fail rather than selecting the first SEND
+  ---
+  duration_ms: 1.3801
+  type: 'test'
+  ...
+# Subtest: fictional PROCESS-to-SEND links or continued process parents do not replace original producer linkage
+ok 377 - fictional PROCESS-to-SEND links or continued process parents do not replace original producer linkage
+  ---
+  duration_ms: 0.5654
+  type: 'test'
+  ...
+# Subtest: ambiguous original IDs and old-parent SEND fail without deduplicating or minting missing context
+ok 378 - ambiguous original IDs and old-parent SEND fail without deduplicating or minting missing context
+  ---
+  duration_ms: 1.5303
+  type: 'test'
+  ...
+# Subtest: persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+ok 379 - persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+  ---
+  duration_ms: 2.4268
+  type: 'test'
+  ...
+# Subtest: local metadata without validated original source/execution capability cannot affirm success
+ok 380 - local metadata without validated original source/execution capability cannot affirm success
+  ---
+  duration_ms: 1.7388
+  type: 'test'
+  ...
+# Subtest: reviewer four same-identity negative metadata vectors cannot render literal00 success
+ok 381 - reviewer four same-identity negative metadata vectors cannot render literal00 success
+  ---
+  duration_ms: 1.5527
+  type: 'test'
+  ...
+# Subtest: saved Security PASS/source/count labels cannot render selected A/B/C qualification
+ok 382 - saved Security PASS/source/count labels cannot render selected A/B/C qualification
+  ---
+  duration_ms: 0.4967
+  type: 'test'
+  ...
+# Subtest: focused receipts require exact executed/pass counts and zero skips/cancellations
+ok 383 - focused receipts require exact executed/pass counts and zero skips/cancellations
+  ---
+  duration_ms: 2.8975
+  type: 'test'
+  ...
+# Subtest: focused source snapshots reject changed, missing, added and duplicate source bindings
+ok 384 - focused source snapshots reject changed, missing, added and duplicate source bindings
+  ---
+  duration_ms: 1.6978
+  type: 'test'
+  ...
+# Subtest: persisted focused receipts must match the authoritative full current source snapshot
+ok 385 - persisted focused receipts must match the authoritative full current source snapshot
+  ---
+  duration_ms: 1.9213
+  type: 'test'
+  ...
+# Subtest: complete synthetic qualification checks semantics only and cannot mint a report capability
+ok 386 - complete synthetic qualification checks semantics only and cannot mint a report capability
+  ---
+  duration_ms: 9.5594
+  type: 'test'
+  ...
+# Subtest: local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+ok 387 - local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+  ---
+  duration_ms: 3.2108
+  type: 'test'
+  ...
+# Subtest: source and actual execution receipts must bind complete scopes and successful literal testcase
+ok 388 - source and actual execution receipts must bind complete scopes and successful literal testcase
+  ---
+  duration_ms: 2.9304
+  type: 'test'
+  ...
+# Subtest: missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+ok 389 - missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+  ---
+  duration_ms: 0.9893
+  type: 'test'
+  ...
+# Subtest: positive and MIX require actual native exports and unchanged original producer contexts
+ok 390 - positive and MIX require actual native exports and unchanged original producer contexts
+  ---
+  duration_ms: 1.9803
+  type: 'test'
+  ...
+# Subtest: native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+ok 391 - native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+  ---
+  duration_ms: 1.2078
+  type: 'test'
+  ...
+# Subtest: changing owner accessor is rejected before any asynchronous load or accessor invocation
+ok 392 - changing owner accessor is rejected before any asynchronous load or accessor invocation
+  ---
+  duration_ms: 1.3964
+  type: 'test'
+  ...
+# Subtest: changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+ok 393 - changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+  ---
+  duration_ms: 0.6204
+  type: 'test'
+  ...
+# Subtest: metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+ok 394 - metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+  ---
+  duration_ms: 1.0066
+  type: 'test'
+  ...
+# Subtest: original A/B semantic consistency is structural only and cannot mint acceptance
+ok 395 - original A/B semantic consistency is structural only and cannot mint acceptance
+  ---
+  duration_ms: 10.8668
+  type: 'test'
+  ...
+# Subtest: omitted/duplicate/recomputed closure cannot qualify current-source lineage
+ok 396 - omitted/duplicate/recomputed closure cannot qualify current-source lineage
+  ---
+  duration_ms: 9.484
+  type: 'test'
+  ...
+# Subtest: missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+ok 397 - missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+  ---
+  duration_ms: 14.8448
+  type: 'test'
+  ...
+# Subtest: all seven production header checks, raw negative and trusted advance remain required
+ok 398 - all seven production header checks, raw negative and trusted advance remain required
+  ---
+  duration_ms: 9.5823
+  type: 'test'
+  ...
+# Subtest: fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+ok 399 - fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+  ---
+  duration_ms: 10.1878
+  type: 'test'
+  ...
+# Subtest: native/logical/physical counters stay independent and broad privacy/completeness remain false
+ok 400 - native/logical/physical counters stay independent and broad privacy/completeness remain false
+  ---
+  duration_ms: 7.6205
+  type: 'test'
+  ...
+# Subtest: the original14 source freeze is not retroactively extended to include another input
+ok 401 - the original14 source freeze is not retroactively extended to include another input
+  ---
+  duration_ms: 1.3697
+  type: 'test'
+  ...
+# Subtest: JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+ok 402 - JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+  ---
+  duration_ms: 2.5086
+  type: 'test'
+  ...
+# Subtest: root runner discovers all ordinary tests and the source-frozen Data tool test without executing them
+ok 403 - root runner discovers all ordinary tests and the source-frozen Data tool test without executing them
+  ---
+  duration_ms: 23.0682
+  type: 'test'
+  ...
+# Subtest: missing/forged receipt or disposition cannot waive parentage even if map labels root
+ok 404 - missing/forged receipt or disposition cannot waive parentage even if map labels root
+  ---
+  duration_ms: 17.4737
+  type: 'test'
+  ...
+# Subtest: only precise verified absent/duplicate/invalid classification permits the deliberate null-parent boundary
+ok 405 - only precise verified absent/duplicate/invalid classification permits the deliberate null-parent boundary
+  ---
+  duration_ms: 18.5357
+  type: 'test'
+  ...
+# Subtest: valid trusted sampled golden-path missing downstream edges still fail with a permitted ingress root
+ok 406 - valid trusted sampled golden-path missing downstream edges still fail with a permitted ingress root
+  ---
+  duration_ms: 5.0928
+  type: 'test'
+  ...
+# Subtest: invalid tracestate-only, valid parent, non-null parent and fabricated native capability never qualify
+ok 407 - invalid tracestate-only, valid parent, non-null parent and fabricated native capability never qualify
+  ---
+  duration_ms: 4.9266
+  type: 'test'
+  ...
+# Subtest: sealed binding getter retains exact checked disposition/policy/carrier/locator, never caller rereads
+ok 408 - sealed binding getter retains exact checked disposition/policy/carrier/locator, never caller rereads
+  ---
+  duration_ms: 6.486
+  type: 'test'
+  ...
+# Subtest: cloned capabilities, map/row/locator drift and getter values cannot provide root bindings
+ok 409 - cloned capabilities, map/row/locator drift and getter values cannot provide root bindings
+  ---
+  duration_ms: 5.8498
+  type: 'test'
+  ...
+1..409
+# tests 409
+# suites 0
+# pass 407
+# fail 0
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 20581.33

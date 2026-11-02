@@ -83,6 +83,12 @@ resource network 'Microsoft.Network/virtualNetworks@2024-07-01' = {
           ]
           serviceEndpoints: [
             {
+              service: 'Microsoft.KeyVault'
+              locations: [
+                location
+              ]
+            }
+            {
               service: 'Microsoft.Web'
               locations: [
                 location

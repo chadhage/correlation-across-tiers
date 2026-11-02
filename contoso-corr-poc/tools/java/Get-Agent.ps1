@@ -7,7 +7,6 @@ $jar = Join-Path $Destination $lock.agent.file
 if (-not (Test-Path -LiteralPath $jar)) { Invoke-WebRequest -Uri $lock.agent.url -OutFile $jar }
 if ((Get-FileHash -LiteralPath $jar -Algorithm SHA256).Hash.ToLowerInvariant() -ne $lock.agent.sha256 -or
     (Get-Item -LiteralPath $jar).Length -ne $lock.agent.bytes) {
-    Remove-Item -LiteralPath $jar
     throw 'GATE-02 agent integrity failure'
 }
 Write-Output $jar

@@ -1,0 +1,59 @@
+{
+  "schema": "contoso.security-package-observation.v1",
+  "assessmentScope": "owner-observed-security-only-package-phase-post-facts",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "executionReference": "powershell:r8-approved-okhttp-package",
+  "authorization": "explicit parent security-only dependency-resolution compile unit package grant",
+  "executedMavenCommand": "mvn -q -f .\\contoso-corr-poc\\services\\security-core\\pom.xml dependency:tree -DoutputFile=target\\okhttp-effective-dependencies.txt -DappendOutput=false package",
+  "exitCodeObserved": 0,
+  "testsObserved": { "tests": 32, "failures": 0, "errors": 0, "skipped": 0 },
+  "runtimeIdentityFromExistingUnitXml": {
+    "javaRuntimeVersion": "25.0.5+8-LTS",
+    "javaVendor": "Eclipse Adoptium",
+    "javaVmName": "OpenJDK 64-Bit Server VM"
+  },
+  "notCaptured": [
+    "complete source closure before the Maven phase",
+    "complete source closure immediately after the Maven phase",
+    "Maven exact version in the executed phase",
+    "Maven process PID and process start/end timestamps",
+    "unit-suite timestamps in the generated XML",
+    "installed-M2 artifact pre/post identity in this phase",
+    "source-build lineage of unrelated Core, inventory or worker libraries"
+  ],
+  "sourceBuildLineage": "UNVERIFIED_BEFORE_FULL_CLOSURE_MISSING",
+  "sourcePublicationScope": "selected source hashes read after the phase; not a captured before/after closure",
+  "sourcePostRead": {
+    "services\\security-core\\pom.xml": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c",
+    "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java": "cfdc9d91bd78180f2c462811f13638625a68eb4cd97318de2275cda34f3a7011",
+    "services\\security-core\\src\\main\\java\\com\\contoso\\security\\JwkKeySource.java": "690eb27d28712fb282da96efd1c904327b0d6bfa4cb399d632bbd740626b8a8c",
+    "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacPseudonymizer.java": "b2fe30ecb5225a49b69de25117cf61406a3a35c226f202307bec6111bc01a352",
+    "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacSecretBootstrap.java": "8fb03a45a88990b5c46cacf710d73fa41e75557d081408c4f029991f0bc204a4",
+    "services\\security-core\\src\\main\\java\\com\\contoso\\security\\RequestAuthenticator.java": "5c515a25ef9da3e1dd23074aace9fb757df57ac3fbdd69f37d64ca6d6bbde2f6"
+  },
+  "package": {
+    "gav": "com.contoso:security-core:1.0.0",
+    "path": "services\\security-core\\target\\security-core-1.0.0.jar",
+    "sha256": "4a77dd7c8bd4fff5a767db869f20cb8e7439d5c4092cb138e71e27abddf38946",
+    "wrapperClassResourceSha256": "e7379499e9176d72459bc74085918f04f10aef3b00fdc34490c44f1900e90c54",
+    "installedByThisPhase": false
+  },
+  "effectiveDependencyTree": {
+    "path": "services\\security-core\\target\\okhttp-effective-dependencies.txt",
+    "sha256": "858785b698abb574e87c2d68c64a42d0b3dc21760a0eab08dea81792fc59bc50",
+    "observedVersions": {
+      "azure-core-http-okhttp": "1.13.8",
+      "okhttp": "4.12.0",
+      "okio-jvm": "3.18.1",
+      "kotlin-stdlib": "2.3.21",
+      "azure-core-http-netty": "1.16.8",
+      "reactor-netty-http": "1.3.8"
+    }
+  },
+  "unexercisedScopes": ["Core", "inventory", "workers", "Azure Entra", "deployed TLS/RBAC", "global providers"],
+  "nativeIdentityQualification": "PENDING SEPARATELY AUTHORIZED ORIGINAL-CHILD WIRE RETAKE",
+  "currentHelperSourceFreeze": "finite USED checker and test-process lifecycle are separate later source changes",
+  "apiReady": false,
+  "rawOutputRetained": false
+}

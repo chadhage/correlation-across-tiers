@@ -1,0 +1,516 @@
+{
+  "schema": "contoso.acting-r6-data-source-freeze.v3",
+  "logicalAuthorRole": "R6",
+  "actualImplementationExecutor": "original-R5",
+  "physicalAuthorAgent": "5d5396fc-080f-44b1-a3db-8ae93d0f7904",
+  "createdAtUtc": "2026-11-01T20:03:06.7316250Z",
+  "readiness": "READY_FOR_PARENT_FRESH_DATA_A_AFTER_READ_VS_MUTATION_ASSERTION_FIX_AND_OTHER_ROLE_REVIEW",
+  "reviewers": [
+    "parent-acting-R4",
+    "original-R8"
+  ],
+  "certification": "NOT_CERTIFIED",
+  "apiReady": false,
+  "deploymentReady": false,
+  "sourceAndResourceCount": 38,
+  "sourceAndResources": [
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+    },
+    {
+      "path": "services\\inventory-data\\README.md",
+      "sha256": "024a583c9e237c2d70d425a0d1d51595d051af8103ab0f0f3c2c427903089352"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\DataInstrumentationGuard.java",
+      "sha256": "a4f074c4d54685d0b659547a9c1d183baa44fec978d22434f515362192fb0932"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\DataLoggingGuard.java",
+      "sha256": "eaacd594cdfbf6eba1ca7c262218038af383f9b71c6ac0e3b64397c87003f3d9"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\EntraPgConnectionFactory.java",
+      "sha256": "77520d4c2de120ab196a9f9737aecc71e20af739dee04f45bd33fbb6c38ff662"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+      "sha256": "f6b9c58ffbfbf3cdfc0b5a401ee90031be3aa1410d56e02d4531be38bf4269ff"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "eb92c13b626fa288756eda75cedb1e7c06d14c985ccd97380f3b22f86bd9a98a"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+      "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgSettings.java",
+      "sha256": "8ceb7a607ab4c74a20fc07c6818d953834cb3a5133bde3bdc4c322c967af08a7"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgTokenCache.java",
+      "sha256": "d4b702e6f04422c4da73d002d0b9720c854af29634a3afa22f53e64edbde0315"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisEntraIdAuthenticationSupplier.java",
+      "sha256": "9472fd0614ed5f0c9075f6347a1fe35842adfe9f3c05891a46895b87d797bf3b"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+      "sha256": "df8d302eef7233e5794cd6ff79e9f336281b15ed04e785c671d64c54db2d38f4"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\SanitizedJdbc.java",
+      "sha256": "34b4585aa4194fdc6d248fda8a2de9a6a73fdae387dc371f99f81b2ebd477bc9"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+      "sha256": "fb63684839e084c908612e15ef7fce96dd45235965dd272bb24933a8f73f5d07"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+      "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+      "sha256": "e2436fb51df38a4de025c9ced18f58d4b33a943b015ab7ee8d32c78ef11e3fcc"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+      "sha256": "6024d7ce2a4d20b05a5b8ffb24ab0278392a38ad04a655f6905407880c3e962d"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+      "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\DataAgentProbe.java",
+      "sha256": "2be1b2adb2cd624c39e3df2da0a7a4b2d403562b25ecc1ca3b7e179df14b0b2d"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\DataAgentQualificationTest.java",
+      "sha256": "3dd367cdcfcf40e44ee1b90d11d90642aceca3ee683438edb1cd2ce62c64423c"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\DataFixture.java",
+      "sha256": "eb69c0b152d3b3161f4d35cbb0b3854a7e9461834de3a0286c77f5cb943f0319"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\DataSafetyTest.java",
+      "sha256": "543b0f7b688dbe8d6d7ac5b067a0ac5e40e99e8ea74261ccfe6512c31c003e20"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\EntraPoolTest.java",
+      "sha256": "76677a1375c5f42811ae214c9326354878891807c04d7f25e817b33ac3a6c766"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\InventoryDataTest.java",
+      "sha256": "89d09f5ebf861af72a330eda2d20f3adbc3b5ca758748894a0ca995f879457de"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\InventoryGrantMarkerTest.java",
+      "sha256": "237ea4022584ed5a6067d20caf50f85b41e2a37e3ad9aa18b82379b5111d7518"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\PgTokenCacheTest.java",
+      "sha256": "32ff840669bb3c38aa3ac5da7b0e38721a3ce6fc492462065443ede04426ca65"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\RedisCredentialsLifecycleTest.java",
+      "sha256": "9bb9e13d79d10dfe7a3b030691aec97e6f69d27fbcba2cb696bcbbf32f1832c0"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\RedisDataTest.java",
+      "sha256": "add8925914af20ab945174973ae016700b98c4d1c121df7a81c2e260992657ec"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\RedisEntraIdAuthenticationSupplierTest.java",
+      "sha256": "ba7fee6743a57cbb6209d987a02aeb8b26c44b67d49bd78b263cd9bc970838f4"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\RespFixture.java",
+      "sha256": "6bfa8666b2713635ee6680c5f370a16d1c9d8fff42b9a5a62f93c4de4f4bd9e3"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\WorkflowGrantPolicyTest.java",
+      "sha256": "ec0719aefa46a49a342dcd954fa1f5dcda26131d93a3cc72bf05e68a6f209f32"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\resources\\agent-qualification.json",
+      "sha256": "0e8ee2501b875efa9d3f1b223cec9037e967ee70975444bd90f8d4d4a8b562ae"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\resources\\logback-test.xml",
+      "sha256": "5ed3464fad267c8374482d760f4b26307d12adba80c71003210be7cf444c6ed3"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-source-contract.test.mjs",
+      "sha256": "3946f55b120b6eded2f25660852d36e42e93656a57552fa8e160af8086f8e26c"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "97908b80ec7a8d320618714b2ab43382293a91f822e162c7bb28fb56ea4fc295"
+    }
+  ],
+  "unchangedCoreDataApiReferences": [
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\DataAccessException.java",
+      "sha256": "93ba34e73d2fdd5b46a5789eba1baccc1793337601a4b1ef1a9effe939aa5244",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\DataErrorKind.java",
+      "sha256": "12906ed540eef1a7edf1bac68740532441e8528eafb6c037e8daf2708c19e3bf",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\DataErrors.java",
+      "sha256": "4718952ddfb9037f0b153970ff95cf956124bcae417838a0d43a9e39fa582c2b",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\DataValidation.java",
+      "sha256": "4624f19b953489309dda16305e5cc7182fa2ca18efcd47e16396b384db0130ff",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\DeadlineJdbc.java",
+      "sha256": "8ab35fbc36025679f3436feb79126a544ec30e4ff87ef10ec3beab3632993812",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\InventoryDataAdapter.java",
+      "sha256": "35e0a69c243af04030982843542bfaeedb9b1958ef01cc84b6590a26b5487251",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\InventoryItem.java",
+      "sha256": "3110230593ab99fff44453955f2065a5b8ebe7de9596fd5f5a67d310d7e7f6d7",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\OperationContext.java",
+      "sha256": "9731b247067be3ee526daf45fb67e20a20fea3d8ac0400e86d3814b14834c0c2",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\PgConnectionFactory.java",
+      "sha256": "0ce377ef9119190854d2333c852bfa06eaf5b75193cff8ab6ef684e945487f12",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\PgOperation.java",
+      "sha256": "82a85166c916043734a4c6a2bb0f5a47d48456555bc1e7fb9ad1e2b2db4a0a48",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\PgOperations.java",
+      "sha256": "89e042e19e614c806515136afd4de0cc93555d44098a4ae8e0fcd23a5ecae505",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\Reservation.java",
+      "sha256": "4bb75e1cd766ce6c42a61f338b65b27679cf171ef38f2b972fb6799235376066",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\data\\SqlWork.java",
+      "sha256": "b327d00bfc0ae14e32246d89b2a781a4d826d5bc91ad23ea9eb5a8d42107bdec",
+      "editedByActingR6": false
+    }
+  ],
+  "unchangedSharedReferences": [
+    {
+      "path": "pom.xml",
+      "sha256": "ad5ef46746d7dfbf9aa9d10beaa6bbdd3cdcc7d9261fb0451beb53b243706ee5",
+      "editedByActingR6": false
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "e08e37a9863c423ad1c48d4443428420ea004b8d08518c421443ec2714f8d66e",
+      "editedByActingR6": false
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "3841c604abcebfb28be13cd660bb75790ed9a57e6dda8cb25cdb74982b960a53",
+      "editedByActingR6": false
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+      "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a",
+      "editedByActingR6": false
+    },
+    {
+      "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\PgMessagingStore.java",
+      "sha256": "405b862786c551079d1f4dc18ae7f35b4b00954305eae76c15d5067b5483db55",
+      "editedByActingR6": false
+    }
+  ],
+  "coreOrSecurityOrRootOrSdkEdited": false,
+  "ownedPomPort": "Existing root-managed com.contoso:security-core:1.0.0 dependency added ONLY to inventory-data POM",
+  "credentialContract": {
+    "defaultMode": "Intended managed identity preserved; optional AZURE_CLIENT_ID selects user-assigned identity",
+    "centralFactory": "com.contoso.security.IdentityHttpClients.managedIdentity(optionalGUID)",
+    "oneAdapterCredential": "Same supplied TokenCredential instance goes to PG and AuthX Redis; no internal raw MI/Default/MSAL HTTP creation",
+    "postgresOverloads": [
+      "EntraPgConnectionFactory.fromEnvironment()",
+      "EntraPgConnectionFactory.fromEnvironment(String serviceName)",
+      "EntraPgConnectionFactory.fromEnvironment(String serviceName, TokenCredential credential)",
+      "EntraPgConnectionFactory(PgSettings, TokenCredential)"
+    ],
+    "cacheOverloads": [
+      "LettuceInventoryCache.fromEnvironment()",
+      "LettuceInventoryCache.fromEnvironment(TokenCredential credential)"
+    ],
+    "adapterOverloads": [
+      "PgRedisInventoryDataAdapter.fromEnvironment()",
+      "PgRedisInventoryDataAdapter.fromEnvironment(TokenCredential credential)",
+      "PgRedisInventoryDataAdapter(PgConnectionFactory, OwnedInventoryCache)",
+      "PgRedisInventoryDataAdapter(PgConnectionFactory, OwnedInventoryCache, String expectedResourceId)"
+    ],
+    "operatorAndBootstrap": "Explicit caller-supplied IdentityHttpClients.defaultCredential(), or other reviewed injected TokenCredential; not forcibly replaced with MI",
+    "authxPublicCallback": "EntraIDTokenAuthConfigBuilder.customEntraIdAuthenticationSupplier(java.util.function.Supplier<com.microsoft.aad.msal4j.IAuthenticationResult>)",
+    "authxRealProvider": "io.lettuce.authx.TokenBasedRedisCredentialsProvider.create(redis.clients.authentication.core.TokenAuthConfig)",
+    "callbackSource": "RedisEntraIdAuthenticationSupplier implements Supplier<IAuthenticationResult>, supplied credential/fixed Redis scope/maximum3sec/redacted result, no separate MSAL client",
+    "redisScope": "https://redis.azure.com/.default",
+    "postgresScope": "https://ossrdbms-aad.database.windows.net/.default",
+    "sourceProof": "Pinned public AuthX0.2/Lettuce7.9/MSAL1.26 class descriptors inspected without Java/native; real callback Java tests CREATED_NOT_EXECUTED",
+    "existingTlsAndEndpointChecksChanged": false,
+    "dataBusinessTransport": "PG JDBC verify-full + original Lettuce TLS/Netty; no Azure business REST SDK/HTTP ServiceLoader client in this module",
+    "renewal": "Real AuthX streaming provider, ON_NEW_CREDENTIALS, ratio0.25/lower1sec/3attempts/1sec retry/3sec token request, original bounded connection/client close paths",
+    "builderLifecycle": "Typed public AuthX construction through checked AutoCloseable lifecycle seam; borrowed credential preserved, provider owned after success and disposed on failed builder cleanup"
+  },
+  "grantsContract": {
+    "publicPort": "InventorySchemaHooks.grantWorkflow(PgConnectionFactory admin, Permit, Principal, WorkflowRole, OperationContext)",
+    "workflowRoles": [
+      "ORDERS",
+      "FULFILLMENT",
+      "NOTIFY",
+      "AGGREGATOR"
+    ],
+    "rootBootstrapMappingRequired": true,
+    "rootBicepPrincipalInputShapeChanged": false,
+    "preparedOnly": true,
+    "actualSqlOrGrantExecuted": false,
+    "prerequisites": [
+      "approved separate administrative identity and Permit",
+      "same resource/database marker bound by V001 install",
+      "prior OID-bound principal registration",
+      "nonadmin role flags and matching pgaadauth objectId",
+      "V002 already installed by separately approved runner",
+      "dedicated roles/effective inherited permissions independently reviewed"
+    ],
+    "policies": [
+      "common.sql revokes existing direct table and column INSERT/UPDATE privileges then grants read/CONNECT/USAGE",
+      "orders.sql alone permits target async_fault replay_requested INSERT/UPDATE and control DELETE",
+      "worker.sql FULFILLMENT/NOTIFY permits INSERT original_message_id/source/workflow_id/new_message_id for composite replay, never UPDATE replay",
+      "aggregator.sql accepts verified receipt source snapshots and EH checkpoints/quarantine; no publication/contributor/replay INSERT",
+      "CURRENT_USER owner/publisher/receiver/creator and created timestamps not supplied/mutable by runtime grants",
+      "No generic table UPDATE; no runtime DROP/CREATE/TRUNCATE",
+      "Existing inventory grants narrowed to stock/revision + reservation insert/state, synthetic/identity fields not mutable"
+    ],
+    "inheritedPrivilegesAndAuthorizedReceiverCompromise": "Known limitation/live approval requirement; not certified by source policy",
+    "bothInventoryAndWorkflowRequireLockedDatasetMarker": true,
+    "aggregatorReadOnlyProvenance": "SELECT is required by actual shared trust/replay-delivery/result/fan-in queries; INSERT/UPDATE/DELETE on replay/publication/contributor remain forbidden"
+  },
+  "publicSdkBinaryReferenceFacts": [
+    {
+      "artifact": "redis.clients.authentication:redis-authx-entraid:0.2.0",
+      "jarSha256": "6f97214abc2266f0407cd4c87b3b29cdcddfcc75430d98de7ba4b8d0e9f673c4",
+      "publicBuilderMemberSha256": "6d116fd412f387f303ce13aa5905a46a85d6947855062b66999b62ea388ee1bd",
+      "sourceUseOnlyNotDataExecution": true
+    },
+    {
+      "artifact": "redis.clients.authentication:redis-authx-core:0.2.0",
+      "jarSha256": "67875cfeb9ff9e8325045b9ac81d709eb6267b475cb8273fdb9139563458056d"
+    },
+    {
+      "artifact": "io.lettuce:lettuce-core:7.9.0.RELEASE",
+      "jarSha256": "d08f925e2f5b1207a6eb3724d07caaf79543b8c8687f4a7413047ccc397b5230",
+      "providerMemberSha256": "4c69de1d807ef077fcd38d8374784bfaf00f07f2c30f726e47dd4a97e168b10b"
+    },
+    {
+      "artifact": "com.microsoft.azure:msal4j:1.26.0",
+      "jarSha256": "2536ab4e804d79bcf86529e3413e27edca540bdfe2030f501ea52a0de1312a70",
+      "interfaceMemberSha256": "2bd43e4ea6f0b1f5d02cb104b0a98145e4857f6bc90a7e171087441d2c7bb814"
+    }
+  ],
+  "installedDependencyReferences": {
+    "correlationCore": "ac80828d4ef5a801426127b91806445452e310b75888ea2b8937f7054bd67cff",
+    "securityCore": "e58d5143a2484f3d0f2a75c48126a2882b89dc3dc4ab2d68034105653288cc87",
+    "priorInventoryJar": "b7a6cfc9a5bd5c1b146d9c8c7ecd03782a6cb365774f7c7bfafbe5ad11282529",
+    "priorInventoryIsCurrentChangedSource": false,
+    "newCurrentDataJar": null
+  },
+  "validation": {
+    "kind": "SOURCE_NODE_AND_LOCAL_BICEP_ONLY",
+    "nodeCommand": "node --test --test-reporter=spec .\\contoso-corr-poc\\services\\inventory-data\\tools\\data-source-contract.test.mjs",
+    "nodeTests": 9,
+    "nodePassed": 9,
+    "nodeFailures": 0,
+    "nodeSkipped": 0,
+    "finalNodeDurationMilliseconds": 202.0784,
+    "initialSourceTestError": "5/6 initial: overly broad legacy-host regex matched legitimate negative description, corrected test only; no API downgrade",
+    "bicepCommand": ".\\contoso-corr-poc\\services\\inventory-data\\tools\\Test-DataModules.ps1 -BicepPath .\\contoso-corr-poc\\.cache\\r6-tools\\bicep.exe",
+    "bicepVersion": "0.48.1",
+    "bicepSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "bicepModulesCompiled": 2,
+    "bicepExitCode": 0,
+    "bicepBcp081TypeWarnings": 6,
+    "bicepProviderValidation": "NOT_EXECUTED_RESOURCE_TYPES_UNAVAILABLE_IN_PINNED_COMPILER",
+    "compiledLocalResources": [
+      {
+        "path": ".cache\\r6-build\\data-postgres.json",
+        "sha256": "54a761fee49caf9871cb3227cc9d2d23c8804061c303744cca451c8be940fb98",
+        "kind": "LOCAL_BICEP_CODEGEN_NOT_ARM_DEPLOYMENT_VALIDATION"
+      },
+      {
+        "path": ".cache\\r6-build\\data-managed-redis.json",
+        "sha256": "35ac0aa15499508cefbb404fb8bec8bb8b5175553e78b3b328d103ef46ee770f",
+        "kind": "LOCAL_BICEP_CODEGEN_NOT_ARM_DEPLOYMENT_VALIDATION"
+      }
+    ],
+    "javaOrMavenOrNativeRunByActingR6": false,
+    "sourceGrantExecuted": false,
+    "azureOperations": false,
+    "newJavaCompileOrTestResults": "NOT_REEXECUTED_FOR_V3_ASSERTION_PARENT_RETAKE_REQUIRED",
+    "bicepSourceChangedForV2": false,
+    "bicepRecompiledForV2": false,
+    "previousBicepCodegenReusedOnlyForIdenticalUnchangedSource": true,
+    "currentNodeIncludesActualStoreReadTraceAndMutationProtection": true
+  },
+  "futureJavaSelectors": "PgTokenCacheTest,EntraPoolTest,RedisDataTest,RedisEntraIdAuthenticationSupplierTest,RedisCredentialsLifecycleTest,WorkflowGrantPolicyTest,InventoryGrantMarkerTest,InventoryDataTest,DataSafetyTest",
+  "newJavaTestDisposition": "CREATED_NOT_EXECUTED: original6 newJava tests plus4 lifecycle and2 mocked marker tests; Node8 is SOURCE ONLY, never Java or actual grant proof",
+  "nativeDataQualification": "DataAgentQualificationTest requires later separately granted current-source execution",
+  "publicInfraReferences": [
+    {
+      "kind": "PG_GA_RESOURCE_REFERENCE_NOT_DEPLOYMENT",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/2026-10-01/flexibleservers",
+      "version": "2026-10-01",
+      "configuredMajor": "18",
+      "configuredSku": "Standard_B1ms",
+      "configuredTier": "Burstable",
+      "actualRegionalAvailabilityOrPatchVerified": false
+    },
+    {
+      "kind": "MANAGED_REDIS_GA_RESOURCE_REFERENCE_NOT_DEPLOYMENT",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cache/2026-09-01/redisenterprise",
+      "version": "2026-09-01",
+      "configuredSku": "Balanced_B0",
+      "configuredPort": 10000,
+      "configuredCluster": "EnterpriseCluster",
+      "policy": "default",
+      "actualRegionalAvailabilityOrProviderPropertiesVerified": false
+    },
+    {
+      "kind": "OID_PRINCIPAL_SQL_REFERENCE",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/security/security-manage-entra-users"
+    }
+  ],
+  "externalBlockers": [
+    "parent fresh selected Data clean package with actual BEFORE/tools/PID/time/AFTER/output/JUnit",
+    "parent exact current Data install; old b7a must not be claimed current",
+    "original parentR4/R8 data-source reviews and actual callback Java execution",
+    "independent current-source loaded-member/native data/identity/default transports and private C acceptance",
+    "actual PG18/privateDNS/TLS/Entra grants/ManagedRedis refresh and all-table data/privacy/retention owner approval",
+    "root current messaging package/install before downstream workers; async/source-native and Azure acceptance remain separate"
+  ],
+  "writerState": "SOURCE_FROZEN_V3_AFTER_AUTHORIZED_TEST_ONLY_READ_PERMISSION_FIX_NO_MAVEN_NATIVE_TARGET_OR_CORE_SECURITY_API_ROOT_POM_SDK_WRITES",
+  "revision": "v3",
+  "historicalCandidatePreserved": {
+    "path": "services\\inventory-data\\docs\\data-source-freeze.v1.json",
+    "sha256": "055ebc33fed898c4f617444bb82c1ad4371d4c653e4623b21eba1cb9bc9907f8",
+    "originalSourceReadinessIsCurrent": false
+  },
+  "historicalMainCompileFailurePreserved": {
+    "witnessSha256": "70f444c14898aafd2aa2ddff8d8671b10ddfb722ab81037feab850031644cb4c",
+    "witnessPathProvidedByParent": "session build-witness\\20261101T192652097Z-data-4fe99fcd-1eac-44c5-98bf-aef131614d4f",
+    "failure": "ACTUAL_MAIN_COMPILE_CHECKED_EXCEPTION_AUTHX_BUILDER_CLOSE",
+    "mainSourcesAttempted": 12,
+    "javaTestsExecuted": 0,
+    "currentDataArtifactProduced": false,
+    "retrofilledOrPromoted": false
+  },
+  "authorizedSourceFixes": [
+    {
+      "finding": "PARENT_MAIN_COMPILE_CLOSE_EXCEPTION",
+      "paths": [
+        "LettuceInventoryCache.java",
+        "RedisCredentialsLifecycleTest.java",
+        "tools\\data-source-contract.test.mjs"
+      ],
+      "disposition": "SOURCE_FIXED_NOT_YET_JAVA_COMPILED",
+      "behavior": "Checked builder close handled; success transfers provider unchanged, failed handoff closes provider, cleanup failure surfaced as fixed UNAVAILABLE with no raw cause; supplied TokenCredential never closed"
+    },
+    {
+      "finding": "R8-R6-01",
+      "paths": [
+        "InventorySchemaHooks.java",
+        "InventoryGrantMarkerTest.java",
+        "tools\\data-source-contract.test.mjs"
+      ],
+      "disposition": "SOURCE_FIXED_NOT_YET_JAVA_EXECUTED",
+      "behavior": "Shared FOR UPDATE resource/workload/environment/seed marker guard precedes ANY inventory and workflow privilege DDL; mocks cover absent/null/foreign/workload/environment/seed mismatches with no SQL/grant execution"
+    }
+  ],
+  "historicalCandidatesPreserved": [
+    {
+      "path": "services\\inventory-data\\docs\\data-source-freeze.v1.json",
+      "sha256": "055ebc33fed898c4f617444bb82c1ad4371d4c653e4623b21eba1cb9bc9907f8"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-source-freeze.v2.json",
+      "sha256": "7d0ab5478831efc84eb23399fb0fe18f9e7c01a0dd42bde3d53085b71cda62b6"
+    }
+  ],
+  "historicalRetakeTestFailurePreserved": {
+    "witnessSha256": "9a724e4f319d167fd0f6c49547e9268db2dea8d02b6c01d6c2d13c8b8f137fd5",
+    "kind": "ACTUAL_PARENT_DATA_V2_TEST_FAILURE_NOT_COLLECTOR",
+    "mainCompile": "PASS",
+    "javaTests": 33,
+    "javaFailures": 1,
+    "javaSkipped": 0,
+    "nativeDataAgentTestsOwnerPassed": 2,
+    "lifecycleTestsOwnerPassed": 4,
+    "markerTestsOwnerPassed": 2,
+    "failedTest": "WorkflowGrantPolicyTest.targetedReplayFlagAndCompositeSourceInsertRemainAuthorizedWithoutMutableReplayIdentity",
+    "artifactOrInstallCompleted": false,
+    "actualExecutionByParentNotR5": true,
+    "oldFailurePromoted": false
+  },
+  "latestAuthorizedFix": {
+    "kind": "SOURCE_BACKED_AGGREGATOR_READ_VS_MUTATION_ASSERTION",
+    "changedPaths": [
+      "src\\test\\java\\com\\contoso\\inventory\\data\\WorkflowGrantPolicyTest.java",
+      "tools\\data-source-contract.test.mjs",
+      "README.md"
+    ],
+    "sqlPoliciesChanged": false,
+    "mainSourcesChanged": false,
+    "actualRequiredReadTrace": [
+      "PgMessagingStore.trusted queries replay.owner to verify original publisher ownership",
+      "PgMessagingStore.replayAppliesTo queries replay.source for target-consumer admission",
+      "PgMessagingStore.resultReceipt joins protected contributor/publication and verifies envelope/source",
+      "Fan-in reads contributor/result receipt provenance, not publisher mutation"
+    ],
+    "correctedAssertions": "Explicitly require common SELECT on replay/publication/contributor; reject every non-SELECT grant for Aggregator on those tables",
+    "javaReexecutedByR5": false,
+    "newJavaRetakeStillRequired": true
+  },
+  "currentDataArtifactOrInstall": false
+}

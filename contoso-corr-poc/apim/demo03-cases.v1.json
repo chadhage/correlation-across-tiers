@@ -34,6 +34,36 @@
       "headers": { "traceparent": "00-55555555555555555555555555555555-6666666666666666-01", "tracestate": "contoso=one,contoso=two" },
       "expectedPolicyDeletion": ["tracestate"],
       "expectedLiveAssertion": "Discard state only; preserve the valid trace ID."
+    },
+    {
+      "caseId": "invalid-zero-parent",
+      "headers": { "traceparent": "00-11111111111111111111111111111111-0000000000000000-01" },
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Observe the supported tracer's actual root and bounded rejection; never repair a parent ID."
+    },
+    {
+      "caseId": "invalid-forbidden-version",
+      "headers": { "traceparent": "ff-11111111111111111111111111111111-2222222222222222-01" },
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Policy rejection is not an assertion that an already-extracted gateway context was reset; verify native timing."
+    },
+    {
+      "caseId": "invalid-short-parent",
+      "headers": { "traceparent": "00-11111111111111111111111111111111-222222222222222-01" },
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Record native invalid-parent disposition and real new root without manufacturing gateway rows."
+    },
+    {
+      "caseId": "duplicate-parent-fields",
+      "headers": { "traceparent": ["00-11111111111111111111111111111111-2222222222222222-01", "00-11111111111111111111111111111111-2222222222222222-01"] },
+      "expectedPolicyDeletion": ["traceparent", "tracestate"],
+      "expectedLiveAssertion": "Use real duplicate HTTP fields; record any transport folding and verify the resulting native disposition."
+    },
+    {
+      "caseId": "future-version-known-prefix",
+      "headers": { "traceparent": "01-11111111111111111111111111111111-2222222222222222-01-future" },
+      "expectedPolicyDeletion": [],
+      "expectedLiveAssertion": "The guard accepts the forward-compatible prefix; independently verify native extraction/injection and log any observed discrepancy."
     }
   ]
 }

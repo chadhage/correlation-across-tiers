@@ -1,0 +1,82 @@
+{
+  "schema": "contoso.current-build-support-preservation.v1",
+  "ownerOriginalRole": "R5",
+  "preserverRole": "R9",
+  "sourceKind": "ACTUAL_CURRENT_A_SUPPORT_BYTE_PRESERVATION_NOT_NEW_NATIVE_EXECUTION",
+  "sourceBuildWitnessSha256": "325a597c7256d1d1d70a56bfb5ac11efb01865cbb74785571da0214ad7f562c3",
+  "startedAtUtc": "2026-11-01T21:41:29.607Z",
+  "finishedAtUtc": "2026-11-01T21:41:29.727Z",
+  "files": [
+    {
+      "source": "evidence\\java-local\\source-builds\\20261101T205501520Z-messaging-a0f6be45-8a26-4dbf-86cf-b3db8c440c5b\\source-build.json",
+      "path": "original\\evidence\\java-local\\source-builds\\20261101T205501520Z-messaging-a0f6be45-8a26-4dbf-86cf-b3db8c440c5b\\source-build.json",
+      "sha256": "325a597c7256d1d1d70a56bfb5ac11efb01865cbb74785571da0214ad7f562c3",
+      "bytes": 23842
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+      "sha256": "6db440c36436f66ba3aa97d74f95c3674cbe00f7650ee042be31c9b09bcf4a43",
+      "bytes": 41265
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AzureSdkBoundaryTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.AzureSdkBoundaryTest.xml",
+      "sha256": "566f0810a22ef7b0a7e5e12d38b51c165754a43ded009f5854f2b25bb939d711",
+      "bytes": 41713
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.EnvelopeTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.EnvelopeTest.xml",
+      "sha256": "954f835d678f3def60eb1726eb8086781d1f812c8a17525a31c448f98ed2a5ea",
+      "bytes": 42464
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+      "sha256": "c742d2ac32a18645ae8349cd2f02a91323dbdcc2a548378f7ff39bf77734c1eb",
+      "bytes": 41283
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.PgMessagingStoreTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.PgMessagingStoreTest.xml",
+      "sha256": "cfaa2da5abeebe29caf1413519c464a7d7848d0ed7b2d7668c65b8acf31e710a",
+      "bytes": 43106
+    },
+    {
+      "source": "workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.ProcessingLeaseTest.xml",
+      "path": "original\\workers\\messaging-core\\target\\surefire-reports\\TEST-com.contoso.messaging.ProcessingLeaseTest.xml",
+      "sha256": "5715cd049c99be488ea030f4b713838e4168661709da399358064f2f061c2bec",
+      "bytes": 41502
+    },
+    {
+      "source": "workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+      "path": "original\\workers\\messaging-core\\target\\messaging-core-1.0.0.jar",
+      "sha256": "c3db4a11350cd305e3c5db2a5b1a8802256a28bf92ae714665d8a5d6cf8575e1",
+      "bytes": 105087
+    },
+    {
+      "source": "workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "path": "original\\workers\\messaging-core\\target\\native-agent\\native-proof.json",
+      "sha256": "cc69d087377e407ca426c05be44d7163ab1aa092b29bd5ab115a7fa7002fdd74",
+      "bytes": 41362
+    },
+    {
+      "source": "workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "path": "original\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\qualification.json",
+      "sha256": "000a6167b396d0fd410648aa58cc45160de22a9eacb485ac5f40685c9b4444e6",
+      "bytes": 47558
+    }
+  ],
+  "originalSourceUnchanged": true,
+  "preservedSurefireSuites": 6,
+  "sourceBuildLoadedCodeAuthorityGranted": false,
+  "defaultNettyUseVerified": false,
+  "workerManagedIdentityWireVerified": false,
+  "certification": "NOT_CERTIFIED",
+  "limitations": [
+    "Original current32-test witness and its actual reports/JAR/native support preserved unchanged",
+    "Older0ec archive is separate prior epochs",
+    "No new native execution, packaged-loader/global/privacy/Azure authority"
+  ]
+}

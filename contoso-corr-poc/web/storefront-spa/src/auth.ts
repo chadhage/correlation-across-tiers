@@ -29,12 +29,13 @@ export function createContosoAuth(config: ContosoPublicRuntimeConfigV1): Contoso
       try {
         await client.initialize();
         const result = await client.handleRedirectPromise();
-        const account = result?.account ?? client.getAllAccounts()[0] ?? null;
+        const accounts = client.getAllAccounts();
+        const account = result?.account ?? client.getActiveAccount() ?? (accounts.length === 1 ? accounts[0] ?? null : null);
         if (account) client.setActiveAccount(account);
       } catch { throw new ContosoError("AUTH_FAILED", 401); }
     },
     async signIn() {
-      try { await client.loginRedirect({ scopes, redirectUri: config.identity.spaRedirectUri }); }
+      try { await client.loginRedirect({ scopes, redirectUri: config.identity.spaRedirectUri, prompt: "select_account" }); }
       catch { throw new ContosoError("AUTH_FAILED", 401); }
     },
     async signOut() {

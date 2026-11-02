@@ -1,0 +1,63 @@
+{
+  "schema": "contoso.r8-candidate-build-intake.v1",
+  "recordedByRole": "R9",
+  "ownerRole": "R8",
+  "sourceAcceptanceIsCertification": false,
+  "state": "SOURCE_FROZEN_CANDIDATE_BUILD_READY",
+  "actualSourcePackageHashesVerified": [
+    {
+      "path": "services\\security-core\\target\\security-core-1.0.0.jar",
+      "sha256": "4a77dd7c8bd4fff5a767db869f20cb8e7439d5c4092cb138e71e27abddf38946"
+    },
+    {
+      "path": "services\\security-core\\target\\okhttp-effective-dependencies.txt",
+      "sha256": "858785b698abb574e87c2d68c64a42d0b3dc21760a0eab08dea81792fc59bc50"
+    },
+    {
+      "path": "services\\security-core\\pom.xml",
+      "sha256": "9adeb15d5a74e1c5fe15ef7da96545fcf02bc6189dbfc576d2e6708476ad025c"
+    },
+    {
+      "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\IdentityHttpClients.java",
+      "sha256": "cfdc9d91bd78180f2c462811f13638625a68eb4cd97318de2275cda34f3a7011"
+    }
+  ],
+  "ownerExecutedPhase": {
+    "kind": "isolated dependency-resolution/compile/unit/PACKAGE",
+    "passed": 32,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "released": true,
+    "installedM2": false,
+    "nativeExecuted": false
+  },
+  "effectiveDependencyTreeObserved": {
+    "azureOkHttp": "1.13.8",
+    "okHttp": "4.12.0",
+    "okioJvm": "3.18.1",
+    "kotlinStdlib": "2.3.21",
+    "azureHttpNetty": "1.16.8",
+    "reactorNettyHttp": "1.3.8",
+    "warning": "Actual Boot/effective overrides, not requested-version substitution; root lock/fullSBOM remains parent-owned"
+  },
+  "scope": "Read-only exact source/package/tree identity plus owner-reported actual compile/unit phase; NOT genuine fullsource→installed→USED-runtime lineage or native isolation",
+  "sourceExecutionBinding": "UNVERIFIED",
+  "genuineFullSourceBeforeAfterBuildReceipt": "REQUIRED from owner/parent",
+  "installedArtifactProof": "NOT RUN; do not use oldM2security-core",
+  "actualUsedCodeSourceProof": "NOT RUN until granted native observer",
+  "nextNativeRequirements": [
+    "fresh packagedJAR first, original source/compile linkage",
+    "actualcurrentBBMBean loader/PID/version/hash/policy",
+    "rawunfilteredOkHttpcontrol proves Microsoft instrumentation exclusion, not flag echo",
+    "actualJWK/MI503retry all forbidden context/business headers absent",
+    "trusted JDK business positive and parent advancement",
+    "actualUSED wrapper/delegate/SDKclient origins+member/JAR hashes+sendcounts",
+    "currentTLS/deadline/cancellation/auth-header controls scope",
+    "parent approved next bounded native phase"
+  ],
+  "apiReady": false,
+  "azureAcceptance": "NOT RUN",
+  "historicalJava990a": "FAIL retained until fresh approved native proof",
+  "historical103": "Selected-binary only, owned-source/build lineage UNVERIFIED"
+}

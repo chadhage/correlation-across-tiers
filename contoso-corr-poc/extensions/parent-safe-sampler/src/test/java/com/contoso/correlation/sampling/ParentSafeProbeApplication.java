@@ -37,6 +37,35 @@ public final class ParentSafeProbeApplication {
         var tracer = provider.get("contoso.parent-safe.local-probe", "1.0.0");
         var client = HttpClient.newHttpClient();
         var server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        server.createContext("/sampling-observation", exchange -> {
+            try {
+                var beans = java.lang.management.ManagementFactory.getPlatformMBeanServer();
+                var name = new javax.management.ObjectName(SamplingObservation.OBJECT_NAME);
+                String owned = (String) beans.getAttribute(name, "OwnedConfigurationJson");
+                String body = "{\"nativeStateAvailable\":" + beans.getAttribute(name, "NativeStateAvailable") +
+                    ",\"ownedConfiguration\":" + (owned == null ? "null" : owned) +
+                    ",\"effectiveSamplingPercentage\":" + beans.getAttribute(name, "EffectiveSamplingPercentage") +
+                    ",\"requestsPerSecond\":" + beans.getAttribute(name, "RequestsPerSecond") +
+                    ",\"loadedCount\":" + beans.getAttribute(name, "LoadedCount") +
+                    ",\"guardSha256\":" + quoted(beans.getAttribute(name, "GuardSha256")) +
+                    ",\"providerClass\":" + quoted(beans.getAttribute(name, "ProviderClass")) +
+                    ",\"sdkAbi\":" + quoted(beans.getAttribute(name, "SdkAbi")) +
+                    ",\"guardPolicy\":" + quoted(beans.getAttribute(name, "GuardPolicy")) +
+                    ",\"artifactVersion\":" + quoted(beans.getAttribute(name, "ArtifactVersion")) +
+                    ",\"delegateClass\":" + quoted(beans.getAttribute(name, "DelegateClass")) +
+                    ",\"delegateLoader\":" + quoted(beans.getAttribute(name, "DelegateLoader")) +
+                    ",\"extensionLoader\":" + quoted(beans.getAttribute(name, "ExtensionLoader")) +
+                    ",\"unsampledDropCount\":" + beans.getAttribute(name, "UnsampledDropCount") +
+                    ",\"delegateDecisionCount\":" + beans.getAttribute(name, "DelegateDecisionCount") +
+                    ",\"runtimeInstanceId\":\"" + ProcessHandle.current().pid() + "\"" +
+                    ",\"providerCount\":null,\"exporterCount\":null}";
+                byte[] bytes = body.getBytes(StandardCharsets.UTF_8);
+                exchange.getResponseHeaders().set("Content-Type", "application/json");
+                exchange.sendResponseHeaders(200, bytes.length);
+                exchange.getResponseBody().write(bytes);
+            } catch (Exception failure) { exchange.sendResponseHeaders(503, -1); }
+            finally { exchange.close(); }
+        });
         server.createContext("/probe", exchange -> {
             try {
             String caseId = exchange.getRequestHeaders().getFirst("x-contoso-probe-case");
@@ -102,4 +131,8 @@ public final class ParentSafeProbeApplication {
         System.out.println("PARENT_SAFE_PROBE_STOPPED");
     }
 
+    private static String quoted(Object value) {
+        return "\"" + value.toString().replace("\\", "\\\\").replace("\"", "\\\"")
+            .replace("\n", "\\n").replace("\r", "\\r") + "\"";
+    }
 }

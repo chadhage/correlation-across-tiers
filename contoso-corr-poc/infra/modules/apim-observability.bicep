@@ -153,4 +153,7 @@ output diagnosticResourceId string = diagnostic.id
 output diagnosticScope string = 'allApis'
 output managementApiVersion string = '2024-05-01'
 output configuredSamplingPercentage int = samplingPercentage
+output configuredDiagnosticVerbosity string = diagnosticVerbosity
+output fullSamplingRequiresExternalLeaseController bool = samplingPercentage == 100
+output connectionReferenceKind string = 'keyVaultVersionlessSecretUri'
 output canonicalBackendHeaderCaptureApplied bool = captureApplied

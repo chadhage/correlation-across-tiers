@@ -1,5 +1,6 @@
 package com.contoso.inventory.data;
 
+import com.azure.core.credential.TokenCredential;
 import com.contoso.correlation.Correlation;
 import com.contoso.correlation.CorrelationSpan;
 import com.contoso.correlation.data.DataAccessException;
@@ -7,6 +8,7 @@ import com.contoso.correlation.data.DataErrorKind;
 import com.contoso.correlation.data.DataValidation;
 import com.contoso.correlation.data.OperationContext;
 import com.contoso.correlation.data.PgOperations;
+import com.contoso.security.IdentityHttpClients;
 import io.lettuce.authx.TokenBasedRedisCredentialsProvider;
 import io.lettuce.core.ClientOptions;
 import io.lettuce.core.RedisClient;
@@ -28,8 +30,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Supplier;
 import redis.clients.authentication.entraid.EntraIDTokenAuthConfigBuilder;
-import redis.clients.authentication.entraid.ManagedIdentityInfo.UserManagedIdentityType;
 
 public final class LettuceInventoryCache implements OwnedInventoryCache {
     static final String PREFIX = "contoso:corr:poc:inventory:v1:";
@@ -46,16 +48,54 @@ public final class LettuceInventoryCache implements OwnedInventoryCache {
         DataInstrumentationGuard.verify();
         DataLoggingGuard.verify();
         RedisSettings settings = RedisSettings.fromEnvironment(System.getenv());
+        return open(settings, IdentityHttpClients.managedIdentity(settings.clientId()));
+    }
+
+    public static OwnedInventoryCache fromEnvironment(TokenCredential credential) {
+        DataInstrumentationGuard.verify();
+        DataLoggingGuard.verify();
+        return open(RedisSettings.fromEnvironment(System.getenv()), credential);
+    }
+
+    static TokenBasedRedisCredentialsProvider credentialsProvider(TokenCredential credential) {
+        EntraIDTokenAuthConfigBuilder builder = EntraIDTokenAuthConfigBuilder.builder();
+        return credentialsLifecycle(builder, () -> {
+            builder.customEntraIdAuthenticationSupplier(new RedisEntraIdAuthenticationSupplier(credential))
+                .scopes(Set.of(RedisEntraIdAuthenticationSupplier.SCOPE))
+                .expirationRefreshRatio(0.25f).lowerRefreshBoundMillis(1_000)
+                .maxAttemptsToRetry(3).delayInMsToRetry(1_000).tokenRequestExecTimeoutInMs(3_000);
+            return TokenBasedRedisCredentialsProvider.create(builder.build());
+        });
+    }
+
+    static <T extends AutoCloseable> T credentialsLifecycle(AutoCloseable builder, Supplier<T> construction) {
+        java.util.Objects.requireNonNull(builder);
+        java.util.Objects.requireNonNull(construction);
+        T provider = null;
+        try (builder) {
+            provider = java.util.Objects.requireNonNull(construction.get());
+            return provider;
+        } catch (Exception failure) {
+            if (provider != null) {
+                try {
+                    provider.close();
+                } catch (Exception cleanupFailure) {
+                    throw new DataAccessException(DataErrorKind.UNAVAILABLE, false);
+                }
+            }
+            if (failure instanceof DataAccessException safe) throw safe;
+            DataErrorKind kind = com.contoso.correlation.data.DataErrors.classify(failure);
+            throw new DataAccessException(kind == DataErrorKind.TIMEOUT || kind == DataErrorKind.CANCELLED
+                ? kind : DataErrorKind.AUTHENTICATION, false);
+        }
+    }
+
+    private static OwnedInventoryCache open(RedisSettings settings, TokenCredential credential) {
         TokenBasedRedisCredentialsProvider provider = null;
         DefaultClientResources resources = null;
         RedisClient client = null;
-        try (EntraIDTokenAuthConfigBuilder builder = EntraIDTokenAuthConfigBuilder.builder()) {
-            builder.scopes(Set.of("https://redis.azure.com/.default"))
-                .expirationRefreshRatio(0.25f).lowerRefreshBoundMillis(1_000)
-                .maxAttemptsToRetry(3).delayInMsToRetry(1_000).tokenRequestExecTimeoutInMs(3_000);
-            if (settings.clientId() == null) builder.systemAssignedManagedIdentity();
-            else builder.userAssignedManagedIdentity(UserManagedIdentityType.CLIENT_ID, settings.clientId());
-            provider = TokenBasedRedisCredentialsProvider.create(builder.build());
+        try {
+            provider = credentialsProvider(credential);
             var initial = provider.resolveCredentials().block(Duration.ofSeconds(3));
             if (initial == null || !settings.principalObjectId().equals(initial.getUsername())) {
                 throw new DataAccessException(DataErrorKind.AUTHENTICATION, false);

@@ -1,0 +1,24 @@
+{
+  "schema": "contoso.verification-observer-registry.v1",
+  "sourceAcceptanceIsCertification": false,
+  "observers": [],
+  "localNativeExecutionFactories": [
+    {
+      "id": "r9-local-api-conditional-v1",
+      "module": "tools\\verification\\conditional-observer.mjs",
+      "factory": "executeLocalConditionalObserver",
+      "contract": "contracts\\conditional-native-observer.v1.json",
+      "sourceKind": "real-local-agent-loopback",
+      "allowedMode": "LocalValidate",
+      "allowedBoundaries": ["orders.request"],
+      "requiresDirectChildExecution": true,
+      "requiresActualWireSdkAndNativeCorrespondence": true,
+      "savedJsonCanEnroll": false,
+      "queryReceiptCanEnroll": false,
+      "azureAuthority": false,
+      "nativeCaptureStatus": "NOT_EXECUTED_REQUIRES_STABLE_REVIEWED_R7_INTAKE_PARENT_JAVA_PORT_AND_EXPLICIT_NATIVE_WINDOW"
+    }
+  ],
+  "enrollmentStatus": "NOT RUN",
+  "nextAction": "Azure query observers remain empty. The local factory is implemented in R9 code, but only its direct actual child/wire/SDK/native execution can mint a local private root capability. Validate the parent-owned test-only Java port/source/class handoff, bind R7's next stable reviewed receiver and obtain an explicit native window; JSON declarations, CPU probes and query receipts never enroll native cases."
+}

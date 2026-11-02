@@ -13,10 +13,25 @@
     "requestsPerSecond": { "type": ["number", "null"], "exclusiveMinimum": 0 },
     "guardPresent": { "type": "boolean" },
     "guardSha256": { "type": ["string", "null"], "pattern": "^(?!0{64}$)[a-f0-9]{64}$" },
+    "guardPolicy": { "type": ["string", "null"], "enum": ["DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS", null] },
+    "guardArtifactVersion": { "type": ["string", "null"], "enum": ["1.1.0", null] },
     "privacyChanged": { "const": false }, "secretsIncluded": { "const": false },
     "providerConstruction": { "const": false }, "extraExporter": { "const": false },
     "runtimeEvidenceRef": { "type": ["string", "null"] },
-    "observedAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" }
+    "observedAtUtc": { "type": "string", "format": "date-time", "pattern": "Z$" },
+    "runId": { "type": "string", "format": "uuid" },
+    "activeLeaseId": { "type": ["string", "null"], "format": "uuid" },
+    "runtimeInstanceId": { "type": "string", "minLength": 1 },
+    "ownedConfiguration": { "type": "object" },
+    "providerCount": { "type": ["integer", "null"], "minimum": 0 },
+    "exporterCount": { "type": ["integer", "null"], "minimum": 0 }
   },
+  "allOf": [{
+    "if": { "properties": { "sourceKind": { "const": "trusted-runtime-observation" } }, "required": ["sourceKind"] },
+    "then": { "required": ["runId", "activeLeaseId", "observedAtUtc", "runtimeInstanceId", "ownedConfiguration", "providerCount", "exporterCount"] }
+  }, {
+    "if": { "properties": { "guardPresent": { "const": true } }, "required": ["guardPresent"] },
+    "then": { "required": ["guardPolicy", "guardArtifactVersion"] }
+  }],
   "description": "A local config acknowledgement cannot establish native runtime state. Trusted runtime provenance and exact owned hash/guard/window are independently verified by the R9 source/freeze pipeline; schema validity is not authorization or certification."
 }

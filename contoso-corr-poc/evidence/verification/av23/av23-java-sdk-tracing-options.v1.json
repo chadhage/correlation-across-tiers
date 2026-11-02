@@ -1,0 +1,59 @@
+{
+  "schema": "contoso.av23-java-wire.v1",
+  "sourceKind": "real-local-agent-loopback",
+  "assessmentScope": "native-JDK-JWKS-and-AppService-MI-loopback-not-cloud-domain-exclusion",
+  "providerActive": true,
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "sdkTracingOptionsDisabled": true,
+  "extensionSha256": "c3f552d170f599a625ef25a2974e32ccc9215fa849038d49aad654d8c53a9ee7",
+  "qualified": true,
+  "capturedAtUtc": "2026-11-01T07:36:34.648Z",
+  "harnessSha256": "d6dded5d11bf8f77556bfdda999b3c5f03790f239a92a8263757d723d85b19c0",
+  "probeSourceSha256": "3879287aed6c30ac5c4b4b7e4089b567893e1ebf1d293b0559151277edbfc5b0",
+  "exitCode": 0,
+  "failureCategories": [],
+  "missingClasses": [],
+  "authHeadersAbsent": false,
+  "trustedPropagationObserved": true,
+  "requestCounts": {
+    "jwks": 1,
+    "identity": 1,
+    "trusted": 1
+  },
+  "wireHeaderPresence": {
+    "jwks": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false
+      }
+    ],
+    "identity": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": false
+      }
+    ],
+    "trusted": [
+      {
+        "traceparent": true,
+        "tracestate": false,
+        "baggage": false,
+        "request-id": false,
+        "correlation-context": false,
+        "x-business-invocation-id": true
+      }
+    ]
+  },
+  "result": "FAIL",
+  "certification": "NOT_CERTIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "rawOutputRetained": false
+}

@@ -1,0 +1,393 @@
+{
+  "schema": "contoso.parent-safe-local-probe.v1",
+  "result": "PASS",
+  "agentVersion": "3.7.10",
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "extensionSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "sdkAbi": "1.65.0",
+  "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+  "jarEntries": [
+    "META-INF/",
+    "META-INF/MANIFEST.MF",
+    "META-INF/services/",
+    "com/",
+    "com/contoso/",
+    "com/contoso/correlation/",
+    "com/contoso/correlation/sampling/",
+    "META-INF/maven/",
+    "META-INF/maven/com.contoso/",
+    "META-INF/maven/com.contoso/contoso-parent-safe-sampler/",
+    "META-INF/services/io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider",
+    "com/contoso/correlation/sampling/ParentSafeSampler.class",
+    "com/contoso/correlation/sampling/ParentSafeSamplerCustomizer.class",
+    "com/contoso/correlation/sampling/SamplingObservation$Snapshot.class",
+    "com/contoso/correlation/sampling/SamplingObservation.class",
+    "com/contoso/correlation/sampling/SamplingObservationMBean.class",
+    "META-INF/maven/com.contoso/contoso-parent-safe-sampler/pom.xml",
+    "META-INF/maven/com.contoso/contoso-parent-safe-sampler/pom.properties"
+  ],
+  "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "artifactVersion": "1.1.0",
+  "phases": [
+    {
+      "name": "eligible-on",
+      "percentage": 100,
+      "requestsPerSecond": null,
+      "pid": 54468,
+      "spiLoads": [
+        "abi=1.65.0 delegate=com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler extensionLoader=io.opentelemetry.javaagent.tooling.ExtensionClassLoader delegateLoader=io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+      ],
+      "observations": [
+        {
+          "caseId": "eligible-on-sampled",
+          "traceId": "ff0d51e0cb8ed67cb052b9376d08b623",
+          "parentId": "e34e7aa265407ad8",
+          "serverSpanId": "affff73428291d59",
+          "clientSpanId": "1a9f7a05044ae29f",
+          "serverSampled": true,
+          "clientSampled": true,
+          "serverRecording": true,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 1994717002,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-ff0d51e0cb8ed67cb052b9376d08b623-e34e7aa265407ad8-01",
+          "wire": {
+            "traceparent": "00-ff0d51e0cb8ed67cb052b9376d08b623-1a9f7a05044ae29f-01",
+            "tracestate": "contoso=local"
+          }
+        },
+        {
+          "caseId": "eligible-on-unsampled",
+          "traceId": "3d0f8b3e267a8a601222637dff2611d3",
+          "parentId": "8823500193931e5c",
+          "serverSpanId": "c6149d5c265746d2",
+          "clientSpanId": "41085a6b0c52679f",
+          "serverSampled": false,
+          "clientSampled": false,
+          "serverRecording": false,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 1994717002,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-3d0f8b3e267a8a601222637dff2611d3-8823500193931e5c-00",
+          "wire": {
+            "traceparent": "00-3d0f8b3e267a8a601222637dff2611d3-41085a6b0c52679f-00",
+            "tracestate": "contoso=local"
+          }
+        }
+      ],
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "nativeObservation": {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": 100,
+          "sampling.requestsPerSecond": {
+            "$contosoAbsent": true
+          }
+        },
+        "effectiveSamplingPercentage": 100,
+        "requestsPerSecond": null,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "54468",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      "observationSamples": [
+        {
+          "nativeStateAvailable": true,
+          "ownedConfiguration": {
+            "sampling.overrides": [],
+            "sampling.percentage": 100,
+            "sampling.requestsPerSecond": {
+              "$contosoAbsent": true
+            }
+          },
+          "effectiveSamplingPercentage": 100,
+          "requestsPerSecond": null,
+          "loadedCount": 1,
+          "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+          "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+          "sdkAbi": "1.65.0",
+          "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+          "artifactVersion": "1.1.0",
+          "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+          "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+          "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+          "unsampledDropCount": 0,
+          "delegateDecisionCount": 0,
+          "runtimeInstanceId": "54468",
+          "providerCount": null,
+          "exporterCount": null
+        }
+      ],
+      "nativeObservationHash": "a5a42133b82c79d7be37503e5636d5ce2b721cc85b3c5963e292299b96247a69",
+      "nativeSpanCount": 2,
+      "nativeSpanIds": [
+        "1a9f7a05044ae29f",
+        "affff73428291d59"
+      ],
+      "runtimeClasspath": [
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\test-classes",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar"
+      ],
+      "loaderArgument": "-Dotel.javaagent.extensions=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+      "sourceKind": "real-local-agent-loopback",
+      "certificationEligible": false
+    },
+    {
+      "name": "delegate-off",
+      "percentage": 0,
+      "requestsPerSecond": null,
+      "pid": 17156,
+      "spiLoads": [
+        "abi=1.65.0 delegate=com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler extensionLoader=io.opentelemetry.javaagent.tooling.ExtensionClassLoader delegateLoader=io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+      ],
+      "observations": [
+        {
+          "caseId": "delegate-off-sampled",
+          "traceId": "dff1472469f5c6d682007c8b706d0086",
+          "parentId": "7121718146581ea1",
+          "serverSpanId": "e4de7bf14c337dfe",
+          "clientSpanId": "d7c417d8f700a078",
+          "serverSampled": false,
+          "clientSampled": false,
+          "serverRecording": false,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 98123628,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-dff1472469f5c6d682007c8b706d0086-7121718146581ea1-01",
+          "wire": {
+            "traceparent": "00-dff1472469f5c6d682007c8b706d0086-d7c417d8f700a078-00",
+            "tracestate": "contoso=local"
+          }
+        },
+        {
+          "caseId": "delegate-off-unsampled",
+          "traceId": "889c6dfdaec57949c5770131ea7ca5f7",
+          "parentId": "42bdb64541e2a12c",
+          "serverSpanId": "a12c2b4e86f96db9",
+          "clientSpanId": "110f1d8e4a8790c5",
+          "serverSampled": false,
+          "clientSampled": false,
+          "serverRecording": false,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 98123628,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-889c6dfdaec57949c5770131ea7ca5f7-42bdb64541e2a12c-00",
+          "wire": {
+            "traceparent": "00-889c6dfdaec57949c5770131ea7ca5f7-110f1d8e4a8790c5-00",
+            "tracestate": "contoso=local"
+          }
+        }
+      ],
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "nativeObservation": {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": 0,
+          "sampling.requestsPerSecond": {
+            "$contosoAbsent": true
+          }
+        },
+        "effectiveSamplingPercentage": 0,
+        "requestsPerSecond": null,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "17156",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      "observationSamples": [
+        {
+          "nativeStateAvailable": true,
+          "ownedConfiguration": {
+            "sampling.overrides": [],
+            "sampling.percentage": 0,
+            "sampling.requestsPerSecond": {
+              "$contosoAbsent": true
+            }
+          },
+          "effectiveSamplingPercentage": 0,
+          "requestsPerSecond": null,
+          "loadedCount": 1,
+          "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+          "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+          "sdkAbi": "1.65.0",
+          "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+          "artifactVersion": "1.1.0",
+          "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+          "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+          "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+          "unsampledDropCount": 0,
+          "delegateDecisionCount": 0,
+          "runtimeInstanceId": "17156",
+          "providerCount": null,
+          "exporterCount": null
+        }
+      ],
+      "nativeObservationHash": "c36d8b3f6596ff801209146e5d5deeea9b932bd36eedf71d00cb28a88fc205a4",
+      "nativeSpanCount": 0,
+      "nativeSpanIds": [],
+      "runtimeClasspath": [
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\test-classes",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar"
+      ],
+      "loaderArgument": "-Dotel.javaagent.extensions=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+      "sourceKind": "real-local-agent-loopback",
+      "certificationEligible": false
+    },
+    {
+      "name": "restored-on",
+      "percentage": 100,
+      "requestsPerSecond": null,
+      "pid": 63792,
+      "spiLoads": [
+        "abi=1.65.0 delegate=com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler extensionLoader=io.opentelemetry.javaagent.tooling.ExtensionClassLoader delegateLoader=io.opentelemetry.javaagent.bootstrap.AgentClassLoader"
+      ],
+      "observations": [
+        {
+          "caseId": "restored-on-sampled",
+          "traceId": "e93c93c34269c79fb5363bb46049a081",
+          "parentId": "9bcdbcc4fe91e09d",
+          "serverSpanId": "11208208a6316f92",
+          "clientSpanId": "e3f09da015dfcc4b",
+          "serverSampled": true,
+          "clientSampled": true,
+          "serverRecording": true,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 2006814267,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-e93c93c34269c79fb5363bb46049a081-9bcdbcc4fe91e09d-01",
+          "wire": {
+            "traceparent": "00-e93c93c34269c79fb5363bb46049a081-e3f09da015dfcc4b-01",
+            "tracestate": "contoso=local"
+          }
+        },
+        {
+          "caseId": "restored-on-unsampled",
+          "traceId": "ae5dc23e7fa63223dd78de49ad1536ce",
+          "parentId": "b1fdfd567ff4e185",
+          "serverSpanId": "d224c1a6625127a2",
+          "clientSpanId": "f49098693fb64d5c",
+          "serverSampled": false,
+          "clientSampled": false,
+          "serverRecording": false,
+          "clientRecording": null,
+          "clientObservation": "actual-downstream-carrier",
+          "providerIdentity": 2006814267,
+          "providerType": "io.opentelemetry.javaagent.instrumentation.opentelemetryapi.v1_4.trace.ApplicationTracerProvider14",
+          "inputTraceparent": "00-ae5dc23e7fa63223dd78de49ad1536ce-b1fdfd567ff4e185-00",
+          "wire": {
+            "traceparent": "00-ae5dc23e7fa63223dd78de49ad1536ce-f49098693fb64d5c-00",
+            "tracestate": "contoso=local"
+          }
+        }
+      ],
+      "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+      "artifactVersion": "1.1.0",
+      "nativeObservation": {
+        "nativeStateAvailable": true,
+        "ownedConfiguration": {
+          "sampling.overrides": [],
+          "sampling.percentage": 100,
+          "sampling.requestsPerSecond": {
+            "$contosoAbsent": true
+          }
+        },
+        "effectiveSamplingPercentage": 100,
+        "requestsPerSecond": null,
+        "loadedCount": 1,
+        "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+        "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+        "sdkAbi": "1.65.0",
+        "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+        "artifactVersion": "1.1.0",
+        "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+        "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+        "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+        "unsampledDropCount": 0,
+        "delegateDecisionCount": 0,
+        "runtimeInstanceId": "63792",
+        "providerCount": null,
+        "exporterCount": null
+      },
+      "observationSamples": [
+        {
+          "nativeStateAvailable": true,
+          "ownedConfiguration": {
+            "sampling.overrides": [],
+            "sampling.percentage": 100,
+            "sampling.requestsPerSecond": {
+              "$contosoAbsent": true
+            }
+          },
+          "effectiveSamplingPercentage": 100,
+          "requestsPerSecond": null,
+          "loadedCount": 1,
+          "guardSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+          "providerClass": "com.contoso.correlation.sampling.ParentSafeSamplerCustomizer",
+          "sdkAbi": "1.65.0",
+          "guardPolicy": "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+          "artifactVersion": "1.1.0",
+          "delegateClass": "com.microsoft.applicationinsights.agent.internal.sampling.DelegatingSampler",
+          "delegateLoader": "io.opentelemetry.javaagent.bootstrap.AgentClassLoader",
+          "extensionLoader": "io.opentelemetry.javaagent.tooling.ExtensionClassLoader",
+          "unsampledDropCount": 0,
+          "delegateDecisionCount": 0,
+          "runtimeInstanceId": "63792",
+          "providerCount": null,
+          "exporterCount": null
+        }
+      ],
+      "nativeObservationHash": "a5a42133b82c79d7be37503e5636d5ce2b721cc85b3c5963e292299b96247a69",
+      "nativeSpanCount": 2,
+      "nativeSpanIds": [
+        "e3f09da015dfcc4b",
+        "11208208a6316f92"
+      ],
+      "runtimeClasspath": [
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\test-classes",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-api\\1.65.0\\opentelemetry-api-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-context\\1.65.0\\opentelemetry-context-1.65.0.jar",
+        "C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\m2\\io\\opentelemetry\\opentelemetry-common\\1.65.0\\opentelemetry-common-1.65.0.jar"
+      ],
+      "loaderArgument": "-Dotel.javaagent.extensions=C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar",
+      "sourceKind": "real-local-agent-loopback",
+      "certificationEligible": false
+    }
+  ],
+  "certificationEligible": false,
+  "azureLiveClauses": "To Do",
+  "vendorSupportGuarantee": false
+}
