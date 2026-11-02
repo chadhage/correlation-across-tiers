@@ -15,7 +15,7 @@ const statuses = new Set(['To Do', 'In Progress', 'Done']);
 const reviewRoles = new Set(Array.from({ length: 9 }, (_, index) => `R${index + 1}`));
 const documentationCards = new Set(['ADR-01', 'ADR-02', 'ARC-01', 'GOV-01', 'CRT-01', 'CRT-03', 'DOC-01', 'DOC-02', 'DOC-03', 'DOC-04']);
 const hash = (text) => createHash('sha256').update(text).digest('hex');
-export const backlogSemanticHash = (text) => hash(text.replace(/^(- \[)[ x](\])/gm, '$1 $2'));
+export const backlogSemanticHash = (text) => hash(text.replace(/^([ \t]*- \[)[ x](\])/gm, '$1 $2'));
 const requiredReviewKind = (card) => documentationCards.has(card.id) ? 'documentation' : 'code';
 const approvedActingRoles = { R1: 'R3', R6: 'R5' };
 // No live executor is enrolled during preparation; persisted JSON cannot enroll one.
@@ -127,13 +127,14 @@ export function parseBacklog(text) {
     const start = sections[sectionIndex].index;
     const end = sections[sectionIndex + 1]?.index ?? text.length;
     const body = text.slice(start, end);
+    const childTasks = body.match(/^#### Child tasks\r?\n[\s\S]*$/m)?.[0].trim() ?? '';
     const clauses = [...body.matchAll(/^- \[([ x])\] (.+)$/gm)].map((match) => ({
       text: match[2],
       start: start + match.index,
       checked: match[1] === 'x'
     }));
     if (!clauses.length) throw new Error(`No acceptance clauses: ${id}`);
-    return { rank: Number(rank), id, title, kano, owner, days: Number(days), cd3, needs: expandNeeds(needs), clauses };
+    return { rank: Number(rank), id, title, kano, owner, days: Number(days), cd3, needs: expandNeeds(needs), clauses, childTasks };
   });
   if (cards.length !== 78 || sections.length !== 78) throw new Error('Expected exactly 78 ranked cards and acceptance sections');
   const byId = new Map(cards.map((card) => [card.id, card]));
@@ -337,6 +338,7 @@ function renderCard(card, state) {
       if (!checked) lines.push('    Whole clause remains unmet; partial local facets are not live acceptance.');
     }
   }
+  if (card.childTasks) lines.push('', ...card.childTasks.split(/\r?\n/).map(line => line ? `  ${line}` : ''));
   return lines.join('\n');
 }
 
@@ -358,7 +360,8 @@ export function renderKanban(cards, state, existing) {
     '4. If work cannot progress, return it to To Do with waitingOn and the next action. There is no Blocked state.',
     '5. A council votes on next actions; the evidence hierarchy, never majority vote, adjudicates technical claims.',
     '6. Done requires all own acceptance clauses, completion dependencies, current evidence and two accepted other-role reviews. Fixtures never close live requirements.',
-    '7. Bootstrap traffic is NOT CERTIFIED. Final certification requires every applicable facet of all thirteen gates on the frozen deployed environment.', '',
+    '7. Bootstrap traffic is NOT CERTIFIED. Final certification requires every applicable facet of all thirteen gates on the frozen deployed environment.',
+    '8. Unranked child checklists decompose parent acceptance; they do not add cards or waive WIP, parent evidence or separately approved native-run requirements.', '',
   ];
   if (state.implementationAssignments) lines.push(
     '**Approved implementation routing:** logical R1 → existing R3; logical R6 → existing R5. Original R1/R6 writers are stopped; original R4 is failed and parent/coordinator performs R4 recovery. The original nine-agent roster and logical backlog owners remain historical/unchanged. No new agent or review vote supplies acceptance.', '');

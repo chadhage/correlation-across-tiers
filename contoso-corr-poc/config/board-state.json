@@ -1,6 +1,6 @@
 {
   "schema": "contoso.board-acceptance.v1",
-  "revision": 48,
+  "revision": 49,
   "defaultStatus": "To Do",
   "phaseAwareConstructionApproved": true,
   "explicitActiveFacetsRequired": true,
@@ -109,8 +109,8 @@
     }
   },
   "sourceHashes": {
-    "backlog": "ff932fbeabe51648719d5f619fa54c52ee87aceb64252537ba83195626b8beea",
-    "kanban": "c2ac9bebeb6151baa8bd2178b40ce34f3e3cfb924493902a1b880dda382c0688"
+    "backlog": "9300162217a9dba103e7325f6fea61e624ccb295fa67426e7b9ff58e11f58654",
+    "kanban": "a177e7a969ad846616c928d90bb7ffb014ae7c30145c50d4816bb1aa9bf81cc4"
   },
   "currentReadiness": {
     "R1": "Original R1 implementation STOP/read-review-only. Existing R3 is acting Root R1; preserve original drafts and route Root writes/reviews through the approved assignment.",
@@ -657,7 +657,7 @@
       "scope": "construction",
       "phase": "corrected-source-ready-parent-build-owned",
       "constructionReady": true,
-      "nextAction": "Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance.",
+      "nextAction": "Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance. Planned child DAT-01.1 supplies run-owned cold-cache preparation/reset after reviewed data interfaces and separately approved real-store prerequisites; this planning update does not unfreeze or execute native work.",
       "waitingOn": [
         "Parent current full-root source/execution/artifact and actual installed-consumer/USED handoff",
         "Native actual default Data/identity/private TLS/role/grant/global/owner evidence"
@@ -666,6 +666,53 @@
         "INF-05/JVM-01 completion",
         "Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans",
         "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "OBS-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "child-task-planned",
+      "nextAction": "Implement OBS-02.1 through the existing raw-query/intake path. Qualify one complete Demo 01 invocation after DEM-01.1 and DAT-01.1, using actual authorized browser/Gateway/backend/data observations rather than expected-map IDs or caller JSON authority.",
+      "waitingOn": [
+        "Reviewed DEM-01.1 routing and DAT-01.1 deterministic real-store preparation",
+        "Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-00": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "child-tasks-planned",
+      "nextAction": "Ship DEM-00.1 as the concrete supplied Demo 01 adapter using OBS-02.1, DAT-01.1 and DEM-01.1 outputs; then prove DEM-00.2 two-cycle and interrupted-run recovery. Do not require the presenter to implement an adapter. Both children remain To Do; native execution needs its own approved bounded window.",
+      "waitingOn": [
+        "Reviewed OBS-02.1, DAT-01.1, DEM-01.1 and OBS-01 interfaces",
+        "Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "child-task-planned",
+      "nextAction": "Implement DEM-01.1: route the advertised Demo 01 action through order submission and add the browser-to-Orders/Inventory/data CLIENT regression. Preserve other demo routes and label local data substitutes honestly; OBS-02.1 separately proves the deployed full path.",
+      "waitingOn": [
+        "Reviewed browser/Gateway/JVM-04 route contracts and two-JVM data fixture interfaces"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DOC-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "child-task-planned",
+      "nextAction": "Complete DOC-02.1 after DEM-00.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Planning alone grants no native traffic or certification.",
+      "waitingOn": [
+        "DEM-00.2 verified consecutive native runs and interrupted-run recovery",
+        "Reviewed shipped entrypoints and DOC-03 recovery contract"
       ],
       "criteria": [],
       "reviews": []

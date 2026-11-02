@@ -22,6 +22,40 @@ test('imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix', () => {
   assert.equal(cards.reduce((sum, card) => sum + card.days, 0), 70);
 });
 
+test('preserves six explicit child tasks without adding cards or acceptance clauses', () => {
+  const expected = [
+    { parent: 'DAT-01', clauses: 4, executor: 'R5 acting R6', tasks: ['DAT-01.1'] },
+    { parent: 'OBS-02', clauses: 4, executor: 'R7', tasks: ['OBS-02.1'] },
+    { parent: 'DEM-00', clauses: 5, executor: 'R9', tasks: ['DEM-00.1', 'DEM-00.2'] },
+    { parent: 'DEM-01', clauses: 4, executor: 'R3 acting R1', tasks: ['DEM-01.1'] },
+    { parent: 'DOC-02', clauses: 3, executor: 'R3 acting R1', tasks: ['DOC-02.1'] }
+  ];
+  const output = renderKanban(cards, empty(), board);
+  for (const item of expected) {
+    const card = cards.find(candidate => candidate.id === item.parent);
+    assert.equal(card.clauses.length, item.clauses);
+    for (const id of item.tasks) assert.ok(card.childTasks.includes(`  - [ ] **${id} - `), id);
+    for (const field of ['Executor', 'Prerequisites', 'Deliverable', 'Acceptance']) {
+      assert.equal([...card.childTasks.matchAll(new RegExp(`^    - ${field}:`, 'gm'))].length, item.tasks.length);
+    }
+    assert.equal(card.childTasks.split(`    - Executor: ${item.executor}.`).length - 1, item.tasks.length);
+    assert.ok(output.includes(card.childTasks.split(/\r?\n/).map(line => line ? `  ${line}` : '').join('\n')));
+  }
+  assert.equal([...backlog.matchAll(/^  - \[ \] \*\*[A-Z]+-\d+\.\d+ - /gm)].length, 6);
+});
+
+test('child checklist ticks neither change acceptance scope nor grant parent completion', () => {
+  const updated = backlog.replace('  - [ ] **DEM-00.1 - ', '  - [x] **DEM-00.1 - ');
+  assert.notEqual(updated, backlog);
+  assert.equal(backlogSemanticHash(updated), backlogSemanticHash(backlog));
+  const parsed = parseBacklog(updated);
+  assert.deepEqual(parsed.map(card => card.clauses.map(clause => clause.text)), cards.map(card => card.clauses.map(clause => clause.text)));
+  assert.ok(updateAcceptance(updated, parsed, empty()).includes('  - [x] **DEM-00.1 - '));
+  const output = renderKanban(parsed, empty(), board);
+  assert.match(output, /- \[ \] \*\*#46 DEM-00 /);
+  assert.match(output, /    - \[x\] \*\*DEM-00\.1 /);
+});
+
 test('expands range dependencies without dropping final certification edges', () => {
   assert.deepEqual(expandNeeds('INF-04 to INF-06'), ['INF-04', 'INF-05', 'INF-06']);
   const certificate = cards.find((card) => card.id === 'CRT-02');

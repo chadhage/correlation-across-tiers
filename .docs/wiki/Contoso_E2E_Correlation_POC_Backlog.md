@@ -76,6 +76,8 @@ One owner role, one artifact or change, one verifiable outcome, 2 days or less, 
 
 Roles: R1 Lead Architect; R2 Front-end Engineer; R3 API Platform Engineer; R4 Java/OTel Engineer; R5 Async/Integration Engineer; R6 Data-Tier Engineer; R7 Observability/KQL Engineer; R8 Security & Privacy Red Team; R9 Verifier / Adjudicator.
 
+Unranked child checklists below decompose existing parent acceptance, not additional cards or estimates. Each child has one existing implementation executor, explicit prerequisites, one bounded deliverable and independently verifiable acceptance. All six start To Do and retain the existing WIP/review rules; child checkmarks never substitute for parent evidence, waive completion dependencies or authorize deployment, spending or native traffic. Construction may use reviewed interfaces before predecessor Done; native qualification still requires the separately approved runtime and bounded execution window.
+
 ## Force-ranked backlog
 
 | Rank | ID | Item | Kano | Owner | V | T | R | CoD | Days | CD3 | Needs | Note |
@@ -569,6 +571,14 @@ Produces safe JDBC client spans from Inventory API to `contoso_orders`.
 - [ ] The span wraps the logical operation, not just pool acquisition, and driver retries are visible as a count.
 - [ ] A runbook note states these are client spans, not PostgreSQL server spans, and gives the time-correlation method for server logs.
 
+#### Child tasks
+
+  - [ ] **DAT-01.1 - Prepare deterministic run-owned PostgreSQL and Redis state**
+    - Executor: R5 acting R6.
+    - Prerequisites: Reviewed Inventory data/cache interfaces and migration/grant contracts; native qualification additionally needs approved INF-05 deployment, private connectivity, Entra permissions and an owned synthetic dataset.
+    - Deliverable: One Demo 01 preparation/reset implementation that captures the run-owned baseline, seeds the approved synthetic fixture and evicts only its owned cache entry before the measured invocation.
+    - Acceptance: A source-bound test proves a cold lookup executes Redis GET, PostgreSQL SELECT and cache population, rather than skipping PostgreSQL on a hit. An approved real-store probe confirms those operations and baseline restoration; H2/RESP results remain construction-only. Before/after hashes prove unrelated rows and cache state unchanged. Reset restores the captured baseline without global cache flushes or broad deletes; evidence retains ownership/hashes, not cache keys, values or credentials.
+
 ### 35. DAT-02 · Azure Managed Redis client spans
 
 **Satisfier** · Owner: R6 Data-Tier Engineer · Build phase F · CD3 39.0 (CoD 39 ÷ 1 d) · Needs: INF-05, JVM-01  
@@ -693,6 +703,14 @@ Delivers `kql/trace-reconstruct.kql` and `kql/business-lookup.kql`, with separat
 - [ ] Business lookup returns every intended trace for a known ID and nothing extra, checked against the demo's expected trace list.
 - [ ] Saved outputs carry the timestamp and workspace configuration.
 
+#### Child tasks
+
+  - [ ] **OBS-02.1 - Implement and qualify the native Demo 01 observer/collector**
+    - Executor: R7.
+    - Prerequisites: DEM-01.1 and DAT-01.1 for native qualification; approved deployed INF-01/INF-04/runtime outputs, independently authorized tool/query source, reviewed OBS-01 sampling and GATE-04 original-intake interfaces, and a separately approved bounded native window. The existing browser driver can qualify collection without waiting for DEM-00.1.
+    - Deliverable: One collector implementation using the existing raw-query/intake path, with a source-bound Demo 01 native qualification receipt; no additional telemetry provider.
+    - Acceptance: Bind the actual browser carrier, gateway SERVER and backend CLIENT, Orders SERVER and outbound HTTP CLIENT, Inventory SERVER and PostgreSQL/Redis CLIENT spans to the same observed invocation and UTC window. Preserve original IDs/parents, source locators, executed queries, runtime/source identity, independent emission accounting and before/after full-path canaries. Original-column privacy scanning precedes safe persistence. An omitted or mismatched required hop fails. Fixtures, expected-map IDs, saved JSON or caller authentication flags cannot enroll an observer or establish native authority; qualification must traverse the approved source-bound intake.
+
 ### 46. DEM-00 · Demo harness: one-command run, evidence capture, reset
 
 **Delighter** · Owner: R9 Verifier / Adjudicator · Build phase I · CD3 24.0 (CoD 36 ÷ 1.5 d) · Needs: GATE-13, INF-01, OBS-01, OBS-02  
@@ -705,6 +723,20 @@ The shared machinery that makes every demo one command with an automatic evidenc
 - [ ] It runs the demo's assertion and prints PASS or FAIL with the §19 and §24 IDs.
 - [ ] `./demos/XX/reset.sh` returns flags, seed data, queues and sampling to baseline and verifies it.
 - [ ] A demo folder template carries Purpose, Pre-state, Run, Live show, Evidence capture, Assertion and Reset.
+
+#### Child tasks
+
+  - [ ] **DEM-00.1 - Ship the concrete native Demo 01 traffic adapter**
+    - Executor: R9.
+    - Prerequisites: Reviewed OBS-02.1, DAT-01.1 and DEM-01.1 outputs; reviewed OBS-01 sampling/control interfaces; actual approved target/authentication inputs and a separately approved bounded native window for execution.
+    - Deliverable: A supplied `tools\verification\adapters\demo01-runtime.mjs` exporting `createAdapter()` with the existing `contoso.demo-adapter.v1` contract, composing the shipped browser, collector, sampling and run-owned preparation/reset implementations.
+    - Acceptance: The shipped `demos\01\Run.ps1` loads the reviewed adapter by its actual SHA-256 and completes prepare, execute, drain, collect, scanPrivacy, observeSampling, stopTraffic and reset against the approved native target; `restoreCapturedRun` also restores a saved run-owned baseline. Every required method has a concrete implementation: no stubs, fixture PASS or request that the presenter write a module/callback. Only approved configuration, authentication and reviewed source identity are supplied externally. The native pack passes the existing scoped assertions while BootstrapValidate remains NOT CERTIFIED.
+
+  - [ ] **DEM-00.2 - Prove consecutive runs and interrupted-run recovery**
+    - Executor: R9.
+    - Prerequisites: DEM-00.1 and the existing GATE-08/GATE-13 assertion/evidence interfaces; an approved traffic budget and sampling/cleanup window covering the complete regression.
+    - Deliverable: One automated two-cycle-and-interruption regression using the supplied adapter and independently checked run-owned baseline receipts.
+    - Acceptance: Execute two consecutive run -> capture -> assert -> reset cycles with distinct run/business IDs; both pass with all required native boundaries and no stale evidence reuse. After each cycle, compare the actual data/cache, flags, owned messages and sampling with the captured baseline and prove unowned state unchanged. Interrupt a separate invocation after traffic starts: it must report failure, stop/drain traffic and restore baseline within the runner's declared finite cleanup deadlines. Missing spans, a timeout, failed cleanup or baseline mismatch fails the regression; local fixtures cannot satisfy its native acceptance.
 
 ### 47. DEM-03 · Contoso Demo 03: Inbound context at the Gateway
 
@@ -776,6 +808,14 @@ Shows Brief §17 synchronous flow and §19 Invariants A, B and C live, then the 
 - [ ] GATE-08 passes: one trace-id/OperationId on all rows, unique non-zero span-ids, each child ParentId equals its parent's Id; logs carry the same IDs.
 - [ ] The live show finds the expected nodes in Application Map and the expected graph in Transaction Diagnostics.
 - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-01.1 - Correct the advertised Demo 01 UI route and prove downstream execution**
+    - Executor: R3 acting R1.
+    - Prerequisites: Reviewed WEB-01/WEB-02 browser, Gateway order-route and JVM-04 API contracts, plus the existing two-JVM data fixtures for the construction regression; this does not depend on parent DEM-00 being Done.
+    - Deliverable: One Demo 01 action-routing correction with a browser-to-Orders/Inventory integration regression.
+    - Acceptance: Click the actual Demo 01 Run demo control and observe the order-submission route, the real Orders -> Inventory HTTP call, Inventory SERVER span and its Redis/JDBC logical CLIENT children in the same trace. The regression fails if the action only stages `/demo-runs`, bypasses Inventory, omits either data boundary or reuses unrelated telemetry. Preserve other demo routes. H2/RESP may prove the local routing construction but must be labelled as substitutes; OBS-02.1 separately qualifies the deployed Gateway and real stores using DAT-01.1 preparation.
 
 ### 53. DEM-11 · Contoso Demo 11: Spoofed and malformed message context
 
@@ -853,6 +893,14 @@ Gets a new engineer from clone to a passing Demo 01.
 - [ ] Lists prerequisites (tools, Azure roles, quotas, region) and the steps from clone to `azd up` to a passing Demo 01.
 - [ ] Links the VERIFY register and lists the open items.
 - [ ] Includes a repository map that matches §4.
+
+#### Child tasks
+
+  - [ ] **DOC-02.1 - Align and verify the shipped Windows run/reset commands**
+    - Executor: R3 acting R1.
+    - Prerequisites: DEM-00.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
+    - Deliverable: One consistent Windows command set across the quick start, runbook, demo instructions and source planning criteria, with the Kanban regenerated from that source.
+    - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
 
 ### 60. WEB-03 · Contoso Portal SSR instrumentation
 

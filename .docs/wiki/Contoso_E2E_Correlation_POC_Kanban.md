@@ -1,6 +1,6 @@
 # Contoso End-to-End Correlation POC: atomic kanban
 
-**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 48. No certification is implied by construction progress.
+**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 49. No certification is implied by construction progress.
 **Columns:** Avoid doing · To Do · In Progress · Done
 
 | Avoid doing | To Do | In Progress | Done |
@@ -16,6 +16,7 @@
 5. A council votes on next actions; the evidence hierarchy, never majority vote, adjudicates technical claims.
 6. Done requires all own acceptance clauses, completion dependencies, current evidence and two accepted other-role reviews. Fixtures never close live requirements.
 7. Bootstrap traffic is NOT CERTIFIED. Final certification requires every applicable facet of all thirteen gates on the frozen deployed environment.
+8. Unranked child checklists decompose parent acceptance; they do not add cards or waive WIP, parent evidence or separately approved native-run requirements.
 
 **Approved implementation routing:** logical R1 → existing R3; logical R6 → existing R5. Original R1/R6 writers are stopped; original R4 is failed and parent/coordinator performs R4 recovery. The original nine-agent roster and logical backlog owners remain historical/unchanged. No new agent or review vote supplies acceptance.
 
@@ -196,20 +197,38 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 
 - [ ] **#52 DEM-01 · Contoso Demo 01: Synchronous golden path**
   Satisfier · logical R1; implementation R3 acting R1 · CD3 45.0 · 1 d · needs GATE-08, API-01, DAT-01, DAT-02, DEM-00, JVM-02, JVM-04, WEB-02
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - Phase: child-task-planned; scope: construction.
+  - Next action: Implement DEM-01.1: route the advertised Demo 01 action through order submission and add the browser-to-Orders/Inventory/data CLIENT regression. Preserve other demo routes and label local data substitutes honestly; OBS-02.1 separately proves the deployed full path.
+  - Waiting on: Reviewed browser/Gateway/JVM-04 route contracts and two-JVM data fixture interfaces
   - [ ] `./demos/01/run.sh` drives Storefront → Gateway → Orders → Inventory → PostgreSQL + Redis with a known business ID.
   - [ ] GATE-08 passes: one trace-id/OperationId on all rows, unique non-zero span-ids, each child ParentId equals its parent's Id; logs carry the same IDs.
   - [ ] The live show finds the expected nodes in Application Map and the expected graph in Transaction Diagnostics.
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
 
+  #### Child tasks
+
+    - [ ] **DEM-01.1 - Correct the advertised Demo 01 UI route and prove downstream execution**
+      - Executor: R3 acting R1.
+      - Prerequisites: Reviewed WEB-01/WEB-02 browser, Gateway order-route and JVM-04 API contracts, plus the existing two-JVM data fixtures for the construction regression; this does not depend on parent DEM-00 being Done.
+      - Deliverable: One Demo 01 action-routing correction with a browser-to-Orders/Inventory integration regression.
+      - Acceptance: Click the actual Demo 01 Run demo control and observe the order-submission route, the real Orders -> Inventory HTTP call, Inventory SERVER span and its Redis/JDBC logical CLIENT children in the same trace. The regression fails if the action only stages `/demo-runs`, bypasses Inventory, omits either data boundary or reuses unrelated telemetry. Preserve other demo routes. H2/RESP may prove the local routing construction but must be labelled as substitutes; OBS-02.1 separately qualifies the deployed Gateway and real stores using DAT-01.1 preparation.
+
 - [ ] **#59 DOC-02 · README quick start**
   Satisfier · logical R1; implementation R3 acting R1 · CD3 32.0 · 0.5 d · needs DEM-01, INF-04, INF-05, INF-06
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - Phase: child-task-planned; scope: construction.
+  - Next action: Complete DOC-02.1 after DEM-00.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Planning alone grants no native traffic or certification.
+  - Waiting on: DEM-00.2 verified consecutive native runs and interrupted-run recovery; Reviewed shipped entrypoints and DOC-03 recovery contract
   - [ ] Lists prerequisites (tools, Azure roles, quotas, region) and the steps from clone to `azd up` to a passing Demo 01.
   - [ ] Links the VERIFY register and lists the open items.
   - [ ] Includes a repository map that matches §4.
+
+  #### Child tasks
+
+    - [ ] **DOC-02.1 - Align and verify the shipped Windows run/reset commands**
+      - Executor: R3 acting R1.
+      - Prerequisites: DEM-00.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
+      - Deliverable: One consistent Windows command set across the quick start, runbook, demo instructions and source planning criteria, with the Kanban regenerated from that source.
+      - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
 
 - [ ] **#71 DOC-03 · DEMO_RUNBOOK.md: operations**
   Satisfier · logical R1; implementation R3 acting R1 · CD3 18.0 · 1 d · needs DEM-00
@@ -373,13 +392,21 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 - [ ] **#34 DAT-01 · PostgreSQL JDBC client spans**
   Satisfier · logical R6; implementation R5 acting R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
   - Phase: corrected-source-ready-parent-build-owned; scope: construction.
-  - Next action: Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance.
+  - Next action: Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance. Planned child DAT-01.1 supplies run-owned cold-cache preparation/reset after reviewed data interfaces and separately approved real-store prerequisites; this planning update does not unfreeze or execute native work.
   - Waiting on: Parent current full-root source/execution/artifact and actual installed-consumer/USED handoff; Native actual default Data/identity/private TLS/role/grant/global/owner evidence
   - Completion remains unmet: INF-05/JVM-01 completion; Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans; Two accepted current source reviews
   - [ ] The selected safe JDBC logical-operation wrapper uses the existing provider to produce one CLIENT dependency under Inventory, with only database system, approved logical namespace, endpoint and fixed operation/outcome attributes. Automatic JDBC capture is disabled on this path; any automatic qualification is separate and never runs in parallel at the same logical boundary.
   - [ ] SQL text and parameter capture are off or sanitized; GATE-04 finds no literals, parameters or credentials.
   - [ ] The span wraps the logical operation, not just pool acquisition, and driver retries are visible as a count.
   - [ ] A runbook note states these are client spans, not PostgreSQL server spans, and gives the time-correlation method for server logs.
+
+  #### Child tasks
+
+    - [ ] **DAT-01.1 - Prepare deterministic run-owned PostgreSQL and Redis state**
+      - Executor: R5 acting R6.
+      - Prerequisites: Reviewed Inventory data/cache interfaces and migration/grant contracts; native qualification additionally needs approved INF-05 deployment, private connectivity, Entra permissions and an owned synthetic dataset.
+      - Deliverable: One Demo 01 preparation/reset implementation that captures the run-owned baseline, seeds the approved synthetic fixture and evicts only its owned cache entry before the measured invocation.
+      - Acceptance: A source-bound test proves a cold lookup executes Redis GET, PostgreSQL SELECT and cache population, rather than skipping PostgreSQL on a hit. An approved real-store probe confirms those operations and baseline restoration; H2/RESP results remain construction-only. Before/after hashes prove unrelated rows and cache state unchanged. Reset restores the captured baseline without global cache flushes or broad deletes; evidence retains ownership/hashes, not cache keys, values or credentials.
 
 - [ ] **#35 DAT-02 · Azure Managed Redis client spans**
   Satisfier · logical R6; implementation R5 acting R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
@@ -524,12 +551,21 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 
 - [ ] **#45 OBS-02 · KQL: trace reconstruction and business lookup**
   Satisfier · logical R7 · CD3 29.0 · 1 d · needs INF-01, JVM-04
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - Phase: child-task-planned; scope: construction.
+  - Next action: Implement OBS-02.1 through the existing raw-query/intake path. Qualify one complete Demo 01 invocation after DEM-01.1 and DAT-01.1, using actual authorized browser/Gateway/backend/data observations rather than expected-map IDs or caller JSON authority.
+  - Waiting on: Reviewed DEM-01.1 routing and DAT-01.1 deterministic real-store preparation; Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window
   - [ ] Both queries run against the current workspace tables (`AppRequests`, `AppDependencies`, `AppTraces`, `AppExceptions`, `AppEvents`, `AppPageViews`) and return results for a known trace-id and business ID.
   - [ ] Legacy variants (`requests`, `dependencies`, `traces`, `exceptions`) live in separate files; no query mixes schemas.
   - [ ] Business lookup returns every intended trace for a known ID and nothing extra, checked against the demo's expected trace list.
   - [ ] Saved outputs carry the timestamp and workspace configuration.
+
+  #### Child tasks
+
+    - [ ] **OBS-02.1 - Implement and qualify the native Demo 01 observer/collector**
+      - Executor: R7.
+      - Prerequisites: DEM-01.1 and DAT-01.1 for native qualification; approved deployed INF-01/INF-04/runtime outputs, independently authorized tool/query source, reviewed OBS-01 sampling and GATE-04 original-intake interfaces, and a separately approved bounded native window. The existing browser driver can qualify collection without waiting for DEM-00.1.
+      - Deliverable: One collector implementation using the existing raw-query/intake path, with a source-bound Demo 01 native qualification receipt; no additional telemetry provider.
+      - Acceptance: Bind the actual browser carrier, gateway SERVER and backend CLIENT, Orders SERVER and outbound HTTP CLIENT, Inventory SERVER and PostgreSQL/Redis CLIENT spans to the same observed invocation and UTC window. Preserve original IDs/parents, source locators, executed queries, runtime/source identity, independent emission accounting and before/after full-path canaries. Original-column privacy scanning precedes safe persistence. An omitted or mismatched required hop fails. Fixtures, expected-map IDs, saved JSON or caller authentication flags cannot enroll an observer or establish native authority; qualification must traverse the approved source-bound intake.
 
 - [ ] **#58 DEM-14 · Contoso Demo 14: Orphan-candidate triage**
   Satisfier · logical R7 · CD3 36.0 · 0.5 d · needs ARC-01, DEM-00, OBS-03
@@ -748,13 +784,28 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 
 - [ ] **#46 DEM-00 · Demo harness: one-command run, evidence capture, reset**
   Delighter · logical R9 · CD3 24.0 · 1.5 d · needs GATE-13, INF-01, OBS-01, OBS-02
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - Phase: child-tasks-planned; scope: construction.
+  - Next action: Ship DEM-00.1 as the concrete supplied Demo 01 adapter using OBS-02.1, DAT-01.1 and DEM-01.1 outputs; then prove DEM-00.2 two-cycle and interrupted-run recovery. Do not require the presenter to implement an adapter. Both children remain To Do; native execution needs its own approved bounded window.
+  - Waiting on: Reviewed OBS-02.1, DAT-01.1, DEM-01.1 and OBS-01 interfaces; Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window
   - [ ] `./demos/XX/run.sh` drives synthetic traffic with a known `business.invocation_id`, then saves raw `traceparent` at trusted test points, AI rows, KQL output, screenshot slots for Application Map and Transaction Diagnostics, and config snapshots to `evidence/demo-XX/<timestamp>/`.
   - [ ] Before asserting, it confirms certification mode (OBS-01) is on for the run window; if not, the run is marked inconclusive rather than passed or failed.
   - [ ] It runs the demo's assertion and prints PASS or FAIL with the §19 and §24 IDs.
   - [ ] `./demos/XX/reset.sh` returns flags, seed data, queues and sampling to baseline and verifies it.
   - [ ] A demo folder template carries Purpose, Pre-state, Run, Live show, Evidence capture, Assertion and Reset.
+
+  #### Child tasks
+
+    - [ ] **DEM-00.1 - Ship the concrete native Demo 01 traffic adapter**
+      - Executor: R9.
+      - Prerequisites: Reviewed OBS-02.1, DAT-01.1 and DEM-01.1 outputs; reviewed OBS-01 sampling/control interfaces; actual approved target/authentication inputs and a separately approved bounded native window for execution.
+      - Deliverable: A supplied `tools\verification\adapters\demo01-runtime.mjs` exporting `createAdapter()` with the existing `contoso.demo-adapter.v1` contract, composing the shipped browser, collector, sampling and run-owned preparation/reset implementations.
+      - Acceptance: The shipped `demos\01\Run.ps1` loads the reviewed adapter by its actual SHA-256 and completes prepare, execute, drain, collect, scanPrivacy, observeSampling, stopTraffic and reset against the approved native target; `restoreCapturedRun` also restores a saved run-owned baseline. Every required method has a concrete implementation: no stubs, fixture PASS or request that the presenter write a module/callback. Only approved configuration, authentication and reviewed source identity are supplied externally. The native pack passes the existing scoped assertions while BootstrapValidate remains NOT CERTIFIED.
+
+    - [ ] **DEM-00.2 - Prove consecutive runs and interrupted-run recovery**
+      - Executor: R9.
+      - Prerequisites: DEM-00.1 and the existing GATE-08/GATE-13 assertion/evidence interfaces; an approved traffic budget and sampling/cleanup window covering the complete regression.
+      - Deliverable: One automated two-cycle-and-interruption regression using the supplied adapter and independently checked run-owned baseline receipts.
+      - Acceptance: Execute two consecutive run -> capture -> assert -> reset cycles with distinct run/business IDs; both pass with all required native boundaries and no stale evidence reuse. After each cycle, compare the actual data/cache, flags, owned messages and sampling with the captured baseline and prove unowned state unchanged. Interrupt a separate invocation after traffic starts: it must report failure, stop/drain traffic and restore baseline within the runner's declared finite cleanup deadlines. Missing spans, a timeout, failed cleanup or baseline mismatch fails the regression; local fixtures cannot satisfy its native acceptance.
 
 - [ ] **#72 CRT-03 · Residual limitations and §23 coverage map**
   Satisfier · logical R9 · CD3 18.0 · 1 d · needs none
