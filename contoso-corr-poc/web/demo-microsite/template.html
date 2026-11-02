@@ -163,6 +163,7 @@
     .graph-shell { border: 1px solid var(--cp-border); border-radius: 16px; overflow: hidden; background: var(--cp-surface); }
     .graph-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 24px; border-bottom: 1px solid var(--cp-border); background: var(--cp-bg-elevated); }
     .graph-toolbar p { margin: 0; font-size: 0.8rem; }
+    .diagram-switch { display: flex; flex-wrap: wrap; gap: 8px; }
     .legend { display: flex; gap: 16px; font: 0.7rem Consolas, monospace; color: var(--cp-text-muted); }
     .legend span { display: flex; align-items: center; gap: 8px; }
     .legend-line { width: 24px; border-top: 1px solid var(--cp-text-muted); }
@@ -184,6 +185,22 @@
     .graph-node:focus-visible rect { stroke: var(--cp-accent); stroke-width: 3; }
     .graph-label { fill: var(--cp-text); font: 13px "Segoe UI", sans-serif; font-weight: 500; }
     .graph-kind { fill: var(--cp-accent); font: 10px Consolas, monospace; letter-spacing: 0.6px; }
+    .sequence-panel { min-width: 0; }
+    .sequence-note { margin: 0; padding: 16px 24px 0; color: var(--cp-text-muted); font-size: 0.77rem; }
+    .sequence-canvas { width: max-content; min-width: 100%; }
+    .sequence-canvas svg { display: block; }
+    .sequence-participant { fill: var(--cp-bg-elevated); stroke: var(--cp-border); }
+    .sequence-lifeline { stroke: var(--cp-border-strong); stroke-width: 1; stroke-dasharray: 3 6; }
+    .sequence-step { cursor: pointer; }
+    .sequence-row { fill: none; stroke: none; }
+    .sequence-step:hover .sequence-row { fill: var(--cp-accent-soft); }
+    .sequence-step[aria-pressed="true"] .sequence-row { fill: var(--cp-accent-soft); stroke: var(--cp-accent); }
+    .sequence-step:focus-visible { outline: none; }
+    .sequence-step:focus-visible .sequence-row { stroke: var(--cp-accent); stroke-width: 3; }
+    .sequence-label { fill: var(--cp-text); font: 13px Consolas, "Courier New", Courier, monospace; }
+    .sequence-meta { fill: var(--cp-text-muted); font: 11px Consolas, "Courier New", Courier, monospace; }
+    .sequence-label, .sequence-meta { paint-order: stroke; stroke: var(--cp-surface); stroke-width: 5; stroke-linejoin: round; }
+    .sequence-point { fill: var(--cp-accent); stroke: var(--cp-surface); stroke-width: 2; }
     .boundary-inspector { padding: 24px; border-left: 1px solid var(--cp-border); background: var(--cp-bg-elevated); min-width: 0; }
     .boundary-inspector .eyebrow { font-size: 0.6rem; margin-bottom: 16px; }
     .boundary-inspector h3 { font-size: 1.15rem; }
@@ -284,6 +301,9 @@
       .hero { padding-top: 0; }
       .demo-list { max-height: none; }
       .graph-canvas { min-width: 0; }
+      .diagram-switch { display: none; }
+      .sequence-canvas { width: 100%; min-width: 0; }
+      .sequence-canvas svg { width: 100%; height: auto; }
     }
   </style>
 </head>
@@ -387,7 +407,7 @@
         <div><p class="eyebrow">02 / EXPECTED RELATIONSHIPS</p><h2 id="topology-heading">Parents and links are different.</h2></div>
         <button class="text-button" type="button" data-source="contracts\expected-boundary-map.v1.json">Inspect the boundary map</button>
       </div>
-      <p class="section-description">This graph is derived from the selected scenario's required boundary definitions. It is not a trace capture: repeated deliveries and distinct contributors require actual native evidence.</p>
+      <p class="section-description">Switch between the boundary graph and sequence diagram for any scenario. Both use the selected scenario's required boundary definitions, not a trace capture: repeated deliveries and distinct contributors require actual native evidence.</p>
       <div class="graph-shortcuts" role="group" aria-label="Topology examples">
         <button class="filter" type="button" data-graph-demo="01" aria-pressed="true">Synchronous HTTP</button>
         <button class="filter" type="button" data-graph-demo="02" aria-pressed="false">Portal SSR</button>
@@ -398,10 +418,18 @@
       <div class="graph-shell">
         <div class="graph-toolbar">
           <p id="graph-demo-label"></p>
-          <div class="legend" aria-label="Graph legend"><span><i class="legend-line" aria-hidden="true"></i>parent</span><span><i class="legend-line link" aria-hidden="true"></i>link</span></div>
+          <div class="diagram-switch" role="group" aria-label="Diagram view">
+            <button class="filter" type="button" data-diagram-view="graph" aria-controls="graph-panel" aria-pressed="true">Boundary graph</button>
+            <button class="filter" type="button" data-diagram-view="sequence" aria-controls="sequence-panel" aria-pressed="false">Sequence diagram</button>
+          </div>
+          <div class="legend" aria-label="Diagram legend"><span><i class="legend-line" aria-hidden="true"></i>parent</span><span><i class="legend-line link" aria-hidden="true"></i>link</span></div>
         </div>
         <div class="graph-content">
-          <div class="graph-viewport" tabindex="0" role="region" aria-label="Declared topology; scroll horizontally on narrow screens"><div id="graph-canvas" class="graph-canvas"></div></div>
+          <div id="graph-panel" class="graph-viewport" tabindex="0" role="region" aria-label="Declared topology; scroll horizontally on narrow screens"><div id="graph-canvas" class="graph-canvas"></div></div>
+          <div id="sequence-panel" class="sequence-panel" hidden>
+            <p id="sequence-notes" class="sequence-note">Dependency order only, not observed timing or attempt counts. Separate parent rows may describe different invocations; dashed arrows are links, not responses. A dot means no incoming relationship is selected, not proof of a root. Select a row for its target boundary; scroll horizontally to follow every lifeline.</p>
+            <div class="graph-viewport" tabindex="0" role="region" aria-label="Declared sequence diagram; scroll horizontally on narrow screens" aria-describedby="sequence-notes"><div id="sequence-canvas" class="sequence-canvas"></div></div>
+          </div>
           <aside class="boundary-inspector" aria-label="Selected boundary contract">
             <p class="eyebrow">BOUNDARY INSPECTOR / EXPECTATION ONLY</p>
             <h3 id="boundary-title" tabindex="-1"></h3>

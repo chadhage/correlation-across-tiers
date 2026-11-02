@@ -1,0 +1,2 @@
+# Native receipts hash exact capture bytes; preserve their line endings.
+*.json -text

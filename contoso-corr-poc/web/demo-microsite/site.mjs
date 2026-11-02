@@ -47,12 +47,18 @@ function ranks(ids, edges) {
   return result;
 }
 
-export function projectGraph(map, boundaries) {
+function selectBoundaries(map, boundaries) {
   const selected = new Set(boundaries);
+  if (!selected.size) throw new Error('Select at least one boundary for a diagram');
   const spans = map.spans.filter(span => selected.has(span.id));
-  if (spans.length !== selected.size) throw new Error('Unknown boundary in graph selection');
+  if (spans.length !== selected.size) throw new Error('Unknown boundary in diagram selection');
   const edges = map.edges.filter(edge => selected.has(edge.from) && selected.has(edge.to));
   const nodeRanks = ranks(spans.map(span => span.id), edges);
+  return { spans, edges, nodeRanks };
+}
+
+export function projectGraph(map, boundaries) {
+  const { spans, edges, nodeRanks } = selectBoundaries(map, boundaries);
   const roleIds = [...new Set(spans.map(span => span.roleName))];
   const byId = new Map(spans.map(span => [span.id, span]));
   const roleEdges = edges
@@ -97,6 +103,49 @@ export function graphEdgePath(from, to) {
   return `M ${x1} ${y1} C ${middle} ${y1}, ${middle} ${y2}, ${x2} ${y2}`;
 }
 
+export function projectSequence(map, boundaries) {
+  const { spans, edges, nodeRanks } = selectBoundaries(map, boundaries);
+  const participants = [...new Set(spans.map(span => span.roleName))]
+    .map((id, index) => ({ id, x: 112 + index * 240 }));
+  const positions = new Map(participants.map(participant => [participant.id, participant.x]));
+  const byId = new Map(spans.map(span => [span.id, span]));
+  const ordered = [...spans].sort((a, b) => nodeRanks.get(a.id) - nodeRanks.get(b.id));
+  const steps = [];
+  for (const span of ordered) {
+    const incoming = edges.filter(edge => edge.to === span.id);
+    // Separate parent rows are templates for distinct invocations, never a multi-parent span.
+    for (const edge of incoming.length ? incoming : [null]) {
+      const fromX = positions.get(edge ? byId.get(edge.from).roleName : span.roleName);
+      const toX = positions.get(span.roleName);
+      steps.push({
+        number: steps.length + 1,
+        span,
+        edge,
+        fromX,
+        toX,
+        labelX: fromX === toX ? toX + 32 : (fromX + toX) / 2,
+        y: 132 + steps.length * 100
+      });
+    }
+  }
+  return {
+    participants,
+    steps,
+    width: Math.max(400, participants.at(-1).x + 192),
+    height: steps.length * 100 + 96
+  };
+}
+
+export function sequenceEdgePath(step) {
+  if (!step.edge) throw new Error('A boundary-only step has no relationship arrow');
+  const { fromX, toX, y } = step;
+  if (fromX === toX) {
+    return `M ${fromX} ${y} L ${fromX + 64} ${y} L ${fromX + 64} ${y + 18} L ${toX + 4} ${y + 18}`;
+  }
+  const direction = Math.sign(toX - fromX);
+  return `M ${fromX + direction * 4} ${y} L ${toX - direction * 6} ${y}`;
+}
+
 function initializeMicrosite() {
   const data = JSON.parse(document.getElementById('site-data').textContent);
   const $ = id => document.getElementById(id);
@@ -130,6 +179,26 @@ function initializeMicrosite() {
     return node;
   };
   const badge = text => element('span', 'tag', text);
+  function appendArrowMarker(svg, id) {
+    const defs = svgElement('defs');
+    const marker = svgElement('marker', { id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto-start-reverse' });
+    marker.append(svgElement('path', { d: 'M 0 0 L 10 5 L 0 10 z', class: 'arrow-head' }));
+    defs.append(marker);
+    svg.append(defs);
+  }
+  function bindBoundarySelection(node, id) {
+    const select = () => {
+      selectedBoundary = id;
+      renderInspector();
+    };
+    node.addEventListener('click', select);
+    node.addEventListener('keydown', event => {
+      if (['Enter', ' '].includes(event.key)) {
+        event.preventDefault();
+        select();
+      }
+    });
+  }
   const sourceFor = path => {
     const source = data.sources.find(item => item.path === path);
     if (!source) throw new Error(`Source is not in this snapshot: ${path}`);
@@ -197,7 +266,7 @@ function initializeMicrosite() {
     $('demo-boundaries').replaceChildren(...selectedDemo.boundaries.map(id =>
       button(id, 'boundary-chip', () => {
         selectedBoundary = id;
-        renderGraph();
+        renderDiagrams();
         $('topology').scrollIntoView({ behavior: 'instant', block: 'start' });
         $('boundary-title').focus({ preventScroll: true });
       })));
@@ -240,7 +309,64 @@ function initializeMicrosite() {
     });
   }
 
-  function renderGraph() {
+  function renderSequence() {
+    const sequence = projectSequence(map, selectedDemo.boundaries);
+    const svg = svgElement('svg', {
+      viewBox: `0 0 ${sequence.width} ${sequence.height}`,
+      width: sequence.width,
+      height: sequence.height,
+      'aria-labelledby': 'sequence-title sequence-description',
+      role: 'group'
+    });
+    svg.append(svgElement('title', { id: 'sequence-title' }, `Declared sequence for demo ${selectedDemo.id}`),
+      svgElement('desc', { id: 'sequence-description' }, 'Application-role lifelines and source-defined relationship templates in dependency order, not an observed timeline. Solid arrows are parents; dashed arrows are links, not returns. A dot marks a boundary without a selected incoming relationship. Select a row to inspect its target boundary.'));
+    appendArrowMarker(svg, 'sequence-arrow');
+    for (const participant of sequence.participants) {
+      svg.append(
+        svgElement('line', { x1: participant.x, x2: participant.x, y1: 56, y2: sequence.height - 20, class: 'sequence-lifeline' }),
+        svgElement('rect', { x: participant.x - 96, y: 12, width: 192, height: 44, rx: 10, class: 'sequence-participant' }),
+        svgElement('text', { x: participant.x, y: 39, 'text-anchor': 'middle', class: 'graph-role' }, participant.id.replace(/^contoso-/, ''))
+      );
+    }
+    for (const step of sequence.steps) {
+      const { span, edge } = step;
+      const relationship = edge ? `${edge.from} -> ${edge.to} (${edge.type}; ${edge.path})`
+        : `${span.id}: no incoming relationship in this selection`;
+      const row = svgElement('g', {
+        class: 'sequence-step',
+        role: 'button',
+        tabindex: 0,
+        'data-boundary': span.id,
+        'aria-label': `${step.number}. ${relationship}; ${span.semanticKind}`,
+        'aria-pressed': String(span.id === selectedBoundary)
+      });
+      row.append(svgElement('title', {}, relationship),
+        svgElement('rect', { x: 8, y: step.y - 52, width: sequence.width - 16, height: 88, rx: 10, class: 'sequence-row' }));
+      if (edge) {
+        row.append(svgElement('path', {
+          d: sequenceEdgePath(step),
+          class: `graph-edge ${edge.type}`,
+          'marker-end': 'url(#sequence-arrow)',
+          'data-edge-from': edge.from,
+          'data-edge-to': edge.to
+        }));
+        if (edge.cardinality) {
+          row.append(svgElement('text', { x: step.labelX, y: step.y + 38, 'text-anchor': 'middle', class: 'sequence-meta' }, edge.cardinality.replaceAll('-', ' ')));
+        }
+      } else {
+        row.append(svgElement('circle', { cx: step.toX, cy: step.y, r: 5, class: 'sequence-point' }));
+      }
+      row.append(
+        svgElement('text', { x: step.labelX, y: step.y - 30, 'text-anchor': 'middle', class: 'sequence-label' }, `${step.number}. ${span.id}`),
+        svgElement('text', { x: step.labelX, y: step.y - 12, 'text-anchor': 'middle', class: 'sequence-meta' }, edge ? `${edge.type} / ${edge.path}` : `${span.semanticKind} / boundary only`)
+      );
+      bindBoundarySelection(row, span.id);
+      svg.append(row);
+    }
+    $('sequence-canvas').replaceChildren(svg);
+  }
+
+  function renderDiagrams() {
     const graph = projectGraph(map, selectedDemo.boundaries);
     const svg = svgElement('svg', {
       viewBox: `0 0 ${graph.width} ${graph.height}`,
@@ -249,11 +375,7 @@ function initializeMicrosite() {
     });
     svg.append(svgElement('title', { id: 'graph-title' }, 'Declared boundary relationships'),
       svgElement('desc', { id: 'graph-description' }, 'Source definitions, not an observed trace. Solid arrows are parents. Dashed arrows are links. Select a boundary for its contract.'));
-    const defs = svgElement('defs');
-    const marker = svgElement('marker', { id: 'edge-arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto-start-reverse' });
-    marker.append(svgElement('path', { d: 'M 0 0 L 10 5 L 0 10 z', class: 'arrow-head' }));
-    defs.append(marker);
-    svg.append(defs);
+    appendArrowMarker(svg, 'edge-arrow');
     const byId = new Map(graph.nodes.map(node => [node.id, node]));
     for (const edge of graph.edges) {
       const from = byId.get(edge.from);
@@ -291,20 +413,11 @@ function initializeMicrosite() {
       }
       lines.forEach((line, index) => node.append(svgElement('text', { x: 12, y: 22 + index * 16, class: 'graph-label' }, line)));
       node.append(svgElement('text', { x: 12, y: 64, class: 'graph-kind' }, span.semanticKind));
-      const select = () => {
-        selectedBoundary = span.id;
-        renderInspector();
-      };
-      node.addEventListener('click', select);
-      node.addEventListener('keydown', event => {
-        if (['Enter', ' '].includes(event.key)) {
-          event.preventDefault();
-          select();
-        }
-      });
+      bindBoundarySelection(node, span.id);
       svg.append(node);
     }
     $('graph-canvas').replaceChildren(svg);
+    renderSequence();
     renderInspector();
     for (const shortcut of document.querySelectorAll('[data-graph-demo]')) {
       shortcut.setAttribute('aria-pressed', String(shortcut.dataset.graphDemo === selectedDemo.id));
@@ -321,7 +434,7 @@ function initializeMicrosite() {
     selectedBoundary = demo.boundaries[0];
     renderList();
     renderDemo();
-    renderGraph();
+    renderDiagrams();
     if (updateHash) history.replaceState(null, '', `#demo-${id}`);
   }
 
@@ -460,6 +573,16 @@ function initializeMicrosite() {
   $('copy-checks').addEventListener('click', () => copy($('local-checks').textContent));
   $('demo-readme').addEventListener('click', () => showSource(`demos\\${selectedDemo.id}\\README.md`));
   $('inspect-demo-topology').addEventListener('click', () => $('topology').scrollIntoView({ behavior: 'instant' }));
+  const diagramButtons = [...document.querySelectorAll('[data-diagram-view]')];
+  for (const button of diagramButtons) {
+    button.addEventListener('click', () => {
+      for (const control of diagramButtons) {
+        const active = control === button;
+        control.setAttribute('aria-pressed', String(active));
+        $(control.getAttribute('aria-controls')).hidden = !active;
+      }
+    });
+  }
   $('query-select').addEventListener('change', () => { $('query-command').textContent = queryCommand(); });
   $('copy-query').addEventListener('click', () => copy(queryCommand()));
   $('view-query').addEventListener('click', () => showSource(`kql\\${$('query-select').value}.kql`));
@@ -504,7 +627,7 @@ function initializeMicrosite() {
   renderEvidence();
   renderList();
   renderDemo();
-  renderGraph();
+  renderDiagrams();
   syncThemeControl();
   useHash();
   $('query-command').textContent = queryCommand();

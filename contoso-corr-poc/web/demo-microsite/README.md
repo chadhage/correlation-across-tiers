@@ -35,13 +35,28 @@ They do not run native probes or cloud workloads.
 1. Establish scope using the source-inventory counts and **NOT CERTIFIED** label.
 2. Select a catalog scenario, or search by title, ID, criterion or boundary.
    `#demo-08` opens a specific scenario.
-3. Inspect the graph and select a boundary. Solid arrows are declared parent
-   edges; dashed arrows are declared links. No observed IDs, timings, repeated
-   deliveries, or completed Azure runs are fabricated.
+3. Switch between **Boundary graph** and **Sequence diagram**, then select a
+   boundary or sequence row for its shared contract inspector. Solid arrows are
+   declared parent edges; dashed arrows are links, never return messages.
 4. Review recorded local evidence and its limits. Receipt digest comparison is
    file consistency at build time, not current source/runtime attestation.
 5. Open embedded source documents or inspect the manual run/reset/KQL templates.
    Templates contain review placeholders and are not executable controls.
+
+## Sequence diagrams
+
+Every catalog scenario has an offline SVG sequence diagram derived from its
+required boundaries and the same boundary map as the graph. Lifelines are
+application roles; PostgreSQL/Redis remain CLIENT self-operations, and no
+database, broker, initiator or response spans are invented.
+
+Numbered rows follow dependency order, not observed timing, concurrency,
+delivery counts or durations. Each relationship appears separately; multiple
+parent rows targeting one boundary describe invocation templates, not a span
+with multiple parents. A dot means no incoming relationship is in the selection,
+not proof that the boundary is a root. Link cardinality is retained. The selected
+view persists while browsing scenarios, supports keyboard boundary inspection,
+and scrolls horizontally on narrow screens.
 
 ## Environment launch links
 

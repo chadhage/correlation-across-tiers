@@ -7,7 +7,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { inspectReceipt, loadMicrositeData, renderMicrosite, serializeForHtml } from '../web/demo-microsite/build.mjs';
 import { createMicrositeServer } from '../web/demo-microsite/serve.mjs';
-import { filterDemos, graphEdgePath, projectGraph, validateLaunchUrl } from '../web/demo-microsite/site.mjs';
+import { filterDemos, graphEdgePath, projectGraph, projectSequence, sequenceEdgePath, validateLaunchUrl } from '../web/demo-microsite/site.mjs';
 
 const data = await loadMicrositeData({ builtAt: '2026-11-02T05:00:00.000Z' });
 
@@ -68,6 +68,86 @@ test('parallel data-client edges route around intervening nodes rather than impl
   assert.equal(graph.edges.some(edge => edge.from === postgres.id && edge.to === redis.id), false);
 });
 
+test('every sequence covers the selected boundaries and each exact source relationship in dependency order', () => {
+  for (const demo of data.demos) {
+    const sequence = projectSequence(data.boundaryMap, demo.boundaries);
+    const spans = data.boundaryMap.spans.filter(span => demo.boundaries.includes(span.id));
+    const edges = data.boundaryMap.edges.filter(edge =>
+      demo.boundaries.includes(edge.from) && demo.boundaries.includes(edge.to));
+    assert.deepEqual(sequence.participants.map(participant => participant.id), [...new Set(spans.map(span => span.roleName))]);
+    assert.deepEqual(new Set(sequence.steps.map(step => step.span.id)), new Set(demo.boundaries));
+    assert.equal(sequence.steps.filter(step => step.edge).length, edges.length);
+    for (const edge of edges) assert.equal(sequence.steps.filter(step => step.edge === edge).length, 1);
+    const seen = new Set();
+    sequence.steps.forEach((step, index) => {
+      assert.equal(step.number, index + 1);
+      assert.ok(step.y > 56 && step.y + 40 < sequence.height);
+      for (const x of [step.fromX, step.toX, step.labelX]) assert.ok(x > 0 && x < sequence.width);
+      if (step.edge) {
+        assert.ok(seen.has(step.edge.from), `Source must precede ${step.span.id}`);
+        assert.equal(step.edge.to, step.span.id);
+      } else {
+        assert.equal(edges.some(edge => edge.to === step.span.id), false);
+      }
+      seen.add(step.span.id);
+    });
+  }
+});
+
+test('sequence links never become parents, replay PROCESS-to-SEND edges, or a multi-parent instance', () => {
+  const replay = projectSequence(data.boundaryMap, data.demos.find(demo => demo.id === '07').boundaries);
+  assert.equal(replay.steps.some(step => step.edge?.from.endsWith('replay.process')
+    && step.edge.to.endsWith('replay.send')), false);
+  assert.ok(replay.steps.filter(step => step.span.id.endsWith('replay.send'))
+    .every(step => step.edge.type === 'link' && step.edge.from === 'orders.servicebus.send'));
+  const batch = projectSequence(data.boundaryMap, data.demos.find(demo => demo.id === '09').boundaries);
+  const batchRoot = batch.steps.find(step => step.span.id === 'aggregator.batch');
+  assert.equal(batchRoot.edge.type, 'link');
+  assert.equal(batchRoot.edge.cardinality, 'each-contributor');
+  const fanin = projectSequence(data.boundaryMap, data.demos.find(demo => demo.id === '08').boundaries);
+  const results = fanin.steps.filter(step => step.span.id === 'aggregator.result');
+  assert.equal(results.length, 2);
+  assert.deepEqual(results.map(step => step.edge.from), ['fulfillment.result', 'notify.result']);
+  assert.ok(results.every(step => step.edge.type === 'parent'));
+  assert.ok(fanin.steps.filter(step => step.span.id === 'aggregator.fanin').every(step => step.edge.type === 'link'));
+});
+
+test('sequence data operations stay on the Inventory lifeline without invented database or broker actors', () => {
+  const sequence = projectSequence(data.boundaryMap, data.demos.find(demo => demo.id === '12').boundaries);
+  assert.deepEqual(sequence.participants.map(participant => participant.id), ['contoso-inventory-api']);
+  for (const id of ['postgres.logical', 'redis.logical']) {
+    const step = sequence.steps.find(item => item.span.id === id);
+    assert.equal(step.span.semanticKind, 'CLIENT');
+    assert.equal(step.edge.from, 'inventory.request');
+    assert.equal(step.fromX, step.toX);
+    assert.equal(sequenceEdgePath(step), `M ${step.fromX} ${step.y} L ${step.fromX + 64} ${step.y} L ${step.fromX + 64} ${step.y + 18} L ${step.toX + 4} ${step.y + 18}`);
+  }
+});
+
+test('a single selected boundary gets no invented inbound arrow or external initiator', () => {
+  const sequence = projectSequence(data.boundaryMap, ['orders.request']);
+  assert.equal(sequence.participants.length, 1);
+  assert.equal(sequence.steps.length, 1);
+  assert.equal(sequence.steps[0].edge, null);
+  assert.throws(() => sequenceEdgePath(sequence.steps[0]), /no relationship arrow/);
+});
+
+test('sequence ordering supports re-entering an application role but rejects unknown, empty and cyclic selections', () => {
+  const map = {
+    spans: [{ id: 'a', roleName: 'one' }, { id: 'b', roleName: 'two' }, { id: 'c', roleName: 'one' }],
+    edges: [{ from: 'a', to: 'b', type: 'parent' }, { from: 'b', to: 'c', type: 'parent' }]
+  };
+  const sequence = projectSequence(map, ['c', 'b', 'a']);
+  assert.deepEqual(sequence.steps.map(step => step.span.id), ['a', 'b', 'c']);
+  assert.equal(sequence.participants.length, 2);
+  const returning = sequence.steps[2];
+  assert.ok(returning.fromX > returning.toX);
+  assert.equal(sequenceEdgePath(returning), `M ${returning.fromX - 4} ${returning.y} L ${returning.toX + 6} ${returning.y}`);
+  assert.throws(() => projectSequence(map, ['unknown']), /Unknown boundary/);
+  assert.throws(() => projectSequence(map, []), /at least one boundary/);
+  assert.throws(() => projectSequence({ ...map, edges: [...map.edges, { from: 'c', to: 'a', type: 'link' }] }, ['a', 'b', 'c']), /cycle/);
+});
+
 test('catalog filtering supports titles, IDs, boundaries, criteria, and empty results', () => {
   assert.equal(filterDemos(data.demos, '', 'all').length, data.demos.length);
   assert.deepEqual(filterDemos(data.demos, '08', 'all').map(demo => demo.id), ['08']);
@@ -126,6 +206,10 @@ test('standalone output embeds source data safely, applies the required theme, a
   assert.match(html, /clawpilotTheme/);
   assert.match(html, /--cp-bg: #f7f4ef/);
   assert.match(html, /html\[data-theme="dark"\]/);
+  assert.match(html, /data-diagram-view="graph" aria-controls="graph-panel" aria-pressed="true"/);
+  assert.match(html, /data-diagram-view="sequence" aria-controls="sequence-panel" aria-pressed="false"/);
+  assert.match(html, /id="sequence-panel"[^>]+hidden/);
+  assert.match(html, /Dependency order only, not observed timing or attempt counts/);
   assert.doesNotMatch(html, /<script[^>]+src=|<link[^>]+href=|<iframe|<img[^>]+src=/i);
   const payload = JSON.parse(html.match(/<script id="site-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(payload.demos.length, data.demos.length);
