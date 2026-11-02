@@ -32,6 +32,14 @@ They do not run native probes or cloud workloads.
 
 ## Presenter flow
 
+Use the header's **Menu** button to open the navigation drawer on desktop or
+mobile. Section links close the drawer and focus their destination. Escape,
+the Close button, or the backdrop dismisses it; keyboard focus stays inside
+while open, and background scrolling is locked. Theme and environment settings
+are also available in the drawer. The **GitHub repository** link opens
+[this repository](https://github.com/chadhage/correlation-across-tiers) in a
+new tab without changing the walkthrough.
+
 1. Establish scope using the source-inventory counts and **NOT CERTIFIED** label.
 2. Select a catalog scenario, or search by title, ID, criterion or boundary.
    `#demo-08` opens a specific scenario.
@@ -60,7 +68,7 @@ and scrolls horizontally on narrow screens.
 
 ## Environment launch links
 
-Use **Environment settings** to configure Storefront, Portal SSR and optional
+Use **Menu > Environment settings** to configure Storefront, Portal SSR and optional
 Gateway base URLs. Empty entries leave launch controls disabled. URLs are stored
 only in this browser's local storage; blocked storage is reported and settings
 remain page-session-only. Clearing settings removes the stored URLs.
@@ -73,7 +81,7 @@ telemetry. Opening a Gateway URL is not an authenticated API test.
 
 Theme follows the browser preference. `?clawpilotTheme=light` and
 `?clawpilotTheme=dark` select a theme explicitly; a theme control is available
-in the desktop header.
+in the navigation drawer at every screen size.
 
 ## Source and evidence boundaries
 

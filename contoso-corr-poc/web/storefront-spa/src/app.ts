@@ -194,10 +194,12 @@ export function createStorefront(
     if (running) reject("RUN_IN_PROGRESS");
     if (!prepared || currentSpec?.runId !== spec.runId) reject("RUN_ID_REUSED");
     const version = invocationVersion;
+    const collection: ApiCollection = spec.kind === "order" || (spec.kind === "demo" && spec.demoId === 1)
+      ? "orders" : "demo-runs";
     prepared = false;
     running = true;
     inFlight++;
-    telemetry.scopeInvocation(spec.runId, version, spec.kind === "order" ? "/orders" : "/demo-runs");
+    telemetry.scopeInvocation(spec.runId, version, collection === "orders" ? "/orders" : "/demo-runs");
     errorBanner.hidden = true;
     updateControls();
     try {
@@ -205,7 +207,7 @@ export function createStorefront(
       if (spec.kind === "demo" && spec.demoId === 2) throw new ContosoError("REQUEST_INVALID");
       if (spec.kind === "demo" && (!config.demos.enabled || !certificationActive(config)
         || !config.demos.allowedDemoIds.includes(spec.demoId))) throw new ContosoError("CERT_WINDOW_INACTIVE", 409);
-      const view = spec.kind === "order"
+      const view = collection === "orders"
         ? await api.order(validateOrderRequest({
           schemaVersion: 1, orderId: spec.runId, sku: spec.sku ?? "CONTOSO-001", quantity: spec.quantity ?? 1
         }))
@@ -214,7 +216,7 @@ export function createStorefront(
           ...(spec.scenario ? { scenario: spec.scenario } : {}),
           ...(spec.failureBudget !== undefined ? { failureBudget: spec.failureBudget } : {})
         }));
-      currentCollection = spec.kind === "order" ? "orders" : "demo-runs";
+      currentCollection = collection;
       if (dependencyOverflow) throw new ContosoError("RUN_CAPACITY_EXCEEDED", 409);
       showWorkflow(view, "browser-spa");
       telemetry.event("Contoso.Action", { "business.invocation_id": view.businessInvocationId, "demo.id": String(spec.demoId) });

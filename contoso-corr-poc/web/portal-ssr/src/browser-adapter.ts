@@ -62,8 +62,9 @@ export async function driveContosoBrowser(
     return value;
   }));
   const expectedOrigin = spec.kind === "portal" ? config.portal.origin : config.api.origin;
+  const orderSubmission = spec.kind === "order" || (spec.kind === "demo" && spec.demoId === 1);
   const expectedPath = spec.kind === "portal" ? "/portal/orders"
-    : `${config.api.basePath}/${spec.kind === "order" ? "orders" : "demo-runs"}`;
+    : `${config.api.basePath}/${orderSubmission ? "orders" : "demo-runs"}`;
   const observations: SanitizedBrowserObservation[] = [];
   const byRequest = new WeakMap<Request, SanitizedBrowserObservation>();
   const pending: Promise<void>[] = [];

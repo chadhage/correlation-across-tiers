@@ -261,7 +261,7 @@ public final class InventorySchemaHooks {
         } catch (IOException failure) { throw new SQLException("inventory_migration_unreadable"); }
     }
 
-    private static void verifyDatabase(Connection connection, String expected) throws SQLException {
+    static void verifyDatabase(Connection connection, String expected) throws SQLException {
         try (var query = connection.prepareStatement("SELECT current_database()");
              var rows = query.executeQuery()) {
             if (!rows.next() || !expected.equals(rows.getString(1))) {
@@ -270,13 +270,13 @@ public final class InventorySchemaHooks {
         }
     }
 
-    private static void authorized(Permit permit) {
+    static void authorized(Permit permit) {
         if (permit == null || !permit.executionApproved()) {
             throw new DataAccessException(DataErrorKind.AUTHORIZATION, false);
         }
     }
 
-    private static void verifyEndpoint(PgConnectionFactory factory, Permit permit) {
+    static void verifyEndpoint(PgConnectionFactory factory, Permit permit) {
         String name = permit.expectedResourceId().substring(permit.expectedResourceId().lastIndexOf('/') + 1);
         String host = factory.telemetryAttributes().get("server.address");
         if (host == null || !host.equalsIgnoreCase(name + ".postgres.database.azure.com")) {

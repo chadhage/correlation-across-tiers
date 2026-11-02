@@ -18,6 +18,10 @@ const hash = (text) => createHash('sha256').update(text).digest('hex');
 export const backlogSemanticHash = (text) => hash(text.replace(/^([ \t]*- \[)[ x](\])/gm, '$1 $2'));
 const requiredReviewKind = (card) => documentationCards.has(card.id) ? 'documentation' : 'code';
 const approvedActingRoles = { R1: 'R3', R6: 'R5' };
+const approvedImplementationPolicies = new Map([
+  ['USER reassign_existing', approvedActingRoles],
+  ['USER independent_nine_roles', Object.fromEntries([...reviewRoles].map(role => [role, role]))]
+]);
 // No live executor is enrolled during preparation; persisted JSON cannot enroll one.
 const liveEvidenceExecutors = new Map();
 
@@ -29,17 +33,20 @@ export async function verifyPersistedLiveEvidence(receipt, facet) {
 
 export function implementationOwner(state, logicalRole) {
   validateImplementationAssignments(state);
+  if (!reviewRoles.has(logicalRole)) throw new Error(`Unknown implementation role: ${logicalRole}`);
   return state.implementationAssignments.owners[logicalRole] ?? logicalRole;
 }
 
 function validateImplementationAssignments(state) {
   const assignments = state.implementationAssignments;
+  const approvedOwners = approvedImplementationPolicies.get(assignments?.approval);
   if (!assignments || typeof assignments !== 'object' || Array.isArray(assignments) ||
-      assignments.approval !== 'USER reassign_existing' || !assignments.owners ||
+      !Object.hasOwn(state, 'implementationAssignments') || !Object.hasOwn(assignments, 'approval') ||
+      !approvedOwners || !Object.hasOwn(assignments, 'owners') || !assignments.owners ||
       typeof assignments.owners !== 'object' || Array.isArray(assignments.owners) ||
-      Object.keys(assignments.owners).length !== Object.keys(approvedActingRoles).length ||
-      Object.entries(assignments.owners).some(([role, owner]) => approvedActingRoles[role] !== owner)) {
-    throw new Error('Explicit approved original-role reassignment required; no additional implementation owner');
+      Object.keys(assignments.owners).length !== Object.keys(approvedOwners).length ||
+      Object.entries(assignments.owners).some(([role, owner]) => !Object.hasOwn(approvedOwners, role) || approvedOwners[role] !== owner)) {
+    throw new Error('Explicit approved original-role reassignment or independent-nine-role assignments required; no additional implementation owner');
   }
 }
 
@@ -148,6 +155,14 @@ export function parseBacklog(text) {
     }
   });
   return cards;
+}
+
+export function extractSwarmPlan(text) {
+  const heading = /^## Swarm execution plan\r?$/m.exec(text);
+  if (!heading) return '';
+  const section = text.slice(heading.index);
+  const next = /^## /m.exec(section.slice(heading[0].length));
+  return section.slice(0, next ? heading[0].length + next.index : undefined).trim();
 }
 
 export function recordFor(state, id) {
@@ -342,7 +357,7 @@ function renderCard(card, state) {
   return lines.join('\n');
 }
 
-export function renderKanban(cards, state, existing) {
+export function renderKanban(cards, state, existing, swarmPlan = extractSwarmPlan(existing)) {
   validateImplementationAssignments(state);
   const avoid = existing.match(/## Avoid doing \(25\)[\s\S]*?(?=## To Do \()/)?.[0]?.trim();
   if (!avoid) throw new Error('Missing original 25-card Avoid doing section');
@@ -363,8 +378,11 @@ export function renderKanban(cards, state, existing) {
     '7. Bootstrap traffic is NOT CERTIFIED. Final certification requires every applicable facet of all thirteen gates on the frozen deployed environment.',
     '8. Unranked child checklists decompose parent acceptance; they do not add cards or waive WIP, parent evidence or separately approved native-run requirements.', '',
   ];
-  if (state.implementationAssignments) lines.push(
+  if (state.implementationAssignments.approval === 'USER independent_nine_roles') lines.push(
+    `**Approved implementation routing:** user-approved independent nine-role mode (\`USER independent_nine_roles\`): ${[...reviewRoles].map(role => `logical ${role} → ${implementationOwner(state, role)}`).join('; ')}. Nine distinct current implementation lanes; actual actor identities require independent roster reconciliation. Historical stopped/failed agent IDs are not revived. No roster label enrolls native evidence authority, authorizes deployment/spending/traffic or grants acceptance.`, '');
+  else lines.push(
     '**Approved implementation routing:** logical R1 → existing R3; logical R6 → existing R5. Original R1/R6 writers are stopped; original R4 is failed and parent/coordinator performs R4 recovery. The original nine-agent roster and logical backlog owners remain historical/unchanged. No new agent or review vote supplies acceptance.', '');
+  if (swarmPlan) lines.push(swarmPlan, '');
   lines.push(avoid, '');
   for (const status of statuses) {
     lines.push(`## ${status} (${groups[status].length}${status === 'In Progress' ? ' of 9' : ''})`, '');
@@ -397,7 +415,7 @@ export async function synchronize(mode) {
   validateState(cards, state, scopeCards);
   await verifyEvidence(cards, state);
   const updatedBacklog = updateAcceptance(backlog, cards, state);
-  const generated = renderKanban(cards, state, existing);
+  const generated = renderKanban(cards, state, existing, extractSwarmPlan(backlog));
   if (mode === '--check') {
     if (updatedBacklog !== backlog || generated.replaceAll('\r\n', '\n') !== existing.replaceAll('\r\n', '\n')) throw new Error('Backlog/kanban are stale; run board:rehydrate');
     if (state.sourceHashes?.backlog !== hash(backlog) || state.sourceHashes?.kanban !== hash(existing)) throw new Error('Board source hashes changed; rehydrate before using state');

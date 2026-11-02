@@ -69,7 +69,8 @@
     }
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
-    html { scroll-padding-top: 100px; }
+    html { scroll-padding-top: 100px; scrollbar-gutter: stable; }
+    html.navigation-open { overflow: hidden; }
     body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font: 16px/1.6 "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; }
     button, input, select { font: inherit; }
     button, a, input, select, [tabindex] { -webkit-tap-highlight-color: var(--cp-highlight); }
@@ -94,14 +95,21 @@
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
     .brand { display: flex; align-items: center; gap: 12px; color: var(--cp-text); text-decoration: none; font-size: 0.95rem; font-weight: 600; white-space: nowrap; }
     .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--cp-accent); border-radius: 10px; color: var(--cp-accent); font: 700 20px Consolas, monospace; }
-    nav { display: flex; align-items: center; gap: 24px; }
-    nav a { color: var(--cp-text-muted); text-decoration: none; font-size: 0.85rem; }
-    .header-actions { display: flex; gap: 8px; align-items: center; }
     .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-surface); color: var(--cp-text); font-size: 0.85rem; font-weight: 600; text-decoration: none; line-height: 1.4; }
     .button:hover:not(:disabled) { border-color: var(--cp-accent); color: var(--cp-accent); }
     .button.primary { border-color: var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); }
     .button.primary:hover { background: var(--cp-accent-hover); color: var(--cp-accent-fg); }
     .button.compact { padding: 8px 12px; min-height: 40px; font-size: 0.78rem; }
+    .menu-toggle { gap: 8px; padding-inline: 12px; }
+    .menu-icon { width: 20px; height: 20px; fill: none; stroke: var(--cp-accent); stroke-width: 1.75; stroke-linecap: round; }
+    dialog.navigation-drawer { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(360px, calc(100% - 24px)); height: 100dvh; max-height: 100dvh; padding: 24px; border: 0; border-left: 1px solid var(--cp-border); border-radius: 0; overflow-y: auto; }
+    .navigation-drawer[open] { display: flex; flex-direction: column; animation: drawer-enter 160ms ease-out; }
+    .drawer-nav { display: grid; flex-shrink: 0; gap: 8px; margin-bottom: 32px; }
+    .drawer-nav a { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-bg-elevated); color: var(--cp-text); text-decoration: none; font-size: 0.95rem; }
+    .drawer-nav a:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .drawer-utilities { display: grid; flex-shrink: 0; gap: 12px; margin-top: auto; padding-top: 24px; border-top: 1px solid var(--cp-border); }
+    @keyframes drawer-enter { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    @media (prefers-reduced-motion: reduce) { .navigation-drawer[open] { animation: none; } }
     .text-button { padding: 4px 0; border: 0; background: none; color: var(--cp-accent); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
     .eyebrow { color: var(--cp-accent); font-size: 0.68rem; letter-spacing: 0.13em; font-weight: 600; margin-bottom: 20px; }
     .muted, .small, .section-description { color: var(--cp-text-muted); }
@@ -255,16 +263,12 @@
     @media (max-width: 1100px) {
       .container { width: calc(100% - 48px); }
       .topbar-inner { gap: 16px; }
-      nav { gap: 14px; }
       .hero { gap: 32px; }
       .walkthrough { grid-template-columns: 300px minmax(0, 1fr); }
       .graph-content { grid-template-columns: minmax(0, 1fr) 252px; }
-      .header-actions .theme-toggle { display: none; }
     }
     @media (max-width: 800px) {
-      .topbar-inner { flex-wrap: wrap; gap: 12px; padding-block: 12px; }
-      nav { order: 3; width: 100%; justify-content: space-between; }
-      html { scroll-padding-top: 140px; }
+      .topbar-inner { min-height: 64px; gap: 12px; }
       .hero { grid-template-columns: 1fr; padding-top: 44px; gap: 32px; }
       .hero h1 br { display: none; }
       .scope-card { padding: 24px; }
@@ -286,7 +290,6 @@
       .container { width: calc(100% - 32px); }
       .brand { font-size: 0.78rem; gap: 8px; }
       .brand-mark { width: 30px; height: 30px; }
-      .header-actions .button { padding: 8px; font-size: 0.73rem; }
       .inventory-cell + .inventory-cell { padding-left: 16px; }
       .inventory-cell:last-child { padding-left: 0; }
       .inventory-label { font-size: 0.68rem; }
@@ -296,7 +299,8 @@
       dialog { padding: 20px; }
     }
     @media print {
-      .topbar, .header-actions, .demo-pagination, .graph-shortcuts, .launch-panel, .skip-link { display: none; }
+      .topbar, .navigation-drawer, .demo-pagination, .graph-shortcuts, .launch-panel, .skip-link { display: none; }
+      html.navigation-open { overflow: visible; }
       .container { width: 100%; }
       .hero { padding-top: 0; }
       .demo-list { max-height: none; }
@@ -312,16 +316,10 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">[ ]</span>Correlation across tiers</a>
-      <nav aria-label="Main navigation">
-        <a href="#walkthrough">Walkthrough</a>
-        <a href="#topology">Topology</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#operations">Operations</a>
-      </nav>
-      <div class="header-actions">
-        <button id="theme-toggle" class="button compact theme-toggle" type="button">Dark theme</button>
-        <button class="button compact" type="button" data-open-environment>Environment settings</button>
-      </div>
+      <button id="navigation-toggle" class="button menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-drawer" aria-expanded="false" aria-haspopup="dialog">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M 4 6 H 20 M 4 12 H 20 M 4 18 H 20"></path></svg>
+        Menu
+      </button>
     </div>
   </header>
   <main id="main" class="container">
@@ -353,7 +351,7 @@
       <div class="inventory-cell"><span class="inventory-number">Source definitions, not live coverage</span><span class="inventory-label">Counts come from the catalog and boundary map.</span></div>
     </div>
 
-    <section id="walkthrough" class="chapter" aria-labelledby="walkthrough-heading">
+    <section id="walkthrough" class="chapter" aria-labelledby="walkthrough-heading" tabindex="-1">
       <div class="section-heading">
         <div><p class="eyebrow">01 / GUIDED WALKTHROUGH</p><h2 id="walkthrough-heading">Choose what to inspect.</h2></div>
         <span class="tag accent">No demo traffic runs from this site</span>
@@ -402,7 +400,7 @@
       </div>
     </section>
 
-    <section id="topology" class="chapter" aria-labelledby="topology-heading">
+    <section id="topology" class="chapter" aria-labelledby="topology-heading" tabindex="-1">
       <div class="section-heading">
         <div><p class="eyebrow">02 / EXPECTED RELATIONSHIPS</p><h2 id="topology-heading">Parents and links are different.</h2></div>
         <button class="text-button" type="button" data-source="contracts\expected-boundary-map.v1.json">Inspect the boundary map</button>
@@ -445,7 +443,7 @@
       </div>
     </section>
 
-    <section id="evidence" class="chapter" aria-labelledby="evidence-heading">
+    <section id="evidence" class="chapter" aria-labelledby="evidence-heading" tabindex="-1">
       <div class="section-heading">
         <div><p class="eyebrow">03 / RECORDED EVIDENCE</p><h2 id="evidence-heading">What the local records establish.</h2></div>
         <span class="tag accent">NOT CERTIFIED</span>
@@ -467,7 +465,7 @@
       </div>
     </section>
 
-    <section id="operations" class="chapter" aria-labelledby="operations-heading">
+    <section id="operations" class="chapter" aria-labelledby="operations-heading" tabindex="-1">
       <div class="section-heading">
         <div><p class="eyebrow">04 / PRESENTER OPERATIONS</p><h2 id="operations-heading">Inspect first. Execute deliberately.</h2></div>
         <button class="text-button" type="button" data-source="docs\DEMO_RUNBOOK.md">Open the presenter runbook</button>
@@ -519,6 +517,20 @@ npm run verify:register</code></pre>
     </div>
   </footer>
 
+  <dialog id="navigation-drawer" class="navigation-drawer" aria-labelledby="navigation-drawer-title">
+    <div class="dialog-header"><h2 id="navigation-drawer-title">Navigation</h2><button class="button compact" type="button" data-close-dialog="navigation-drawer" aria-label="Close navigation menu" autofocus>Close</button></div>
+    <nav class="drawer-nav" aria-label="Main navigation">
+      <a href="#walkthrough">Walkthrough <span aria-hidden="true">&rarr;</span></a>
+      <a href="#topology">Topology <span aria-hidden="true">&rarr;</span></a>
+      <a href="#evidence">Evidence <span aria-hidden="true">&rarr;</span></a>
+      <a href="#operations">Operations <span aria-hidden="true">&rarr;</span></a>
+      <a href="https://github.com/chadhage/correlation-across-tiers" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository <span aria-hidden="true">&nearr;</span></a>
+    </nav>
+    <div class="drawer-utilities">
+      <button id="theme-toggle" class="button" type="button">Dark theme</button>
+      <button class="button" type="button" data-open-environment>Environment settings</button>
+    </div>
+  </dialog>
   <dialog id="environment-dialog" aria-labelledby="environment-dialog-title">
     <div class="dialog-header"><h2 id="environment-dialog-title">Environment launch URLs</h2><button class="button compact" type="button" data-close-dialog="environment-dialog" aria-label="Close environment settings">Close</button></div>
     <p class="small">Use HTTPS, or HTTP on localhost for local apps. Leave unused fields empty. Base URLs cannot contain credentials, query parameters, or fragments. This site does not contact the configured endpoints.</p>

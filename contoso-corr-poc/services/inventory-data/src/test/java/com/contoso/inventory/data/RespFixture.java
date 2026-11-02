@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.time.Clock;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,7 +16,10 @@ import java.util.concurrent.Executors;
 
 final class RespFixture implements AutoCloseable {
     final Map<String, String> values = new ConcurrentHashMap<>();
+    final Map<String, Long> expiresAt = new ConcurrentHashMap<>();
     final List<List<String>> commands = new CopyOnWriteArrayList<>();
+    volatile java.util.function.Consumer<String> record = operation -> {};
+    private final Clock clock;
     private final List<Socket> clients = new CopyOnWriteArrayList<>();
     private final ServerSocket server;
     private final java.util.concurrent.ExecutorService threads = Executors.newCachedThreadPool(action -> {
@@ -26,6 +30,11 @@ final class RespFixture implements AutoCloseable {
     volatile String error;
 
     RespFixture() throws IOException {
+        this(Clock.systemUTC());
+    }
+
+    RespFixture(Clock clock) throws IOException {
+        this.clock = clock;
         server = new ServerSocket(0, 10, InetAddress.getLoopbackAddress());
         threads.submit(() -> {
             while (!server.isClosed()) {
@@ -57,17 +66,36 @@ final class RespFixture implements AutoCloseable {
                 }
                 commands.add(List.copyOf(command));
                 String name = command.get(0).toUpperCase(java.util.Locale.ROOT);
+                record.accept(name);
+                if (command.size() > 1 && expiresAt.getOrDefault(command.get(1), Long.MAX_VALUE) <= clock.millis()) {
+                    values.remove(command.get(1));
+                    expiresAt.remove(command.get(1));
+                }
                 String response;
-                if (error != null && (name.equals("GET") || name.equals("SETEX"))) response = "-" + error + "\r\n";
+                if (error != null && java.util.Set.of("GET", "SETEX", "SET", "PTTL", "DEL").contains(name)) response = "-" + error + "\r\n";
                 else response = switch (name) {
                     case "PING" -> "+PONG\r\n";
                     case "AUTH", "CLIENT" -> "+OK\r\n";
                     case "GET" -> bulk(values.get(command.get(1)));
                     case "SETEX" -> {
                         values.put(command.get(1), command.get(3));
+                        expiresAt.put(command.get(1), clock.millis() + Long.parseLong(command.get(2)) * 1_000);
                         yield "+OK\r\n";
                     }
-                    case "DEL" -> ":" + (values.remove(command.get(1)) == null ? 0 : 1) + "\r\n";
+                    case "SET" -> {
+                        values.put(command.get(1), command.get(2));
+                        if (command.size() == 5 && command.get(3).equalsIgnoreCase("PXAT")) {
+                            expiresAt.put(command.get(1), Long.parseLong(command.get(4)));
+                        } else if (command.size() == 3) expiresAt.remove(command.get(1));
+                        else throw new IOException("invalid_test_set");
+                        yield "+OK\r\n";
+                    }
+                    case "PTTL" -> ":" + (!values.containsKey(command.get(1)) ? -2 :
+                        expiresAt.containsKey(command.get(1)) ? Math.max(0, expiresAt.get(command.get(1)) - clock.millis()) : -1) + "\r\n";
+                    case "DEL" -> {
+                        expiresAt.remove(command.get(1));
+                        yield ":" + (values.remove(command.get(1)) == null ? 0 : 1) + "\r\n";
+                    }
                     default -> "-ERR forbidden_test_command\r\n";
                 };
                 output.write(response.getBytes(StandardCharsets.UTF_8));

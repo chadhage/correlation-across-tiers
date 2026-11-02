@@ -70,6 +70,153 @@ test("FIXTURE real click emits JS3.4.5 W3C_TRACE Fetch dependency and safe heade
   await expect(page.locator("#execution-mode")).toContainText("FIXTURE");
   await page.screenshot({ path: ".cache/contoso-fixture-storefront.png", fullPage: true });
 });
+test("FIXTURE Demo 01 advertised Run demo submits an order and refreshes its original workflow identity", async ({ page }) => {
+  await page.goto("/fixtures/storefront");
+  await page.evaluate(async () => window.contosoDemos?.ready);
+  await page.locator("#order-sku").fill("CONTOSO-ORIGINAL-WORKFLOW");
+  await page.locator("#order-quantity").fill("3");
+  await page.locator('[data-route="/storefront/demos"]').click();
+  await page.locator("#demo-id").selectOption("1");
+  const mutation = page.waitForResponse(response => response.request().method() === "POST"
+    && ["/contoso/v1/orders", "/contoso/v1/demo-runs"].includes(new URL(response.url()).pathname));
+  await page.getByTestId("contoso-run-demo").click();
+  const response = await mutation;
+  expect(new URL(response.url()).pathname).toBe("/contoso/v1/orders");
+  const command: unknown = response.request().postDataJSON();
+  const runId = isRecord(command) && typeof command.orderId === "string" ? command.orderId : "";
+  expect(runId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+  expect(command).toEqual({ schemaVersion: 1, orderId: runId, sku: "CONTOSO-ORIGINAL-WORKFLOW", quantity: 3 });
+  await expect(page.locator("#result-id")).toHaveText(runId);
+  const result = await page.evaluate(id => window.contosoDemos?.result(id), runId);
+  expect(result?.demoId).toBe(1);
+  expect(result?.outcome).toBe("staged");
+  expect(result?.executionMode).toBe("fixture");
+  expect(result?.backend?.state).toBe("DURABLE_STAGED");
+  const backend = result?.backend;
+  expect(backend?.workflowBusinessInvocationId).toBeTruthy();
+  expect(backend?.workflowBusinessInvocationId).not.toBe(backend?.businessInvocationId);
+  await expect(page.locator("#result-business-id-label")).toHaveText("Current action invocation ID");
+  await expect(page.locator("#result-business-id")).toHaveText(backend?.businessInvocationId ?? "");
+  await expect(page.locator("#result-workflow-business-id")).toHaveText(backend?.workflowBusinessInvocationId ?? "");
+  await expect(page.locator("#result-note")).toContainText("DURABLE_STAGED/202 does not prove");
+  await page.evaluate(async () => window.contosoDemos?.flushTelemetry());
+  const dependencies = await page.evaluate(() => window.contosoDemos?.dependencyIdentities() ?? []);
+  const traceparent = await response.request().headerValue("traceparent");
+  expect(dependencies).toHaveLength(1);
+  expect(dependencies[0]?.runId).toBe(runId);
+  expect(dependencies[0]?.invocationVersion).toBe(result?.invocationVersion);
+  expect(traceparent).toContain(`${dependencies[0]?.traceId}-${dependencies[0]?.spanId}`);
+  const refreshed = page.waitForResponse(value => value.request().method() === "GET"
+    && ["/contoso/v1/orders", "/contoso/v1/demo-runs"].some(path => new URL(value.url()).pathname === `${path}/${runId}`));
+  await page.locator("#refresh-result").click();
+  expect(new URL((await refreshed).url()).pathname).toBe(`/contoso/v1/orders/${runId}`);
+  await expect(page.locator("#result-business-id")).toHaveText(backend?.workflowBusinessInvocationId ?? "");
+  await expect(page.locator("#result-business-id-label")).toHaveText("Workflow invocation ID");
+  await expect(page.locator("#error-banner")).toBeHidden();
+});
+test("FIXTURE Demo 01 browser driver captures only the current order dependency, never staged-demo or prior-run telemetry", async ({ page }) => {
+  await page.goto("/fixtures/storefront");
+  const spec = { schemaVersion: 1 as const, runId: randomUUID(), demoId: 1, kind: "demo" as const,
+    sku: "CONTOSO-001", quantity: 1 };
+  const first = await driveContosoBrowser(page, spec);
+  const second = await driveContosoBrowser(page, { ...spec, runId: randomUUID() });
+  for (const evidence of [first, second]) {
+    expect(evidence.evidenceKind).toBe("fixture");
+    expect(evidence.outcome).toBe("staged");
+    expect(evidence.backendState).toBe("DURABLE_STAGED");
+    expect(evidence.backendId).toBe(evidence.runId);
+    expect(evidence.observations).toHaveLength(1);
+    expect(evidence.observations[0]?.path).toBe("/contoso/v1/orders");
+    expect(evidence.dependencies).toHaveLength(1);
+    expect(evidence.dependencies[0]?.runId).toBe(evidence.runId);
+    expect(evidence.dependencies[0]?.invocationVersion).toBe(evidence.invocationVersion);
+    expect(evidence.observations[0]?.traceparent)
+      .toContain(`${evidence.dependencies[0]?.traceId}-${evidence.dependencies[0]?.spanId}`);
+  }
+  expect(second.invocationVersion).toBe(first.invocationVersion + 1);
+  expect(second.dependencies[0]?.spanId).not.toBe(first.dependencies[0]?.spanId);
+  expect(second.businessInvocationId).not.toBe(first.businessInvocationId);
+});
+for (let demoId = 3; demoId <= 15; demoId++) {
+  test(`FIXTURE Demo ${String(demoId).padStart(2, "0")} retains its staged demo route and request contract`, async ({ page }) => {
+    await page.goto("/fixtures/storefront");
+    const spec = { schemaVersion: 1 as const, runId: randomUUID(), demoId, kind: "demo" as const,
+      scenario: "SYNC" as const, failureBudget: 0 };
+    const mutation = page.waitForResponse(response => response.request().method() === "POST"
+      && ["/contoso/v1/orders", "/contoso/v1/demo-runs"].includes(new URL(response.url()).pathname));
+    const evidence = await driveContosoBrowser(page, spec);
+    const response = await mutation;
+    expect(new URL(response.url()).pathname).toBe("/contoso/v1/demo-runs");
+    expect(response.request().postDataJSON()).toEqual({
+      schemaVersion: 1, runId: spec.runId, demoId, scenario: "SYNC", failureBudget: 0
+    });
+    expect(evidence.evidenceKind).toBe("fixture");
+    expect(evidence.outcome).toBe("staged");
+    expect(evidence.observations).toHaveLength(1);
+    expect(evidence.observations[0]?.path).toBe("/contoso/v1/demo-runs");
+    expect(evidence.dependencies).toHaveLength(1);
+    expect(evidence.dependencies[0]?.runId).toBe(spec.runId);
+  });
+}
+test("FIXTURE Demo 02 remains a Portal-only action rather than a Storefront mutation", async ({ page }) => {
+  await page.goto("/fixtures/storefront");
+  await expect(page.locator('#demo-id option[value="2"]')).toHaveJSProperty("disabled", true);
+  const before = (await summary(page)).observations.length;
+  const code = await page.evaluate(async () => {
+    await window.contosoDemos?.ready;
+    try { window.contosoDemos?.prepare({ schemaVersion: 1, runId: crypto.randomUUID(), demoId: 2, kind: "demo" }); }
+    catch (error: unknown) {
+      return typeof error === "object" && error !== null && "code" in error ? String(error.code) : "unknown";
+    }
+    return "unexpected";
+  });
+  expect(code).toBe("REQUEST_INVALID");
+  expect((await summary(page)).observations).toHaveLength(before);
+});
+test("FIXTURE Demo 01 validates the genuine order payload before sending any business request", async ({ page }) => {
+  await page.goto("/fixtures/storefront");
+  const before = (await summary(page)).observations.length;
+  for (const input of [{ sku: "invalid", quantity: 1 }, { sku: "CONTOSO-001", quantity: 0 }]) {
+    const spec = { schemaVersion: 1 as const, runId: randomUUID(), demoId: 1, kind: "demo" as const, ...input };
+    const evidence = await driveContosoBrowser(page, spec);
+    expect(evidence.outcome).toBe("rejected");
+    expect(evidence.backendId).toBeUndefined();
+    expect(evidence.observations).toHaveLength(0);
+    expect(evidence.dependencies).toHaveLength(0);
+    expect(await page.evaluate(id => window.contosoDemos?.result(id)?.errorCode, spec.runId)).toBe("REQUEST_INVALID");
+  }
+  expect((await summary(page)).observations).toHaveLength(before);
+});
+test("FIXTURE Demo 01 interaction-required authentication produces no business request", async ({ page }) => {
+  await page.goto("/fixtures/auth-interaction");
+  const before = (await summary(page)).observations.length;
+  const evidence = await driveContosoBrowser(page, { schemaVersion: 1, runId: randomUUID(), demoId: 1, kind: "demo" });
+  expect(evidence.outcome).toBe("rejected");
+  expect(evidence.backendId).toBeUndefined();
+  expect(evidence.observations).toHaveLength(0);
+  expect(evidence.dependencies).toHaveLength(0);
+  expect((await summary(page)).observations).toHaveLength(before);
+  await expect(page.locator("#error-banner")).toContainText("AUTH_INTERACTION_REQUIRED");
+});
+for (const fixture of ["disabled", "disallowed", "inactive"] as const) {
+  test(`FIXTURE Demo 01 ${fixture} guard fences programmatic order submission`, async ({ page }) => {
+    await page.goto(`/fixtures/demo01-${fixture}`);
+    await page.evaluate(async () => window.contosoDemos?.ready);
+    if (fixture !== "disallowed") await expect(page.getByTestId("contoso-run-demo")).toBeDisabled();
+    const before = (await summary(page)).observations.length;
+    const result = await page.evaluate(async () => {
+      const controller = window.contosoDemos;
+      if (!controller) throw new Error("FIXTURE_CONTROLLER_REQUIRED");
+      controller.prepare({ schemaVersion: 1, runId: crypto.randomUUID(), demoId: 1, kind: "demo" });
+      return controller.run();
+    });
+    expect(result?.outcome).toBe("rejected");
+    expect(result?.errorCode).toBe("CERT_WINDOW_INACTIVE");
+    expect(result?.backend).toBeUndefined();
+    expect((await summary(page)).observations).toHaveLength(before);
+    expect(await page.evaluate(() => window.contosoDemos?.dependencyIdentities())).toHaveLength(0);
+  });
+}
 test("FIXTURE SDK route tracking sends page-view telemetry without unsafe URL query/fragment", async ({ page }) => {
   await page.goto("/fixtures/storefront");
   await page.locator('[data-route="/storefront/demos"]').click();

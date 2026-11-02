@@ -1,6 +1,6 @@
 {
   "schema": "contoso.acceptance-scopes.v1",
-  "sourceBacklogSha256": "9a582025d7dbf1bccbf4806e0e6edab3fa66e56e26713b0b6550d800346ca022",
+  "sourceBacklogSha256": "ab4b210ad8df0190c56b9e29d6790366f8f932b56302953df704b6070a99ab24",
   "authority": "Prompt, Brief and approved construction/completion distinction; source review is not live acceptance",
   "sourceAcceptanceIsCertification": false,
   "boundedLocalEvidenceAnnotations": {

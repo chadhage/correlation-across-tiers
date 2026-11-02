@@ -190,6 +190,26 @@ test('receipt checks distinguish exact bytes, changed records, missing records a
   }
 });
 
+test('header navigation lives in a hamburger-controlled modal drawer at every viewport', async () => {
+  const template = await readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8');
+  const header = template.match(/<header\b[^>]*>([\s\S]*?)<\/header>/)[1];
+  assert.match(header, /id="navigation-toggle"[^>]+aria-controls="navigation-drawer" aria-expanded="false" aria-haspopup="dialog"/);
+  assert.doesNotMatch(header, /<nav\b|id="theme-toggle"|data-open-environment/);
+  const drawer = template.match(/<dialog id="navigation-drawer"[^>]*>([\s\S]*?)<\/dialog>/)[1];
+  assert.match(drawer, /aria-label="Close navigation menu" autofocus/);
+  assert.match(drawer, /<nav class="drawer-nav" aria-label="Main navigation">/);
+  assert.match(drawer, /href="https:\/\/github\.com\/chadhage\/correlation-across-tiers" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository \(opens in a new tab\)"/);
+  for (const id of ['walkthrough', 'topology', 'evidence', 'operations']) {
+    assert.match(drawer, new RegExp(`href="#${id}"`));
+    assert.match(template, new RegExp(`<section id="${id}"[^>]+tabindex="-1"`));
+  }
+  assert.match(drawer, /id="theme-toggle"/);
+  assert.match(drawer, /data-open-environment/);
+  assert.equal((template.match(/id="navigation-toggle"/g) ?? []).length, 1);
+  assert.equal((template.match(/id="navigation-drawer"/g) ?? []).length, 1);
+  assert.match(template, /prefers-reduced-motion: reduce/);
+});
+
 test('standalone output embeds source data safely, applies the required theme, and blocks network connections', async () => {
   const [template, script] = await Promise.all([
     readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8'),

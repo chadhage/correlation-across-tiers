@@ -1,18 +1,25 @@
 {
   "schema": "contoso.board-acceptance.v1",
-  "revision": 49,
+  "revision": 59,
   "defaultStatus": "To Do",
   "phaseAwareConstructionApproved": true,
   "explicitActiveFacetsRequired": true,
   "acceptancePolicy": "config\\acceptance-scopes.json",
   "implementationAssignments": {
-    "approval": "USER reassign_existing",
+    "approval": "USER independent_nine_roles",
     "owners": {
-      "R1": "R3",
-      "R6": "R5"
+      "R1": "R1",
+      "R2": "R2",
+      "R3": "R3",
+      "R4": "R4",
+      "R5": "R5",
+      "R6": "R6",
+      "R7": "R7",
+      "R8": "R8",
+      "R9": "R9"
     }
   },
-  "currentImplementationRouting": {
+  "historicalImplementationRouting": {
     "originalRoleCount": 9,
     "additionalAgents": 0,
     "stoppedOriginalWriters": [
@@ -46,7 +53,127 @@
     },
     "acceptanceNote": "Logical backlog ownership/kickoff remain unchanged. WIP and priority use current physical implementation roles; aliases cannot authorize self-review or native acceptance."
   },
+  "currentImplementationRouting": {
+    "mode": "USER independent_nine_roles",
+    "coordinator": "current-parent-session",
+    "specialistRoleCount": 9,
+    "historicalAgentsResumed": false,
+    "activatedAtUtc": "2026-11-02T07:26:20.7062724Z",
+    "candidateSourceSha256": "87d39c458c7765f2f3f24c51464c2a57c6552fa8a55e631f3853948d81470d67",
+    "candidateTestSha256": "6153ab8cebb24de94af45d1224429bb4b2eeff1abe3bf44f1805d707e2e6a54b",
+    "rosterPolicyAuthorAgentId": "e6fb57af-7b70-454f-bb08-6bd2b36c520b",
+    "completedJavaGatePacketAgentId": "4c8f6296-62c5-4a89-99d0-251c5a3762f3",
+    "independentReviews": {
+      "R1": {
+        "agentId": "20d43c25-9799-47da-9f6c-04360680597e",
+        "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+        "tests": 40,
+        "failed": 0,
+        "skipped": 0
+      },
+      "R7": {
+        "agentId": "f70fad79-3ed3-4fff-8a77-244affd535fe",
+        "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+        "tests": 40,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "roles": {
+      "R1": "20d43c25-9799-47da-9f6c-04360680597e",
+      "R2": "9a2f298f-0c0d-4cf0-ad31-237da4327500",
+      "R3": "1def135f-ccc7-4506-b347-57d9f88b4931",
+      "R4": "473a7449-5198-4979-88b8-ef4723a2c779",
+      "R5": "ae2be883-38d3-4f5e-9849-3a7ad488cf7c",
+      "R6": "9dee8e24-a6ea-46d7-b6bc-117f6f7c52c1",
+      "R7": "f70fad79-3ed3-4fff-8a77-244affd535fe",
+      "R8": "7d97f83f-2c1b-4481-8873-037ae252a5a9",
+      "R9": "3a7bd87b-4f44-4e16-a1ac-f4f4b6091ee6"
+    },
+    "acceptanceNote": "Nine fresh task identities were reconciled by the coordinator. R1/R7 independently executed the exact frozen R9 policy candidate. This activates construction ownership only; source/unit reviews, roster labels and agent IDs do not grant native authority, organizational signoff or card completion."
+  },
   "executableCards": [],
+  "swarmPlan": {
+    "source": "..\\.docs\\wiki\\Contoso_E2E_Correlation_POC_Backlog.md#swarm-execution-plan",
+    "status": "ACTIVE_CONSTRUCTION",
+    "targetIndependentRoleOwners": 9,
+    "currentDistinctImplementationLanes": 9,
+    "rosterPolicyTransitionRequiredBeforeNineWriterExecution": false,
+    "parentCards": 78,
+    "childTasks": 6,
+    "acceptanceClauses": 281,
+    "requiredFacetChecks": 491,
+    "scheduling": "event-driven-ready-facets-with-concurrent-build-capture-analysis-review",
+    "exclusiveMutableResourceLeasesRequired": true,
+    "dispatchState": "WAITING_FOR_APPROVED_TARGET_AND_NATIVE_INTERFACE_DESIGN",
+    "activeImplementationPackets": 0,
+    "activeAssignmentsChanged": true,
+    "nativeTrafficOrDeploymentAuthorized": false,
+    "cardCompletionGranted": false
+  },
+  "readOnlyAzureReadiness": {
+    "authorization": "USER read_only_azure_readiness",
+    "subscriptionId": "474c40eb-d385-40d8-baa2-06883dbdca2d",
+    "checkedAtUtc": "2026-11-02T13:18:10.7922531Z",
+    "expectedResourceGroup": "contoso-corr-poc-rg-fdb27c",
+    "expectedResourceGroupExists": false,
+    "resourceFilter": "Expected frozen resource group, or resource name starting contoso-corr-poc/contosocorrpoc, within the approved subscription only",
+    "matchingResourceCount": 0,
+    "totalMatchingRecords": 0,
+    "resultTruncated": false,
+    "skipTokenPresent": false,
+    "sources": [
+      "Explicitly subscription-scoped Azure CLI resource-group existence query",
+      "Validated Azure MCP Resource Graph query with executed-query correspondence",
+      "Explicitly subscription-scoped single-line Azure CLI Resource Graph cross-check"
+    ],
+    "projection": [
+      "id",
+      "name",
+      "type",
+      "resourceGroup",
+      "location",
+      "provisioningState"
+    ],
+    "discardedNonconformingCliOutput": true,
+    "secretsAccessed": false,
+    "resourcesChanged": false,
+    "applicationTrafficGenerated": false,
+    "nativeEvidenceAuthorityGranted": false,
+    "nextAction": "Supply a different approved existing POC target or prepare a separately approved deployment/budget/quota/identity plan. No matching frozen-name deployment is available for full-chain native qualification."
+  },
+  "offlineJavaPackageIntegration": {
+    "scope": "offline-incremental-package-integration-only",
+    "command": "mvn -o -B -ntp -DskipTests package",
+    "modules": 11,
+    "sourcePomAndResourceInputs": 193,
+    "sourceInputsStableBeforeAfter": true,
+    "sourceManifestSha256": "1e6b252ec39018559a0da76dad1bf84b473212da8fc291ee8c4901cda7f79368",
+    "inventoryDataJarSha256": "00ec329cb9fbd998b6be255f5e6697dbd6260523ff4f1a4edc5772f5393e8727",
+    "fixtureRunStdioAndRestorableClassesActuallyPackaged": true,
+    "testsExecuted": false,
+    "cleanReactorEpoch": false,
+    "actualOperatorClasspathOrHostedStartupQualified": false,
+    "nativeOrAzureExecution": false,
+    "certificationEligible": false
+  },
+  "currentLocalSwarmValidation": {
+    "nodeRegressionCommand": "npm test -- --test-reporter=spec --test-concurrency=2",
+    "nodeTestsPassed": 491,
+    "nodeTestsFailed": 0,
+    "nodeTestsSkipped": 0,
+    "nodeTestsCancelled": 0,
+    "focusedVerificationCommand": "npm run verify:focused",
+    "focusedNodeTestsPassed": 182,
+    "focusedDeclaredSourcesVerifiedBeforeAfter": true,
+    "focusedArtifact": "evidence\\verification\\focused\\20261102T133514133Z-809b7c39-3feb-4d02-a738-7663402c21a3\\preparation-tests.json",
+    "focusedArtifactSha256": "81d41b4df1103cd97bf2a9d28af5711f04dc26780c2235dcf22fe1d56f0be7f4",
+    "scope": "Current local source/fixture regression only; focused source closure is narrower than a deployed/runtime proof",
+    "numericVerifyClaimsStillOpen": 628,
+    "formalLiveExecutorEnrolled": false,
+    "wholeClauseOrCardCompletionGranted": false,
+    "certificationStatus": "NOT CERTIFIED"
+  },
   "acceptedLocalEvidenceRegister": {
     "artifact": "config\\verification-register.v1.json",
     "ordersNode": "boundedLocalEvidence.ordersConditionalV7",
@@ -109,10 +236,10 @@
     }
   },
   "sourceHashes": {
-    "backlog": "9300162217a9dba103e7325f6fea61e624ccb295fa67426e7b9ff58e11f58654",
-    "kanban": "a177e7a969ad846616c928d90bb7ffb014ae7c30145c50d4816bb1aa9bf81cc4"
+    "backlog": "ab4b210ad8df0190c56b9e29d6790366f8f932b56302953df704b6070a99ab24",
+    "kanban": "0b47902a8e200facbc0a03de524ec81367862d169df80c41bd27c8784eb3a25c"
   },
-  "currentReadiness": {
+  "historicalReadinessAtPriorKickoff": {
     "R1": "Original R1 implementation STOP/read-review-only. Existing R3 is acting Root R1; preserve original drafts and route Root writes/reviews through the approved assignment.",
     "R2": "Current reset17ff/56/delta2 source frozen; BOTH original R7 c207 and R3 cad5 finite source26/real Chromium reset counter1 reviews accepted. Owner build26/Chromium8/packaging3/new36 are distinct finite epochs, not whole36 restore/smoke or old5655 promotion. Implementation drained/review-only; WEB01 stays ToDo pending deployed/native/owner clauses. Original generic f7/D3fa and supporting async3455 source/Node reviews accepted separately; no Java/native review execution inferred.",
     "R3": "ACTING R1 Rootv4 d9f584 own21+13modules+1R7artifact=35 frozen; original R5/R8 both finite source25 reviews accepted, R5 independently pinned main/params compilation with6BCP081 lines each. Existing Workbook58797 is now wired to the sole telemetry input and actual root output, not Azure imported/rendered. Implementation drained/read-review-only. Original supporting async3455 source24 and sampler9d24 source35 reviews accepted finite; no Java/native rerun or card Done.",
@@ -165,14 +292,14 @@
       "criteria": [
         {
           "index": 2,
-          "result": "PASS",
+          "result": "INVALIDATED",
           "scope": "unit",
           "artifact": "evidence\\reviews\\code-r9.json",
           "sha256": "954f3896091ba03ee2899b8080d1efc5d1e3338bfe0a8c047392a0bc62b4dc1d"
         },
         {
           "index": 3,
-          "result": "PASS",
+          "result": "INVALIDATED",
           "scope": "unit",
           "artifact": "evidence\\reviews\\code-r9.json",
           "sha256": "954f3896091ba03ee2899b8080d1efc5d1e3338bfe0a8c047392a0bc62b4dc1d"
@@ -181,7 +308,9 @@
       "reviews": [
         {
           "role": "R9",
-          "result": "accepted",
+          "result": "invalidated",
+          "previousResult": "accepted",
+          "reason": "Current APIM protocol and policy-expression regressions changed the original reviewed source scope. Preserve the receipt as historical; require fresh current-source review.",
           "reviewKind": "code",
           "reviewedOwnerRole": "R3",
           "artifact": "evidence\\reviews\\code-r9.json",
@@ -189,6 +318,15 @@
           "scopeSha256": "e8b4e8d349c7fa21a5aa8bf99bb07d588c3b72a471ccd097ebd738c488d4ce23"
         }
       ],
+      "currentUnitSourceInvalidation": {
+        "changedSources": [
+          "tests\\apim\\protocol.test.mjs",
+          "tests\\apim\\policy-expressions.test.mjs",
+          "apim\\policies\\fragments\\contoso-context-v1.xml"
+        ],
+        "reason": "The swarm corrected CLR tracestate key end anchoring and added source-bound regressions. Original passing clauses 2/3 and their review remain historical, not current-source acceptance.",
+        "nextAction": "Obtain fresh complete-scope independent review and its actual execution receipt; do not rehash or relabel the old receipt."
+      },
       "completionSources": [
         "apim\\README.md",
         "apim\\demo03-cases.v1.json",
@@ -655,17 +793,44 @@
     "DAT-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "corrected-source-ready-parent-build-owned",
-      "constructionReady": true,
-      "nextAction": "Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance. Planned child DAT-01.1 supplies run-owned cold-cache preparation/reset after reviewed data interfaces and separately approved real-store prerequisites; this planning update does not unfreeze or execute native work.",
+      "phase": "single-fixture-construction-frozen-review-and-native-blocked",
+      "constructionReady": false,
+      "nextAction": "R6 supplied single-fixture preparation/reset and a fixed stdio bridge; independent review found a retry defect, which was reproduced and corrected. Author and independent R8 each passed 51 CPU plus 15 source controls on the corrected frozen inputs. Do not repeat this completed live-handle construction slice. Reset still needs the original handle: decide and implement reviewed authenticated durable recovery before claiming saved-run Reset.ps1 support. Actual operator runtime/auth/private targets and native qualification remain separate.",
       "waitingOn": [
-        "Parent current full-root source/execution/artifact and actual installed-consumer/USED handoff",
-        "Native actual default Data/identity/private TLS/role/grant/global/owner evidence"
+        "Reviewed authenticated durable cross-process recovery operation",
+        "Actual built hash-pinned integrated classpath, approved operator identity/resources and native window"
       ],
+      "constructionHandoff": {
+        "result": "CORRECTED_LIVE_HANDLE_CONSTRUCTION_INDEPENDENTLY_VERIFIED",
+        "authorAgentId": "9dee8e24-a6ea-46d7-b6bc-117f6f7c52c1",
+        "localCpuTestsPassed": 51,
+        "sourceControlsPassed": 15,
+        "independentReviewerAgentId": "b98d05f0-140e-401b-af9e-bd6fd5e8ba7c",
+        "independentCpuTestsPassed": 51,
+        "independentSourceControlsPassed": 15,
+        "testedSourceFiles": 42,
+        "testedSourceManifestSha256": "10e6efc443afb5fbe3d17338eda15211354b367a300336031692267d3b1f8923",
+        "historicalFirstSourceManifestSha256": "ff380ca0fc49ade5d9cc1d13c2d0bfddd1fd1cf211a8b50faf44af3efa44eb2e",
+        "resetRetryCorrection": {
+          "finding": "Cache restore failure before mutation after SQL restoration prevented an explicit live-handle retry",
+          "oldRegressionTests": 1,
+          "oldRegressionErrors": 1,
+          "newRegressionTestsPassed": 1,
+          "correctedRunSourceSha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041",
+          "correctedContractSha256": "d65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626",
+          "independentCorrectionAcceptance": "ACCEPTED_LOCAL_H2_RESP_FAULT_STANDINS_ONLY"
+        },
+        "durableRecoveryImplemented": false,
+        "requiresOriginalLiveHandleForReset": true,
+        "nativeOrAzureAcceptanceGranted": false,
+        "wholeClauseOrChildCompleted": false
+      },
       "completionWaitingOn": [
         "INF-05/JVM-01 completion",
         "Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans",
-        "Two accepted current source reviews"
+        "Two accepted current source reviews",
+        "Current full-root source/execution/artifact and actual installed-consumer/USED handoff",
+        "Native actual default Data/identity/private TLS/role/grant/global/owner evidence"
       ],
       "criteria": [],
       "reviews": []
@@ -673,11 +838,34 @@
     "OBS-02": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "child-task-planned",
-      "nextAction": "Implement OBS-02.1 through the existing raw-query/intake path. Qualify one complete Demo 01 invocation after DEM-01.1 and DAT-01.1, using actual authorized browser/Gateway/backend/data observations rather than expected-map IDs or caller JSON authority.",
+      "phase": "collector-construction-frozen-native-source-blocked",
+      "constructionReady": false,
+      "nextAction": "R7 supplied the collector/raw-source binding and cancellation controls; author and coordinator independently passed the same 39 focused checker tests. Independent source review is in progress. Obtain real enrolled query/transport and independent emission/canary/wire observers plus approved target/auth/window before native qualification; do not relabel fixture or caller JSON as source authority.",
       "waitingOn": [
+        "Current independent collector/provenance source review",
+        "Actual independently enrolled authenticated query/transport capability",
+        "Concrete independent emission/canary/gateway-wire observer and separately approved target/auth/window"
+      ],
+      "constructionHandoff": {
+        "result": "CHECKER_CONSTRUCTION_VERIFIED_NATIVE_NOT_RUN",
+        "authorAgentId": "f70fad79-3ed3-4fff-8a77-244affd535fe",
+        "authorFocusedTestsPassed": 39,
+        "coordinatorFocusedTestsPassed": 39,
+        "independentSourceReviewerAgentId": "5b129051-100e-4591-b1ef-ce6558b32451",
+        "independentScopedTestsPassed": 20,
+        "independentSourceReview": "ACCEPTED_CURRENT_FAIL_CLOSED_CONSTRUCTION_ONLY",
+        "futureAuthenticatedNativeProducerAuthorityQualified": false,
+        "collectorSourceSha256": "dcb5f95d247a385c6760a595ef97073613ea927f70e125f9e42dfc3966cb82ad",
+        "rawQuerySourceSha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+        "nativeExecutorEnrolled": false,
+        "nativeOrAzureAcceptanceGranted": false,
+        "wholeClauseOrChildCompleted": false
+      },
+      "completionWaitingOn": [
         "Reviewed DEM-01.1 routing and DAT-01.1 deterministic real-store preparation",
-        "Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window"
+        "Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window",
+        "Actual enrolled native observer and exact live query/carrier/SDK/source correspondence",
+        "All parent completion dependencies and current independent source reviews"
       ],
       "criteria": [],
       "reviews": []
@@ -685,11 +873,39 @@
     "DEM-00": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "child-tasks-planned",
-      "nextAction": "Ship DEM-00.1 as the concrete supplied Demo 01 adapter using OBS-02.1, DAT-01.1 and DEM-01.1 outputs; then prove DEM-00.2 two-cycle and interrupted-run recovery. Do not require the presenter to implement an adapter. Both children remain To Do; native execution needs its own approved bounded window.",
+      "phase": "supplied-operation-subset-frozen-full-adapter-blocked",
+      "constructionReady": false,
+      "nextAction": "R9 supplied browser/privacy operations and a source-only construction report; author and coordinator each passed 29 focused construction/runner controls. The report intentionally exits 2 and does not export createAdapter/v1 because five real operations remain absent. Complete those reviewed production operations before advertising a runnable native adapter, then obtain actual two-cycle/interrupted-run evidence.",
       "waitingOn": [
+        "Independent emission/canary/gateway-wire operation supplying actual execution expectation, ledger and proof artifacts",
+        "Independently enrolled authenticated query/transport capability",
+        "Reviewed native sampling apply/observe/restore/stop operations and complete participant observer",
+        "Independently reviewed bridge and actual hash-pinned integrated classpath/operator authentication/resources",
+        "Reviewed authenticated durable recovery callable by a new Reset.ps1 process"
+      ],
+      "constructionHandoff": {
+        "result": "PARTIAL_OPERATIONS_VERIFIED_FULL_ADAPTER_BLOCKED",
+        "authorAgentId": "3a7bd87b-4f44-4e16-a1ac-f4f4b6091ee6",
+        "authorFocusedTestsPassed": 29,
+        "coordinatorFocusedTestsPassed": 29,
+        "runtimeConstructionSourceSha256": "73da91cc755d955f0bab254ce5b11875ba87f4e09e54f9fd63e78e032b8c782b",
+        "historicalFirstRuntimeConstructionSourceSha256": "df86e59d8d02eca4bf151fdf2df78fce2287b26bead3d001ddf07a105255f278",
+        "browserHelperSourceSha256": "f77dc6e4618f7a71ece8b3a4ab9749570fb78db5c8a26cd7a8a895e59985e690",
+        "exportsCompleteV1Adapter": false,
+        "correctedDataContractAdopted": true,
+        "sourceRetakeRequired": false,
+        "sourceRetakeReason": "After R8 independently accepted the corrected live-handle source, the coordinator authorized R9's actual local rebinding retake. Fresh 8-positive/14-negative/29-combined tests passed; the old epoch remains historical.",
+        "retakeLocalInputCount": 452,
+        "retakeLocalInputManifestSha256": "2afbfe4e9cc1fe2968f7d65f1f0f7ab32f43a9aa9a9dd9826d1266cc6897d4ac",
+        "retakeInputHashesStableBeforeAfter": true,
+        "nativeOrAzureAcceptanceGranted": false,
+        "wholeClauseOrChildCompleted": false
+      },
+      "completionWaitingOn": [
         "Reviewed OBS-02.1, DAT-01.1, DEM-01.1 and OBS-01 interfaces",
-        "Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window"
+        "Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window",
+        "Actual native observer enrollment, full required boundaries, privacy and two-cycle/interrupted-run reset evidence",
+        "All parent completion dependencies and current independent source reviews"
       ],
       "criteria": [],
       "reviews": []
@@ -697,10 +913,37 @@
     "DEM-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "child-task-planned",
-      "nextAction": "Implement DEM-01.1: route the advertised Demo 01 action through order submission and add the browser-to-Orders/Inventory/data CLIENT regression. Preserve other demo routes and label local data substitutes honestly; OBS-02.1 separately proves the deployed full path.",
+      "phase": "routing-fixture-qualified-native-blocked",
+      "constructionReady": false,
+      "nextAction": "The advertised Demo 01 action, browser driver, telemetry scope and refresh path now use order submission. R1 passed 28 focused fixtures; R2 independently passed 16 on the same frozen source/output epoch. Do not repeat this completed construction packet or count it as Java/data/APIM proof. Next obtain reviewed real-store preparation/collector/adapter and separately approved native source/target/window, then execute full parentage and repeated/reset acceptance.",
       "waitingOn": [
-        "Reviewed browser/Gateway/JVM-04 route contracts and two-JVM data fixture interfaces"
+        "Reviewed concrete DAT-01.1, OBS-02.1 and DEM-00.1 native operation handoffs",
+        "Actual independently authorized deployed source/target/identity and bounded native execution window",
+        "Complete current independent source reviews and all parent completion dependencies"
+      ],
+      "constructionHandoff": {
+        "result": "BROWSER_FIXTURE_VERIFIED_AT_EXECUTION_ONLY",
+        "authorAgentId": "20d43c25-9799-47da-9f6c-04360680597e",
+        "independentExecutorAgentId": "9a2f298f-0c0d-4cf0-ad31-237da4327500",
+        "authorFocusedFixturesPassed": 28,
+        "independentFocusedFixturesPassed": 16,
+        "failed": 0,
+        "skipped": 0,
+        "sourceFiles": 56,
+        "sourceFingerprintSha256": "63598d1095fbfcae2134545e1ed099a0e8bb1edde5860339d0620b280d1f7290",
+        "outputFiles": 42,
+        "outputFingerprintSha256": "aa33488948174fae4cd5bb371bb6ccc963f823434e12dcae37073d438c3bd559",
+        "fingerprintAlgorithm": "Sorted project-relative Windows paths; each row path + NUL + lowercase file SHA256 + LF; SHA256 of concatenated rows",
+        "sourceAndOutputStableAtIndependentExecution": true,
+        "nativeJavaOrDataExecuted": false,
+        "azureAcceptanceGranted": false,
+        "wholeClauseOrChildCompleted": false,
+        "webBuildLease": "RELEASED_AFTER_INDEPENDENT_VERIFICATION"
+      },
+      "completionWaitingOn": [
+        "All DEM-01 completion dependencies and current independent source reviews",
+        "Actual deployed browser/Gateway/backend/PG/Redis parentage and safe native evidence",
+        "Concrete adapter, repeated run/reset, native privacy and accountable acceptance"
       ],
       "criteria": [],
       "reviews": []
@@ -839,6 +1082,19 @@
         "nextAction": "Run fresh focused tests after source-stable candidate handoff; never just update an old receipt hash or promote prior native82/103 scope"
       },
       "latestLocalExecution": {
+        "result": "PASS_AT_EXECUTION_DECLARED_NODE_SCOPE_ONLY",
+        "scope": "Actual current coordinator-run Node verifier/source window; not Java test count, native acceptance or card completion",
+        "artifact": "evidence\\verification\\focused\\20261102T133514133Z-809b7c39-3feb-4d02-a738-7663402c21a3\\preparation-tests.json",
+        "sha256": "81d41b4df1103cd97bf2a9d28af5711f04dc26780c2235dcf22fe1d56f0be7f4",
+        "tests": 182,
+        "passed": 182,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "sourceBeforeAfterVerified": true,
+        "nativeEvidenceAccepted": false
+      },
+      "historicalLocalExecution": {
         "result": "PASS_AT_EXECUTION_CURRENT_CLOSURE_RECHECK_REQUIRED",
         "scope": "Actual R9 Node verifier/source-window only; no native/card completion",
         "artifact": "evidence\\verification\\focused\\20261101T194949889Z-7a1b934e-77cd-4568-a8ea-c595fca13bd9\\preparation-tests.json",

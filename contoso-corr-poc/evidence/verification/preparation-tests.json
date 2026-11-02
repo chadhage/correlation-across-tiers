@@ -6,22 +6,22 @@
   "certificationStatus": "NOT CERTIFIED",
   "command": "node tools\\verification\\run-focused.mjs",
   "nodeVersion": "v22.23.4",
-  "startedAtUtc": "2026-11-02T04:42:33.783Z",
-  "finishedAtUtc": "2026-11-02T04:42:44.793Z",
-  "tests": 144,
-  "passed": 144,
+  "startedAtUtc": "2026-11-02T13:35:14.133Z",
+  "finishedAtUtc": "2026-11-02T13:35:25.085Z",
+  "tests": 182,
+  "passed": 182,
   "failed": 0,
   "cancelled": 0,
   "skipped": 0,
   "sourceDrift": [],
   "sourcesVerified": true,
   "result": "PASS",
-  "beforeSourcesSha256": "f313db9baa17eddb60e171e69dfaf428288df4f09a12efec643d579db39b34af",
-  "afterSourcesSha256": "f313db9baa17eddb60e171e69dfaf428288df4f09a12efec643d579db39b34af",
+  "beforeSourcesSha256": "406a636c2b4379e39756bc799493c6ec84a130c4a7c8b8bd1da386a160743a6a",
+  "afterSourcesSha256": "406a636c2b4379e39756bc799493c6ec84a130c4a7c8b8bd1da386a160743a6a",
   "sources": [
     {
       "path": "config\\acceptance-scopes.json",
-      "sha256": "787e9ac01d62f370d716a77dfeff189390277340ac77b53b987f26f4a2222060"
+      "sha256": "ecea71013a1957b1041a36a73198b633a13d3947c252134cb0532f8fa5bc1a3d"
     },
     {
       "path": "config\\versions.lock.json",
@@ -257,7 +257,7 @@
     },
     {
       "path": "tests\\kanban.test.mjs",
-      "sha256": "c89b302617bc28f62c868188326a976880ef09e2f4acc81672dfc40eab2e4055"
+      "sha256": "6153ab8cebb24de94af45d1224429bb4b2eeff1abe3bf44f1805d707e2e6a54b"
     },
     {
       "path": "tests\\verification\\async-capture-receipts.test.mjs",
@@ -270,6 +270,10 @@
     {
       "path": "tests\\verification\\demo.test.mjs",
       "sha256": "9ddcc0c100afca60208e4238b6c9d1e32e9af099f59d1feada37448d2a282a2b"
+    },
+    {
+      "path": "tests\\verification\\demo01-runtime.test.mjs",
+      "sha256": "1851b5d0ac0113835a0d536efee3f6e51e95f3dc2e88b9778b4e90a67cffd6f9"
     },
     {
       "path": "tests\\verification\\evidence.test.mjs",
@@ -349,7 +353,7 @@
     },
     {
       "path": "tools\\java\\Assert-Startup.ps1",
-      "sha256": "af177b2f1b6809740211bb026c6e5125afe042c82bff0b9d1d4894aba41a4292"
+      "sha256": "8ac5155dc1a87301a4cc5ac2ae8da47eda3ca58b0ea8cf629df0a5f762a209b7"
     },
     {
       "path": "tools\\java\\Freeze-Versions.ps1",
@@ -429,7 +433,7 @@
     },
     {
       "path": "tools\\kanban.mjs",
-      "sha256": "d7d1a75a1a0c695f0f099126a1b2b6033f03a780e773109871532f998ab9f96a"
+      "sha256": "87d39c458c7765f2f3f24c51464c2a57c6552fa8a55e631f3853948d81470d67"
     },
     {
       "path": "tools\\messaging\\async-honesty.mjs",
@@ -456,6 +460,10 @@
       "sha256": "42a57d61fc20afbc99ce8fd04f5b436261bc423769d8a0447307517019b820ed"
     },
     {
+      "path": "tools\\observability\\demo01-collector.mjs",
+      "sha256": "dcb5f95d247a385c6760a595ef97073613ea927f70e125f9e42dfc3966cb82ad"
+    },
+    {
       "path": "tools\\observability\\kql.mjs",
       "sha256": "b3f0e1f97c5560c58e08d6648c2e942a037ec3f4ca9583797696afe1c61fcb3d"
     },
@@ -477,7 +485,7 @@
     },
     {
       "path": "tools\\observability\\raw-query.mjs",
-      "sha256": "3c066c11191bbfb3643c1706ad3b56a5ff5170dbdb4ac682e422d598ad995ff7"
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3"
     },
     {
       "path": "tools\\observability\\runtime-adapters.mjs",
@@ -598,6 +606,14 @@
     {
       "path": "tools\\verification\\acceptance.mjs",
       "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo01-browser.mjs",
+      "sha256": "f77dc6e4618f7a71ece8b3a4ab9749570fb78db5c8a26cd7a8a895e59985e690"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo01-runtime.mjs",
+      "sha256": "73da91cc755d955f0bab254ce5b11875ba87f4e09e54f9fd63e78e032b8c782b"
     },
     {
       "path": "tools\\verification\\async-capture-receipts.mjs",

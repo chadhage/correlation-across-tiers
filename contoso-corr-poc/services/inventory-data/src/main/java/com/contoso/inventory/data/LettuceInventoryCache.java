@@ -16,13 +16,16 @@ import io.lettuce.core.RedisCommandTimeoutException;
 import io.lettuce.core.RedisConnectionException;
 import io.lettuce.core.RedisFuture;
 import io.lettuce.core.RedisURI;
+import io.lettuce.core.SetArgs;
 import io.lettuce.core.SocketOptions;
 import io.lettuce.core.SslVerifyMode;
 import io.lettuce.core.TimeoutOptions;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.resource.DefaultClientResources;
 import io.opentelemetry.api.trace.SpanKind;
+import java.time.Clock;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -33,13 +36,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
 import redis.clients.authentication.entraid.EntraIDTokenAuthConfigBuilder;
 
-public final class LettuceInventoryCache implements OwnedInventoryCache {
+public final class LettuceInventoryCache implements RestorableInventoryCache {
     static final String PREFIX = "contoso:corr:poc:inventory:v1:";
     private final RedisClient client;
     private final StatefulRedisConnection<String, String> connection;
     private final AutoCloseable credentials;
     private final AutoCloseable resources;
     private final String host;
+    private final Clock clock;
     private final AtomicBoolean closed = new AtomicBoolean();
     private volatile boolean healthy;
     private volatile DataErrorKind lastFailure;
@@ -129,11 +133,17 @@ public final class LettuceInventoryCache implements OwnedInventoryCache {
 
     LettuceInventoryCache(String host, RedisClient client, StatefulRedisConnection<String, String> connection,
                           AutoCloseable credentials, AutoCloseable resources) {
+        this(host, client, connection, credentials, resources, Clock.systemUTC());
+    }
+
+    LettuceInventoryCache(String host, RedisClient client, StatefulRedisConnection<String, String> connection,
+                          AutoCloseable credentials, AutoCloseable resources, Clock clock) {
         this.host = host;
         this.client = client;
         this.connection = connection;
         this.credentials = credentials;
         this.resources = resources;
+        this.clock = java.util.Objects.requireNonNull(clock);
         healthy = true;
         lastFailure = null;
     }
@@ -172,6 +182,47 @@ public final class LettuceInventoryCache implements OwnedInventoryCache {
         });
     }
 
+    @Override public Baseline capture(String sku, OperationContext context) {
+        DataValidation.sku(sku);
+        Optional<Value> value = call("GET", context, span -> {
+            String encoded = await(connection.async().get(key(sku)), context);
+            if (encoded == null) return Optional.empty();
+            if (!encoded.matches("[0-9]{1,9}:[0-9]{1,18}")) throw new DataAccessException(DataErrorKind.INTERNAL, false);
+            String[] fields = encoded.split(":");
+            Value parsed = new Value(Integer.parseInt(fields[0]), Long.parseLong(fields[1]));
+            if (!encoded.equals(parsed.available() + ":" + parsed.revision())) {
+                throw new DataAccessException(DataErrorKind.INTERNAL, false);
+            }
+            return Optional.of(parsed);
+        });
+        if (value.isEmpty()) return Baseline.absent();
+        Instant started = clock.instant();
+        long ttl = call("PTTL", context, span -> await(connection.async().pttl(key(sku)), context));
+        if (ttl == -2 || ttl == 0) return Baseline.absent();
+        if (ttl < -2) throw new DataAccessException(DataErrorKind.INTERNAL, false);
+        return new Baseline(value, ttl == -1 ? null : started.plusMillis(ttl));
+    }
+
+    @Override public void restore(String sku, Baseline baseline, OperationContext context) {
+        DataValidation.sku(sku);
+        java.util.Objects.requireNonNull(baseline);
+        Optional<Value> value = baseline.valueAt(clock.instant());
+        if (value.isEmpty()) {
+            invalidate(sku, context);
+            return;
+        }
+        call("SET", context, span -> {
+            Value item = value.orElseThrow();
+            String encoded = item.available() + ":" + item.revision();
+            String reply = baseline.expiresAt() == null
+                ? await(connection.async().set(key(sku), encoded), context)
+                : await(connection.async().set(key(sku), encoded,
+                    new SetArgs().pxAt(baseline.expiresAt().toEpochMilli())), context);
+            if (!"OK".equals(reply)) throw new DataAccessException(DataErrorKind.UNAVAILABLE, true);
+            return null;
+        });
+    }
+
     private <T> T call(String operation, OperationContext context, CacheWork<T> work) {
         if (closed.get() || context == null) throw new DataAccessException(DataErrorKind.UNAVAILABLE, false);
         PgOperations.remainingMillis(context);
@@ -189,7 +240,7 @@ public final class LettuceInventoryCache implements OwnedInventoryCache {
                 DataErrorKind kind = redisKind(failure);
                 lastFailure = kind;
                 span.failure(kind.name());
-                throw new DataAccessException(kind, !operation.equals("GET"));
+                throw new DataAccessException(kind, !java.util.Set.of("GET", "PTTL").contains(operation));
             }
         }
     }

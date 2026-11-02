@@ -193,7 +193,7 @@ test('BOOT-INF SDK resources and unlabelled nested libraries cannot evade admiss
   });
 });
 
-test('startup log guard rejects duplicate loads, transformation failures and exporter rejection', () => {
+test('startup log guard rejects runtime gate failures, duplicate loads, transformation failures and exporter rejection', () => {
     fixture(directory => {
       const file = join(directory, 'startup.log');
       const invoke = () => spawnSync('pwsh', ['-NoProfile', '-File', join(root, 'tools', 'java', 'Assert-Startup.ps1'),
@@ -201,9 +201,11 @@ test('startup log guard rejects duplicate loads, transformation failures and exp
       const loaded = 'CONTOSO_PARENT_SAFE_SAMPLER_LOADED abi=1.65.0 delegate=actual\n';
       writeFileSync(file, loaded);
       assert.equal(invoke().status, 0);
-      for (const invalid of [loaded + loaded, loaded + 'IllegalClassFormatException', loaded + 'exporter rejected telemetry']) {
+      for (const invalid of [loaded + loaded, loaded + 'IllegalClassFormatException', loaded + 'exporter rejected telemetry',
+        loaded + 'java.lang.IllegalStateException: GATE_02_ROLE_MAPPING',
+        loaded + 'java.lang.IllegalStateException: GATE_05_REQUIRED_HTTP_INSTRUMENTATION']) {
         writeFileSync(file, invalid);
-        assert.notEqual(invoke().status, 0);
+        assert.notEqual(invoke().status, 0, invalid);
       }
     });
   });

@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { RAW_TABLES, collectRawTelemetry, decodeLogsQueryResult, renderRawQuery,
+import { RAW_TABLES, collectRawTelemetry, createAzureLogsExecutor, decodeLogsQueryResult, renderRawQuery,
   requireNativeCaptureIdentity, requireNativeQueryResponseIdentity } from '../../tools/observability/raw-query.mjs';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { sha256 } from '../../tools/observability/telemetry-contract.mjs';
 import { scanPrivacy as actualPrivacyScan } from '../../tools/security/telemetry.mjs';
 
 const hash = 'a'.repeat(64);
@@ -179,6 +182,42 @@ test('JSON flags/clones and injected fixtures cannot mint private native capture
   claimed.native = true;
   assert.throws(() => requireNativeCaptureIdentity(claimed), /CAPTURE_NATIVE_IDENTITY_REQUIRED/);
   assert.throws(() => requireNativeQueryResponseIdentity(result([], [])), /CAPTURE_NATIVE_QUERY_RESPONSE_IDENTITY_REQUIRED/);
+});
+
+test('observer selector reaches the private executor receipt but a forged verifier callback cannot authorize even the first query', async () => {
+  const path = fileURLToPath(new URL('../../tools/observability/raw-query.mjs', import.meta.url));
+  const executeQuery = await createAzureLogsExecutor({ workspaceId: input.workspaceId, resourceId,
+    azureCliExecutable: path, azureCliExecutableSha256: sha256(await readFile(path)),
+    allowAzureReads: true, readApprovalRef: 'CPU-adversarial-capability-check-only', observerId: 'fixture-selector-only' });
+  let observed = null;
+  await assert.rejects(collectRawTelemetry(input, { executeQuery, scanPrivacy: actualPrivacyScan,
+    sourceKind: 'azure-monitor-logs', verifyQueryExecutorReceipt: async receipt => {
+      observed = receipt;
+      return { verified: true, authenticatedPeerVerified: true, nativeResponseVerified: true };
+    } }), /E_OBSERVER_CAPABILITY/);
+  assert.equal(observed.observerId, 'fixture-selector-only');
+  assert.equal(observed.certificationEligible, false);
+  assert.equal(observed.sourceVerification, 'R9-independent-tool-auth-and-native-source-receipt-required');
+});
+
+test('aborted collection stops before source reads and does not issue another query after cancellation', async () => {
+  const controller = new AbortController();
+  controller.abort();
+  let calls = 0;
+  const value = fixture();
+  const executeQuery = async request => { calls++; return value.executeQuery(request); };
+  await assert.rejects(collectRawTelemetry({ ...input, signal: controller.signal }, { ...value, executeQuery }), /CAPTURE_ABORTED/);
+  assert.equal(calls, 0);
+  const next = new AbortController();
+  await assert.rejects(collectRawTelemetry({ ...input, signal: next.signal }, {
+    ...value, executeQuery: async request => {
+      calls++;
+      const response = await value.executeQuery(request);
+      next.abort();
+      return response;
+    }
+  }), /CAPTURE_ABORTED/);
+  assert.equal(calls, 1);
 });
 
 test('actual R8 scoped scanner sees original native metadata without granting a global privacy gate', async () => {

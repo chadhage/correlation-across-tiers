@@ -16,16 +16,38 @@ const process = (attempt, overrides = {}) => ({
 });
 const linked = { ...process(1), parentSpanId: null, links: [original, second] };
 
-test('retry checks N failures followed by success as N+1 actual deliveries', () => {
+test('fixture-only retry controls require N failures followed by success as N+1 unfiltered deliveries', () => {
   const expected = { ...original, parentSpanId: original.spanId, injectedFailures: 2, expectedAttempts: 3, terminalOutcome: 'SUCCESS' };
-  assertRetry([process(1, { outcome: 'RETRY' }), process(2, { outcome: 'RETRY' }), process(3)], expected);
-  for (const bad of [
-    [process(2), process(2), process(3)],
-    [process(2), process(3), process(4, { messageId: businessInvocationId })],
-    [process(2), process(3), process(4, { traceId: second.traceId })],
-    [process(1), process(2)],
-    [process(1, { outcome: 'RETRY' }), process(3, { outcome: 'RETRY' }), process(4)]
-  ]) assert.throws(() => assertRetry(bad, expected));
+  const attempts = [process(1, { outcome: 'RETRY' }), process(2, { outcome: 'RETRY' }), process(3)];
+  assertRetry(attempts, expected);
+  assertRetry([...attempts].reverse(), expected);
+  assertRetry([process(1)], { ...expected, injectedFailures: 0, expectedAttempts: 1 });
+  assert.throws(() => assertRetry(attempts, { ...expected, injectedFailures: 1 }), /N failures require N\+1 deliveries/);
+  for (const [bad, error] of [
+    [[attempts[0], { ...attempts[1], attempt: 1 }, attempts[2]], /noncontiguous attempt count/],
+    [[attempts[0], { ...attempts[1], attempt: 3 }, { ...attempts[2], attempt: 4 }], /noncontiguous attempt count/],
+    [attempts.slice(0, -1), /unexpected delivery attempts/],
+    [[...attempts, process(4, { outcome: 'DUPLICATE' })], /unexpected delivery attempts/],
+    [[process(1), attempts[1], attempts[2]], /injected failures did not precede one terminal success/],
+    [[attempts[0], attempts[1], process(3, { outcome: 'RETRY' })], { actual: 'RETRY', expected: 'SUCCESS' }]
+  ]) assert.throws(() => assertRetry(bad, expected), error);
+});
+
+test('retry identity controls keep valid ordinals so each identity assertion must reject its own mutation', () => {
+  const expected = { ...original, parentSpanId: original.spanId, injectedFailures: 2, expectedAttempts: 3, terminalOutcome: 'SUCCESS' };
+  const attempts = [process(1, { outcome: 'RETRY' }), process(2, { outcome: 'RETRY' }), process(3)];
+  for (const [field, invalid] of [
+    ['businessInvocationId', messageId], ['messageId', businessInvocationId],
+    ['traceId', second.traceId], ['parentSpanId', second.spanId]
+  ]) {
+    const changed = attempts.map((value, index) => index === 1 ? { ...value, [field]: invalid } : value);
+    assert.throws(() => assertRetry(changed, expected),
+      { code: 'ERR_ASSERTION', actual: invalid, expected: expected[field] });
+  }
+  assert.throws(() => assertRetry([attempts[0], { ...attempts[1], spanId: attempts[0].spanId }, attempts[2]], expected),
+    /reused PROCESS span/);
+  assert.throws(() => assertRetry([{ ...attempts[0], spanId: original.spanId }, attempts[1], attempts[2]], expected),
+    /reused producer span/);
 });
 
 test('replay must be fresh linked work with preserved business and original identity', () => {
@@ -34,6 +56,9 @@ test('replay must be fresh linked work with preserved business and original iden
     messageId: 'fa72fe2d-4243-4bce-8858-3cb8050a4e26', links: [original]
   };
   assertReplay(replay, original);
+  assert.throws(() => assertReplay({ ...replay, originalMessageId: businessInvocationId }, original),
+    { code: 'ERR_ASSERTION', actual: businessInvocationId, expected: messageId });
+  assert.throws(() => assertReplay({ ...replay, links: [process(1)] }, original), /missing original replay link/);
   for (const overrides of [
     { parentSpanId: original.spanId }, { traceId: original.traceId }, { links: [] },
     { businessInvocationId: replay.messageId }, { messageId },
@@ -65,6 +90,20 @@ test('INTERNAL aggregation validates native causality without inventing consumer
   delete internal.attempt;
   assertLinkedAggregation(internal, [original, second], 2);
   assert.throws(() => assertLinkedAggregation({ ...internal, spanId: original.spanId, traceId: original.traceId }, [original, second], 2));
+});
+
+test('fixture-only four-context fan-in requires every branch PROCESS and result SEND link', () => {
+  const contributors = [process(1), original, process(2), second];
+  const internal = { ...process(3), kind: 'INTERNAL', parentSpanId: null, links: contributors };
+  delete internal.operation;
+  delete internal.attempt;
+  assertLinkedAggregation(internal, contributors, 4);
+  for (let missing = 0; missing < contributors.length; missing++) {
+    assert.throws(() => assertLinkedAggregation({
+      ...internal, links: contributors.filter((_, index) => index !== missing)
+    }, contributors, 4), /missing or invented contributor links/);
+  }
+  assert.throws(() => assertLinkedAggregation(internal, contributors, 3), /unbounded contributors/);
 });
 
 test('synthetic vectors are negative controls, never certification evidence', () => {

@@ -17,6 +17,14 @@ environment launch links. It does not execute demos or access Azure.
 URLs in the site's settings; launch controls remain disabled until configured.
 Source snapshots and local receipt matches are explicitly not certification.
 
+## Storefront Demo 01 routing
+
+The Storefront's Demo 01 action uses ordinary order submission
+(`POST /contoso/v1/orders`) and order refresh, so the existing Orders handler
+can call Inventory. Other SPA demo actions use `/contoso/v1/demo-runs`;
+Demo 02 remains Portal-only. The routing correction has independent loopback
+browser-fixture validation, not deployed Gateway/Java/PostgreSQL/Redis proof.
+
 ## Coherent root
 
 `infra\main.bicep` composes the merged network, telemetry, compute, data,

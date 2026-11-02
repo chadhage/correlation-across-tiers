@@ -1,6 +1,6 @@
 # Contoso End-to-End Correlation POC: atomic kanban
 
-**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 49. No certification is implied by construction progress.
+**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 59. No certification is implied by construction progress.
 **Columns:** Avoid doing · To Do · In Progress · Done
 
 | Avoid doing | To Do | In Progress | Done |
@@ -18,7 +18,135 @@
 7. Bootstrap traffic is NOT CERTIFIED. Final certification requires every applicable facet of all thirteen gates on the frozen deployed environment.
 8. Unranked child checklists decompose parent acceptance; they do not add cards or waive WIP, parent evidence or separately approved native-run requirements.
 
-**Approved implementation routing:** logical R1 → existing R3; logical R6 → existing R5. Original R1/R6 writers are stopped; original R4 is failed and parent/coordinator performs R4 recovery. The original nine-agent roster and logical backlog owners remain historical/unchanged. No new agent or review vote supplies acceptance.
+**Approved implementation routing:** user-approved independent nine-role mode (`USER independent_nine_roles`): logical R1 → R1; logical R2 → R2; logical R3 → R3; logical R4 → R4; logical R5 → R5; logical R6 → R6; logical R7 → R7; logical R8 → R8; logical R9 → R9. Nine distinct current implementation lanes; actual actor identities require independent roster reconciliation. Historical stopped/failed agent IDs are not revived. No roster label enrolls native evidence authority, authorizes deployment/spending/traffic or grants acceptance.
+
+## Swarm execution plan
+
+**Mode: ACTIVE CONSTRUCTION SWARM.** The user authorized launch of one coordinator and nine fresh specialist agents. The exact nine-role policy candidate received independent R1/R7 source/unit acceptance before construction activation; actual fresh task identities are recorded in the board state. This section groups the existing work; it does not add ranked cards, change acceptance, grant native authority or authorize deployment/spending/traffic. The Kanban reproduces this canonical plan.
+
+**Coverage baseline:** 78 unfinished parent cards, six child tasks, 281 acceptance clauses and 491 required facet checks: 63 static, 157 unit, 58 documentation, 202 live and 11 signoff. The exact clause/facet map in `config\acceptance-scopes.json` remains authoritative; these are obligations, not passing results. The 70 ideal-day sizing and 13-day historical dependency estimate are not an execution forecast: approvals, runtime support and live evidence have no verified completion date.
+
+### Staffing and independent review
+
+Use nine independently staffed logical roles, one implementation card/facet per owner at a time; nine is the implementation WIP ceiling, not a requirement to keep unsafe or stalled work active. Review/test an unrelated frozen handoff when no eligible implementation facet remains. The two reviewers below must be different actual people/agents from the author and from each other; a coauthor cannot count as an independent reviewer.
+
+| Role | First eligible facet sequence, not a start authorization | Exclusive write lease | Independent reviewers |
+|---|---|---|---|
+| R1 | GATE-07 local checks; GATE-11 reproducible deployment construction; ADR-01/ARC-01/ADR-02 interface handoffs | Root composition, frozen names/map, architecture/decision and operator documents | R3, R8 |
+| R2 | WEB-01 current browser evidence; WEB-02 origin/CORS negatives; WEB-03 SSR | Browser/SSR surfaces and their tests; release the Demo 01 route file to its named child executor when leased | R3, R7 |
+| R3 | GATE-01 source/negative controls; INF-04/API-01/API-02 actual gateway bindings | APIM modules/policies, OpenAPI and protocol tools/tests | R2, R8 |
+| R4 | GATE-02 and GATE-05 current loaded-byte/provider checks; JVM-05 coherent reactor/build handoff | Java API/core, sampler/compute tooling, root Maven/version/package integration | R6, R9 |
+| R5 | GATE-09 attempt/link controls; INF-06/MSG-01 transport construction | Messaging-core, workers and messaging infrastructure/tests | R3, R6 |
+| R6 | INF-05 deployment/connectivity construction; DAT-01.1 cold-cache preparation and DAT-01/DAT-02 | Inventory data adapters, migrations/grants and data infrastructure/tests | R4, R8 |
+| R7 | INF-01 telemetry inputs; OBS-03/OBS-01; OBS-02.1 collector | Telemetry/sampling/query tooling, KQL and workbooks | R2, R9 |
+| R8 | GATE-03 secret checks; GATE-04/GATE-10 intake/identity controls; INF-02 | Security/identity code, Key Vault/access/retention tooling and privacy tests | R4, R5 |
+| R9 | GATE-06 claim audit; GATE-08/GATE-12/GATE-13 exact evidence intake; DEM-00 | Verification/harness code and the single board, scope and evidence-register writer | R1, R7 |
+
+**Kickoff staffing prerequisite - satisfied for construction only:** the prior runtime policy had seven distinct writing lanes (R3 also acted R1, R5 also acted R6, coordinator covered R4). The coordinator reconciled nine fresh task identities and activated `USER independent_nine_roles` after R1 and R7 each independently accepted the frozen R9 candidate with 40/40 focused tests and unchanged two-file hashes. Prior routing/kickoff facts remain historical in the board state. No stopped/failed historical agent was revived. Later roster changes still require explicit approved metadata and independent validation; this activation supplies no native authority or completion evidence.
+
+### Scheduling and resource isolation
+
+1. R9 dispatches an exact `card / clause / facet` or child-task packet, not an entire vague subsystem. Each packet names its executor, prerequisite artifacts/hashes, allowed files, measurable assertion, negative control, command, stop condition and reviewers. Preserve parent Needs edges and rank within each role; select the highest-ranked executable facet, not repeatedly completed construction.
+2. Maximize the ready frontier, not the number of writers touching a file. Reviewed interfaces permit parallel construction before predecessor Done. Native execution additionally requires real deployed readiness, authentication, privacy/sampling controls and the separate bounded authorization; no gate is assumed passed to obtain its bootstrap evidence.
+3. Use isolated worktrees or disjoint owned paths and unique run/output directories, ports, datasets and queue entities. One writer owns any shared file at a time. R4 serializes root POM/version/package/loaded-byte integration; R9 serializes board/register writes. Domain owners propose shared-contract edits; freeze/review them before consumers adopt. Do not concurrently write a shared build output or dependency cache.
+4. Time-box a packet to one independently checkable outcome. If its prerequisite is absent, return the card to To Do with the exact missing artifact and next action, then review/test another ready handoff. Do not weaken the assertion, invent a placeholder PASS, repeatedly rewrite status prose or repeat the same failed attempt without new evidence.
+5. Pipeline implementation, independent execution and two-role review across different packets. Authors fix their own findings; reviewers execute focused positives/negatives against frozen bytes and return source-bound results. R9-authored harness/assertion changes are executed/adjudicated by R1/R7, never self-certified by R9 or an alias.
+6. Only the authorized deployment runner changes shared Azure resources. Hold one lease per resource/configuration set; never overlap sampling changes, resets, destructive negative controls, load tests or teardown on the same target. Parallelize read-only checks and genuinely isolated run-owned paths, subject to quota/cost approvals. Restore and verify a lease before the next conflicting run.
+7. Release candidate evidence uses one integrated, immutable source/build/deployment epoch. Parallel branch results are construction evidence until replayed or shown valid for that merged closure; never stitch incompatible epochs into a purported full invocation.
+8. Schedule early external decisions in parallel: actual budget/quota/region, Entra/RBAC/Key Vault/bootstrap grants, private App/SCM/data reachability, query permissions and six accountable owners. GATE-06 must resolve official source/support claims, including the currently UNVERIFIED Node exporter dependency; neither a lock pin nor local success proves GA/support. Spent native windows stay closed until separately renewed.
+
+### Concurrency and event-driven flow
+
+Parallelism means independent packets execute simultaneously; concurrency means several packet lifecycles advance while others build, export, settle, drain or await review. Optimize both without relaxing empirical acceptance:
+
+- Maintain separate ready queues for construction, independent execution, review and native/resource leases. R9 dispatches on artifact-ready, test-complete, review-returned, telemetry-settled and lease-restored events; do not wait for a daily batch, whole card, whole package or whole wave. Preserve rank among executable facets and never poll/relaunch a job that is already running.
+- Publish immutable interface/source/test handoffs as soon as a bounded facet is ready. R2's browser carrier contract can unblock R3/R7, R6's cold-cache contract can unblock R1/R9, and R7's checked collector contract can unblock R9 while those owners complete unrelated work. Consumers bind the exact handoff hash; a later change invalidates only its affected consumers/facets and schedules the scoped rerun.
+- Fan GATE-06 source/support investigations out to the domain owners while R9 remains the sole claim-register writer. After Demo 01, each demo owner supplies its concrete trigger/effect/collect/reset handler under an explicit adapter-file lease; R9 integrates the shared dispatcher/contract. Demos 02-15 must ship their own working scenario support, not inherit Demo 01 PASS or ask the presenter to supply callbacks.
+- Overlap a frozen packet's build/tests and two independent review runs in isolated worktrees when resources permit. An owner awaiting its running command can review another role's frozen packet without starting a second implementation card. A missing prerequisite instead returns that implementation card to To Do; a genuinely running bounded command remains active work.
+- During one authorized invocation, R2/R3/R4/R6 observe their own actual boundary facts concurrently while R7 captures and R8 scans original intake. After a safe immutable capture closes, role-specific parentage, identity, data, async and query assertions may run concurrently over the same source-bound pack; no agent fabricates its own substitute rows or inherits observer authority from a copied projection.
+- Pipeline run N analysis/review with run N+1 traffic only when source/runtime/configuration stay frozen, run identities/datasets/messages are isolated, both windows are approved and the resource lease permits it. The two consecutive repeatability cycles and interruption regression retain their required reset-before-next-cycle order. Sampling mutation, reset, load and teardown on shared state are exclusive, even while unrelated read-only work proceeds.
+- Use bounded asynchronous commands and independent completion notifications rather than blocking all owners on long builds or backend ingestion. Give each stage an absolute deadline, cancellation/stop/drain/restore path and source-stability check; success requires the complete closed capture, not the earliest partial rows.
+- Apply backpressure at the actual bottleneck: file leases, available CPU/memory, original-intake/query limits, broker/data ownership, approved traffic budget and reviewer capacity. Never create unlimited agents/processes, concurrent writes to shared caches, or a second exporter to increase apparent throughput. Borrow idle owners for independent evidence/review before increasing implementation WIP.
+- Report ready/running/review/lease-wait counts, time to the first qualified full-path trace, time to two repeatable cycles, current verified-facet throughput and review/ingestion wait time. Tune concurrency from these observations; no arbitrary speedup, worker-count target or local test total is evidence of Done.
+
+### Complete parent-card coverage
+
+These are dispatch packages, not new cards, rankings or completion dependencies. Each parent appears once; execute its exact acceptance clauses and Needs edges inside its package. A package may stream across several waves and has no independent Done status. Shared native evidence may support multiple clauses only through explicit per-clause provenance and assertions.
+
+| Package | Owner | Cards | Empirical exit |
+|---|---|---|---|
+| P01 | R1 | GATE-07, GATE-11, ADR-01, ARC-01, ADR-02, DOC-01 | Removed-claim negatives, approved decisions/map, clean-group deployment, no-change second what-if and teardown/redeploy observations |
+| P02 | R1 | DEM-01, DOC-02, DOC-03, DOC-04 | Full golden trace and actual backend UI captures; another engineer reproduces Windows run/reset/recovery and timed presenter steps |
+| P03 | R2 | WEB-01, WEB-02, WEB-03, DEM-02 | Actual first browser carrier/dependency, excluded-origin negatives and separately instrumented SSR-to-Gateway parent joins |
+| P04 | R3 | GATE-01, INF-04, API-02, API-01, DEM-03 | Source guards plus actual APIM config, four context vectors, backend parent advancement and canonical business identity |
+| P05 | R4 | GATE-02, GATE-05, JVM-05, INF-03, JVM-01, JVM-02, JVM-04, JVM-03 | Coherent reactor/SBOM/packages, actual loaded agent/provider/runtime/export and API/log/async context associations; missing-agent negatives are not healthy-host proof |
+| P06 | R4 | DEM-04, DEM-05 | Trusted/untrusted business lookup and actual timeout/database-error effects retain correct HTTP/message/span/log associations |
+| P07 | R5 | GATE-09, INF-06, MSG-01, MSG-07, MSG-02, MSG-03, MSG-04, MSG-08, MSG-06, MSG-05 | Real broker/carrier/store state transitions, distinct attempts and exact persisted replay/contributor/batch links with seeded anti-pattern failures |
+| P08 | R5 | DEM-06, DEM-07, DEM-08, DEM-09, DEM-10 | Live retry, two-actor DLQ/replay, fan-out/fan-in, mixed batch and Event Grid/Storage delivery, terminal outcomes and run-owned resets |
+| P09 | R6 | INF-05, DAT-01, DAT-02, DEM-12 | Actual private Entra PostgreSQL/Managed Redis operations, safe CLIENT spans, forced cold-cache path and restored owned/unowned baseline |
+| P10 | R7 | INF-01, OBS-03, OBS-01, OBS-02 | Actual telemetry resources, complete sampling roster/admission/drain/restore, executed three KQL procedures and source-bound full-path collection |
+| P11 | R7 | DEM-14, OBS-05, OBS-06 | Imported/rendered workbook and actual query/UI results; every orphan candidate accounted for, with unexplained defects failing |
+| P12 | R7 | OBS-04, OBS-07, DEM-15 | Approved-load measured thresholds, independent emission/backend counts, restart/flush and watchdog/rollback/restoration evidence |
+| P13 | R7 | EVL-B, EVL-A | Separately approved isolated evaluation evidence and decision; never on the certification critical path or relabelled certified |
+| P14 | R8 | GATE-03, GATE-04, GATE-10, INF-02, IDN-01, IDN-02, INF-07 | Secret/history and all-original-table scans, real auth/grant/rotation/retention/purge negatives and required accountable decisions |
+| P15 | R8 | DEM-13, DEM-11 | Actual identity/privacy and spoofed-message effects, safe rejection telemetry and preserved trust boundaries; no fixture-only live result |
+| P16 | R9 | GATE-06, GATE-08, GATE-12, GATE-13, CRT-01, GOV-01, CRT-03 | Exact claim/facet ledger, independently enrolled source-bound live executor, A/B/C/coverage and provenance negatives, scoped report/limitations |
+| P17 | R9 | DEM-00, CRT-02 | Shipped concrete adapter, consecutive run/reset plus interrupted recovery; all fifteen demonstrations, current gate evidence and six real owner signoffs |
+
+### Golden-path child dependency graph
+
+The child Executor fields now name their independent logical-role owner under the activated nine-writer roster. None of these edges requires its parent card to be Done before reviewed construction can proceed; every native qualification prerequisite remains mandatory.
+
+| Child | Target owner | Child prerequisites | Required result |
+|---|---|---|---|
+| DAT-01.1 | R6 | none | Run-owned cold-cache preparation/reset; actual PostgreSQL SELECT plus Redis GET/population and unchanged unowned state |
+| DEM-01.1 | R1 | none | Advertised UI action reaches the order route, actual Orders/Inventory and both data CLIENT boundaries; local substitutes explicitly labelled |
+| OBS-02.1 | R7 | DAT-01.1, DEM-01.1 | One qualified actual browser -> APIM request/backend -> Orders -> Inventory -> data capture, using the existing browser driver without waiting for DEM-00.1 |
+| DEM-00.1 | R9 | DAT-01.1, DEM-01.1, OBS-02.1 | Supplied concrete native adapter and saved-baseline restore, not an interface requiring the presenter to implement it |
+| DEM-00.2 | R9 | DEM-00.1 | Two distinct complete run/capture/assert/reset cycles and a separate interrupted-run cleanup regression |
+| DOC-02.1 | R1 | DEM-00.2 | Shipped Windows commands reproduced by another engineer without hidden repairs or unsupported script examples |
+
+Construction contracts for the first two children, observer and adapter can be drafted in parallel under file leases. The table orders native qualification, not all source edits: the collector can qualify via the existing browser driver before adapter integration. Its real target/auth/privacy/lease prerequisites remain mandatory, avoiding an observer-adapter circular dependency.
+
+### Overlapping waves and release conditions
+
+| Wave | Concurrent work | Required exit / next release |
+|---|---|---|
+| W0 - Reconcile | Nine owners audit existing receipts against every exact clause/facet; R9 checks freshness, actual roster and unavailable live enrollment; owners request external approvals | Dispatchable source-bound packets, tested roster transition and explicit missing prerequisites; no assumed fresh PASS from historical evidence |
+| W1 - Construct | All nine lanes execute the eligible facet sequences above; R6/R1 children proceed alongside R7 collector and R9 adapter contracts; idle owners cross-review | Reviewed interfaces, focused positive/negative results and one coherent integrated build; runtime/support/permission gaps explicit |
+| W2 - Bootstrap | Authorized runner provisions/configures/deploys; owners independently verify their own hosts/data/brokers/identity while R7/R8 qualify native query/privacy intake and R9 live executor provenance | Approved actual resource/runtime roster, source-to-loaded-byte correspondence, working auth/routes/data and bounded controls; bootstrap stays NOT CERTIFIED |
+| W3 - Golden slice | R1/R2 drive corrected Demo 01; R3 observes gateway, R4 APIs, R6 stores, R7 capture and R8 original privacy; R9 runs adapter/assertion/reset, independent R1/R7 verify | All required actual parent joins, emission/backend coverage, two cycles and interruption recovery, exact baseline restoration; then repeat by the documented commands |
+| W4 - Expand | R2 Demo 02; R3 Demo 03; R4 Demos 04/05; R5 Demos 06-10; R6 Demo 12; R8 Demos 11/13; R7 Demo 14/workbook/classifier; R9 evidence intake | Each demo's own native assertions, actual terminal effects, UI/query outputs and run-owned reset; independent resource leases allow overlap, shared controls serialize |
+| W5 - Operate | R7/R4 measure load/shutdown/loss and Demo 15; R8 verifies governance/rotation/retention and owners sign; R1 rehearses clone-to-demo/operator recovery | Measured agreed thresholds, zero unexplained required gaps, actual rollback/restore and accountable evidence; no simultaneous conflicting correctness/load run |
+| W6 - Close | R9/R1/R7 independently reconcile exact facets and current reviews; execute bounded certification regression on frozen scope; optional P13 only after certification or in separately authorized isolation | Parent Needs edges close in topological order; all required clauses/gates/owners satisfied and reproducible packs retained, or explicit To Do/NOT CERTIFIED with next action |
+
+Waves are release conditions, not global barriers: continue independent ready work while another lane waits. Do not wait for final certification to collect bootstrap evidence needed by GATE-08/GATE-13/DEM-00; do not call bootstrap certification. Preparation of optional evaluations may overlap only without competing for the golden-path writers/resources; their native runs never waive baseline requirements.
+
+### Evidence receipts and Done Done
+
+For every parent, R9 expands the existing exact clause map into `card / clause / required facet` rows; the six children reference their parent clauses plus their own measurable exit. An owner supplies evidence, not their own acceptance. Use existing manifests/receipts and register interfaces rather than a second status database.
+
+| Facet | Evidence that can satisfy it | Evidence that cannot substitute |
+|---|---|---|
+| static | Actual scanner/compiler/config-export output against named current inputs, with seeded forbidden cases where required | A source hash or review vote alone |
+| unit | Executed focused positives and negative assertions with command, runtime, counts and stable before/after source closure | A printed PASS, skipped required tests or a copied prior run |
+| documentation | Delivered/rendered artifact and independently checked links/claims; actual rehearsal/clone commands where the clause requires them | A template, screenshot slot or future-tense runbook |
+| live | Independently authorized and enrolled original source, actual executed query/wire/SDK observations with locators and exact runtime/target/window correspondence | Fixture rows, expected topology, caller JSON/flags, resource configuration alone or composite evidence from incompatible epochs |
+| signoff | The named accountable owner's actual scoped decision on current evidence, with date and unresolved conditions | An agent reviewer acting as an organizational owner |
+
+Each evidence handoff records the executed command/inputs, actual start/end and runtime/process identity, immutable source and artifact hashes, target/resource scope, original query/carrier/native locators, measured versus expected values, positive/negative outcomes, and reset/cleanup result as applicable. Preserve original evidence bytes and failed runs. Scan original columns before persisting only approved safe projections; never retain secrets, raw tokens, bodies, SQL parameters or cache keys/values as proof. Unknown counts and missing rows remain unknown/failures, not zero.
+
+**Done Done is the existing Done status, not a weaker new column.** R9 proposes it only when:
+
+1. Every own acceptance clause and every required facet has current passing evidence of the allowed kind, and each required child exit is independently verified. Each actual native edge/terminal effect is asserted, not inferred from a clean diagram.
+2. Every parent Needs dependency is Done; construction progress alone never satisfies completion. Cross-card evidence reuse names the exact clauses it proves without claiming broader scope.
+3. Two independent other-role reviews cover the complete current source scope and execution findings. Required seeded controls fail in the expected way; required tests are neither skipped nor cancelled.
+4. The merged source, built packages, installed/loaded runtime, actual configuration and observed evidence agree for the declared scope. Changed dependencies/runtime/agent/policies/schema invalidate affected facets and trigger scoped reruns, not receipt rehashing.
+5. A demo's real native run/capture/assert/reset and required repeated/interrupted recovery pass; deployment repeatability, global privacy, retention/load and owner signoffs are supplied wherever its own clauses require them. Local H2/RESP/loopback success remains a separately labelled construction fact.
+6. Current privacy/safety/naming and applicable gates pass, original evidence/manifests verify, run-owned state is restored, and every unexplained required gap is resolved. Optional/deferred scope is disclosed, not counted as Done.
+7. The single board writer links the exact evidence and runs `npm run board:check` and the relevant gates. Until the actual live executor enrollment/verification exists, keep live clauses and cards To Do even if JSON or reviewer opinions say PASS.
+
+Report measured progress as current passing versus required facets, qualified actual edges, repeatable native demos and independently closed cards. Do not substitute lines changed, agent count, votes or local test totals for delivery. If a distinct attempted path still fails, report its evidence and next executable action; do not spin a review/status loop.
 
 ## Avoid doing (25)
 
@@ -53,6 +181,114 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 | AV-25 | Keep competing versions of the same artifact after the merge | Prompt §1 step 4 | Definition of Done |
 
 ## To Do (78)
+
+### R1: 10 cards
+
+- [ ] **#2 GATE-07 · Removed-claims and preview-isolation lint**
+  Dissatisfier · logical R1 · CD3 82.0 · 0.5 d · needs none
+  - Phase: returned; scope: construction.
+  - Next action: Run live deployment what-if for evaluation isolation and obtain two code reviews; the static guard and seeded tests pass locally.
+  - Waiting on: Complete root infrastructure; Live what-if evidence; Two accepted code reviews
+  - [ ] Fails on any requirement or dependency on .NET Service Bus 7.13.0, `Azure.Experimental.EnableActivitySource`, "classic adaptive sampling" for Java, APIM native OTLP, or an Azure Cache for Redis resource.
+  - [ ] A certification dependency manifest lists every component on the certification path with its GA or preview status and source; the lint fails on any preview entry, including Azure Monitor Traces / Trace Analytics and any OTLP ingestion path not confirmed GA for the target region.
+  - [ ] Contoso Eval A/B code and parameters sit in isolated folders the certification deployment never references; a deployment what-if proves it.
+  - [ ] A seeded fixture for each forbidden item makes the lint fail.
+
+- [ ] **#4 GATE-11 · Deployability and naming-conformance gate**
+  Dissatisfier · logical R1 · CD3 53.0 · 1 d · needs none
+  - Phase: source-ready-reviewed-partial-external-blockers; scope: construction.
+  - Next action: Rootv4 d9f584/all35 has BOTH original R5/R8 finite source25 acceptances; pinned Bicep main/params compile has6BCP081 diagnostic lines each, not ARM/provider/GA proof. Committed Workbook58797 now passes through existing sole telemetry input and actual root output; no new LAW/Appi/provider. Preserve v3 history without retrospective workbook claim. Implementation drained; actual Azure import/render/selected parameters/screenshots/Foundation/secret/SCM/GA/cost/owner and source-built package prerequisites remain unmet.
+  - Waiting on: Parent current source-built/qualified Java deployment packages; eight actual auditor prerequisites remain; Actual Azure Workbook import/render/selected resource parameters and screenshots; Actual Foundation URLs/principals/secret/SQL/SCM/native/GA/cost/quota/owner and cloud permissions
+  - Completion remains unmet: Empty-group deployment and second-run what-if; Availability/quotas/cost and provisioning authorization; Teardown/redeploy evidence; Two accepted source reviews
+  - [ ] `azd up` (or the documented equivalent) deploys the full topology into an empty resource group with no manual steps beyond the README prerequisites; a second run shows no changes in what-if.
+  - [ ] A naming lint checks the frozen logical-to-physical map: use the `contoso-corr-poc-` prefix where legal, documented storage/Key Vault/global-name and fixed-child exceptions, and an availability-checked discriminator where required. Every `service.name` and cloud role name still equals its §3 identifier: `contoso-storefront-spa`, `contoso-portal-ssr`, `contoso-orders-api`, `contoso-inventory-api`, `contoso-fulfillment-worker`, `contoso-notify-worker`, `contoso-order-aggregator`. The provider rejects a Service Bus namespace ending in `-sb`; its approved legal physical alias must be frozen.
+  - [ ] Fails on instance IDs in role names (they belong only in `service.instance.id`) and on the reference pattern's header names (`x-business-correlation-id`, `business.correlation_id`).
+  - [ ] Teardown and redeploy reproduce the same names.
+
+- [ ] **#18 ADR-01 · ADRs A01-A03: causality, business ID, trust policy**
+  Satisfier · logical R1 · CD3 48.0 · 1 d · needs none
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] DECISIONS.md holds signed ADRs A01, A02 and A03 with context, decision, consequences and Brief references.
+  - [ ] A01 names W3C `traceparent`/`tracestate` and span links as the only technical-causality mechanism.
+  - [ ] A02 defines when `business.invocation_id` is used, its format (UUIDv4 or ULID), the trusted edge, retention, privacy and cardinality controls, and whether the response header is exposed.
+  - [ ] A03 gives testable rules for valid, absent, invalid and oversized context, deliberate trust-boundary breaks and safe hashing of rejected values, precise enough to write the Demo 03 and Demo 11 assertions.
+
+- [ ] **#19 ARC-01 · Expected correlation boundary map**
+  Satisfier · logical R1 · CD3 68.0 · 0.5 d · needs ADR-01
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] Lists every hop with its expected span kind and edge type (parent or link) across the sync path, the SSR path, each transport, each worker, the Aggregator and replay.
+  - [ ] Lists every API origin the Storefront calls and every SSR hop, and marks each deliberate new-root point with its ADR A03 rule.
+  - [ ] GATE-08 (Invariant C), the orphan-candidate query, Demo 02 and the Mermaid diagram all read this one file; no second copy exists.
+
+- [ ] **#20 ADR-02 · ADRs A04-A06: export baseline, telemetry topology, cache**
+  Satisfier · logical R1 · CD3 66.0 · 0.5 d · needs ADR-01
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] A04 picks direct Azure Monitor export as the baseline, compares the Collector and third-party options, and lists the documented triggers that would justify Contoso Eval A.
+  - [ ] A05 fixes one workspace-based Application Insights resource for `contoso-corr` / `poc` on the shared Log Analytics workspace, with a naming, RBAC and retention map.
+  - [ ] A06 selects Azure Managed Redis, cites the Azure Cache for Redis retirement dates (Basic/Standard/Premium 30 Sep 2028; Enterprise and Enterprise Flash 30 Mar 2027) and marks the target SKU and region `VERIFY:`.
+
+- [ ] **#40 DOC-01 · Architecture diagram (Mermaid)**
+  Satisfier · logical R1 · CD3 32.0 · 0.5 d · needs ARC-01
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] Shows every §3 component by its Contoso name, the trust boundaries and the deliberate new roots.
+  - [ ] Sync parent edges and async link edges are visually distinct.
+  - [ ] Generated from, or checked against, the boundary map, and renders on GitHub.
+
+- [ ] **#52 DEM-01 · Contoso Demo 01: Synchronous golden path**
+  Satisfier · logical R1 · CD3 45.0 · 1 d · needs GATE-08, API-01, DAT-01, DAT-02, DEM-00, JVM-02, JVM-04, WEB-02
+  - Phase: routing-fixture-qualified-native-blocked; scope: construction.
+  - Next action: The advertised Demo 01 action, browser driver, telemetry scope and refresh path now use order submission. R1 passed 28 focused fixtures; R2 independently passed 16 on the same frozen source/output epoch. Do not repeat this completed construction packet or count it as Java/data/APIM proof. Next obtain reviewed real-store preparation/collector/adapter and separately approved native source/target/window, then execute full parentage and repeated/reset acceptance.
+  - Waiting on: Reviewed concrete DAT-01.1, OBS-02.1 and DEM-00.1 native operation handoffs; Actual independently authorized deployed source/target/identity and bounded native execution window; Complete current independent source reviews and all parent completion dependencies
+  - Completion remains unmet: All DEM-01 completion dependencies and current independent source reviews; Actual deployed browser/Gateway/backend/PG/Redis parentage and safe native evidence; Concrete adapter, repeated run/reset, native privacy and accountable acceptance
+  - [ ] `./demos/01/run.sh` drives Storefront → Gateway → Orders → Inventory → PostgreSQL + Redis with a known business ID.
+  - [ ] GATE-08 passes: one trace-id/OperationId on all rows, unique non-zero span-ids, each child ParentId equals its parent's Id; logs carry the same IDs.
+  - [ ] The live show finds the expected nodes in Application Map and the expected graph in Transaction Diagnostics.
+  - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+
+  #### Child tasks
+
+    - [ ] **DEM-01.1 - Correct the advertised Demo 01 UI route and prove downstream execution**
+      - Executor: R1.
+      - Prerequisites: Reviewed WEB-01/WEB-02 browser, Gateway order-route and JVM-04 API contracts, plus the existing two-JVM data fixtures for the construction regression; this does not depend on parent DEM-00 being Done.
+      - Deliverable: One Demo 01 action-routing correction with a browser-to-Orders/Inventory integration regression.
+      - Acceptance: Click the actual Demo 01 Run demo control and observe the order-submission route, the real Orders -> Inventory HTTP call, Inventory SERVER span and its Redis/JDBC logical CLIENT children in the same trace. The regression fails if the action only stages `/demo-runs`, bypasses Inventory, omits either data boundary or reuses unrelated telemetry. Preserve other demo routes. H2/RESP may prove the local routing construction but must be labelled as substitutes; OBS-02.1 separately qualifies the deployed Gateway and real stores using DAT-01.1 preparation.
+
+- [ ] **#59 DOC-02 · README quick start**
+  Satisfier · logical R1 · CD3 32.0 · 0.5 d · needs DEM-01, INF-04, INF-05, INF-06
+  - Phase: child-task-planned; scope: construction.
+  - Next action: Complete DOC-02.1 after DEM-00.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Planning alone grants no native traffic or certification.
+  - Waiting on: DEM-00.2 verified consecutive native runs and interrupted-run recovery; Reviewed shipped entrypoints and DOC-03 recovery contract
+  - [ ] Lists prerequisites (tools, Azure roles, quotas, region) and the steps from clone to `azd up` to a passing Demo 01.
+  - [ ] Links the VERIFY register and lists the open items.
+  - [ ] Includes a repository map that matches §4.
+
+  #### Child tasks
+
+    - [ ] **DOC-02.1 - Align and verify the shipped Windows run/reset commands**
+      - Executor: R1.
+      - Prerequisites: DEM-00.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
+      - Deliverable: One consistent Windows command set across the quick start, runbook, demo instructions and source planning criteria, with the Kanban regenerated from that source.
+      - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
+
+- [ ] **#71 DOC-03 · DEMO_RUNBOOK.md: operations**
+  Satisfier · logical R1 · CD3 18.0 · 1 d · needs DEM-00
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] A pre-show checklist covers the certification window, sampling state, seed data and a baseline check.
+  - [ ] Gives the demo order with a 3-5 minute budget and the reset steps for each demo.
+  - [ ] Gives recovery steps for a demo that fails mid-show.
+
+- [ ] **#74 DOC-04 · Presenter talk track for Demos 01-15**
+  Delighter · logical R1 · CD3 9.3 · 1.5 d · needs DOC-03
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] For each demo: the claim proven (Brief §), what to click in Application Map and Transaction Diagnostics, which evidence to point at, and what the demo rules out.
+  - [ ] Two likely audience questions per demo, with answers grounded in the Brief.
+  - [ ] A timed dry run keeps each segment within 3-5 minutes.
 
 ### R2: 4 cards
 
@@ -92,28 +328,7 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] Separate roots between browser page telemetry and the server render are shown and explained from the boundary map.
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
 
-### R3: 15 cards
-
-- [ ] **#2 GATE-07 · Removed-claims and preview-isolation lint**
-  Dissatisfier · logical R1; implementation R3 acting R1 · CD3 82.0 · 0.5 d · needs none
-  - Phase: returned; scope: construction.
-  - Next action: Run live deployment what-if for evaluation isolation and obtain two code reviews; the static guard and seeded tests pass locally.
-  - Waiting on: Complete root infrastructure; Live what-if evidence; Two accepted code reviews
-  - [ ] Fails on any requirement or dependency on .NET Service Bus 7.13.0, `Azure.Experimental.EnableActivitySource`, "classic adaptive sampling" for Java, APIM native OTLP, or an Azure Cache for Redis resource.
-  - [ ] A certification dependency manifest lists every component on the certification path with its GA or preview status and source; the lint fails on any preview entry, including Azure Monitor Traces / Trace Analytics and any OTLP ingestion path not confirmed GA for the target region.
-  - [ ] Contoso Eval A/B code and parameters sit in isolated folders the certification deployment never references; a deployment what-if proves it.
-  - [ ] A seeded fixture for each forbidden item makes the lint fail.
-
-- [ ] **#4 GATE-11 · Deployability and naming-conformance gate**
-  Dissatisfier · logical R1; implementation R3 acting R1 · CD3 53.0 · 1 d · needs none
-  - Phase: source-ready-reviewed-partial-external-blockers; scope: construction.
-  - Next action: Rootv4 d9f584/all35 has BOTH original R5/R8 finite source25 acceptances; pinned Bicep main/params compile has6BCP081 diagnostic lines each, not ARM/provider/GA proof. Committed Workbook58797 now passes through existing sole telemetry input and actual root output; no new LAW/Appi/provider. Preserve v3 history without retrospective workbook claim. Implementation drained; actual Azure import/render/selected parameters/screenshots/Foundation/secret/SCM/GA/cost/owner and source-built package prerequisites remain unmet.
-  - Waiting on: Parent current source-built/qualified Java deployment packages; eight actual auditor prerequisites remain; Actual Azure Workbook import/render/selected resource parameters and screenshots; Actual Foundation URLs/principals/secret/SQL/SCM/native/GA/cost/quota/owner and cloud permissions
-  - Completion remains unmet: Empty-group deployment and second-run what-if; Availability/quotas/cost and provisioning authorization; Teardown/redeploy evidence; Two accepted source reviews
-  - [ ] `azd up` (or the documented equivalent) deploys the full topology into an empty resource group with no manual steps beyond the README prerequisites; a second run shows no changes in what-if.
-  - [ ] A naming lint checks the frozen logical-to-physical map: use the `contoso-corr-poc-` prefix where legal, documented storage/Key Vault/global-name and fixed-child exceptions, and an availability-checked discriminator where required. Every `service.name` and cloud role name still equals its §3 identifier: `contoso-storefront-spa`, `contoso-portal-ssr`, `contoso-orders-api`, `contoso-inventory-api`, `contoso-fulfillment-worker`, `contoso-notify-worker`, `contoso-order-aggregator`. The provider rejects a Service Bus namespace ending in `-sb`; its approved legal physical alias must be frozen.
-  - [ ] Fails on instance IDs in role names (they belong only in `service.instance.id`) and on the reference pattern's header names (`x-business-correlation-id`, `business.correlation_id`).
-  - [ ] Teardown and redeploy reproduce the same names.
+### R3: 5 cards
 
 - [ ] **#5 GATE-01 · Protocol-integrity static scan**
   Dissatisfier · logical R3 · CD3 53.0 · 1 d · needs none
@@ -121,36 +336,11 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - Next action: R9 accepted the exact current 14-file source/local subset with actual41/41/0skip. R1 completes its assigned review and every-PR CI; approved actual APIM wire/export/native sampling/privacy still required.
   - Waiting on: Two accepted current source reviews; Every-PR CI workflow outside R3 ownership; Native APIM wire/logger/privacy/control observations; Completion dependencies and explicit cloud authorization
   - [ ] Runs on every pull request over `apim/policies/`, `infra/`, `web/`, `services/` and `workers/`, and fails on: a trace-flags change from `-00` to `-01`; a `traceparent` or trace-id built from `context.RequestId`; an APIM diagnostic `httpCorrelationProtocol` other than `W3C`; a Storefront `distributedTracingMode` other than W3C (the SDK default `AI_AND_W3C` also fails).
-  - [x] Fails when the forbidden logic sits behind a feature flag, named value or disabled policy fragment.
-    Evidence: [clause 2](../../contoso-corr-poc/evidence/reviews/code-r9.json) (unit, PASS).
-  - [x] Seeded fixtures in `tests/fixtures/` (excluded from every deployable path) make the scan fail; with them removed it passes.
-    Evidence: [clause 3](../../contoso-corr-poc/evidence/reviews/code-r9.json) (unit, PASS).
+  - [ ] Fails when the forbidden logic sits behind a feature flag, named value or disabled policy fragment.
+    Evidence: [clause 2](../../contoso-corr-poc/evidence/reviews/code-r9.json) (unit, INVALIDATED).
+  - [ ] Seeded fixtures in `tests/fixtures/` (excluded from every deployable path) make the scan fail; with them removed it passes.
+    Evidence: [clause 3](../../contoso-corr-poc/evidence/reviews/code-r9.json) (unit, INVALIDATED).
   - [ ] Output is saved under `evidence/` and linked from the No falsification row of CERTIFICATION_REPORT.md.
-
-- [ ] **#18 ADR-01 · ADRs A01-A03: causality, business ID, trust policy**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 48.0 · 1 d · needs none
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] DECISIONS.md holds signed ADRs A01, A02 and A03 with context, decision, consequences and Brief references.
-  - [ ] A01 names W3C `traceparent`/`tracestate` and span links as the only technical-causality mechanism.
-  - [ ] A02 defines when `business.invocation_id` is used, its format (UUIDv4 or ULID), the trusted edge, retention, privacy and cardinality controls, and whether the response header is exposed.
-  - [ ] A03 gives testable rules for valid, absent, invalid and oversized context, deliberate trust-boundary breaks and safe hashing of rejected values, precise enough to write the Demo 03 and Demo 11 assertions.
-
-- [ ] **#19 ARC-01 · Expected correlation boundary map**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 68.0 · 0.5 d · needs ADR-01
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] Lists every hop with its expected span kind and edge type (parent or link) across the sync path, the SSR path, each transport, each worker, the Aggregator and replay.
-  - [ ] Lists every API origin the Storefront calls and every SSR hop, and marks each deliberate new-root point with its ADR A03 rule.
-  - [ ] GATE-08 (Invariant C), the orphan-candidate query, Demo 02 and the Mermaid diagram all read this one file; no second copy exists.
-
-- [ ] **#20 ADR-02 · ADRs A04-A06: export baseline, telemetry topology, cache**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 66.0 · 0.5 d · needs ADR-01
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] A04 picks direct Azure Monitor export as the baseline, compares the Collector and third-party options, and lists the documented triggers that would justify Contoso Eval A.
-  - [ ] A05 fixes one workspace-based Application Insights resource for `contoso-corr` / `poc` on the shared Log Analytics workspace, with a naming, RBAC and retention map.
-  - [ ] A06 selects Azure Managed Redis, cites the Azure Cache for Redis retirement dates (Basic/Standard/Premium 30 Sep 2028; Enterprise and Enterprise Flash 30 Mar 2027) and marks the target SKU and region `VERIFY:`.
 
 - [ ] **#23 INF-04 · APIM IaC: Contoso Gateway, logger and W3C diagnostic**
   Satisfier · logical R3 · CD3 39.0 · 1 d · needs INF-01, INF-02
@@ -178,14 +368,6 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] An inbound `-00` flag is forwarded as `-00`.
   - [ ] Evidence for the valid, absent, invalid and `-00` cases is saved; any documented-versus-observed difference goes to the gap log.
 
-- [ ] **#40 DOC-01 · Architecture diagram (Mermaid)**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 32.0 · 0.5 d · needs ARC-01
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] Shows every §3 component by its Contoso name, the trust boundaries and the deliberate new roots.
-  - [ ] Sync parent edges and async link edges are visually distinct.
-  - [ ] Generated from, or checked against, the boundary map, and renders on GitHub.
-
 - [ ] **#47 DEM-03 · Contoso Demo 03: Inbound context at the Gateway**
   Satisfier · logical R3 · CD3 52.0 · 0.5 d · needs GATE-01, API-01, DEM-00
   - Phase: not-started; scope: construction.
@@ -194,57 +376,6 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] The GATE-01 scan result is shown live: no rewrite, no RequestId conversion.
   - [ ] Negative control: GATE-01 run against the rewrite fixture fails, showing the guard firing.
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
-
-- [ ] **#52 DEM-01 · Contoso Demo 01: Synchronous golden path**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 45.0 · 1 d · needs GATE-08, API-01, DAT-01, DAT-02, DEM-00, JVM-02, JVM-04, WEB-02
-  - Phase: child-task-planned; scope: construction.
-  - Next action: Implement DEM-01.1: route the advertised Demo 01 action through order submission and add the browser-to-Orders/Inventory/data CLIENT regression. Preserve other demo routes and label local data substitutes honestly; OBS-02.1 separately proves the deployed full path.
-  - Waiting on: Reviewed browser/Gateway/JVM-04 route contracts and two-JVM data fixture interfaces
-  - [ ] `./demos/01/run.sh` drives Storefront → Gateway → Orders → Inventory → PostgreSQL + Redis with a known business ID.
-  - [ ] GATE-08 passes: one trace-id/OperationId on all rows, unique non-zero span-ids, each child ParentId equals its parent's Id; logs carry the same IDs.
-  - [ ] The live show finds the expected nodes in Application Map and the expected graph in Transaction Diagnostics.
-  - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
-
-  #### Child tasks
-
-    - [ ] **DEM-01.1 - Correct the advertised Demo 01 UI route and prove downstream execution**
-      - Executor: R3 acting R1.
-      - Prerequisites: Reviewed WEB-01/WEB-02 browser, Gateway order-route and JVM-04 API contracts, plus the existing two-JVM data fixtures for the construction regression; this does not depend on parent DEM-00 being Done.
-      - Deliverable: One Demo 01 action-routing correction with a browser-to-Orders/Inventory integration regression.
-      - Acceptance: Click the actual Demo 01 Run demo control and observe the order-submission route, the real Orders -> Inventory HTTP call, Inventory SERVER span and its Redis/JDBC logical CLIENT children in the same trace. The regression fails if the action only stages `/demo-runs`, bypasses Inventory, omits either data boundary or reuses unrelated telemetry. Preserve other demo routes. H2/RESP may prove the local routing construction but must be labelled as substitutes; OBS-02.1 separately qualifies the deployed Gateway and real stores using DAT-01.1 preparation.
-
-- [ ] **#59 DOC-02 · README quick start**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 32.0 · 0.5 d · needs DEM-01, INF-04, INF-05, INF-06
-  - Phase: child-task-planned; scope: construction.
-  - Next action: Complete DOC-02.1 after DEM-00.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Planning alone grants no native traffic or certification.
-  - Waiting on: DEM-00.2 verified consecutive native runs and interrupted-run recovery; Reviewed shipped entrypoints and DOC-03 recovery contract
-  - [ ] Lists prerequisites (tools, Azure roles, quotas, region) and the steps from clone to `azd up` to a passing Demo 01.
-  - [ ] Links the VERIFY register and lists the open items.
-  - [ ] Includes a repository map that matches §4.
-
-  #### Child tasks
-
-    - [ ] **DOC-02.1 - Align and verify the shipped Windows run/reset commands**
-      - Executor: R3 acting R1.
-      - Prerequisites: DEM-00.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
-      - Deliverable: One consistent Windows command set across the quick start, runbook, demo instructions and source planning criteria, with the Kanban regenerated from that source.
-      - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
-
-- [ ] **#71 DOC-03 · DEMO_RUNBOOK.md: operations**
-  Satisfier · logical R1; implementation R3 acting R1 · CD3 18.0 · 1 d · needs DEM-00
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] A pre-show checklist covers the certification window, sampling state, seed data and a baseline check.
-  - [ ] Gives the demo order with a 3-5 minute budget and the reset steps for each demo.
-  - [ ] Gives recovery steps for a demo that fails mid-show.
-
-- [ ] **#74 DOC-04 · Presenter talk track for Demos 01-15**
-  Delighter · logical R1; implementation R3 acting R1 · CD3 9.3 · 1.5 d · needs DOC-03
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] For each demo: the claim proven (Brief §), what to click in Application Map and Transaction Diagnostics, which evidence to point at, and what the demo rules out.
-  - [ ] Two likely audience questions per demo, with answers grounded in the Brief.
-  - [ ] A timed dry run keeps each segment within 3-5 minutes.
 
 ### R4: 10 cards
 
@@ -339,7 +470,7 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] Trace and business correlation hold; exceptions attach to the right span; APIM error telemetry appears (alwaysLog).
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
 
-### R5: 19 cards
+### R5: 15 cards
 
 - [ ] **#7 GATE-09 · Async-honesty assertions**
   Dissatisfier · logical R5 · CD3 46.0 · 1 d · needs none
@@ -379,43 +510,6 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] The envelope round-trips within size and privacy limits; oversized or invalid envelopes are rejected.
   - [ ] Trigger binding behaviour is tested for the properties it does and does not expose; gaps go to the gap log.
 
-- [ ] **#33 INF-05 · Data-tier IaC: PostgreSQL and Azure Managed Redis**
-  Satisfier · logical R6; implementation R5 acting R6 · CD3 29.0 · 1 d · needs ADR-02, INF-02
-  - Phase: returned; scope: construction.
-  - Next action: ACTING R6 R5 supplies current private/Entra/grants source interfaces to ACTING R1 R3; preserve old R6 artifacts. Parent fresh builds/installed consumers and later authorized actual Inventory private connectivity smoke are separate requirements.
-  - Waiting on: ADR-02/INF-02 completion; Authorized Azure deployment/private connectivity; Two accepted current source reviews
-  - [ ] `contoso-corr-poc-pg` with database `contoso_orders` and `contoso-corr-poc-amr` (Azure Managed Redis; SKU and region `VERIFY:`) deploy with private connectivity from the App Service apps.
-  - [ ] Credentials use Microsoft Entra authentication or Key Vault references, never source or logs.
-  - [ ] A connection smoke test from Inventory API passes and its logs contain no secrets.
-  - [ ] No Azure Cache for Redis resource exists (GATE-07 passes).
-
-- [ ] **#34 DAT-01 · PostgreSQL JDBC client spans**
-  Satisfier · logical R6; implementation R5 acting R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
-  - Phase: corrected-source-ready-parent-build-owned; scope: construction.
-  - Next action: Data9d source56 reviewed finite parent/R8; actual A3032 compiled/current33 tests zero fail/skip and fresh f260 JAR plus separate exact install verified finite, with old055/70f and7d0/9a724 unchanged. Parent current rootA consumes source after POM reorder; R5 implementation remains frozen/drained. Actual default PG/Redis Entra/privateTLS/role grants/installed consumers/USED code/full graph and accountable evidence remain separate, not source-vote/card/Azure acceptance. Planned child DAT-01.1 supplies run-owned cold-cache preparation/reset after reviewed data interfaces and separately approved real-store prerequisites; this planning update does not unfreeze or execute native work.
-  - Waiting on: Parent current full-root source/execution/artifact and actual installed-consumer/USED handoff; Native actual default Data/identity/private TLS/role/grant/global/owner evidence
-  - Completion remains unmet: INF-05/JVM-01 completion; Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans; Two accepted current source reviews
-  - [ ] The selected safe JDBC logical-operation wrapper uses the existing provider to produce one CLIENT dependency under Inventory, with only database system, approved logical namespace, endpoint and fixed operation/outcome attributes. Automatic JDBC capture is disabled on this path; any automatic qualification is separate and never runs in parallel at the same logical boundary.
-  - [ ] SQL text and parameter capture are off or sanitized; GATE-04 finds no literals, parameters or credentials.
-  - [ ] The span wraps the logical operation, not just pool acquisition, and driver retries are visible as a count.
-  - [ ] A runbook note states these are client spans, not PostgreSQL server spans, and gives the time-correlation method for server logs.
-
-  #### Child tasks
-
-    - [ ] **DAT-01.1 - Prepare deterministic run-owned PostgreSQL and Redis state**
-      - Executor: R5 acting R6.
-      - Prerequisites: Reviewed Inventory data/cache interfaces and migration/grant contracts; native qualification additionally needs approved INF-05 deployment, private connectivity, Entra permissions and an owned synthetic dataset.
-      - Deliverable: One Demo 01 preparation/reset implementation that captures the run-owned baseline, seeds the approved synthetic fixture and evicts only its owned cache entry before the measured invocation.
-      - Acceptance: A source-bound test proves a cold lookup executes Redis GET, PostgreSQL SELECT and cache population, rather than skipping PostgreSQL on a hit. An approved real-store probe confirms those operations and baseline restoration; H2/RESP results remain construction-only. Before/after hashes prove unrelated rows and cache state unchanged. Reset restores the captured baseline without global cache flushes or broad deletes; evidence retains ownership/hashes, not cache keys, values or credentials.
-
-- [ ] **#35 DAT-02 · Azure Managed Redis client spans**
-  Satisfier · logical R6; implementation R5 acting R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] The Redis client version is checked against the pinned agent's supported list (`VERIFY:`); if unsupported, a manual client span wraps a safe abstraction boundary.
-  - [ ] Spans record operation category, endpoint and outcome only; keys, values, scripts, command arguments and session IDs are never captured.
-  - [ ] Each cache call appears once; hit or miss is a bounded attribute or a metric.
-
 - [ ] **#42 MSG-02 · Service Bus send and process path**
   Satisfier · logical R5 · CD3 22.7 · 1.5 d · needs INF-06, JVM-01, MSG-01
   - Phase: not-started; scope: construction.
@@ -439,15 +533,6 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
   - [ ] Declare injectedFailures, expectedAttempts, terminal outcome and delivery-count convention. N injected failures followed by success produce N+1 distinct PROCESS attempts; a run stopping after N failed deliveries has N attempts and no success. Actual extra redeliveries are classified, not hidden.
   - [ ] Message and business identity are preserved and no span-id is reused (GATE-09).
-  - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
-
-- [ ] **#50 DEM-12 · Contoso Demo 12: Data-tier safety**
-  Satisfier · logical R6; implementation R5 acting R6 · CD3 52.0 · 0.5 d · needs GATE-04, DAT-01, DAT-02, DEM-00
-  - Phase: not-started; scope: construction.
-  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
-  - [ ] JDBC and Redis client spans are present with safe attributes and wrap the logical operation.
-  - [ ] GATE-04 finds no SQL literals or parameters and no Redis keys, values or scripts.
-  - [ ] Negative control: a seeded SQL literal and Redis key are not captured, and the scan proves it.
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
 
 - [ ] **#54 MSG-04 · Dead-letter preservation and replay tool**
@@ -514,6 +599,54 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
   - [ ] Size and validation limits are enforced and a duplicate delivery is handled.
   - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
 
+### R6: 4 cards
+
+- [ ] **#33 INF-05 · Data-tier IaC: PostgreSQL and Azure Managed Redis**
+  Satisfier · logical R6 · CD3 29.0 · 1 d · needs ADR-02, INF-02
+  - Phase: returned; scope: construction.
+  - Next action: ACTING R6 R5 supplies current private/Entra/grants source interfaces to ACTING R1 R3; preserve old R6 artifacts. Parent fresh builds/installed consumers and later authorized actual Inventory private connectivity smoke are separate requirements.
+  - Waiting on: ADR-02/INF-02 completion; Authorized Azure deployment/private connectivity; Two accepted current source reviews
+  - [ ] `contoso-corr-poc-pg` with database `contoso_orders` and `contoso-corr-poc-amr` (Azure Managed Redis; SKU and region `VERIFY:`) deploy with private connectivity from the App Service apps.
+  - [ ] Credentials use Microsoft Entra authentication or Key Vault references, never source or logs.
+  - [ ] A connection smoke test from Inventory API passes and its logs contain no secrets.
+  - [ ] No Azure Cache for Redis resource exists (GATE-07 passes).
+
+- [ ] **#34 DAT-01 · PostgreSQL JDBC client spans**
+  Satisfier · logical R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
+  - Phase: single-fixture-construction-frozen-review-and-native-blocked; scope: construction.
+  - Next action: R6 supplied single-fixture preparation/reset and a fixed stdio bridge; independent review found a retry defect, which was reproduced and corrected. Author and independent R8 each passed 51 CPU plus 15 source controls on the corrected frozen inputs. Do not repeat this completed live-handle construction slice. Reset still needs the original handle: decide and implement reviewed authenticated durable recovery before claiming saved-run Reset.ps1 support. Actual operator runtime/auth/private targets and native qualification remain separate.
+  - Waiting on: Reviewed authenticated durable cross-process recovery operation; Actual built hash-pinned integrated classpath, approved operator identity/resources and native window
+  - Completion remains unmet: INF-05/JVM-01 completion; Real Azure PostgreSQL/Managed Redis private/Entra data operations and exported spans; Two accepted current source reviews; Current full-root source/execution/artifact and actual installed-consumer/USED handoff; Native actual default Data/identity/private TLS/role/grant/global/owner evidence
+  - [ ] The selected safe JDBC logical-operation wrapper uses the existing provider to produce one CLIENT dependency under Inventory, with only database system, approved logical namespace, endpoint and fixed operation/outcome attributes. Automatic JDBC capture is disabled on this path; any automatic qualification is separate and never runs in parallel at the same logical boundary.
+  - [ ] SQL text and parameter capture are off or sanitized; GATE-04 finds no literals, parameters or credentials.
+  - [ ] The span wraps the logical operation, not just pool acquisition, and driver retries are visible as a count.
+  - [ ] A runbook note states these are client spans, not PostgreSQL server spans, and gives the time-correlation method for server logs.
+
+  #### Child tasks
+
+    - [ ] **DAT-01.1 - Prepare deterministic run-owned PostgreSQL and Redis state**
+      - Executor: R6.
+      - Prerequisites: Reviewed Inventory data/cache interfaces and migration/grant contracts; native qualification additionally needs approved INF-05 deployment, private connectivity, Entra permissions and an owned synthetic dataset.
+      - Deliverable: One Demo 01 preparation/reset implementation that captures the run-owned baseline, seeds the approved synthetic fixture and evicts only its owned cache entry before the measured invocation.
+      - Acceptance: A source-bound test proves a cold lookup executes Redis GET, PostgreSQL SELECT and cache population, rather than skipping PostgreSQL on a hit. An approved real-store probe confirms those operations and baseline restoration; H2/RESP results remain construction-only. Before/after hashes prove unrelated rows and cache state unchanged. Reset restores the captured baseline without global cache flushes or broad deletes; evidence retains ownership/hashes, not cache keys, values or credentials.
+
+- [ ] **#35 DAT-02 · Azure Managed Redis client spans**
+  Satisfier · logical R6 · CD3 39.0 · 1 d · needs INF-05, JVM-01
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] The Redis client version is checked against the pinned agent's supported list (`VERIFY:`); if unsupported, a manual client span wraps a safe abstraction boundary.
+  - [ ] Spans record operation category, endpoint and outcome only; keys, values, scripts, command arguments and session IDs are never captured.
+  - [ ] Each cache call appears once; hit or miss is a bounded attribute or a metric.
+
+- [ ] **#50 DEM-12 · Contoso Demo 12: Data-tier safety**
+  Satisfier · logical R6 · CD3 52.0 · 0.5 d · needs GATE-04, DAT-01, DAT-02, DEM-00
+  - Phase: not-started; scope: construction.
+  - Next action: Pull the next executable facet; completion still requires every dependency and acceptance clause.
+  - [ ] JDBC and Redis client spans are present with safe attributes and wrap the logical operation.
+  - [ ] GATE-04 finds no SQL literals or parameters and no Redis keys, values or scripts.
+  - [ ] Negative control: a seeded SQL literal and Redis key are not captured, and the scan proves it.
+  - [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+
 ### R7: 12 cards
 
 - [ ] **#21 INF-01 · Telemetry backbone IaC: Application Insights, Log Analytics, budgets**
@@ -551,9 +684,10 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 
 - [ ] **#45 OBS-02 · KQL: trace reconstruction and business lookup**
   Satisfier · logical R7 · CD3 29.0 · 1 d · needs INF-01, JVM-04
-  - Phase: child-task-planned; scope: construction.
-  - Next action: Implement OBS-02.1 through the existing raw-query/intake path. Qualify one complete Demo 01 invocation after DEM-01.1 and DAT-01.1, using actual authorized browser/Gateway/backend/data observations rather than expected-map IDs or caller JSON authority.
-  - Waiting on: Reviewed DEM-01.1 routing and DAT-01.1 deterministic real-store preparation; Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window
+  - Phase: collector-construction-frozen-native-source-blocked; scope: construction.
+  - Next action: R7 supplied the collector/raw-source binding and cancellation controls; author and coordinator independently passed the same 39 focused checker tests. Independent source review is in progress. Obtain real enrolled query/transport and independent emission/canary/wire observers plus approved target/auth/window before native qualification; do not relabel fixture or caller JSON as source authority.
+  - Waiting on: Current independent collector/provenance source review; Actual independently enrolled authenticated query/transport capability; Concrete independent emission/canary/gateway-wire observer and separately approved target/auth/window
+  - Completion remains unmet: Reviewed DEM-01.1 routing and DAT-01.1 deterministic real-store preparation; Approved deployed telemetry/Gateway/runtime outputs, independent tool/query source, privacy/sampling interfaces and bounded native window; Actual enrolled native observer and exact live query/carrier/SDK/source correspondence; All parent completion dependencies and current independent source reviews
   - [ ] Both queries run against the current workspace tables (`AppRequests`, `AppDependencies`, `AppTraces`, `AppExceptions`, `AppEvents`, `AppPageViews`) and return results for a known trace-id and business ID.
   - [ ] Legacy variants (`requests`, `dependencies`, `traces`, `exceptions`) live in separate files; no query mixes schemas.
   - [ ] Business lookup returns every intended trace for a known ID and nothing extra, checked against the demo's expected trace list.
@@ -784,9 +918,10 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
 
 - [ ] **#46 DEM-00 · Demo harness: one-command run, evidence capture, reset**
   Delighter · logical R9 · CD3 24.0 · 1.5 d · needs GATE-13, INF-01, OBS-01, OBS-02
-  - Phase: child-tasks-planned; scope: construction.
-  - Next action: Ship DEM-00.1 as the concrete supplied Demo 01 adapter using OBS-02.1, DAT-01.1 and DEM-01.1 outputs; then prove DEM-00.2 two-cycle and interrupted-run recovery. Do not require the presenter to implement an adapter. Both children remain To Do; native execution needs its own approved bounded window.
-  - Waiting on: Reviewed OBS-02.1, DAT-01.1, DEM-01.1 and OBS-01 interfaces; Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window
+  - Phase: supplied-operation-subset-frozen-full-adapter-blocked; scope: construction.
+  - Next action: R9 supplied browser/privacy operations and a source-only construction report; author and coordinator each passed 29 focused construction/runner controls. The report intentionally exits 2 and does not export createAdapter/v1 because five real operations remain absent. Complete those reviewed production operations before advertising a runnable native adapter, then obtain actual two-cycle/interrupted-run evidence.
+  - Waiting on: Independent emission/canary/gateway-wire operation supplying actual execution expectation, ledger and proof artifacts; Independently enrolled authenticated query/transport capability; Reviewed native sampling apply/observe/restore/stop operations and complete participant observer; Independently reviewed bridge and actual hash-pinned integrated classpath/operator authentication/resources; Reviewed authenticated durable recovery callable by a new Reset.ps1 process
+  - Completion remains unmet: Reviewed OBS-02.1, DAT-01.1, DEM-01.1 and OBS-01 interfaces; Actual approved target/authentication inputs, native traffic budget and sampling/cleanup window; Actual native observer enrollment, full required boundaries, privacy and two-cycle/interrupted-run reset evidence; All parent completion dependencies and current independent source reviews
   - [ ] `./demos/XX/run.sh` drives synthetic traffic with a known `business.invocation_id`, then saves raw `traceparent` at trusted test points, AI rows, KQL output, screenshot slots for Application Map and Transaction Diagnostics, and config snapshots to `evidence/demo-XX/<timestamp>/`.
   - [ ] Before asserting, it confirms certification mode (OBS-01) is on for the run window; if not, the run is marked inconclusive rather than passed or failed.
   - [ ] It runs the demo's assertion and prints PASS or FAIL with the §19 and §24 IDs.

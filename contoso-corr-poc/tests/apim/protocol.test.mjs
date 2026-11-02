@@ -60,6 +60,18 @@ test("invalid state drops state only and never invalidates a valid parent", () =
   assert.equal(contextDecision(unsampled, "contoso=value").parent.raw, unsampled);
 });
 
+test("line breaks in state keys discard only state and preserve the valid parent's flags", () => {
+  for (const raw of [sampled, unsampled]) {
+    for (const lineBreak of ["\n", "\r", "\r\n", "\u2028", "\u2029"]) {
+      const decision = contextDecision(raw, `contoso${lineBreak}=one`);
+      assert.equal(decision.state.valid, false, JSON.stringify(lineBreak));
+      assert.equal(decision.parent.raw, raw);
+      assert.equal(decision.tracerRootRequired, false);
+      assert.deepEqual(decision.deleteHeaders, ["tracestate"]);
+    }
+  }
+});
+
 test("Demo03 carrier manifest describes policy behavior without fabricated telemetry", async () => {
   const manifest = JSON.parse(await readFile(new URL("../../apim/demo03-cases.v1.json", import.meta.url), "utf8"));
   assert.equal(manifest.publicOperation, "/contoso/v1/demo-runs");

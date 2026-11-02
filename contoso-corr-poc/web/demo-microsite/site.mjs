@@ -511,6 +511,38 @@ function initializeMicrosite() {
     return `node .\\tools\\observability\\kql.mjs ${procedure} .\\approved-parameters.json .\\${procedure}.rendered.kql`;
   }
 
+  const navigationDrawer = $('navigation-drawer');
+  const navigationToggle = $('navigation-toggle');
+  function syncNavigationDrawer() {
+    navigationToggle.setAttribute('aria-expanded', String(navigationDrawer.open));
+    document.documentElement.classList.toggle('navigation-open', navigationDrawer.open);
+  }
+  function closeNavigationDrawer() {
+    if (navigationDrawer.open) navigationDrawer.close();
+    syncNavigationDrawer();
+  }
+  navigationToggle.addEventListener('click', () => {
+    navigationDrawer.showModal();
+    syncNavigationDrawer();
+  });
+  navigationDrawer.addEventListener('close', syncNavigationDrawer);
+  navigationDrawer.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeNavigationDrawer();
+    }
+  });
+  navigationDrawer.addEventListener('click', event => {
+    if (event.target !== navigationDrawer) return;
+    const bounds = navigationDrawer.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right
+      || event.clientY < bounds.top || event.clientY > bounds.bottom) closeNavigationDrawer();
+  });
+  navigationDrawer.querySelectorAll('nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+    closeNavigationDrawer();
+    $(link.hash.slice(1)).focus({ preventScroll: true });
+  }));
+
   $('environment-form').addEventListener('submit', event => {
     event.preventDefault();
     const checked = {};
@@ -545,6 +577,7 @@ function initializeMicrosite() {
     });
   }
   document.querySelectorAll('[data-open-environment]').forEach(node => node.addEventListener('click', () => {
+    closeNavigationDrawer();
     $('environment-error').textContent = '';
     $('environment-dialog').showModal();
   }));

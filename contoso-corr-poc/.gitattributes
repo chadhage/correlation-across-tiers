@@ -1,0 +1,12 @@
+# Preserve new byte-pinned sources and receipts without renormalizing history.
+services/inventory-data/src/main/java/com/contoso/inventory/data/InventoryFixture*.java -text
+services/inventory-data/src/main/java/com/contoso/inventory/data/RestorableInventoryCache.java -text
+services/inventory-data/src/test/java/com/contoso/inventory/data/InventoryFixture*Test.java -text
+services/inventory-data/tools/InventoryFixtureContract.md -text
+services/inventory-data/tools/Test-InventoryFixture.ps1 -text
+services/inventory-data/tools/inventory-fixture-source.test.mjs -text
+tests/observability/demo01-collector.test.mjs -text
+tests/verification/demo01-runtime.test.mjs -text
+tools/observability/demo01-collector.mjs -text
+tools/verification/adapters/*.mjs -text
+evidence/verification/focused/20261102T133514133Z-809b7c39-3feb-4d02-a738-7663402c21a3/*.json -text

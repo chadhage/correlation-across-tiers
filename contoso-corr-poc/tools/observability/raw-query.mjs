@@ -112,10 +112,11 @@ async function collectorCodeReceipt() {
 
 export async function createAzureLogsExecutor({
   workspaceId, resourceId, azureCliExecutable, azureCliExecutableSha256,
-  allowAzureReads = false, readApprovalRef = null
+  allowAzureReads = false, readApprovalRef = null, observerId = null
 }) {
   if (!allowAzureReads || typeof readApprovalRef !== 'string' || !readApprovalRef.trim() ||
       !GUID.test(workspaceId ?? '') || !ARM.test(resourceId ?? '') ||
+      observerId !== null && !/^[A-Za-z0-9._:-]{1,128}$/.test(observerId) ||
       !isAbsolute(azureCliExecutable ?? '') || !HASH.test(azureCliExecutableSha256 ?? '') ||
       sha256(await readFile(azureCliExecutable)) !== azureCliExecutableSha256) {
     throw failure('CAPTURE_APPROVED_PINNED_READ_EXECUTOR_REQUIRED');
@@ -132,7 +133,7 @@ export async function createAzureLogsExecutor({
       ({ stdout } = await execute(azureCliExecutable, ['rest', '--method', 'post',
         '--url', `https://api.loganalytics.azure.com/v1/workspaces/${workspaceId}/query`,
         '--body', JSON.stringify({ query: request.query }), '--only-show-errors', '--output', 'json'],
-      { shell: false, windowsHide: true, timeout: request.timeoutMs, maxBuffer: 33554432 }));
+      { shell: false, windowsHide: true, timeout: request.timeoutMs, maxBuffer: 33554432, signal: request.signal }));
     } catch { throw failure('CAPTURE_NATIVE_QUERY_FAILED'); }
     let response;
     try { response = JSON.parse(stdout); } catch { throw failure('CAPTURE_NATIVE_RESPONSE_INVALID'); }
@@ -147,7 +148,7 @@ export async function createAzureLogsExecutor({
   };
   nativeExecutors.set(executor, { schema: 'contoso.query-executor-code-receipt.v1',
     sourceKind: 'azure-monitor-logs', transport: 'azure-cli-rest-logs-query',
-    workspaceId, resourceId, codeFiles, azureCliExecutableSha256,
+    workspaceId, resourceId, codeFiles, azureCliExecutableSha256, observerId,
     sourceVerification: 'R9-independent-tool-auth-and-native-source-receipt-required', certificationEligible: false });
   return executor;
 }
@@ -257,12 +258,14 @@ export async function collectRawTelemetry(parameters, {
   const rows = [], tableReceipts = [], queryHashes = [], executedQueries = [], scanTables = [], queryResponses = [], responseRequests = [], verifiedQueryCapabilities = [];
   const deadline = Date.now() + 120000;
   const query = async (table, phase, pageOrdinal = 0, tableInput = input) => {
+    if (input.signal?.aborted) throw failure('CAPTURE_ABORTED');
     const remaining = deadline - Date.now();
     if (remaining <= 0) throw failure('CAPTURE_DEADLINE');
     const text = renderRawQuery(table, phase, tableInput, pageOrdinal);
     const querySha256 = sha256(text);
     queryHashes.push(querySha256);
-    const request = { table, phase, pageOrdinal, query: text, querySha256, parameters: tableInput, timeoutMs: Math.min(30000, remaining) };
+    const request = { table, phase, pageOrdinal, query: text, querySha256, parameters: tableInput,
+      timeoutMs: Math.min(30000, remaining), signal: input.signal };
     if (executorReceipt) {
       const verified = await verifyQueryExecutorReceipt({ ...executorReceipt, querySha256 }, {
         scope: { workspaceId: input.workspaceId, resourceId: input.resourceId }, querySha256,

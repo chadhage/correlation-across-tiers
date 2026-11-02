@@ -223,12 +223,19 @@ const fixtureHandler = (request: import("node:http").IncomingMessage, response: 
     })().catch(() => { response.writeHead(500); response.end("FIXTURE_OUTBOUND_FAILED"); });
     return true;
   }
-  if (["/fixtures/storefront", "/fixtures/veto-throw", "/fixtures/auth-interaction", "/fixtures/expiring"].includes(path)) {
+  if (["/fixtures/storefront", "/fixtures/veto-throw", "/fixtures/auth-interaction", "/fixtures/expiring",
+    "/fixtures/demo01-disabled", "/fixtures/demo01-disallowed", "/fixtures/demo01-inactive"].includes(path)) {
     void (async () => {
       const template = await readFile(resolve("../storefront-spa/index.html"), "utf8");
-      const pageConfig = path === "/fixtures/expiring" ? {
-        ...config, certification: { ...config.certification, endsAtUtc: new Date(Date.now() + 2000).toISOString() }
-      } : config;
+      const pageConfig = structuredClone(config);
+      if (path === "/fixtures/expiring") pageConfig.certification.endsAtUtc = new Date(Date.now() + 2000).toISOString();
+      if (path === "/fixtures/demo01-disabled") pageConfig.demos.enabled = false;
+      if (path === "/fixtures/demo01-disallowed")
+        pageConfig.demos.allowedDemoIds = pageConfig.demos.allowedDemoIds.filter(id => id !== 1);
+      if (path === "/fixtures/demo01-inactive") {
+        pageConfig.certification.startsAtUtc = new Date(Date.now() + 60000).toISOString();
+        pageConfig.telemetry.samplingPercentage = 10;
+      }
       const script = JSON.stringify(pageConfig).replace(/</g, "\\u003c");
       const injected = `<script type="application/json" id="contoso-runtime-config">${script}</script>
         <script type="application/json" id="contoso-fixture-endpoints">${JSON.stringify({ excludedOrigin })}</script>`;

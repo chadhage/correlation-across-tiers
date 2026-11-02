@@ -29,7 +29,7 @@
       if (separator &lt;= 0 || separator != member.LastIndexOf('=')) return false;
       var key = member.Substring(0, separator);
       var entryValue = member.Substring(separator + 1);
-      if (!Regex.IsMatch(key, &quot;^(?:[a-z][a-z0-9_*/-]{0,255}|[a-z0-9][a-z0-9_*/-]{0,240}@[a-z][a-z0-9_*/-]{0,13})$&quot;) || !keys.Add(key)) return false;
+      if (!Regex.IsMatch(key, &quot;^(?:[a-z][a-z0-9_*/-]{0,255}|[a-z0-9][a-z0-9_*/-]{0,240}@[a-z][a-z0-9_*/-]{0,13})\\z&quot;) || !keys.Add(key)) return false;
       if (entryValue.Length == 0 || entryValue.Length &gt; 256 || entryValue[entryValue.Length - 1] == ' ') return false;
       if (entryValue.Any(character =&gt; character &lt; 0x20 || character &gt; 0x7e || character == ',' || character == '=')) return false;
     }

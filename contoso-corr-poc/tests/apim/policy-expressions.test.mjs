@@ -12,7 +12,7 @@ const portal = "11111111-2222-4333-8444-555555555555";
 const alphaPortal = "abcdefab-cdef-4abc-8def-abcdefabcdef";
 const workloadClaims = { azp: portal, idtyp: "app", roles: ["Portal.Invoke"] };
 
-test("actual deployed C# context, auth-shape and business guards execute in the local CLR", t => {
+test("current policy C# context, auth-shape and business guards execute only in the local CLR", t => {
   const command = process.env.CONTOSO_APIM_POWERSHELL ?? "pwsh";
   const available = spawnSync(command, ["-NoProfile", "-NonInteractive", "-Command", "$PSVersionTable.PSVersion.Major"], { encoding: "utf8" });
   if (available.error?.code === "ENOENT") { t.skip("PowerShell/.NET is unavailable; APIM expression execution is not verified."); return; }
@@ -21,6 +21,12 @@ test("actual deployed C# context, auth-shape and business guards execute in the 
     ["sampled", sampled, "contoso=one"], ["unsampled", unsampled, "contoso=one"],
     ["future-prefix", `01-${trace}-${parent}-01-future`, "contoso=one"],
     ["invalid-state", sampled, "contoso=one,contoso=two"],
+    ["state-key-lf", sampled, "contoso\n=one"],
+    ["state-key-cr", sampled, "contoso\r=one"],
+    ["state-key-crlf", sampled, "contoso\r\n=one"],
+    ["state-key-line-separator", sampled, "contoso\u2028=one"],
+    ["state-key-paragraph-separator", sampled, "contoso\u2029=one"],
+    ["state-key-lf-unsampled", unsampled, "contoso\n=one"],
     ["combined-state", sampled, ["contoso=one", "vendor=two"]],
     ["empty-state-members", sampled, ", \t,contoso=one"],
     ["absent", undefined, undefined], ["orphan-state", undefined, "contoso=one"],
@@ -78,6 +84,11 @@ test("actual deployed C# context, auth-shape and business guards execute in the 
   }
   for (const row of result.results) assert.equal(isCanonicalInvocationId(row.businessId), true, row.caseId);
   const row = id => result.results.find(row => row.caseId === id);
+  for (const caseId of carriers.map(([caseId]) => caseId).filter(caseId => caseId.startsWith("state-key-"))) {
+    assert.equal(row(caseId).parentDisposition, "valid", caseId);
+    assert.equal(row(caseId).stateValid, false, caseId);
+    assert.deepEqual(row(caseId).deletedHeaders, ["tracestate"], caseId);
+  }
   assert.equal(row("trusted-business").businessId, portal);
   assert.equal(row("trusted-business").businessDisposition, "accepted-trusted");
   assert.equal(row("trusted-business").trustedIssuer, true);
