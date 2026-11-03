@@ -1,20 +1,28 @@
 # Test coverage report
 
-**Prepared:** 2 November 2026  
-**Scope:** Existing verified evidence only; no new tests, instrumented coverage collection, or repeatability runs were performed for this report.  
-**Latest cited suite completion:** 2 November 2026, 04:45:19 UTC  
+**Status:** HISTORICAL — the whole report describes the cited execution epochs, not the current workspace.  
+**Source commit:** `63a2a5d58cd041b9893270bc9f4e2d2294e0476d`  
+**Originally prepared:** 2 November 2026; explicitly historical-labelled on 2 November 2026.  
+**Scope:** Preserved historical evidence only; no new suite, instrumented coverage collection, or repeatability run was performed for this report. Current-source equivalence is not claimed.  
+**Historical cited suite completion:** 2 November 2026, 04:45:19 UTC  
 **Qualification:** LOCAL VALIDATION ONLY / NOT CERTIFIED / NOT FULL GRAPH
+
+Current source has changed since these receipts. The counts below are not current
+test totals, current flaky-test findings, current board status or certification.
+`node tools\verification\test-coverage-report.mjs --check` binds the reported
+counts to the cited receipt bytes and requires this HISTORICAL label when the
+source commit or recorded source closure differs.
 
 ## 1. Executive summary
 
-The latest recorded root Node and Java suites passed **601 of 601 tests**, with
+The cited historical root Node and Java suites passed **601 of 601 tests**, with
 zero failures, Java errors, or skipped tests. This is a **100% observed pass
 rate for those two runs**, not 100% code coverage.
 
 | Metric | Evidence-based result |
 |---|---|
-| Root Node tests | 419 passed; 0 failed, cancelled, or skipped |
-| Java tests | 182 passed across 11 modules; 0 failures, errors, or skips |
+| Root Node tests | 419 passed; 0 failed; 0 cancelled; 0 skipped |
+| Java tests | 182 passed across 11 modules; 0 failures; 0 errors; 0 skips |
 | Combined root Node and Java baseline | 601 passed |
 | Line / branch / function / statement coverage | Not measured by the cited runs; percentages unavailable |
 | Positive-only / negative-only / mixed test counts | Not classified; no reliable numeric split established |
@@ -31,8 +39,8 @@ execution scopes differ, and some behavior overlaps the root/Java suites.
 
 - Repository: `chadhage/correlation-across-tiers`.
 - Branch observed during report preparation: `main`.
-- Git HEAD: `63a2a5d58cd041b9893270bc9f4e2d2294e0476d`.
-- The workspace contains substantial uncommitted changes. The test evidence is
+- Git HEAD observed for this historical report: `63a2a5d58cd041b9893270bc9f4e2d2294e0476d`.
+- The recorded workspace contained substantial uncommitted changes. The evidence is
   for its recorded, source-bound working-tree inputs, **not an assertion that
   the clean HEAD commit passed these tests**.
 - The [final Node receipt][node-result] records 207 stable source/view inputs,
@@ -41,9 +49,9 @@ execution scopes differ, and some behavior overlaps the root/Java suites.
 - The [Java build witness][java-build] records an actual serial clean reactor
   execution with 197 stable source inputs, an observed Maven Java process,
   11 fresh JARs, and a 133-component runtime SBOM.
-- A separate [current-byte check][java-current] verified those 197 Java inputs,
+- A separate [historical current-byte check][java-current] verified those 197 Java inputs,
   six package archives, and the preserved launch-guard receipt without
-  executing new Java tests.
+  executing new Java tests. That check is not a current-workspace recheck.
 - Historical failed runs remain failed. Later source fixes and successful runs
   do not retroactively change their results.
 - Evidence links refer to the current local evidence tree; some supporting
@@ -86,7 +94,7 @@ The four worker entry modules each have one directly reported test. Shared
 messaging tests also exercise worker-related behavior, so neither the direct
 counts nor the shared counts establish a worker's line/branch coverage.
 
-### Root Node: 419 passing tests in 53 discovered test files
+### Root Node: 419 passing tests in 53 historical discovered test files
 
 The [root test runner](../tools/run-tests.mjs) discovers JavaScript test files
 under the root test directory and inventory-data tooling. The following is a
@@ -153,7 +161,7 @@ exercise was performed, in accordance with this report's existing-evidence scope
 
 The reviewed test source/configuration contains no explicit flaky-test labels.
 The [Portal Playwright configuration](../web/portal-ssr/playwright.config.ts)
-sets `retries: 0`. The latest root Node and Java runs report no failures.
+sets `retries: 0` in the cited historical source. The cited root Node and Java runs report no failures.
 
 However, the reviewed evidence does not provide a dedicated controlled audit
 that repeatedly runs each current test against unchanged source, dependencies,
@@ -199,7 +207,7 @@ applications start and operate successfully.
 
 ## 7. Coverage strengths and remaining gaps
 
-### Demonstrated within bounded local scopes
+### Demonstrated within the cited historical bounded local scopes
 
 - Unit and integration checks for correlation helpers, security, data adapters,
   APIs, asynchronous workflow/replay behavior, and sampling.
@@ -212,7 +220,7 @@ applications start and operate successfully.
 These observations establish exercised behavior, not exhaustive coverage of each
 component or all possible failure modes.
 
-### Not established by the current evidence
+### Not established by the cited evidence or by this historical report
 
 | Gap | Consequence |
 |---|---|
@@ -226,9 +234,9 @@ component or all possible failure modes.
 | Global/all-layer privacy and complete provider/exporter ownership | Selected safe captures do not establish global compliance |
 | Watchdog, overhead, load/SLO and accountable-owner acceptance | No production readiness or operational acceptance |
 
-The [frozen status record][status-freeze] retains **78 To Do, 0 In Progress,
+The historical [frozen status record][status-freeze] recorded **78 To Do, 0 In Progress,
 0 Done**, and **628 OPEN verification claims**. These are formal acceptance
-statuses, not a statement that no implementation or local tests exist.
+statuses at that epoch, not current board/claim totals or a statement that no implementation or local tests exist.
 
 ## 8. Recommended follow-up measurement
 
@@ -247,8 +255,8 @@ this existing-evidence report**:
    source-bound Azure qualification. Do not equate local passes with deployment
    or certification approval.
 
-**Conclusion:** the repository has a passing 601-test root Node/Java baseline and
-meaningful bounded native evidence. It does **not yet have a measured
+**Conclusion:** the cited historical 601-test root Node/Java baseline passed and
+recorded meaningful bounded native evidence. This report does **not establish current test totals, a measured
 repository-wide code-coverage percentage, an exact positive/negative split, or a
 measured flaky-test count**.
 
@@ -261,12 +269,14 @@ finite scopes and retained limitations.
 | Reference | SHA-256 |
 |---|---|
 | [Root Node result][node-result] | `a2a23bd9f4a1129edd48794658c5315182d1b556ea01f7f09eeba5a7c83fa17b` |
+| [Root Node source snapshot][node-sources] | `e3f79389a4bb6774e9e847146c0e3270021a50db793c61044cb644e63c933d9f` |
 | [Java execution witness][java-build] | `d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df` |
 | [Orders native adjudication][native-result] | `c384c72148af9fb614af809451530b4e4865817be9fac1ae08ad8db8bf114d73` |
 | [Metadata-only status freeze][status-freeze] | `b3cb1b2aa41b9459a365eb94d84555461052ab22a24497b7780dd53792c7feee` |
 | [Final local consistency review][final-review] | `31bb270236d83135809ddbda08f3357bda4e334423c66e0d4a015b18b5724675` |
 
 [node-result]: ../evidence/verification/root-node/20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368/result.json
+[node-sources]: ../evidence/verification/root-node/20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368/after-sources.json
 [java-build]: ../evidence/java-local/source-builds/20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3/source-build.json
 [java-current]: ../.cache/parent/java182-current-check/20261102T042717472Z-3f7f0027-c5b4-42c7-a24b-872c148b6a89/result.json
 [native-result]: ../evidence/verification/conditional-adjudications/20261102T042736620Z-bd49b993-97ed-4916-a010-aa253bc883d3/adjudication.json

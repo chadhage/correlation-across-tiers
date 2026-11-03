@@ -156,13 +156,7 @@ public final class InventorySchemaHooks {
             String role = "\"" + principal.roleName() + "\"";
             try (var statement = connection.createStatement()) {
                 statement.execute("GRANT CONNECT ON DATABASE contoso_orders TO " + role);
-                statement.execute("GRANT USAGE ON SCHEMA contoso TO " + role);
-                statement.execute("REVOKE ALL PRIVILEGES ON contoso.inventory_item,contoso.inventory_reservation FROM " + role);
-                statement.execute("REVOKE INSERT(sku,display_name,available,revision,synthetic),UPDATE(sku,display_name,available,revision,synthetic) ON contoso.inventory_item FROM " + role);
-                statement.execute("REVOKE INSERT(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at),UPDATE(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at) ON contoso.inventory_reservation FROM " + role);
-                statement.execute("GRANT SELECT,UPDATE(available,revision) ON contoso.inventory_item TO " + role);
-                statement.execute("GRANT SELECT,INSERT(reservation_id,order_id,sku,quantity,state,invocation_id),UPDATE(state) ON contoso.inventory_reservation TO " + role);
-                statement.execute("GRANT SELECT ON contoso.environment_marker TO " + role);
+                for (String grant : inventoryGrantStatements(principal.roleName())) statement.execute(grant);
             }
             connection.commit();
             return null;
@@ -185,6 +179,23 @@ public final class InventorySchemaHooks {
             connection.commit();
             return null;
         });
+    }
+
+    static List<String> inventoryGrantStatements(String roleName) {
+        if (roleName == null || !roleName.matches("[A-Za-z][A-Za-z0-9_-]{0,62}") ||
+            roleName.toLowerCase(Locale.ROOT).startsWith("pg_")) {
+            throw new IllegalArgumentException("invalid_inventory_principal");
+        }
+        String role = "\"" + roleName + "\"";
+        return List.of(
+            "GRANT USAGE ON SCHEMA contoso TO " + role,
+            "REVOKE ALL PRIVILEGES ON contoso.inventory_item,contoso.inventory_reservation FROM " + role,
+            "REVOKE INSERT(sku,display_name,available,revision,synthetic),UPDATE(sku,display_name,available,revision,synthetic) ON contoso.inventory_item FROM " + role,
+            "REVOKE INSERT(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at),UPDATE(reservation_id,order_id,sku,quantity,state,invocation_id,synthetic,created_at) ON contoso.inventory_reservation FROM " + role,
+            "REVOKE ALL PRIVILEGES ON contoso.environment_marker FROM " + role,
+            "GRANT SELECT,UPDATE(available,revision) ON contoso.inventory_item TO " + role,
+            "GRANT SELECT,INSERT(reservation_id,order_id,sku,quantity,state,invocation_id),UPDATE(state) ON contoso.inventory_reservation TO " + role,
+            "GRANT SELECT,UPDATE(singleton) ON contoso.environment_marker TO " + role);
     }
 
     static List<String> workflowGrantStatements(Principal principal, WorkflowRole role) {

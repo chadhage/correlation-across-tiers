@@ -1,0 +1,218 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.48.1.52935",
+      "templateHash": "4142203967562963318"
+    }
+  },
+  "definitions": {
+    "ApplicationPrincipal": {
+      "type": "object",
+      "properties": {
+        "principalObjectId": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string",
+          "allowedValues": [
+            "inventory",
+            "workflow"
+          ]
+        }
+      }
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "centralus",
+      "allowedValues": [
+        "centralus"
+      ]
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "serverName": {
+      "type": "string",
+      "defaultValue": "contoso-corr-poc-pg",
+      "minLength": 3,
+      "maxLength": 63
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "contoso_orders"
+    },
+    "postgresMajorVersion": {
+      "type": "string",
+      "defaultValue": "18",
+      "allowedValues": [
+        "18"
+      ]
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard_B1ms",
+      "allowedValues": [
+        "Standard_B1ms"
+      ]
+    },
+    "skuTier": {
+      "type": "string",
+      "defaultValue": "Burstable",
+      "allowedValues": [
+        "Burstable"
+      ]
+    },
+    "storageSizeGB": {
+      "type": "int",
+      "defaultValue": 32,
+      "minValue": 32,
+      "maxValue": 32
+    },
+    "backupRetentionDays": {
+      "type": "int",
+      "defaultValue": 7,
+      "minValue": 7,
+      "maxValue": 7
+    },
+    "highAvailabilityMode": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled"
+      ]
+    },
+    "geoRedundantBackup": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled"
+      ]
+    },
+    "delegatedSubnetResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Dedicated Microsoft.DBforPostgreSQL/flexibleServers delegated subnet; not an App integration or PE subnet."
+      }
+    },
+    "privateDnsZoneArmResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Existing linked private DNS zone ending .postgres.database.azure.com for delegated private access."
+      }
+    },
+    "tenantId": {
+      "type": "string"
+    },
+    "entraAdminObjectId": {
+      "type": "string"
+    },
+    "entraAdminPrincipalType": {
+      "type": "string",
+      "allowedValues": [
+        "Group",
+        "ServicePrincipal",
+        "User"
+      ]
+    },
+    "entraAdminPrincipalName": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "applicationPrincipals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ApplicationPrincipal"
+      },
+      "defaultValue": [],
+      "metadata": {
+        "description": "Inputs for the separately authorized SQL bootstrap, not ARM SQL grants or directory mutations."
+      }
+    }
+  },
+  "resources": {
+    "server": {
+      "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+      "apiVersion": "2026-10-01",
+      "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
+      "tags": "[union(parameters('tags'), createObject('workload', 'contoso-corr', 'environment', 'poc'))]",
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "tier": "[parameters('skuTier')]"
+      },
+      "properties": {
+        "version": "[parameters('postgresMajorVersion')]",
+        "authConfig": {
+          "activeDirectoryAuth": "Enabled",
+          "passwordAuth": "Disabled",
+          "tenantId": "[parameters('tenantId')]"
+        },
+        "network": {
+          "delegatedSubnetResourceId": "[parameters('delegatedSubnetResourceId')]",
+          "privateDnsZoneArmResourceId": "[parameters('privateDnsZoneArmResourceId')]"
+        },
+        "storage": {
+          "storageSizeGB": "[parameters('storageSizeGB')]",
+          "autoGrow": "Disabled"
+        },
+        "backup": {
+          "backupRetentionDays": "[parameters('backupRetentionDays')]",
+          "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+        },
+        "highAvailability": {
+          "mode": "[parameters('highAvailabilityMode')]"
+        }
+      }
+    },
+    "administrator": {
+      "type": "Microsoft.DBforPostgreSQL/flexibleServers/administrators",
+      "apiVersion": "2026-10-01",
+      "name": "[format('{0}/{1}', parameters('serverName'), parameters('entraAdminObjectId'))]",
+      "properties": "[shallowMerge(createArray(createObject('tenantId', parameters('tenantId'), 'principalType', parameters('entraAdminPrincipalType')), if(not(empty(parameters('entraAdminPrincipalName'))), createObject('principalName', parameters('entraAdminPrincipalName')), createObject())))]",
+      "dependsOn": [
+        "server"
+      ]
+    },
+    "database": {
+      "type": "Microsoft.DBforPostgreSQL/flexibleServers/databases",
+      "apiVersion": "2026-10-01",
+      "name": "[format('{0}/{1}', parameters('serverName'), parameters('databaseName'))]",
+      "properties": {
+        "charset": "UTF8",
+        "collation": "en_US.utf8"
+      },
+      "dependsOn": [
+        "administrator",
+        "server"
+      ]
+    }
+  },
+  "outputs": {
+    "postgres": {
+      "type": "object",
+      "value": {
+        "resourceId": "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('serverName'))]",
+        "databaseResourceId": "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers/databases', parameters('serverName'), parameters('databaseName'))]",
+        "host": "[reference('server').fullyQualifiedDomainName]",
+        "port": 5432,
+        "databaseName": "[parameters('databaseName')]",
+        "authentication": "entra",
+        "sslMode": "verify-full",
+        "tokenScope": "[format('https://ossrdbms-aad{0}/.default', environment().suffixes.sqlServerHostname)]",
+        "delegatedSubnetResourceId": "[parameters('delegatedSubnetResourceId')]",
+        "privateDnsZoneResourceId": "[parameters('privateDnsZoneArmResourceId')]",
+        "applicationPrincipals": "[parameters('applicationPrincipals')]"
+      }
+    }
+  }
+}

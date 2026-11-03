@@ -1,0 +1,62 @@
+{
+  "schema": "contoso.r8-lease-release.v1",
+  "agentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "sourceLeases": [
+    {
+      "path": "..\\.github\\workflows\\secret-scan.yml",
+      "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6",
+      "matchesFrozenReviewedBytes": true,
+      "activeWriter": false,
+      "frozenForIntegration": true
+    },
+    {
+      "path": "tests\\security\\secret-scan-workflow.test.mjs",
+      "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d",
+      "matchesFrozenReviewedBytes": true,
+      "activeWriter": false,
+      "frozenForIntegration": true
+    },
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d",
+      "matchesFrozenReviewedBytes": true,
+      "activeWriter": false,
+      "frozenForIntegration": true
+    },
+    {
+      "path": "tests\\security\\java-probe-tools-root.test.mjs",
+      "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8",
+      "matchesFrozenReviewedBytes": true,
+      "activeWriter": false,
+      "frozenForIntegration": true
+    }
+  ],
+  "defaultNettyLease": {
+    "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+    "coordinationOwnerRole": "R4",
+    "modified": false,
+    "released": true,
+    "reason": "No session/portable default existed; explicit options unchanged."
+  },
+  "sharedMavenTargetPackageVersionOutputLeasesHeld": false,
+  "retainedHelperPids": [],
+  "asyncOrDetachedProcessesStarted": 0,
+  "completionBasis": "All owned commands ran synchronously and exited; preflight Node children returned expected0/2; no Java/Maven/Redis/PG/server/helper/network process started by R8.",
+  "evidenceOutput": "Only completed unique evidence\\reviews\\swarm-20261102\\R8 packets retained; no active output writer after this receipt.",
+  "implementationActive": false,
+  "reviewActive": false,
+  "finalQueue": "queue-triage-20261102-v3.json",
+  "finalQueueSha256": "3a25f36499247e3a49cb1537bb2e52c24dcbac5754fa6f5d71c08528ea560628",
+  "blockedRemaindersReturnedToDo": [
+    "GATE-03.1 hosted execution",
+    "IDN-01.1 native dual-token",
+    "IDN-01.3 current Java wire handoff",
+    "IDN-01.4 current Portal build handoff",
+    "DEM-11.1 native publisher",
+    "DEM-13.1 native identity/privacy"
+  ],
+  "idn012": "Two-reviewed exact local Done candidate; orchestrator alone adjudicates/persists lifecycle.",
+  "sourceAcceptanceIsCertification": false,
+  "nativeWindowsReopened": false,
+  "capturedAtUtc": "2026-11-02T22:24:24.0058618Z"
+}

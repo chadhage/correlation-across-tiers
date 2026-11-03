@@ -1,0 +1,22 @@
+[
+  {
+    "path": "tools\\kanban.mjs",
+    "sha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e"
+  },
+  {
+    "path": "tests\\kanban.test.mjs",
+    "sha256": "e8b99c05cb7fcc3dd080c9acb6f4850ae075cfccf9fc025509d944fc1bc37d6e"
+  },
+  {
+    "path": "tools\\verification\\acceptance.mjs",
+    "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+  },
+  {
+    "path": "tools\\verification\\run-focused.mjs",
+    "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+  },
+  {
+    "path": "tools\\verification\\files.mjs",
+    "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+  }
+]

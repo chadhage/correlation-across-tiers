@@ -1,0 +1,219 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.48.1.52935",
+      "templateHash": "1167047262274985485"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "centralus",
+      "allowedValues": [
+        "centralus"
+      ]
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "contoso-corr-poc-amr"
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Balanced_B0",
+      "allowedValues": [
+        "Balanced_B0"
+      ]
+    },
+    "highAvailability": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled"
+      ]
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "default",
+      "allowedValues": [
+        "default"
+      ]
+    },
+    "clusteringPolicy": {
+      "type": "string",
+      "defaultValue": "EnterpriseCluster",
+      "allowedValues": [
+        "EnterpriseCluster"
+      ]
+    },
+    "evictionPolicy": {
+      "type": "string",
+      "defaultValue": "AllKeysLRU",
+      "allowedValues": [
+        "AllKeysLRU"
+      ]
+    },
+    "port": {
+      "type": "int",
+      "defaultValue": 10000,
+      "allowedValues": [
+        10000
+      ]
+    },
+    "deferUpgrade": {
+      "type": "string",
+      "defaultValue": "NotDeferred",
+      "allowedValues": [
+        "NotDeferred"
+      ]
+    },
+    "privateEndpointSubnetResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Nondelegated private-endpoint subnet, separate from App integration and PostgreSQL delegation."
+      }
+    },
+    "redisPrivateDnsZoneResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Existing privatelink.redis.azure.net zone; not legacy redisenterprise.cache.azure.net."
+      }
+    },
+    "linkedVnetResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "VNet already linked to that DNS zone by the network owner."
+      }
+    },
+    "inventoryPrincipalObjectId": {
+      "type": "string"
+    },
+    "accessAssignmentName": {
+      "type": "string",
+      "defaultValue": "contosoInventory"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Cache/redisEnterprise",
+      "apiVersion": "2026-09-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "tags": "[union(parameters('tags'), createObject('workload', 'contoso-corr', 'environment', 'poc'))]",
+      "sku": {
+        "name": "[parameters('skuName')]"
+      },
+      "properties": {
+        "highAvailability": "[parameters('highAvailability')]",
+        "minimumTlsVersion": "1.2",
+        "publicNetworkAccess": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Cache/redisEnterprise/databases",
+      "apiVersion": "2026-09-01",
+      "name": "[format('{0}/{1}', parameters('clusterName'), parameters('databaseName'))]",
+      "properties": {
+        "clientProtocol": "Encrypted",
+        "accessKeysAuthentication": "Disabled",
+        "clusteringPolicy": "[parameters('clusteringPolicy')]",
+        "evictionPolicy": "[parameters('evictionPolicy')]",
+        "port": "[parameters('port')]",
+        "deferUpgrade": "[parameters('deferUpgrade')]",
+        "modules": [],
+        "persistence": {
+          "aofEnabled": false,
+          "rdbEnabled": false
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Cache/redisEnterprise', parameters('clusterName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments",
+      "apiVersion": "2026-09-01",
+      "name": "[format('{0}/{1}/{2}', parameters('clusterName'), parameters('databaseName'), parameters('accessAssignmentName'))]",
+      "properties": {
+        "accessPolicyName": "default",
+        "user": {
+          "objectId": "[parameters('inventoryPrincipalObjectId')]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Cache/redisEnterprise/databases', parameters('clusterName'), parameters('databaseName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/privateEndpoints",
+      "apiVersion": "2024-05-01",
+      "name": "[format('{0}-pe', parameters('clusterName'))]",
+      "location": "[parameters('location')]",
+      "tags": "[union(parameters('tags'), createObject('workload', 'contoso-corr', 'environment', 'poc'))]",
+      "properties": {
+        "subnet": {
+          "id": "[parameters('privateEndpointSubnetResourceId')]"
+        },
+        "privateLinkServiceConnections": [
+          {
+            "name": "redis",
+            "properties": {
+              "privateLinkServiceId": "[resourceId('Microsoft.Cache/redisEnterprise', parameters('clusterName'))]",
+              "groupIds": [
+                "redisEnterprise"
+              ]
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Cache/redisEnterprise', parameters('clusterName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+      "apiVersion": "2024-05-01",
+      "name": "[format('{0}/{1}', format('{0}-pe', parameters('clusterName')), 'default')]",
+      "properties": {
+        "privateDnsZoneConfigs": [
+          {
+            "name": "managedRedis",
+            "properties": {
+              "privateDnsZoneId": "[parameters('redisPrivateDnsZoneResourceId')]"
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/privateEndpoints', format('{0}-pe', parameters('clusterName')))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "managedRedis": {
+      "type": "object",
+      "value": {
+        "clusterResourceId": "[resourceId('Microsoft.Cache/redisEnterprise', parameters('clusterName'))]",
+        "databaseResourceId": "[resourceId('Microsoft.Cache/redisEnterprise/databases', parameters('clusterName'), parameters('databaseName'))]",
+        "accessAssignmentResourceId": "[resourceId('Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments', parameters('clusterName'), parameters('databaseName'), parameters('accessAssignmentName'))]",
+        "host": "[reference(resourceId('Microsoft.Cache/redisEnterprise', parameters('clusterName')), '2026-09-01').hostName]",
+        "port": "[parameters('port')]",
+        "clusteringPolicy": "[parameters('clusteringPolicy')]",
+        "tls": true,
+        "authentication": "entra",
+        "tokenScope": "https://redis.azure.com/.default",
+        "identityPrincipalObjectId": "[parameters('inventoryPrincipalObjectId')]",
+        "privateEndpointId": "[resourceId('Microsoft.Network/privateEndpoints', format('{0}-pe', parameters('clusterName')))]",
+        "privateDnsZoneResourceId": "[parameters('redisPrivateDnsZoneResourceId')]",
+        "dnsZoneGroupResourceId": "[resourceId('Microsoft.Network/privateEndpoints/privateDnsZoneGroups', format('{0}-pe', parameters('clusterName')), 'default')]",
+        "dnsLinkedVnetResourceId": "[parameters('linkedVnetResourceId')]"
+      }
+    }
+  }
+}

@@ -34,6 +34,73 @@
   query-text manifests and private source-bound response/capture identities.
   JSON labels, hashes, clones and injected fixtures cannot mint native identity.
   R9's empty observer registry currently blocks Azure source acceptance.
+- `local-trace-tree.mjs`: browser/JVM capture merger for **LOCAL REHEARSAL**
+  (OBS-02.2). It reuses the bounded loopback intake, preserves actual IDs and
+  parents, and runs the unchanged GATE-08 invariant library. Its named local
+  profile excludes only `gateway.request` and `gateway.backend`; the untouched
+  full-chain assertion must still fail on those missing hops.
+
+### Local rehearsal trace tree
+
+After the local pair and browser driver have produced their actual captures,
+run from the project directory (replace the paths and invocation):
+
+```powershell
+node .\tools\observability\local-trace-tree.mjs `
+  --browser .cache\local-run\browser-evidence.json `
+  --browser-telemetry .cache\local-run\browser-telemetry.ndjson `
+  --jvm .cache\local-run\telemetry.ndjson `
+  --invocation 11111111-1111-4111-8111-111111111111 `
+  --profile LOCAL_REHEARSAL `
+  --controls seeded `
+  --output-directory .cache\local-run\merged
+```
+
+The browser file uses the existing schema-1 local browser evidence contract:
+one successful `POST /orders` observation, its SDK dependency identity and
+context-not-span receipt. NDJSON inputs contain sanitized original
+`RequestData`/`RemoteDependencyData` envelopes, including actual UTC time,
+role, operation ID, span ID and parent ID. The browser dependency envelope
+is mandatory; a wire carrier or context receipt alone is not a span.
+No missing IDs, parent relationships, roles or Gateway spans are fabricated.
+Unrelated invocation records and non-span records are counted, not represented
+as extra spans. Split traces within the selected invocation, duplicate span
+exports, broken edges and missing local hops fail.
+
+Output includes the printed tree, A/B/C results, explicit expected-remote
+boundaries, map/profile/source hashes and the deliberately failing full-chain
+check. `--profile FULL_CHAIN` instead requires the actual Gateway hops.
+Both profiles remain local structural checks, never GATE-08 native acceptance.
+Saved files are labelled `SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY`; JSON or cloned
+receipts cannot recreate the receiver's in-process local provenance. Mixing
+any caller-supplied browser/JVM envelopes with an original receiver capture
+downgrades the entire merge to this structural scope (`fixture-check` rows).
+An empty original capture cannot lend provenance to caller-only spans. The real
+loopback intake scans originals before projection and closes before returning
+a capture. It adds no telemetry provider or second exporter.
+
+The existing receiver also accepts an optional numeric `port` (default `0`,
+always bound to `127.0.0.1`) and async `onCapture(capture)` callback. Each
+callback receives only the newly scanned, immutable safe envelopes and their
+payload receipt, before HTTP acceptance. Callback errors or the fixed
+five-second callback deadline poison the capture. A streaming NDJSON file is
+provisional until `finish()` succeeds; a previously written safe fragment is
+not a completed capture after any later receive/callback failure.
+
+`--controls seeded` also checks copied inputs with a split trace, duplicate
+span, wrong parent and each missing local hop. Every control must produce its
+expected failure code. Originals remain unchanged. These are labelled seeded
+checker mutations, not runtime fault injection or additional application runs.
+
+Focused source/seeded-failure and actual HTTP-intake checks:
+
+```powershell
+node --test --test-reporter=tap .\tests\observability\local-trace-tree.test.mjs
+```
+
+These tests send synthetic envelopes through a real loopback socket. Their
+passing result does not establish a current browser/JVM local-pair run, an
+Azure query, a native collector enrollment or certification.
 
 ### Native adapter handshake
 

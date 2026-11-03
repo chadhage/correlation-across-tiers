@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: positive: Demo02 trigger input selects its actual Portal form and never claims the requested business ID as observed
+ok 1 - positive: Demo02 trigger input selects its actual Portal form and never claims the requested business ID as observed
+  ---
+  duration_ms: 3.1486
+  type: 'test'
+  ...
+# Subtest: negative: inherited Demo01 context, wrong scenario, missing lease input and aborted trigger cannot become Demo02
+ok 2 - negative: inherited Demo01 context, wrong scenario, missing lease input and aborted trigger cannot become Demo02
+  ---
+  duration_ms: 1.0904
+  type: 'test'
+  ...
+# Subtest: positive: actual Demo02 catalog and map require both SSR joins and explain page-view context separately
+ok 3 - positive: actual Demo02 catalog and map require both SSR joins and explain page-view context separately
+  ---
+  duration_ms: 12.1148
+  type: 'test'
+  ...
+# Subtest: negative: role substitution, missing SSR parent, invented browser parent and fake native catalog authority fail
+ok 4 - negative: role substitution, missing SSR parent, invented browser parent and fake native catalog authority fail
+  ---
+  duration_ms: 10.0798
+  type: 'test'
+  ...
+# Subtest: positive: concrete shipped Demo02 interfaces remain BLOCKED without native operations and stale predecessor pins are not repinned
+ok 5 - positive: concrete shipped Demo02 interfaces remain BLOCKED without native operations and stale predecessor pins are not repinned
+  ---
+  duration_ms: 42.3068
+  type: 'test'
+  ...
+# Subtest: negative: forged source closure, callbacks, fixture rows and mode JSON cannot enroll a native adapter
+ok 6 - negative: forged source closure, callbacks, fixture rows and mode JSON cannot enroll a native adapter
+  ---
+  duration_ms: 42.5962
+  type: 'test'
+  ...
+# Subtest: negative: awaited source verification returns only the internal verified snapshot after caller mutation
+ok 7 - negative: awaited source verification returns only the internal verified snapshot after caller mutation
+  ---
+  duration_ms: 52.6738
+  type: 'test'
+  ...
+# Subtest: negative: only source check runs; CLI remains non-runnable BLOCKED with no hosted, native or reset side effect
+ok 8 - negative: only source check runs; CLI remains non-runnable BLOCKED with no hosted, native or reset side effect
+  ---
+  duration_ms: 435.488
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 836.1127

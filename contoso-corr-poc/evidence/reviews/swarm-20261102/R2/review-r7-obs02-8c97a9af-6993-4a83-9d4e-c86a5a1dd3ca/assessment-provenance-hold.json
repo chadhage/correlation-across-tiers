@@ -1,0 +1,16 @@
+{
+  "schema": "contoso.scoped-review-followup.v1",
+  "reviewerRole": "R2",
+  "reviewerAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "authorRole": "R7",
+  "childId": "OBS-02.2",
+  "result": "HOLD_KNOWN_MIXED_CAPTURE_PROVENANCE_FINDING",
+  "observedAtUtc": "2026-11-02T22:32:52.656Z",
+  "priorReviewScope": "AT_EXECUTION SOURCE/UNIT only; original immutable 73-test log remains as-recorded and cannot close the later R9 finding",
+  "finding": "A genuine capture capability currently lends real-local labels to caller-added envelope arrays. Once mixed inputs are present, aggregate and all row provenance must stay structural/fixture-check.",
+  "authorPlan": "R7 will materialize external arrays once, downgrade all mixed rows/aggregate, preserve red regressions and refreeze the bounded same packet.",
+  "nativeEvidence": false,
+  "completedChildCandidate": false,
+  "status": "To Do",
+  "nextAction": "Review only the forthcoming exact frozen corrective source/unit packet after R9 reproduction is preserved; no new runtime/implementation parent dispatch."
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "bicep"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "BCP081",
+          "message": {
+            "text": "Resource type \"Microsoft.Cache/redisEnterprise@2026-09-01\" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. [https://aka.ms/bicep/core-diagnostics#BCP081]"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/infra/modules/data-managed-redis.bicep"
+                },
+                "region": {
+                  "startLine": 30,
+                  "charOffset": 18
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BCP081",
+          "message": {
+            "text": "Resource type \"Microsoft.Cache/redisEnterprise/databases@2026-09-01\" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. [https://aka.ms/bicep/core-diagnostics#BCP081]"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/infra/modules/data-managed-redis.bicep"
+                },
+                "region": {
+                  "startLine": 47,
+                  "charOffset": 19
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BCP081",
+          "message": {
+            "text": "Resource type \"Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments@2026-09-01\" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. [https://aka.ms/bicep/core-diagnostics#BCP081]"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/infra/modules/data-managed-redis.bicep"
+                },
+                "region": {
+                  "startLine": 65,
+                  "charOffset": 17
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

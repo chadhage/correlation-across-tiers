@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+ok 1 - resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+  ---
+  duration_ms: 4.757
+  type: 'test'
+  ...
+# Subtest: resolver unit: the EXE alias and whitespace-only primary setting are supported
+ok 2 - resolver unit: the EXE alias and whitespace-only primary setting are supported
+  ---
+  duration_ms: 0.4012
+  type: 'test'
+  ...
+# Subtest: resolver unit: an unconfigured compiler is resolved from PATH
+ok 3 - resolver unit: an unconfigured compiler is resolved from PATH
+  ---
+  duration_ms: 0.2358
+  type: 'test'
+  ...
+# Subtest: resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+ok 4 - resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+  ---
+  duration_ms: 0.6134
+  type: 'test'
+  ...
+# Subtest: resolver negative: an explicitly configured missing compiler fails without fallback
+ok 5 - resolver negative: an explicitly configured missing compiler fails without fallback
+  ---
+  duration_ms: 0.8967
+  type: 'test'
+  ...
+# Subtest: resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+ok 6 - resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+  ---
+  duration_ms: 0.4091
+  type: 'test'
+  ...
+# Subtest: resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+ok 7 - resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+  ---
+  duration_ms: 0.5569
+  type: 'test'
+  ...
+# Subtest: missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+ok 8 - missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+  ---
+  duration_ms: 775.9938
+  type: 'test'
+  ...
+# Subtest: source portability guard rejects absolute user-profile and operator-session defaults
+ok 9 - source portability guard rejects absolute user-profile and operator-session defaults
+  ---
+  duration_ms: 3.9816
+  type: 'test'
+  ...
+# Subtest: real messaging ARM compiles all carriers with identity-only local auth disabled
+ok 10 - real messaging ARM compiles all carriers with identity-only local auth disabled
+  ---
+  duration_ms: 2940.7476
+  type: 'test'
+  ...
+# Subtest: CloudEvents relay uses topic identity and declares durable dead-letter destination
+ok 11 - CloudEvents relay uses topic identity and declares durable dead-letter destination
+  ---
+  duration_ms: 2679.1878
+  type: 'test'
+  ...
+# Subtest: runtime messaging permissions are fixed entity scopes, never namespace data owners
+ok 12 - runtime messaging permissions are fixed entity scopes, never namespace data owners
+  ---
+  duration_ms: 1974.8566
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9967.891

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "tools\\protocol.mjs",
+    "sha256": "0281304b3c3e1f1f1307e20984a05f30edba3aa59f350f17f2656869cd997b64"
+  },
+  {
+    "path": "tests\\apim\\scanner-regressions.test.mjs",
+    "sha256": "b58fbb40bc664dabe188a95ea2e0574431dd1b7db8465c1a6965ae7cd66442ad"
+  },
+  {
+    "path": "apim\\README.md",
+    "sha256": "23a6aaa881b45b96e4059fef8f71223d69f86147e07224aa142a688e2348ff53"
+  },
+  {
+    "path": "apim\\sdk-source-pin.json",
+    "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36"
+  },
+  {
+    "path": "apim\\policies\\fragments\\contoso-context-v1.xml",
+    "sha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f"
+  }
+]

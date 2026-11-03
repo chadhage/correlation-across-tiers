@@ -1,0 +1,27 @@
+{
+  "schema": "contoso.construction-review-request-guide.v1",
+  "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\YOUR_ROLE\\UNIQUE_PACKET\\request.json",
+  "instructions": [
+    "The independent reviewer creates a unique request file and executes the command themselves.",
+    "Freeze the author's exact declared source closure; include implementation, test, imported contract/tool and delivered documentation inputs. Source paths are relative to contoso-corr-poc; ..\\.github paths are allowed only as source inputs inside the repository.",
+    "testFiles must be focused Node test files included in sourcePaths. positiveTests and negativeTests contain distinct exact successful TAP test names, not invented labels.",
+    "The helper binds current fresh roster and exact existing child definitions, measures source hashes before/after, executes Node TAP, and saves immutable tests.tap, stderr.txt and contoso.code-review.v1 review.json.",
+    "Send the returned receipt and the exact child acceptance findings/limitations to the orchestrator. Local source reviews do not close native or hosted-PR children.",
+    "Do not include tools\\kanban.mjs or tests\\kanban.test.mjs unless reviewing the orchestrator's own packet; these are still changing and unrelated inclusion will make a receipt stale.",
+    "No full npm suite or Maven command is executed by this helper. The parent owns final integrated validation."
+  ],
+  "requestExample": {
+    "reviewerRole": "R3",
+    "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+    "authorRole": "R1",
+    "childIds": ["GATE-11.1"],
+    "sourcePaths": ["azure.yaml", "tools\\Prepare-DeploymentPackages.ps1", "tests\\REPLACE_WITH_EXACT_TEST_FILE.test.mjs"],
+    "testFiles": ["tests\\REPLACE_WITH_EXACT_TEST_FILE.test.mjs"],
+    "positiveTests": ["REPLACE WITH EXACT PASSING POSITIVE TEST NAME"],
+    "negativeTests": ["REPLACE WITH EXACT PASSING NEGATIVE ASSERTION NAME"],
+    "outputDirectory": "evidence\\reviews\\swarm-20261102\\R3\\gate-11.1-review-UNIQUE"
+  },
+  "parentRulesUnchanged": true,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

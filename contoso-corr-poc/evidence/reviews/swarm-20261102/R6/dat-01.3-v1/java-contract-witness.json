@@ -1,0 +1,43 @@
+{
+  "schema": "contoso.r6-private-java-contract-witness.v1",
+  "reviewerAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "authorAgent": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "measuredAtUtc": "2026-11-02T22:21:26.9770988Z",
+  "authorHandoff": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.3-v1\\handoff.json",
+  "authorHandoffSha256": "5478c6052c9fb0da1441bdccde4488a903ed588a5f5544707f9a447757584a6f",
+  "metadata": "evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2\\context-data-contracts.json",
+  "metadataSha256": "9e5b1c8c6468458394565858d85fb3f5777614523beda9befddc4ad14dba2381",
+  "actualSuites": [
+    {
+      "suite": "com.contoso.inventory.data.InventoryGrantMarkerTest",
+      "tests": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "originalXmlSha256": "cbc13ae6ebf2c0f1567115339de8c3d3cff1c53bf9202f51279e6cb8750f6c4b"
+    },
+    {
+      "suite": "com.contoso.inventory.data.LocalPostgresLaneContractTest",
+      "tests": 7,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "originalXmlSha256": "465c58d99fa913612c435f1e5cae27717623f48bedb463b34da865fd71feb421"
+    },
+    {
+      "suite": "com.contoso.inventory.data.WorkflowGrantPolicyTest",
+      "tests": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "originalXmlSha256": "a79edf48376639c9da71addf8aabdf850d0a56519f3923d68ff3ff0c153ac4c4"
+    }
+  ],
+  "actualTests": 12,
+  "actualFailures": 0,
+  "actualErrors": 0,
+  "actualSkipped": 0,
+  "realPostgresExecuted": false,
+  "rawXmlCopied": false,
+  "claim": "Independently hashed all3 original current JUnit XMLs and read actual suite counts; parser/grant source contracts only, no PostgreSQL connection/ACL/cleanup or Entra proof."
+}

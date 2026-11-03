@@ -1,0 +1,157 @@
+{
+  "schema": "contoso.r5-queue-triage.v1",
+  "agentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "role": "R5",
+  "capturedAtUtc": "2026-11-02T22:01:24.566Z",
+  "runtime": "v22.23.4",
+  "command": "presence-only Object.hasOwn(process.env, named nonsecret messaging setting); no setting value, secret, credential, network, broker or cloud lookup",
+  "settingsPresence": {
+    "CONTOSO_SERVICE_BUS_NAMESPACE": false,
+    "CONTOSO_EVENT_HUBS_NAMESPACE": false,
+    "CONTOSO_EVENT_GRID_ENDPOINT": false,
+    "CONTOSO_STORAGE_QUEUE_ENDPOINT": false,
+    "CONTOSO_DB_ROLE_ORDERS": false,
+    "CONTOSO_DB_ROLE_FULFILLMENT": false,
+    "CONTOSO_DB_ROLE_NOTIFY": false,
+    "CONTOSO_DB_ROLE_AGGREGATOR": false
+  },
+  "remoteResourceExistence": "UNKNOWN_NOT_INSPECTED",
+  "nativeWindowAuthorized": false,
+  "applicationTrafficAuthorized": false,
+  "sourceInputsBefore": [
+    {
+      "path": "contoso-corr-poc\\workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingSettings.java",
+      "sha256": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e"
+    },
+    {
+      "path": "contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R9\\dem-00.1-contract-handoff.json",
+      "sha256": "49d237fa70ec79d78f08ceadc57e6a74d95944b84998d2e34ca16b0fef080852"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\async-honesty.test.mjs",
+      "sha256": "0bc20832f63669739446c3b81976963860c89c5dc80a6ee21dc562d707599610"
+    }
+  ],
+  "sourceInputsAfter": [
+    {
+      "path": "contoso-corr-poc\\workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingSettings.java",
+      "sha256": "08edd7a0ac2537622fdc43e5476dbc5f7b7b09b2a175d27692ee8873a52fa84e"
+    },
+    {
+      "path": "contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R9\\dem-00.1-contract-handoff.json",
+      "sha256": "49d237fa70ec79d78f08ceadc57e6a74d95944b84998d2e34ca16b0fef080852"
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\async-honesty.test.mjs",
+      "sha256": "0bc20832f63669739446c3b81976963860c89c5dc80a6ee21dc562d707599610"
+    }
+  ],
+  "sourceUnchanged": true,
+  "children": [
+    {
+      "id": "INF-06.1",
+      "state": "SOURCE_READY_REVIEW_REQUIRED",
+      "candidateExit": "Actual primary12pass, alias3pass, PATH3pass; missing-tool zero-pass/three-skip semantics and configured-missing failure verified. R3/R6 source reviews pending.",
+      "next": "Orchestrator may close exact construction child only after both current independent positive/negative receipts; parent INF-06 remains To Do."
+    },
+    {
+      "id": "MSG-02.1",
+      "state": "TO_DO",
+      "missing": [
+        "Approved deployed INF-06 namespace and run-owned real queue",
+        "Managed-identity data roles and authorized PostgreSQL runtime/principals/grants",
+        "Reviewed opt-in qualification driving actual delayed/uncertain/duplicate publication with independent emission/effect evidence",
+        "Separately approved finite traffic/native window"
+      ],
+      "next": "Obtain operator-owned topology/bootstrap/identity and explicit window; R4 owns any Java/Maven qualification. Existing UnavailableBroker, local-carrier and H2 runs are not real-broker proof."
+    },
+    {
+      "id": "MSG-06.1",
+      "state": "TO_DO",
+      "missing": [
+        "Approved deployed real Event Hubs namespace/hub and run-owned consumer group",
+        "Authorized fenced PostgreSQL checkpoint/contributor store",
+        "Reviewed opt-in restart/replay driver with actual kill-before-checkpoint and stale-fence negative control",
+        "Separately approved finite traffic/native window"
+      ],
+      "next": "Obtain operator-owned topology/bootstrap/identity and explicit window; R4 owns any Java/Maven qualification. Do not start a new native window or count local-carrier/H2 as native."
+    },
+    {
+      "id": "DEM-06.1",
+      "state": "TO_DO",
+      "missing": [
+        "Independently reviewed DEM-00.1 full concrete native operation interface",
+        "Independently enrolled native execution observer, authenticated RAW query/canary/emission inventory and sampling apply/observe/restore/stop operations",
+        "Run-only baseline/preparation, real effect observation, owned-message drain/reset and authenticated durable recovery",
+        "Approved deployed brokers/roles/bootstrap and separately approved finite application/native window"
+      ],
+      "scenario": "N injected failures plus success are N+1 distinct PROCESS attempts; stopped-N and extra-redelivery controls.",
+      "next": "R9 explicitly confirms no ready native operation packet under current authorization. Do not export callback stubs or promote construction inspectors to a runnable adapter or child closure."
+    },
+    {
+      "id": "DEM-07.1",
+      "state": "TO_DO",
+      "missing": [
+        "Independently reviewed DEM-00.1 full concrete native operation interface",
+        "Independently enrolled native execution observer, authenticated RAW query/canary/emission inventory and sampling apply/observe/restore/stop operations",
+        "Run-only baseline/preparation, real effect observation, owned-message drain/reset and authenticated durable recovery",
+        "Approved deployed brokers/roles/bootstrap and separately approved finite application/native window"
+      ],
+      "scenario": "Fulfillment and Notify DLQ safe identity, fresh replay PROCESS/SEND links, unchanged business ID and owned DLQ drain.",
+      "next": "R9 explicitly confirms no ready native operation packet under current authorization. Do not export callback stubs or promote construction inspectors to a runnable adapter or child closure."
+    },
+    {
+      "id": "DEM-08.1",
+      "state": "TO_DO",
+      "missing": [
+        "Independently reviewed DEM-00.1 full concrete native operation interface",
+        "Independently enrolled native execution observer, authenticated RAW query/canary/emission inventory and sampling apply/observe/restore/stop operations",
+        "Run-only baseline/preparation, real effect observation, owned-message drain/reset and authenticated durable recovery",
+        "Approved deployed brokers/roles/bootstrap and separately approved finite application/native window"
+      ],
+      "scenario": "Separate Fulfillment/Notify PROCESS spans; Aggregator links exact persisted four-context contributors.",
+      "next": "R9 explicitly confirms no ready native operation packet under current authorization. Do not export callback stubs or promote construction inspectors to a runnable adapter or child closure."
+    },
+    {
+      "id": "DEM-09.1",
+      "state": "TO_DO",
+      "missing": [
+        "Independently reviewed DEM-00.1 full concrete native operation interface",
+        "Independently enrolled native execution observer, authenticated RAW query/canary/emission inventory and sampling apply/observe/restore/stop operations",
+        "Run-only baseline/preparation, real effect observation, owned-message drain/reset and authenticated durable recovery",
+        "Approved deployed brokers/roles/bootstrap and separately approved finite application/native window"
+      ],
+      "scenario": "Produce/consume actual different-trace events as one bounded linked batch, never first-message parent.",
+      "next": "R9 explicitly confirms no ready native operation packet under current authorization. Do not export callback stubs or promote construction inspectors to a runnable adapter or child closure."
+    },
+    {
+      "id": "DEM-10.1",
+      "state": "TO_DO",
+      "missing": [
+        "Independently reviewed DEM-00.1 full concrete native operation interface",
+        "Independently enrolled native execution observer, authenticated RAW query/canary/emission inventory and sampling apply/observe/restore/stop operations",
+        "Run-only baseline/preparation, real effect observation, owned-message drain/reset and authenticated durable recovery",
+        "Approved deployed brokers/roles/bootstrap and separately approved finite application/native window"
+      ],
+      "scenario": "Actual Event Grid relay and Storage Queue envelopes, size/validation/duplicate delivery and context identities.",
+      "next": "R9 explicitly confirms no ready native operation packet under current authorization. Do not export callback stubs or promote construction inspectors to a runnable adapter or child closure."
+    }
+  ],
+  "gate09": {
+    "clauses": "1/2/3/4 source controls already implemented; no unfinished unit construction identified. 1/2/3/5 live remain To Do.",
+    "newExecution": "NONE; completed local SDK/carrier/H2/native slices intentionally not repeated",
+    "decompositionProposal": "No new GATE-09 construction child justified by current source. If a concrete new defect is identified, propose an exact bounded unit child to orchestrator before writing; do not manufacture one for throughput."
+  },
+  "implementationOwnerCountAfterRelease": 0,
+  "cleanup": "No Java/Maven/package/build/target outputs, new brokers, background processes, native windows, application traffic, cloud changes or commits. Evidence-only source hashes and presence receipts.",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

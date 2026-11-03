@@ -1,14 +1,16 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 import { projectRoot, jsonBytes, readBoundFile, sha256 } from './files.mjs';
+import { validatePortalNodeClassification } from '../certification-path.mjs';
 
 const officialHosts = new Set([
   'learn.microsoft.com', 'github.com', 'registry.npmjs.org', 'repo.maven.apache.org',
   'maven.apache.org', 'downloads.apache.org', 'pkgs.dev.azure.com', 'www.w3.org',
   'opentelemetry.io', 'nodejs.org', 'docs.oracle.com', 'www.postgresql.org'
 ]);
-const skip = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.java-work', '.git', 'deployment-artifact', 'evidence', 'tests', 'eval', 'evaluation']);
+const skip = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.tools', '.java-work', '.git', 'deployment-artifact', 'evidence', 'tests', 'eval', 'evaluation']);
 const capabilities = new Set(['version', 'apiVersion', 'sku', 'skuName', 'javaVersion', 'jdkVersion', 'runtimeVersion', 'workerVersion', 'status']);
 const pointerEscape = value => value.replaceAll('~', '~0').replaceAll('/', '~1');
 const VERSION = /^(?:~|\^)?(?:\d+\.\d+(?:\.\d+)?(?:[+.-][a-zA-Z0-9.-]+)?|\d{4}-\d{2}-\d{2})$/;
@@ -165,23 +167,59 @@ export async function discoverClaims(root = projectRoot) {
   return [...unique.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
-export function createRegister(inventory) {
+export function createRegister(inventory, previous = {}) {
+  const current = new Map(inventory.map(claim => [claim.id, claim]));
+  const prior = new Map((previous.claims ?? []).map(claim => [claim.id, claim]));
+  const invalidated = structuredClone(previous.invalidatedPreviousClaims ?? []);
+  for (const claim of previous.claims ?? []) {
+    const observed = current.get(claim.id);
+    if (!observed) {
+      invalidated.push({ id: claim.id, oldValue: claim.value, result: 'INVALIDATED',
+        reason: 'Claim removed from current source inventory; historical only, not deployed/source-content/support verification',
+        originalClaim: structuredClone(claim) });
+    } else if (claim.value !== observed.value || claim.source !== observed.source) {
+      invalidated.push({ id: claim.id, oldValue: claim.value, value: observed.value,
+        result: 'INVALIDATED', reason: 'New source snapshot registration is not deployed/source-content/support verification' });
+    }
+  }
   return {
     schema: 'contoso.verification-register.v1', sourceAcceptanceIsCertification: false,
     numericPinLintScope: 'Deployable JSON/Maven/resource API and explicit SKU/runtime literals; semantic prose/support claims still require source review.',
-    claims: inventory.map(claim => ({
-      ...claim, label: officialSource(claim.source) || claim.category === 'contoso-owned' ? 'Partially verified' : 'Unsupported',
-      verification: `VERIFY: ${claim.id} = ${claim.value}`,
-      lockedValueVerified: true, deployedValueVerified: false, officialSourceContentVerified: false,
-      prereleaseSupportNeedsVerification: /beta|alpha|preview|rc[.-]?\d/i.test(claim.value),
-      test: 'node tools\\verification\\register.mjs --check',
-      nextAction: claim.category === 'contoso-owned'
-        ? 'Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime.'
-        : officialSource(claim.source)
-        ? 'Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence.'
-        : 'Owning role must supply an exact official source; do not treat this claim as verified.'
-    }))
+    ...(previous.portalNodePrereleaseClassification
+      ? { portalNodePrereleaseClassification: structuredClone(previous.portalNodePrereleaseClassification) } : {}),
+    ...(previous.boundedLocalEvidence ? { boundedLocalEvidence: structuredClone(previous.boundedLocalEvidence) } : {}),
+    claims: inventory.map(claim => {
+      const before = prior.get(claim.id);
+      const unchanged = before && before.value === claim.value && before.source === claim.source;
+      return {
+        ...claim, label: officialSource(claim.source) || claim.category === 'contoso-owned' ? 'Partially verified' : 'Unsupported',
+        verification: `VERIFY: ${claim.id} = ${claim.value}`,
+        lockedValueVerified: true, deployedValueVerified: false, officialSourceContentVerified: false,
+        prereleaseSupportNeedsVerification: /beta|alpha|preview|rc[.-]?\d/i.test(claim.value),
+        test: 'node tools\\verification\\register.mjs --check',
+        nextAction: claim.category === 'contoso-owned'
+          ? 'Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime.'
+          : officialSource(claim.source)
+          ? 'Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence.'
+          : 'Owning role must supply an exact official source; do not treat this claim as verified.',
+        ...(unchanged ? { owner: before.owner, test: before.test, nextAction: before.nextAction } : {})
+      };
+    }),
+    invalidatedPreviousClaims: invalidated
   };
+}
+
+export function serializeRegister(register, previousBytes) {
+  if (!previousBytes) return jsonBytes(register);
+  const { claims: previousClaims, ...previousMetadata } = JSON.parse(previousBytes.toString('utf8'));
+  const { claims: currentClaims, ...currentMetadata } = register;
+  const previousById = new Map(previousClaims.map(claim => [claim.id, claim]));
+  const currentById = new Map(currentClaims.map(claim => [claim.id, claim]));
+  if (previousById.size === previousClaims.length && currentById.size === currentClaims.length &&
+      isDeepStrictEqual(previousById, currentById) && isDeepStrictEqual(previousMetadata, currentMetadata)) {
+    return Buffer.from(previousBytes);
+  }
+  return jsonBytes(register);
 }
 
 export function validateRegister(register, inventory, { deployed = [], certify = false } = {}) {
@@ -218,20 +256,23 @@ export async function registerMain(args) {
   const inventory = await discoverClaims();
   if (args.length !== 1 || !['--freeze', '--refresh', '--check', '--certify'].includes(args[0])) throw new Error('Usage: register.mjs --freeze|--refresh|--check|--certify');
   if (args[0] === '--freeze' || args[0] === '--refresh') {
-    const registry = createRegister(inventory);
+    const previousBytes = args[0] === '--refresh' ? await readFile(file) : undefined;
+    const previous = previousBytes ? JSON.parse(previousBytes.toString('utf8')) : {};
+    const registry = createRegister(inventory, previous);
     if (args[0] === '--refresh') {
-      const previous = JSON.parse(await readFile(file, 'utf8'));
-      const before = new Map(previous.claims.map(claim => [claim.id, claim]));
-      registry.invalidatedPreviousClaims = inventory.filter(claim => before.has(claim.id) &&
-        (before.get(claim.id).value !== claim.value || before.get(claim.id).source !== claim.source))
-        .map(claim => ({ id: claim.id, oldValue: before.get(claim.id).value, value: claim.value,
-          result: 'INVALIDATED', reason: 'New source snapshot registration is not deployed/source-content/support verification' }));
+      validatePortalNodeClassification(
+        JSON.parse((await readBoundFile('config\\certification-dependencies.json')).toString('utf8')),
+        await readBoundFile('web\\portal-ssr\\package-lock.json'), registry.portalNodePrereleaseClassification);
     }
-    await writeFile(file, jsonBytes(registry), { flag: args[0] === '--freeze' ? 'wx' : 'w' });
-    console.log(JSON.stringify({ result: 'REGISTERED_NOT_CERTIFIED', claims: registry.claims.length, sha256: sha256(jsonBytes(registry)) }));
+    const bytes = serializeRegister(registry, previousBytes);
+    await writeFile(file, bytes, { flag: args[0] === '--freeze' ? 'wx' : 'w' });
+    console.log(JSON.stringify({ result: 'REGISTERED_NOT_CERTIFIED', claims: registry.claims.length, sha256: sha256(bytes) }));
     return;
   }
   const register = JSON.parse(await readFile(file, 'utf8'));
+  validatePortalNodeClassification(
+    JSON.parse((await readBoundFile('config\\certification-dependencies.json')).toString('utf8')),
+    await readBoundFile('web\\portal-ssr\\package-lock.json'), register.portalNodePrereleaseClassification);
   const result = validateRegister(register, inventory, { certify: args[0] === '--certify' });
   console.log(JSON.stringify({ result: result.result, sourceAcceptanceIsCertification: false, registered: result.registered, open: result.open.length }));
 }

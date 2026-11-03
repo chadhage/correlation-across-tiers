@@ -1,0 +1,160 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "documentation",
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "..\\.github\\pull_request_template.md",
+      "sha256": "6ba641a208c5f5d4bc6621969da1c80fa16e4ff927cf6aa2a82d2c693bf8c8cf",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\pull-request-template.mjs",
+      "sha256": "1ee253a356708804c5b98e9367c6b52525cc8971be22155b210b373a39c2b465",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\pull-request-template.test.mjs",
+      "sha256": "7356632d576cbe7fcebb96840a555fbc9636912ea05ee1cd9e323c9b58d59d6f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "DECISIONS.md",
+      "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "..\\.github\\pull_request_template.md",
+      "sha256": "6ba641a208c5f5d4bc6621969da1c80fa16e4ff927cf6aa2a82d2c693bf8c8cf",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\pull-request-template.mjs",
+      "sha256": "1ee253a356708804c5b98e9367c6b52525cc8971be22155b210b373a39c2b465",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\pull-request-template.test.mjs",
+      "sha256": "7356632d576cbe7fcebb96840a555fbc9636912ea05ee1cd9e323c9b58d59d6f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "DECISIONS.md",
+      "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R9",
+      "authorAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "result": "accepted",
+      "scopeSha256": "7f046f732cf49602a9d108650c5e0c3094e8f2b9d8813b31223527ac3ed8b328",
+      "sources": [
+        {
+          "path": "..\\.github\\pull_request_template.md",
+          "sha256": "6ba641a208c5f5d4bc6621969da1c80fa16e4ff927cf6aa2a82d2c693bf8c8cf",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\pull-request-template.mjs",
+          "sha256": "1ee253a356708804c5b98e9367c6b52525cc8971be22155b210b373a39c2b465",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\pull-request-template.test.mjs",
+          "sha256": "7356632d576cbe7fcebb96840a555fbc9636912ea05ee1cd9e323c9b58d59d6f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\run-focused.mjs",
+          "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "DECISIONS.md",
+          "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\pull-request-template.test.mjs",
+        "testFiles": [
+          "tests\\verification\\pull-request-template.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:08:55.924Z",
+        "finishedAtUtc": "2026-11-02T22:08:56.311Z",
+        "exitCode": 0,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gov-01.1-review-v1\\tests.tap",
+        "sha256": "ce365ec46b4e038f4e54ef953cda40dd0f4986390eafd04f5a8f4b0ebcab17bd",
+        "positiveTests": [
+          "real repository PR template requires independent other-role reviews and labelled sourced claims"
+        ],
+        "negativeTests": [
+          "seeded template without the claim-label item fails closed"
+        ]
+      },
+      "children": [
+        {
+          "id": "GOV-01.1",
+          "definitionSha256": "aee9524e18e2c35ef2fe355fc5e3663f71ed7fb847ea53f7e3ddf6cb0e212def",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

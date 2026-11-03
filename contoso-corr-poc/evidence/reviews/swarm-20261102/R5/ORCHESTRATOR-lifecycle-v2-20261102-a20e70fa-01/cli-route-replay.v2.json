@@ -1,0 +1,323 @@
+{
+  "schema": "contoso.r5-cli-replay.v1",
+  "result": "SUCCESSOR_AGGREGATE_CLI_VALIDATES_CHILD_EVIDENCE",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "ORCHESTRATOR",
+  "runtime": "v22.23.4",
+  "sourcesBefore": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "sourcesAfter": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "sourcesUnchangedBeforeAfter": true,
+  "mirroredActualEvidenceInputs": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json",
+      "sha256": "4049f4902f41aae642390a6fd390e3951d82d1ea0a4925e74125a437270154f0",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tests\\messaging\\infra.test.mjs",
+      "sha256": "aa729cacefabb76f986fade68ea32c417932ad4252107456e903b1653d044d1f",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tests\\messaging\\infra-tool-resolution.test.mjs",
+      "sha256": "87b081f0590987159235664ceea650609485488ceabb747c113ef40ceff818a6",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "tools\\messaging\\bicep-tool.mjs",
+      "sha256": "d099e33adf16d7e930e97cda3575ee93492ced7b453027577da92d6005dcfa5b",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "workers\\messaging-core\\README.md",
+      "sha256": "e1054683fffa66e8bf8953905c6d3313b4a96220ff332aadb39085d2a67bc4fe",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "infra\\modules\\messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "infra\\modules\\messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\tests.tap",
+      "sha256": "953a82b1319cf27150229548da3d83a29af87946337b33ec78f38a6c5e87efca",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\review.json",
+      "sha256": "7ad3dc5669c02c546eef3e719e9909ddd17849fc7f5ba296bab765d7535ae3c8",
+      "originalStillCurrent": true
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\tests.tap",
+      "sha256": "c69ece2da42f2ac17a99da84d6d579c29e132b689aa2988e08ad4c61c888ae5a",
+      "originalStillCurrent": true
+    }
+  ],
+  "mirroredReviewsAreOnlyIsolatedTestInputs": true,
+  "parentsHaveNoCriteriaOrReviews": true,
+  "actualCliCommands": [
+    {
+      "case": "valid-current-child",
+      "flag": "--write",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": "",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": null
+    },
+    {
+      "case": "valid-current-child",
+      "flag": "--check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": "",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": null
+    },
+    {
+      "case": "missing-child-receipt",
+      "flag": "--write",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "node:internal/fs/promises:1179\r\n  return await PromisePrototypeThen(\r\n         ^\r\n\r\nError: ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json'\r\n    at async realpath (node:internal/fs/promises:1179:10)\r\n    at async verifyArtifact (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:331:20)\r\n    at async verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:396:36)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5 {\r\n  errno: -4058,\r\n  code: 'ENOENT',\r\n  syscall: 'realpath',\r\n  path: 'C:\\\\Users\\\\chhage\\\\repos\\\\correlation-across-tiers\\\\contoso-corr-poc\\\\evidence\\\\reviews\\\\swarm-20261102\\\\R5\\\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\\\project\\\\evidence\\\\reviews\\\\swarm-20261102\\\\R3\\\\review-r5-inf06-20261102-8d9476d4\\\\review.json'\r\n}\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "missing-child-receipt",
+      "flag": "--check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "node:internal/fs/promises:1179\r\n  return await PromisePrototypeThen(\r\n         ^\r\n\r\nError: ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json'\r\n    at async realpath (node:internal/fs/promises:1179:10)\r\n    at async verifyArtifact (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:331:20)\r\n    at async verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:396:36)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5 {\r\n  errno: -4058,\r\n  code: 'ENOENT',\r\n  syscall: 'realpath',\r\n  path: 'C:\\\\Users\\\\chhage\\\\repos\\\\correlation-across-tiers\\\\contoso-corr-poc\\\\evidence\\\\reviews\\\\swarm-20261102\\\\R5\\\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\\\project\\\\evidence\\\\reviews\\\\swarm-20261102\\\\R3\\\\review-r5-inf06-20261102-8d9476d4\\\\review.json'\r\n}\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "reviewed-source-drift",
+      "flag": "--write",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:400\r\n          if (reviewSourceDigest(source.path, await verifyConstructionSource(source.path)) !== source.sha256) throw new Error(`Child reviewed source changed: ${source.path}`);\r\n                                                                                                                    ^\r\n\r\nError: Child reviewed source changed: tools\\messaging\\bicep-tool.mjs\r\n    at verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:400:117)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "reviewed-source-drift",
+      "flag": "--check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:400\r\n          if (reviewSourceDigest(source.path, await verifyConstructionSource(source.path)) !== source.sha256) throw new Error(`Child reviewed source changed: ${source.path}`);\r\n                                                                                                                    ^\r\n\r\nError: Child reviewed source changed: tools\\messaging\\bicep-tool.mjs\r\n    at verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:400:117)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "child-tap-tamper",
+      "flag": "--write",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:335\r\n  if (expectedHash && hash(bytes) !== expectedHash) throw new Error(`Evidence hash mismatch: ${artifact}`);\r\n                                                          ^\r\n\r\nError: Evidence hash mismatch: evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\tests.tap\r\n    at verifyArtifact (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:335:59)\r\n    at async verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:398:34)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "child-tap-tamper",
+      "flag": "--check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:335\r\n  if (expectedHash && hash(bytes) !== expectedHash) throw new Error(`Evidence hash mismatch: ${artifact}`);\r\n                                                          ^\r\n\r\nError: Evidence hash mismatch: evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\tests.tap\r\n    at verifyArtifact (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:335:59)\r\n    at async verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:398:34)\r\n    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)\r\n    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)\r\n    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5\r\n\r\nNode.js v22.23.4\r\n",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": true
+    },
+    {
+      "case": "valid-restored-child",
+      "flag": "--write",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": "",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": null
+    },
+    {
+      "case": "valid-restored-child",
+      "flag": "--check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project",
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": "",
+      "sourcesUnchanged": true,
+      "boardUnchangedOnRejection": null
+    }
+  ],
+  "positiveCliExits": 4,
+  "expectedNegativeCliRejections": 6,
+  "directMissingReceiptRejection": "ENOENT",
+  "allExpectedResultsObserved": true,
+  "sharedBoardEdits": false,
+  "sourceEdits": false,
+  "javaMavenRuns": 0,
+  "cloudOrNativeTraffic": false,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "fixtureRemoved": true
+}

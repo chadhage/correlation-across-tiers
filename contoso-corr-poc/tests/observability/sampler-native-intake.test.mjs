@@ -4,7 +4,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
-import { connect } from 'node:net';
+import { connect, createServer as createPortReservation } from 'node:net';
 import { Agent, request as httpRequest } from 'node:http';
 import { performance } from 'node:perf_hooks';
 import { NATIVE_LIMITS, NATIVE_POLICY_SOURCE_SHA256 } from '../../tools/security/native-payload.mjs';
@@ -37,6 +37,93 @@ function request(body, { encoding, path = '/v2.1/track', method = 'POST', header
   };
 }
 const intake = () => createSamplerNativeIntake(options());
+
+test('safe incremental capture callbacks are immutable, per-payload and awaited before acceptance', async () => {
+  const captures = [];
+  let release, observed;
+  const gate = new Promise(done => { release = done; });
+  const entered = new Promise(done => { observed = done; });
+  const collector = createSamplerNativeIntake({ ...options(), onCapture: async capture => {
+    captures.push(capture);
+    observed();
+    await gate;
+  } });
+  const receiving = collector.receive(request(envelope()));
+  await entered;
+  assert.equal(collector.diagnostics().counts.acceptedPayloads, 0);
+  assert.throws(() => collector.finish(), /NATIVE_RECEIVER_INCOMPLETE/);
+  assert.equal(captures[0].nativeEnvelopes[0].iKey, undefined);
+  assert.equal(captures[0].payloadReceipts[0].scannedAllOriginalValues, true);
+  assert.throws(() => { captures[0].nativeEnvelopes[0].tags['ai.operation.id'] = 'f'.repeat(32); }, TypeError);
+  release();
+  await receiving;
+  await collector.receive(request(envelope('RemoteDependencyData')));
+  assert.equal(captures.length, 2);
+  assert(captures.every(capture => capture.nativeEnvelopes.length === 1 && capture.payloadReceipts.length === 1));
+  assert.equal(collector.finish().observations.length, 2);
+});
+
+test('unsafe originals never reach an incremental callback and callback failures poison all acceptance', async () => {
+  let callbacks = 0;
+  const unsafeCollector = createSamplerNativeIntake({ ...options(), onCapture() { callbacks++; } });
+  const unsafe = envelope();
+  unsafe.extra = marker;
+  await assert.rejects(unsafeCollector.receive(request(unsafe)), /NATIVE_PRIVACY_UNSAFE/);
+  assert.equal(callbacks, 0);
+  assert.throws(() => unsafeCollector.finish(), /NATIVE_PRIVACY_UNSAFE/);
+  const failedCollector = createSamplerNativeIntake({ ...options(), onCapture() { throw new Error(marker); } });
+  await assert.rejects(failedCollector.receive(request(envelope())), /NATIVE_CAPTURE_CALLBACK_FAILED/);
+  assert.equal(failedCollector.diagnostics().firstPoison.event, 'capture');
+  assert.equal(failedCollector.diagnostics().counts.acceptedPayloads, 0);
+  assert(!JSON.stringify(failedCollector.diagnostics()).includes(marker));
+  assert.throws(() => failedCollector.finish(), /NATIVE_CAPTURE_CALLBACK_FAILED/);
+  assert.throws(() => createSamplerNativeIntake({ ...options(), onCapture: 'not-a-function' }), /NATIVE_CAPTURE_CALLBACK_INVALID/);
+});
+
+test('a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture', async context => {
+  context.mock.timers.enable({ apis: ['setTimeout'] });
+  let observed;
+  const entered = new Promise(done => { observed = done; });
+  const collector = createSamplerNativeIntake({ ...options(), onCapture() {
+    observed();
+    return new Promise(() => {});
+  } });
+  const receiving = assert.rejects(collector.receive(request(envelope())), /NATIVE_CAPTURE_CALLBACK_TIMEOUT/);
+  await entered;
+  context.mock.timers.tick(NATIVE_BODY_TIMEOUT_MS);
+  await receiving;
+  assert.equal(collector.diagnostics().firstPoison.event, 'capture');
+  assert.throws(() => collector.finish(), /NATIVE_CAPTURE_CALLBACK_TIMEOUT/);
+});
+
+test('the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success', async () => {
+  const reservation = createPortReservation();
+  await new Promise((done, reject) => {
+    reservation.once('error', reject);
+    reservation.listen(0, '127.0.0.1', done);
+  });
+  const port = reservation.address().port;
+  await new Promise((done, reject) => reservation.close(error => error ? reject(error) : done()));
+  const captures = [];
+  const receiver = await openSamplerNativeReceiver({ ...options(), port, onCapture: async capture => { captures.push(capture); } });
+  try {
+    assert.equal(receiver.endpoint, `http://127.0.0.1:${port}`);
+    const response = await fetch(`${receiver.endpoint}/v2.1/track`, {
+      method: 'POST', body: JSON.stringify(envelope()), signal: AbortSignal.timeout(3000)
+    });
+    assert.equal(response.status, 200);
+    assert.equal(captures.length, 1);
+    assert.equal(captures[0].nativeEnvelopes[0].iKey, undefined);
+    assert.equal((await response.json()).itemsAccepted, 1);
+    assert.equal((await receiver.finish()).observations.length, 1);
+  } finally { await receiver.stop(); }
+});
+
+test('invalid configured ports are rejected before creating a loopback listener', async () => {
+  for (const port of [-1, 65536, 1.5, '19343', NaN]) {
+    await assert.rejects(openSamplerNativeReceiver({ ...options(), port }), /NATIVE_RECEIVER_PORT/);
+  }
+});
 
 test('sampler intake scans every original before projection and retains exact native identities and raw hash receipt', async () => {
   const original = bytes([envelope(), envelope('RemoteDependencyData'), envelope('MetricData')]);

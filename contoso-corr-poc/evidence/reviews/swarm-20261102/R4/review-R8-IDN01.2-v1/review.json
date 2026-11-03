@@ -1,0 +1,198 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\java-probe-tools-root.test.mjs",
+      "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\av23-check.test.mjs",
+      "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\java-probe-tools-root.test.mjs",
+      "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\av23-check.test.mjs",
+      "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R8",
+      "authorAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "result": "accepted",
+      "scopeSha256": "d4c267a6842ce2173b43896f2aa2f2e9620e94591194e9077a29c2842344c81a",
+      "sources": [
+        {
+          "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+          "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+          "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\security\\java-probe-tools-root.test.mjs",
+          "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\security\\av23-check.test.mjs",
+          "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\av23-check.mjs",
+          "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\values.mjs",
+          "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\native-identity-client.mjs",
+          "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\versions.lock.json",
+          "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\security\\java-probe-tools-root.test.mjs tests\\security\\av23-check.test.mjs",
+        "testFiles": [
+          "tests\\security\\java-probe-tools-root.test.mjs",
+          "tests\\security\\av23-check.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:05:10.881Z",
+        "finishedAtUtc": "2026-11-02T22:05:31.405Z",
+        "exitCode": 0,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R8-IDN01.2-v1\\tests.tap",
+        "sha256": "f1b58308396eada33bc0f51a1c832535d3e98f52f6b7875c5f9922b8e20df29a",
+        "positiveTests": [
+          "AV-23 Java probes have no user-profile or session-folder defaults",
+          "agent extension and SDK hash preflight segments remain byte-identical after root removal",
+          "finite USED scope permits logical sends fewer than actual 503 wire attempts"
+        ],
+        "negativeTests": [
+          "missing portable root fails explicitly before artifact reads or shared build writes",
+          "empty or whitespace portable roots cannot select a fallback",
+          "source guard rejects seeded Windows profile and session-folder defaults",
+          "explicit portable root reaches the unchanged pinned-agent hash rejection",
+          "explicit agent override still cannot bypass its pinned hash",
+          "JAR member hash is derived from exact bytes, missing/truncated archive fails closed"
+        ]
+      },
+      "children": [
+        {
+          "id": "IDN-01.2",
+          "definitionSha256": "5292bd516d3e1daeabe10eb0eb36376725f88403d5fd8b5e699513c17d68f691",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

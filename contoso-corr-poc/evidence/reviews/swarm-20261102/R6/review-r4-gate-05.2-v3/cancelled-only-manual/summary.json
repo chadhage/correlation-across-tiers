@@ -1,0 +1,20 @@
+{
+  "schema": "contoso.java-ci-results.v1",
+  "sourceAcceptanceIsCertification": false,
+  "startedAtUtc": "2026-11-02T22:32:33.2210714+00:00",
+  "totals": {
+    "tests": 5,
+    "executed": 5,
+    "passed": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cancelled": 1,
+    "reports": 5
+  },
+  "requiredAgentTests": 5,
+  "result": "FAIL",
+  "issues": [
+    "JAVA_TESTS_FAILED_SKIPPED_OR_CANCELLED"
+  ]
+}

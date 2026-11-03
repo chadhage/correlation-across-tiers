@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: LOCAL CONFIGURATION ONLY: explicit loopback approval derives unique bounded cache key inputs
+ok 1 - LOCAL CONFIGURATION ONLY: explicit loopback approval derives unique bounded cache key inputs
+  ---
+  duration_ms: 1.3955
+  type: 'test'
+  ...
+# Subtest: CONTROL: default-off approval and every required target input fail closed
+ok 2 - CONTROL: default-off approval and every required target input fail closed
+  ---
+  duration_ms: 0.5655
+  type: 'test'
+  ...
+# Subtest: CONTROL: remote, DNS, wildcard, tunnel-shaped and ambiguous loopback target strings are rejected
+ok 3 - CONTROL: remote, DNS, wildcard, tunnel-shaped and ambiguous loopback target strings are rejected
+  ---
+  duration_ms: 0.4062
+  type: 'test'
+  ...
+# Subtest: CONTROL: noncanonical run IDs and nonmatching production-adapter telemetry ports are rejected
+ok 4 - CONTROL: noncanonical run IDs and nonmatching production-adapter telemetry ports are rejected
+  ---
+  duration_ms: 0.8242
+  type: 'test'
+  ...
+# Subtest: LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed
+ok 5 - LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed
+  ---
+  duration_ms: 267.678
+  type: 'test'
+  ...
+# Subtest: CONTROL: malformed optional authentication fails without echoing credentials
+ok 6 - CONTROL: malformed optional authentication fails without echoing credentials
+  ---
+  duration_ms: 1.4974
+  type: 'test'
+  ...
+# Subtest: EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success
+ok 7 - EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success
+  ---
+  duration_ms: 275.1137
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 777.2973

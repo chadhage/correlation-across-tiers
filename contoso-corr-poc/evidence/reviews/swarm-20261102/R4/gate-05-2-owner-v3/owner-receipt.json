@@ -1,0 +1,29 @@
+{
+  "schema": "contoso.owner-check.v1",
+  "ownerRole": "R4",
+  "ownerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "childId": "GATE-05.2",
+  "scope": "SOURCE_UNIT_ONLY_NOT_HOSTED_PR",
+  "startedAtUtc": "2026-11-02T22:29:09.881Z",
+  "finishedAtUtc": "2026-11-02T22:29:21.105Z",
+  "counts": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "exitCode": 0,
+  "sourcesStable": true,
+  "command": "node --test --test-reporter=tap tests\\java\\ci-java.test.mjs",
+  "node": "v22.23.4",
+  "tapSha256": "8632decf3233c19e43cc9df5f7210dba08c6319f57ac12d267dc30877303d103",
+  "hostedPrExecuted": false,
+  "javaReactorExecutedByThisPacket": false,
+  "sourceAcceptanceIsCertification": false,
+  "fixes": [
+    "R9 cancelled-only case no longer counted as passed; cancellation-as-error/skip not double-subtracted",
+    "Explicit statsbeat/live metrics environment flags plus negative source controls"
+  ],
+  "nextAction": "Independent R6/R9 source/unit replay; actual clean and seeded hosted pull-request runs remain To Do. No Azure operations."
+}

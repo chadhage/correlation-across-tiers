@@ -1,0 +1,26 @@
+[
+  {
+    "path": ".\\.github\\workflows\\secret-scan.yml",
+    "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6"
+  },
+  {
+    "path": ".\\contoso-corr-poc\\tests\\security\\secret-scan-workflow.test.mjs",
+    "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d"
+  },
+  {
+    "path": ".\\contoso-corr-poc\\tests\\security\\repository.test.mjs",
+    "sha256": "316ce5f1f246c0edbaa854bf1270e58a9c02cc9c997fe8da5a8e54fe215cf9ba"
+  },
+  {
+    "path": ".\\contoso-corr-poc\\tools\\security\\repository.mjs",
+    "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75"
+  },
+  {
+    "path": ".\\contoso-corr-poc\\tools\\security\\Run-SecurityGates.ps1",
+    "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1"
+  },
+  {
+    "path": ".\\contoso-corr-poc\\tests\\security\\fixtures.mjs",
+    "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00"
+  }
+]

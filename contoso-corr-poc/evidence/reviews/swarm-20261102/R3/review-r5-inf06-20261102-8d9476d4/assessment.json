@@ -1,0 +1,48 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "R5",
+  "childId": "INF-06.1",
+  "result": "ACCEPTED_SOURCE_TOOL_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "liveAcceptance": "To Do",
+  "reviewReceipt": {
+    "path": "review.json",
+    "sha256": "4049f4902f41aae642390a6fd390e3951d82d1ea0a4925e74125a437270154f0",
+    "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1"
+  },
+  "runtime": {
+    "node": "v22.23.4",
+    "compilerVersion": "Bicep CLI version 0.48.1 (cec7951cf6)",
+    "compilerPath": ".cache\\r6-tools\\bicep.exe",
+    "compilerSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "CONTOSO_BICEP_EXE": "invalid-alias-must-not-be-used.exe"
+  },
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-request-20261102-8d9476d4.json",
+    "exitCode": 0,
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "allSevenAuthorHashesMatchedBeforeAfter": true
+  },
+  "exactAcceptanceFindings": [
+    "Primary CONTOSO_BICEP_PATH overrides the invalid alias and the actual compiler executes all three existing ARM assertion bodies.",
+    "Read-only diff review confirms the three ARM assertion bodies are unchanged.",
+    "The source no longer defaults to an absolute user/session path.",
+    "The absence-control subprocess really produces zero passes and three explicit NOT VERIFIED skips; its outer assertion passes, not the skipped compiler checks.",
+    "Configured missing compilers, permission/timeouts and broken/non-Bicep version responses fail rather than silently falling back.",
+    "The portability regression rejects absolute user-profile and operator-session examples."
+  ],
+  "highConfidenceFindings": [],
+  "cleanup": "No source edits, Maven, cloud calls, services or ARM output files. Bicep emitted stdout only; all persistent writes were unique R3 review request/log/receipt files.",
+  "notReviewed": [
+    "Actual messaging resource deployment, RBAC propagation, broker traffic, Azure or native topology",
+    "Parent INF-06 completion, certification or accountable-owner signoff",
+    "Unrelated source or tests"
+  ]
+}

@@ -1,0 +1,7 @@
+JAVA_TEST_TOTALS {"tests":5,"executed":5,"passed":4,"failures":0,"errors":0,"skipped":0,"cancelled":1,"reports":5}
+JAVA_REQUIRED_AGENT_TESTS 5
+Exception: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\tools\java\Assert-JavaTestResults.ps1:127
+Line |
+ 127 |  if ($issues.Count) { throw ($issues -join "`n") }
+     |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | JAVA_TESTS_FAILED_SKIPPED_OR_CANCELLED

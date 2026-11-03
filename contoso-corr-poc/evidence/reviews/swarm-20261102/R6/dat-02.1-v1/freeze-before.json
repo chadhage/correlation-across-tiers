@@ -1,0 +1,55 @@
+{
+  "schema": "contoso.r6-construction-freeze.v1",
+  "childId": "DAT-02.1",
+  "childDefinition": "| DAT-02.1 | R6 | none | Opt-in real-Redis local lane for the cache adapter |",
+  "childDefinitionSha256": "29f76a626e00378cceea08212db9c8b7774c7894b453a3897f8742b3fe815781",
+  "executorAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "facet": "unit-construction-interface-only",
+  "frozenAtUtc": "2026-11-02T22:19:24.9166406Z",
+  "files": [
+    {
+      "path": "tools\\data\\local-redis-preflight.mjs",
+      "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d"
+    },
+    {
+      "path": "tools\\data\\local-redis-preflight.test.mjs",
+      "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49"
+    },
+    {
+      "path": "tools\\data\\LocalRedisLane.md",
+      "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+      "sha256": "e1e5969af1a6ce50e41660e659494c6f00fce1f8dfd1de35a588a78a285cf35d"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+      "sha256": "e0ff4d63799ee265f1f97a080f315c25b7d90a6566c131f1d528c886d6373ec6"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+      "sha256": "ca73abdcb0cfe5598fcb6ca80df894eec8794babd74aa9515ddc1cd8b22ee372"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    }
+  ]
+}

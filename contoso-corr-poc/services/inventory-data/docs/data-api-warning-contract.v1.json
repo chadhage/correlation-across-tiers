@@ -1,0 +1,60 @@
+{
+  "schema": "contoso.data-api-warning-contract.v1",
+  "compilerVersion": "0.48.1",
+  "diagnosticCode": "BCP081",
+  "scope": "local-compilation-only",
+  "providerPropertiesValidated": false,
+  "deploymentVerified": false,
+  "verifyDocument": "docs\\VERIFY.md#inf-052-untyped-data-resource-apis",
+  "register": "config\\verification-register.v1.json",
+  "warnings": [
+    {
+      "file": "infra\\modules\\data-postgres.bicep",
+      "symbol": "server",
+      "resourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
+      "apiVersion": "2026-10-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/2026-10-01/flexibleservers",
+      "verifyRowId": "infra\\modules\\data-postgres.bicep#resource:server"
+    },
+    {
+      "file": "infra\\modules\\data-postgres.bicep",
+      "symbol": "administrator",
+      "resourceType": "Microsoft.DBforPostgreSQL/flexibleServers/administrators",
+      "apiVersion": "2026-10-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/2026-10-01/flexibleservers/administrators",
+      "verifyRowId": "infra\\modules\\data-postgres.bicep#resource:administrator"
+    },
+    {
+      "file": "infra\\modules\\data-postgres.bicep",
+      "symbol": "database",
+      "resourceType": "Microsoft.DBforPostgreSQL/flexibleServers/databases",
+      "apiVersion": "2026-10-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/2026-10-01/flexibleservers/databases",
+      "verifyRowId": "infra\\modules\\data-postgres.bicep#resource:database"
+    },
+    {
+      "file": "infra\\modules\\data-managed-redis.bicep",
+      "symbol": "cluster",
+      "resourceType": "Microsoft.Cache/redisEnterprise",
+      "apiVersion": "2026-09-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cache/2026-09-01/redisenterprise",
+      "verifyRowId": "infra\\modules\\data-managed-redis.bicep#resource:cluster"
+    },
+    {
+      "file": "infra\\modules\\data-managed-redis.bicep",
+      "symbol": "database",
+      "resourceType": "Microsoft.Cache/redisEnterprise/databases",
+      "apiVersion": "2026-09-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cache/2026-09-01/redisenterprise/databases",
+      "verifyRowId": "infra\\modules\\data-managed-redis.bicep#resource:database"
+    },
+    {
+      "file": "infra\\modules\\data-managed-redis.bicep",
+      "symbol": "access",
+      "resourceType": "Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments",
+      "apiVersion": "2026-09-01",
+      "source": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cache/2026-09-01/redisenterprise/databases/accesspolicyassignments",
+      "verifyRowId": "infra\\modules\\data-managed-redis.bicep#resource:access"
+    }
+  ]
+}

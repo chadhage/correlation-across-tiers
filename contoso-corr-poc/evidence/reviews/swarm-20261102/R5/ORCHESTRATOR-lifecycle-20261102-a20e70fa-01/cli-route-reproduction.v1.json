@@ -1,0 +1,110 @@
+{
+  "schema": "contoso.r5-negative-reproduction.v1",
+  "result": "DEFECT_REPRODUCED_CHECK_ACCEPTS_MISSING_CHILD_ARTIFACTS",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "ORCHESTRATOR",
+  "runtime": "v22.23.4",
+  "sources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "e8b99c05cb7fcc3dd080c9acb6f4850ae075cfccf9fc025509d944fc1bc37d6e"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "sourceInputsAreUnmodifiedFrozenCopies": true,
+  "sourceHashesStillMatch": true,
+  "location": "tools\\kanban.mjs:495-496,635-647",
+  "finding": "verifyConstructionEvidence is only called inside a parent unit code-review source loop; synchronize does not invoke it independently. With all parents To Do and empty criteria/reviews, Done children never have artifacts/TAP/current sources checked.",
+  "seededChild": {
+    "status": "Done",
+    "scope": "construction",
+    "waitingOn": [],
+    "nextAction": "NEGATIVE FIXTURE: nonexistent review artifacts must be rejected",
+    "certificationStatus": "NOT CERTIFIED",
+    "sourceAcceptanceIsCertification": false,
+    "definitionSha256": "269e09f65345d04ea70bde4c203a2a08b638c526094c64bd6d49e3941d755dc3",
+    "authorAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+    "completionSources": [
+      "tests\\missing-source.mjs"
+    ],
+    "reviews": [
+      {
+        "role": "R3",
+        "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+        "result": "accepted",
+        "reviewKind": "code",
+        "reviewedOwnerRole": "R5",
+        "artifact": "evidence\\missing-R3.json",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "scopeSha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      {
+        "role": "R6",
+        "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+        "result": "accepted",
+        "reviewKind": "code",
+        "reviewedOwnerRole": "R5",
+        "artifact": "evidence\\missing-R6.json",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "scopeSha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    ]
+  },
+  "directValidatorRejection": {
+    "code": "ENOENT",
+    "message": "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-fixture-21cf91b8-4deb-4250-9f36-e54f22df9e1b\\project\\evidence\\missing-R3.json'"
+  },
+  "actualCliCommands": [
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-fixture-21cf91b8-4deb-4250-9f36-e54f22df9e1b\\project\\tools\\kanban.mjs",
+        "--write"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-fixture-21cf91b8-4deb-4250-9f36-e54f22df9e1b\\project",
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-fixture-21cf91b8-4deb-4250-9f36-e54f22df9e1b\\project\\tools\\kanban.mjs",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-fixture-21cf91b8-4deb-4250-9f36-e54f22df9e1b\\project",
+      "exitCode": 0,
+      "error": null,
+      "stdout": "{\"cards\":78,\"To Do\":78,\"In Progress\":0,\"Done\":0,\"children\":{\"total\":52,\"To Do\":51,\"In Progress\":0,\"Done\":1}}\n",
+      "stderr": ""
+    }
+  ],
+  "expected": "Both CLI routes must reject nonexistent child review artifacts instead of rendering/validating one construction Done child.",
+  "sharedBoardEdits": false,
+  "sourceEdits": false,
+  "cloudOrNativeTraffic": false,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "fixtureRemoved": true
+}

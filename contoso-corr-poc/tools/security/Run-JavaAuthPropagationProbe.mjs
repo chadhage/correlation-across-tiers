@@ -10,8 +10,8 @@ import { createIdentityClientCollector, NATIVE_PAYLOAD_LIMIT } from './native-id
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 if (process.argv.includes('--okhttp-exclusion')) throw new Error('INEFFECTIVE_OKHTTP_DISABLE_REMOVED');
-const tools = process.env.CONTOSO_PORTABLE_TOOLS_ROOT ??
-  'C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4';
+const tools = process.env.CONTOSO_PORTABLE_TOOLS_ROOT;
+if (!tools?.trim()) throw new Error('CONTOSO_PORTABLE_TOOLS_ROOT_REQUIRED');
 const agent = process.env.CONTOSO_AGENT_JAR ?? path.join(tools, 'agent', 'applicationinsights-agent-3.7.10.jar');
 const lock = JSON.parse(await readFile(path.join(root, 'config', 'versions.lock.json'), 'utf8'));
 const lockedExtension = lock.extensions?.find(entry => entry.artifactId === 'contoso-parent-safe-sampler');

@@ -1,0 +1,117 @@
+{
+  "schema": "contoso.retained-build-consistency-review.v1",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "authorRole": "R4",
+  "claim": "GATE-02.1",
+  "result": "RECORDED_BUILD_CONSISTENCY_ONLY",
+  "nodeVersion": "v22.23.4",
+  "startedAtUtc": "2026-11-02T22:24:59.200Z",
+  "finishedAtUtc": "2026-11-02T22:25:01.616Z",
+  "epoch": "evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2",
+  "manifestSha256": "c9c5783f8a840f17cbc3e6ed4a3e1378b392801c3778b7af15b65b4262f050ee",
+  "qualificationSha256": "63585ceb5263a85ff8e05036adbe9b9600974e2b8656e004486526214a4b2427",
+  "sourceBuildSha256": "cb450682825a1ed6eb8fe840c1988fc4f8fe6e44543503b393fb58e80db581bc",
+  "executionReceiptSha256": "cc44b51163b666173fa990ac25d16dee62715e727a21cc6720253114fc0fdd4f",
+  "recordedSources": 168,
+  "recordedClassResources": 152,
+  "recordedDependencyJars": 96,
+  "listedCurrentInputsMatched": true,
+  "sourceInputsStable": true,
+  "beforeMismatches": [],
+  "mismatches": [],
+  "originalXmlRetainedInEpoch": false,
+  "originalXmlDeclaredSha256": "d9bd04c54f176671067b5fa8775457c875c60f99500fa9eb9ea5e6496291ca08",
+  "currentXmlSha256": "d9bd04c54f176671067b5fa8775457c875c60f99500fa9eb9ea5e6496291ca08",
+  "currentXmlMatchesOriginal": true,
+  "currentJunitCounts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "retainedLogSuites": [
+    {
+      "suite": "com.contoso.inventory.data.InventoryGrantMarkerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.contoso.inventory.data.LocalPostgresLaneContractTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.contoso.inventory.data.WorkflowGrantPolicyTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.contoso.messaging.LinkedRootSamplingTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "retainedLogTestTotal": 13,
+  "retainedProcessObserverRows": 3,
+  "declaredNativeChildExits": [
+    {
+      "pid": 23368,
+      "exitCode": 0
+    },
+    {
+      "pid": 65720,
+      "exitCode": 0
+    },
+    {
+      "pid": 66852,
+      "exitCode": 0
+    },
+    {
+      "pid": 58424,
+      "exitCode": 0
+    },
+    {
+      "pid": 20256,
+      "exitCode": 0
+    }
+  ],
+  "semanticChecker": {
+    "checkerOnly": true,
+    "sourceAcceptanceIsCertification": false,
+    "result": "PASS_LOCAL_SEMANTICS",
+    "nativeRowCounts": [
+      41,
+      79,
+      79
+    ],
+    "sourceExecutionBinding": "UNVERIFIED_CHECKER_ONLY",
+    "completeMatrixVerified": false,
+    "boundedFullPathEvidence": false,
+    "ownerRole": "R4",
+    "actualAzureAuthority": false
+  },
+  "currentLoaderEnrollment": "UNVERIFIED",
+  "sourceAcceptanceIsCertification": false,
+  "actualAzureAuthority": false,
+  "nativeExecutorEnrolled": false,
+  "runtimePidsIndependentlyObservedByR9": false,
+  "unlistedAddedInputsEvaluated": false,
+  "perLoadedClassLineageVerified": false,
+  "completeMatrixVerified": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "cleanup": "Read-only retained/current byte checks; no Java/Maven/native process, network/cloud operation, enrollment or shared target write. Only own unique receipt files were created.",
+  "remaining": [
+    "Fresh current private execution enrollment intentionally unavailable; source reviews and JSON cannot supply it",
+    "No retrospective live PID observation",
+    "Listed-input consistency is not full provider/class/production/Azure acceptance"
+  ]
+}

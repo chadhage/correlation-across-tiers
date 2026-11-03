@@ -1,0 +1,610 @@
+[
+  {
+    "path": "services\\correlation-core\\target\\classes\\contoso-parent-safe-sampler.properties",
+    "sha256": "af1ed1792a40e5b85f3ba6585d63badd2febc7801ff226100c431bba0c6c5c24"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\BoundedRequestBody.class",
+    "sha256": "d61f73a60f67886478df5d140376919a54f374dde8a0a3b871550a65d5de17b4"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\BoundedRequestBody$1.class",
+    "sha256": "ef3b4842bb4db70150968bebfce506e85ce421655a077d8c7c0bfea7210206c9"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\Correlation.class",
+    "sha256": "144192c9a7559e712161640e60997dbe74cad52391cc8738e0ba31d7efca860e"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\CorrelationSpan.class",
+    "sha256": "f5d6d7527baefa1a0ea083868dc1ed30b2672f742e5508bcd6f2e58595adf9fa"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\CorrelationSpan$SafeTelemetryFailure.class",
+    "sha256": "2fdc8b9c497d72db074cb1d6be44250b9c77225ae5b3e15e1f58a8d448da0b21"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\ExtensionGuard.class",
+    "sha256": "6ce66c6c22968bb66e5553c38a9339809f168e80aae4d57b5f58fb3a183477ec"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\InvocationId.class",
+    "sha256": "937ca3c3c096e8bcf18dbdf6c7c41af958ddaf4dd3f73fed632153517d0f2af7"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\InvocationIds.class",
+    "sha256": "ccd87380fc6d08383e98364bdfd2193d53bfca9621e95fecb7bba8c657b7cf9b"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\NativeSamplingObservation.class",
+    "sha256": "017535a2edcda2b68d6d9068b4de3a4072efc09acce2e6d077631f50cbc9411e"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\RuntimeClasspathGuard.class",
+    "sha256": "697e14a02ecb610fb1b8245fbe909915c0db322573253fd3078297b982b4d7a2"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\RuntimeGuard.class",
+    "sha256": "f23c8d90955d65726af0e23510865b0e39b2470b26983aad3fb7df009e79a5b2"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\RuntimeGuard$WorkPermit.class",
+    "sha256": "b71541685edea8155c1d2bc609d362507638d172329fea2d8d6d2e14ac2f0c00"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SamplingLease.class",
+    "sha256": "4e47f1278d0158fbac05e60acbc1d08d92a612ff8ffb53bca6d60427194cb71a"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SamplingRuntime.class",
+    "sha256": "b1d6cdccb2b1d7c39057b5c7960293e8a67dd52c5ebdf5c9ec319cc46b8c7f87"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SamplingRuntimeMBean.class",
+    "sha256": "8c87d63211a739a042ddad87d5b35035eea275a9c66566d9fe2c080b081a2d1c"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SpanOracle.class",
+    "sha256": "1bb74b1360b1d4f3109abb5dfe6bea5d4040a49978c688b92e4f7db8cb684fe7"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SpanOracle$Evidence.class",
+    "sha256": "b6e6b3abb6384dca927a8ad4eddbc3495cfcc939d6761753732662508c77cda4"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SpanOracle$Expected.class",
+    "sha256": "55952bed85633e691199bee0c3d82614db992d9c046a9504d5393e82da5f2c52"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\SpanOracle$Link.class",
+    "sha256": "a4a482e0b4b9eed21374cbebf1c41a2c721096ba33cd65fd5c7841fb62c349b1"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\W3c.class",
+    "sha256": "954ebf5415bcb056122939f8d4a6c9f9c6fb3f04a801df101b2f8726dd7a00d5"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\W3c$1.class",
+    "sha256": "a907727fb28fda439c67c204ffaa0be2a010b5e77e078f5fb40a6e6f3be3fd6e"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\DataAccessException.class",
+    "sha256": "da28090661ebb1f7d79d62465d676647c67e6a4501901297603cecd28db3456d"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\DataErrorKind.class",
+    "sha256": "f842461d187c53397ba025d8b526ae51000f4820de98f39f0be8cbe11871c8fb"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\DataErrors.class",
+    "sha256": "dda159a97333ea9971d340025c91cd2baffb956df76d9d920316743d006584aa"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\DataValidation.class",
+    "sha256": "f159c62f49f2a0fd4188a9a31b65d8d2182524dd70b783e498772193cbbc990c"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\DeadlineJdbc.class",
+    "sha256": "cfb5b861575194df3431c5ce8640a3d5297b8c6232bb0f629bbf67e857693cca"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\InventoryDataAdapter.class",
+    "sha256": "87c253962e37fbe5f6cf9ed674f42633c559689ccdec7d86667d306bd46f132a"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\InventoryItem.class",
+    "sha256": "ace45782b99102648822228182bba60ce9e70457f477a4223a254c74c7bc9839"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\OperationContext.class",
+    "sha256": "d4280565b147a9f1db4e4430cfe70701b1695ca6c3a5ddcabb8f7d7d0376dab1"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\PgConnectionFactory.class",
+    "sha256": "3dd58edcfaa5a5319ee1de037906d82ef1b9e7c51a9f879a57cd5d208aaa520e"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\PgOperation.class",
+    "sha256": "eeab7d8be6f9b93cd6bf2af2ecf6e50fa4f9d9eb51ed0df7c2195f9d2f448fdc"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\PgOperations.class",
+    "sha256": "7f2f2333cf1d1c1431e9294261dfab260d282292660111ecbbdc31aff2e33781"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\PgOperations$DeadlineLease.class",
+    "sha256": "024288d4f874535920bcdea3d6f37e8b4a6ec009538115d8810e1b0bd2990483"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\Reservation.class",
+    "sha256": "4f9460dcf75b0f9742dd5d3489167e76fcf371cf1fc5d17a8c9142a791d00235"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\data\\SqlWork.class",
+    "sha256": "a837d717b4fe09047c0e0fa0a96a818750ca6e57914692968c7e1d160322aef6"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\DemoRunCommand.class",
+    "sha256": "1248af10b85eb689bf649582fad06c341b250b1278c5800adccf6ba02917f60a"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\OrderCommand.class",
+    "sha256": "b9f5e57a97053cf2c61bcf61514c8e87e497a28f9e7c0fe6e23b7684be56fcfd"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\RunAction.class",
+    "sha256": "84331fe38763cfc2c8edc1aa0704a492213a12819afe4f45de674099e218cf67"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\RunControl.class",
+    "sha256": "a1b244466f9ddab2855c856fadfddb5e6739159075d81157f94c9799fdb2b538"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\RunScenario.class",
+    "sha256": "c8c477c1469fc34eae13ca843c9311ea8c5c666c8e07db088b7d2d537d0a8649"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\WorkflowPort.class",
+    "sha256": "9662ed71fa44667b7c5ec374c79238f90ad37586dd018d04b0d35da7046aa4c9"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\WorkflowView.class",
+    "sha256": "e7eb959d611b1b98f963a40d700eccfd112d9bb8add4a2c0b7b209ea622b657a"
+  },
+  {
+    "path": "services\\correlation-core\\target\\classes\\com\\contoso\\correlation\\workflow\\WorkTarget.class",
+    "sha256": "956581bfc5dcabf87953ddf73fbf84f05e7b95dc623445357d838a7fea2fcb59"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\AuthorizationPolicy.class",
+    "sha256": "5ca2c052fe4dfc6f905ee707e667c353e1015bd998949253b244ed80b1d834af"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\BoundedBodySubscriber.class",
+    "sha256": "2e5c000123fae71ea21ba488db2ae421c19e4833f615b0ec6a57e38332b8185c"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\BoundedTokenProvider.class",
+    "sha256": "f512bb7406c9a07a2956245574382e3a26dc6d5ed66ccce031812bbfeeab59c2"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\EntraJwtVerifier.class",
+    "sha256": "80350fb6f7a43f7e22d4e97d81d4b11f8eb5b7745e43d34307dc7a67acc763a3"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\EntraJwtVerifier$1.class",
+    "sha256": "6bbdb76a628038604b6dbecfcbad9aeab135890ac042ec4dc54c1b8ece18a287"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\EntraJwtVerifier$VerifiedClaims.class",
+    "sha256": "2bf4670bb57fd295680919e89ee5091f735c70fd22a5b33369b2071bad91c4ac"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\HmacPseudonymizer.class",
+    "sha256": "4f639bd298eaffd41d267867f46568dc9e7eed86e6597ec31263de8676cc43a4"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\HmacPseudonymizer$SecretMaterial.class",
+    "sha256": "4cd455e3bb9231a73fbf208b116c2d40c4d4a6c306751b12a5cd9f8089c20104"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\HmacPseudonymizer$SecretReader.class",
+    "sha256": "332ea34c3536c8b5ebec39f28479616ee3390ea963fdfee6296ed4bd345b8b93"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\HmacSecretBootstrap.class",
+    "sha256": "44135a40d18f74e348192c7259976a3685ef8ccf42f15af4a937816a89fbda84"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\IdentityHttpClients.class",
+    "sha256": "04a4ae1ca0b593d2a65ca4a2fe2a1750588ef684fe6f876bea5d9df899db2089"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\IdentityHttpClients$ContextFreeRestClient.class",
+    "sha256": "1cd2cd278faf1889e43749b7d00c6cacc88ec29103d35fae042f421aeab50a76"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\IdentityHttpClients$Shared.class",
+    "sha256": "3d2ae8b7e113aaf8fd0740e0d8a263c8cdc08555705e0ee23d59dda8fe83d50c"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\JwkKeySource.class",
+    "sha256": "83d529ad4f2b04231c109da36c93ca9584f0fa84ad8e280bd6f0b4a69488422f"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\RequestAuthenticator.class",
+    "sha256": "6a50e5831704da69d3c910bb3f8ed5f8879af600132aca344b52499b4c837f1d"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\SafeAuthenticationTelemetry.class",
+    "sha256": "c7aa480cd9ec28b06ee9cc416a50610853b67de57faad816ff96ada0fd449f43"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\SecretVersionReference.class",
+    "sha256": "15de1ae95d979ea49a64fae6774e91fc83530e398e555d2e903a9580b24c3d60"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\SecurityLoggingGuard.class",
+    "sha256": "1a174809b5f35749ec43c12772188c806dde6222f0116838cd0fdc701ac64fbf"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\SigningKeyProvider.class",
+    "sha256": "65780d890367c12d699316532307be7f41d0d81b4ba5b80ad319de95ecbd1629"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\VerifiedCaller.class",
+    "sha256": "346805518a0a33212449efbabb3b0cf15d7dbf1eed38ee3dfd1caadb35f36653"
+  },
+  {
+    "path": "services\\security-core\\target\\classes\\com\\contoso\\security\\WorkloadIdentity.class",
+    "sha256": "34e693f62def1063f014ebdc563a949dcefec951a37d5b02b4b3ad1a6f4968dc"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\DataInstrumentationGuard.class",
+    "sha256": "c507ad05e28d7c77f3aa8fbb23a96044fcf176aaff4c5c16002974a173aa705f"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\DataLoggingGuard.class",
+    "sha256": "d415877e03cca5cf0cdf2a6a0d18a55eea005c66c9bab4136336d4291d2dfbff"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\EntraPgConnectionFactory.class",
+    "sha256": "5015ec3f1242ad3a92ea389ace33a26eb49c97718490598f3f0689d0e556a45e"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\EntraPgConnectionFactory$TokenDataSource.class",
+    "sha256": "77b8a49a080cd72263b2177a7378252ee5d9e8d1052cd9845b64302b1c294bc6"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun.class",
+    "sha256": "4c36d19e2886299ec5011861bacb6d70713d0780b010ec1c00fbb4ff4623d219"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$Hashes.class",
+    "sha256": "a92aa7f67f71484ebc49e798d74cbc6c257b3a9047e1fca77a060eb9f64698b8"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$Item.class",
+    "sha256": "b7439c7ed9996de20068721b08a80448306b2c8d36b9e586da55d0d5e209247e"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$Lease.class",
+    "sha256": "79b1903829ef4bc904ad25554a683fe9967cc432df0bc5c77609e6a6078052ca"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$OwnedReservation.class",
+    "sha256": "c4a89b7ac95d4b98d37b83f02e13cc533ba963016d3b7ddf1f0a025183a17003"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$ResetReceipt.class",
+    "sha256": "4ac9a97d3a19f0a5bc441555921e6d86821f1012b270cafb3f9bb0bdb8250134"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$RestoreCheckpoint.class",
+    "sha256": "77b601ed23841fc97d9401503ca3f07c02d7f424572e8744b2e95b9336b601b8"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$SqlBaseline.class",
+    "sha256": "ea57f526e1771164b738b183e65954e768d34a493b61a90f5279cd17efa3c0d9"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureRun$State.class",
+    "sha256": "b15852da03911b0ac7562a135cb0a16ff84382c8053465432b43d0b250448756"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.class",
+    "sha256": "40a575b25f78e754510dc5c5d4ad622943602445925315a289b199e1f45f1cc0"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventoryFixtureStdio$Stores.class",
+    "sha256": "b88ba32eed59ffa819101901a8e7b12c44c8605ad57b5c564ef3c36fd23132bf"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventorySchemaHooks.class",
+    "sha256": "75962c12598c8604a26eb29262a3ddbf4b198578c7277bada650caa2de194363"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventorySchemaHooks$Permit.class",
+    "sha256": "9ccf4942a5a455c8bcfa49c6b7ea48545dfa6be3225f0601c7d82a0c803280e5"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventorySchemaHooks$Principal.class",
+    "sha256": "e766e9d0b7d2e512b0156959679c84d370ee51616c2ce1a16405015632e3abd5"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\InventorySchemaHooks$WorkflowRole.class",
+    "sha256": "a466f64792924018d971446be95181104128edc9b3e32ad30e9ca968ddd599f1"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\LettuceInventoryCache.class",
+    "sha256": "9c534905e7208ac9824dada07c9f83c5dc34343fe00ee91229b40351b730b970"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\LettuceInventoryCache$CacheWork.class",
+    "sha256": "d41a52ec47a2d794c741631188c133070264d0b81acea47b823170031ef62b19"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\OwnedInventoryCache.class",
+    "sha256": "2c7c89a016469ae7ed4ca351c5801a8352fe4d8589acd2568cb3b0589f3fd2e6"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\OwnedInventoryCache$Value.class",
+    "sha256": "74d50c4484d57e3c10d994239e11d10458965a28680345415162c8efd925707a"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.class",
+    "sha256": "efe2b5cad7c408234d8cf68bbdfe99ab7f778e414a2d1e37a477b9ecd8fa016b"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\PgSettings.class",
+    "sha256": "93107d007053e16acfd8dd1c9b00f370bbaa653e944eaa7db6b9bd5e911c3c98"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\PgTokenCache.class",
+    "sha256": "895945658b33cffabd72661ea1cebba899a21366a09633e090447f7b30abf75a"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\RedisEntraIdAuthenticationSupplier.class",
+    "sha256": "86facb4adecdd6d5994d7e62aff15a6c158df36cfea680bf68ed8328a0be5bb2"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\RedisEntraIdAuthenticationSupplier$1.class",
+    "sha256": "ec38476096036fb2467ecb18f3095345fea27a943eef8efce794b6dc5babe113"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\RedisSettings.class",
+    "sha256": "7200aa67013c3f6cf4dad25d51b8e988dcecdcf8e0714e6809c3aaadb01cf7ce"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\RestorableInventoryCache.class",
+    "sha256": "34deadaa8a47b4af3cffd2fd051c18f73191f479dbda613178d712462c51ef4f"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\RestorableInventoryCache$Baseline.class",
+    "sha256": "62a6518f165a07898a6bd48e6efe3b934fc62dde302551e5c82882a4060b95c4"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\com\\contoso\\inventory\\data\\SanitizedJdbc.class",
+    "sha256": "ffa13c25c0fbba5a867ef0b5eff89fe935bacc243ea3ef44b62bc1f9f57f2350"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\db\\grants\\workflow\\aggregator.sql",
+    "sha256": "fb63684839e084c908612e15ef7fce96dd45235965dd272bb24933a8f73f5d07"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\db\\grants\\workflow\\common.sql",
+    "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\db\\grants\\workflow\\orders.sql",
+    "sha256": "e2436fb51df38a4de025c9ced18f58d4b33a943b015ab7ee8d32c78ef11e3fcc"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\db\\grants\\workflow\\worker.sql",
+    "sha256": "6024d7ce2a4d20b05a5b8ffb24ab0278392a38ad04a655f6905407880c3e962d"
+  },
+  {
+    "path": "services\\inventory-data\\target\\classes\\db\\migration\\V001__inventory.sql",
+    "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AsyncProcessor.class",
+    "sha256": "5b3521758fb982e64d95889b3758f44f9b5a6d498bc93f82e78bd905e4373970"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AsyncProcessor$1.class",
+    "sha256": "7adc7d3e1c27b22e6fde00b97ba8192c9f941d0ee4c6b8be39c2fabf1f12da38"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AzureCarriers.class",
+    "sha256": "0e6776ffe99e6cffd7c719833cfa25b8d6340bb3231b72f8f3f84c1fa7f3304b"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AzureMessagingTransport.class",
+    "sha256": "94e73ed64b0a1540e9b546c6157b30085ce0ce2ba0b50f9803692174b30ae01a"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AzureMessagingTransport$1.class",
+    "sha256": "16d46fcbd44c75918ed1f038e0b0b7d0df586f02f5832052781dece9ca0c9bf0"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AzureMessagingTransport$2.class",
+    "sha256": "b45cedd08f2e7100672f7e682444bf1dda38a8773ed0b9ede77916a023f71769"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\AzureMessagingTransport$3.class",
+    "sha256": "2fdc3658a05c00fed5a88d3220811e25dba663e8e668fee33297b9a0433ca3ec"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Branch.class",
+    "sha256": "46b3e5413c34d5734999be0daaab40d8219374d32bc249d549bd7198ec9e7f50"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Delivery.class",
+    "sha256": "c359ada253d00c20401b4877d25ddb780da7c6639858967fd42a945518d917b8"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Destination.class",
+    "sha256": "b882a05860c2074efce171cbc58a48f85456218c1714cfe3cf2fe4c5476e62db"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Envelope.class",
+    "sha256": "ffbcec991be378f16186a915022b1b59c90cb0b35c5f2900e72961071f7d0f2d"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Envelope$Kind.class",
+    "sha256": "2a536e84021627ede87882b9f97777f2b93b3eba50f4edbab2141c3eb93c8869"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\EnvelopeCodec.class",
+    "sha256": "7b73193a667cca0321967d471a5c6be9d39dee2f2833470cf5b337618bf96a63"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingFailure.class",
+    "sha256": "4537b2c78c2dca3c3940071e7298e0f8e36ffc20c67be3b5c26f49446f4fe50b"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingFailure$Code.class",
+    "sha256": "478bfa4c35bb830efb59af913569e8f0a25aac7f14948f5b27e1a42c247c126f"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingLoggingGuard.class",
+    "sha256": "16b2719207ed0b38275154ba4859a7e58b400e599d23c3ee3a0fad82f2b34cb9"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingRuntime.class",
+    "sha256": "5d445c45f431b7561d9fcfe0066f8910ef33131acf8a4d631ae8704b9ab3bec0"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingSettings.class",
+    "sha256": "eb97248ea5fe2279c2161a1b709a34fcd8a8f48e9042074aead046383a9efed9"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingSettings$1.class",
+    "sha256": "d7c2305c45fb19b31c93236c01b91635a982dba683a3651a125653890df76a14"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore.class",
+    "sha256": "963daad085e9e22c96cb46b68be6f2f98d94db1780bddfaf4747814a1ba39ff7"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$Attempt.class",
+    "sha256": "b1b886d142f29c353feeda6e23e10aa863d331b2742d0c9ef90a49a6939507be"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$Contributor.class",
+    "sha256": "31f950d60b2c1ebc13845df2dd5b92d669ab52f738b81a978d9e4b5c8a9c283c"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$Disposition.class",
+    "sha256": "845cd7f483a47b0ebbb2b5862f6c9428bc42ffaeda6602a5899903ec496d52cd"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$NewWorkflow.class",
+    "sha256": "faf65e1a1fa1bd083b36a229eb623a1782d67dcc1e46a0453418cefe600c4f02"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$PartitionLease.class",
+    "sha256": "3b4e40dc2ae173cfdc23e2cf6c1313c6c4701d0d1cc6fbfcf596d6b8aedc72d6"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingStore$Pending.class",
+    "sha256": "d3449af654e76c5462a11c9c4c80993f67ca3d8b38cc01333e01b557af69f564"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingTransport.class",
+    "sha256": "235496b0e6ac1b6d3b82dec26b879dc7c439c93a9714a796ee5f9b230cb325b4"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingTransport$HubRecord.class",
+    "sha256": "31ddcdf0d15d0298f7cefa0817f6c4d96764a2d5137312153d7fcdb5c700d91a"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingWorkflowPort.class",
+    "sha256": "2eb999f493b3441e55f4c1bdee06ff8b268d8e00dd7623b267e3bf31e78d8a01"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\MessagingWorkflowPort$1.class",
+    "sha256": "1ba26ba31f3db1a7e04f448f127eb0647ac82aadfe385b8655a6df2f6faad245"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\OutboxPublisher.class",
+    "sha256": "69039ecb30f88767649d003724119459763a170789db8aee2a68dbcc80ddf73d"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\OutboxPublisher$1.class",
+    "sha256": "8c7a5606d0bdd1f1f437e9590ade47138ca3afa01c4e01aa078210d8d2187722"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\PgMessagingStore.class",
+    "sha256": "94d91a04658bdcf34082b8bd5f972fac13009e072d67df490ae9d6d31504b293"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\PgMessagingStore$1.class",
+    "sha256": "8913fff38e6ee09eae8f81d90f11d6323e3be7b14ac824baf05c3cc83d082424"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\PgMessagingStore$Workflow.class",
+    "sha256": "ce82fb82730b2806d68b27323529feab433241a17358bfe71da889f1357156b1"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\ProcessingLease.class",
+    "sha256": "f71f9c0fb0b9c1c81e287cc441ea1e23f689bfe73ac7681436cb1e96c253650b"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\ReplayProcessor.class",
+    "sha256": "bf97a0f9bb2a833a2da7c3170b7bc9bc570ea3e712ffb0184890bff7b45abda1"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\Source.class",
+    "sha256": "133718a2577f8568007caca06883b3b2f22fc60849dc8936f7600a95abeb0d36"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\TraceContexts.class",
+    "sha256": "7959cce1620706691e58b0f4cd84151911209cf3fbacc4044fadaabed3fc79a2"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\TraceContexts$1.class",
+    "sha256": "02a029d95ea662e4917755f839719f720b0f5b8b804a7aa1feb0957998b78e88"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\TraceContexts$Extracted.class",
+    "sha256": "e7ce5a04fe8be10f2aef9e81e30951cb48c15d466a2a90cc3f242489acc994f5"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\WorkerRuntimeHolder.class",
+    "sha256": "f26201b3859dc171597c9894275338c4e6ac691a944b8eb90f9b2205a911b712"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\com\\contoso\\messaging\\WorkPayload.class",
+    "sha256": "18d8bacba49fe0831404a22cc74b8cbc31c5a31170a7ce202d46aaf4106b525e"
+  },
+  {
+    "path": "workers\\messaging-core\\target\\classes\\db\\messaging\\V002__messaging.sql",
+    "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\com\\contoso\\correlation\\sampling\\ParentSafeSampler.class",
+    "sha256": "6cde47722328812b6d369f1818b6a1491fe97eb33a70a8be882a205361cfa7c0"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\com\\contoso\\correlation\\sampling\\ParentSafeSamplerCustomizer.class",
+    "sha256": "6646db8782513138a7f47c9939f2cb80f9eebab9910f1a463fd392ae95413997"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\com\\contoso\\correlation\\sampling\\SamplingObservation.class",
+    "sha256": "abc18cd2bbd587595b97585e4326e13c0fb924702d13b9b78bee8caa1b02c70f"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\com\\contoso\\correlation\\sampling\\SamplingObservation$Snapshot.class",
+    "sha256": "1cc26dbe11c0a3649e35d83c25112bc0bb00895c516bd0e3efa0aa8909913775"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\com\\contoso\\correlation\\sampling\\SamplingObservationMBean.class",
+    "sha256": "e99af369a9840491cb22178071c07528a9978f1923d5bd988ee13621206ac27c"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\target\\classes\\META-INF\\services\\io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider",
+    "sha256": "fe2737206f8d42e387ce95610500b25beed54e1c3f7debd56c9eba1280efd963"
+  }
+]

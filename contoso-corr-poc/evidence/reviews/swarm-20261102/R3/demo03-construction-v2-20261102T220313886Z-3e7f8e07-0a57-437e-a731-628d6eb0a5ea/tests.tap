@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations
+ok 1 - positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations
+  ---
+  duration_ms: 47.981
+  type: 'test'
+  ...
+# Subtest: negative: missing/repeated carriers and invented native observations never become a valid plan
+ok 2 - negative: missing/repeated carriers and invented native observations never become a valid plan
+  ---
+  duration_ms: 863.0415
+  type: 'test'
+  ...
+# Subtest: negative: credentials, alternate targets, fabricated identities and incorrect deletion expectations fail
+ok 3 - negative: credentials, alternate targets, fabricated identities and incorrect deletion expectations fail
+  ---
+  duration_ms: 294.0963
+  type: 'test'
+  ...
+# Subtest: positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly
+ok 4 - positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly
+  ---
+  duration_ms: 744.1809
+  type: 'test'
+  ...
+# Subtest: negative: source hashes, omissions, duplication, escapes and callback options cannot mint authority
+ok 5 - negative: source hashes, omissions, duplication, escapes and callback options cannot mint authority
+  ---
+  duration_ms: 1456.9003
+  type: 'test'
+  ...
+# Subtest: negative: caller mutation during an awaited source check cannot alter its verified receipt
+ok 6 - negative: caller mutation during an awaited source check cannot alter its verified receipt
+  ---
+  duration_ms: 1260.5168
+  type: 'test'
+  ...
+# Subtest: negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority
+ok 7 - negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority
+  ---
+  duration_ms: 2834.6501
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9680.0632

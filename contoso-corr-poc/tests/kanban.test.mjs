@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
-import { backlogSemanticHash, expandNeeds, extractSwarmPlan, implementationOwner, parseBacklog, projectRoot, renderKanban, reviewScopeDigest, reviewSourceDigest, updateAcceptance, validateReviewReport, validateState, verifyPersistedLiveEvidence } from '../tools/kanban.mjs';
+import { backlogSemanticHash, childRecordFor, expandNeeds, extractSwarmPlan, implementationOwner, parseBacklog, projectRoot, renderKanban, reviewScopeDigest, reviewSourceDigest, runConstructionReview, updateAcceptance, validateConstructionChildren, validateConstructionRun, validateConstructionTap, validateReviewReport, validateState, verifyConstructionEvidence, verifyEvidence, verifyPersistedLiveEvidence } from '../tools/kanban.mjs';
 import { createAcceptanceScopes, validateAcceptanceScopes } from '../tools/verification/acceptance.mjs';
 
 const wiki = path.join(projectRoot, '..', '.docs', 'wiki');
@@ -77,12 +78,13 @@ test('swarm dispatch packages cover every parent exactly once under its logical 
   assert.equal(new Set(assignments.map(item => item.owner)).size, 9);
 });
 
-test('swarm child qualification edges cover all six children without an observer-adapter cycle', () => {
+test('swarm child qualification edges cover every child without an observer-adapter cycle', () => {
   const plan = extractSwarmPlan(backlog);
   const rows = [...plan.matchAll(/^\| ([A-Z]+-\d+\.\d+) \| (R[1-9]) \| ([^|\r\n]+) \| ([^|\r\n]+) \|$/gm)];
   const children = cards.flatMap(card => [...card.childTasks.matchAll(/^  - \[[ x]\] \*\*([A-Z]+-\d+\.\d+) - /gm)]
     .map(match => ({ id: match[1], owner: card.owner })));
-  assert.equal(rows.length, 6);
+  assert.equal(children.length, 52);
+  assert.equal(rows.length, children.length);
   assert.equal(new Set(rows.map(row => row[1])).size, children.length);
   const needs = new Map(rows.map(row => [row[1], row[3] === 'none' ? [] : row[3].split(',').map(id => id.trim())]));
   for (const child of children) assert.equal(rows.find(row => row[1] === child.id)?.[2], child.owner, child.id);
@@ -96,6 +98,12 @@ test('swarm child qualification edges cover all six children without an observer
   assert.ok(!needs.get('OBS-02.1').includes('DEM-00.1'));
   assert.ok(needs.get('DEM-00.1').includes('OBS-02.1'));
   assert.deepEqual(needs.get('DEM-00.2'), ['DEM-00.1']);
+  assert.deepEqual(needs.get('DOC-02.1'), ['DEM-00.2', 'GATE-11.2']);
+  assert.deepEqual(needs.get('GATE-11.2'), ['GATE-05.1', 'DAT-01.2', 'GATE-13.1', 'IDN-01.2', 'INF-06.1']);
+  assert.deepEqual(needs.get('DEM-05.2'), ['DEM-00.1', 'DEM-05.1']);
+  for (const id of needs.keys()) {
+    if (/^DEM-(0[2-9]|1[0-5])\.1$/.test(id) && id !== 'DEM-05.1') assert.ok(needs.get(id).includes('DEM-00.1'), id);
+  }
 });
 
 test('nine-role target has independent review pairs and mode-aware construction lifecycle metadata', () => {
@@ -140,28 +148,68 @@ test('Kanban reproduces the source swarm plan rather than retaining stale genera
   assert.equal(extractSwarmPlan(renderKanban(cards, empty(), board)), plan);
 });
 
-test('preserves six explicit child tasks without adding cards or acceptance clauses', () => {
+test('preserves explicit atomic child tasks without adding cards or acceptance clauses', () => {
   const expected = [
-    { parent: 'DAT-01', clauses: 4, tasks: ['DAT-01.1'] },
-    { parent: 'OBS-02', clauses: 4, tasks: ['OBS-02.1'] },
-    { parent: 'DEM-00', clauses: 5, tasks: ['DEM-00.1', 'DEM-00.2'] },
-    { parent: 'DEM-01', clauses: 4, tasks: ['DEM-01.1'] },
-    { parent: 'DOC-02', clauses: 3, tasks: ['DOC-02.1'] }
-  ];
+    ['GATE-03', 4, 'GATE-03.1'], ['GATE-06', 4, 'GATE-06.1'], ['GATE-11', 4, 'GATE-11.1', 'GATE-11.2'],
+    ['GATE-02', 5, 'GATE-02.1'], ['GATE-08', 5, 'GATE-08.1'], ['GATE-12', 4, 'GATE-12.1'],
+    ['GATE-13', 4, 'GATE-13.1'], ['GATE-05', 5, 'GATE-05.1', 'GATE-05.2'], ['GOV-01', 4, 'GOV-01.1'],
+    ['ARC-01', 3, 'ARC-01.1'], ['JVM-01', 4, 'JVM-01.1'], ['INF-06', 4, 'INF-06.1'],
+    ['INF-05', 4, 'INF-05.1', 'INF-05.2'], ['DAT-01', 4, 'DAT-01.1', 'DAT-01.2', 'DAT-01.3'],
+    ['DAT-02', 3, 'DAT-02.1'], ['WEB-01', 4, 'WEB-01.1'], ['IDN-01', 3, 'IDN-01.1', 'IDN-01.2', 'IDN-01.3', 'IDN-01.4'],
+    ['DOC-01', 3, 'DOC-01.1'], ['MSG-02', 4, 'MSG-02.1'], ['OBS-02', 4, 'OBS-02.1', 'OBS-02.2'],
+    ['DEM-00', 5, 'DEM-00.1', 'DEM-00.2'], ['DEM-03', 4, 'DEM-03.1'], ['DEM-04', 4, 'DEM-04.1'],
+    ['DEM-06', 3, 'DEM-06.1'], ['DEM-12', 4, 'DEM-12.1'], ['DEM-13', 4, 'DEM-13.1'],
+    ['DEM-01', 4, 'DEM-01.1', 'DEM-01.2'], ['DEM-11', 3, 'DEM-11.1'], ['DEM-07', 3, 'DEM-07.1'],
+    ['DEM-08', 3, 'DEM-08.1'], ['DEM-14', 3, 'DEM-14.1'], ['DOC-02', 3, 'DOC-02.1', 'DOC-02.2'],
+    ['DEM-02', 3, 'DEM-02.1'], ['MSG-06', 3, 'MSG-06.1'], ['DEM-09', 3, 'DEM-09.1'],
+    ['DEM-15', 4, 'DEM-15.1'], ['DEM-05', 3, 'DEM-05.1', 'DEM-05.2'], ['DEM-10', 3, 'DEM-10.1'],
+    ['CRT-03', 3, 'CRT-03.1']
+  ].map(([parent, clauses, ...tasks]) => ({ parent, clauses, tasks }));
+  assert.deepEqual(cards.filter(card => card.childTasks).map(card => card.id).sort(), expected.map(item => item.parent).sort());
   const output = renderKanban(cards, currentState, board);
   for (const item of expected) {
     const card = cards.find(candidate => candidate.id === item.parent);
     const owner = implementationOwner(currentState, card.owner);
     const executor = owner === card.owner ? owner : `${owner} acting ${card.owner}`;
     assert.equal(card.clauses.length, item.clauses);
-    for (const id of item.tasks) assert.ok(card.childTasks.includes(`  - [ ] **${id} - `), id);
+    for (const id of item.tasks) {
+      assert.match(card.childTasks, new RegExp(`  - \\[[ x]\\] \\*\\*${id.replace('.', '\\.')} - `), id);
+      assert.match(id, new RegExp(`^${item.parent}\\.\\d+$`));
+    }
     for (const field of ['Executor', 'Prerequisites', 'Deliverable', 'Acceptance']) {
       assert.equal([...card.childTasks.matchAll(new RegExp(`^    - ${field}:`, 'gm'))].length, item.tasks.length);
     }
     assert.equal(card.childTasks.split(`    - Executor: ${executor}.`).length - 1, item.tasks.length);
-    assert.ok(output.includes(card.childTasks.split(/\r?\n/).map(line => line ? `  ${line}` : '').join('\n')));
+    const expectedChildren = card.childTasks.replace(/^(  - \[)[ x](\] \*\*([A-Z]+-\d+\.\d+) - )/gm,
+      (_, prefix, suffix, id) => `${prefix}${childRecordFor(currentState, id).status === 'Done' ? 'x' : ' '}${suffix}`);
+    assert.ok(output.includes(expectedChildren.split(/\r?\n/).map(line => line ? `  ${line}` : '').join('\n')));
   }
-  assert.equal([...backlog.matchAll(/^  - \[ \] \*\*[A-Z]+-\d+\.\d+ - /gm)].length, 6);
+  assert.equal([...backlog.matchAll(/^  - \[[ x]\] \*\*[A-Z]+-\d+\.\d+ - /gm)].length, 52);
+  assert.equal(expected.reduce((sum, item) => sum + item.tasks.length, 0), 52);
+  assert.equal(currentState.swarmPlan.childTasks, 52);
+  for (const card of cards.filter(candidate => /^DEM-(0[2-9]|1[0-5])$/.test(candidate.id))) {
+    const adapter = card.id === 'DEM-05' ? 'DEM-05.2' : `${card.id}.1`;
+    assert.ok(card.clauses.at(-1).text.includes(adapter), `${card.id} closing clause cites ${adapter}`);
+    assert.ok(card.childTasks.includes(`**${adapter} - `), adapter);
+  }
+});
+
+test('unproven-claim ledger cites only existing cards and children and accounts for every child', () => {
+  const ledger = [...backlog.matchAll(/^\| (UC-\d{2}) \| [^|\r\n]+ \| ([^|\r\n]+) \| [^|\r\n]+ \|$/gm)];
+  assert.equal(ledger.length, 21);
+  const cardIds = new Set(cards.map(card => card.id));
+  const childIds = new Set(cards.flatMap(card => [...card.childTasks.matchAll(/^  - \[[ x]\] \*\*([A-Z]+-\d+\.\d+) - /gm)]
+    .map(match => match[1])));
+  const cited = new Set();
+  for (const [, id, accounted] of ledger) {
+    const references = accounted.match(/\b[A-Z]{3,4}-(?:\d{2}|[AB])(?:\.\d+)?\b/g) ?? [];
+    assert.ok(references.length > 0, `${id} names no card or child`);
+    for (const reference of references) {
+      assert.ok(cardIds.has(reference) || childIds.has(reference), `${id} cites unknown ${reference}`);
+      cited.add(reference);
+    }
+  }
+  for (const id of childIds) assert.ok(cited.has(id), `child missing from the ledger: ${id}`);
 });
 
 test('later independent activation can update child executors without changing parent acceptance', () => {
@@ -175,7 +223,8 @@ test('later independent activation can update child executors without changing p
   for (const card of parsed.filter(item => item.childTasks)) {
     const count = [...card.childTasks.matchAll(/^  - \[[ x]\] \*\*[A-Z]+-\d+\.\d+ - /gm)].length;
     assert.equal(card.childTasks.split(`    - Executor: ${card.owner}.`).length - 1, count);
-    assert.ok(output.includes(card.childTasks.split(/\r?\n/).map(line => line ? `  ${line}` : '').join('\n')));
+    assert.ok(output.includes(card.childTasks.replace(/^(  - \[)x(\])/gm, '$1 $2')
+      .split(/\r?\n/).map(line => line ? `  ${line}` : '').join('\n')));
   }
   assert.doesNotMatch(output, /- Executor: R[35] acting R[16]\./);
 });
@@ -186,10 +235,160 @@ test('child checklist ticks neither change acceptance scope nor grant parent com
   assert.equal(backlogSemanticHash(updated), backlogSemanticHash(backlog));
   const parsed = parseBacklog(updated);
   assert.deepEqual(parsed.map(card => card.clauses.map(clause => clause.text)), cards.map(card => card.clauses.map(clause => clause.text)));
-  assert.ok(updateAcceptance(updated, parsed, empty()).includes('  - [x] **DEM-00.1 - '));
+  assert.ok(updateAcceptance(updated, parsed, empty()).includes('  - [ ] **DEM-00.1 - '));
   const output = renderKanban(parsed, empty(), board);
   assert.match(output, /- \[ \] \*\*#46 DEM-00 /);
-  assert.match(output, /    - \[x\] \*\*DEM-00\.1 /);
+  assert.match(output, /    - \[ \] \*\*DEM-00\.1 /);
+});
+
+const childFixture = (id = 'GATE-11.1') => {
+  const state = independent();
+  state.currentImplementationRouting = structuredClone(currentState.currentImplementationRouting);
+  const card = cards.find(item => item.children.some(child => child.id === id));
+  const child = card.children.find(item => item.id === id);
+  const reviewers = roles.filter(role => role !== card.owner).slice(0, 2);
+  const record = {
+    status: 'Done', scope: 'construction', waitingOn: [], nextAction: 'Construction exit independently checked; parent/native completion remains To Do.',
+    certificationStatus: 'NOT CERTIFIED', sourceAcceptanceIsCertification: false,
+    definitionSha256: child.definitionSha256, authorAgentId: state.currentImplementationRouting.roles[card.owner],
+    completionSources: ['tests\\construction-fixture.mjs'],
+    reviews: reviewers.map(role => ({ role, reviewerAgentId: state.currentImplementationRouting.roles[role],
+      result: 'accepted', reviewKind: ['ARC-01', 'DOC-01', 'DOC-02', 'GOV-01', 'CRT-03'].includes(card.id) ? 'documentation' : 'code',
+      reviewedOwnerRole: card.owner, artifact: `evidence\\reviews\\${role}.json`,
+      sha256: '1'.repeat(64), scopeSha256: '2'.repeat(64) }))
+  };
+  state.childRecords = { [id]: record };
+  return { state, card, child, record };
+};
+
+test('construction children retain exact definitions and qualification prerequisites across checkbox-only updates', () => {
+  const child = cards.find(card => card.id === 'GATE-11').children[0];
+  const updated = backlog.replace(`  - [${child.checked ? 'x' : ' '}] **${child.id} - `, `  - [${child.checked ? ' ' : 'x'}] **${child.id} - `);
+  const parsed = parseBacklog(updated);
+  assert.equal(parsed.find(card => card.id === 'GATE-11').children[0].definitionSha256, child.definitionSha256);
+  assert.equal(backlogSemanticHash(updated), backlogSemanticHash(backlog));
+  assert.equal(cards.flatMap(card => card.children).length, 52);
+  assert.deepEqual(cards.find(card => card.id === 'GATE-11').children[1].needs,
+    ['GATE-05.1', 'DAT-01.2', 'GATE-13.1', 'IDN-01.2', 'INF-06.1']);
+  const changed = parseBacklog(backlog.replace('One `azure.yaml` at the project root', 'Two `azure.yaml` files at the project root'));
+  assert.notEqual(changed.find(card => card.id === 'GATE-11').children[0].definitionSha256, child.definitionSha256);
+});
+
+test('independently completed construction child ticks without closing its parent or native clauses', () => {
+  const { state, child } = childFixture();
+  validateState(cards, state, scopeCards);
+  const updated = updateAcceptance(backlog, cards, state);
+  assert.ok(updated.includes('  - [x] **GATE-11.1 - '));
+  assert.equal(backlogSemanticHash(updated), backlogSemanticHash(backlog));
+  assert.equal(state.records['GATE-11']?.status ?? state.defaultStatus, 'To Do');
+  const output = renderKanban(cards, state, board);
+  assert.match(output, /construction-only \/ NOT CERTIFIED/);
+  assert.match(output, /reviewers|executed review/);
+  assert.match(output, /- \[ \] \*\*#4 GATE-11 /);
+  assert.equal(childRecordFor(state, child.id).status, 'Done');
+  assert.equal(childRecordFor(state, 'DEM-00.1').status, 'To Do');
+});
+
+test('child completion rejects missing prerequisites, generic metadata and native or hosted shortcuts', () => {
+  const { state, record } = childFixture();
+  delete record.definitionSha256;
+  assert.throws(() => validateConstructionChildren(cards, state), /Exact construction-only/);
+  record.definitionSha256 = cards.find(card => card.id === 'GATE-11').children[0].definitionSha256;
+  record.certificationStatus = 'CERTIFIED';
+  assert.throws(() => validateConstructionChildren(cards, state), /Exact construction-only/);
+  for (const id of ['GATE-11.2', 'DOC-01.1']) {
+    assert.throws(() => validateConstructionChildren(cards, childFixture(id).state), /Unmet child prerequisites/);
+  }
+  for (const id of ['DEM-00.1', 'GATE-03.1', 'GATE-05.2', 'GATE-12.1', 'DAT-01.1']) {
+    assert.throws(() => validateConstructionChildren(cards, childFixture(id).state), /needs native\/hosted qualification/);
+  }
+  const unknown = independent();
+  unknown.childRecords = { 'NEW-01.1': record };
+  assert.throws(() => validateConstructionChildren(cards, unknown), /Unknown construction child/);
+});
+
+test('child reviews require two distinct current other-role agents, never author aliases or historical identities', () => {
+  for (const mutation of [
+    ({ record }) => record.reviews.splice(1),
+    ({ record }) => { record.reviews[1] = { ...record.reviews[0] }; },
+    ({ record }) => { record.reviews[0].reviewerAgentId = '00000000-0000-4000-8000-000000000000'; },
+    ({ record, card }) => { record.reviews[0].role = card.owner; },
+    ({ record }) => { record.authorAgentId = '00000000-0000-4000-8000-000000000000'; },
+    ({ record }) => { record.reviews[0].scopeSha256 = ''; }
+  ]) {
+    const fixture = childFixture();
+    mutation(fixture);
+    assert.throws(() => validateConstructionChildren(cards, fixture.state), /current other-role|Stale child author/);
+  }
+  const fixture = childFixture();
+  fixture.state.currentImplementationRouting.roles[fixture.record.reviews[0].role] = fixture.record.authorAgentId;
+  fixture.record.reviews[0].reviewerAgentId = fixture.record.authorAgentId;
+  assert.throws(() => validateConstructionChildren(cards, fixture.state), /Distinct current other-role/);
+});
+
+test('child implementation WIP is linked to exactly one executable parent packet, not extra parallel cards', () => {
+  const { state, record } = childFixture();
+  record.status = 'In Progress';
+  record.constructionReady = true;
+  assert.throws(() => validateConstructionChildren(cards, state), /executable parent packet/);
+  state.records['GATE-11'] = { ...active(), activeChildId: 'GATE-11.1' };
+  validateConstructionChildren(cards, state);
+  record.waitingOn.push('Unavailable runtime');
+  assert.throws(() => validateConstructionChildren(cards, state), /executable parent packet/);
+});
+
+test('printed PASS, skipped tests and absent negative assertions cannot substitute for executed child evidence', () => {
+  const tests = { passed: 2, positiveTests: ['valid positive'], negativeTests: ['rejects invalid'] };
+  const tap = 'TAP version 13\nok 1 - valid positive\nok 2 - rejects invalid\n1..2\n# tests 2\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n';
+  validateConstructionTap(tap, tests);
+  assert.throws(() => validateConstructionTap('PASS', tests), /execution log/);
+  assert.throws(() => validateConstructionTap(tap.replace('# skipped 0', '# skipped 1'), tests), /execution log/);
+  assert.throws(() => validateConstructionTap(tap.replace('ok 2 - rejects invalid', 'not ok 2 - rejects invalid'), tests), /execution log/);
+  assert.throws(() => validateConstructionTap(tap, { ...tests, negativeTests: ['unexecuted rejection'] }), /were not executed/);
+});
+
+test('aggregate board evidence rejects a missing Done-child receipt even with no parent unit PASS', async () => {
+  const { state, record } = childFixture();
+  assert.deepEqual(state.records, {});
+  record.reviews[0].artifact = `evidence\\reviews\\swarm-20261102\\orchestrator\\missing-${randomUUID()}.json`;
+  validateState(cards, state, scopeCards);
+  await assert.rejects(verifyEvidence(cards, state), /ENOENT/);
+});
+
+test('actual scoped child review receipts verify logs and current sources and invalidate after drift or tampering', async () => {
+  const fixture = childFixture();
+  const prefix = path.join('evidence', 'reviews', 'swarm-20261102', 'orchestrator', `checks-${randomUUID()}`);
+  const source = path.join(prefix, 'checks.mjs');
+  const content = "import test from 'node:test'; import assert from 'node:assert/strict';\ntest('valid positive', () => assert.equal(2 + 2, 4));\ntest('rejects invalid', () => assert.throws(() => assert.equal(2 + 2, 5)));\n";
+  await mkdir(path.join(projectRoot, prefix), { recursive: true });
+  await writeFile(path.join(projectRoot, source), content);
+  try {
+    const reviews = [];
+    for (const role of fixture.record.reviews.map(review => review.role)) {
+      reviews.push(await runConstructionReview({
+        reviewerRole: role, reviewerAgentId: fixture.state.currentImplementationRouting.roles[role],
+        authorRole: fixture.card.owner, childIds: [fixture.child.id], sourcePaths: [source], testFiles: [source],
+        positiveTests: ['valid positive'], negativeTests: ['rejects invalid'], outputDirectory: path.join(prefix, role)
+      }));
+    }
+    fixture.record.completionSources = [source];
+    fixture.record.reviews = reviews;
+    await verifyConstructionEvidence(cards, fixture.state);
+    await verifyEvidence(cards, fixture.state);
+    const report = JSON.parse(await readFile(path.join(projectRoot, reviews[0].artifact), 'utf8'));
+    const malformed = structuredClone(report);
+    malformed.beforeSources[0].sha256 = 'f'.repeat(64);
+    assert.throws(() => validateConstructionRun(malformed, reviews[0], fixture.card, fixture.child, fixture.record, fixture.state), /Stable executed/);
+    await writeFile(path.join(projectRoot, source), `${content}\n// changed input\n`);
+    await assert.rejects(verifyConstructionEvidence(cards, fixture.state), /Child reviewed source changed/);
+    await assert.rejects(verifyEvidence(cards, fixture.state), /Child reviewed source changed/);
+    await writeFile(path.join(projectRoot, source), content);
+    await writeFile(path.join(projectRoot, report.roles[0].tests.artifact), 'PASS\n');
+    await assert.rejects(verifyConstructionEvidence(cards, fixture.state), /Evidence hash mismatch/);
+    await assert.rejects(verifyEvidence(cards, fixture.state), /Evidence hash mismatch/);
+  } finally {
+    await rm(path.join(projectRoot, prefix), { recursive: true, force: true });
+  }
 });
 
 test('expands range dependencies without dropping final certification edges', () => {

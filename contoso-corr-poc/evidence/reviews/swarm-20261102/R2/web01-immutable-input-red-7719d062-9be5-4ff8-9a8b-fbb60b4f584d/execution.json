@@ -1,0 +1,23 @@
+{
+  "sha256After": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00",
+  "summary": [
+    "# tests 12",
+    "# pass 11",
+    "# fail 1",
+    "# cancelled 0",
+    "# skipped 0",
+    "# duration_ms 3174.3624"
+  ],
+  "nodeVersion": "v22.23.4",
+  "nativeEvidence": false,
+  "exitCode": 1,
+  "schema": "contoso.local-regression-reproduction.v1",
+  "result": "EXPECTED_RED_BEFORE_IMMUTABLE_INPUT_FIX",
+  "sha256Before": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00",
+  "cleanup": "Chromium, loopback servers and unique scratch disposed by test finally",
+  "certificationEligible": false,
+  "source": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+  "command": "node --test --test-reporter=tap web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+  "regression": "Exported source closure is mutable and could be weakened by a caller",
+  "profile": "LOCAL REHEARSAL"
+}

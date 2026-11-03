@@ -1,0 +1,4268 @@
+
+> contoso-corr-poc@1.0.0 test
+> node tools/run-tests.mjs --test-reporter=tap --test-concurrency=2
+
+TAP version 13
+# Subtest: SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows
+ok 1 - SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows
+  ---
+  duration_ms: 1.7797
+  type: 'test'
+  ...
+# Subtest: CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed
+ok 2 - CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed
+  ---
+  duration_ms: 18.5203
+  type: 'test'
+  ...
+# Subtest: CONTROL: suppressing BCP081 or upgrading compilation into deployment proof is rejected
+ok 3 - CONTROL: suppressing BCP081 or upgrading compilation into deployment proof is rejected
+  ---
+  duration_ms: 1.1524
+  type: 'test'
+  ...
+# Subtest: DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity
+ok 4 - DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity
+  ---
+  duration_ms: 1.4441
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected
+ok 5 - CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected
+  ---
+  duration_ms: 2.427
+  type: 'test'
+  ...
+# Subtest: CONTROL: changed compiler, absent module and failed compiler cannot masquerade as an accepted warning
+ok 6 - CONTROL: changed compiler, absent module and failed compiler cannot masquerade as an accepted warning
+  ---
+  duration_ms: 1.4061
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+ok 7 - SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+  ---
+  duration_ms: 9.5107
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+ok 8 - SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+  ---
+  duration_ms: 4.1771
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+ok 9 - SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+  ---
+  duration_ms: 9.8662
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+ok 10 - SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+  ---
+  duration_ms: 2.2729
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+ok 11 - SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+  ---
+  duration_ms: 3.9153
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+ok 12 - SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+  ---
+  duration_ms: 2.663
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+ok 13 - SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+  ---
+  duration_ms: 2.9809
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+ok 14 - SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+  ---
+  duration_ms: 4.0164
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+ok 15 - SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+  ---
+  duration_ms: 2.029
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+ok 16 - SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+  ---
+  duration_ms: 9.2356
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+ok 17 - LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+  ---
+  duration_ms: 711.7225
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+ok 18 - LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+  ---
+  duration_ms: 863.4831
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+ok 19 - CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+  ---
+  duration_ms: 650.2439
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing environment-provided tools also fail explicitly without Maven
+ok 20 - CONTROL: missing environment-provided tools also fail explicitly without Maven
+  ---
+  duration_ms: 640.807
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+ok 21 - SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+  ---
+  duration_ms: 13.8375
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+ok 22 - SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+  ---
+  duration_ms: 6.4251
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+ok 23 - SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+  ---
+  duration_ms: 3.8289
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+ok 24 - SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+  ---
+  duration_ms: 6.1229
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+ok 25 - SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+  ---
+  duration_ms: 2.3393
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+ok 26 - SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+  ---
+  duration_ms: 5.9016
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real PostgreSQL lane is explicit, loopback-only and excluded from default Surefire name patterns
+ok 27 - SOURCE ONLY: real PostgreSQL lane is explicit, loopback-only and excluded from default Surefire name patterns
+  ---
+  duration_ms: 2.3242
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter
+ok 28 - SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter
+  ---
+  duration_ms: 0.5119
+  type: 'test'
+  ...
+# Subtest: CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification
+ok 29 - CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification
+  ---
+  duration_ms: 7.1738
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: cleanup adopts no existing state and drops only successfully created exact run-owned objects
+ok 30 - SOURCE ONLY: cleanup adopts no existing state and drops only successfully created exact run-owned objects
+  ---
+  duration_ms: 0.8954
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field
+ok 31 - SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field
+  ---
+  duration_ms: 10.184
+  type: 'test'
+  ...
+# Subtest: DOCUMENTATION ONLY: unexecuted real PostgreSQL requirements are not H2, Redis, Entra or native proof
+ok 32 - DOCUMENTATION ONLY: unexecuted real PostgreSQL requirements are not H2, Redis, Entra or native proof
+  ---
+  duration_ms: 2.5109
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter
+ok 33 - SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter
+  ---
+  duration_ms: 1.6018
+  type: 'test'
+  ...
+# Subtest: CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane
+ok 34 - CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane
+  ---
+  duration_ms: 4.9185
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real cache operations check TTL, canonical/error safety, restoration and a declared witness
+ok 35 - SOURCE ONLY: real cache operations check TTL, canonical/error safety, restoration and a declared witness
+  ---
+  duration_ms: 1.2996
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: NX ownership and watched exact-key cleanup never use a global Redis command
+ok 36 - SOURCE ONLY: NX ownership and watched exact-key cleanup never use a global Redis command
+  ---
+  duration_ms: 0.4167
+  type: 'test'
+  ...
+# Subtest: DOCUMENTATION ONLY: configuration and parser tests cannot be promoted into real Redis or Entra evidence
+ok 37 - DOCUMENTATION ONLY: configuration and parser tests cannot be promoted into real Redis or Entra evidence
+  ---
+  duration_ms: 7.313
+  type: 'test'
+  ...
+# Subtest: positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations
+ok 38 - positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations
+  ---
+  duration_ms: 9.3689
+  type: 'test'
+  ...
+# Subtest: negative: missing/repeated carriers and invented native observations never become a valid plan
+ok 39 - negative: missing/repeated carriers and invented native observations never become a valid plan
+  ---
+  duration_ms: 16.7155
+  type: 'test'
+  ...
+# Subtest: negative: credentials, alternate targets, fabricated identities and incorrect deletion expectations fail
+ok 40 - negative: credentials, alternate targets, fabricated identities and incorrect deletion expectations fail
+  ---
+  duration_ms: 21.5917
+  type: 'test'
+  ...
+# Subtest: positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly
+ok 41 - positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly
+  ---
+  duration_ms: 47.7766
+  type: 'test'
+  ...
+# Subtest: negative: source hashes, omissions, duplication, escapes and callback options cannot mint authority
+ok 42 - negative: source hashes, omissions, duplication, escapes and callback options cannot mint authority
+  ---
+  duration_ms: 61.1054
+  type: 'test'
+  ...
+# Subtest: negative: caller mutation during an awaited source check cannot alter its verified receipt
+ok 43 - negative: caller mutation during an awaited source check cannot alter its verified receipt
+  ---
+  duration_ms: 49.1703
+  type: 'test'
+  ...
+# Subtest: negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority
+ok 44 - negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority
+  ---
+  duration_ms: 480.2221
+  type: 'test'
+  ...
+# Subtest: pinned Bicep compiles all APIM modules and preserves real deployment/security contracts
+ok 45 - pinned Bicep compiles all APIM modules and preserves real deployment/security contracts
+  ---
+  duration_ms: 5714.4154
+  type: 'test'
+  ...
+# Subtest: isolated rewrite and RequestId fixtures fail even behind a false flag
+ok 46 - isolated rewrite and RequestId fixtures fail even behind a false flag
+  ---
+  duration_ms: 11.0221
+  type: 'test'
+  ...
+# Subtest: legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+ok 47 - legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+  ---
+  duration_ms: 3.2252
+  type: 'test'
+  ...
+# Subtest: composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+ok 48 - composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+  ---
+  duration_ms: 0.8049
+  type: 'test'
+  ...
+# Subtest: SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+ok 49 - SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+  ---
+  duration_ms: 1.1013
+  type: 'test'
+  ...
+# Subtest: all owned policy templates pass the protocol/security structure checks
+ok 50 - all owned policy templates pass the protocol/security structure checks
+  ---
+  duration_ms: 20.1663
+  type: 'test'
+  ...
+# Subtest: caller/workload policy is post-validation, app-only and separate from raw-header trust
+ok 51 - caller/workload policy is post-validation, app-only and separate from raw-header trust
+  ---
+  duration_ms: 3.4472
+  type: 'test'
+  ...
+# Subtest: CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+ok 52 - CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+  ---
+  duration_ms: 1.2553
+  type: 'test'
+  ...
+# Subtest: real service CORS permits SDK metadata without capture or credential exposure
+ok 53 - real service CORS permits SDK metadata without capture or credential exposure
+  ---
+  duration_ms: 3.7549
+  type: 'test'
+  ...
+# Subtest: malformed XML, DTD and nested fragment controls fail without fetching external entities
+ok 54 - malformed XML, DTD and nested fragment controls fail without fetching external entities
+  ---
+  duration_ms: 0.9763
+  type: 'test'
+  ...
+# Subtest: negative fixture manifest excludes every test artifact from deployment
+ok 55 - negative fixture manifest excludes every test artifact from deployment
+  ---
+  duration_ms: 3.6208
+  type: 'test'
+  ...
+# Subtest: OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+ok 56 - OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+  ---
+  duration_ms: 2.7626
+  type: 'test'
+  ...
+# Subtest: current policy C\# context, auth-shape and business guards execute only in the local CLR
+ok 57 - current policy C\# context, auth-shape and business guards execute only in the local CLR
+  ---
+  duration_ms: 2508.0872
+  type: 'test'
+  ...
+# Subtest: valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+ok 58 - valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+  ---
+  duration_ms: 1.6853
+  type: 'test'
+  ...
+# Subtest: version-forward-compatible known prefix accepts extensions without parsing them
+ok 59 - version-forward-compatible known prefix accepts extensions without parsing them
+  ---
+  duration_ms: 0.2485
+  type: 'test'
+  ...
+# Subtest: malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+ok 60 - malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+  ---
+  duration_ms: 0.7824
+  type: 'test'
+  ...
+# Subtest: invalid state drops state only and never invalidates a valid parent
+ok 61 - invalid state drops state only and never invalidates a valid parent
+  ---
+  duration_ms: 0.9683
+  type: 'test'
+  ...
+# Subtest: line breaks in state keys discard only state and preserve the valid parent's flags
+ok 62 - line breaks in state keys discard only state and preserve the valid parent's flags
+  ---
+  duration_ms: 0.4528
+  type: 'test'
+  ...
+# Subtest: Demo03 carrier manifest describes policy behavior without fabricated telemetry
+ok 63 - Demo03 carrier manifest describes policy behavior without fabricated telemetry
+  ---
+  duration_ms: 7.126
+  type: 'test'
+  ...
+# Subtest: state order/multi-fields/empty OWS and strict member grammar
+ok 64 - state order/multi-fields/empty OWS and strict member grammar
+  ---
+  duration_ms: 0.4305
+  type: 'test'
+  ...
+# Subtest: state accepts 32 and 512 but not 33/513; long values are bounded
+ok 65 - state accepts 32 and 512 but not 33/513; long values are bounded
+  ---
+  duration_ms: 0.3
+  type: 'test'
+  ...
+# Subtest: business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+ok 66 - business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+  ---
+  duration_ms: 1.1714
+  type: 'test'
+  ...
+# Subtest: transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+ok 67 - transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+  ---
+  duration_ms: 0.9931
+  type: 'test'
+  ...
+# Subtest: case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+ok 68 - case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+  ---
+  duration_ms: 0.301
+  type: 'test'
+  ...
+# Subtest: CORS grants only frontend origin/custom-header list and never grants the gateway proof
+ok 69 - CORS grants only frontend origin/custom-header list and never grants the gateway proof
+  ---
+  duration_ms: 0.307
+  type: 'test'
+  ...
+# Subtest: SDK appId metadata preflight remains permitted on a subsequent approved request
+ok 70 - SDK appId metadata preflight remains permitted on a subsequent approved request
+  ---
+  duration_ms: 0.2179
+  type: 'test'
+  ...
+# Subtest: public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+ok 71 - public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+  ---
+  duration_ms: 0.3357
+  type: 'test'
+  ...
+# Subtest: source/version guard accepts only SDK3.4.5 W3C_TRACE18
+ok 72 - source/version guard accepts only SDK3.4.5 W3C_TRACE18
+  ---
+  duration_ms: 4.9957
+  type: 'test'
+  ...
+# Subtest: module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+ok 73 - module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+  ---
+  duration_ms: 1.5693
+  type: 'test'
+  ...
+# Subtest: all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+ok 74 - all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+  ---
+  duration_ms: 0.7212
+  type: 'test'
+  ...
+# Subtest: native ARM substrate snapshots, conditionally patches and restores without claiming a runtime ACK
+ok 75 - native ARM substrate snapshots, conditionally patches and restores without claiming a runtime ACK
+  ---
+  duration_ms: 9.723
+  type: 'test'
+  ...
+# Subtest: default adapter cannot perform cloud writes even after read-only preparation
+ok 76 - default adapter cannot perform cloud writes even after read-only preparation
+  ---
+  duration_ms: 1.9118
+  type: 'test'
+  ...
+# Subtest: overlapping service/API scopes, paging and foreign continuations fail closed
+ok 77 - overlapping service/API scopes, paging and foreign continuations fail closed
+  ---
+  duration_ms: 1.9087
+  type: 'test'
+  ...
+# Subtest: activation and restoration reject stale ETags and foreign owned-field changes
+ok 78 - activation and restoration reject stale ETags and foreign owned-field changes
+  ---
+  duration_ms: 1.407
+  type: 'test'
+  ...
+# Subtest: lease gates reject early/draining/expired activation but late restoration still ends full collection
+ok 79 - lease gates reject early/draining/expired activation but late restoration still ends full collection
+  ---
+  duration_ms: 1.9418
+  type: 'test'
+  ...
+# Subtest: an expired prepared snapshot cannot be revived by shifting the same lease ID to a later window
+ok 80 - an expired prepared snapshot cannot be revived by shifting the same lease ID to a later window
+  ---
+  duration_ms: 0.7993
+  type: 'test'
+  ...
+# Subtest: no privacy, RPS, protocol or snapshot tampering is admitted by native control
+ok 81 - no privacy, RPS, protocol or snapshot tampering is admitted by native control
+  ---
+  duration_ms: 1.6866
+  type: 'test'
+  ...
+# Subtest: management failures omit response/credential data and require an actual GET ETag
+ok 82 - management failures omit response/credential data and require an actual GET ETag
+  ---
+  duration_ms: 2.6482
+  type: 'test'
+  ...
+# Subtest: textual guard mentions do not authorize deletion behind unconditional alternatives
+ok 83 - textual guard mentions do not authorize deletion behind unconditional alternatives
+  ---
+  duration_ms: 2.7887
+  type: 'test'
+  ...
+# Subtest: hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+ok 84 - hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+  ---
+  duration_ms: 0.6445
+  type: 'test'
+  ...
+# Subtest: XML-encoded RequestId and sampled-flag surgery fail even in disabled policy branches
+ok 85 - XML-encoded RequestId and sampled-flag surgery fail even in disabled policy branches
+  ---
+  duration_ms: 2.4878
+  type: 'test'
+  ...
+# Subtest: XML decoding is single-pass and does not invent executable forbidden expressions
+ok 86 - XML decoding is single-pass and does not invent executable forbidden expressions
+  ---
+  duration_ms: 0.7713
+  type: 'test'
+  ...
+# Subtest: named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+ok 87 - named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+  ---
+  duration_ms: 0.5848
+  type: 'test'
+  ...
+# Subtest: a W3C constant in another file cannot certify an unbound SDK initialization
+ok 88 - a W3C constant in another file cannot certify an unbound SDK initialization
+  ---
+  duration_ms: 36.9547
+  type: 'test'
+  ...
+# Subtest: source gate rejects seeded encoded fragments and passes after their removal
+ok 89 - source gate rejects seeded encoded fragments and passes after their removal
+  ---
+  duration_ms: 29.4085
+  type: 'test'
+  ...
+# Subtest: declares all eight synchronous boundaries and separate SSR, replay, fan-in and batch roots
+ok 90 - declares all eight synchronous boundaries and separate SSR, replay, fan-in and batch roots
+  ---
+  duration_ms: 0.8813
+  type: 'test'
+  ...
+# Subtest: conditional A03 roots cannot waive valid parents or replace actual native receipts
+ok 91 - conditional A03 roots cannot waive valid parents or replace actual native receipts
+  ---
+  duration_ms: 1.5136
+  type: 'test'
+  ...
+# Subtest: data tiers are client boundaries and actual contributors are bounded links
+ok 92 - data tiers are client boundaries and actual contributors are bounded links
+  ---
+  duration_ms: 0.1619
+  type: 'test'
+  ...
+# Subtest: renders the graph from one map and rejects unknown/malformed edges
+ok 93 - renders the graph from one map and rejects unknown/malformed edges
+  ---
+  duration_ms: 0.4795
+  type: 'test'
+  ...
+# Subtest: rejects each removed claim/resource even when hidden in a disabled fragment
+ok 94 - rejects each removed claim/resource even when hidden in a disabled fragment
+  ---
+  duration_ms: 2.3318
+  type: 'test'
+  ...
+# Subtest: rejects evaluation references on the certification deployment path
+ok 95 - rejects evaluation references on the certification deployment path
+  ---
+  duration_ms: 0.1873
+  type: 'test'
+  ...
+# Subtest: does not confuse a validation-tool rejection predicate with a deployment requirement
+ok 96 - does not confuse a validation-tool rejection predicate with a deployment requirement
+  ---
+  duration_ms: 0.1251
+  type: 'test'
+  ...
+# Subtest: fails closed on preview/unknown dependencies and missing official sources
+ok 97 - fails closed on preview/unknown dependencies and missing official sources
+  ---
+  duration_ms: 1.6335
+  type: 'test'
+  ...
+# Subtest: Contoso-owned customization is not presented as a Microsoft GA announcement
+ok 98 - Contoso-owned customization is not presented as a Microsoft GA announcement
+  ---
+  duration_ms: 0.2204
+  type: 'test'
+  ...
+# Subtest: both exact resolved Portal beta packages have public source classifications, not support clearance
+ok 99 - both exact resolved Portal beta packages have public source classifications, not support clearance
+  ---
+  duration_ms: 1.7188
+  type: 'test'
+  ...
+# Subtest: a different stable instrumentation release cannot promote the resolved beta
+ok 100 - a different stable instrumentation release cannot promote the resolved beta
+  ---
+  duration_ms: 1.2866
+  type: 'test'
+  ...
+# Subtest: Portal classification rejects lock drift, missing beta and caller GA/support labels
+ok 101 - Portal classification rejects lock drift, missing beta and caller GA/support labels
+  ---
+  duration_ms: 14.1215
+  type: 'test'
+  ...
+# Subtest: removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+ok 102 - removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+  ---
+  duration_ms: 2.2475
+  type: 'test'
+  ...
+# Subtest: calculates exact listed fixed meters without double-counting service equivalents
+ok 103 - calculates exact listed fixed meters without double-counting service equivalents
+  ---
+  duration_ms: 1.1762
+  type: 'test'
+  ...
+# Subtest: fails closed on an unknown/zero meter or removed spend warning
+ok 104 - fails closed on an unknown/zero meter or removed spend warning
+  ---
+  duration_ms: 0.8287
+  type: 'test'
+  ...
+# Subtest: every PR runs the locked serial reactor with both artifacts and fail-closed totals
+ok 105 - every PR runs the locked serial reactor with both artifacts and fail-closed totals
+  ---
+  duration_ms: 2.4843
+  type: 'test'
+  ...
+# Subtest: workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger
+ok 106 - workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger
+  ---
+  duration_ms: 5.9989
+  type: 'test'
+  ...
+# Subtest: fresh complete XML prints executed and skipped totals and covers every required agent class
+ok 107 - fresh complete XML prints executed and skipped totals and covers every required agent class
+  ---
+  duration_ms: 1038.2943
+  type: 'test'
+  ...
+# Subtest: skipped or cancelled agent assertions fail even when Maven reported zero failures
+ok 108 - skipped or cancelled agent assertions fail even when Maven reported zero failures
+  ---
+  duration_ms: 2813.2719
+  type: 'test'
+  ...
+# Subtest: missing gated testcase, incomplete counts and stale reports cannot pass silently
+ok 109 - missing gated testcase, incomplete counts and stale reports cannot pass silently
+  ---
+  duration_ms: 1744.203
+  type: 'test'
+  ...
+# Subtest: duplicate emitted tests and DTD-bearing XML are rejected
+ok 110 - duplicate emitted tests and DTD-bearing XML are rejected
+  ---
+  duration_ms: 1795.9135
+  type: 'test'
+  ...
+# Subtest: GATE-02 accepts API only and fails a never-deployed second-SDK fixture
+ok 111 - GATE-02 accepts API only and fails a never-deployed second-SDK fixture
+  ---
+  duration_ms: 1561.3962
+  type: 'test'
+  ...
+# Subtest: GATE-02 fails provider construction before deployment
+ok 112 - GATE-02 fails provider construction before deployment
+  ---
+  duration_ms: 902.1253
+  type: 'test'
+  ...
+# Subtest: PROVIDED SDK APIs outside the one approved extension remain forbidden
+ok 113 - PROVIDED SDK APIs outside the one approved extension remain forbidden
+  ---
+  duration_ms: 830.5483
+  type: 'test'
+  ...
+# Subtest: extension compiler exception is exact ABI and PROVIDED, not a subtree exclusion
+ok 114 - extension compiler exception is exact ABI and PROVIDED, not a subtree exclusion
+  ---
+  duration_ms: 4669.0394
+  type: 'test'
+  ...
+# Subtest: agent pin, runtime guard and generated VERSIONS refer to the same lock
+ok 115 - agent pin, runtime guard and generated VERSIONS refer to the same lock
+  ---
+  duration_ms: 7.2422
+  type: 'test'
+  ...
+# Subtest: startup owns one pinned agent and never promotes a sampled flag
+ok 116 - startup owns one pinned agent and never promotes a sampled flag
+  ---
+  duration_ms: 3.7774
+  type: 'test'
+  ...
+# Subtest: compute exposes actual hostnames and defaults backend and independent SCM ingress to deny
+ok 117 - compute exposes actual hostnames and defaults backend and independent SCM ingress to deny
+  ---
+  duration_ms: 1.7352
+  type: 'test'
+  ...
+# Subtest: the serial reactor builds current Inventory classes before Orders launches its two-JVM test
+ok 118 - the serial reactor builds current Inventory classes before Orders launches its two-JVM test
+  ---
+  duration_ms: 1.4245
+  type: 'test'
+  ...
+# Subtest: module observations never promote mixed build epochs into a fresh full-reactor PASS
+ok 119 - module observations never promote mixed build epochs into a fresh full-reactor PASS
+  ---
+  duration_ms: 1118.4967
+  type: 'test'
+  ...
+# Subtest: BOOT-INF SDK resources and unlabelled nested libraries cannot evade admission
+ok 120 - BOOT-INF SDK resources and unlabelled nested libraries cannot evade admission
+  ---
+  duration_ms: 3721.0417
+  type: 'test'
+  ...
+# Subtest: startup log guard rejects runtime gate failures, duplicate loads, transformation failures and exporter rejection
+ok 121 - startup log guard rejects runtime gate failures, duplicate loads, transformation failures and exporter rejection
+  ---
+  duration_ms: 4800.2034
+  type: 'test'
+  ...
+# Subtest: throw-only construction bytecode cannot enter a real application package
+ok 122 - throw-only construction bytecode cannot enter a real application package
+  ---
+  duration_ms: 1681.9436
+  type: 'test'
+  ...
+# Subtest: deployment ZIP bytes are stable despite changing filesystem timestamps
+ok 123 - deployment ZIP bytes are stable despite changing filesystem timestamps
+  ---
+  duration_ms: 1677.2686
+  type: 'test'
+  ...
+# Subtest: original values are scanned before publisher/machine projection; technical values remain exact
+ok 124 - original values are scanned before publisher/machine projection; technical values remain exact
+  ---
+  duration_ms: 10.3826
+  type: 'test'
+  ...
+# Subtest: redactable tags cannot conceal original personal values, credentials or exact identity markers
+ok 125 - redactable tags cannot conceal original personal values, credentials or exact identity markers
+  ---
+  duration_ms: 7.089
+  type: 'test'
+  ...
+# Subtest: original properties reject credential fields, SQL capture and JWT-shaped strings without synthetic waivers
+ok 126 - original properties reject credential fields, SQL capture and JWT-shaped strings without synthetic waivers
+  ---
+  duration_ms: 2.8297
+  type: 'test'
+  ...
+# Subtest: unknown or nested publisher credentials are rejected before any projection
+ok 127 - unknown or nested publisher credentials are rejected before any projection
+  ---
+  duration_ms: 11.0386
+  type: 'test'
+  ...
+# Subtest: NDJSON and gzip preserve separate original payload and envelope counts
+ok 128 - NDJSON and gzip preserve separate original payload and envelope counts
+  ---
+  duration_ms: 3.8689
+  type: 'test'
+  ...
+# Subtest: compressed, envelope-count, payload-count and prototype bounds fail closed
+ok 129 - compressed, envelope-count, payload-count and prototype bounds fail closed
+  ---
+  duration_ms: 33.3068
+  type: 'test'
+  ...
+# Subtest: the exact 512-envelope and one-MiB thresholds accept at the boundary and reject above it
+ok 130 - the exact 512-envelope and one-MiB thresholds accept at the boundary and reject above it
+  ---
+  duration_ms: 505.6184
+  type: 'test'
+  ...
+# Subtest: the actual CLI binds its PID and never emits unsafe originals on stdout or stderr
+ok 131 - the actual CLI binds its PID and never emits unsafe originals on stdout or stderr
+  ---
+  duration_ms: 330.3507
+  type: 'test'
+  ...
+# Subtest: the API consumer rejects duplicate original fields and publisher-marker conflicts through the shared policy
+ok 132 - the API consumer rejects duplicate original fields and publisher-marker conflicts through the shared policy
+  ---
+  duration_ms: 2.2521
+  type: 'test'
+  ...
+# Subtest: default Netty qualification tests the sampled bit without rejecting or rewriting other W3C bits
+ok 133 - default Netty qualification tests the sampled bit without rejecting or rewriting other W3C bits
+  ---
+  duration_ms: 186.4893
+  type: 'test'
+  ...
+# Subtest: all six portable scripts reject machine/session defaults and use the shared convention
+ok 134 - all six portable scripts reject machine/session defaults and use the shared convention
+  ---
+  duration_ms: 13.0648
+  type: 'test'
+  ...
+# Subtest: unset root resolves to this repository, and missing tools stop explicitly before Maven
+ok 135 - unset root resolves to this repository, and missing tools stop explicitly before Maven
+  ---
+  duration_ms: 3624.5745
+  type: 'test'
+  ...
+# Subtest: explicit root beats the environment and preserves spaced paths with locked versions
+ok 136 - explicit root beats the environment and preserves spaced paths with locked versions
+  ---
+  duration_ms: 798.735
+  type: 'test'
+  ...
+# Subtest: environment root is honored and both archive hashes are rechecked before reuse
+ok 137 - environment root is honored and both archive hashes are rechecked before reuse
+  ---
+  duration_ms: 3474.81
+  type: 'test'
+  ...
+# Subtest: portable installation rejects a changed archive before extraction or download
+ok 138 - portable installation rejects a changed archive before extraction or download
+  ---
+  duration_ms: 990.6514
+  type: 'test'
+  ...
+# Subtest: agent lookup honors the root, checks checksum and size, and never needs network for existing bytes
+ok 139 - agent lookup honors the root, checks checksum and size, and never needs network for existing bytes
+  ---
+  duration_ms: 2877.4551
+  type: 'test'
+  ...
+# Subtest: Bicep install honors the root and rejects a changed compiler before executing it
+ok 140 - Bicep install honors the root and rejects a changed compiler before executing it
+  ---
+  duration_ms: 1834.5159
+  type: 'test'
+  ...
+# Subtest: Gate-05 carries the explicit root to the agent and keeps its extension verification
+ok 141 - Gate-05 carries the explicit root to the agent and keeps its extension verification
+  ---
+  duration_ms: 2.0099
+  type: 'test'
+  ...
+# Subtest: imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+ok 142 - imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+  ---
+  duration_ms: 2.4184
+  type: 'test'
+  ...
+# Subtest: extracts the complete canonical swarm plan without swallowing ranked work or board lanes
+ok 143 - extracts the complete canonical swarm plan without swallowing ranked work or board lanes
+  ---
+  duration_ms: 0.4032
+  type: 'test'
+  ...
+# Subtest: swarm dispatch packages cover every parent exactly once under its logical owner
+ok 144 - swarm dispatch packages cover every parent exactly once under its logical owner
+  ---
+  duration_ms: 0.7297
+  type: 'test'
+  ...
+# Subtest: swarm child qualification edges cover every child without an observer-adapter cycle
+ok 145 - swarm child qualification edges cover every child without an observer-adapter cycle
+  ---
+  duration_ms: 3.8457
+  type: 'test'
+  ...
+# Subtest: nine-role target has independent review pairs and mode-aware construction lifecycle metadata
+ok 146 - nine-role target has independent review pairs and mode-aware construction lifecycle metadata
+  ---
+  duration_ms: 13.0859
+  type: 'test'
+  ...
+# Subtest: swarm evidence totals match the exact parent facets rather than broad package PASS labels
+ok 147 - swarm evidence totals match the exact parent facets rather than broad package PASS labels
+  ---
+  duration_ms: 4.4396
+  type: 'test'
+  ...
+# Subtest: Kanban reproduces the source swarm plan rather than retaining stale generated planning
+ok 148 - Kanban reproduces the source swarm plan rather than retaining stale generated planning
+  ---
+  duration_ms: 7.7776
+  type: 'test'
+  ...
+# Subtest: preserves explicit atomic child tasks without adding cards or acceptance clauses
+ok 149 - preserves explicit atomic child tasks without adding cards or acceptance clauses
+  ---
+  duration_ms: 14.5394
+  type: 'test'
+  ...
+# Subtest: unproven-claim ledger cites only existing cards and children and accounts for every child
+ok 150 - unproven-claim ledger cites only existing cards and children and accounts for every child
+  ---
+  duration_ms: 1.9055
+  type: 'test'
+  ...
+# Subtest: later independent activation can update child executors without changing parent acceptance
+ok 151 - later independent activation can update child executors without changing parent acceptance
+  ---
+  duration_ms: 20.7667
+  type: 'test'
+  ...
+# Subtest: child checklist ticks neither change acceptance scope nor grant parent completion
+ok 152 - child checklist ticks neither change acceptance scope nor grant parent completion
+  ---
+  duration_ms: 76.3553
+  type: 'test'
+  ...
+# Subtest: construction children retain exact definitions and qualification prerequisites across checkbox-only updates
+ok 153 - construction children retain exact definitions and qualification prerequisites across checkbox-only updates
+  ---
+  duration_ms: 8.7631
+  type: 'test'
+  ...
+# Subtest: independently completed construction child ticks without closing its parent or native clauses
+ok 154 - independently completed construction child ticks without closing its parent or native clauses
+  ---
+  duration_ms: 57.8209
+  type: 'test'
+  ...
+# Subtest: child completion rejects missing prerequisites, generic metadata and native or hosted shortcuts
+ok 155 - child completion rejects missing prerequisites, generic metadata and native or hosted shortcuts
+  ---
+  duration_ms: 1.8907
+  type: 'test'
+  ...
+# Subtest: child reviews require two distinct current other-role agents, never author aliases or historical identities
+ok 156 - child reviews require two distinct current other-role agents, never author aliases or historical identities
+  ---
+  duration_ms: 1.3769
+  type: 'test'
+  ...
+# Subtest: child implementation WIP is linked to exactly one executable parent packet, not extra parallel cards
+ok 157 - child implementation WIP is linked to exactly one executable parent packet, not extra parallel cards
+  ---
+  duration_ms: 0.5722
+  type: 'test'
+  ...
+# Subtest: printed PASS, skipped tests and absent negative assertions cannot substitute for executed child evidence
+ok 158 - printed PASS, skipped tests and absent negative assertions cannot substitute for executed child evidence
+  ---
+  duration_ms: 1.1345
+  type: 'test'
+  ...
+# Subtest: aggregate board evidence rejects a missing Done-child receipt even with no parent unit PASS
+ok 159 - aggregate board evidence rejects a missing Done-child receipt even with no parent unit PASS
+  ---
+  duration_ms: 16.563
+  type: 'test'
+  ...
+# Subtest: actual scoped child review receipts verify logs and current sources and invalidate after drift or tampering
+ok 160 - actual scoped child review receipts verify logs and current sources and invalidate after drift or tampering
+  ---
+  duration_ms: 577.7939
+  type: 'test'
+  ...
+# Subtest: expands range dependencies without dropping final certification edges
+ok 161 - expands range dependencies without dropping final certification edges
+  ---
+  duration_ms: 0.7762
+  type: 'test'
+  ...
+# Subtest: rejects Blocked and unknown card states instead of silently defaulting
+ok 162 - rejects Blocked and unknown card states instead of silently defaulting
+  ---
+  duration_ms: 0.3983
+  type: 'test'
+  ...
+# Subtest: enforces one active card per role and returns stalled work to To Do
+ok 163 - enforces one active card per role and returns stalled work to To Do
+  ---
+  duration_ms: 0.2778
+  type: 'test'
+  ...
+# Subtest: approved acting roles retain logical ownership but share one implementation WIP limit
+ok 164 - approved acting roles retain logical ownership but share one implementation WIP limit
+  ---
+  duration_ms: 0.4764
+  type: 'test'
+  ...
+# Subtest: explicit independent-nine-role assignments permit nine distinct active construction facets
+ok 165 - explicit independent-nine-role assignments permit nine distinct active construction facets
+  ---
+  duration_ms: 1.146
+  type: 'test'
+  ...
+# Subtest: a second active construction card fails for each independent implementation owner
+ok 166 - a second active construction card fails for each independent implementation owner
+  ---
+  duration_ms: 7.5622
+  type: 'test'
+  ...
+# Subtest: independent-role priority remains per owner rather than retaining obsolete acting-role aliases
+ok 167 - independent-role priority remains per owner rather than retaining obsolete acting-role aliases
+  ---
+  duration_ms: 3.4439
+  type: 'test'
+  ...
+# Subtest: independent-nine-role mode requires explicit exact identity assignments, never aliases or an unknown policy
+ok 168 - independent-nine-role mode requires explicit exact identity assignments, never aliases or an unknown policy
+  ---
+  duration_ms: 1.4825
+  type: 'test'
+  ...
+# Subtest: acting authors cannot count their own reviews through logical-role aliases
+ok 169 - acting authors cannot count their own reviews through logical-role aliases
+  ---
+  duration_ms: 0.4138
+  type: 'test'
+  ...
+# Subtest: two accepted logical-role aliases cannot count as two implementation reviewers
+ok 170 - two accepted logical-role aliases cannot count as two implementation reviewers
+  ---
+  duration_ms: 0.4575
+  type: 'test'
+  ...
+# Subtest: independent-role authors still cannot review themselves or manufacture two reviewers
+ok 171 - independent-role authors still cannot review themselves or manufacture two reviewers
+  ---
+  duration_ms: 2.3525
+  type: 'test'
+  ...
+# Subtest: unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+ok 172 - unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+  ---
+  duration_ms: 0.3812
+  type: 'test'
+  ...
+# Subtest: a roster-policy transition invalidates board-policy source and review-scope digests
+ok 173 - a roster-policy transition invalidates board-policy source and review-scope digests
+  ---
+  duration_ms: 0.2607
+  type: 'test'
+  ...
+# Subtest: current synchronization/rendering cannot remove or null either approved assignment mode
+ok 174 - current synchronization/rendering cannot remove or null either approved assignment mode
+  ---
+  duration_ms: 4.0595
+  type: 'test'
+  ...
+# Subtest: cross-role WIP and author protection cannot fall back to parked roles without the map
+ok 175 - cross-role WIP and author protection cannot fall back to parked roles without the map
+  ---
+  duration_ms: 0.1564
+  type: 'test'
+  ...
+# Subtest: highest executable facet is compared across logical roles sharing an implementation owner
+ok 176 - highest executable facet is compared across logical roles sharing an implementation owner
+  ---
+  duration_ms: 3.0714
+  type: 'test'
+  ...
+# Subtest: rendered implementation lanes show acting owner instead of stopped original writer
+ok 177 - rendered implementation lanes show acting owner instead of stopped original writer
+  ---
+  duration_ms: 1.5777
+  type: 'test'
+  ...
+# Subtest: independent routing renders all nine current lanes without reviving historical agents
+ok 178 - independent routing renders all nine current lanes without reviving historical agents
+  ---
+  duration_ms: 2.7181
+  type: 'test'
+  ...
+# Subtest: construction does not satisfy completion dependencies or evidence
+ok 179 - construction does not satisfy completion dependencies or evidence
+  ---
+  duration_ms: 0.6421
+  type: 'test'
+  ...
+# Subtest: does not mark a card Done on a draft, a vote, or missing acceptance
+ok 180 - does not mark a card Done on a draft, a vote, or missing acceptance
+  ---
+  duration_ms: 0.3046
+  type: 'test'
+  ...
+# Subtest: code completion cannot count earlier design-only or generic review markers
+ok 181 - code completion cannot count earlier design-only or generic review markers
+  ---
+  duration_ms: 0.1759
+  type: 'test'
+  ...
+# Subtest: review envelopes bind verdict, explicit completion sources, and source-scope hashes
+ok 182 - review envelopes bind verdict, explicit completion sources, and source-scope hashes
+  ---
+  duration_ms: 0.606
+  type: 'test'
+  ...
+# Subtest: source digest detects code changes but does not self-invalidate on operational board transitions
+ok 183 - source digest detects code changes but does not self-invalidate on operational board transitions
+  ---
+  duration_ms: 0.3793
+  type: 'test'
+  ...
+# Subtest: partial passing checkboxes require scope policy and current evidence too
+ok 184 - partial passing checkboxes require scope policy and current evidence too
+  ---
+  duration_ms: 0.8441
+  type: 'test'
+  ...
+# Subtest: persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+ok 185 - persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+  ---
+  duration_ms: 1.1411
+  type: 'test'
+  ...
+# Subtest: rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+ok 186 - rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+  ---
+  duration_ms: 49.495
+  type: 'test'
+  ...
+# Subtest: exact scopes cover all clauses and invalidate on a semantic source change
+ok 187 - exact scopes cover all clauses and invalidate on a semantic source change
+  ---
+  duration_ms: 10.8669
+  type: 'test'
+  ...
+# Subtest: partial local facet is rendered separately and cannot tick a whole live clause
+ok 188 - partial local facet is rendered separately and cannot tick a whole live clause
+  ---
+  duration_ms: 59.3391
+  type: 'test'
+  ...
+# Subtest: arbitrary live PASS and reviewer votes are not native acceptance
+ok 189 - arbitrary live PASS and reviewer votes are not native acceptance
+  ---
+  duration_ms: 1.866
+  type: 'test'
+  ...
+# Subtest: source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+ok 190 - source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+  ---
+  duration_ms: 8.9165
+  type: 'test'
+  ...
+# Subtest: fixture-only retry controls require N failures followed by success as N+1 unfiltered deliveries
+ok 191 - fixture-only retry controls require N failures followed by success as N+1 unfiltered deliveries
+  ---
+  duration_ms: 5.2865
+  type: 'test'
+  ...
+# Subtest: retry identity controls keep valid ordinals so each identity assertion must reject its own mutation
+ok 192 - retry identity controls keep valid ordinals so each identity assertion must reject its own mutation
+  ---
+  duration_ms: 1.0819
+  type: 'test'
+  ...
+# Subtest: replay must be fresh linked work with preserved business and original identity
+ok 193 - replay must be fresh linked work with preserved business and original identity
+  ---
+  duration_ms: 0.9962
+  type: 'test'
+  ...
+# Subtest: fan-in rejects arbitrary parents, missing/invented contributors and unbounded links
+ok 194 - fan-in rejects arbitrary parents, missing/invented contributors and unbounded links
+  ---
+  duration_ms: 1.8921
+  type: 'test'
+  ...
+# Subtest: mixed-context batch is root-with-bounded-links, never first-message-parent
+ok 195 - mixed-context batch is root-with-bounded-links, never first-message-parent
+  ---
+  duration_ms: 0.4939
+  type: 'test'
+  ...
+# Subtest: INTERNAL aggregation validates native causality without inventing consumer attempts
+ok 196 - INTERNAL aggregation validates native causality without inventing consumer attempts
+  ---
+  duration_ms: 0.3279
+  type: 'test'
+  ...
+# Subtest: fixture-only four-context fan-in requires every branch PROCESS and result SEND link
+ok 197 - fixture-only four-context fan-in requires every branch PROCESS and result SEND link
+  ---
+  duration_ms: 2.2846
+  type: 'test'
+  ...
+# Subtest: synthetic vectors are negative controls, never certification evidence
+ok 198 - synthetic vectors are negative controls, never certification evidence
+  ---
+  duration_ms: 0.4083
+  type: 'test'
+  ...
+# Subtest: published v1 envelope is bounded, exact-named and version-invalidating
+ok 199 - published v1 envelope is bounded, exact-named and version-invalidating
+  ---
+  duration_ms: 1.1632
+  type: 'test'
+  ...
+# Subtest: synthetic payload and UUIDs have explicit immutable bounds
+ok 200 - synthetic payload and UUIDs have explicit immutable bounds
+  ---
+  duration_ms: 0.8608
+  type: 'test'
+  ...
+# Subtest: resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+ok 201 - resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+  ---
+  duration_ms: 3.5021
+  type: 'test'
+  ...
+# Subtest: resolver unit: the EXE alias and whitespace-only primary setting are supported
+ok 202 - resolver unit: the EXE alias and whitespace-only primary setting are supported
+  ---
+  duration_ms: 0.4347
+  type: 'test'
+  ...
+# Subtest: resolver unit: an unconfigured compiler is resolved from PATH
+ok 203 - resolver unit: an unconfigured compiler is resolved from PATH
+  ---
+  duration_ms: 0.2018
+  type: 'test'
+  ...
+# Subtest: resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+ok 204 - resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+  ---
+  duration_ms: 0.3218
+  type: 'test'
+  ...
+# Subtest: resolver negative: an explicitly configured missing compiler fails without fallback
+ok 205 - resolver negative: an explicitly configured missing compiler fails without fallback
+  ---
+  duration_ms: 0.5779
+  type: 'test'
+  ...
+# Subtest: resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+ok 206 - resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+  ---
+  duration_ms: 0.3191
+  type: 'test'
+  ...
+# Subtest: resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+ok 207 - resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+  ---
+  duration_ms: 0.4925
+  type: 'test'
+  ...
+# Subtest: missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+ok 208 - missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+  ---
+  duration_ms: 296.7433
+  type: 'test'
+  ...
+# Subtest: source portability guard rejects absolute user-profile and operator-session defaults
+ok 209 - source portability guard rejects absolute user-profile and operator-session defaults
+  ---
+  duration_ms: 4.7714
+  type: 'test'
+  ...
+# Subtest: real messaging ARM compiles all carriers with identity-only local auth disabled
+ok 210 - real messaging ARM compiles all carriers with identity-only local auth disabled
+  ---
+  duration_ms: 1895.444
+  type: 'test'
+  ...
+# Subtest: CloudEvents relay uses topic identity and declares durable dead-letter destination
+ok 211 - CloudEvents relay uses topic identity and declares durable dead-letter destination
+  ---
+  duration_ms: 1911.9131
+  type: 'test'
+  ...
+# Subtest: runtime messaging permissions are fixed entity scopes, never namespace data owners
+ok 212 - runtime messaging permissions are fixed entity scopes, never namespace data owners
+  ---
+  duration_ms: 2208.8389
+  type: 'test'
+  ...
+# Subtest: fixture-only original NDJSON/gzip keeps actual supplied retry IDs, kinds, parents and links after shared scan
+ok 213 - fixture-only original NDJSON/gzip keeps actual supplied retry IDs, kinds, parents and links after shared scan
+  ---
+  duration_ms: 14.7247
+  type: 'test'
+  ...
+# Subtest: duplicate plain, escaped and nested names fail before any async projection
+ok 214 - duplicate plain, escaped and nested names fail before any async projection
+  ---
+  duration_ms: 1.5468
+  type: 'test'
+  ...
+# Subtest: exact synthetic token/OID markers and values in removed tags reject the complete original capture
+ok 215 - exact synthetic token/OID markers and values in removed tags reject the complete original capture
+  ---
+  duration_ms: 4.0458
+  type: 'test'
+  ...
+# Subtest: actual CPU-only stdin CLI binds child PID, raw digest, counts and current shared source bytes
+ok 216 - actual CPU-only stdin CLI binds child PID, raw digest, counts and current shared source bytes
+  ---
+  duration_ms: 369.2215
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: both supporting Java tests consume policy-approved rows before any immutable proof write
+ok 217 - SOURCE ONLY: both supporting Java tests consume policy-approved rows before any immutable proof write
+  ---
+  duration_ms: 4.5891
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: Notify replay and the other topic subscription run in separate fixed-role child JVM phases
+ok 218 - SOURCE ONLY: Notify replay and the other topic subscription run in separate fixed-role child JVM phases
+  ---
+  duration_ms: 8.7414
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: actual trusted store, NOTIFY_DLQ replay and non-target settlement/effect/fault checks are executable
+ok 219 - SOURCE ONLY: actual trusted store, NOTIFY_DLQ replay and non-target settlement/effect/fault checks are executable
+  ---
+  duration_ms: 4.2007
+  type: 'test'
+  ...
+# Subtest: SOURCE REGRESSION ONLY: ORDER Notify provenance uses the exact protected publication, not RESULT-only inbox source metadata
+ok 220 - SOURCE REGRESSION ONLY: ORDER Notify provenance uses the exact protected publication, not RESULT-only inbox source metadata
+  ---
+  duration_ms: 3.3942
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: shared original-first approval precedes all projections and both independent replay roots link actual original IDs
+ok 221 - SOURCE ONLY: shared original-first approval precedes all projections and both independent replay roots link actual original IDs
+  ---
+  duration_ms: 5.0126
+  type: 'test'
+  ...
+# Subtest: microsite includes every current catalog entry, its README and exact required boundaries
+ok 222 - microsite includes every current catalog entry, its README and exact required boundaries
+  ---
+  duration_ms: 9.0228
+  type: 'test'
+  ...
+# Subtest: every graph projects source-defined edges only, with distinct parent/link semantics
+ok 223 - every graph projects source-defined edges only, with distinct parent/link semantics
+  ---
+  duration_ms: 2.348
+  type: 'test'
+  ...
+# Subtest: graph rejects cycles rather than rendering a plausible incomplete layout
+ok 224 - graph rejects cycles rather than rendering a plausible incomplete layout
+  ---
+  duration_ms: 0.244
+  type: 'test'
+  ...
+# Subtest: parallel data-client edges route around intervening nodes rather than implying a database chain
+ok 225 - parallel data-client edges route around intervening nodes rather than implying a database chain
+  ---
+  duration_ms: 0.4793
+  type: 'test'
+  ...
+# Subtest: every sequence covers the selected boundaries and each exact source relationship in dependency order
+ok 226 - every sequence covers the selected boundaries and each exact source relationship in dependency order
+  ---
+  duration_ms: 2.2241
+  type: 'test'
+  ...
+# Subtest: sequence links never become parents, replay PROCESS-to-SEND edges, or a multi-parent instance
+ok 227 - sequence links never become parents, replay PROCESS-to-SEND edges, or a multi-parent instance
+  ---
+  duration_ms: 0.5045
+  type: 'test'
+  ...
+# Subtest: sequence data operations stay on the Inventory lifeline without invented database or broker actors
+ok 228 - sequence data operations stay on the Inventory lifeline without invented database or broker actors
+  ---
+  duration_ms: 0.3283
+  type: 'test'
+  ...
+# Subtest: a single selected boundary gets no invented inbound arrow or external initiator
+ok 229 - a single selected boundary gets no invented inbound arrow or external initiator
+  ---
+  duration_ms: 0.1931
+  type: 'test'
+  ...
+# Subtest: sequence ordering supports re-entering an application role but rejects unknown, empty and cyclic selections
+ok 230 - sequence ordering supports re-entering an application role but rejects unknown, empty and cyclic selections
+  ---
+  duration_ms: 0.5083
+  type: 'test'
+  ...
+# Subtest: catalog filtering supports titles, IDs, boundaries, criteria, and empty results
+ok 231 - catalog filtering supports titles, IDs, boundaries, criteria, and empty results
+  ---
+  duration_ms: 0.9572
+  type: 'test'
+  ...
+# Subtest: launch URLs allow HTTPS and explicit local HTTP without credential/context-bearing suffixes
+ok 232 - launch URLs allow HTTPS and explicit local HTTP without credential/context-bearing suffixes
+  ---
+  duration_ms: 0.6579
+  type: 'test'
+  ...
+# Subtest: receipt checks distinguish exact bytes, changed records, missing records and unsafe paths
+ok 233 - receipt checks distinguish exact bytes, changed records, missing records and unsafe paths
+  ---
+  duration_ms: 16.3994
+  type: 'test'
+  ...
+# Subtest: header navigation lives in a hamburger-controlled modal drawer at every viewport
+ok 234 - header navigation lives in a hamburger-controlled modal drawer at every viewport
+  ---
+  duration_ms: 2.7793
+  type: 'test'
+  ...
+# Subtest: welcome guide covers every orientation topic with valid scenario, section and embedded source destinations
+ok 235 - welcome guide covers every orientation topic with valid scenario, section and embedded source destinations
+  ---
+  duration_ms: 3.516
+  type: 'test'
+  ...
+# Subtest: hero retains its introduction and actions without a scope aside or reserved column
+ok 236 - hero retains its introduction and actions without a scope aside or reserved column
+  ---
+  duration_ms: 2.6919
+  type: 'test'
+  ...
+# Subtest: standalone output embeds source data safely, applies the required theme, and blocks network connections
+ok 237 - standalone output embeds source data safely, applies the required theme, and blocks network connections
+  ---
+  duration_ms: 16.5765
+  type: 'test'
+  ...
+# Subtest: preview serves only the generated artifact and never repository files or execution endpoints
+ok 238 - preview serves only the generated artifact and never repository files or execution endpoints
+  ---
+  duration_ms: 71.9617
+  type: 'test'
+  ...
+# Subtest: reproduces the same legal physical map for teardown/redeploy
+ok 239 - reproduces the same legal physical map for teardown/redeploy
+  ---
+  duration_ms: 2.5386
+  type: 'test'
+  ...
+# Subtest: normalizes storage, respects vault length and avoids reserved namespace/host IDs
+ok 240 - normalizes storage, respects vault length and avoids reserved namespace/host IDs
+  ---
+  duration_ms: 1.0877
+  type: 'test'
+  ...
+# Subtest: never uses a discriminator/instance ID as the logical role
+ok 241 - never uses a discriminator/instance ID as the logical role
+  ---
+  duration_ms: 0.4298
+  type: 'test'
+  ...
+# Subtest: rejects the former overlength inventory alias while retaining its canonical role
+ok 242 - rejects the former overlength inventory alias while retaining its canonical role
+  ---
+  duration_ms: 0.5041
+  type: 'test'
+  ...
+# Subtest: fixture construction binds actual carrier and raw row locators through existing six-table graph intake, never native qualification
+ok 243 - fixture construction binds actual carrier and raw row locators through existing six-table graph intake, never native qualification
+  ---
+  duration_ms: 84.804
+  type: 'test'
+  ...
+# Subtest: omitted emitted hop and wrong actual parent fail without repairing source IDs or parents
+ok 244 - omitted emitted hop and wrong actual parent fail without repairing source IDs or parents
+  ---
+  duration_ms: 52.3699
+  type: 'test'
+  ...
+# Subtest: browser route, SDK run/version/context and Gateway carrier cannot be substituted from expectations
+ok 245 - browser route, SDK run/version/context and Gateway carrier cannot be substituted from expectations
+  ---
+  duration_ms: 153.971
+  type: 'test'
+  ...
+# Subtest: row-only ledgers, lost full-path canaries, duplicate physical spans and unstable settlement fail
+ok 246 - row-only ledgers, lost full-path canaries, duplicate physical spans and unstable settlement fail
+  ---
+  duration_ms: 100.8288
+  type: 'test'
+  ...
+# Subtest: actual original-column privacy rejects unsafe inputs and caller PASS cannot hide a projected-row injection
+ok 247 - actual original-column privacy rejects unsafe inputs and caller PASS cannot hide a projected-row injection
+  ---
+  duration_ms: 33.2995
+  type: 'test'
+  ...
+# Subtest: fixtures, JSON clones, native labels, observer IDs and saved settlement cannot mint private source authority
+ok 248 - fixtures, JSON clones, native labels, observer IDs and saved settlement cannot mint private source authority
+  ---
+  duration_ms: 20.7943
+  type: 'test'
+  ...
+# Subtest: production constructor rejects query/privacy/authentication callback injection and accepts no caller settlement
+ok 249 - production constructor rejects query/privacy/authentication callback injection and accepts no caller settlement
+  ---
+  duration_ms: 17.4785
+  type: 'test'
+  ...
+# Subtest: actual native verifier rejects an invented observer selector before any CLI query; no transport is injected or invoked
+ok 250 - actual native verifier rejects an invented observer selector before any CLI query; no transport is injected or invoked
+  ---
+  duration_ms: 34.5532
+  type: 'test'
+  ...
+# Subtest: native construction snapshots query-window and observation inputs before asynchronous source checks
+ok 251 - native construction snapshots query-window and observation inputs before asynchronous source checks
+  ---
+  duration_ms: 34.698
+  type: 'test'
+  ...
+# Subtest: six procedures render complete distinct schemas without broad materialization
+ok 252 - six procedures render complete distinct schemas without broad materialization
+  ---
+  duration_ms: 45.2988
+  type: 'test'
+  ...
+# Subtest: root map is the only topology source and contains eight mandatory core boundaries
+ok 253 - root map is the only topology source and contains eight mandatory core boundaries
+  ---
+  duration_ms: 5.7321
+  type: 'test'
+  ...
+# Subtest: missing map parent edges never silently create declared roots
+ok 254 - missing map parent edges never silently create declared roots
+  ---
+  duration_ms: 3.0108
+  type: 'test'
+  ...
+# Subtest: conditional roots retain policy and exact dispositions without becoming deliberate-root exemptions
+ok 255 - conditional roots retain policy and exact dispositions without becoming deliberate-root exemptions
+  ---
+  duration_ms: 15.8137
+  type: 'test'
+  ...
+# Subtest: conditional map candidates reject missing policy, wrong receipt, unsafe dispositions or duplicate roots
+ok 256 - conditional map candidates reject missing policy, wrong receipt, unsafe dispositions or duplicate roots
+  ---
+  duration_ms: 14.8186
+  type: 'test'
+  ...
+# Subtest: replay and result roots use real Fulfillment/Notify actors and retain four fan-in contributor edges
+ok 257 - replay and result roots use real Fulfillment/Notify actors and retain four fan-in contributor edges
+  ---
+  duration_ms: 3.4383
+  type: 'test'
+  ...
+# Subtest: query inputs reject injection, zero identities, unapproved windows and map drift
+ok 258 - query inputs reject injection, zero identities, unapproved windows and map drift
+  ---
+  duration_ms: 3.7237
+  type: 'test'
+  ...
+# Subtest: actual boundary/reference keys require evidence and cannot fan out through duplicates
+ok 259 - actual boundary/reference keys require evidence and cannot fan out through duplicates
+  ---
+  duration_ms: 3.5971
+  type: 'test'
+  ...
+# Subtest: native ID deserialization is source/role-bound and never an arbitrary GUID conversion
+ok 260 - native ID deserialization is source/role-bound and never an arbitrary GUID conversion
+  ---
+  duration_ms: 1.1833
+  type: 'test'
+  ...
+# Subtest: logs and views do not become duplicate span records; physical span duplicates remain
+ok 261 - logs and views do not become duplicate span records; physical span duplicates remain
+  ---
+  duration_ms: 1.8689
+  type: 'test'
+  ...
+# Subtest: links use their own trace/span context; unsupported native fields stay null
+ok 262 - links use their own trace/span context; unsupported native fields stay null
+  ---
+  duration_ms: 0.7287
+  type: 'test'
+  ...
+# Subtest: normalization requires prior privacy disposition, known source/schema and actual span identity
+ok 263 - normalization requires prior privacy disposition, known source/schema and actual span identity
+  ---
+  duration_ms: 0.6975
+  type: 'test'
+  ...
+# Subtest: sampling acknowledgements cannot turn stale RPS or a missing guard into eligible-full mode
+ok 264 - sampling acknowledgements cannot turn stale RPS or a missing guard into eligible-full mode
+  ---
+  duration_ms: 0.3275
+  type: 'test'
+  ...
+# Subtest: native link-count disagreement and legacy duration do not default to fabricated values
+ok 265 - native link-count disagreement and legacy duration do not default to fabricated values
+  ---
+  duration_ms: 0.5593
+  type: 'test'
+  ...
+# Subtest: opaque native view IDs never become spans or implicit browser parent contexts
+ok 266 - opaque native view IDs never become spans or implicit browser parent contexts
+  ---
+  duration_ms: 7.5176
+  type: 'test'
+  ...
+# Subtest: user-approved profile is exact and missing measured fields never become zero
+ok 267 - user-approved profile is exact and missing measured fields never become zero
+  ---
+  duration_ms: 1.8372
+  type: 'test'
+  ...
+# Subtest: latency/CPU/memory/errors/overhead/span breaches are nonpassing
+ok 268 - latency/CPU/memory/errors/overhead/span breaches are nonpassing
+  ---
+  duration_ms: 0.2552
+  type: 'test'
+  ...
+# Subtest: bounded real HTTP measurement keeps actual metrics and source separate from certification
+ok 269 - bounded real HTTP measurement keeps actual metrics and source separate from certification
+  ---
+  duration_ms: 364.007
+  type: 'test'
+  ...
+# Subtest: remote traffic and excessive duration/RPS require bounded explicit approval
+ok 270 - remote traffic and excessive duration/RPS require bounded explicit approval
+  ---
+  duration_ms: 0.8659
+  type: 'test'
+  ...
+# Subtest: approved load target never forwards correlation or request data through redirects
+ok 271 - approved load target never forwards correlation or request data through redirects
+  ---
+  duration_ms: 341.6346
+  type: 'test'
+  ...
+# Subtest: negative metrics, zero-denominator coverage and missing cost duration never PASS
+ok 272 - negative metrics, zero-denominator coverage and missing cost duration never PASS
+  ---
+  duration_ms: 0.3002
+  type: 'test'
+  ...
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 273 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 28.7175
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 274 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 2.7829
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 275 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 6.7222
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 276 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 5.4408
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 277 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 4.1065
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 278 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 2.7308
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 279 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 2.9075
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 280 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 2.4999
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 281 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 3.1552
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 282 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.8475
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 283 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 1.921
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 284 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 2.1364
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 285 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 1.9635
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 286 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 2.4306
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 287 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 1.7847
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 288 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 2.269
+  type: 'test'
+  ...
+# Subtest: a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+ok 289 - a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+  ---
+  duration_ms: 3.0444
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 290 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 2.8293
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 291 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 3.0868
+  type: 'test'
+  ...
+# Subtest: actual SDK-shaped absent browser parent and page-view display ID stay context-only without an invented span
+ok 292 - actual SDK-shaped absent browser parent and page-view display ID stay context-only without an invented span
+  ---
+  duration_ms: 3.4624
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 293 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 4.107
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 294 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 4.8098
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 295 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 1.3317
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 296 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 1.5191
+  type: 'test'
+  ...
+# Subtest: seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+ok 297 - seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+  ---
+  duration_ms: 25.8718
+  type: 'test'
+  ...
+# Subtest: original envelope ordinals survive non-span filtering and unrelated invocation records
+ok 298 - original envelope ordinals survive non-span filtering and unrelated invocation records
+  ---
+  duration_ms: 30.5032
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 299 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 75.2244
+  type: 'test'
+  ...
+# Subtest: mixed caller envelopes cannot inherit an original loopback capture provenance
+ok 300 - mixed caller envelopes cannot inherit an original loopback capture provenance
+  ---
+  duration_ms: 26.4635
+  type: 'test'
+  ...
+# Subtest: an empty original loopback capture cannot lend provenance to caller-only spans
+ok 301 - an empty original loopback capture cannot lend provenance to caller-only spans
+  ---
+  duration_ms: 7.8517
+  type: 'test'
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 302 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 18.4862
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 303 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 341.8742
+  type: 'test'
+  ...
+# Subtest: raw six-table capture preserves physical duplicates, scans original columns and seals only ingested slice
+ok 304 - raw six-table capture preserves physical duplicates, scans original columns and seals only ingested slice
+  ---
+  duration_ms: 26.1745
+  type: 'test'
+  ...
+# Subtest: 200 partial errors, warnings, truncated rows and invented native schemas fail closed
+ok 305 - 200 partial errors, warnings, truncated rows and invented native schemas fail closed
+  ---
+  duration_ms: 5.8019
+  type: 'test'
+  ...
+# Subtest: short/missing pages and source-label promotion cannot establish complete live capture
+ok 306 - short/missing pages and source-label promotion cannot establish complete live capture
+  ---
+  duration_ms: 5.8099
+  type: 'test'
+  ...
+# Subtest: all-original-column privacy failure never releases rows or raw violation details
+ok 307 - all-original-column privacy failure never releases rows or raw violation details
+  ---
+  duration_ms: 8.1973
+  type: 'test'
+  ...
+# Subtest: changed count/watermark and missing canary remain nonpassing rather than loss-zero
+ok 308 - changed count/watermark and missing canary remain nonpassing rather than loss-zero
+  ---
+  duration_ms: 31.3768
+  type: 'test'
+  ...
+# Subtest: raw capture rejects future/overlong scopes and approved pagination limits
+ok 309 - raw capture rejects future/overlong scopes and approved pagination limits
+  ---
+  duration_ms: 4.9283
+  type: 'test'
+  ...
+# Subtest: unobserved/nonunique native physical keys cannot mint stable multipage coverage
+ok 310 - unobserved/nonunique native physical keys cannot mint stable multipage coverage
+  ---
+  duration_ms: 19.7696
+  type: 'test'
+  ...
+# Subtest: JSON flags/clones and injected fixtures cannot mint private native capture/response authority
+ok 311 - JSON flags/clones and injected fixtures cannot mint private native capture/response authority
+  ---
+  duration_ms: 15.868
+  type: 'test'
+  ...
+# Subtest: observer selector reaches the private executor receipt but a forged verifier callback cannot authorize even the first query
+ok 312 - observer selector reaches the private executor receipt but a forged verifier callback cannot authorize even the first query
+  ---
+  duration_ms: 77.55
+  type: 'test'
+  ...
+# Subtest: aborted collection stops before source reads and does not issue another query after cancellation
+ok 313 - aborted collection stops before source reads and does not issue another query after cancellation
+  ---
+  duration_ms: 11.4768
+  type: 'test'
+  ...
+# Subtest: actual R8 scoped scanner sees original native metadata without granting a global privacy gate
+ok 314 - actual R8 scoped scanner sees original native metadata without granting a global privacy gate
+  ---
+  duration_ms: 19.9178
+  type: 'test'
+  ...
+# Subtest: owner control projection never sends hashes/configuration or authentication values to web state API
+ok 315 - owner control projection never sends hashes/configuration or authentication values to web state API
+  ---
+  duration_ms: 2.7116
+  type: 'test'
+  ...
+# Subtest: stale/requested-only/file observations cannot become native runtime acknowledgements
+ok 316 - stale/requested-only/file observations cannot become native runtime acknowledgements
+  ---
+  duration_ms: 3.351
+  type: 'test'
+  ...
+# Subtest: unknown admission and nonzero in-flight work never manufacture drain completion
+ok 317 - unknown admission and nonzero in-flight work never manufacture drain completion
+  ---
+  duration_ms: 0.8061
+  type: 'test'
+  ...
+# Subtest: finite actual-control envelope preserves unknown ownership instead of inventing global counts
+ok 318 - finite actual-control envelope preserves unknown ownership instead of inventing global counts
+  ---
+  duration_ms: 1.0101
+  type: 'test'
+  ...
+# Subtest: valid expired and restored runtime drains do not require active sampling or the leased patch
+ok 319 - valid expired and restored runtime drains do not require active sampling or the leased patch
+  ---
+  duration_ms: 0.6823
+  type: 'test'
+  ...
+# Subtest: expired leases cannot promote file, management, missing or wrong-layer sources into drain evidence
+ok 320 - expired leases cannot promote file, management, missing or wrong-layer sources into drain evidence
+  ---
+  duration_ms: 0.7997
+  type: 'test'
+  ...
+# Subtest: drain observations reject foreign roles, invalid instances and contradictory ownership claims
+ok 321 - drain observations reject foreign roles, invalid instances and contradictory ownership claims
+  ---
+  duration_ms: 0.8666
+  type: 'test'
+  ...
+# Subtest: expired source-bound JVM drain preserves supported JMX shape without global ownership flags
+ok 322 - expired source-bound JVM drain preserves supported JMX shape without global ownership flags
+  ---
+  duration_ms: 0.5819
+  type: 'test'
+  ...
+# Subtest: drain freshness, lease ownership and immutable lease validation remain fail closed after expiry
+ok 323 - drain freshness, lease ownership and immutable lease validation remain fail closed after expiry
+  ---
+  duration_ms: 1.1689
+  type: 'test'
+  ...
+# Subtest: published browser layer accepts real SDK activation and source-bound expired drain
+ok 324 - published browser layer accepts real SDK activation and source-bound expired drain
+  ---
+  duration_ms: 1.4827
+  type: 'test'
+  ...
+# Subtest: cross-owner canonical hash ignores object insertion order but preserves absence and array order
+ok 325 - cross-owner canonical hash ignores object insertion order but preserves absence and array order
+  ---
+  duration_ms: 2.4539
+  type: 'test'
+  ...
+# Subtest: immutable runtime lease binds actual owned configuration and absolute admission/drain deadlines
+ok 326 - immutable runtime lease binds actual owned configuration and absolute admission/drain deadlines
+  ---
+  duration_ms: 2.6433
+  type: 'test'
+  ...
+# Subtest: runtime acknowledgement rejects stale leases, file echoes and unproven independent ownership
+ok 327 - runtime acknowledgement rejects stale leases, file echoes and unproven independent ownership
+  ---
+  duration_ms: 0.6923
+  type: 'test'
+  ...
+# (node:28036) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+ok 328 - safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+  ---
+  duration_ms: 17.3854
+  type: 'test'
+  ...
+# Subtest: unsafe originals never reach an incremental callback and callback failures poison all acceptance
+ok 329 - unsafe originals never reach an incremental callback and callback failures poison all acceptance
+  ---
+  duration_ms: 3.127
+  type: 'test'
+  ...
+# Subtest: a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+ok 330 - a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+  ---
+  duration_ms: 2.7138
+  type: 'test'
+  ...
+# Subtest: the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+ok 331 - the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+  ---
+  duration_ms: 105.514
+  type: 'test'
+  ...
+# Subtest: invalid configured ports are rejected before creating a loopback listener
+ok 332 - invalid configured ports are rejected before creating a loopback listener
+  ---
+  duration_ms: 0.7971
+  type: 'test'
+  ...
+# Subtest: sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+ok 333 - sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+  ---
+  duration_ms: 5.3998
+  type: 'test'
+  ...
+# Subtest: zero observed native payloads are explicit absence, never an invented successful privacy scan
+ok 334 - zero observed native payloads are explicit absence, never an invented successful privacy scan
+  ---
+  duration_ms: 0.4851
+  type: 'test'
+  ...
+# Subtest: a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+ok 335 - a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+  ---
+  duration_ms: 13.5833
+  type: 'test'
+  ...
+# Subtest: strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+ok 336 - strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+  ---
+  duration_ms: 3.0252
+  type: 'test'
+  ...
+# Subtest: scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+ok 337 - scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+  ---
+  duration_ms: 56.1086
+  type: 'test'
+  ...
+# Subtest: raw body limit is checked while reading and does not drain an oversized stream
+ok 338 - raw body limit is checked while reading and does not drain an oversized stream
+  ---
+  duration_ms: 11.507
+  type: 'test'
+  ...
+# Subtest: oversized declared or truncated body rejects without fabricated native receipts
+ok 339 - oversized declared or truncated body rejects without fabricated native receipts
+  ---
+  duration_ms: 0.9734
+  type: 'test'
+  ...
+# Subtest: fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+ok 340 - fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+  ---
+  duration_ms: 0.7688
+  type: 'test'
+  ...
+# Subtest: gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+ok 341 - gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+  ---
+  duration_ms: 11.2495
+  type: 'test'
+  ...
+# Subtest: one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+ok 342 - one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+  ---
+  duration_ms: 109.6267
+  type: 'test'
+  ...
+# Subtest: known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+ok 343 - known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+  ---
+  duration_ms: 1.8918
+  type: 'test'
+  ...
+# Subtest: pending original scan cannot be finalized or mislabeled as a complete receiver
+ok 344 - pending original scan cannot be finalized or mislabeled as a complete receiver
+  ---
+  duration_ms: 3.3069
+  type: 'test'
+  ...
+# Subtest: only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+ok 345 - only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+  ---
+  duration_ms: 43.8519
+  type: 'test'
+  ...
+# Subtest: real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+ok 346 - real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+  ---
+  duration_ms: 32.7543
+  type: 'test'
+  ...
+# Subtest: fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+ok 347 - fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+  ---
+  duration_ms: 31.5801
+  type: 'test'
+  ...
+# Subtest: failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+ok 348 - failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+  ---
+  duration_ms: 1.0555
+  type: 'test'
+  ...
+# Subtest: echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+ok 349 - echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+  ---
+  duration_ms: 26.4848
+  type: 'test'
+  ...
+# Subtest: safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+ok 350 - safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+  ---
+  duration_ms: 1.0774
+  type: 'test'
+  ...
+# Subtest: scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+ok 351 - scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+  ---
+  duration_ms: 1.1931
+  type: 'test'
+  ...
+# Subtest: forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+ok 352 - forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+  ---
+  duration_ms: 12.9761
+  type: 'test'
+  ...
+# Subtest: receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+ok 353 - receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+  ---
+  duration_ms: 1.4169
+  type: 'test'
+  ...
+# Subtest: receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+ok 354 - receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+  ---
+  duration_ms: 0.6799
+  type: 'test'
+  ...
+# Subtest: actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+ok 355 - actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+  ---
+  duration_ms: 8.2707
+  type: 'test'
+  ...
+# Subtest: actual ninth connection records drop and retains the unchanged eight-connection poison limit
+ok 356 - actual ninth connection records drop and retains the unchanged eight-connection poison limit
+  ---
+  duration_ms: 15.1717
+  type: 'test'
+  ...
+# Subtest: successful native and echo responses explicitly close completed connections
+ok 357 - successful native and echo responses explicitly close completed connections
+  ---
+  duration_ms: 27.8504
+  type: 'test'
+  ...
+# Subtest: aborted native upload still poisons a previously accepted prefix after connection-close change
+ok 358 - aborted native upload still poisons a previously accepted prefix after connection-close change
+  ---
+  duration_ms: 30.1591
+  type: 'test'
+  ...
+# Subtest: production restoration reuses complete acknowledgement safety validation
+ok 359 - production restoration reuses complete acknowledgement safety validation
+  ---
+  duration_ms: 4.1495
+  type: 'test'
+  ...
+# Subtest: drain acknowledgement requires no in-flight work and safe native source
+ok 360 - drain acknowledgement requires no in-flight work and safe native source
+  ---
+  duration_ms: 0.9662
+  type: 'test'
+  ...
+# Subtest: an attempted/partially acknowledged native drain cannot satisfy completion
+ok 361 - an attempted/partially acknowledged native drain cannot satisfy completion
+  ---
+  duration_ms: 2.1199
+  type: 'test'
+  ...
+# Subtest: activation completion cannot report active at drain-start or after expiry
+ok 362 - activation completion cannot report active at drain-start or after expiry
+  ---
+  duration_ms: 0.5313
+  type: 'test'
+  ...
+# Subtest: SSR keeps R2 configured production base below100 while the window derives eligible100
+not ok 363 - SSR keeps R2 configured production base below100 while the window derives eligible100
+  ---
+  duration_ms: 32.6145
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:113:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:118:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: all layer local activation and restoration preserve unrelated security fields
+not ok 364 - all layer local activation and restoration preserve unrelated security fields
+  ---
+  duration_ms: 32.3179
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:130:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:133:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: owned sampling revision conflict fails instead of overwriting a concurrent change
+not ok 365 - owned sampling revision conflict fails instead of overwriting a concurrent change
+  ---
+  duration_ms: 14.7274
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:154:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:157:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+ok 366 - expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+  ---
+  duration_ms: 18.8185
+  type: 'test'
+  ...
+# Subtest: independent watchdog restores after controller interruption
+not ok 367 - independent watchdog restores after controller interruption
+  ---
+  duration_ms: 206.6783
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:182:1'
+  failureType: 'testCodeFailure'
+  error: 'Controller activation did not finish: {"status":null,"errorCategory":null,"restoreReason":null,"watchdogAlive":false,"heartbeatAtUtc":null,"childExitCode":1,"restoreDeadlineMissed":null}'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'fail'
+  stack: |-
+    progressBefore (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:21:10)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:198:7)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: independent watchdog enforces expiry even while the owner stays alive
+not ok 368 - independent watchdog enforces expiry even while the owner stays alive
+  ---
+  duration_ms: 11.2266
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:223:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:227:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: partial activation failure restores the write-ahead baseline
+not ok 369 - partial activation failure restores the write-ahead baseline
+  ---
+  duration_ms: 11.6729
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:247:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\.cache\\r7\\controller\\791babd2-5f12-4333-b751-416a6bf1e2b9\\state.json'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:254:30)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: watchdog starts drain before expiry without changing the full sampling profile early
+not ok 370 - watchdog starts drain before expiry without changing the full sampling profile early
+  ---
+  duration_ms: 9.7946
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:261:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:266:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+not ok 371 - late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+  ---
+  duration_ms: 9.5344
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:294:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:298:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+not ok 372 - recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+  ---
+  duration_ms: 12.7202
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:308:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:311:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: duplicate lease entry preserves the original write-ahead journal and rollback
+not ok 373 - duplicate lease entry preserves the original write-ahead journal and rollback
+  ---
+  duration_ms: 12.6115
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\observability\\sampling-controller.test.mjs:332:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\extensions\\parent-safe-sampler\\target\\contoso-parent-safe-sampler-1.1.0.jar'"
+  code: 'ENOENT'
+  stack: |-
+    async open (node:internal/fs/promises:639:25)
+    async readFile (node:internal/fs/promises:1252:14)
+    async frozenGuard (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:220:14)
+    async enterWindow (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/observability/sampling-controller.mjs:278:17)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/observability/sampling-controller.test.mjs:335:21)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+ok 374 - interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+  ---
+  duration_ms: 423.4901
+  type: 'test'
+  ...
+# Subtest: exclusive journal ownership is fully published and survives actual owner interruption
+ok 375 - exclusive journal ownership is fully published and survives actual owner interruption
+  ---
+  duration_ms: 165.0029
+  type: 'test'
+  ...
+# Subtest: real Windows file-sharing contention is retried without swallowing permanent/schema faults
+ok 376 - real Windows file-sharing contention is retried without swallowing permanent/schema faults
+  ---
+  duration_ms: 514.4623
+  type: 'test'
+  ...
+# Subtest: telemetry source declares one shared GA backbone, delayed limits and no credentials/RBAC
+ok 377 - telemetry source declares one shared GA backbone, delayed limits and no credentials/RBAC
+  ---
+  duration_ms: 7.5007
+  type: 'test'
+  ...
+# Subtest: actual portable Bicep compiler builds telemetry
+ok 378 - actual portable Bicep compiler builds telemetry
+  ---
+  duration_ms: 1590.5508
+  type: 'test'
+  ...
+# Subtest: workbook binds actual renderer and root map without credentials or invented live status
+ok 379 - workbook binds actual renderer and root map without credentials or invented live status
+  ---
+  duration_ms: 26.9313
+  type: 'test'
+  ...
+# Subtest: unresolved workbook bindings or credential literals cannot be accepted
+ok 380 - unresolved workbook bindings or credential literals cannot be accepted
+  ---
+  duration_ms: 15.5056
+  type: 'test'
+  ...
+# Subtest: foundation has no invented client IDs, secret versions or deployment authority
+ok 381 - foundation has no invented client IDs, secret versions or deployment authority
+  ---
+  duration_ms: 6.6749
+  type: 'test'
+  ...
+# Subtest: application rejects absent bindings, zero IDs, broad SCM and inline secrets
+ok 382 - application rejects absent bindings, zero IDs, broad SCM and inline secrets
+  ---
+  duration_ms: 0.951
+  type: 'test'
+  ...
+# Subtest: SCM scope rejects every host-bits spelling of IPv4 /0 before rendering
+ok 383 - SCM scope rejects every host-bits spelling of IPv4 /0 before rendering
+  ---
+  duration_ms: 0.9633
+  type: 'test'
+  ...
+# Subtest: prefixed and normalized credential keys or unused foundation admin data cannot enter parameters
+ok 384 - prefixed and normalized credential keys or unused foundation admin data cannot enter parameters
+  ---
+  duration_ms: 1.7035
+  type: 'test'
+  ...
+# Subtest: complete synthetic application references pass syntax without becoming deployment approval
+ok 385 - complete synthetic application references pass syntax without becoming deployment approval
+  ---
+  duration_ms: 1.4094
+  type: 'test'
+  ...
+# Subtest: Inventory URL is an explicit captured HTTPS app-host API root, never a name-derived fallback
+ok 386 - Inventory URL is an explicit captured HTTPS app-host API root, never a name-derived fallback
+  ---
+  duration_ms: 2.8365
+  type: 'test'
+  ...
+# Subtest: sealed application and ARM schemas reject unknown or decorated credential fields before rendering
+ok 387 - sealed application and ARM schemas reject unknown or decorated credential fields before rendering
+  ---
+  duration_ms: 2.1477
+  type: 'test'
+  ...
+# Subtest: creation-time ingress and dynamic host output bindings do not produce compute cycles or partial web updates
+ok 388 - creation-time ingress and dynamic host output bindings do not produce compute cycles or partial web updates
+  ---
+  duration_ms: 10.8529
+  type: 'test'
+  ...
+# Subtest: published root candidates cannot be overwritten while source and module revisions advance
+ok 389 - published root candidates cannot be overwritten while source and module revisions advance
+  ---
+  duration_ms: 5.6288
+  type: 'test'
+  ...
+# Subtest: root passes the accepted derived workbook to its sole existing telemetry module
+ok 390 - root passes the accepted derived workbook to its sole existing telemetry module
+  ---
+  duration_ms: 5.8069
+  type: 'test'
+  ...
+# Subtest: compiled workbook guards reject omitted/stale bytes, duplicate telemetry or foreign resource bindings
+ok 391 - compiled workbook guards reject omitted/stale bytes, duplicate telemetry or foreign resource bindings
+  ---
+  duration_ms: 6.3895
+  type: 'test'
+  ...
+# Subtest: root composes real modules with scoped secret/logger ordering and correct audience/resource separation
+ok 392 - root composes real modules with scoped secret/logger ordering and correct audience/resource separation
+  ---
+  duration_ms: 2.161
+  type: 'test'
+  ...
+# Subtest: finite USED scope permits logical sends fewer than actual 503 wire attempts
+ok 393 - finite USED scope permits logical sends fewer than actual 503 wire attempts
+  ---
+  duration_ms: 1.5704
+  type: 'test'
+  ...
+# Subtest: R2 missing clients/send-zero counter cannot qualify identity-used scope
+ok 394 - R2 missing clients/send-zero counter cannot qualify identity-used scope
+  ---
+  duration_ms: 0.3829
+  type: 'test'
+  ...
+# Subtest: old package, class-resource, creation-only or different original child all fail
+ok 395 - old package, class-resource, creation-only or different original child all fail
+  ---
+  duration_ms: 1.0586
+  type: 'test'
+  ...
+# Subtest: JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+ok 396 - JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+  ---
+  duration_ms: 1.2135
+  type: 'test'
+  ...
+# Subtest: user-selected header isolation preserves raw native negative-control observations
+ok 397 - user-selected header isolation preserves raw native negative-control observations
+  ---
+  duration_ms: 1.3391
+  type: 'test'
+  ...
+# Subtest: empty identity receipts or silently greened raw control never pass
+ok 398 - empty identity receipts or silently greened raw control never pass
+  ---
+  duration_ms: 0.1952
+  type: 'test'
+  ...
+# Subtest: real-format distinct business/trace/span IDs pass identifier guard
+ok 399 - real-format distinct business/trace/span IDs pass identifier guard
+  ---
+  duration_ms: 3.5178
+  type: 'test'
+  ...
+# Subtest: each foreign carrier identifier is forbidden as W3C identity even across rows
+ok 400 - each foreign carrier identifier is forbidden as W3C identity even across rows
+  ---
+  duration_ms: 1.6915
+  type: 'test'
+  ...
+# Subtest: nonopaque business IDs/raw Entra namespaces/high-cardinality metrics fail
+ok 401 - nonopaque business IDs/raw Entra namespaces/high-cardinality metrics fail
+  ---
+  duration_ms: 1.1433
+  type: 'test'
+  ...
+# Subtest: business IDs cannot enter authorization method or metric dimensions
+ok 402 - business IDs cannot enter authorization method or metric dimensions
+  ---
+  duration_ms: 1.0416
+  type: 'test'
+  ...
+# Subtest: view IDs remain opaque display identity; nested repeated identifiers are never omitted
+ok 403 - view IDs remain opaque display identity; nested repeated identifiers are never omitted
+  ---
+  duration_ms: 0.4719
+  type: 'test'
+  ...
+# Subtest: AV-23 Java probes have no user-profile or session-folder defaults
+ok 404 - AV-23 Java probes have no user-profile or session-folder defaults
+  ---
+  duration_ms: 1.6746
+  type: 'test'
+  ...
+# Subtest: source guard rejects seeded Windows profile and session-folder defaults
+ok 405 - source guard rejects seeded Windows profile and session-folder defaults
+  ---
+  duration_ms: 6.206
+  type: 'test'
+  ...
+# Subtest: missing portable root fails explicitly before artifact reads or shared build writes
+ok 406 - missing portable root fails explicitly before artifact reads or shared build writes
+  ---
+  duration_ms: 164.8389
+  type: 'test'
+  ...
+# Subtest: empty or whitespace portable roots cannot select a fallback
+ok 407 - empty or whitespace portable roots cannot select a fallback
+  ---
+  duration_ms: 536.2049
+  type: 'test'
+  ...
+# Subtest: explicit portable root reaches the unchanged pinned-agent hash rejection
+ok 408 - explicit portable root reaches the unchanged pinned-agent hash rejection
+  ---
+  duration_ms: 191.2378
+  type: 'test'
+  ...
+# Subtest: explicit agent override still cannot bypass its pinned hash
+ok 409 - explicit agent override still cannot bypass its pinned hash
+  ---
+  duration_ms: 161.4039
+  type: 'test'
+  ...
+# Subtest: agent extension and SDK hash preflight segments remain byte-identical after root removal
+ok 410 - agent extension and SDK hash preflight segments remain byte-identical after root removal
+  ---
+  duration_ms: 1.0417
+  type: 'test'
+  ...
+# Subtest: foundation requires an explicit phase and cannot carry a placeholder version/value
+ok 411 - foundation requires an explicit phase and cannot carry a placeholder version/value
+  ---
+  duration_ms: 1.7264
+  type: 'test'
+  ...
+# Subtest: application requires exact nonzero lowercase version syntax but never certifies a cloud secret
+ok 412 - application requires exact nonzero lowercase version syntax but never certifies a cloud secret
+  ---
+  duration_ms: 0.7369
+  type: 'test'
+  ...
+# Subtest: missing, empty, zero, malformed, padded and foreign phase inputs fail without defaults
+ok 413 - missing, empty, zero, malformed, padded and foreign phase inputs fail without defaults
+  ---
+  duration_ms: 0.4806
+  type: 'test'
+  ...
+# Subtest: vault source preserves protections and phase-discriminated required application version
+ok 414 - vault source preserves protections and phase-discriminated required application version
+  ---
+  duration_ms: 7.0818
+  type: 'test'
+  ...
+# Subtest: actual-format HTTP client outputs retain native context while counts remain layer-separated
+ok 415 - actual-format HTTP client outputs retain native context while counts remain layer-separated
+  ---
+  duration_ms: 9.3517
+  type: 'test'
+  ...
+# Subtest: JSON, NDJSON and gzip use the existing native ingestion format without file writes
+ok 416 - JSON, NDJSON and gzip use the existing native ingestion format without file writes
+  ---
+  duration_ms: 3.2449
+  type: 'test'
+  ...
+# Subtest: zero/missing identity outputs, missing root or zero physical receipts never pass
+ok 417 - zero/missing identity outputs, missing root or zero physical receipts never pass
+  ---
+  duration_ms: 2.3289
+  type: 'test'
+  ...
+# Subtest: duplicates, wrong actual trace/parent/window and root-span substitution fail without deduplication
+ok 418 - duplicates, wrong actual trace/parent/window and root-span substitution fail without deduplication
+  ---
+  duration_ms: 2.1273
+  type: 'test'
+  ...
+# Subtest: foreign publisher/host/role, arbitrary native ID serialization, malformed or partial payload fail closed
+ok 419 - foreign publisher/host/role, arbitrary native ID serialization, malformed or partial payload fail closed
+  ---
+  duration_ms: 8.8318
+  type: 'test'
+  ...
+# Subtest: original prohibited fields/values are scanned before projection and never retained
+ok 420 - original prohibited fields/values are scanned before projection and never retained
+  ---
+  duration_ms: 1.8576
+  type: 'test'
+  ...
+# Subtest: wrong native kind cannot substitute for emitted identity CLIENT outputs
+ok 421 - wrong native kind cannot substitute for emitted identity CLIENT outputs
+  ---
+  duration_ms: 1.057
+  type: 'test'
+  ...
+# Subtest: original scalar bounds are checked before shared regex without truncation
+ok 422 - original scalar bounds are checked before shared regex without truncation
+  ---
+  duration_ms: 18.3734
+  type: 'test'
+  ...
+# Subtest: original UTF-8 field-key bounds apply before forbidden-field patterns
+ok 423 - original UTF-8 field-key bounds apply before forbidden-field patterns
+  ---
+  duration_ms: 1.8402
+  type: 'test'
+  ...
+# Subtest: R2 64-KiB adversarial scalar is rejected in a finite isolated CPU child
+ok 424 - R2 64-KiB adversarial scalar is rejected in a finite isolated CPU child
+  ---
+  duration_ms: 171.069
+  type: 'test'
+  ...
+# Subtest: exact 1-MiB multi-scalar native payload remains valid; one extra byte fails
+ok 425 - exact 1-MiB multi-scalar native payload remains valid; one extra byte fails
+  ---
+  duration_ms: 661.3083
+  type: 'test'
+  ...
+# Subtest: one generic port preserves the API shape and actual native context without authority
+ok 426 - one generic port preserves the API shape and actual native context without authority
+  ---
+  duration_ms: 6.5914
+  type: 'test'
+  ...
+# Subtest: single, array, NDJSON, gzip and multiple known publishers keep actual separate counters
+ok 427 - single, array, NDJSON, gzip and multiple known publishers keep actual separate counters
+  ---
+  duration_ms: 2.4603
+  type: 'test'
+  ...
+# Subtest: duplicate JSON names including escaped equivalents fail at every nesting before projection
+ok 428 - duplicate JSON names including escaped equivalents fail at every nesting before projection
+  ---
+  duration_ms: 5.2613
+  type: 'test'
+  ...
+# Subtest: malformed, partial, nonfinite, invalid UTF-8 and unsupported encodings fail redacted
+ok 429 - malformed, partial, nonfinite, invalid UTF-8 and unsupported encodings fail redacted
+  ---
+  duration_ms: 1.7452
+  type: 'test'
+  ...
+# Subtest: publisher membership and top-level placement cannot be hidden by later projection
+ok 430 - publisher membership and top-level placement cannot be hidden by later projection
+  ---
+  duration_ms: 1.5569
+  type: 'test'
+  ...
+# Subtest: shared credential, personal, SQL and Redis fields/values reject before removals
+ok 431 - shared credential, personal, SQL and Redis fields/values reject before removals
+  ---
+  duration_ms: 2.1392
+  type: 'test'
+  ...
+# Subtest: exact caller markers apply to keys and removed original tags without any waiver
+ok 432 - exact caller markers apply to keys and removed original tags without any waiver
+  ---
+  duration_ms: 1.0242
+  type: 'test'
+  ...
+# Subtest: explicit forbidden markers cannot be waived by known publisher membership
+ok 433 - explicit forbidden markers cannot be waived by known publisher membership
+  ---
+  duration_ms: 0.64
+  type: 'test'
+  ...
+# Subtest: known publisher and marker configuration is sealed, bounded and cannot disable policy
+ok 434 - known publisher and marker configuration is sealed, bounded and cannot disable policy
+  ---
+  duration_ms: 1.3442
+  type: 'test'
+  ...
+# Subtest: canonical Base64 and payload object schema fail closed
+ok 435 - canonical Base64 and payload object schema fail closed
+  ---
+  duration_ms: 0.5287
+  type: 'test'
+  ...
+# Subtest: exact UTF-8 key/scalar limits precede shared regex; oversized originals are not truncated
+ok 436 - exact UTF-8 key/scalar limits precede shared regex; oversized originals are not truncated
+  ---
+  duration_ms: 20.3475
+  type: 'test'
+  ...
+# Subtest: depth and field limits reject original nested/node expansion before projection
+ok 437 - depth and field limits reject original nested/node expansion before projection
+  ---
+  duration_ms: 124.9009
+  type: 'test'
+  ...
+# Subtest: raw and gzip exact one-MiB multi-scalar boundary accepts while one byte beyond rejects
+ok 438 - raw and gzip exact one-MiB multi-scalar boundary accepts while one byte beyond rejects
+  ---
+  duration_ms: 747.6897
+  type: 'test'
+  ...
+# Subtest: session total byte limits accept exact 16-MiB multi-payload boundaries without retaining originals
+ok 439 - session total byte limits accept exact 16-MiB multi-payload boundaries without retaining originals
+  ---
+  duration_ms: 1115.2329
+  type: 'test'
+  ...
+# Subtest: 512 envelopes and 16 payloads accept exactly; session state rejects beyond and stays poisoned
+ok 440 - 512 envelopes and 16 payloads accept exactly; session state rejects beyond and stays poisoned
+  ---
+  duration_ms: 655.6273
+  type: 'test'
+  ...
+# Subtest: one streaming session permits 128 bounded POSTs while API batches stay limited to 16
+ok 441 - one streaming session permits 128 bounded POSTs while API batches stay limited to 16
+  ---
+  duration_ms: 14.8064
+  type: 'test'
+  ...
+# Subtest: failed later input poisons a session and cannot return partial projection as a successful capture
+ok 442 - failed later input poisons a session and cannot return partial projection as a successful capture
+  ---
+  duration_ms: 0.5341
+  type: 'test'
+  ...
+# Subtest: the actual CLI binds PID/source/hash/counts and emits only static redacted failures
+ok 443 - the actual CLI binds PID/source/hash/counts and emits only static redacted failures
+  ---
+  duration_ms: 716.2203
+  type: 'test'
+  ...
+# Subtest: CLI request bytes are bounded without weakening strict wrapper parsing
+ok 444 - CLI request bytes are bounded without weakening strict wrapper parsing
+  ---
+  duration_ms: 273.4393
+  type: 'test'
+  ...
+# Subtest: seeded secret forms are detected with location/code only
+ok 445 - seeded secret forms are detected with location/code only
+  ---
+  duration_ms: 4.3745
+  type: 'test'
+  ...
+# Subtest: known credential literals fail for short, punctuated, escaped and prefixed assignments
+ok 446 - known credential literals fail for short, punctuated, escaped and prefixed assignments
+  ---
+  duration_ms: 1.0162
+  type: 'test'
+  ...
+# Subtest: R2-R8-01 project-local settings reproducer fails without persisting matched values
+ok 447 - R2-R8-01 project-local settings reproducer fails without persisting matched values
+  ---
+  duration_ms: 15.3109
+  type: 'test'
+  ...
+# Subtest: whole references cannot hide concatenated or modified right-hand assignment expressions
+ok 448 - whole references cannot hide concatenated or modified right-hand assignment expressions
+  ---
+  duration_ms: 0.7648
+  type: 'test'
+  ...
+# Subtest: R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+ok 449 - R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+  ---
+  duration_ms: 8.1775
+  type: 'test'
+  ...
+# Subtest: project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+ok 450 - project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+  ---
+  duration_ms: 19.4106
+  type: 'test'
+  ...
+# Subtest: history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+ok 451 - history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+  ---
+  duration_ms: 1.4215
+  type: 'test'
+  ...
+# Subtest: missing history fails closed rather than claiming a clean full-history scan
+ok 452 - missing history fails closed rather than claiming a clean full-history scan
+  ---
+  duration_ms: 110.0571
+  type: 'test'
+  ...
+# Subtest: AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+ok 453 - AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+  ---
+  duration_ms: 1.7284
+  type: 'test'
+  ...
+# Subtest: every PR and push scan merged full history with fork-safe read-only permissions
+ok 454 - every PR and push scan merged full history with fork-safe read-only permissions
+  ---
+  duration_ms: 3.5888
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing pull-request trigger
+ok 455 - workflow guard rejects missing pull-request trigger
+  ---
+  duration_ms: 1.1275
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing merged-repository push trigger
+ok 456 - workflow guard rejects missing merged-repository push trigger
+  ---
+  duration_ms: 0.4332
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects privileged pull-request trigger
+ok 457 - workflow guard rejects privileged pull-request trigger
+  ---
+  duration_ms: 0.3074
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects path-filtered pull requests
+ok 458 - workflow guard rejects path-filtered pull requests
+  ---
+  duration_ms: 0.4626
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects write permissions
+ok 459 - workflow guard rejects write permissions
+  ---
+  duration_ms: 0.5228
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects repository secret input
+ok 460 - workflow guard rejects repository secret input
+  ---
+  duration_ms: 0.2339
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects shallow checkout
+ok 461 - workflow guard rejects shallow checkout
+  ---
+  duration_ms: 0.2196
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects omitted tags
+ok 462 - workflow guard rejects omitted tags
+  ---
+  duration_ms: 0.5135
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects persisted Git credentials
+ok 463 - workflow guard rejects persisted Git credentials
+  ---
+  duration_ms: 1.2939
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects unpinned checkout action
+ok 464 - workflow guard rejects unpinned checkout action
+  ---
+  duration_ms: 0.8006
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects head-only PR checkout
+ok 465 - workflow guard rejects head-only PR checkout
+  ---
+  duration_ms: 0.3809
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects conditional scan bypass
+ok 466 - workflow guard rejects conditional scan bypass
+  ---
+  duration_ms: 0.2821
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects ignored scanner failure
+ok 467 - workflow guard rejects ignored scanner failure
+  ---
+  duration_ms: 0.2943
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects worktree-only scan
+ok 468 - workflow guard rejects worktree-only scan
+  ---
+  duration_ms: 0.3437
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing configured scanner command
+ok 469 - workflow guard rejects missing configured scanner command
+  ---
+  duration_ms: 0.2835
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing shallow-history failure
+ok 470 - workflow guard rejects missing shallow-history failure
+  ---
+  duration_ms: 0.2743
+  type: 'test'
+  ...
+# Subtest: actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history
+ok 471 - actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history
+  ---
+  duration_ms: 3075.0838
+  type: 'test'
+  ...
+# Subtest: all raw classified columns are scanned; verdict contains no raw metadata or identity
+ok 472 - all raw classified columns are scanned; verdict contains no raw metadata or identity
+  ---
+  duration_ms: 6.151
+  type: 'test'
+  ...
+# Subtest: JWT/cookie/body/PII/raw object ID/SQL/Redis negative controls fail without leaking values
+ok 473 - JWT/cookie/body/PII/raw object ID/SQL/Redis negative controls fail without leaking values
+  ---
+  duration_ms: 3.6922
+  type: 'test'
+  ...
+# Subtest: unclassified raw top-level/dynamic fields fail even when normalization would drop them
+ok 474 - unclassified raw top-level/dynamic fields fail even when normalization would drop them
+  ---
+  duration_ms: 0.4541
+  type: 'test'
+  ...
+# Subtest: missing table inventory/pagination/canary/schema/count fails closed
+ok 475 - missing table inventory/pagination/canary/schema/count fails closed
+  ---
+  duration_ms: 0.8372
+  type: 'test'
+  ...
+# Subtest: scoped six-table graph intake can pass without claiming global privacy or changing receipt
+ok 476 - scoped six-table graph intake can pass without claiming global privacy or changing receipt
+  ---
+  duration_ms: 0.5222
+  type: 'test'
+  ...
+# Subtest: raw client IP and plain authentication identifiers are rejected; approved HMAC is accepted
+ok 477 - raw client IP and plain authentication identifiers are rejected; approved HMAC is accepted
+  ---
+  duration_ms: 0.5399
+  type: 'test'
+  ...
+# Subtest: business/user/message identifiers are not approved metric dimensions
+ok 478 - business/user/message identifiers are not approved metric dimensions
+  ---
+  duration_ms: 0.439
+  type: 'test'
+  ...
+# Subtest: APIM header/body and automatic data collection settings are fail closed
+ok 479 - APIM header/body and automatic data collection settings are fail closed
+  ---
+  duration_ms: 1.0756
+  type: 'test'
+  ...
+# Subtest: source-backed async scalar fields are bounded and prototype keys cannot become classifications
+ok 480 - source-backed async scalar fields are bounded and prototype keys cannot become classifications
+  ---
+  duration_ms: 1.1664
+  type: 'test'
+  ...
+# Subtest: AppPageViews display ID is opaque metadata and never classified as an actual span
+ok 481 - AppPageViews display ID is opaque metadata and never classified as an actual span
+  ---
+  duration_ms: 0.5797
+  type: 'test'
+  ...
+# Subtest: actual printed native and linked epoch locators are distinct, key-order independent receipt claims only
+ok 482 - actual printed native and linked epoch locators are distinct, key-order independent receipt claims only
+  ---
+  duration_ms: 2.7717
+  type: 'test'
+  ...
+# Subtest: missing receipts, old fixed paths, caller-relative, foreign and traversal paths never fall back
+ok 483 - missing receipts, old fixed paths, caller-relative, foreign and traversal paths never fall back
+  ---
+  duration_ms: 0.5133
+  type: 'test'
+  ...
+# Subtest: receipt JSON rejects duplicate and escaped-equivalent keys, extras, wrong hashes and certification
+ok 484 - receipt JSON rejects duplicate and escaped-equivalent keys, extras, wrong hashes and certification
+  ---
+  duration_ms: 0.3364
+  type: 'test'
+  ...
+# Subtest: multiple same-kind epochs, oversized stdout and fabricated inspection records reject
+ok 485 - multiple same-kind epochs, oversized stdout and fabricated inspection records reject
+  ---
+  duration_ms: 1.2578
+  type: 'test'
+  ...
+# Subtest: new current proof must bind its actual sibling inspection hash, not merely a printed proof receipt
+ok 486 - new current proof must bind its actual sibling inspection hash, not merely a printed proof receipt
+  ---
+  duration_ms: 0.691
+  type: 'test'
+  ...
+# Subtest: raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+ok 487 - raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+  ---
+  duration_ms: 1629.1003
+  type: 'test'
+  ...
+# Subtest: certification source snapshots exclude installed portable tools but retain application sources
+ok 488 - certification source snapshots exclude installed portable tools but retain application sources
+  ---
+  duration_ms: 383.4371
+  type: 'test'
+  ...
+# Subtest: VERIFY inventory excludes installed tool versions without hiding application dependency claims
+ok 489 - VERIFY inventory excludes installed tool versions without hiding application dependency claims
+  ---
+  duration_ms: 451.1856
+  type: 'test'
+  ...
+# Subtest: repository scans exclude generated portable installations, not ordinary source files
+ok 490 - repository scans exclude generated portable installations, not ordinary source files
+  ---
+  duration_ms: 13.8183
+  type: 'test'
+  ...
+# Subtest: Node CI summary reports actual successful tests without granting native certification
+ok 491 - Node CI summary reports actual successful tests without granting native certification
+  ---
+  duration_ms: 1.4425
+  type: 'test'
+  ...
+# Subtest: Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+ok 492 - Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+  ---
+  duration_ms: 0.3932
+  type: 'test'
+  ...
+# Subtest: Node CI missing TAP, source drift, failed or signalled execution cannot pass
+ok 493 - Node CI missing TAP, source drift, failed or signalled execution cannot pass
+  ---
+  duration_ms: 0.3699
+  type: 'test'
+  ...
+# Subtest: Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+ok 494 - Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+  ---
+  duration_ms: 0.6888
+  type: 'test'
+  ...
+# Subtest: configured Node source snapshot includes tooling tests once without executing their suites
+ok 495 - configured Node source snapshot includes tooling tests once without executing their suites
+  ---
+  duration_ms: 530.1111
+  type: 'test'
+  ...
+# Subtest: real every-PR Windows Node workflow requires report freshness and honest execution accounting
+ok 496 - real every-PR Windows Node workflow requires report freshness and honest execution accounting
+  ---
+  duration_ms: 1.1301
+  type: 'test'
+  ...
+# Subtest: workflow source rejects omitted report staleness, selective triggers and skip waivers
+ok 497 - workflow source rejects omitted report staleness, selective triggers and skip waivers
+  ---
+  duration_ms: 3.5433
+  type: 'test'
+  ...
+# Subtest: actual immutable Surefire classpath removes only its single terminal implicit-CWD element
+not ok 498 - actual immutable Surefire classpath removes only its single terminal implicit-CWD element
+  ---
+  duration_ms: 6.6514
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\conditional-observer.test.mjs:22:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\support\\services\\orders-api\\target\\surefire-reports\\TEST-com.contoso.orders.NativeApiIntegrationTest.xml'"
+  code: 'ENOENT'
+  stack: |-
+    async realpath (node:internal/fs/promises:1179:10)
+    async readBoundFile (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/files.mjs:22:20)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/conditional-observer.test.mjs:23:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: classpath selection preserves nonempty bytes/order and rejects all relative/interior/ambiguous empties
+ok 499 - classpath selection preserves nonempty bytes/order and rejects all relative/interior/ambiguous empties
+  ---
+  duration_ms: 3.5901
+  type: 'test'
+  ...
+# Subtest: production hash boundary accepts all seven saved returned runtime snapshots without enrolling saved evidence
+ok 500 - production hash boundary accepts all seven saved returned runtime snapshots without enrolling saved evidence
+  ---
+  duration_ms: 23.5176
+  type: 'test'
+  ...
+# Subtest: conditional hash normalization preserves ordinary canonical bytes and nested hardened map/row metadata
+ok 501 - conditional hash normalization preserves ordinary canonical bytes and nested hardened map/row metadata
+  ---
+  duration_ms: 1.646
+  type: 'test'
+  ...
+# Subtest: conditional hash boundary rejects callbacks, accessors, proxies, custom objects and cycles without invoking them
+ok 502 - conditional hash boundary rejects callbacks, accessors, proxies, custom objects and cycles without invoking them
+  ---
+  duration_ms: 1.1146
+  type: 'test'
+  ...
+# Subtest: conditional observer limits direct ordinary-only hashing to its checked normalization boundary
+ok 503 - conditional observer limits direct ordinary-only hashing to its checked normalization boundary
+  ---
+  duration_ms: 4.0775
+  type: 'test'
+  ...
+# Subtest: closed failure code extraction does not read error text, accessors, inherited codes or proxy traps
+ok 504 - closed failure code extraction does not read error text, accessors, inherited codes or proxy traps
+  ---
+  duration_ms: 0.872
+  type: 'test'
+  ...
+# Subtest: production-used fixed binding helper retains exact closed failure case and actual-match booleans only
+ok 505 - production-used fixed binding helper retains exact closed failure case and actual-match booleans only
+  ---
+  duration_ms: 1.7163
+  type: 'test'
+  ...
+# Subtest: binding diagnostics retain all seven positive checker cases and reject each original material predicate
+ok 506 - binding diagnostics retain all seven positive checker cases and reject each original material predicate
+  ---
+  duration_ms: 12.8975
+  type: 'test'
+  ...
+# Subtest: closed diagnostic allowlist covers current literal assertions without accepting arbitrary regex-shaped codes
+ok 507 - closed diagnostic allowlist covers current literal assertions without accepting arbitrary regex-shaped codes
+  ---
+  duration_ms: 6.1997
+  type: 'test'
+  ...
+# Subtest: absent/invalid structural case checking does not enroll native source authority
+ok 508 - absent/invalid structural case checking does not enroll native source authority
+  ---
+  duration_ms: 1.1346
+  type: 'test'
+  ...
+# Subtest: missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+ok 509 - missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+  ---
+  duration_ms: 4.5565
+  type: 'test'
+  ...
+# Subtest: invalid partial context cannot retain a carrier trace while being labelled a technical restart
+ok 510 - invalid partial context cannot retain a carrier trace while being labelled a technical restart
+  ---
+  duration_ms: 0.7933
+  type: 'test'
+  ...
+# Subtest: malformed native parents and oversize original carriers cannot be normalized into absent roots
+ok 511 - malformed native parents and oversize original carriers cannot be normalized into absent roots
+  ---
+  duration_ms: 1.39
+  type: 'test'
+  ...
+# Subtest: valid parent, state-only and business-identity controls never authorize a null-parent waiver
+ok 512 - valid parent, state-only and business-identity controls never authorize a null-parent waiver
+  ---
+  duration_ms: 1.7662
+  type: 'test'
+  ...
+# Subtest: unsampled continuation needs actual SDK state and never treats export absence alone as proof
+ok 513 - unsampled continuation needs actual SDK state and never treats export absence alone as proof
+  ---
+  duration_ms: 0.6661
+  type: 'test'
+  ...
+# Subtest: strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+ok 514 - strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+  ---
+  duration_ms: 1.3841
+  type: 'test'
+  ...
+# Subtest: original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+ok 515 - original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+  ---
+  duration_ms: 4.6785
+  type: 'test'
+  ...
+# Subtest: runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+ok 516 - runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+  ---
+  duration_ms: 2.6895
+  type: 'test'
+  ...
+# Subtest: original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+ok 517 - original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+  ---
+  duration_ms: 0.4092
+  type: 'test'
+  ...
+# Subtest: runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+ok 518 - runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+  ---
+  duration_ms: 5.2588
+  type: 'test'
+  ...
+# Subtest: actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+ok 519 - actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+  ---
+  duration_ms: 6.0414
+  type: 'test'
+  ...
+# Subtest: real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+ok 520 - real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+  ---
+  duration_ms: 90.0804
+  type: 'test'
+  ...
+# Subtest: real continuously active response still reaches the absolute ten-second control deadline
+ok 521 - real continuously active response still reaches the absolute ten-second control deadline
+  ---
+  duration_ms: 10018.7064
+  type: 'test'
+  ...
+# Subtest: original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+ok 522 - original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+  ---
+  duration_ms: 1.6538
+  type: 'test'
+  ...
+# Subtest: genuine directly executed CPU source enrolls only its private non-native process identity
+ok 523 - genuine directly executed CPU source enrolls only its private non-native process identity
+  ---
+  duration_ms: 123.2868
+  type: 'test'
+  ...
+# Subtest: JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+ok 524 - JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+  ---
+  duration_ms: 115.2429
+  type: 'test'
+  ...
+# Subtest: declared local factory and altered registry JSON never stand in for direct native execution
+ok 525 - declared local factory and altered registry JSON never stand in for direct native execution
+  ---
+  duration_ms: 3.0033
+  type: 'test'
+  ...
+# Subtest: one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+ok 526 - one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+  ---
+  duration_ms: 102.8495
+  type: 'test'
+  ...
+# Subtest: adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+ok 527 - adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+  ---
+  duration_ms: 7.7064
+  type: 'test'
+  ...
+# Subtest: current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority
+ok 528 - current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority
+  ---
+  duration_ms: 6.8858
+  type: 'test'
+  ...
+# Subtest: seeded sampler source drift or omitted provider/class input returns UNVERIFIED
+ok 529 - seeded sampler source drift or omitted provider/class input returns UNVERIFIED
+  ---
+  duration_ms: 3.1468
+  type: 'test'
+  ...
+# Subtest: skipped assertions, stale build identity and absent runtime dependencies fail closed
+ok 530 - skipped assertions, stale build identity and absent runtime dependencies fail closed
+  ---
+  duration_ms: 3.6613
+  type: 'test'
+  ...
+# Subtest: valid-parent00 and all-unsampled linked roots cannot become sampled; mixed and unlinked retain delegate
+ok 531 - valid-parent00 and all-unsampled linked roots cannot become sampled; mixed and unlinked retain delegate
+  ---
+  duration_ms: 2.0406
+  type: 'test'
+  ...
+# Subtest: failed, repeated or unbounded child execution labels cannot qualify a current run
+ok 532 - failed, repeated or unbounded child execution labels cannot qualify a current run
+  ---
+  duration_ms: 2.5323
+  type: 'test'
+  ...
+# Subtest: caller JSON, copied metadata and checker labels cannot enroll a current-source execution
+ok 533 - caller JSON, copied metadata and checker labels cannot enroll a current-source execution
+  ---
+  duration_ms: 1.5275
+  type: 'test'
+  ...
+# Subtest: qualification routing rejects accessors before reading owner or current-route labels
+ok 534 - qualification routing rejects accessors before reading owner or current-route labels
+  ---
+  duration_ms: 0.6202
+  type: 'test'
+  ...
+# Subtest: exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+ok 535 - exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+  ---
+  duration_ms: 54.308
+  type: 'test'
+  ...
+# Subtest: all fifteen missing native adapters fail explicitly, not mock PASS or certification
+ok 536 - all fifteen missing native adapters fail explicitly, not mock PASS or certification
+  ---
+  duration_ms: 140.3206
+  type: 'test'
+  ...
+# Subtest: bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+ok 537 - bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+  ---
+  duration_ms: 7.5787
+  type: 'test'
+  ...
+# Subtest: exception and deadline abort always stop/reset captured own pre-state
+ok 538 - exception and deadline abort always stop/reset captured own pre-state
+  ---
+  duration_ms: 551.5656
+  type: 'test'
+  ...
+# Subtest: failed native reset cannot leave a passing demo result
+ok 539 - failed native reset cannot leave a passing demo result
+  ---
+  duration_ms: 250.5449
+  type: 'test'
+  ...
+# Subtest: missing-adapter failure packs are immutable, safe and tamper checked
+ok 540 - missing-adapter failure packs are immutable, safe and tamper checked
+  ---
+  duration_ms: 47.9403
+  type: 'test'
+  ...
+# Subtest: seeded agent bump and newly added runtime dependency invalidate affected claims
+ok 541 - seeded agent bump and newly added runtime dependency invalidate affected claims
+  ---
+  duration_ms: 0.8016
+  type: 'test'
+  ...
+# Subtest: positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+ok 542 - positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+  ---
+  duration_ms: 2.0571
+  type: 'test'
+  ...
+# Subtest: negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+ok 543 - negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+  ---
+  duration_ms: 0.7431
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser source/build closure is hash checked locally, not native evidence
+not ok 544 - positive: supplied browser source/build closure is hash checked locally, not native evidence
+  ---
+  duration_ms: 7.0147
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:103:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\web\\portal-ssr\\dist\\browser-adapter.js'"
+  code: 'ENOENT'
+  stack: |-
+    async realpath (node:internal/fs/promises:1179:10)
+    async readBoundFile (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/files.mjs:22:20)
+    async file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:23:24
+    async Promise.all (index 2)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:104:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+not ok 545 - negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+  ---
+  duration_ms: 1.9613
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:109:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\web\\portal-ssr\\dist\\shared\\contracts.js'"
+  code: 'ENOENT'
+  stack: |-
+    async realpath (node:internal/fs/promises:1179:10)
+    async readBoundFile (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/files.mjs:22:20)
+    async file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:23:24
+    async Promise.all (index 3)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:110:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+not ok 546 - positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+  ---
+  duration_ms: 4.4767
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:120:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\web\\portal-ssr\\dist\\browser-adapter.js'"
+  code: 'ENOENT'
+  stack: |-
+    async realpath (node:internal/fs/promises:1179:10)
+    async readBoundFile (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/files.mjs:22:20)
+    async file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:23:24
+    async Promise.all (index 2)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:198:32)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+not ok 547 - negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+  ---
+  duration_ms: 1.2771
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:210:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, realpath 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\web\\portal-ssr\\dist\\browser-adapter.js'"
+  code: 'ENOENT'
+  stack: |-
+    async realpath (node:internal/fs/promises:1179:10)
+    async readBoundFile (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/files.mjs:22:20)
+    async file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:23:24
+    async Promise.all (index 2)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:211:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+ok 548 - positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+  ---
+  duration_ms: 1.2014
+  type: 'test'
+  ...
+# Subtest: negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+ok 549 - negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+  ---
+  duration_ms: 1.0199
+  type: 'test'
+  ...
+# Subtest: negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+ok 550 - negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+  ---
+  duration_ms: 0.8886
+  type: 'test'
+  ...
+# Subtest: negative: unsampled wire is rejected without changing its flags
+ok 551 - negative: unsampled wire is rejected without changing its flags
+  ---
+  duration_ms: 0.6836
+  type: 'test'
+  ...
+# Subtest: negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+ok 552 - negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+  ---
+  duration_ms: 0.9446
+  type: 'test'
+  ...
+# Subtest: negative: browser contexts remain original valid contexts and are never invented parent spans
+ok 553 - negative: browser contexts remain original valid contexts and are never invented parent spans
+  ---
+  duration_ms: 0.5018
+  type: 'test'
+  ...
+# Subtest: negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+ok 554 - negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+  ---
+  duration_ms: 0.2451
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+ok 555 - positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+  ---
+  duration_ms: 0.3501
+  type: 'test'
+  ...
+# Subtest: negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+ok 556 - negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+  ---
+  duration_ms: 0.3126
+  type: 'test'
+  ...
+# Subtest: positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+ok 557 - positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+  ---
+  duration_ms: 3.6374
+  type: 'test'
+  ...
+# Subtest: negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+ok 558 - negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+  ---
+  duration_ms: 1.7917
+  type: 'test'
+  ...
+# Subtest: negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+ok 559 - negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+  ---
+  duration_ms: 0.8826
+  type: 'test'
+  ...
+# Subtest: positive: source construction binds supplied modules and reports every missing production operation explicitly
+not ok 560 - positive: source construction binds supplied modules and reports every missing production operation explicitly
+  ---
+  duration_ms: 7.752
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:424:1'
+  failureType: 'testCodeFailure'
+  error: 'E_SOURCE_DRIFT: A bound construction source is unavailable'
+  code: 'E_SOURCE_DRIFT'
+  name: 'VerificationFailure'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:48:40)
+    sourceSnapshot (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:122:5)
+    async Module.inspectDemo01Construction (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:128:19)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:425:18)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: positive: prospective current-source binding preserves historical pins without inheriting their approval
+not ok 561 - positive: prospective current-source binding preserves historical pins without inheriting their approval
+  ---
+  duration_ms: 4.9737
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:463:1'
+  failureType: 'testCodeFailure'
+  error: 'E_SOURCE_DRIFT: A bound construction source is unavailable'
+  code: 'E_SOURCE_DRIFT'
+  name: 'VerificationFailure'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:48:40)
+    sourceSnapshot (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:122:5)
+    async Module.inspectDemo01Construction (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:128:19)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:464:18)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+not ok 562 - negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+  ---
+  duration_ms: 6.9076
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:489:1'
+  failureType: 'testCodeFailure'
+  error: 'E_SOURCE_DRIFT: A bound construction source is unavailable'
+  code: 'E_SOURCE_DRIFT'
+  name: 'VerificationFailure'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:48:40)
+    sourceSnapshot (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:122:5)
+    async Module.inspectDemo01Construction (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:128:19)
+    async withConstructionFixture (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:28:18)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:490:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+not ok 563 - negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+  ---
+  duration_ms: 8.5345
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:513:1'
+  failureType: 'testCodeFailure'
+  error: 'E_SOURCE_DRIFT: A bound construction source is unavailable'
+  code: 'E_SOURCE_DRIFT'
+  name: 'VerificationFailure'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:48:40)
+    sourceSnapshot (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:122:5)
+    async Module.inspectDemo01Construction (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:128:19)
+    async withConstructionFixture (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:28:18)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:514:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+ok 564 - negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+  ---
+  duration_ms: 30.6339
+  type: 'test'
+  ...
+# Subtest: negative: the construction entrypoint does not permit execute/native/caller-module options
+ok 565 - negative: the construction entrypoint does not permit execute/native/caller-module options
+  ---
+  duration_ms: 0.539
+  type: 'test'
+  ...
+# Subtest: positive: the construction entrypoint performs only side-effect-free inspection
+not ok 566 - positive: the construction entrypoint performs only side-effect-free inspection
+  ---
+  duration_ms: 2.5782
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\demo01-runtime.test.mjs:547:1'
+  failureType: 'testCodeFailure'
+  error: 'E_SOURCE_DRIFT: A bound construction source is unavailable'
+  code: 'E_SOURCE_DRIFT'
+  name: 'VerificationFailure'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:48:40)
+    sourceSnapshot (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:122:5)
+    async inspectDemo01Construction (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/adapters/demo01-runtime.mjs:128:19)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/demo01-runtime.test.mjs:548:18)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: complete fixture tests the checker but cannot qualify as bounded Azure full-path evidence
+ok 567 - complete fixture tests the checker but cannot qualify as bounded Azure full-path evidence
+  ---
+  duration_ms: 4.7407
+  type: 'test'
+  ...
+# Subtest: six explicit native tables include zero-count queries and exhaustive pages
+ok 568 - six explicit native tables include zero-count queries and exhaustive pages
+  ---
+  duration_ms: 0.5647
+  type: 'test'
+  ...
+# Subtest: query/page tampering and duplicate/mixed rows fail closed
+ok 569 - query/page tampering and duplicate/mixed rows fail closed
+  ---
+  duration_ms: 0.3686
+  type: 'test'
+  ...
+# Subtest: filtering before scanning all raw columns/tables cannot count as privacy evidence
+ok 570 - filtering before scanning all raw columns/tables cannot count as privacy evidence
+  ---
+  duration_ms: 0.2442
+  type: 'test'
+  ...
+# Subtest: no 100% claim from weighted counts, missing source ledger, or sampled00 absence
+ok 571 - no 100% claim from weighted counts, missing source ledger, or sampled00 absence
+  ---
+  duration_ms: 2.099
+  type: 'test'
+  ...
+# Subtest: canaries must be distinct, bracket work and cover every actual expected boundary
+ok 572 - canaries must be distinct, bracket work and cover every actual expected boundary
+  ---
+  duration_ms: 1.5893
+  type: 'test'
+  ...
+# Subtest: delay/watermark and unaccounted emitted-span records are not hidden
+ok 573 - delay/watermark and unaccounted emitted-span records are not hidden
+  ---
+  duration_ms: 0.7897
+  type: 'test'
+  ...
+# Subtest: classification proof hashes must bind actual native content, not be invented
+ok 574 - classification proof hashes must bind actual native content, not be invented
+  ---
+  duration_ms: 0.6051
+  type: 'test'
+  ...
+# Subtest: exact A/B/C fixture check never claims live or certification
+ok 575 - exact A/B/C fixture check never claims live or certification
+  ---
+  duration_ms: 4.8235
+  type: 'test'
+  ...
+# Subtest: empty telemetry and logs-only cannot pass
+ok 576 - empty telemetry and logs-only cannot pass
+  ---
+  duration_ms: 0.3033
+  type: 'test'
+  ...
+# Subtest: A fails a split, zero, or silently absent expected trace
+ok 577 - A fails a split, zero, or silently absent expected trace
+  ---
+  duration_ms: 0.3109
+  type: 'test'
+  ...
+# Subtest: B rejects duplicate emitted records, nonzero ID reuse and bad parents
+ok 578 - B rejects duplicate emitted records, nonzero ID reuse and bad parents
+  ---
+  duration_ms: 1.1716
+  type: 'test'
+  ...
+# Subtest: missing Gateway request/backend hop names the actual broken boundary
+ok 579 - missing Gateway request/backend hop names the actual broken boundary
+  ---
+  duration_ms: 1.2789
+  type: 'test'
+  ...
+# Subtest: logs/events/exceptions and page-view display IDs are not counted as new spans
+ok 580 - logs/events/exceptions and page-view display IDs are not counted as new spans
+  ---
+  duration_ms: 1.3562
+  type: 'test'
+  ...
+# Subtest: kind/role expectations cannot overwrite missing native facts
+ok 581 - kind/role expectations cannot overwrite missing native facts
+  ---
+  duration_ms: 0.4922
+  type: 'test'
+  ...
+# Subtest: APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+ok 582 - APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+  ---
+  duration_ms: 0.2459
+  type: 'test'
+  ...
+# Subtest: native fan-in links equal every contributor, not an arbitrary first parent
+ok 583 - native fan-in links equal every contributor, not an arbitrary first parent
+  ---
+  duration_ms: 1.9279
+  type: 'test'
+  ...
+# Subtest: actual result SEND links require independent complete ledgers, not just renamed expected roots
+ok 584 - actual result SEND links require independent complete ledgers, not just renamed expected roots
+  ---
+  duration_ms: 1.2195
+  type: 'test'
+  ...
+# Subtest: map deliberate roots alone never authorize a split-trace claim
+ok 585 - map deliberate roots alone never authorize a split-trace claim
+  ---
+  duration_ms: 0.2754
+  type: 'test'
+  ...
+# Subtest: an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+ok 586 - an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+  ---
+  duration_ms: 0.2866
+  type: 'test'
+  ...
+# Subtest: browser context-only events require a separately observed SDK context, not a display-ID cast
+ok 587 - browser context-only events require a separately observed SDK context, not a display-ID cast
+  ---
+  duration_ms: 0.4683
+  type: 'test'
+  ...
+# Subtest: a caller file/hash/origin/boolean cannot forge the actual local-native source capability
+ok 588 - a caller file/hash/origin/boolean cannot forge the actual local-native source capability
+  ---
+  duration_ms: 1.3048
+  type: 'test'
+  ...
+# Subtest: local record correspondence is checker-only and immutable, not an execution capability
+ok 589 - local record correspondence is checker-only and immutable, not an execution capability
+  ---
+  duration_ms: 0.9734
+  type: 'test'
+  ...
+# Subtest: local native correspondence rejects missing, added and repeated emitted spans
+ok 590 - local native correspondence rejects missing, added and repeated emitted spans
+  ---
+  duration_ms: 0.4137
+  type: 'test'
+  ...
+# Subtest: both declared worker roles are preserved, never filled from configuration or claimed sidecar-verified
+ok 591 - both declared worker roles are preserved, never filled from configuration or claimed sidecar-verified
+  ---
+  duration_ms: 0.8233
+  type: 'test'
+  ...
+# Subtest: local native proof cannot change actual names, parents, attempts or native links
+ok 592 - local native proof cannot change actual names, parents, attempts or native links
+  ---
+  duration_ms: 0.7226
+  type: 'test'
+  ...
+# Subtest: local native links reject duplicates, self-link and over-bound representations
+ok 593 - local native links reject duplicates, self-link and over-bound representations
+  ---
+  duration_ms: 0.3276
+  type: 'test'
+  ...
+# Subtest: owned installed library classpath is explicit but never a current-source/build qualification
+ok 594 - owned installed library classpath is explicit but never a current-source/build qualification
+  ---
+  duration_ms: 0.7023
+  type: 'test'
+  ...
+# Subtest: missing, duplicated or relative owned library classpaths fail without a build-lineage guess
+ok 595 - missing, duplicated or relative owned library classpaths fail without a build-lineage guess
+  ---
+  duration_ms: 0.2494
+  type: 'test'
+  ...
+# Subtest: source/binary hashes alone cannot enroll an actual Azure observer
+ok 596 - source/binary hashes alone cannot enroll an actual Azure observer
+  ---
+  duration_ms: 7.6597
+  type: 'test'
+  ...
+# Subtest: authoritative observer source closure rejects omitted/duplicate/changed dependencies
+ok 597 - authoritative observer source closure rejects omitted/duplicate/changed dependencies
+  ---
+  duration_ms: 0.7739
+  type: 'test'
+  ...
+# Subtest: private-response structure must bind exact actual query, resource, workspace and content
+ok 598 - private-response structure must bind exact actual query, resource, workspace and content
+  ---
+  duration_ms: 1.8211
+  type: 'test'
+  ...
+# Subtest: persisted caller JSON cannot replace an original private post-query capability
+ok 599 - persisted caller JSON cannot replace an original private post-query capability
+  ---
+  duration_ms: 0.2993
+  type: 'test'
+  ...
+# Subtest: receipt metadata snapshots cannot alias caller scope or getter-copy nested objects
+ok 600 - receipt metadata snapshots cannot alias caller scope or getter-copy nested objects
+  ---
+  duration_ms: 0.3314
+  type: 'test'
+  ...
+# Subtest: observed assignment locators/digests bind the actual native trace/span, never the expected map
+ok 601 - observed assignment locators/digests bind the actual native trace/span, never the expected map
+  ---
+  duration_ms: 0.8113
+  type: 'test'
+  ...
+# Subtest: usable pipeline invokes async structure only after original privacy/source/native checks; fixture positive is checker-only
+ok 602 - usable pipeline invokes async structure only after original privacy/source/native checks; fixture positive is checker-only
+  ---
+  duration_ms: 19.9322
+  type: 'test'
+  ...
+# Subtest: root binding getter requires the original graph capability and exact map/rows/mode
+ok 603 - root binding getter requires the original graph capability and exact map/rows/mode
+  ---
+  duration_ms: 9.4846
+  type: 'test'
+  ...
+# Subtest: caller claimed trusted origin, missing origin and JSON capabilities all fail closed
+ok 604 - caller claimed trusted origin, missing origin and JSON capabilities all fail closed
+  ---
+  duration_ms: 1.9685
+  type: 'test'
+  ...
+# Subtest: fixture label can never be promoted to BootstrapValidate or Certify
+ok 605 - fixture label can never be promoted to BootstrapValidate or Certify
+  ---
+  duration_ms: 1.0105
+  type: 'test'
+  ...
+# Subtest: callback privacy PASS or filtering raw inputs cannot bypass the actual trusted R8 scanner
+ok 606 - callback privacy PASS or filtering raw inputs cannot bypass the actual trusted R8 scanner
+  ---
+  duration_ms: 1.925
+  type: 'test'
+  ...
+# Subtest: real repository PR template requires independent other-role reviews and labelled sourced claims
+ok 607 - real repository PR template requires independent other-role reviews and labelled sourced claims
+  ---
+  duration_ms: 5.4595
+  type: 'test'
+  ...
+# Subtest: seeded template without the claim-label item fails closed
+ok 608 - seeded template without the claim-label item fails closed
+  ---
+  duration_ms: 0.6801
+  type: 'test'
+  ...
+# Subtest: each required template item is parsed in its own section and cannot be omitted
+ok 609 - each required template item is parsed in its own section and cannot be omitted
+  ---
+  duration_ms: 0.8451
+  type: 'test'
+  ...
+# Subtest: PR source checker rejects unsupported arguments rather than treating a body as review approval
+ok 610 - PR source checker rejects unsupported arguments rather than treating a body as review approval
+  ---
+  duration_ms: 0.339
+  type: 'test'
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 611 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 1.8049
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 612 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 0.3056
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 613 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 0.3717
+  type: 'test'
+  ...
+# Subtest: refresh construction preserves historical and prerelease metadata without inheriting verification
+ok 614 - refresh construction preserves historical and prerelease metadata without inheriting verification
+  ---
+  duration_ms: 0.7992
+  type: 'test'
+  ...
+# Subtest: refresh retains removed generated-tool claims as invalidated history, not current verification
+ok 615 - refresh retains removed generated-tool claims as invalidated history, not current verification
+  ---
+  duration_ms: 0.6871
+  type: 'test'
+  ...
+# Subtest: refresh preserves unchanged owner/test actions without inheriting verification or changed-source annotations
+ok 616 - refresh preserves unchanged owner/test actions without inheriting verification or changed-source annotations
+  ---
+  duration_ms: 0.3572
+  type: 'test'
+  ...
+# Subtest: unchanged refresh preserves raw byte pins and claim order but cannot retain stale verification
+ok 617 - unchanged refresh preserves raw byte pins and claim order but cannot retain stale verification
+  ---
+  duration_ms: 1.172
+  type: 'test'
+  ...
+# Subtest: checker-only replay fixture uses actual actor assignments and original-producer links
+ok 618 - checker-only replay fixture uses actual actor assignments and original-producer links
+  ---
+  duration_ms: 3.2978
+  type: 'test'
+  ...
+# Subtest: missing actor and retired Orders/Aggregator replay aliases fail rather than selecting the first SEND
+ok 619 - missing actor and retired Orders/Aggregator replay aliases fail rather than selecting the first SEND
+  ---
+  duration_ms: 0.7315
+  type: 'test'
+  ...
+# Subtest: fictional PROCESS-to-SEND links or continued process parents do not replace original producer linkage
+ok 620 - fictional PROCESS-to-SEND links or continued process parents do not replace original producer linkage
+  ---
+  duration_ms: 0.3141
+  type: 'test'
+  ...
+# Subtest: ambiguous original IDs and old-parent SEND fail without deduplicating or minting missing context
+ok 621 - ambiguous original IDs and old-parent SEND fail without deduplicating or minting missing context
+  ---
+  duration_ms: 0.8816
+  type: 'test'
+  ...
+# Subtest: assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+ok 622 - assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+  ---
+  duration_ms: 3.4009
+  type: 'test'
+  ...
+# Subtest: stale assessment sources and versions reject even when every rendered row was already invalidated
+ok 623 - stale assessment sources and versions reject even when every rendered row was already invalidated
+  ---
+  duration_ms: 0.6928
+  type: 'test'
+  ...
+# Subtest: prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+ok 624 - prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+  ---
+  duration_ms: 1.1046
+  type: 'test'
+  ...
+# Subtest: orchestrator source-only construction sections and current roster survive a preserving refresh
+ok 625 - orchestrator source-only construction sections and current roster survive a preserving refresh
+  ---
+  duration_ms: 0.5194
+  type: 'test'
+  ...
+# Subtest: notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+ok 626 - notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+  ---
+  duration_ms: 0.3133
+  type: 'test'
+  ...
+# Subtest: missing or duplicate source scopes and invalid version digests fail closed
+ok 627 - missing or duplicate source scopes and invalid version digests fail closed
+  ---
+  duration_ms: 0.2183
+  type: 'test'
+  ...
+# Subtest: persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+ok 628 - persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+  ---
+  duration_ms: 1.3173
+  type: 'test'
+  ...
+# Subtest: local metadata without validated original source/execution capability cannot affirm success
+ok 629 - local metadata without validated original source/execution capability cannot affirm success
+  ---
+  duration_ms: 0.8266
+  type: 'test'
+  ...
+# Subtest: reviewer four same-identity negative metadata vectors cannot render literal00 success
+ok 630 - reviewer four same-identity negative metadata vectors cannot render literal00 success
+  ---
+  duration_ms: 0.8927
+  type: 'test'
+  ...
+# Subtest: saved Security PASS/source/count labels cannot render selected A/B/C qualification
+ok 631 - saved Security PASS/source/count labels cannot render selected A/B/C qualification
+  ---
+  duration_ms: 0.229
+  type: 'test'
+  ...
+# Subtest: focused receipts require exact executed/pass counts and zero skips/cancellations
+ok 632 - focused receipts require exact executed/pass counts and zero skips/cancellations
+  ---
+  duration_ms: 1.4536
+  type: 'test'
+  ...
+# Subtest: focused source snapshots reject changed, missing, added and duplicate source bindings
+ok 633 - focused source snapshots reject changed, missing, added and duplicate source bindings
+  ---
+  duration_ms: 1.0979
+  type: 'test'
+  ...
+# Subtest: persisted focused receipts must match the authoritative full current source snapshot
+ok 634 - persisted focused receipts must match the authoritative full current source snapshot
+  ---
+  duration_ms: 0.9814
+  type: 'test'
+  ...
+# Subtest: complete synthetic qualification checks semantics only and cannot mint a report capability
+ok 635 - complete synthetic qualification checks semantics only and cannot mint a report capability
+  ---
+  duration_ms: 3.0873
+  type: 'test'
+  ...
+# Subtest: local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+ok 636 - local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+  ---
+  duration_ms: 0.9788
+  type: 'test'
+  ...
+# Subtest: source and actual execution receipts must bind complete scopes and successful literal testcase
+ok 637 - source and actual execution receipts must bind complete scopes and successful literal testcase
+  ---
+  duration_ms: 1.5223
+  type: 'test'
+  ...
+# Subtest: missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+ok 638 - missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+  ---
+  duration_ms: 0.4362
+  type: 'test'
+  ...
+# Subtest: positive and MIX require actual native exports and unchanged original producer contexts
+ok 639 - positive and MIX require actual native exports and unchanged original producer contexts
+  ---
+  duration_ms: 0.7494
+  type: 'test'
+  ...
+# Subtest: native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+ok 640 - native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+  ---
+  duration_ms: 0.6077
+  type: 'test'
+  ...
+# Subtest: changing owner accessor is rejected before any asynchronous load or accessor invocation
+ok 641 - changing owner accessor is rejected before any asynchronous load or accessor invocation
+  ---
+  duration_ms: 0.4768
+  type: 'test'
+  ...
+# Subtest: changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+ok 642 - changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+  ---
+  duration_ms: 0.2249
+  type: 'test'
+  ...
+# Subtest: metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+ok 643 - metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+  ---
+  duration_ms: 0.3688
+  type: 'test'
+  ...
+# Subtest: original A/B semantic consistency is structural only and cannot mint acceptance
+not ok 644 - original A/B semantic consistency is structural only and cannot mint acceptance
+  ---
+  duration_ms: 3.2055
+  type: 'test'
+  location: 'C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\commit-clean-checkout-20261103\\contoso-corr-poc\\tests\\verification\\security-client-qualification.test.mjs:22:1'
+  failureType: 'testCodeFailure'
+  error: 'Separate actual current test-probe compiler/source/class/CodeSource witness required'
+  code: 'E_SECURITY_EPOCH'
+  stack: |-
+    fail (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/security-client-qualification.mjs:36:46)
+    check (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/security-client-qualification.mjs:37:56)
+    checkSelectedSecurityEpoch (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tools/verification/security-client-qualification.mjs:114:3)
+    TestContext.<anonymous> (file:///C:/Users/chhage/.copilot/session-state/1607b470-d5a0-496e-ad80-f22e65305333/files/commit-clean-checkout-20261103/contoso-corr-poc/tests/verification/security-client-qualification.test.mjs:23:18)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: omitted/duplicate/recomputed closure cannot qualify current-source lineage
+ok 645 - omitted/duplicate/recomputed closure cannot qualify current-source lineage
+  ---
+  duration_ms: 5.2659
+  type: 'test'
+  ...
+# Subtest: missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+ok 646 - missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+  ---
+  duration_ms: 5.9267
+  type: 'test'
+  ...
+# Subtest: all seven production header checks, raw negative and trusted advance remain required
+ok 647 - all seven production header checks, raw negative and trusted advance remain required
+  ---
+  duration_ms: 4.2083
+  type: 'test'
+  ...
+# Subtest: fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+ok 648 - fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+  ---
+  duration_ms: 4.829
+  type: 'test'
+  ...
+# Subtest: native/logical/physical counters stay independent and broad privacy/completeness remain false
+ok 649 - native/logical/physical counters stay independent and broad privacy/completeness remain false
+  ---
+  duration_ms: 2.7974
+  type: 'test'
+  ...
+# Subtest: the original14 source freeze is not retroactively extended to include another input
+ok 650 - the original14 source freeze is not retroactively extended to include another input
+  ---
+  duration_ms: 0.6709
+  type: 'test'
+  ...
+# Subtest: JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+ok 651 - JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+  ---
+  duration_ms: 1.1033
+  type: 'test'
+  ...
+# Subtest: security tool selection requires the named environment prerequisite and honors an explicit spaced root
+ok 652 - security tool selection requires the named environment prerequisite and honors an explicit spaced root
+  ---
+  duration_ms: 0.4092
+  type: 'test'
+  ...
+# Subtest: actual security qualification CLI fails explicitly when the tools-root variable is unset
+ok 653 - actual security qualification CLI fails explicitly when the tools-root variable is unset
+  ---
+  duration_ms: 143.123
+  type: 'test'
+  ...
+# Subtest: security qualification source has no machine or session-folder default
+ok 654 - security qualification source has no machine or session-folder default
+  ---
+  duration_ms: 7.6431
+  type: 'test'
+  ...
+# Subtest: explicit security tool byte checks remain read-only and cannot enroll a receipt
+ok 655 - explicit security tool byte checks remain read-only and cannot enroll a receipt
+  ---
+  duration_ms: 23.9889
+  type: 'test'
+  ...
+# Subtest: whole historical coverage report binds its source commit and exact cited suite counts
+ok 656 - whole historical coverage report binds its source commit and exact cited suite counts
+  ---
+  duration_ms: 9.1449
+  type: 'test'
+  ...
+# Subtest: coverage report rejects each seeded quoted count drift and missing source commit
+ok 657 - coverage report rejects each seeded quoted count drift and missing source commit
+  ---
+  duration_ms: 5.5695
+  type: 'test'
+  ...
+# Subtest: source commit or same-commit source closure drift requires the historical label
+ok 658 - source commit or same-commit source closure drift requires the historical label
+  ---
+  duration_ms: 3.355
+  type: 'test'
+  ...
+# Subtest: changed receipt bytes and skipped tests cannot be counted as passes
+ok 659 - changed receipt bytes and skipped tests cannot be counted as passes
+  ---
+  duration_ms: 0.7103
+  type: 'test'
+  ...
+# Subtest: coverage checker accepts no rewrite or qualification argument and evidence links cannot escape
+ok 660 - coverage checker accepts no rewrite or qualification argument and evidence links cannot escape
+  ---
+  duration_ms: 0.3428
+  type: 'test'
+  ...
+# Subtest: root runner discovers all ordinary tests and the source-frozen Data tool test without executing them
+ok 661 - root runner discovers all ordinary tests and the source-frozen Data tool test without executing them
+  ---
+  duration_ms: 8.6706
+  type: 'test'
+  ...
+# Subtest: missing/forged receipt or disposition cannot waive parentage even if map labels root
+ok 662 - missing/forged receipt or disposition cannot waive parentage even if map labels root
+  ---
+  duration_ms: 9.1965
+  type: 'test'
+  ...
+# Subtest: only precise verified absent/duplicate/invalid classification permits the deliberate null-parent boundary
+ok 663 - only precise verified absent/duplicate/invalid classification permits the deliberate null-parent boundary
+  ---
+  duration_ms: 8.4405
+  type: 'test'
+  ...
+# Subtest: valid trusted sampled golden-path missing downstream edges still fail with a permitted ingress root
+ok 664 - valid trusted sampled golden-path missing downstream edges still fail with a permitted ingress root
+  ---
+  duration_ms: 3.8841
+  type: 'test'
+  ...
+# Subtest: invalid tracestate-only, valid parent, non-null parent and fabricated native capability never qualify
+ok 665 - invalid tracestate-only, valid parent, non-null parent and fabricated native capability never qualify
+  ---
+  duration_ms: 2.803
+  type: 'test'
+  ...
+# Subtest: sealed binding getter retains exact checked disposition/policy/carrier/locator, never caller rereads
+ok 666 - sealed binding getter retains exact checked disposition/policy/carrier/locator, never caller rereads
+  ---
+  duration_ms: 2.7522
+  type: 'test'
+  ...
+# Subtest: cloned capabilities, map/row/locator drift and getter values cannot provide root bindings
+ok 667 - cloned capabilities, map/row/locator drift and getter values cannot provide root bindings
+  ---
+  duration_ms: 3.5901
+  type: 'test'
+  ...
+1..667
+# tests 667
+# suites 0
+# pass 646
+# fail 21
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 55255.6187

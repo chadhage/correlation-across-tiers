@@ -1,0 +1,59 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Scanning for projects...
+[INFO] Loaded 24339 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Contoso correlation POC                                            [pom]
+[INFO] contoso-correlation-core                                           [jar]
+[INFO] Contoso verified identity and privacy boundary                     [jar]
+[INFO] inventory-data                                                     [jar]
+[INFO] messaging-core                                                     [jar]
+[INFO] 
+[INFO] --------------------< com.contoso:contoso-corr-poc >--------------------
+[INFO] Building Contoso correlation POC 1.0.0                             [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-corr-poc ---
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-corr-poc ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] ----------------< com.contoso:contoso-correlation-core >----------------
+[INFO] Building contoso-correlation-core 1.0.0                            [2/5]
+[INFO]   from services\correlation-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for jakarta.servlet:jakarta.servlet-api:jar:6.1.0 is missing, no dependency information available
+[WARNING] The POM for org.springframework:spring-test:jar:7.0.10 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Contoso correlation POC 1.0.0:
+[INFO] 
+[INFO] Contoso verified identity and privacy boundary ..... SKIPPED
+[INFO] inventory-data ..................................... SKIPPED
+[INFO] messaging-core ..................................... SKIPPED
+[INFO] Contoso correlation POC ............................ SUCCESS [  1.649 s]
+[ERROR] contoso-correlation-core ........................... FAILURE [  0.879 s]
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.088 s
+[INFO] Finished at: 2026-11-02T17:02:32-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project contoso-correlation-core: Could not resolve dependencies for project com.contoso:contoso-correlation-core:jar:1.0.0
+[ERROR] dependency: jakarta.servlet:jakarta.servlet-api:jar:6.1.0 (provided)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact jakarta.servlet:jakarta.servlet-api:jar:6.1.0 has not been downloaded from it before.
+[ERROR] dependency: org.springframework:spring-test:jar:7.0.10 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.springframework:spring-test:jar:7.0.10 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :contoso-correlation-core

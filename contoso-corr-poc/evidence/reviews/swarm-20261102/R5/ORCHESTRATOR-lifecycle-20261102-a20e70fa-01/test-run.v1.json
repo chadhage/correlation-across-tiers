@@ -1,0 +1,47 @@
+{
+  "schema": "contoso.r5-check.v1",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "ORCHESTRATOR",
+  "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+  "runtime": "v22.23.4",
+  "startedAtUtc": "2026-11-02T22:09:30.431Z",
+  "finishedAtUtc": "2026-11-02T22:09:34.942Z",
+  "exitCode": 0,
+  "error": null,
+  "counts": {
+    "tests": 48,
+    "pass": 48,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "sourcesUnchangedBeforeAfter": true,
+  "boardPolicyUnchanged": true,
+  "backlogSemanticUnchanged": true,
+  "operationalBefore": {
+    "boardPolicySha256": "0ed1965404ad9c359be9a361e2e31d22bd8bf205aaf0078f0cc4adff76aafc23",
+    "backlogSemanticSha256": "e19ad37583dbdb4bd6f1beea4236fb0c39d775d91e17612fe5488fb9601973a4",
+    "counts": {
+      "parents": 78,
+      "children": 52,
+      "clauses": 281,
+      "facets": 491,
+      "gates": 13
+    }
+  },
+  "operationalAfter": {
+    "boardPolicySha256": "0ed1965404ad9c359be9a361e2e31d22bd8bf205aaf0078f0cc4adff76aafc23",
+    "backlogSemanticSha256": "e19ad37583dbdb4bd6f1beea4236fb0c39d775d91e17612fe5488fb9601973a4",
+    "counts": {
+      "parents": 78,
+      "children": 52,
+      "clauses": 281,
+      "facets": 491,
+      "gates": 13
+    }
+  },
+  "tapSha256": "c3733ab07266b7074913efd58d2d15ba2f6ab3d635e9728eb303a69d7cae4c17",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

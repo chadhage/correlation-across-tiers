@@ -1,0 +1,195 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Scanning for projects...
+[INFO] Loaded 24339 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Contoso correlation POC                                            [pom]
+[INFO] contoso-correlation-core                                           [jar]
+[INFO] Contoso verified identity and privacy boundary                     [jar]
+[INFO] inventory-data                                                     [jar]
+[INFO] messaging-core                                                     [jar]
+[INFO] 
+[INFO] --------------------< com.contoso:contoso-corr-poc >--------------------
+[INFO] Building Contoso correlation POC 1.0.0                             [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-corr-poc ---
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-corr-poc ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] ----------------< com.contoso:contoso-correlation-core >----------------
+[INFO] Building contoso-correlation-core 1.0.0                            [2/5]
+[INFO]   from services\correlation-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-correlation-core ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\correlation-core\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-correlation-core ---
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ contoso-correlation-core ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ contoso-correlation-core ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 35 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ contoso-correlation-core ---
+[INFO] skip non existing resourceDirectory C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\correlation-core\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ contoso-correlation-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/src/test/java/com/contoso/correlation/HttpAgentProbe.java: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\correlation-core\src\test\java\com\contoso\correlation\HttpAgentProbe.java uses or overrides a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/correlation-core/src/test/java/com/contoso/correlation/HttpAgentProbe.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ contoso-correlation-core ---
+[INFO] 
+[INFO] ---------------------< com.contoso:security-core >----------------------
+[INFO] Building Contoso verified identity and privacy boundary 1.0.0      [3/5]
+[INFO]   from services\security-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ security-core ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\security-core\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ security-core ---
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ security-core ---
+[INFO] skip non existing resourceDirectory C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\security-core\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\security-core\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ security-core ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 15 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/src/main/java/com/contoso/security/EntraJwtVerifier.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/src/main/java/com/contoso/security/EntraJwtVerifier.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ security-core ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ security-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 8 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/src/test/java/com/contoso/security/IdentityHttpClientsTest.java: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\security-core\src\test\java\com\contoso\security\IdentityHttpClientsTest.java uses or overrides a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/security-core/src/test/java/com/contoso/security/IdentityHttpClientsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ security-core ---
+[INFO] 
+[INFO] ---------------------< com.contoso:inventory-data >---------------------
+[INFO] Building inventory-data 1.0.0                                      [4/5]
+[INFO]   from services\inventory-data\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ inventory-data ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\inventory-data\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ inventory-data ---
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ inventory-data ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ inventory-data ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 15 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/inventory-data/src/main/java/com/contoso/inventory/data/LettuceInventoryCache.java: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\inventory-data\src\main\java\com\contoso\inventory\data\LettuceInventoryCache.java uses or overrides a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/inventory-data/src/main/java/com/contoso/inventory/data/LettuceInventoryCache.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ inventory-data ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ inventory-data ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 17 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/inventory-data/src/test/java/com/contoso/inventory/data/RedisEntraIdAuthenticationSupplierTest.java: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\inventory-data\src\test\java\com\contoso\inventory\data\RedisEntraIdAuthenticationSupplierTest.java uses or overrides a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/inventory-data/src/test/java/com/contoso/inventory/data/RedisEntraIdAuthenticationSupplierTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ inventory-data ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Running com.contoso.inventory.data.InventoryGrantMarkerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s -- in com.contoso.inventory.data.InventoryGrantMarkerTest
+[INFO] Running com.contoso.inventory.data.LocalPostgresLaneContractTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s -- in com.contoso.inventory.data.LocalPostgresLaneContractTest
+[INFO] Running com.contoso.inventory.data.WorkflowGrantPolicyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s -- in com.contoso.inventory.data.WorkflowGrantPolicyTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------------------< com.contoso:messaging-core >---------------------
+[INFO] Building messaging-core 1.0.0                                      [5/5]
+[INFO]   from workers\messaging-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ messaging-core ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\workers\messaging-core\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ messaging-core ---
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ messaging-core ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ messaging-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 23 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/workers/messaging-core/src/main/java/com/contoso/messaging/AzureMessagingTransport.java: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\workers\messaging-core\src\main\java\com\contoso\messaging\AzureMessagingTransport.java uses or overrides a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/workers/messaging-core/src/main/java/com/contoso/messaging/AzureMessagingTransport.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ messaging-core ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ messaging-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 15 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/workers/messaging-core/src/test/java/com/contoso/messaging/NativeTestCapture.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/workers/messaging-core/src/test/java/com/contoso/messaging/NativeTestCapture.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ messaging-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Running com.contoso.messaging.LinkedRootSamplingTest
+ASYNC_NATIVE_CAPTURE_RECEIPT {"sha256":"63585ceb5263a85ff8e05036adbe9b9600974e2b8656e004486526214a4b2427","certification":"NOT_CERTIFIED","path":"C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\workers\\messaging-core\\target\\linked-root-sampling\\1.1.0\\epochs\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2\\qualification.json"}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 94.21 s -- in com.contoso.messaging.LinkedRootSamplingTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Contoso correlation POC 1.0.0:
+[INFO] 
+[INFO] Contoso correlation POC ............................ SUCCESS [  0.670 s]
+[INFO] contoso-correlation-core ........................... SUCCESS [  8.901 s]
+[INFO] Contoso verified identity and privacy boundary ..... SUCCESS [  5.130 s]
+[INFO] inventory-data ..................................... SUCCESS [  7.817 s]
+[INFO] messaging-core ..................................... SUCCESS [01:42 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:06 min
+[INFO] Finished at: 2026-11-02T17:15:30-05:00
+[INFO] ------------------------------------------------------------------------

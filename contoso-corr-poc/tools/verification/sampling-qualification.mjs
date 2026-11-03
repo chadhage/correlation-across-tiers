@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { types } from 'node:util';
 import { TRACE, SPAN, HASH } from '../observability/telemetry-contract.mjs';
-import { nativeEvidenceHash, projectRoot, readBoundFile, sha256, verifyManifest } from './files.mjs';
+import { nativeEvidenceHash, projectRoot, readBoundFile, relativeFile, sha256, verifyManifest } from './files.mjs';
 import { immutableReceiptMetadata } from './observers.mjs';
 import { VerificationFailure } from './invariants.mjs';
 
@@ -15,6 +15,28 @@ const witnessedExecutions = new Map([[
     originalXmlSha256: '892ff2f70e9412b00247dea58b47f3fc9fdd061e77d0f6b741f515c615520c85'
   }
 ]]);
+const currentWitnessedExecutions = new Map();
+const currentRequiredSources = [
+  ...sourceNames('extensions\\parent-safe-sampler\\src\\main\\java\\com\\contoso\\correlation\\sampling',
+    ['ParentSafeSampler', 'ParentSafeSamplerCustomizer', 'SamplingObservation', 'SamplingObservationMBean']),
+  ...sourceNames('services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation',
+    ['RuntimeGuard', 'ExtensionGuard', 'Correlation']),
+  ...sourceNames('workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging',
+    ['LinkedSamplingProbe', 'LinkedRootSamplingTest', 'NativeTestCapture']),
+  'pom.xml', 'extensions\\parent-safe-sampler\\pom.xml', 'config\\versions.lock.json'
+];
+function sourceNames(directory, names) { return names.map(name => `${directory}\\${name}.java`); }
+
+export const CURRENT_LINKED_SAMPLING_METADATA = Object.freeze({
+  qualificationKind: 'current-source-sampler-v1',
+  path: 'evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2\\qualification.json',
+  sha256: '63585ceb5263a85ff8e05036adbe9b9600974e2b8656e004486526214a4b2427',
+  ownerRole: 'R4', ownerAgentId: 'ba7ff3e3-f822-40e3-9e94-21bc8cef771a',
+  guardPolicy: LINKED_GUARD_POLICY, guardArtifactVersion: '1.1.0',
+  extensionSha256: 'bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f',
+  sourceAcceptanceIsCertification: false, boundedFullPathEvidence: false,
+  ownerExecutedTests: Object.freeze({ tests: 1, passed: 1, failed: 0, errors: 0, skipped: 0 })
+});
 const sourcePaths = [
   'workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedSamplingProbe.java',
   'workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java'
@@ -108,6 +130,10 @@ export function checkLinkedSamplingQualification({ metadata, qualification, sour
       executionReceipt.errors !== 0 || executionReceipt.skipped !== 0 || executionReceipt.rawXmlRetained !== false) {
     fail('Actual preserved successful literal-requirement execution receipt is required');
   }
+  return checkLinkedSamplingDecisions(metadata, qualification);
+}
+
+function checkLinkedSamplingDecisions(metadata, qualification) {
   if (qualification?.schemaVersion !== 1 || qualification.certified !== false ||
       qualification.guardPolicy !== LINKED_GUARD_POLICY || qualification.guardArtifactVersion !== metadata.guardArtifactVersion ||
       qualification.extensionSha256 !== metadata.extensionSha256 ||
@@ -192,6 +218,7 @@ export function checkLinkedSamplingQualification({ metadata, qualification, sour
 
 export async function loadPreservedLinkedSamplingQualification(metadata) {
   metadata = snapshotQualificationMetadata(metadata);
+  if (metadata.qualificationKind === 'current-source-sampler-v1') return loadCurrentLinkedSamplingQualification(metadata);
   if (!metadata?.path || !metadata.executionReceiptPath || !HASH.test(metadata.executionReceiptSha256 ?? '')) {
     fail('Preserved qualification and execution paths are missing');
   }
@@ -223,6 +250,141 @@ export async function loadPreservedLinkedSamplingQualification(metadata) {
   }
   const capability = Object.freeze(Object.create(null));
   receipts.set(capability, immutableReceiptMetadata({ ...summary, checkerOnly: false,
+    metadata, metadataSha256: nativeEvidenceHash(metadata), actualAzureAuthority: false }));
+  return capability;
+}
+
+function sourceInventory(values, label) {
+  if (!Array.isArray(values) || !values.length) fail(`Missing ${label} inventory`);
+  const seen = new Set();
+  for (const value of values) {
+    let name;
+    try { name = relativeFile(value?.path); } catch { fail(`Unsafe ${label} path`); }
+    if (seen.has(name) || !HASH.test(value.sha256 ?? '')) fail(`Invalid/duplicate ${label} input`);
+    seen.add(name);
+  }
+  return seen;
+}
+
+export function checkCurrentLinkedSamplingQualification({
+  metadata, qualification, sourceBuild, executionReceipt, sourcesBefore, sourcesAfter, compiledClasses, runtimeDependencies
+}) {
+  metadata = snapshotQualificationMetadata(metadata);
+  const tests = metadata.ownerExecutedTests;
+  if (metadata.qualificationKind !== 'current-source-sampler-v1' || metadata.ownerRole !== 'R4' ||
+      typeof metadata.ownerAgentId !== 'string' || metadata.sourceAcceptanceIsCertification !== false ||
+      metadata.boundedFullPathEvidence !== false || metadata.guardPolicy !== LINKED_GUARD_POLICY ||
+      !HASH.test(metadata.sha256 ?? '') || !HASH.test(metadata.extensionSha256 ?? '') ||
+      tests?.tests !== 1 || tests.passed !== 1 || tests.failed !== 0 || tests.errors !== 0 || tests.skipped !== 0) {
+    fail('Exact R4 current-source owner, policy and actual successful assertion counts required');
+  }
+  const before = sourceInventory(sourcesBefore, 'source-before');
+  sourceInventory(sourcesAfter, 'source-after');
+  const compiled = sourceInventory(compiledClasses, 'compiled-class');
+  if (currentRequiredSources.some(file => !before.has(relativeFile(file))) ||
+      currentRequiredSources.filter(file => file.includes('\\src\\main\\java\\')).some(file =>
+        !compiled.has(relativeFile(file.replace('\\src\\main\\java\\', '\\target\\classes\\').replace(/\.java$/, '.class')))) ||
+      nativeEvidenceHash(sourcesBefore) !== nativeEvidenceHash(sourcesAfter)) {
+    fail('Current guard/provider/test inputs are incomplete or changed during execution');
+  }
+  if (sourceBuild?.schema !== 'contoso.current-sampler-source-build.v1' || sourceBuild.ownerRole !== 'R4' ||
+      sourceBuild.ownerAgentId !== metadata.ownerAgentId || sourceBuild.sourcesStable !== true ||
+      sourceBuild.sourceAcceptanceIsCertification !== false || sourceBuild.azureOrNativeProductAcceptance !== false ||
+      sourceBuild.completeMatrixVerified !== false || sourceBuild.sourceCount !== sourcesBefore.length ||
+      sourceBuild.cleanSamplerSourceFiles !== 4 || sourceBuild.compiledClassAndResourceFiles !== compiledClasses.length ||
+      sourceBuild.extensionSha256 !== metadata.extensionSha256 || sourceBuild.qualificationSha256 !== metadata.sha256 ||
+      !HASH.test(sourceBuild.agentSha256 ?? '') || !HASH.test(sourceBuild.javaExecutableSha256 ?? '') ||
+      sourceBuild.mavenVersion !== '3.10.0' ||
+      ['sourcesBeforeSha256', 'sourcesAfterSha256', 'compiledClassesSha256', 'runtimeDependenciesSha256',
+        'samplerBuildLogSha256', 'executionReceiptSha256'].some(field => !HASH.test(sourceBuild[field] ?? '')) ||
+      sourceBuild.sourcesBeforeSha256 !== sourceBuild.sourcesAfterSha256) {
+    fail('Actual clean current-source build and executable/artifact identities required');
+  }
+  if (!Array.isArray(runtimeDependencies) || !runtimeDependencies.length ||
+      runtimeDependencies.length !== sourceBuild.runtimeDependencyJars ||
+      runtimeDependencies.some(value => typeof value.path !== 'string' || !HASH.test(value.sha256 ?? '')) ||
+      new Set(runtimeDependencies.map(value => value.path)).size !== runtimeDependencies.length) {
+    fail('Exact executed dependency JAR identities required');
+  }
+  if (executionReceipt?.schema !== 'contoso.local-junit-execution.v2' || executionReceipt.ownerRole !== 'R4' ||
+      executionReceipt.ownerAgentId !== metadata.ownerAgentId || executionReceipt.qualificationSha256 !== metadata.sha256 ||
+      executionReceipt.sourceAcceptanceIsCertification !== false || !HASH.test(executionReceipt.originalXmlSha256 ?? '') ||
+      executionReceipt.testSuite !== 'com.contoso.messaging.LinkedRootSamplingTest' ||
+      executionReceipt.testClass !== executionReceipt.testSuite ||
+      executionReceipt.testMethod !== 'keepRequired00RootsUnsampledAndDelegate01MixedAndUnlinkedToExistingProvider' ||
+      executionReceipt.tests !== 1 || executionReceipt.passed !== 1 || executionReceipt.failed !== 0 ||
+      executionReceipt.errors !== 0 || executionReceipt.skipped !== 0 || executionReceipt.rawXmlRetained !== false ||
+      !/^25\./.test(executionReceipt.javaVersion ?? '') || executionReceipt.javaVendor !== 'Eclipse Adoptium' ||
+      !HASH.test(executionReceipt.logSha256 ?? '') || !Number.isFinite(executionReceipt.seconds) ||
+      executionReceipt.seconds <= 0 ||
+      !executionReceipt.command?.includes('-Dtest=LinkedRootSamplingTest') ||
+      !executionReceipt.command?.includes('clean test')) {
+    fail('Exact actually executed current R4 JUnit, command and runtime receipt required');
+  }
+  const summary = checkLinkedSamplingDecisions(metadata, qualification);
+  const children = qualification.observations.flatMap((phase, index) => {
+    if (!Array.isArray(phase.nativeChildren) || phase.nativeChildren.length !== [2, 2, 1][index]) {
+      fail('Five actual producer/consumer child executions required');
+    }
+    return phase.nativeChildren;
+  });
+  if (new Set(children.map(child => child.pid)).size !== 5 || children.some(child =>
+    !Number.isSafeInteger(child.pid) || child.pid < 1 || child.exitCode !== 0 ||
+    !['produce', 'consume'].includes(child.phase) ||
+    !Number.isFinite(Date.parse(child.startedAtUtc)) || !Number.isFinite(Date.parse(child.endedAtUtc)) ||
+    Date.parse(child.endedAtUtc) <= Date.parse(child.startedAtUtc))) {
+    fail('Actual successful, distinct, time-bounded producer/consumer processes required');
+  }
+  return immutableReceiptMetadata({ ...summary, ownerRole: 'R4', sourceExecutionBinding: 'UNVERIFIED_CHECKER_ONLY',
+    sourceAcceptanceIsCertification: false, actualAzureAuthority: false });
+}
+
+export async function loadCurrentLinkedSamplingQualification(metadata = CURRENT_LINKED_SAMPLING_METADATA) {
+  metadata = snapshotQualificationMetadata(metadata);
+  const witnessed = currentWitnessedExecutions.get(metadata.sha256);
+  if (!witnessed || metadata.path !== witnessed.path || metadata.ownerAgentId !== witnessed.ownerAgentId) {
+    fail('No independently witnessed current-source execution enrollment; caller JSON cannot grant success');
+  }
+  const directory = path.join(projectRoot, path.dirname(metadata.path));
+  const manifestBytes = await readBoundFile('manifest.json', directory);
+  if (sha256(manifestBytes) !== witnessed.manifestSha256) fail('Witnessed current-source manifest changed');
+  await verifyManifest(directory);
+  const load = async file => JSON.parse((await readBoundFile(file, directory)).toString('utf8'));
+  const qualificationBytes = await readBoundFile('qualification.json', directory);
+  if (sha256(qualificationBytes) !== metadata.sha256) fail('Witnessed current qualification changed');
+  const sourceBuild = await load('source-build.json'), executionReceipt = await load('execution-receipt.json');
+  const sourcesBefore = await load('sources-before.json'), sourcesAfter = await load('sources-after.json');
+  const compiledClasses = await load('compiled-classes.json'), runtimeDependencies = await load('runtime-dependencies.json');
+  for (const [file, field] of [
+    ['sources-before.json', 'sourcesBeforeSha256'], ['sources-after.json', 'sourcesAfterSha256'],
+    ['compiled-classes.json', 'compiledClassesSha256'], ['runtime-dependencies.json', 'runtimeDependenciesSha256'],
+    ['sampler-build.log', 'samplerBuildLogSha256'], ['execution-receipt.json', 'executionReceiptSha256']
+  ]) {
+    if (sha256(await readBoundFile(file, directory)) !== sourceBuild[field]) fail('Witnessed source/build execution file changed');
+  }
+  if (sha256(await readBoundFile('selected-test.log', directory)) !== executionReceipt.logSha256) {
+    fail('Witnessed actual JUnit stdout changed');
+  }
+  const summary = checkCurrentLinkedSamplingQualification({ metadata, qualification: JSON.parse(qualificationBytes),
+    sourceBuild, executionReceipt, sourcesBefore, sourcesAfter, compiledClasses, runtimeDependencies });
+  for (const source of [...sourcesBefore, ...compiledClasses]) {
+    if (sha256(await readBoundFile(source.path)) !== source.sha256) fail('Current source or compiled class changed; qualification is UNVERIFIED');
+  }
+  for (const dependency of runtimeDependencies) {
+    const relative = path.relative(projectRoot, dependency.path);
+    if (sha256(await readBoundFile(relative)) !== dependency.sha256) fail('Executed dependency bytes changed; qualification is UNVERIFIED');
+  }
+  const lock = JSON.parse((await readBoundFile('config\\versions.lock.json')).toString('utf8'));
+  const extension = lock.extensions?.filter(value => value.module === 'extensions/parent-safe-sampler');
+  if (lock.agent.sha256 !== sourceBuild.agentSha256 || extension?.length !== 1 ||
+      extension[0].sha256 !== metadata.extensionSha256 || extension[0].version !== metadata.guardArtifactVersion ||
+      extension[0].guardPolicy !== LINKED_GUARD_POLICY ||
+      sha256(await readBoundFile(path.join(extension[0].module, extension[0].file))) !== metadata.extensionSha256) {
+    fail('Locked current agent/extension identity changed; qualification is UNVERIFIED');
+  }
+  const capability = Object.freeze(Object.create(null));
+  receipts.set(capability, immutableReceiptMetadata({ ...summary, checkerOnly: false,
+    sourceExecutionBinding: 'WITNESSED_CLEAN_SOURCE_BUILD_LISTED_INPUTS_VERIFIED',
     metadata, metadataSha256: nativeEvidenceHash(metadata), actualAzureAuthority: false }));
   return capability;
 }

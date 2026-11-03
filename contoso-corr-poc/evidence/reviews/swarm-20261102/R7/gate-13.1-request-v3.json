@@ -1,0 +1,31 @@
+{
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R9",
+  "childIds": ["GATE-13.1"],
+  "sourcePaths": [
+    "docs\\DEMO_RUNBOOK.md",
+    "evidence\\java-local\\source-builds\\20261101T182202080Z-client-security-652c7229-6b6a-4dae-85a5-575eeee113cd\\source-build.json",
+    "services\\security-core\\docs\\av23-java-client-output-parent-20261101T182444029Z.json",
+    "services\\security-core\\docs\\native-client-source-freeze.v1.json",
+    "tests\\verification\\security-client-qualification.test.mjs",
+    "tools\\observability\\raw-query.mjs",
+    "tools\\observability\\sampler-native-intake.mjs",
+    "tools\\observability\\telemetry-contract.mjs",
+    "tools\\security\\av23-check.mjs",
+    "tools\\security\\native-payload.mjs",
+    "tools\\security\\values.mjs",
+    "tools\\verification\\conditional-observer.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\invariants.mjs",
+    "tools\\verification\\observers.mjs",
+    "tools\\verification\\run-focused.mjs",
+    "tools\\verification\\sampling-qualification.mjs",
+    "tools\\verification\\security-client-qualification.mjs",
+    "tools\\verification\\trust-roots.mjs"
+  ],
+  "testFiles": ["tests\\verification\\security-client-qualification.test.mjs"],
+  "positiveTests": ["security tool selection requires the named environment prerequisite and honors an explicit spaced root"],
+  "negativeTests": ["actual security qualification CLI fails explicitly when the tools-root variable is unset"],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R7\\gate-13.1-review-v3"
+}

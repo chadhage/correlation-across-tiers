@@ -1,0 +1,109 @@
+{
+  "schema": "contoso.r8-source-assessment.v1",
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "childId": "DAT-01.3",
+  "result": "ACCEPTED_EXACT_SOURCE_UNIT_ONLY_REAL_PG_NOT_EXECUTED",
+  "childStatus": "To Do",
+  "findings": [],
+  "formalReviewPath": "receipt\\review.json",
+  "formalReviewSha256": "cfd0b5345c24356fa59783dfa52067eaef56b6d95d57aba24d0bc17a3d0b4b22",
+  "sourceScopeSha256": "bc10fa94d99bd92ef5ecf0df2a5e595887f1e827aee7cf1c310878d608cedf30",
+  "formalSourcesStable": true,
+  "finalObservedSources": [
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+      "sha256": "1b869e2912f1aa9b543fc8ea5c2212b9eb8ea311a614ad07e8d4d0756d26bd8c"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+      "sha256": "f64a62cffdd48ab2e8a884777aa036e1f35e17ccf90001819f3dd5dd34130367"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+      "sha256": "934ea2c975de916f489c813d02d8982be37ef66ca8e1e9409dee4ae232f72017"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+      "sha256": "dfac955f26ced6890670fa38c32f64881a4d6774e80a003fc97a0a3b2fcc7923"
+    },
+    {
+      "path": "tools\\data\\LocalPostgresLane.md",
+      "sha256": "c3ecb5a58a06578d8b2eb5c591a0f8127be8562cef198da1478d7472bfa2448e"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+      "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+      "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+      "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    }
+  ],
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.3-v1-20261102\\request.json",
+    "nodeVersion": "v22.23.4",
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "javaTestsRunByR8": 0,
+    "realPostgresTestsRun": 0,
+    "networkConnectionsByR8": 0
+  },
+  "sourceFindings": [
+    "Production inventory grants now reuse the bounded package-private SQL helper. Existing permit, endpoint, database, locked-marker and runtime principal guards retain their ordering.",
+    "Only the inventory role gets marker UPDATE(singleton), after marker REVOKE ALL. Workflow common grants remain SELECT-only and no production DDL/adapter was changed.",
+    "V001 retains BOOLEAN singleton PRIMARY KEY with CHECK TRUE; marker provenance fields receive no UPDATE grant. Shared helper rejects reserved and injected role identifiers.",
+    "The unexecuted real lane seeds prior broad and direct-column grants only in newly created run-owned state, reapplies the production SQL, checks effective rights, expects exact42501 for zero-row denied operations,23514 for FALSE and23502 for NULL, and checks marker/witness preservation.",
+    "Real lane target is numeric loopback/PostgreSQL18 only. Existing database/role names are refused, live creation flags bound cleanup, and no force drop/CASCADE/backend termination is used.",
+    "Local SET ROLE and always-miss PostgresOnlyCache are explicitly not Entra or Redis proof; the real lane is named outside default Surefire Test patterns."
+  ],
+  "sourcePolicyMutationControls": [
+    "Injected H2/RESP/proxy substitutes and missing PostgreSQL product check rejected",
+    "Removal of marker PRIMARY KEY or CHECK rejected by source controls",
+    "No workflow UPDATE grant accepted by source controls"
+  ],
+  "verifiedOfficialSources": [
+    {
+      "url": "https://www.postgresql.org/docs/18/sql-select.html",
+      "scope": "Row-locking SELECT requires UPDATE privilege on at least one selected-table column."
+    },
+    {
+      "url": "https://www.postgresql.org/docs/18/sql-revoke.html",
+      "scope": "Table-level revocation also clears corresponding column rights; membership/PUBLIC privileges remain additive."
+    }
+  ],
+  "correctionToPreliminaryFeedback": "R8 initially suggested distinct column revocation was additionally required. Official PostgreSQL18 REVOKE documentation disproves that; the comment was explicitly retracted before final review. No extra column revoke is required beyond marker REVOKE ALL.",
+  "remainingPrerequisites": [
+    "R4-exclusive Java compilation and default-safe LocalPostgresLaneContractTest,InventoryGrantMarkerTest,WorkflowGrantPolicyTest results",
+    "An independently approved existing local PostgreSQL18 target and operator-supplied local administrator/explicit port/run inputs",
+    "Actual LocalPostgresLane execution with exact SQLSTATE/effective-privilege/witness/cleanup evidence and two independent current reviews",
+    "Azure/Entra/private-network/TLS/provider/collector/native data-client qualification remains separate and unproven"
+  ],
+  "cleanup": "R8 started no Java/Maven/PostgreSQL/server/helper/network process; focused Node source tests finished and only unique R8 review output was written.",
+  "sourceEditsByReviewer": false,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "capturedAtUtc": "2026-11-02T22:15:37.063Z"
+}

@@ -1,10 +1,55 @@
 import { readFile, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ignored = new Set(['node_modules', 'target', 'dist', 'tests', 'evidence', 'eval', 'evaluation', '.git', '.azure', '.cache', '.java-work', 'deployment-artifact', 'test-results', 'playwright-report']);
+const ignored = new Set(['node_modules', 'target', 'dist', 'tests', 'evidence', 'eval', 'evaluation', '.git', '.azure', '.cache', '.tools', '.java-work', 'deployment-artifact', 'test-results', 'playwright-report']);
 const sourceExtensions = new Set(['.bicep', '.bicepparam', '.json', '.xml', '.yml', '.yaml', '.java', '.ts', '.js', '.mjs', '.sh', '.ps1', '.csproj']);
+const prerelease = /-(?:alpha|beta|preview|rc)(?:[.-]|$)/i;
+
+export function validatePortalNodeClassification(manifest, lockBytes, classification) {
+  const lock = JSON.parse(lockBytes.toString('utf8'));
+  const resolved = Object.entries(lock.packages ?? {}).filter(([, item]) => prerelease.test(item.version ?? ''));
+  if (!classification || classification.scope !== 'PUBLIC_OFFICIAL_SOURCE_CLASSIFICATION_ONLY' ||
+      classification.sourceAcceptanceIsCertification !== false ||
+      classification.packageLock?.path !== 'web\\portal-ssr\\package-lock.json' ||
+      classification.packageLock.sha256 !== createHash('sha256').update(lockBytes).digest('hex') ||
+      !Array.isArray(classification.packages) || classification.packages.length !== resolved.length ||
+      !resolved.length) throw new Error('Portal prerelease classification missing or lock/source drift');
+  const seen = new Set();
+  for (const [location, item] of resolved) {
+    const packageName = location.split('node_modules/').at(-1);
+    const observation = classification.packages.find(value => value.lockLocation === location);
+    const components = manifest.components.filter(value => value.packageName === packageName);
+    if (!observation || seen.has(observation.lockLocation) || components.length !== 1) {
+      throw new Error(`Missing/duplicate Portal prerelease classification: ${packageName}`);
+    }
+    seen.add(observation.lockLocation);
+    const component = components[0];
+    let officialRelease = false;
+    try {
+      const url = new URL(observation.officialReleaseSource);
+      officialRelease = url.protocol === 'https:' && url.hostname === 'github.com' && !url.username && !url.password &&
+        url.pathname.startsWith('/Azure/azure-sdk-for-js/blob/') &&
+        decodeURIComponent(url.pathname).includes(`${packageName}_${item.version}/`) &&
+        url.pathname.endsWith('/CHANGELOG.md');
+    } catch { /* Invalid public source remains unverified. */ }
+    if (!officialRelease || observation.version !== item.version || observation.packageName !== packageName ||
+        observation.releaseHeading !== `## ${item.version} (${observation.releasedOn})` ||
+        !/^\d{4}-\d{2}-\d{2}$/.test(observation.releasedOn ?? '') ||
+        component.version !== item.version || component.classificationSource !== observation.officialReleaseSource ||
+        [component, observation].some(value => value.releaseClassification !== 'BETA_PRERELEASE' ||
+          value.supportStatus !== 'UNVERIFIED') || component.status !== 'UNVERIFIED' ||
+        observation.vendorGaVerified !== false || observation.deployedValueVerified !== false ||
+        observation.runtimeCompatibilityVerified !== false ||
+        observation.policySource !== 'https://azure.github.io/azure-sdk/policies_support.html') {
+      throw new Error(`Portal beta cannot inherit GA/support/deployment clearance: ${packageName}`);
+    }
+  }
+  return { result: 'PASS', scope: classification.scope, classifiedPrereleases: resolved.length,
+    sourceAcceptanceIsCertification: false, certificationDependenciesVerified: false };
+}
 
 export function checkCertificationSource(name, text) {
   const findings = [];
@@ -30,6 +75,9 @@ export function validateCertificationManifest(manifest) {
   for (const component of manifest.components) {
     if (!component.id || ids.has(component.id)) throw new Error('Duplicate/missing certification component');
     ids.add(component.id);
+    if (component.status === 'GA' && prerelease.test(component.version ?? '')) {
+      throw new Error(`Prerelease cannot be GA: ${component.id}`);
+    }
     if (!['GA', 'Contoso-owned'].includes(component.status)) throw new Error(`Preview/unknown dependency: ${component.id}`);
     if (!component.source) throw new Error(`Missing dependency source: ${component.id}`);
     if (component.status === 'GA') {

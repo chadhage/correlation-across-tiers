@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: finite USED scope permits logical sends fewer than actual 503 wire attempts
+ok 1 - finite USED scope permits logical sends fewer than actual 503 wire attempts
+  ---
+  duration_ms: 2.1891
+  type: 'test'
+  ...
+# Subtest: R2 missing clients/send-zero counter cannot qualify identity-used scope
+ok 2 - R2 missing clients/send-zero counter cannot qualify identity-used scope
+  ---
+  duration_ms: 0.4111
+  type: 'test'
+  ...
+# Subtest: old package, class-resource, creation-only or different original child all fail
+ok 3 - old package, class-resource, creation-only or different original child all fail
+  ---
+  duration_ms: 0.8323
+  type: 'test'
+  ...
+# Subtest: JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+ok 4 - JAR member hash is derived from exact bytes, missing/truncated archive fails closed
+  ---
+  duration_ms: 2.0099
+  type: 'test'
+  ...
+# Subtest: user-selected header isolation preserves raw native negative-control observations
+ok 5 - user-selected header isolation preserves raw native negative-control observations
+  ---
+  duration_ms: 0.8898
+  type: 'test'
+  ...
+# Subtest: empty identity receipts or silently greened raw control never pass
+ok 6 - empty identity receipts or silently greened raw control never pass
+  ---
+  duration_ms: 2.9969
+  type: 'test'
+  ...
+# Subtest: AV-23 Java probes have no user-profile or session-folder defaults
+ok 7 - AV-23 Java probes have no user-profile or session-folder defaults
+  ---
+  duration_ms: 2.4143
+  type: 'test'
+  ...
+# Subtest: missing portable root fails explicitly before artifact reads or shared build writes
+ok 8 - missing portable root fails explicitly before artifact reads or shared build writes
+  ---
+  duration_ms: 493.5
+  type: 'test'
+  ...
+# Subtest: empty or whitespace portable roots cannot select a fallback
+ok 9 - empty or whitespace portable roots cannot select a fallback
+  ---
+  duration_ms: 1551.8292
+  type: 'test'
+  ...
+# Subtest: explicit portable root reaches the unchanged pinned-agent hash rejection
+ok 10 - explicit portable root reaches the unchanged pinned-agent hash rejection
+  ---
+  duration_ms: 506.0387
+  type: 'test'
+  ...
+# Subtest: explicit agent override still cannot bypass its pinned hash
+ok 11 - explicit agent override still cannot bypass its pinned hash
+  ---
+  duration_ms: 338.0739
+  type: 'test'
+  ...
+# Subtest: agent extension and SDK hash preflight segments remain byte-identical after root removal
+ok 12 - agent extension and SDK hash preflight segments remain byte-identical after root removal
+  ---
+  duration_ms: 1.2134
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3079.1462

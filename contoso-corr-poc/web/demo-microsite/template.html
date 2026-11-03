@@ -70,7 +70,7 @@
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
     html { scroll-padding-top: 100px; scrollbar-gutter: stable; }
-    html.navigation-open { overflow: hidden; }
+    html.navigation-open, html.welcome-open { overflow: hidden; }
     body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font: 16px/1.6 "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; }
     button, input, select { font: inherit; }
     button, a, input, select, [tabindex] { -webkit-tap-highlight-color: var(--cp-highlight); }
@@ -246,6 +246,29 @@
     dialog::backdrop { background: var(--cp-overlay); }
     .dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 24px; }
     .dialog-header h2 { margin: 0; font-size: 1.5rem; }
+    .welcome-dialog { width: min(960px, calc(100% - 32px)); padding: 0; overflow: hidden; }
+    .welcome-dialog[open] { display: flex; flex-direction: column; }
+    .welcome-dialog .dialog-header { flex-shrink: 0; align-items: flex-start; margin: 0; padding: 24px 28px; border-bottom: 1px solid var(--cp-border); }
+    .welcome-dialog .dialog-header .eyebrow { margin-bottom: 8px; }
+    .welcome-content { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 24px 28px; }
+    .welcome-summary { max-width: 72ch; color: var(--cp-text-muted); }
+    .welcome-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .welcome-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+    .welcome-wide { grid-column: 1 / -1; }
+    .welcome-section { min-width: 0; }
+    .welcome-section .eyebrow { margin-bottom: 8px; font-size: 0.62rem; color: var(--cp-accent); }
+    .welcome-section h3 { margin-bottom: 12px; }
+    .welcome-section p, .welcome-section li { font-size: 0.88rem; color: var(--cp-text-muted); }
+    .welcome-section p:last-child { margin-bottom: 0; }
+    .welcome-section ul, .welcome-section ol { padding-left: 20px; }
+    .welcome-section li + li { margin-top: 8px; }
+    .welcome-section strong { color: var(--cp-text); font-weight: 600; }
+    .welcome-section .welcome-scenarios, .welcome-section .welcome-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; list-style: none; padding: 0; margin-bottom: 0; }
+    .welcome-scenarios li + li, .welcome-sources li + li { margin-top: 0; }
+    .welcome-scenarios a { display: flex; align-items: baseline; gap: 12px; padding: 8px 12px; border: 1px solid var(--cp-border); border-radius: 10px; text-decoration: none; }
+    .welcome-scenarios a:hover { border-color: var(--cp-accent); background: var(--cp-accent-soft); }
+    .welcome-scenarios .mono { font-size: 0.75rem; }
+    .welcome-footer { flex-shrink: 0; justify-content: space-between; padding: 20px 28px; border-top: 1px solid var(--cp-border); }
     .field { margin-top: 20px; }
     .field p { margin: 6px 0 0; font-size: 0.72rem; color: var(--cp-text-muted); }
     .dialog-actions { margin-top: 28px; justify-content: space-between; }
@@ -277,6 +300,7 @@
       .evidence-cards, .operations-grid, .evidence-notes { grid-template-columns: 1fr; }
       .evidence-metric { font-size: 2.4rem; }
       .evidence-notes { gap: 8px; }
+      .welcome-grid, .welcome-section .welcome-scenarios, .welcome-section .welcome-sources { grid-template-columns: 1fr; }
       section.chapter { padding-top: 48px; }
     }
     @media (max-width: 420px) {
@@ -290,10 +314,12 @@
       .demo-detail, .operation-card, .launch-panel { padding: 20px; }
       .graph-toolbar { padding: 16px; }
       dialog { padding: 20px; }
+      .welcome-dialog { padding: 0; }
+      .welcome-dialog .dialog-header, .welcome-content, .welcome-footer { padding: 20px; }
     }
     @media print {
-      .topbar, .navigation-drawer, .demo-pagination, .graph-shortcuts, .launch-panel, .skip-link { display: none; }
-      html.navigation-open { overflow: visible; }
+      .topbar, .navigation-drawer, .welcome-dialog[open], .demo-pagination, .graph-shortcuts, .launch-panel, .skip-link { display: none; }
+      html.navigation-open, html.welcome-open { overflow: visible; }
       .container { width: 100%; }
       .hero { padding-top: 0; }
       .demo-list { max-height: none; }
@@ -502,6 +528,82 @@ npm run verify:register</code></pre>
     </div>
   </footer>
 
+  <dialog id="welcome-dialog" class="welcome-dialog" aria-labelledby="welcome-title" aria-describedby="welcome-summary">
+    <div class="dialog-header">
+      <div><p class="eyebrow">START HERE / REPOSITORY GUIDE</p><h2 id="welcome-title">Start with the context.</h2></div>
+      <button class="button compact" type="button" data-close-dialog="welcome-dialog" aria-label="Close site guide" autofocus>Close</button>
+    </div>
+    <div id="welcome-content" class="welcome-content" tabindex="0" role="region" aria-label="Site guide">
+      <p id="welcome-summary" class="welcome-summary">A short orientation to the Contoso correlation POC: why it exists, what to inspect, and how to move from the first request to the harder cases.</p>
+      <div class="welcome-tags"><span class="tag">Read-only source snapshot</span><span class="tag accent">NOT CERTIFIED</span></div>
+      <div class="welcome-grid">
+        <section class="welcome-section" aria-labelledby="welcome-purpose">
+          <p class="eyebrow">01 / PURPOSE</p><h3 id="welcome-purpose">Why this exists.</h3>
+          <p>A request can cross a browser, gateway, Java services, data clients and message-driven workers. A shared trace ID alone does not explain that journey. This repository makes the expected propagation, span relationships and trust rules explicit; this site makes those contracts easier to inspect and discuss.</p>
+          <p>Use the <a href="#topology">expected relationships</a> to ask where context should continue, branch or start again, rather than treating a plausible diagram as proof.</p>
+        </section>
+        <section class="welcome-section" aria-labelledby="welcome-overview">
+          <p class="eyebrow">02 / CONTENTS</p><h3 id="welcome-overview">What you will find.</h3>
+          <p>Explore <a href="#walkthrough">{{DEMO_COUNT}} cataloged scenarios</a>, boundary graphs, sequence diagrams and a shared contract inspector. Alongside them are <a href="#evidence">recorded local results and receipt checks</a>, embedded source documents, and <a href="#operations">manual run, reset and KQL templates</a>.</p>
+          <p>The diagrams describe source-defined expectations, not a live trace capture. Browsing does not emit traffic or query telemetry.</p>
+        </section>
+        <section class="welcome-section welcome-wide" aria-labelledby="welcome-audience">
+          <p class="eyebrow">03 / AUDIENCE</p><h3 id="welcome-audience">Who this is for.</h3>
+          <p>Application and platform engineers wiring propagation; architects and SREs reviewing asynchronous behavior; and reviewers tracing a claim back to evidence. Some familiarity with HTTP and spans helps, but no deployed environment or sign-in is needed to read the walkthrough. The <a href="#topology">boundary inspector</a> connects each selected operation to its role, kind and declared relationships.</p>
+        </section>
+        <section class="welcome-section welcome-wide" aria-labelledby="welcome-workflow">
+          <p class="eyebrow">04 / GETTING STARTED</p><h3 id="welcome-workflow">Start with one request. Then repeat.</h3>
+          <p>Begin with <a href="#demo-01">Demo 01, the synchronous golden path</a>, to follow browser-to-data continuity. For every scenario after that, keep the same inspection routine:</p>
+          <ol>
+            <li><strong>Read the intent.</strong> Check the purpose, acceptance criteria, expected boundaries and any separate owner action in the <a href="#walkthrough">scenario detail</a>. Open <strong>Read scenario source</strong> for its full instructions.</li>
+            <li><strong>Inspect both views.</strong> In <a href="#topology">Topology</a>, switch between the boundary graph and sequence diagram. Select a boundary or row; compare parents, links and root rules with its contract.</li>
+            <li><strong>Check what was actually recorded.</strong> Read the <a href="#evidence">evidence scope and receipt status</a>. A historical local result is not a new execution or full-path acceptance.</li>
+            <li><strong>Execute only when separately authorized.</strong> Review <a href="#operations">Operations</a> and the presenter runbook before using any template. Native runs require approved adapters, reviewed inputs and a run-owned baseline; reset and restoration are part of the procedure.</li>
+            <li><strong>Move to the next question.</strong> Use search, filters, Previous or Next, or choose any scenario below. Repeat the same review rather than assuming a previous scenario's result carries forward.</li>
+          </ol>
+          <p><strong>Every scenario, from the current catalog:</strong></p>
+          <ol id="welcome-scenarios" class="welcome-scenarios" aria-label="Jump to a scenario"></ol>
+        </section>
+        <section class="welcome-section" aria-labelledby="welcome-observations">
+          <p class="eyebrow">05 / OBSERVATIONS</p><h3 id="welcome-observations">Patterns worth noticing.</h3>
+          <p>The interesting cases are where a simple chain stops being an honest description:</p>
+          <ul>
+            <li><a href="#demo-08">Fan-in</a> and <a href="#demo-09">mixed-context batches</a> retain contributor links instead of inventing one convenient parent.</li>
+            <li><a href="#demo-06">Retries</a> represent separate attempts; <a href="#demo-07">dead-letter replay</a> has its own declared root and link rules.</li>
+            <li><a href="#demo-12">PostgreSQL and Redis operations</a> are logical CLIENT spans, not invented database server continuations.</li>
+            <li>Sequence order follows declared dependencies, not measured durations, concurrency or delivery counts. Compare both views in <a href="#topology">Topology</a>.</li>
+          </ul>
+        </section>
+        <section class="welcome-section" aria-labelledby="welcome-considerations">
+          <p class="eyebrow">06 / CONSIDERATIONS</p><h3 id="welcome-considerations">Keep the scope attached.</h3>
+          <p><strong>NOT CERTIFIED</strong> is a boundary on the claims, not a decorative label. Local records and matching digests do not establish current runtime parity, Azure full-path acceptance, global privacy or zero loss.</p>
+          <ul>
+            <li>Investigate missing or changed receipts before relying on <a href="#evidence">recorded evidence</a>.</li>
+            <li>Fault injection, native traffic, authentication changes and reset need separate authorization. Never purge shared queues or unowned messages; review <a href="#operations">the operating procedure</a>.</li>
+            <li>Optional environment URLs are launch links, not health checks. Keep credentials and tokens out of settings and URLs.</li>
+          </ul>
+        </section>
+        <section class="welcome-section welcome-wide" aria-labelledby="welcome-references">
+          <p class="eyebrow">07 / REFERENCES AND SOURCES</p><h3 id="welcome-references">Go back to the source.</h3>
+          <p>These open the site's embedded, build-time source snapshots. Repository-relative paths and SHA-256 digests remain visible; the verification register is an explicitly labeled excerpt. They document the snapshot, not an automatic attestation of a running environment.</p>
+          <ul class="welcome-sources">
+            <li><button class="text-button" type="button" data-source="docs\ARCHITECTURE.md" aria-haspopup="dialog" aria-controls="source-dialog">Architecture notes</button></li>
+            <li><button class="text-button" type="button" data-source="contracts\expected-boundary-map.v1.json" aria-haspopup="dialog" aria-controls="source-dialog">Exact boundary map</button></li>
+            <li><button class="text-button" type="button" data-source="demos\catalog.json" aria-haspopup="dialog" aria-controls="source-dialog">Scenario catalog</button></li>
+            <li><button class="text-button" type="button" data-source="docs\DEMO_RUNBOOK.md" aria-haspopup="dialog" aria-controls="source-dialog">Presenter and operations runbook</button></li>
+            <li><button class="text-button" type="button" data-source="config\verification-register.v1.json" aria-haspopup="dialog" aria-controls="source-dialog">Verification register (selected fields)</button></li>
+            <li><button class="text-button" type="button" data-source="docs\CERTIFICATION_REPORT.md" aria-haspopup="dialog" aria-controls="source-dialog">Certification report</button></li>
+            <li><button class="text-button" type="button" data-source="docs\RESIDUAL_LIMITATIONS.md" aria-haspopup="dialog" aria-controls="source-dialog">Residual limitations</button></li>
+            <li><button class="text-button" type="button" data-source="kql\README.md" aria-haspopup="dialog" aria-controls="source-dialog">KQL procedure contracts</button></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <div class="actions welcome-footer">
+      <a class="button primary" href="#demo-01">Start with Demo 01 <span aria-hidden="true">&nbsp;&rarr;</span></a>
+      <button class="button" type="button" data-close-dialog="welcome-dialog">Continue exploring</button>
+    </div>
+  </dialog>
   <dialog id="navigation-drawer" class="navigation-drawer" aria-labelledby="navigation-drawer-title">
     <div class="dialog-header"><h2 id="navigation-drawer-title">Navigation</h2><button class="button compact" type="button" data-close-dialog="navigation-drawer" aria-label="Close navigation menu" autofocus>Close</button></div>
     <nav class="drawer-nav" aria-label="Main navigation">
@@ -512,6 +614,7 @@ npm run verify:register</code></pre>
       <a href="https://github.com/chadhage/correlation-across-tiers" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub repository <span aria-hidden="true">&nearr;</span></a>
     </nav>
     <div class="drawer-utilities">
+      <button class="button" type="button" data-open-welcome aria-controls="welcome-dialog" aria-haspopup="dialog">Start here / Site guide</button>
       <button id="theme-toggle" class="button" type="button">Dark theme</button>
       <button class="button" type="button" data-open-environment>Environment settings</button>
     </div>

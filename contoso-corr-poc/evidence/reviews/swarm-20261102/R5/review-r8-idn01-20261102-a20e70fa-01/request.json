@@ -1,0 +1,35 @@
+{
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "R8",
+  "childIds": ["IDN-01.2"],
+  "sourcePaths": [
+    "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+    "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+    "tests\\security\\java-probe-tools-root.test.mjs",
+    "tests\\security\\av23-check.test.mjs",
+    "tools\\security\\av23-check.mjs",
+    "tools\\security\\values.mjs",
+    "tools\\security\\native-identity-client.mjs",
+    "tools\\observability\\telemetry-contract.mjs",
+    "config\\versions.lock.json"
+  ],
+  "testFiles": [
+    "tests\\security\\java-probe-tools-root.test.mjs",
+    "tests\\security\\av23-check.test.mjs"
+  ],
+  "positiveTests": [
+    "AV-23 Java probes have no user-profile or session-folder defaults",
+    "agent extension and SDK hash preflight segments remain byte-identical after root removal",
+    "finite USED scope permits logical sends fewer than actual 503 wire attempts"
+  ],
+  "negativeTests": [
+    "missing portable root fails explicitly before artifact reads or shared build writes",
+    "empty or whitespace portable roots cannot select a fallback",
+    "source guard rejects seeded Windows profile and session-folder defaults",
+    "explicit portable root reaches the unchanged pinned-agent hash rejection",
+    "explicit agent override still cannot bypass its pinned hash",
+    "JAR member hash is derived from exact bytes, missing/truncated archive fails closed"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R5\\review-r8-idn01-20261102-a20e70fa-01\\receipt"
+}

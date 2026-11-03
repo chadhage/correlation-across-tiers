@@ -1,0 +1,102 @@
+TAP version 13
+# Subtest: resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+ok 1 - resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias
+  ---
+  duration_ms: 5.9711
+  type: 'test'
+  ...
+# Subtest: resolver unit: the EXE alias and whitespace-only primary setting are supported
+ok 2 - resolver unit: the EXE alias and whitespace-only primary setting are supported
+  ---
+  duration_ms: 0.3817
+  type: 'test'
+  ...
+# Subtest: resolver unit: an unconfigured compiler is resolved from PATH
+ok 3 - resolver unit: an unconfigured compiler is resolved from PATH
+  ---
+  duration_ms: 0.1997
+  type: 'test'
+  ...
+# Subtest: resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+ok 4 - resolver unit: only an absent unconfigured compiler becomes explicitly NOT VERIFIED
+  ---
+  duration_ms: 0.3244
+  type: 'test'
+  ...
+# Subtest: resolver negative: an explicitly configured missing compiler fails without fallback
+ok 5 - resolver negative: an explicitly configured missing compiler fails without fallback
+  ---
+  duration_ms: 0.7508
+  type: 'test'
+  ...
+# Subtest: resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+ok 6 - resolver negative: permissions and timed-out probes cannot be reported as a missing prerequisite
+  ---
+  duration_ms: 0.5044
+  type: 'test'
+  ...
+# Subtest: resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+ok 7 - resolver negative: a broken compiler or non-Bicep executable fails instead of skipping
+  ---
+  duration_ms: 2.3097
+  type: 'test'
+  ...
+# Subtest: missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+not ok 8 - missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed
+  ---
+  duration_ms: 393.9401
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\messaging\\infra-tool-resolution.test.mjs:76:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /# tests 3\b/. Input:
+    
+    ''
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: ''
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/messaging/infra-tool-resolution.test.mjs:85:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: source portability guard rejects absolute user-profile and operator-session defaults
+ok 9 - source portability guard rejects absolute user-profile and operator-session defaults
+  ---
+  duration_ms: 2.4496
+  type: 'test'
+  ...
+# Subtest: real messaging ARM compiles all carriers with identity-only local auth disabled
+ok 10 - real messaging ARM compiles all carriers with identity-only local auth disabled
+  ---
+  duration_ms: 2222.9526
+  type: 'test'
+  ...
+# Subtest: CloudEvents relay uses topic identity and declares durable dead-letter destination
+ok 11 - CloudEvents relay uses topic identity and declares durable dead-letter destination
+  ---
+  duration_ms: 2474.6062
+  type: 'test'
+  ...
+# Subtest: runtime messaging permissions are fixed entity scopes, never namespace data owners
+ok 12 - runtime messaging permissions are fixed entity scopes, never namespace data owners
+  ---
+  duration_ms: 2149.5201
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8384.6667

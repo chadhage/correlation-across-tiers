@@ -1,0 +1,32 @@
+{
+  "childIds": [
+    "GATE-03.1"
+  ],
+  "authorRole": "R8",
+  "sourcePaths": [
+    "..\\.github\\workflows\\secret-scan.yml",
+    "tests\\security\\secret-scan-workflow.test.mjs",
+    "tests\\security\\repository.test.mjs",
+    "tests\\security\\fixtures.mjs",
+    "tools\\security\\repository.mjs",
+    "tools\\security\\Run-SecurityGates.ps1",
+    "tools\\security\\values.mjs",
+    "tools\\security\\identifiers.mjs",
+    "tools\\security\\telemetry.mjs",
+    "tools\\security\\telemetry-policy.v1.json"
+  ],
+  "testFiles": [
+    "tests\\security\\secret-scan-workflow.test.mjs",
+    "tests\\security\\repository.test.mjs"
+  ],
+  "positiveTests": [
+    "every PR and push scan merged full history with fork-safe read-only permissions"
+  ],
+  "negativeTests": [
+    "workflow guard rejects missing pull-request trigger",
+    "workflow guard rejects shallow checkout",
+    "workflow guard rejects worktree-only scan",
+    "actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history",
+    "seeded secret forms are detected with location/code only"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R2",
+  "childIds": ["WEB-01.1"],
+  "sourcePaths": [
+    "web\\portal-ssr\\README.md",
+    "web\\portal-ssr\\package-lock.json",
+    "web\\portal-ssr\\package.json",
+    "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+    "web\\portal-ssr\\src\\browser-adapter.ts",
+    "web\\portal-ssr\\src\\shared\\browser-api.ts",
+    "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+    "web\\portal-ssr\\src\\shared\\contracts.ts",
+    "web\\portal-ssr\\src\\shared\\deadline.ts",
+    "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+    "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+    "web\\portal-ssr\\tsconfig.json",
+    "web\\portal-ssr\\tsconfig.tests.json",
+    "web\\storefront-spa\\README.md",
+    "web\\storefront-spa\\index.html",
+    "web\\storefront-spa\\package-lock.json",
+    "web\\storefront-spa\\package.json",
+    "web\\storefront-spa\\src\\app.ts",
+    "web\\storefront-spa\\src\\style.css",
+    "web\\storefront-spa\\tsconfig.json"
+  ],
+  "testFiles": ["web\\portal-ssr\\tests\\local-rehearsal.test.mjs"],
+  "positiveTests": [
+    "LOCAL REHEARSAL forwarder preserves actual W3C carrier and body without creating a span",
+    "LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and rejects excluded-origin Fetch and XHR injection"
+  ],
+  "negativeTests": [
+    "LOCAL REHEARSAL excluded origins and unsafe CORS preflights never reach Orders",
+    "UNIT FIXTURE missing exported dependency, wrong parent, stale run and rewritten carriers fail closed",
+    "LOCAL REHEARSAL unavailable synthetic token blocks the executable driver without fabricated evidence and restores environment",
+    "LOCAL REHEARSAL source closure is immutable and cannot be weakened by a caller"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R7\\web-01.1-review-v3"
+}

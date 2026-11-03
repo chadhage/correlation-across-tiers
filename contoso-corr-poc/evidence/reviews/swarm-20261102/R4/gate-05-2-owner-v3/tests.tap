@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: every PR runs the locked serial reactor with both artifacts and fail-closed totals
+ok 1 - every PR runs the locked serial reactor with both artifacts and fail-closed totals
+  ---
+  duration_ms: 1.8648
+  type: 'test'
+  ...
+# Subtest: workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger
+ok 2 - workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger
+  ---
+  duration_ms: 5.2079
+  type: 'test'
+  ...
+# Subtest: fresh complete XML prints executed and skipped totals and covers every required agent class
+ok 3 - fresh complete XML prints executed and skipped totals and covers every required agent class
+  ---
+  duration_ms: 1208.1358
+  type: 'test'
+  ...
+# Subtest: skipped or cancelled agent assertions fail even when Maven reported zero failures
+ok 4 - skipped or cancelled agent assertions fail even when Maven reported zero failures
+  ---
+  duration_ms: 3557.1966
+  type: 'test'
+  ...
+# Subtest: missing gated testcase, incomplete counts and stale reports cannot pass silently
+ok 5 - missing gated testcase, incomplete counts and stale reports cannot pass silently
+  ---
+  duration_ms: 3470.5255
+  type: 'test'
+  ...
+# Subtest: duplicate emitted tests and DTD-bearing XML are rejected
+ok 6 - duplicate emitted tests and DTD-bearing XML are rejected
+  ---
+  duration_ms: 2622.9303
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11065.2923

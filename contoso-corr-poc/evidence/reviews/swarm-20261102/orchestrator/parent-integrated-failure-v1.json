@@ -1,0 +1,39 @@
+{
+  "schema": "contoso.parent-integrated-validation-epoch.v1",
+  "result": "FAIL",
+  "reportedAtUtc": "2026-11-03T00:05:14.745Z",
+  "executor": "Parent",
+  "loggedRunnerCommand": "node tools/run-tests.mjs --test-reporter=spec --test-concurrency=2",
+  "scope": "Configured full npm suite, not the orchestrator's focused board tests",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "counts": { "tests": 656, "passed": 649, "failed": 2, "skipped": 5, "cancelled": 0 },
+  "countsAlsoVerifiedFromPreservedLog": true,
+  "originalSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation.log",
+  "preservedSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation-failed-20261103T000437817Z.log",
+  "originalLogLastWriteUtc": "2026-11-03T00:04:37.8171831Z",
+  "logBytes": 70550,
+  "logSha256": "fa700b6b31b03c25b0dc22b7954e95ec1b6791daa1c6904773e39c596724b9d7",
+  "originalAndPreservedBytesMatchedBeforeAfterCopy": true,
+  "overwritePreservedLogOnRetry": false,
+  "failures": {
+    "testFile": "tests\\verification\\demo01-runtime.test.mjs",
+    "testStartLines": [395, 449],
+    "error": "E_SOURCE_DRIFT",
+    "adapter": "tools\\verification\\adapters\\demo01-runtime.mjs",
+    "adapterLine": 109,
+    "affectedKind": "Two positive construction-inspection tests",
+    "parentBoardRegisterAndReportChecksAtThatFreeze": "PASS"
+  },
+  "boundedCorrection": {
+    "ownerRole": "R9",
+    "ownerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+    "prospectiveOtherRoleReviewers": ["R1", "R7"],
+    "scope": "Existing Demo01 runtime inspector, explicit prospective current-source binding artifact, focused tests and directly related runbook paragraph only",
+    "newParentDispatch": false,
+    "newNativeOrEnrollmentAuthority": false,
+    "historicalPinsOrExecutionReceiptsMayBeRehashed": false,
+    "required": "Fresh positive and isolated-copy current/module/privacy/binding-drift negative checks on frozen current bytes; retain loaded/current collector and privacy guards; obtain both prospective reviews."
+  },
+  "nextAction": "After the frozen correction and two current reviews, orchestrator checks affected child evidence and refreshes board/report closure. Parent alone reruns targeted then full integrated validation; preserve this failed epoch unchanged."
+}

@@ -1,0 +1,359 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "web\\portal-ssr\\README.md",
+      "sha256": "5473ddf0bcad8511cf5ee215de02fecb12eacf400ae0444197f0fb426f61cd8c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package-lock.json",
+      "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package.json",
+      "sha256": "7de29a38d2aae04391f5015840036924b5c754d892e1b865615b41b3cb4e9e2e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+      "sha256": "f3fb69a9f1eacb6910d4bc502c43864938e05421e067006260a40f25597f9ea2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\browser-adapter.ts",
+      "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\browser-api.ts",
+      "sha256": "021419628cdbb4d2b4f775400cd3cf280c5fbbd6ee97d3e1786929d65f1384c9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+      "sha256": "54a5a4c96596a9f2cad25ad10702db731cfc0098d25517de669457f082cb472a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\contracts.ts",
+      "sha256": "044329ec034b2748af5b8306fbe38dcd6bebb401f9405ee06bfab3374b42fe0d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\deadline.ts",
+      "sha256": "d0cf380fa394706c9e4bb96d9809061188da12abd732acc9b2485b17d8381189",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+      "sha256": "9c9d1477f82bf28a71136681263f1ebf535d00a1851184bea4a0ebe8956d3f71",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+      "sha256": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tsconfig.json",
+      "sha256": "96119365a9a467d0f299869197bb67c6e04491abdc85b418cc8e294697bef7ee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tsconfig.tests.json",
+      "sha256": "ab8843a8a6fe9618caba2a728e8224a56bfc607bf39bf8d881cbf3caec60d723",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\README.md",
+      "sha256": "a0880c11f53af46d908a3a5fe04b693e5dd01eb8284d90d4aea783269016a85c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\index.html",
+      "sha256": "fb4434ed033b4b903bac85e361a7aa8816f01430fbf5934ff39a1846b53ecc63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\package-lock.json",
+      "sha256": "671056455752c8adf89d3b66b95c744d634b06e4112fd9be3b9c9c3e6559fb33",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\package.json",
+      "sha256": "bc6788b7c47acb37912fa34697b53e2148ca257f7364ae5e7697187a5b1a6933",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\src\\app.ts",
+      "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\src\\style.css",
+      "sha256": "df11864e72efee76e1f70f786250e7ccddc45c7c8b55543a0d739c5e20419f3b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\tsconfig.json",
+      "sha256": "73c80bb2f4ecc656ce977756920772651e591dccf672c02428cb13f37b6c5334",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "web\\portal-ssr\\README.md",
+      "sha256": "5473ddf0bcad8511cf5ee215de02fecb12eacf400ae0444197f0fb426f61cd8c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package-lock.json",
+      "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package.json",
+      "sha256": "7de29a38d2aae04391f5015840036924b5c754d892e1b865615b41b3cb4e9e2e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+      "sha256": "f3fb69a9f1eacb6910d4bc502c43864938e05421e067006260a40f25597f9ea2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\browser-adapter.ts",
+      "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\browser-api.ts",
+      "sha256": "021419628cdbb4d2b4f775400cd3cf280c5fbbd6ee97d3e1786929d65f1384c9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+      "sha256": "54a5a4c96596a9f2cad25ad10702db731cfc0098d25517de669457f082cb472a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\contracts.ts",
+      "sha256": "044329ec034b2748af5b8306fbe38dcd6bebb401f9405ee06bfab3374b42fe0d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\deadline.ts",
+      "sha256": "d0cf380fa394706c9e4bb96d9809061188da12abd732acc9b2485b17d8381189",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+      "sha256": "9c9d1477f82bf28a71136681263f1ebf535d00a1851184bea4a0ebe8956d3f71",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+      "sha256": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tsconfig.json",
+      "sha256": "96119365a9a467d0f299869197bb67c6e04491abdc85b418cc8e294697bef7ee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\tsconfig.tests.json",
+      "sha256": "ab8843a8a6fe9618caba2a728e8224a56bfc607bf39bf8d881cbf3caec60d723",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\README.md",
+      "sha256": "a0880c11f53af46d908a3a5fe04b693e5dd01eb8284d90d4aea783269016a85c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\index.html",
+      "sha256": "fb4434ed033b4b903bac85e361a7aa8816f01430fbf5934ff39a1846b53ecc63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\package-lock.json",
+      "sha256": "671056455752c8adf89d3b66b95c744d634b06e4112fd9be3b9c9c3e6559fb33",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\package.json",
+      "sha256": "bc6788b7c47acb37912fa34697b53e2148ca257f7364ae5e7697187a5b1a6933",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\src\\app.ts",
+      "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\src\\style.css",
+      "sha256": "df11864e72efee76e1f70f786250e7ccddc45c7c8b55543a0d739c5e20419f3b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\storefront-spa\\tsconfig.json",
+      "sha256": "73c80bb2f4ecc656ce977756920772651e591dccf672c02428cb13f37b6c5334",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R2",
+      "authorAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+      "result": "accepted",
+      "scopeSha256": "280918e3b94c320f3e550f663c1fde886355e08b5bd97513656ce1afadb21807",
+      "sources": [
+        {
+          "path": "web\\portal-ssr\\README.md",
+          "sha256": "5473ddf0bcad8511cf5ee215de02fecb12eacf400ae0444197f0fb426f61cd8c",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\package-lock.json",
+          "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\package.json",
+          "sha256": "7de29a38d2aae04391f5015840036924b5c754d892e1b865615b41b3cb4e9e2e",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+          "sha256": "f3fb69a9f1eacb6910d4bc502c43864938e05421e067006260a40f25597f9ea2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\src\\browser-adapter.ts",
+          "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\src\\shared\\browser-api.ts",
+          "sha256": "021419628cdbb4d2b4f775400cd3cf280c5fbbd6ee97d3e1786929d65f1384c9",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+          "sha256": "54a5a4c96596a9f2cad25ad10702db731cfc0098d25517de669457f082cb472a",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\src\\shared\\contracts.ts",
+          "sha256": "044329ec034b2748af5b8306fbe38dcd6bebb401f9405ee06bfab3374b42fe0d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\src\\shared\\deadline.ts",
+          "sha256": "d0cf380fa394706c9e4bb96d9809061188da12abd732acc9b2485b17d8381189",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+          "sha256": "9c9d1477f82bf28a71136681263f1ebf535d00a1851184bea4a0ebe8956d3f71",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+          "sha256": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\tsconfig.json",
+          "sha256": "96119365a9a467d0f299869197bb67c6e04491abdc85b418cc8e294697bef7ee",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\tsconfig.tests.json",
+          "sha256": "ab8843a8a6fe9618caba2a728e8224a56bfc607bf39bf8d881cbf3caec60d723",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\README.md",
+          "sha256": "a0880c11f53af46d908a3a5fe04b693e5dd01eb8284d90d4aea783269016a85c",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\index.html",
+          "sha256": "fb4434ed033b4b903bac85e361a7aa8816f01430fbf5934ff39a1846b53ecc63",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\package-lock.json",
+          "sha256": "671056455752c8adf89d3b66b95c744d634b06e4112fd9be3b9c9c3e6559fb33",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\package.json",
+          "sha256": "bc6788b7c47acb37912fa34697b53e2148ca257f7364ae5e7697187a5b1a6933",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\src\\app.ts",
+          "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\src\\style.css",
+          "sha256": "df11864e72efee76e1f70f786250e7ccddc45c7c8b55543a0d739c5e20419f3b",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\storefront-spa\\tsconfig.json",
+          "sha256": "73c80bb2f4ecc656ce977756920772651e591dccf672c02428cb13f37b6c5334",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+        "testFiles": [
+          "web\\portal-ssr\\tests\\local-rehearsal.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:25:48.348Z",
+        "finishedAtUtc": "2026-11-02T22:25:54.548Z",
+        "exitCode": 0,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-v3-20261102-56a48b43\\tests.tap",
+        "sha256": "a1969a254624b3bd629138df6de884cd5bc2b0e515dd6008778ff1d01fa4f2df",
+        "positiveTests": [
+          "LOCAL REHEARSAL forwarder preserves actual W3C carrier and body without creating a span",
+          "LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and rejects excluded-origin Fetch and XHR injection"
+        ],
+        "negativeTests": [
+          "LOCAL REHEARSAL excluded origins and unsafe CORS preflights never reach Orders",
+          "UNIT FIXTURE missing exported dependency, wrong parent, stale run and rewritten carriers fail closed",
+          "LOCAL REHEARSAL unavailable synthetic token blocks the executable driver without fabricated evidence and restores environment",
+          "LOCAL REHEARSAL source closure is immutable and cannot be weakened by a caller"
+        ]
+      },
+      "children": [
+        {
+          "id": "WEB-01.1",
+          "definitionSha256": "0fa9a28305938e2ee9d9a21e8ff942e72f4584e2c188b7a5e818ca020ae62c69",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

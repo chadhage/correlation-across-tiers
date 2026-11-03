@@ -1,0 +1,49 @@
+{
+  "schema": "contoso.swarm-review-addendum.v1",
+  "ownerRole": "R4",
+  "ownerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "child": "GATE-05.2",
+  "reviewStatus": "BOTH_R6_R9_ACCEPTED_CURRENT_V3_SOURCE_UNIT_ONLY",
+  "scopeSha256": "7ea4322ec2e46beebe23caf895969fc804293c163b2b3c2b04f981fddb6e1166",
+  "sourceManifestSha256": "0aaaac67e465110c07d36bdc2a4e1bc2fc4a3bb9faf61e2735cdc980cf562f9b",
+  "artifacts": [
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v3\\execution\\review.json",
+      "sha256": "e8cfc31dac0ee118aaa1d4777ed718674291e1ecd3e56597f88bba980f080069"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-source-independent-v3\\review.json",
+      "sha256": "755f90c647838407f1e8fb49084adaaa60f91cef648575375197f96dfb4a4684"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v3\\cancelled-only-manual\\witness.json",
+      "sha256": "84f1b450b457266623bd7f522f84898418c6b1729f2b9c34e8c461babd495034"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-cancel-count-fixed-v3\\resolution.json",
+      "sha256": "4b1b18c48b5e438a421069d806ca70238fa5fba52140045d618639cac34ce1a6"
+    }
+  ],
+  "eachReviewerActualTests": 6,
+  "eachReviewerFailures": 0,
+  "eachReviewerSkipped": 0,
+  "eachReviewerCancelled": 0,
+  "eachManualFiveCase": {
+    "skipped": 0,
+    "result": "EXPECTED_FAIL",
+    "failures": 0,
+    "cancelled": 1,
+    "executed": 5,
+    "errors": 0,
+    "passed": 4,
+    "guardExitCode": 1,
+    "tests": 5
+  },
+  "sourceAcceptanceIsCertification": false,
+  "hostedPrExecuted": false,
+  "childStatus": "To Do",
+  "remaining": "Actual clean and seeded hosted PR Java reactor outcomes; no commit/push authorized.",
+  "allR4SourceUnchanged": true,
+  "sourceAndMavenAndPidLeases": "RELEASED",
+  "newPacketsStarted": false
+}

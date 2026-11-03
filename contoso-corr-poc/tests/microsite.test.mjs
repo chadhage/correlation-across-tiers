@@ -205,9 +205,43 @@ test('header navigation lives in a hamburger-controlled modal drawer at every vi
   }
   assert.match(drawer, /id="theme-toggle"/);
   assert.match(drawer, /data-open-environment/);
+  assert.match(drawer, /data-open-welcome aria-controls="welcome-dialog" aria-haspopup="dialog"/);
   assert.equal((template.match(/id="navigation-toggle"/g) ?? []).length, 1);
   assert.equal((template.match(/id="navigation-drawer"/g) ?? []).length, 1);
   assert.match(template, /prefers-reduced-motion: reduce/);
+});
+
+test('welcome guide covers every orientation topic with valid scenario, section and embedded source destinations', async () => {
+  const template = await readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8');
+  const welcome = template.match(/<dialog id="welcome-dialog"[^>]*>([\s\S]*?)<\/dialog>/)[1];
+  assert.match(template, /id="welcome-dialog"[^>]+aria-labelledby="welcome-title" aria-describedby="welcome-summary"/);
+  assert.match(welcome, /aria-label="Close site guide" autofocus/);
+  assert.match(welcome, /id="welcome-content"[^>]+tabindex="0" role="region" aria-label="Site guide"/);
+  assert.equal((welcome.match(/data-close-dialog="welcome-dialog"/g) ?? []).length, 2);
+  assert.match(welcome, /id="welcome-scenarios"[^>]+aria-label="Jump to a scenario"/);
+  assert.match(welcome, /NOT CERTIFIED/);
+  const topics = [...welcome.matchAll(/<section\b[^>]+aria-labelledby="([^"]+)"[^>]*>([\s\S]*?)<\/section>/g)];
+  assert.deepEqual(topics.map(topic => topic[1]), [
+    'welcome-purpose', 'welcome-overview', 'welcome-audience', 'welcome-workflow',
+    'welcome-observations', 'welcome-considerations', 'welcome-references'
+  ]);
+  for (const [, id, content] of topics) {
+    assert.ok(content.includes(`<h3 id="${id}">`), `${id} needs its labeled heading`);
+    assert.match(content, /<p>/, `${id} needs an explanation`);
+    assert.match(content, /href="#|data-source="/, `${id} needs a relevant destination`);
+  }
+  for (const [, hash] of welcome.matchAll(/href="#([^"]+)"/g)) {
+    if (hash.startsWith('demo-')) {
+      assert.ok(data.demos.some(demo => hash === `demo-${demo.id}`), `Unknown guide scenario: ${hash}`);
+    } else {
+      assert.ok(template.includes(`id="${hash}"`), `Unknown guide section: ${hash}`);
+    }
+  }
+  const sources = [...welcome.matchAll(/data-source="([^"]+)"/g)];
+  assert.ok(sources.length > 0);
+  for (const [, source] of sources) {
+    assert.ok(data.sources.some(item => item.path === source), `Guide source is not embedded: ${source}`);
+  }
 });
 
 test('hero retains its introduction and actions without a scope aside or reserved column', async () => {

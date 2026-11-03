@@ -1,0 +1,29 @@
+{
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "authorRole": "R5",
+  "childIds": ["INF-06.1"],
+  "sourcePaths": [
+    "tests\\messaging\\infra.test.mjs",
+    "tests\\messaging\\infra-tool-resolution.test.mjs",
+    "tools\\messaging\\bicep-tool.mjs",
+    "workers\\messaging-core\\README.md",
+    "infra\\modules\\messaging.bicep",
+    "infra\\modules\\messaging-roles.bicep",
+    "config\\versions.lock.json"
+  ],
+  "testFiles": [
+    "tests\\messaging\\infra.test.mjs",
+    "tests\\messaging\\infra-tool-resolution.test.mjs"
+  ],
+  "positiveTests": [
+    "real messaging ARM compiles all carriers with identity-only local auth disabled",
+    "resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias"
+  ],
+  "negativeTests": [
+    "resolver negative: an explicitly configured missing compiler fails without fallback",
+    "missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed",
+    "source portability guard rejects absolute user-profile and operator-session defaults"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4"
+}

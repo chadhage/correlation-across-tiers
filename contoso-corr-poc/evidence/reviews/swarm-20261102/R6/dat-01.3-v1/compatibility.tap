@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+ok 1 - SOURCE ONLY: all default data entry points use one isolated factory and preserve credential injection
+  ---
+  duration_ms: 15.7311
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+ok 2 - SOURCE ONLY: public AuthX credential callback keeps fixed audience, bounds, renewal and native TLS transport
+  ---
+  duration_ms: 4.5987
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+ok 3 - SOURCE ONLY: workflow grants match all actual V002 columns and never assign protected provenance defaults
+  ---
+  duration_ms: 23.3598
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+ok 4 - SOURCE ONLY: checked builder close is sanitized and failed handoff closes the created provider
+  ---
+  duration_ms: 2.5156
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+ok 5 - SOURCE ONLY: inventory and workflow privilege mutations both require a locked bound dataset marker first
+  ---
+  duration_ms: 3.7778
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+ok 6 - SOURCE ONLY: targeted replay flag and immutable source/composite message identity remain compatible
+  ---
+  duration_ms: 4.2192
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+ok 7 - SOURCE ONLY: aggregator reads protected replay/publication provenance for trust and fan-in without mutation
+  ---
+  duration_ms: 5.9053
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+ok 8 - SOURCE ONLY: bootstrap grants require explicit approval, target/database binding and nonadmin Entra principal
+  ---
+  duration_ms: 3.8662
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+ok 9 - SOURCE ONLY: GA PG18/Managed Redis private endpoint contracts are not replaced with legacy or preview APIs
+  ---
+  duration_ms: 5.2902
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 342.4176

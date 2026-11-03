@@ -84,6 +84,12 @@ Inventory/Gateway, real broker/PostgreSQL/Redis/managed-identity paths, full con
 
 Brief J03–J10 production rollout, fleet-wide reliability/capacity, operational alert ownership, actual RBAC/purge, existing-cache migration, region/SKU availability, native Functions binding and automatic data instrumentation qualification are not authorized or certified by this preparation. Cost/quota/provisioning, directory grants and real privacy/performance/accountable-owner signoffs remain unmet.
 
+## Portal Node prerelease classification
+
+The exact Portal lock resolves `@azure/monitor-opentelemetry-exporter` **1.0.0-beta.46** and `@azure/opentelemetry-instrumentation-azure-sdk` **1.1.0-beta.1**. The official tag-specific Azure release headings, retrieved 2026-11-02, classify both as beta; the separate instrumentation **1.0.0** stable release does not promote the resolved **1.1.0-beta.1**. Exact URLs, observed headings and the lock hash are in `config\verification-register.v1.json` under `portalNodePrereleaseClassification`.
+
+The [Azure SDK lifecycle policy](https://azure.github.io/azure-sdk/policies_support.html) describes beta as early access/feedback, not recommended for production, with support limited to GitHub issues and no guaranteed response time. Both components remain **UNVERIFIED** in `config\certification-dependencies.json`; source classification is not npm artifact-content verification, GA/support clearance, deployed-value verification or runtime compatibility. The attempted public npm metadata fetches failed at transport level. No native/cloud access occurred. `node tools\verification\register.mjs --check` detects lock/classification drift and rejects support/GA promotion; certification still fails closed pending a supported path and independent owner acceptance.
+
 ## Verification boundary
 
 An observer/CLI/source hash is an integrity check, not authentication or remote provenance. The observer registry is deliberately empty until a real tool/auth/scope/native-source enrollment. Original raw fields are classified in memory; safe native projections do not claim to retain unknown or prohibited metadata. Query counts can cover a sealed ingested slice but cannot establish zero exporter loss, late-span completeness or 100% fidelity without independent full-path emission evidence. No mock, invented ID, reviewer vote or default setting closes these clauses.

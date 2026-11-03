@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "executionMode": "local",
+  "evidenceKind": "local-observation",
+  "runId": "45362195-7741-4b91-b9ab-6aa4651e4b32",
+  "invocationVersion": 1,
+  "demoId": 1,
+  "sdkVersion": "3.4.5",
+  "browserVersion": "156.0.8078.4",
+  "driverKind": "browser-spa",
+  "observations": [
+    {
+      "method": "POST",
+      "origin": "http://127.0.0.1:65152",
+      "path": "/contoso/v1/orders",
+      "resourceType": "fetch",
+      "traceparent": "00-7bd9a6795e9b46ddbb7d44d0a7b9a861-84d4253cc20c4c1a-01",
+      "status": 202,
+      "businessInvocationId": "a4c9a64b-b44a-4dc3-b51c-b66cfdbcb1d4"
+    }
+  ],
+  "dependencies": [
+    {
+      "traceId": "7bd9a6795e9b46ddbb7d44d0a7b9a861",
+      "spanId": "84d4253cc20c4c1a",
+      "dependencyId": "|7bd9a6795e9b46ddbb7d44d0a7b9a861.84d4253cc20c4c1a",
+      "businessInvocationId": "a4c9a64b-b44a-4dc3-b51c-b66cfdbcb1d4",
+      "runId": "45362195-7741-4b91-b9ab-6aa4651e4b32",
+      "invocationVersion": 1
+    }
+  ],
+  "browserContexts": [
+    {
+      "schemaVersion": 1,
+      "sdkVersion": "3.4.5",
+      "identityKind": "sdk-browser-context-not-span",
+      "pageInstanceId": "697da5d6-c11a-4dce-93c5-7a3fd90bc685",
+      "traceId": "7bd9a6795e9b46ddbb7d44d0a7b9a861",
+      "observedAtUtc": "2026-11-02T22:12:22.337Z"
+    },
+    {
+      "schemaVersion": 1,
+      "sdkVersion": "3.4.5",
+      "identityKind": "sdk-browser-context-not-span",
+      "pageInstanceId": "697da5d6-c11a-4dce-93c5-7a3fd90bc685",
+      "traceId": "7bd9a6795e9b46ddbb7d44d0a7b9a861",
+      "observedAtUtc": "2026-11-02T22:12:22.568Z"
+    }
+  ],
+  "outcome": "staged",
+  "backendId": "45362195-7741-4b91-b9ab-6aa4651e4b32",
+  "businessInvocationId": "a4c9a64b-b44a-4dc3-b51c-b66cfdbcb1d4",
+  "backendState": "DURABLE_STAGED"
+}

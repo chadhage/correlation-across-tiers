@@ -1,0 +1,34 @@
+{
+  "schema": "contoso.source-review-finding-resolution.v1",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "authorRole": "R4",
+  "claim": "GATE-05.2",
+  "sourcePath": "tools\\java\\Assert-JavaTestResults.ps1",
+  "executedCopiedSourceSha256": "3caf94e158b4b8f4b63b0e6083178d16fa4fefbb0697506404d7fcf57e6f9292",
+  "afterSourceSha256": "3caf94e158b4b8f4b63b0e6083178d16fa4fefbb0697506404d7fcf57e6f9292",
+  "scope": "SYNTHETIC_XML_CHECKER_ONLY_NO_JAVA",
+  "result": "FIXED_CANCELLED_ONLY_NOT_PASSED",
+  "actualExitCode": 1,
+  "actualTotals": {
+    "tests": 5,
+    "executed": 5,
+    "passed": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cancelled": 1,
+    "reports": 5
+  },
+  "expectedPassed": 4,
+  "controls": {
+    "overallCancellationFails": true,
+    "oneCancelledAttributeFixture": true,
+    "fourUncancelledControls": true
+  },
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "cleanup": "Own fixture and copied helper removed in finally; no Maven/Java/native process, source edit, shared target or cloud access.",
+  "historicalRedReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-cancel-count-finding-v1\\finding.json",
+  "remaining": "Actual hosted clean/seeded PR outcomes remain NOT RUN; source-only acceptance cannot close hosted child."
+}

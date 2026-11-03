@@ -1,0 +1,149 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "result": "ACCEPTED_LOCAL_SOURCE_UNIT",
+  "agentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "reviewerRole": "R8",
+  "authorRole": "R3",
+  "authorAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "cardId": "GATE-01",
+  "clauseIndex": 1,
+  "facets": [
+    "static",
+    "unit"
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "sources": [
+    {
+      "path": "apim\\demo03-cases.v1.json",
+      "sha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3"
+    },
+    {
+      "path": "apim\\openapi\\contoso-orders.v1.json",
+      "sha256": "debcfb9ff54abca30d03bae98c6feada79480dbe68d3f762601555ac76d59d9d"
+    },
+    {
+      "path": "apim\\policies\\api-policy.xml",
+      "sha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authn-v1.xml",
+      "sha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authz-v1.xml",
+      "sha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml",
+      "sha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml",
+      "sha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml",
+      "sha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-context-v1.xml",
+      "sha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml",
+      "sha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml",
+      "sha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml",
+      "sha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070"
+    },
+    {
+      "path": "apim\\policies\\service-policy.xml",
+      "sha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12"
+    },
+    {
+      "path": "apim\\README.md",
+      "sha256": "abe9746f452f6bf3504bc99a0dce4b8367ee7691a9683b8d7b47e007328fabee"
+    },
+    {
+      "path": "apim\\sdk-source-pin.json",
+      "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36"
+    },
+    {
+      "path": "infra\\modules\\apim-api-policies.bicep",
+      "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac"
+    },
+    {
+      "path": "infra\\modules\\apim-observability.bicep",
+      "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\flag-rewrite.xml",
+      "sha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\legacy-diagnostic.json",
+      "sha256": "de975a65459afc51b35a7601c5e4d5ea7828c5f0471faf6c8096a9380b052a12"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\manifest.json",
+      "sha256": "00b736020d28ef3fc2044ae9fc73c7bcf50f216dc9bbfe29597086fec492e196"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\request-id-parent.xml",
+      "sha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d"
+    },
+    {
+      "path": "tests\\apim\\gate01.test.mjs",
+      "sha256": "a88114ce39fb9344a8b474e940e3f1ca6dca32f7b50730938cbee70ea8fad882"
+    },
+    {
+      "path": "tests\\apim\\protocol.test.mjs",
+      "sha256": "3a97204576d98a55fd0dc282f16b148717a2af649e7c16d446cd552e7b3ef57b"
+    },
+    {
+      "path": "tests\\apim\\scanner-regressions.test.mjs",
+      "sha256": "b58fbb40bc664dabe188a95ea2e0574431dd1b7db8465c1a6965ae7cd66442ad"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe"
+    }
+  ],
+  "tests": {
+    "command": "node --test --test-reporter=tap tests\\apim\\gate01.test.mjs tests\\apim\\protocol.test.mjs tests\\apim\\scanner-regressions.test.mjs",
+    "cwd": "contoso-corr-poc",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 35,
+    "pass": 35,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "sourcesBeforeAfterMatched": true,
+    "tapPath": "review.tap",
+    "tapSha256": "0289633cd334dbf599fbe418d0c0508bd31f692cefcfe929f77cd369bcc2b6ab"
+  },
+  "positives": [
+    "Actual policies and protocol fixtures accepted",
+    "Single-pass XML decode keeps double-encoded literals inert",
+    "Source gate passes after seeded policy removal"
+  ],
+  "negativeControls": [
+    "Decimal/hex-entity RequestId in false/named-value branches rejected",
+    "Encoded sampled-flag rewrites rejected",
+    "Seeded forbidden policy produces REQUEST_ID_PROVENANCE and SAMPLED_FLAG_SURGERY"
+  ],
+  "sourceReview": "Read exact protocol.mjs diff, scanner-regressions.test.mjs and directly related APIM README qualifier; no high-confidence issue found in changed behavior",
+  "cleanup": "UUID local policy trees removed in finally; no Azure/traffic or source edits",
+  "remainingPrerequisites": [
+    "Other independent reviewer and orchestrator adjudication",
+    "Hosted CI/native Gateway/logger/wire/privacy proof remain To Do"
+  ],
+  "capturedAtUtc": "2026-11-02T21:59:43.8765138Z"
+}

@@ -1,0 +1,19 @@
+{
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R9",
+  "childIds": ["GOV-01.1"],
+  "sourcePaths": [
+    "..\\.github\\pull_request_template.md",
+    "tools\\verification\\pull-request-template.mjs",
+    "tests\\verification\\pull-request-template.test.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\run-focused.mjs",
+    "tools\\observability\\telemetry-contract.mjs",
+    "DECISIONS.md"
+  ],
+  "testFiles": ["tests\\verification\\pull-request-template.test.mjs"],
+  "positiveTests": ["real repository PR template requires independent other-role reviews and labelled sourced claims"],
+  "negativeTests": ["seeded template without the claim-label item fails closed"],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R7\\gov-01.1-review-v1"
+}

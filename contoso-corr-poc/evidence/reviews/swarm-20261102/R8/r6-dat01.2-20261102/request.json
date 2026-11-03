@@ -1,0 +1,32 @@
+{
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "childIds": [
+    "DAT-01.2"
+  ],
+  "sourcePaths": [
+    "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+    "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+    "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+    "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+    "tools\\java\\PortableTools.ps1",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java"
+  ],
+  "testFiles": [
+    "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+    "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs"
+  ],
+  "positiveTests": [
+    "LOCAL POWERSHELL: no override resolves the repository-local portable tool directory",
+    "LOCAL POWERSHELL: environment override and explicit-argument precedence are executable"
+  ],
+  "negativeTests": [
+    "CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance",
+    "CONTROL: missing environment-provided tools also fail explicitly without Maven"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.2-20261102\\receipt"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "contoso.demo01-construction-source-binding.v2",
+  "epoch": "swarm-20261102-integration-20261103T000919Z",
+  "scope": "PROSPECTIVE_CURRENT_SOURCE_CONSTRUCTION_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "nativeExecution": "NOT RUN",
+  "runnableDemoAdapter": false,
+  "historicalPinsDisposition": "HISTORICAL_ONLY_NOT_CURRENT_APPROVAL",
+  "components": [
+    { "path": "web\\portal-ssr\\src\\browser-adapter.ts", "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62" },
+    { "path": "web\\portal-ssr\\dist\\browser-adapter.js", "sha256": "4c756dc29696018e00d30df22129f3db1daef6cce982d48f4b755e41b949e944" },
+    { "path": "web\\storefront-spa\\src\\app.ts", "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456" },
+    { "path": "tools\\observability\\demo01-collector.mjs", "sha256": "dcb5f95d247a385c6760a595ef97073613ea927f70e125f9e42dfc3966cb82ad" },
+    { "path": "tools\\observability\\raw-query.mjs", "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3" },
+    { "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java", "sha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041" },
+    { "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java", "sha256": "bf28812f7910c3d3ceae27b6ad554bb9ff2bae209c1b6612e51a3237628f4389" },
+    { "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md", "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca" }
+  ],
+  "refreshedComponents": [
+    {
+      "path": "web\\storefront-spa\\src\\app.ts",
+      "historicalSha256": "2f4eee79496b3f0f089f78bb48ef4986e2b33389b13d9c145affec2f604185ac",
+      "reason": "The swarm added explicit LOCAL REHEARSAL UI and identity/window labels. This prospective pin does not qualify a browser, Gateway or native execution."
+    },
+    {
+      "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+      "historicalSha256": "d65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626",
+      "reason": "The swarm documented explicit/environment/repository-local portable-tool selection and its focused portability test. Java fixture implementation bytes are unchanged."
+    }
+  ]
+}

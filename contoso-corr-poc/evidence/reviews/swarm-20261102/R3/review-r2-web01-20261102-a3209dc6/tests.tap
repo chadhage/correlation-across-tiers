@@ -1,0 +1,77 @@
+TAP version 13
+# Subtest: LOCAL REHEARSAL rejects non-loopback, credential, query and path destinations
+ok 1 - LOCAL REHEARSAL rejects non-loopback, credential, query and path destinations
+  ---
+  duration_ms: 4.3415
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL forwarder preserves actual W3C carrier and body without creating a span
+ok 2 - LOCAL REHEARSAL forwarder preserves actual W3C carrier and body without creating a span
+  ---
+  duration_ms: 113.6442
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL excluded origins and unsafe CORS preflights never reach Orders
+ok 3 - LOCAL REHEARSAL excluded origins and unsafe CORS preflights never reach Orders
+  ---
+  duration_ms: 42.5561
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL does not manufacture absent context or retain unsafe carrier values
+ok 4 - LOCAL REHEARSAL does not manufacture absent context or retain unsafe carrier values
+  ---
+  duration_ms: 43.4299
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL forwarder rejects redirects without following credential-bearing requests
+ok 5 - LOCAL REHEARSAL forwarder rejects redirects without following credential-bearing requests
+  ---
+  duration_ms: 29.0294
+  type: 'test'
+  ...
+# Subtest: UNIT FIXTURE browser envelope capture preserves original parent and time, never manufactures missing context
+ok 6 - UNIT FIXTURE browser envelope capture preserves original parent and time, never manufactures missing context
+  ---
+  duration_ms: 1.7481
+  type: 'test'
+  ...
+# Subtest: UNIT FIXTURE exact browser dependency and Orders parent join is accepted only as a local structural assertion
+ok 7 - UNIT FIXTURE exact browser dependency and Orders parent join is accepted only as a local structural assertion
+  ---
+  duration_ms: 1.5635
+  type: 'test'
+  ...
+# Subtest: UNIT FIXTURE missing exported dependency, wrong parent, stale run and rewritten carriers fail closed
+ok 8 - UNIT FIXTURE missing exported dependency, wrong parent, stale run and rewritten carriers fail closed
+  ---
+  duration_ms: 2.1805
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL pair manifest requires ready local origins and never accepts persisted tokens
+ok 9 - LOCAL REHEARSAL pair manifest requires ready local origins and never accepts persisted tokens
+  ---
+  duration_ms: 48.9184
+  type: 'test'
+  ...
+# Subtest: LOCAL REHEARSAL unavailable synthetic token blocks the executable driver without fabricated evidence and restores environment
+ok 10 - LOCAL REHEARSAL unavailable synthetic token blocks the executable driver without fabricated evidence and restores environment
+  ---
+  duration_ms: 1608.009
+  type: 'test'
+  ...
+# \# Browser runtime 156.0.8078.4; actual local UI/SDK only; no JVM/APIM/Azure proof
+# Subtest: LOCAL REHEARSAL current-source real browser click preserves SDK carrier and rejects excluded-origin Fetch and XHR injection
+ok 11 - LOCAL REHEARSAL current-source real browser click preserves SDK carrier and rejects excluded-origin Fetch and XHR injection
+  ---
+  duration_ms: 1337.0081
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3496.9416

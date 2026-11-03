@@ -1,0 +1,261 @@
+TAP version 13
+# Subtest: seeded secret forms are detected with location/code only
+ok 1 - seeded secret forms are detected with location/code only
+  ---
+  duration_ms: 6.0275
+  type: 'test'
+  ...
+# Subtest: known credential literals fail for short, punctuated, escaped and prefixed assignments
+ok 2 - known credential literals fail for short, punctuated, escaped and prefixed assignments
+  ---
+  duration_ms: 1.9143
+  type: 'test'
+  ...
+# Subtest: R2-R8-01 project-local settings reproducer fails without persisting matched values
+ok 3 - R2-R8-01 project-local settings reproducer fails without persisting matched values
+  ---
+  duration_ms: 41.0254
+  type: 'test'
+  ...
+# Subtest: whole references cannot hide concatenated or modified right-hand assignment expressions
+ok 4 - whole references cannot hide concatenated or modified right-hand assignment expressions
+  ---
+  duration_ms: 1.543
+  type: 'test'
+  ...
+# Subtest: R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+ok 5 - R2-R8-02 one-file reference-plus-literal reproducer fails and is removed
+  ---
+  duration_ms: 59.0576
+  type: 'test'
+  ...
+# Subtest: project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+ok 6 - project-local outside-deployment fixtures prove source/params/demo/evidence coverage
+  ---
+  duration_ms: 66.7637
+  type: 'test'
+  ...
+# Subtest: history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+ok 7 - history blob parser scans deleted-path secrets and rejects truncated/mismatched batches
+  ---
+  duration_ms: 2.8589
+  type: 'test'
+  ...
+# Subtest: missing history fails closed rather than claiming a clean full-history scan
+ok 8 - missing history fails closed rather than claiming a clean full-history scan
+  ---
+  duration_ms: 198.5115
+  type: 'test'
+  ...
+# Subtest: AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+ok 9 - AI server settings/APIM logger must use real Key Vault references; browser source cannot embed key
+  ---
+  duration_ms: 3.395
+  type: 'test'
+  ...
+# Subtest: every PR and push scan merged full history with fork-safe read-only permissions
+not ok 10 - every PR and push scan merged full history with fork-safe read-only permissions
+  ---
+  duration_ms: 3.4757
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\security\\secret-scan-workflow.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input was expected to not match the regular expression /\b(?:pull_request_target|paths(?:-ignore)?|branches(?:-ignore)?|tags(?:-ignore)?|types):/. Input:
+    
+    'name: Repository secret scan\n' +
+      '\n' +
+      'on:\n' +
+      '  pull_request:\n' +
+      '  push:\n' +
+      '  workflow_dispatch:\n' +
+      '\n' +
+      'permissions:\n' +
+      '  contents: read\n' +
+      '\n' +
+      'jobs:\n' +
+      '  secret-scan:\n' +
+      '    runs-on: windows-latest\n' +
+      '    timeout-minutes: 15\n' +
+      '    steps:\n' +
+      '      - name: Check out the merged PR or pushed repository history\n' +
+      '        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683\n' +
+      '        with:\n' +
+      '          fetch-depth: 0\n' +
+      '          fetch-tags: true\n' +
+      '          persist-credentials: false\n' +
+      '      - name: Use the supported Node runtime\n' +
+      '        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020\n' +
+      '        with:\n' +
+      "          node-version: '22.23.4'\n" +
+      '      - name: Require complete Git history\n' +
+      '        shell: pwsh\n' +
+      '        run: |\n' +
+      '          $shallow = & git rev-parse --is-shallow-repository\n' +
+      "          if ($LASTEXITCODE -ne 0 -or $shallow -ne 'false') {\n" +
+      "            throw 'FULL_HISTORY_CHECKOUT_REQUIRED'\n" +
+      '          }\n' +
+      '      - name: Test forbidden fixtures and scan the worktree and all history\n' +
+      '        shell: pwsh\n' +
+      '        run: .\\contoso-corr-poc\\tools\\security\\Run-SecurityGates.ps1\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    name: Repository secret scan
+    
+    on:
+      pull_request:
+      push:
+      workflow_dispatch:
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      secret-scan:
+        runs-on: windows-latest
+        timeout-minutes: 15
+        steps:
+          - name: Check out the merged PR or pushed repository history
+            uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+            with:
+              fetch-depth: 0
+              fetch-tags: true
+              persist-credentials: false
+          - name: Use the supported Node runtime
+            uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+            with:
+              node-version: '22.23.4'
+          - name: Require complete Git history
+            shell: pwsh
+            run: |
+              $shallow = & git rev-parse --is-shallow-repository
+              if ($LASTEXITCODE -ne 0 -or $shallow -ne 'false') {
+                throw 'FULL_HISTORY_CHECKOUT_REQUIRED'
+              }
+          - name: Test forbidden fixtures and scan the worktree and all history
+            shell: pwsh
+            run: .\contoso-corr-poc\tools\security\Run-SecurityGates.ps1
+    
+  operator: 'doesNotMatch'
+  stack: |-
+    assertWorkflowPolicy (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/security/secret-scan-workflow.test.mjs:16:10)
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/security/secret-scan-workflow.test.mjs:33:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: workflow guard rejects missing pull-request trigger
+ok 11 - workflow guard rejects missing pull-request trigger
+  ---
+  duration_ms: 1.9504
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing merged-repository push trigger
+ok 12 - workflow guard rejects missing merged-repository push trigger
+  ---
+  duration_ms: 1.414
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects privileged pull-request trigger
+ok 13 - workflow guard rejects privileged pull-request trigger
+  ---
+  duration_ms: 0.5373
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects path-filtered pull requests
+ok 14 - workflow guard rejects path-filtered pull requests
+  ---
+  duration_ms: 0.894
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects write permissions
+ok 15 - workflow guard rejects write permissions
+  ---
+  duration_ms: 0.4102
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects repository secret input
+ok 16 - workflow guard rejects repository secret input
+  ---
+  duration_ms: 0.5426
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects shallow checkout
+ok 17 - workflow guard rejects shallow checkout
+  ---
+  duration_ms: 0.4687
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects omitted tags
+ok 18 - workflow guard rejects omitted tags
+  ---
+  duration_ms: 0.9782
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects persisted Git credentials
+ok 19 - workflow guard rejects persisted Git credentials
+  ---
+  duration_ms: 1.1458
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects unpinned checkout action
+ok 20 - workflow guard rejects unpinned checkout action
+  ---
+  duration_ms: 0.5459
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects head-only PR checkout
+ok 21 - workflow guard rejects head-only PR checkout
+  ---
+  duration_ms: 0.2822
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects conditional scan bypass
+ok 22 - workflow guard rejects conditional scan bypass
+  ---
+  duration_ms: 0.2546
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects ignored scanner failure
+ok 23 - workflow guard rejects ignored scanner failure
+  ---
+  duration_ms: 2.7215
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects worktree-only scan
+ok 24 - workflow guard rejects worktree-only scan
+  ---
+  duration_ms: 0.4711
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing configured scanner command
+ok 25 - workflow guard rejects missing configured scanner command
+  ---
+  duration_ms: 0.2766
+  type: 'test'
+  ...
+# Subtest: workflow guard rejects missing shallow-history failure
+ok 26 - workflow guard rejects missing shallow-history failure
+  ---
+  duration_ms: 0.2222
+  type: 'test'
+  ...
+# Subtest: actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history
+ok 27 - actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history
+  ---
+  duration_ms: 6709.1431
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 26
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7034.3026

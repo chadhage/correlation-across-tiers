@@ -1,0 +1,23 @@
+{
+  "summary": [
+    "# tests 11",
+    "# pass 10",
+    "# fail 1",
+    "# cancelled 0",
+    "# skipped 0",
+    "# duration_ms 4022.0188"
+  ],
+  "regression": "Demo01 Run-demo control not admitted; Create-order is not the child deliverable",
+  "profile": "LOCAL REHEARSAL",
+  "certificationEligible": false,
+  "nativeEvidence": false,
+  "nodeVersion": "v22.23.4",
+  "exitCode": 1,
+  "sha256After": "34078c393d77aad568ec29b1ab81c8638602460ae25fbeadc174a46ab6a2a16c",
+  "result": "EXPECTED_RED_BEFORE_SOURCE_FIX",
+  "source": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+  "schema": "contoso.local-regression-reproduction.v1",
+  "command": "node --test --test-reporter=tap web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+  "sha256Before": "34078c393d77aad568ec29b1ab81c8638602460ae25fbeadc174a46ab6a2a16c",
+  "cleanup": "Chromium, loopback servers and unique scratch disposed by test finally"
+}

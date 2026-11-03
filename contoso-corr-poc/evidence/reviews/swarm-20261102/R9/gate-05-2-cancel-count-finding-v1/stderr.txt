@@ -1,0 +1,5 @@
+[31;1mException: [0mC:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\evidence\reviews\swarm-20261102\R9\gate-05-2-cancel-count-finding-v1\fixture\Assert-JavaTestResults.ps1:126[0m
+[31;1m[0m[36;1mLine |[0m
+[31;1m[0m[36;1m[36;1m 126 | [0m if ($issues.Count) { [36;1mthrow ($issues -join "`n")[0m }[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mJAVA_TESTS_FAILED_SKIPPED_OR_CANCELLED[0m

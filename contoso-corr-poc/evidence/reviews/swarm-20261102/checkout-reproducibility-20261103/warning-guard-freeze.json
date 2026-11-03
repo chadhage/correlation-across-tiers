@@ -1,0 +1,75 @@
+{
+  "schema": "contoso.checkout-warning-guard-freeze.v1",
+  "childId": "INF-05.2",
+  "authorRole": "R6",
+  "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "definitionSha256": "b596267d9ecddec35419c935df22fd9912f87e6d13db2952844e231a775de6ff",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "sourcePaths": [
+    "infra\\modules\\data-postgres.bicep",
+    "infra\\modules\\data-managed-redis.bicep",
+    "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+    "services\\inventory-data\\tools\\data-api-warnings.mjs",
+    "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+    "services\\inventory-data\\tools\\Test-DataModules.ps1",
+    "docs\\VERIFY.md",
+    "config\\verification-register.v1.json"
+  ],
+  "sources": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "2ef752704a815667fb51e13ac625d54c30c15f96c750fd083a4a503a62f054aa",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "8504843516f00d141f2de0fc43bdb43f7323bb5caca78a3e1afb3af20f44ae67",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "a74c51115009df9086ac88c50db555d6e0bb19eaa16385335ef6adbf618fc38d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "4f0c82fa441b980c63227037873cf2b194f302057eaf929a15247bcbb285d12a",
+      "hashMode": "raw"
+    }
+  ],
+  "scopeSha256": "1306f803c9c461ccfb7ae2e0aa967ed8e7f1e45fb08369240cecc7eb3835976e",
+  "testFiles": [
+    "services\\inventory-data\\tools\\data-api-warnings.test.mjs"
+  ],
+  "positiveTests": [
+    "SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows",
+    "DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity"
+  ],
+  "negativeTests": [
+    "CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed",
+    "CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected"
+  ],
+  "previousScopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c",
+  "reason": "Canonical current register retains all635 claim values and owning actions; reviewed bytes changed and require new execution, not receipt rehashing."
+}

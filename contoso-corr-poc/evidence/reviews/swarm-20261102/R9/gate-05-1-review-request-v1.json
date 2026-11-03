@@ -1,0 +1,24 @@
+{
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "authorRole": "R4",
+  "childIds": ["GATE-05.1"],
+  "sourcePaths": [
+    "tools\\java\\PortableTools.ps1",
+    "tools\\java\\Use-Portable.ps1",
+    "tools\\java\\Install-Portable.ps1",
+    "tools\\java\\Install-Bicep.ps1",
+    "tools\\java\\Get-Agent.ps1",
+    "tools\\java\\Gate-05.ps1",
+    "tools\\java\\Validate-Compute.ps1",
+    "tools\\java\\Get-Extension.ps1",
+    "tests\\java\\portable-tools.test.mjs",
+    ".gitignore",
+    "docs\\JAVA_VALIDATION.md",
+    "config\\versions.lock.json"
+  ],
+  "testFiles": ["tests\\java\\portable-tools.test.mjs"],
+  "positiveTests": ["explicit root beats the environment and preserves spaced paths with locked versions"],
+  "negativeTests": ["portable installation rejects a changed archive before extraction or download"],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-1-independent-v1"
+}

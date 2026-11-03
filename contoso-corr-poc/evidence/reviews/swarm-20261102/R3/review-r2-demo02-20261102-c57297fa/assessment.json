@@ -1,0 +1,46 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "R2",
+  "childId": "DEM-02.1",
+  "result": "ACCEPTED_SOURCE_UNIT_CONSTRUCTION_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "exactChildAcceptance": "UNMET_NATIVE_PREREQUISITES",
+  "reviewReceipt": {
+    "path": "review.json",
+    "sha256": "ad4444880f81784886a3b5dbbab118ad823f88b306d2f7ff1421681333c0db15",
+    "scopeSha256": "74841b348585724e06aaebdb0c877cf72b19086c432b3591fb7691f1c7f53e19"
+  },
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R3\\review-r2-demo02-request-20261102-c57297fa.json",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "allThirtyFourAuthorHashesMatchedBeforeAfter": true
+  },
+  "findings": [],
+  "verifiedLocalSubset": [
+    "Concrete trigger-input construction selects the actual Portal form and Demo 02 without manufacturing an observed business identity.",
+    "The current map/catalog require distinct browser and SSR roles, the SSR-to-Gateway and SPA-to-Gateway expected edges, and the declared separate Portal render root.",
+    "Original page-view context is not converted into a request/dependency span or treated as an observed root.",
+    "Wrong context/scenario, roles/edges/root, fake authority/callback/fixture data, forged source closure and awaited caller mutation controls reject.",
+    "CLI source check actually exits 2 / BLOCKED / runnableDemoAdapter false; invalid CLI exits 1.",
+    "No createAdapter or adapter is exported, no Demo 01 PASS is inherited, and stale predecessor application source pins are reported without modification."
+  ],
+  "remainingPrerequisites": [
+    "DEM-00.1 native-ready operations and reviewed WEB-01/WEB-03 runtime contracts.",
+    "Approved deployed Storefront/Portal, pinned Portal runtime image, controller authentication and separately approved bounded window.",
+    "Independently captured browser/SSR roots, original emissions, actual Gateway wire and SSR-to-Gateway parent join.",
+    "Enrolled RAW query/privacy, actual bounded native sampling/drain, run-owned baseline/reset and separate-process authenticated recovery.",
+    "DEM-02.1 remains To Do: its specified runnable native adapter, Run wrapper acceptance and concrete reset are not supplied by this inspector."
+  ],
+  "cleanup": "No network/controller authentication, browser, traffic, configuration, reset, deployment, services, Maven, shared outputs or coauthor edits. Persistent writes were unique R3 request/TAP/review files only.",
+  "sourceCurrency": "Any later R1 boundary-map or R4 sampling-qualification change invalidates this exact source freeze; this review is not a repin or transitive runtime authority."
+}

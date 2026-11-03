@@ -2,19 +2,21 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { resolveBicepCompiler } from '../../tools/messaging/bicep-tool.mjs';
 
-const bicep = process.env.CONTOSO_BICEP_EXE ??
-  'C:\\Users\\chhage\\.copilot\\session-state\\a2820816-7000-4e63-9cf2-cd2c8da2162f\\files\\tools\\r4\\bicep.exe';
+const compiler = resolveBicepCompiler();
 function compile(name) {
   const path = fileURLToPath(new URL(`../../infra/modules/${name}.bicep`, import.meta.url));
-  const result = spawnSync(bicep, ['build', path, '--stdout'], { encoding: 'utf8', maxBuffer: 2_000_000 });
-  assert.equal(result.error, undefined, 'the frozen local Bicep compiler is required');
+  const result = spawnSync(compiler.executable, ['build', path, '--stdout'], {
+    encoding: 'utf8', maxBuffer: 2_000_000, timeout: 120_000, windowsHide: true
+  });
+  assert.equal(result.error, undefined, 'the resolved local Bicep compiler is required');
   assert.equal(result.status, 0, result.stderr);
   assert.equal(result.stderr.trim(), '', 'messaging module must compile without warning');
   return JSON.parse(result.stdout);
 }
 
-test('real messaging ARM compiles all carriers with identity-only local auth disabled', () => {
+test('real messaging ARM compiles all carriers with identity-only local auth disabled', { skip: compiler.skipReason }, () => {
   const template = compile('messaging');
   const resources = template.resources;
   for (const type of ['Microsoft.ServiceBus/namespaces', 'Microsoft.EventHub/namespaces',
@@ -31,7 +33,7 @@ test('real messaging ARM compiles all carriers with identity-only local auth dis
   assert.equal(resources.find(resource => resource.type === 'Microsoft.EventHub/namespaces/eventhubs').properties.partitionCount, 1);
 });
 
-test('CloudEvents relay uses topic identity and declares durable dead-letter destination', () => {
+test('CloudEvents relay uses topic identity and declares durable dead-letter destination', { skip: compiler.skipReason }, () => {
   const template = compile('messaging');
   const topic = template.resources.find(resource => resource.type === 'Microsoft.EventGrid/topics');
   assert.equal(topic.identity.type, 'SystemAssigned');
@@ -42,7 +44,7 @@ test('CloudEvents relay uses topic identity and declares durable dead-letter des
   assert.equal(relay.properties.deadLetterWithResourceIdentity.deadLetterDestination.endpointType, 'StorageBlob');
 });
 
-test('runtime messaging permissions are fixed entity scopes, never namespace data owners', () => {
+test('runtime messaging permissions are fixed entity scopes, never namespace data owners', { skip: compiler.skipReason }, () => {
   const template = compile('messaging-roles');
   assert.ok(template.resources.length > 10);
   for (const resource of template.resources) {

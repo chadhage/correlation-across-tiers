@@ -1,0 +1,1778 @@
+{
+  "certified" : false,
+  "extensionSha256" : "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "observations" : [ {
+    "originalPrivacyCapture" : {
+      "schema" : "contoso.native-api-safe-capture.v1",
+      "privacyPolicy" : "contoso.original-native-payload.v1",
+      "validatorPid" : 19532,
+      "nodeVersion" : "v22.23.4",
+      "validatorSourceSha256" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "sharedPolicySha256" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "verified" : true,
+      "sourceAcceptanceIsCertification" : false,
+      "independentProducerAuthorityVerified" : false,
+      "allTablePrivacyGateVerified" : false,
+      "certification" : "NOT_CERTIFIED",
+      "actualCounts" : {
+        "payloads" : 4,
+        "originalRawBytes" : 4224,
+        "decodedBytes" : 33130,
+        "envelopes" : 45
+      },
+      "payloadReceipts" : [ {
+        "originalPayloadSha256" : "f64bc077c675046978f40d80a9500703ede61a86883b9d2caafdc5c9262d1e36",
+        "originalPayloadBytes" : 498,
+        "decodedPayloadBytes" : 1256,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "55edcf183d5c36ab3b8650eacffe7a182d9358a82229c995f807f573e1d55951",
+        "originalPayloadBytes" : 417,
+        "decodedPayloadBytes" : 615,
+        "originalEnvelopeCount" : 1,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "1ff551c206902ccf5e737b5b76dbd5c3447fe32f96c49619ac69b828a8eeeea4",
+        "originalPayloadBytes" : 2786,
+        "decodedPayloadBytes" : 29973,
+        "originalEnvelopeCount" : 40,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "a8ed6c735eceb02f90e397df808bcf1efb0919bfe2f3dd0d34f1b709aa003ce9",
+        "originalPayloadBytes" : 523,
+        "decodedPayloadBytes" : 1286,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      } ],
+      "validatorCliSourceSha256" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+      "validatorStartedAtUtc" : "2026-11-02T22:05:10.636015900Z",
+      "validatorEndedAtUtc" : "2026-11-02T22:05:12.444753100Z",
+      "validatorExecutable" : "C:\\Program Files\\nodejs\\node.exe",
+      "validatorExecutableSha256Before" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "validatorExecutableSha256After" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "sourceHashesBefore" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "sourceHashesAfter" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "knownPublisherCount" : 2,
+      "exactForbiddenMarkerCount" : 2,
+      "excludedNonTelemetryHttpRequests" : 7,
+      "oneWholeExecutionCaptureWithoutReset" : true,
+      "cumulativeOriginalPayloadsRescanned" : true
+    },
+    "everyOutgoingZeroSatisfied" : true,
+    "sourcePercentage" : 0,
+    "consumerPercentage" : 100,
+    "nativeChildren" : [ {
+      "percentage" : 0,
+      "startedAtUtc" : "2026-11-02T22:04:16.816330Z",
+      "endedAtUtc" : "2026-11-02T22:04:45.725777100Z",
+      "pid" : 3180,
+      "exitCode" : 0,
+      "phase" : "produce"
+    }, {
+      "percentage" : 100,
+      "startedAtUtc" : "2026-11-02T22:04:45.901299700Z",
+      "endedAtUtc" : "2026-11-02T22:05:10.316099500Z",
+      "pid" : 50652,
+      "exitCode" : 0,
+      "phase" : "consume"
+    } ],
+    "exportedOrdinaryCount" : 0,
+    "inputMode" : "actual-native-producer-0",
+    "actualNativeSpans" : [ {
+      "parentId" : "",
+      "spanId" : "765f7fa062d8dd7e",
+      "traceId" : "de21292dff8d77a9c1fb05e166665b85",
+      "name" : "GET /carriers",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "ec5610ca043a22a4",
+      "traceId" : "69a22efaa7ee7653197b174362675870",
+      "name" : "contoso.sampling.unlinked.control",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "bf45be8e74f86b96",
+      "traceId" : "d1dc8f89ba8633b6c63afea978a4f607",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "b8e34d0bd0f23627",
+      "traceId" : "35fc299ccc980c5c53f8c8bf85f4108c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "cb9c6246e16816e6",
+      "traceId" : "8a0465aa6677a2cdeecb6e78b400c7d2",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "508b3ea885eda9ca",
+      "traceId" : "fa759741bf4973e912a1135fdfbcaf6d",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "41818ec94c380054",
+      "traceId" : "56a62470ce17849d1cccab2ec0303812",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "733d1cf0f6865296",
+      "traceId" : "d1bdd3c46f51ae94155107cfed84a524",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7caba95cae87a1a9",
+      "traceId" : "9d6473fdb0233d2d5b7d53cc4e2c7c23",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7c6c46985989b007",
+      "traceId" : "d9cc50b918038a453a86e5fce944fbef",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "3bd96bb0bec29d57",
+      "traceId" : "7b97e7fc989b22c8ac39f2f42c13420d",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "4c0ce6714dadb771",
+      "traceId" : "ce5ecc0c0d28889b1f7af861dfc2a6af",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "6302ca061f139c55",
+      "traceId" : "92e466813461d0b3031fa0668cfb0f30",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "52bb53c14e4c19e3",
+      "traceId" : "c224f0c239657544abb30d661b4d5d16",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "d6199f25759c563a",
+      "traceId" : "e3277bb488ed0cecf50396aebee0ec07",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "3ca8b82c6b7bbdeb",
+      "traceId" : "2cdc51b2be1e0d70b07ae3ba42d6db17",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "34cbbff5d597cd05",
+      "traceId" : "28087ae8559e4d58000cb8f6d7ce4676",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "6255b069f14c99cc",
+      "traceId" : "55588ac658defafc183477fa2eb74c71",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "5657af71eb0cea6f",
+      "traceId" : "2e8bf431c31167d9e9d4aa9d09842958",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7f7e093cdef3c6d8",
+      "traceId" : "e72da86b7a4b2802650f4e5f68791847",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "583fc184b7b60cd7",
+      "traceId" : "21be03f96bf8c845b2540e82f60f3791",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "00ae9ebc55b182a9",
+      "traceId" : "35543c21a10b4914f6a6b028ca880078",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "a76a617883a5ee07",
+      "traceId" : "ad4cdb6e6660307e4aada018c73c035e",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "6f92f3eb4779587b",
+      "traceId" : "ddb3ced883999493299b12bcf59e5aed",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "f1bb0aa71bfa171a",
+      "traceId" : "404407b5a5a388af472c26e384ffee4b",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7a778a55e3bcf31e",
+      "traceId" : "c081afdb27eaa83bf529d0d37a96fde0",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "d57cc48271458d36",
+      "traceId" : "54496ce4a53ca9ecd28665bfbf10160f",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "dca9f87ad7085b34",
+      "traceId" : "4023fa2d5dc34cabbdae82e05dbed0bb",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "24529c8072668a44",
+      "traceId" : "db2d230d1e0138947a5bf5437c90e0e7",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "63d1eacd10069a06",
+      "traceId" : "392d121d354c22b479e27873a8e5997b",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "0f592f350eac4b69",
+      "traceId" : "a8192b4bdbfbccec09c3fa8497c4fe15",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "4439430b57ef1a6a",
+      "traceId" : "af6ca9ace51e8cf87bc6537986093fd6",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "b491966af785d59f",
+      "traceId" : "79851d6cf041a36b57399b90ee677c61",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "652d112e6a0d3bc7",
+      "traceId" : "8dc1254ad8a9dfe439addc5ec0ac78a1",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "11da0c0f9ecd089e",
+      "traceId" : "42552505ea193c0c153dde9f6b54d819",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "b216169c7a5ecd70",
+      "traceId" : "8791190a67c30c05cc9ef38e70fa6f4f",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "a98c08b4a5a21ac1",
+      "traceId" : "92cd03ad2fc789bbb973d3bda4e171cb",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "49975a16994a2926",
+      "traceId" : "8ec04063c08a17834442f0494285ca79",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "9717b372823c796f",
+      "traceId" : "6c84529a0b10d7128bcb132476ccfcea",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "e2f5501da84def59",
+      "traceId" : "ff833b740c650be8b784a05abf4bb5e8",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "3086e1cce43a5f84",
+      "traceId" : "527bbe0172c140e9dd08875dc3a3703a",
+      "name" : "POST /decisions",
+      "links" : ""
+    } ],
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "spanId" : "ec5610ca043a22a4",
+        "traceId" : "69a22efaa7ee7653197b174362675870",
+        "sampled" : true
+      },
+      "ordinaryProcess" : {
+        "spanId" : "d975dd1a67a079f0",
+        "traceId" : "3fdafdb287e6874321bdff40b6b9cf15",
+        "sampled" : false
+      },
+      "replaySend" : {
+        "spanId" : "25038e1849d1e810",
+        "traceId" : "360853c247f02a5d240a85d053b7c6ce",
+        "sampled" : false
+      },
+      "resultSends" : [ {
+        "spanId" : "abcd4a8bf9479386",
+        "traceId" : "71231bc104a28f41195aeda384593ae1",
+        "sampled" : false
+      }, {
+        "spanId" : "e0015ed5433b2d31",
+        "traceId" : "348b5d6f76dcb5cd410a404b2857e719",
+        "sampled" : false
+      } ],
+      "fanIn" : {
+        "spanId" : "bd6ee4b7272a5458",
+        "traceId" : "24968c4e770d5c79203002d83c5daeec",
+        "sampled" : false
+      },
+      "batchItems" : [ {
+        "spanId" : "068bc07a3bdf8041",
+        "traceId" : "ff02c849d79c05d559590da401be5759",
+        "sampled" : false
+      }, {
+        "spanId" : "494b34d0fe23b0df",
+        "traceId" : "ff02c849d79c05d559590da401be5759",
+        "sampled" : false
+      } ],
+      "inputContexts" : [ {
+        "spanId" : "4d2f118e213f1ce6",
+        "traceId" : "3fdafdb287e6874321bdff40b6b9cf15",
+        "sampled" : false
+      }, {
+        "spanId" : "ebee1f4d6c922b61",
+        "traceId" : "ad7653d8bee92ebf04e303ae1c5687a8",
+        "sampled" : false
+      }, {
+        "spanId" : "2c1a3c378a13fdab",
+        "traceId" : "38c8b8cd86aa9945cb975943dc997432",
+        "sampled" : false
+      }, {
+        "spanId" : "247b00ad47b07bc8",
+        "traceId" : "d2d8884892e8b8c82c2c8ad067d3adbb",
+        "sampled" : false
+      }, {
+        "spanId" : "ef854a6e2e18a4e9",
+        "traceId" : "69dd1c5ff9bc3090e41330d6fd56d928",
+        "sampled" : false
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    }
+  }, {
+    "originalPrivacyCapture" : {
+      "schema" : "contoso.native-api-safe-capture.v1",
+      "privacyPolicy" : "contoso.original-native-payload.v1",
+      "validatorPid" : 34388,
+      "nodeVersion" : "v22.23.4",
+      "validatorSourceSha256" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "sharedPolicySha256" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "verified" : true,
+      "sourceAcceptanceIsCertification" : false,
+      "independentProducerAuthorityVerified" : false,
+      "allTablePrivacyGateVerified" : false,
+      "certification" : "NOT_CERTIFIED",
+      "actualCounts" : {
+        "payloads" : 8,
+        "originalRawBytes" : 11798,
+        "decodedBytes" : 106040,
+        "envelopes" : 135
+      },
+      "payloadReceipts" : [ {
+        "originalPayloadSha256" : "f64bc077c675046978f40d80a9500703ede61a86883b9d2caafdc5c9262d1e36",
+        "originalPayloadBytes" : 498,
+        "decodedPayloadBytes" : 1256,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "55edcf183d5c36ab3b8650eacffe7a182d9358a82229c995f807f573e1d55951",
+        "originalPayloadBytes" : 417,
+        "decodedPayloadBytes" : 615,
+        "originalEnvelopeCount" : 1,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "1ff551c206902ccf5e737b5b76dbd5c3447fe32f96c49619ac69b828a8eeeea4",
+        "originalPayloadBytes" : 2786,
+        "decodedPayloadBytes" : 29973,
+        "originalEnvelopeCount" : 40,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "a8ed6c735eceb02f90e397df808bcf1efb0919bfe2f3dd0d34f1b709aa003ce9",
+        "originalPayloadBytes" : 523,
+        "decodedPayloadBytes" : 1286,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "239099a04fb2461643a0691f54cdb4686e364cb26bedc879cca128c030e37e1a",
+        "originalPayloadBytes" : 499,
+        "decodedPayloadBytes" : 1253,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "91b9cdca672d3804750df51bb7987385287c2b21d36f31ba050c768f449156bd",
+        "originalPayloadBytes" : 996,
+        "decodedPayloadBytes" : 4173,
+        "originalEnvelopeCount" : 6,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "37e2159f53206856e204c6170c91adac7d4e9d9cb8b780587ac2fa651325de25",
+        "originalPayloadBytes" : 5557,
+        "decodedPayloadBytes" : 66190,
+        "originalEnvelopeCount" : 80,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "6a773e50283e7bf3c30941921f6355d53021eda1e1e600523c9bcbc11a245fb7",
+        "originalPayloadBytes" : 522,
+        "decodedPayloadBytes" : 1294,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      } ],
+      "validatorCliSourceSha256" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+      "validatorStartedAtUtc" : "2026-11-02T22:06:11.875703800Z",
+      "validatorEndedAtUtc" : "2026-11-02T22:06:13.758936500Z",
+      "validatorExecutable" : "C:\\Program Files\\nodejs\\node.exe",
+      "validatorExecutableSha256Before" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "validatorExecutableSha256After" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "sourceHashesBefore" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "sourceHashesAfter" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "knownPublisherCount" : 4,
+      "exactForbiddenMarkerCount" : 2,
+      "excludedNonTelemetryHttpRequests" : 14,
+      "oneWholeExecutionCaptureWithoutReset" : true,
+      "cumulativeOriginalPayloadsRescanned" : true
+    },
+    "everyOutgoingZeroSatisfied" : false,
+    "sourcePercentage" : 100,
+    "consumerPercentage" : 100,
+    "nativeChildren" : [ {
+      "percentage" : 100,
+      "startedAtUtc" : "2026-11-02T22:05:13.422442300Z",
+      "endedAtUtc" : "2026-11-02T22:05:48.599810800Z",
+      "pid" : 16652,
+      "exitCode" : 0,
+      "phase" : "produce"
+    }, {
+      "percentage" : 100,
+      "startedAtUtc" : "2026-11-02T22:05:48.690333100Z",
+      "endedAtUtc" : "2026-11-02T22:06:11.827181900Z",
+      "pid" : 62040,
+      "exitCode" : 0,
+      "phase" : "consume"
+    } ],
+    "exportedOrdinaryCount" : 1,
+    "inputMode" : "actual-native-producer-100",
+    "actualNativeSpans" : [ {
+      "parentId" : "",
+      "spanId" : "a336f112903ffe38",
+      "traceId" : "9a451f3bf0266944ce0cc8680ec324cb",
+      "name" : "GET /carriers",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "42aacb8cbc07a999",
+      "traceId" : "74035236f04ccfc3939f7f3e19fd906d",
+      "name" : "contoso.sampling.unlinked.control",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8ba150f463cc16d7",
+      "traceId" : "a122f33d38f9a1d03eda96c5bcfced2d",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "c84c19e916793bf6",
+      "traceId" : "5aed67faec439c68a2a4384355b24d1d",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "727a51d0b23a75b8",
+      "traceId" : "8c29bcd2efee316d9a4ebd78e66fcd7b",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "09e2a26e4c8810e4",
+      "traceId" : "788271875a8f429b58e113603d4a7002",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "fdc09e380d4612dc",
+      "traceId" : "89ec084bef35697d9271e1492bb9c435",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "eccad9ac60fbdf6d",
+      "traceId" : "987a8f55fd965fde72130328a77bcc77",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "cbddb64dededa0d1",
+      "traceId" : "73702adf405282db42808bee5898e792",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "93b306afa9c3fbd7",
+      "traceId" : "04ecbd630a6b9db7dd72f2c622694cb1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "d692b333bf8d9eb1",
+      "traceId" : "e61eca4659db7971d718063d31234ab6",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "037a2851206736a5",
+      "traceId" : "48f772dd9302fe9e38f0b91305e7260a",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7682380f0ce942f2",
+      "traceId" : "e1489139476fad3e746f2ba4d0c2158b",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "0f6ba87f56e32f09",
+      "traceId" : "bbdc718e685291bc4d868768492047e2",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "3f5e1a9faf39c683",
+      "traceId" : "7065fe6788ab32d2e06fcc625ea048f3",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "d1a38826e280c808",
+      "traceId" : "ae116b41c7345f6ef156cd15207ef6f5",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "181601550459ac02",
+      "traceId" : "17d99ea4d9dee90ca0ee444679162e5b",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "06e757508d674653",
+      "traceId" : "2cf10b7bc8e656e54d98d70448b0e895",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "1f3dfbceba08ec4c",
+      "traceId" : "5e8ec375aac25458b75a8bb9385ae863",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7ceed97fbb9e7279",
+      "traceId" : "b87ec59026372b17e80358575bed6f82",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "03f86a050641e418",
+      "traceId" : "a2b0a868169532d4c6b5f394ebf37c7f",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "721769d6d7c7380b",
+      "traceId" : "96e7c5eefb65b4871c48dfcb06bc44b4",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "1313b9298f2ed37f",
+      "traceId" : "f7b804215f3aa10a93cbd3b6ab458d54",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "14b0d920f771c571",
+      "spanId" : "f53bfc0bea84f45b",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "14b0d920f771c571",
+      "spanId" : "713443b548cd0eeb",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "32a0b935703ce1e9",
+      "spanId" : "14b0d920f771c571",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "4059d8566b09ab6f",
+      "traceId" : "fd9ceda280989f1661fe175eb7b573e3",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "a0d8af8ae16eb165",
+      "spanId" : "a721b24dc17ecfc7",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "a0d8af8ae16eb165",
+      "spanId" : "e7d786f83fa4c3bc",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "bcc5bae38a37646c",
+      "spanId" : "a0d8af8ae16eb165",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8c6853c97130026e",
+      "traceId" : "735c1257f33808b3608bc7e106b2aa4f",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "4671f6e7011a5d46",
+      "traceId" : "91e2ca5c97496d87f419d80e304f5eb9",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "e921385ead907f53",
+      "traceId" : "9df4112bf9f898ba0e4f7bb042040d82",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "50a0ed0f8fa57013",
+      "spanId" : "04695b5d57d7e5d6",
+      "traceId" : "a3bbc65f7baddc56d00e45fbc4887779",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "50a0ed0f8fa57013",
+      "traceId" : "a3bbc65f7baddc56d00e45fbc4887779",
+      "name" : "contoso.replay.process",
+      "links" : "[{\"operation_Id\":\"2171035db0b8f4d9c83ea92f1a0f0689\",\"id\":\"bcc5bae38a37646c\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "cc80f56e177e2dda",
+      "traceId" : "639ce4bbf62bb64097e8ed720742e284",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "851f2e00dda9d283",
+      "spanId" : "a3abbfbf35c2e9f9",
+      "traceId" : "ae15d5119ce37baf530a146be6dd3319",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "851f2e00dda9d283",
+      "spanId" : "e1bb3385d4071f49",
+      "traceId" : "ae15d5119ce37baf530a146be6dd3319",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "851f2e00dda9d283",
+      "traceId" : "ae15d5119ce37baf530a146be6dd3319",
+      "name" : "contoso.replay.send",
+      "links" : "[{\"operation_Id\":\"2171035db0b8f4d9c83ea92f1a0f0689\",\"id\":\"bcc5bae38a37646c\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "7a95c70564bcddc0",
+      "traceId" : "11dfedd3d18348c622ff5bd58f7aa5d8",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "86dd0ef7d7c1a4bc",
+      "spanId" : "78ec48f1ca4f25f1",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "86dd0ef7d7c1a4bc",
+      "spanId" : "4da623ef97f4ba08",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6094360a39bc53e1",
+      "spanId" : "86dd0ef7d7c1a4bc",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8be1088aabc64b82",
+      "traceId" : "737fdfffe139e7113ae8454755aadd7c",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "76ea0c891a957752",
+      "spanId" : "f67277f10f9e5c69",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "76ea0c891a957752",
+      "spanId" : "3cfdeb187769a758",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6094360a39bc53e1",
+      "spanId" : "76ea0c891a957752",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.notify.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "cd6c93a3e034a68b",
+      "traceId" : "eaac5cf7809250aa0d321ff1f58d29dd",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "79ded74f56f9a4e1",
+      "spanId" : "135133020e2c91d3",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "79ded74f56f9a4e1",
+      "spanId" : "f783d536831f92b7",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "79ded74f56f9a4e1",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.servicebus.send",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"86dd0ef7d7c1a4bc\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "22e18e3d90566159",
+      "traceId" : "72290be0e97fd1cdc1772c53395a4128",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "dbff2d894a4f1cf2",
+      "spanId" : "47f1eb8f8a061bd5",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "dbff2d894a4f1cf2",
+      "spanId" : "8d9b645d37bc0b1f",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "dbff2d894a4f1cf2",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.servicebus.send",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"76ea0c891a957752\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "d8813532c0fce334",
+      "traceId" : "6fb00d20485efa48f34665b390775923",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "a10d96fa57935879",
+      "spanId" : "5a26b8345d8d47c3",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "a10d96fa57935879",
+      "spanId" : "a42e1b7a72950450",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8307bd7536574eec",
+      "traceId" : "fa71a19524e0d22b3d6de22c6f1b9bcc",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "79ded74f56f9a4e1",
+      "spanId" : "a10d96fa57935879",
+      "traceId" : "00a1998e162ca3d69297c46e11ffee2c",
+      "name" : "contoso.results.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8bb4a645d141b544",
+      "traceId" : "8ee9dc7637139ecbe9a5a9bfd2c629f0",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "50b7c2f34f7c3355",
+      "spanId" : "e9f11ee799163074",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "50b7c2f34f7c3355",
+      "spanId" : "b08d31ef27552f8e",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "09e33da2a81f8fc3",
+      "traceId" : "6757b9f66900373e5f92d3dcbc165ba7",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "9231b07d90c3181d",
+      "traceId" : "a96d029bcac744e0d58125cd2c685f0a",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "dbb78969a1c88145",
+      "spanId" : "80e65f29b902ad3c",
+      "traceId" : "e02dad4872876a4b3d436c2f94ccfb6a",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "dbb78969a1c88145",
+      "traceId" : "e02dad4872876a4b3d436c2f94ccfb6a",
+      "name" : "contoso.fanin.process",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"86dd0ef7d7c1a4bc\"},{\"operation_Id\":\"00a1998e162ca3d69297c46e11ffee2c\",\"id\":\"79ded74f56f9a4e1\"},{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"76ea0c891a957752\"},{\"operation_Id\":\"c79aef83456cbdea1968015b45bcb69c\",\"id\":\"dbff2d894a4f1cf2\"}]"
+    }, {
+      "parentId" : "dbff2d894a4f1cf2",
+      "spanId" : "50b7c2f34f7c3355",
+      "traceId" : "c79aef83456cbdea1968015b45bcb69c",
+      "name" : "contoso.results.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "bc4b64846262f9b8",
+      "traceId" : "593dca770976027d6630c3223f556fc9",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "93ad7e696ed9180c",
+      "traceId" : "fe30d0d49de78d3be16b72967387161c",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "b9c325a5bfb75822",
+      "traceId" : "cd6f98df3689d1f629acba956f966c32",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "b93f904afa55ec9a",
+      "spanId" : "8a89cc8fb6245fe0",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "b93f904afa55ec9a",
+      "spanId" : "47329abbe6f5bea3",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "e74de89e9621659d",
+      "spanId" : "b93f904afa55ec9a",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : ""
+    }, {
+      "parentId" : "0a8b4e4e8a2e5a3a",
+      "spanId" : "301bb682bc7d7d43",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "0a8b4e4e8a2e5a3a",
+      "spanId" : "a1155333e9607272",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "e74de89e9621659d",
+      "spanId" : "0a8b4e4e8a2e5a3a",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "e74de89e9621659d",
+      "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : "[{\"operation_Id\":\"9ffe4f1c09278983e9b4b92011ced907\",\"id\":\"7da60c1c1d8e465c\"},{\"operation_Id\":\"15f407a2485f3652c3ad6afb313e3312\",\"id\":\"736353c23861698e\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "e6c9b069e5cbf928",
+      "traceId" : "e2693a5ad053805a85b3e2c0e97b9842",
+      "name" : "POST /decisions",
+      "links" : ""
+    } ],
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "spanId" : "42aacb8cbc07a999",
+        "sampled" : true,
+        "traceId" : "74035236f04ccfc3939f7f3e19fd906d"
+      },
+      "ordinaryProcess" : {
+        "spanId" : "14b0d920f771c571",
+        "sampled" : true,
+        "traceId" : "16cc2df0af624e48c151d9bee1d90e58"
+      },
+      "replaySend" : {
+        "spanId" : "851f2e00dda9d283",
+        "sampled" : true,
+        "traceId" : "ae15d5119ce37baf530a146be6dd3319"
+      },
+      "resultSends" : [ {
+        "spanId" : "79ded74f56f9a4e1",
+        "sampled" : true,
+        "traceId" : "00a1998e162ca3d69297c46e11ffee2c"
+      }, {
+        "spanId" : "dbff2d894a4f1cf2",
+        "sampled" : true,
+        "traceId" : "c79aef83456cbdea1968015b45bcb69c"
+      } ],
+      "fanIn" : {
+        "spanId" : "dbb78969a1c88145",
+        "sampled" : true,
+        "traceId" : "e02dad4872876a4b3d436c2f94ccfb6a"
+      },
+      "batchItems" : [ {
+        "spanId" : "b93f904afa55ec9a",
+        "sampled" : true,
+        "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45"
+      }, {
+        "spanId" : "0a8b4e4e8a2e5a3a",
+        "sampled" : true,
+        "traceId" : "fee7f3f1cc7a0f9274f835d7ecbf9a45"
+      } ],
+      "inputContexts" : [ {
+        "spanId" : "32a0b935703ce1e9",
+        "sampled" : true,
+        "traceId" : "16cc2df0af624e48c151d9bee1d90e58"
+      }, {
+        "spanId" : "bcc5bae38a37646c",
+        "sampled" : true,
+        "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689"
+      }, {
+        "spanId" : "6094360a39bc53e1",
+        "sampled" : true,
+        "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1"
+      }, {
+        "spanId" : "7da60c1c1d8e465c",
+        "sampled" : true,
+        "traceId" : "9ffe4f1c09278983e9b4b92011ced907"
+      }, {
+        "spanId" : "736353c23861698e",
+        "sampled" : true,
+        "traceId" : "15f407a2485f3652c3ad6afb313e3312"
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    }
+  }, {
+    "originalPrivacyCapture" : {
+      "schema" : "contoso.native-api-safe-capture.v1",
+      "privacyPolicy" : "contoso.original-native-payload.v1",
+      "validatorPid" : 67400,
+      "nodeVersion" : "v22.23.4",
+      "validatorSourceSha256" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "sharedPolicySha256" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "verified" : true,
+      "sourceAcceptanceIsCertification" : false,
+      "independentProducerAuthorityVerified" : false,
+      "allTablePrivacyGateVerified" : false,
+      "certification" : "NOT_CERTIFIED",
+      "actualCounts" : {
+        "payloads" : 11,
+        "originalRawBytes" : 18244,
+        "decodedBytes" : 173449,
+        "envelopes" : 217
+      },
+      "payloadReceipts" : [ {
+        "originalPayloadSha256" : "f64bc077c675046978f40d80a9500703ede61a86883b9d2caafdc5c9262d1e36",
+        "originalPayloadBytes" : 498,
+        "decodedPayloadBytes" : 1256,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "55edcf183d5c36ab3b8650eacffe7a182d9358a82229c995f807f573e1d55951",
+        "originalPayloadBytes" : 417,
+        "decodedPayloadBytes" : 615,
+        "originalEnvelopeCount" : 1,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "1ff551c206902ccf5e737b5b76dbd5c3447fe32f96c49619ac69b828a8eeeea4",
+        "originalPayloadBytes" : 2786,
+        "decodedPayloadBytes" : 29973,
+        "originalEnvelopeCount" : 40,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "a8ed6c735eceb02f90e397df808bcf1efb0919bfe2f3dd0d34f1b709aa003ce9",
+        "originalPayloadBytes" : 523,
+        "decodedPayloadBytes" : 1286,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "239099a04fb2461643a0691f54cdb4686e364cb26bedc879cca128c030e37e1a",
+        "originalPayloadBytes" : 499,
+        "decodedPayloadBytes" : 1253,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "91b9cdca672d3804750df51bb7987385287c2b21d36f31ba050c768f449156bd",
+        "originalPayloadBytes" : 996,
+        "decodedPayloadBytes" : 4173,
+        "originalEnvelopeCount" : 6,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "37e2159f53206856e204c6170c91adac7d4e9d9cb8b780587ac2fa651325de25",
+        "originalPayloadBytes" : 5557,
+        "decodedPayloadBytes" : 66190,
+        "originalEnvelopeCount" : 80,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "6a773e50283e7bf3c30941921f6355d53021eda1e1e600523c9bcbc11a245fb7",
+        "originalPayloadBytes" : 522,
+        "decodedPayloadBytes" : 1294,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "41c88acb2c6ff88c2a495dd9a48244f57669c464a6f10cfd7a18d708f6639583",
+        "originalPayloadBytes" : 416,
+        "decodedPayloadBytes" : 615,
+        "originalEnvelopeCount" : 1,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "34dd34238712d08424ce8cbd0f68288d8e065a9ac39fc29a137bb3df9b4c7916",
+        "originalPayloadBytes" : 524,
+        "decodedPayloadBytes" : 1284,
+        "originalEnvelopeCount" : 2,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      }, {
+        "originalPayloadSha256" : "1d7a0fb63ece9165f1fe677dcb89ec00418445a5c57351b1421ab0b1d503d4e8",
+        "originalPayloadBytes" : 5506,
+        "decodedPayloadBytes" : 65510,
+        "originalEnvelopeCount" : 79,
+        "strictDuplicateKeysVerified" : true,
+        "scannedAllOriginalValues" : true,
+        "projectedAfterScan" : true,
+        "originalPayloadRetained" : false
+      } ],
+      "validatorCliSourceSha256" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+      "validatorStartedAtUtc" : "2026-11-02T22:06:45.234926600Z",
+      "validatorEndedAtUtc" : "2026-11-02T22:06:46.455400900Z",
+      "validatorExecutable" : "C:\\Program Files\\nodejs\\node.exe",
+      "validatorExecutableSha256Before" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "validatorExecutableSha256After" : "dccc52de28d8df2ee22d2062424f8c563070d95d8ad70c54c4bf01d590dec14f",
+      "sourceHashesBefore" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "sourceHashesAfter" : {
+        "tools\\security\\values.mjs" : "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+        "tools\\security\\Scan-NativePayloads.mjs" : "c0b2a8638109d169cd8f7d1f776e1cb152dc688784de8c79b3e697037b1f7181",
+        "tools\\security\\native-payload.mjs" : "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      },
+      "knownPublisherCount" : 5,
+      "exactForbiddenMarkerCount" : 2,
+      "excludedNonTelemetryHttpRequests" : 18,
+      "oneWholeExecutionCaptureWithoutReset" : true,
+      "cumulativeOriginalPayloadsRescanned" : true
+    },
+    "everyOutgoingZeroSatisfied" : false,
+    "sourcePercentage" : -1,
+    "consumerPercentage" : 100,
+    "nativeChildren" : [ {
+      "percentage" : 100,
+      "startedAtUtc" : "2026-11-02T22:06:14.125015800Z",
+      "endedAtUtc" : "2026-11-02T22:06:45.200410700Z",
+      "pid" : 31848,
+      "exitCode" : 0,
+      "phase" : "consume"
+    } ],
+    "exportedOrdinaryCount" : 1,
+    "inputMode" : "mixed-native-producer-0-and-100",
+    "actualNativeSpans" : [ {
+      "parentId" : "",
+      "spanId" : "11da3c5095f91d04",
+      "traceId" : "25c632f8de7ce5318f9d8edcc6a108c6",
+      "name" : "GET /carriers",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "9a305818b50d992e",
+      "traceId" : "5e900a0039d935a3f85f6bc7c02d2068",
+      "name" : "contoso.sampling.unlinked.control",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "c28ae5189d946484",
+      "traceId" : "5b4fb0ff8188ab9d2dbd0fb6ab308cc1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "3765fd93403451e4",
+      "traceId" : "b15c4187b0999c603ff3107510436617",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "123e61a841c99170",
+      "traceId" : "dcd479564eed240641e1228ae34065c0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "a2996d7313b65345",
+      "traceId" : "9e446c03f70eebc959dc32b1975112c2",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "47b88e8e202f4947",
+      "traceId" : "8347d69f63b3ea11139fbbe1b9395268",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "015a223965540d95",
+      "traceId" : "50e5af056aba565e9f105531a431737e",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "f3abc251f7ef551b",
+      "traceId" : "b7b9d8b98d2e9659c446405c9de363ba",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "b74e20a61b35424e",
+      "traceId" : "3352349070a13ead07faa1f13f374858",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "5168d2bf2c6abadd",
+      "traceId" : "434c6a957f82cbe51bf4fc08019f3c58",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "eded474679b22b69",
+      "traceId" : "abe9f3da071bed1b972263853d49e25f",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "90bc6d3c9be78858",
+      "traceId" : "5e7300eec099c4ab9ede34f4ca4255c0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "53f0a4dc92301fbc",
+      "traceId" : "ee983fec9f733fc0f2cbf7464cf9d476",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "a836866335427925",
+      "traceId" : "b15f27fe243775eede294011d6e51fdb",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "5c769441c336ce19",
+      "traceId" : "ab11de4c2e37c8308c1b7b3913676cf9",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "32bbb80c74e0a8dc",
+      "traceId" : "f935ff621bde3251aa298ac2e4881f04",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "fa91face66466a93",
+      "traceId" : "c16204c656eb2a126bb5d3969d1cfe24",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "6107f675ec0bb6a2",
+      "traceId" : "0e3cbf21f40d27cdb34297fe7cf0fdc1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "222a9aeedcd547bb",
+      "traceId" : "8828faecebcd882d9aa03b65a58c8442",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "8e5225a50381f1e0",
+      "traceId" : "7415aa72ed8cfb7b98388c0f4c682ed6",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "15e3fd41fdf15519",
+      "traceId" : "63b0620086e2a2e0fd0a603ea890ab1e",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "f609de5588025428",
+      "traceId" : "41477799932842cb46acc62cb9e0c747",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "bcebe80f304ce405",
+      "spanId" : "e4bc21868d7fcfd7",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "bcebe80f304ce405",
+      "spanId" : "88b16a36714e096c",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "32a0b935703ce1e9",
+      "spanId" : "bcebe80f304ce405",
+      "traceId" : "16cc2df0af624e48c151d9bee1d90e58",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "74a71b99fc3c98a5",
+      "traceId" : "0b36f85dc2e1b771589da8ea4adf843f",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "6dd600bf0624c316",
+      "spanId" : "fcf4accd727e9af9",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6dd600bf0624c316",
+      "spanId" : "b89e6d29e9f11169",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "bcc5bae38a37646c",
+      "spanId" : "6dd600bf0624c316",
+      "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "39f920798a61a5cb",
+      "traceId" : "b0f8a3eca5e371638c38e89fa8829e14",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "cc1c608d0f44007f",
+      "traceId" : "a0e91585db66765828541acea581da6f",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "fa1e1134ed42e52a",
+      "traceId" : "4bf30436f1359366e1bd55f4623fd9d7",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "5e973b0c2ac4e189",
+      "spanId" : "aa63d0a5213032a0",
+      "traceId" : "f65f3c673223da7daf6a78c6881332da",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "5e973b0c2ac4e189",
+      "traceId" : "f65f3c673223da7daf6a78c6881332da",
+      "name" : "contoso.replay.process",
+      "links" : "[{\"operation_Id\":\"2171035db0b8f4d9c83ea92f1a0f0689\",\"id\":\"bcc5bae38a37646c\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "7af0ad5806dee98d",
+      "traceId" : "e5cae0e173592cf932fb16896713cee2",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6889d15f83b94fbc",
+      "spanId" : "02139865b5c69c95",
+      "traceId" : "6c889bf87813be99db8fa5cdd1c94206",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6889d15f83b94fbc",
+      "spanId" : "f06860ed1eaa957d",
+      "traceId" : "6c889bf87813be99db8fa5cdd1c94206",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "6889d15f83b94fbc",
+      "traceId" : "6c889bf87813be99db8fa5cdd1c94206",
+      "name" : "contoso.replay.send",
+      "links" : "[{\"operation_Id\":\"2171035db0b8f4d9c83ea92f1a0f0689\",\"id\":\"bcc5bae38a37646c\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "0d071d14e9dce861",
+      "traceId" : "a213bc8a74b8d8a09e8e510ba06d202c",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "8d09dc498ae74e44",
+      "spanId" : "764d5b6f6ae2de1c",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "8d09dc498ae74e44",
+      "spanId" : "1d8e0da3adc75115",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6094360a39bc53e1",
+      "spanId" : "8d09dc498ae74e44",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.fulfillment.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "afc35052c26fd54b",
+      "traceId" : "c5561c59ea40e987eb62eba5da772c9a",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "7465e55b5ca06298",
+      "spanId" : "83848ad4ef030889",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "7465e55b5ca06298",
+      "spanId" : "c28105a2f0c9e4be",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "6094360a39bc53e1",
+      "spanId" : "7465e55b5ca06298",
+      "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1",
+      "name" : "contoso.notify.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "560524468a13ccbd",
+      "traceId" : "b02595c2b049ff573fd851c5a0ff6f23",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "5a92087562ea81ed",
+      "spanId" : "7e9b51e2d55f97f1",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "5a92087562ea81ed",
+      "spanId" : "fe66879d21fac2b1",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "5a92087562ea81ed",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.servicebus.send",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"8d09dc498ae74e44\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "0fc8a4336ec577f2",
+      "traceId" : "7d5cf8cad0951c8ca011b93f576f4319",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "cc51b66c44361670",
+      "spanId" : "4cfbb4977fe422bb",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "cc51b66c44361670",
+      "spanId" : "310d5be0fdd6255c",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "cc51b66c44361670",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.servicebus.send",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"7465e55b5ca06298\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "d5c97ca9167e994e",
+      "traceId" : "e2daff7b039a4ea5feee8e1a03a92bb1",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "b75d8d5af2d6271f",
+      "spanId" : "6712ddd8cf1da2f5",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "b75d8d5af2d6271f",
+      "spanId" : "611a7ecea0c69c05",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "c89b87a1ef9dcaae",
+      "traceId" : "8060913fb28da6fbd97c58892126b02a",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "5a92087562ea81ed",
+      "spanId" : "b75d8d5af2d6271f",
+      "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3",
+      "name" : "contoso.results.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7aac8fd2aa70bb41",
+      "traceId" : "21adc20e8a071abe8a049d5195bde3c0",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "66d965baa4f0a299",
+      "spanId" : "4fd0b242c896c0a7",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "66d965baa4f0a299",
+      "spanId" : "0e4226f2cef0ce51",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "99e6033b92618921",
+      "traceId" : "d631ce2fa4c7d91ee6be4615ee9771dc",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "1ba7879baf465086",
+      "traceId" : "be4e646f4ee7e73db37c967452749b96",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "91f2c8fde33aef9c",
+      "spanId" : "efc8934e6b29c43f",
+      "traceId" : "1f80130cd0e82c5d99857007d9cb86ec",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "91f2c8fde33aef9c",
+      "traceId" : "1f80130cd0e82c5d99857007d9cb86ec",
+      "name" : "contoso.fanin.process",
+      "links" : "[{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"8d09dc498ae74e44\"},{\"operation_Id\":\"b5c8ced87fcff840e1c7055d6d1b31e3\",\"id\":\"5a92087562ea81ed\"},{\"operation_Id\":\"bb7c4c22266f2b381b760f6deb20d8c1\",\"id\":\"7465e55b5ca06298\"},{\"operation_Id\":\"f6fcab312ee572b68ac0bbcca923e4b0\",\"id\":\"cc51b66c44361670\"}]"
+    }, {
+      "parentId" : "cc51b66c44361670",
+      "spanId" : "66d965baa4f0a299",
+      "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0",
+      "name" : "contoso.results.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "83785167d9baa498",
+      "traceId" : "bbdf287cc9a7082ba6ec1b43aaf65308",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "dfe204c0b176fc6e",
+      "traceId" : "d824e5d4a08ac67160e4b191570be6ff",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "e85fd7d403f1e297",
+      "traceId" : "de743e5ee7e04fec22229d4ce259aa23",
+      "name" : "contoso.pg.select",
+      "links" : ""
+    }, {
+      "parentId" : "08bd6616991a15b8",
+      "spanId" : "ebcf4406488c4505",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "08bd6616991a15b8",
+      "spanId" : "34f3e85ef13d1a2a",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "7d2ef957172d6345",
+      "spanId" : "08bd6616991a15b8",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : ""
+    }, {
+      "parentId" : "273e10650cdac793",
+      "spanId" : "9e564bbb26fd2c53",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "273e10650cdac793",
+      "spanId" : "9b396c24a87f828e",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.pg.transaction",
+      "links" : ""
+    }, {
+      "parentId" : "7d2ef957172d6345",
+      "spanId" : "273e10650cdac793",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : ""
+    }, {
+      "parentId" : "",
+      "spanId" : "7d2ef957172d6345",
+      "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34",
+      "name" : "contoso.eventhubs.batch.process",
+      "links" : "[{\"operation_Id\":\"d2d8884892e8b8c82c2c8ad067d3adbb\",\"id\":\"247b00ad47b07bc8\"},{\"operation_Id\":\"15f407a2485f3652c3ad6afb313e3312\",\"id\":\"736353c23861698e\"}]"
+    }, {
+      "parentId" : "",
+      "spanId" : "889ef615717bdda8",
+      "traceId" : "6b25b44b970deffbe64c636588c622d5",
+      "name" : "POST /decisions",
+      "links" : ""
+    } ],
+    "actualDecisions" : {
+      "unlinkedRoot" : {
+        "spanId" : "9a305818b50d992e",
+        "sampled" : true,
+        "traceId" : "5e900a0039d935a3f85f6bc7c02d2068"
+      },
+      "ordinaryProcess" : {
+        "spanId" : "bcebe80f304ce405",
+        "sampled" : true,
+        "traceId" : "16cc2df0af624e48c151d9bee1d90e58"
+      },
+      "replaySend" : {
+        "spanId" : "6889d15f83b94fbc",
+        "sampled" : true,
+        "traceId" : "6c889bf87813be99db8fa5cdd1c94206"
+      },
+      "resultSends" : [ {
+        "spanId" : "5a92087562ea81ed",
+        "sampled" : true,
+        "traceId" : "b5c8ced87fcff840e1c7055d6d1b31e3"
+      }, {
+        "spanId" : "cc51b66c44361670",
+        "sampled" : true,
+        "traceId" : "f6fcab312ee572b68ac0bbcca923e4b0"
+      } ],
+      "fanIn" : {
+        "spanId" : "91f2c8fde33aef9c",
+        "sampled" : true,
+        "traceId" : "1f80130cd0e82c5d99857007d9cb86ec"
+      },
+      "batchItems" : [ {
+        "spanId" : "08bd6616991a15b8",
+        "sampled" : true,
+        "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34"
+      }, {
+        "spanId" : "273e10650cdac793",
+        "sampled" : true,
+        "traceId" : "d6f7cc5484b8acbd3225259a7bdc5b34"
+      } ],
+      "inputContexts" : [ {
+        "spanId" : "32a0b935703ce1e9",
+        "sampled" : true,
+        "traceId" : "16cc2df0af624e48c151d9bee1d90e58"
+      }, {
+        "spanId" : "bcc5bae38a37646c",
+        "sampled" : true,
+        "traceId" : "2171035db0b8f4d9c83ea92f1a0f0689"
+      }, {
+        "spanId" : "6094360a39bc53e1",
+        "sampled" : true,
+        "traceId" : "bb7c4c22266f2b381b760f6deb20d8c1"
+      }, {
+        "spanId" : "247b00ad47b07bc8",
+        "sampled" : false,
+        "traceId" : "d2d8884892e8b8c82c2c8ad067d3adbb"
+      }, {
+        "spanId" : "736353c23861698e",
+        "sampled" : true,
+        "traceId" : "15f407a2485f3652c3ad6afb313e3312"
+      } ],
+      "scope" : "Actual current provider/source carriers and runtime/H2 outcomes; no Azure broker or permission proof"
+    }
+  } ],
+  "schemaVersion" : 1,
+  "guardPolicy" : "DROP_VALID_UNSAMPLED_PARENT_AND_ALL_VALID_UNSAMPLED_LINKS",
+  "scope" : "Actual current provider, producer SDK-carrier contexts and runtime/H2 outcomes; no Azure/permission/Functions proof",
+  "guardArtifactVersion" : "1.1.0"
+}

@@ -1,0 +1,25 @@
+{
+  "authorRole": "R4",
+  "childIds": [
+    "GATE-05.2"
+  ],
+  "sourcePaths": [
+    "..\\.github\\workflows\\ci-java.yml",
+    "tools\\java\\Assert-JavaTestResults.ps1",
+    "tests\\java\\ci-java.test.mjs",
+    "docs\\JAVA_CI.md"
+  ],
+  "testFiles": [
+    "tests\\java\\ci-java.test.mjs"
+  ],
+  "positiveTests": [
+    "every PR runs the locked serial reactor with both artifacts and fail-closed totals",
+    "fresh complete XML prints executed and skipped totals and covers every required agent class"
+  ],
+  "negativeTests": [
+    "workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger",
+    "skipped or cancelled agent assertions fail even when Maven reported zero failures",
+    "missing gated testcase, incomplete counts and stale reports cannot pass silently",
+    "duplicate emitted tests and DTD-bearing XML are rejected"
+  ]
+}

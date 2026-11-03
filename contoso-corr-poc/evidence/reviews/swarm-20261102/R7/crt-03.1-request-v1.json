@@ -1,0 +1,21 @@
+{
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R9",
+  "childIds": ["CRT-03.1"],
+  "sourcePaths": [
+    "docs\\TEST_COVERAGE_REPORT.md",
+    "tools\\verification\\test-coverage-report.mjs",
+    "tests\\verification\\test-coverage-report.test.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\run-focused.mjs",
+    "tools\\observability\\telemetry-contract.mjs",
+    "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\result.json",
+    "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\after-sources.json",
+    "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json"
+  ],
+  "testFiles": ["tests\\verification\\test-coverage-report.test.mjs"],
+  "positiveTests": ["whole historical coverage report binds its source commit and exact cited suite counts"],
+  "negativeTests": ["source commit or same-commit source closure drift requires the historical label"],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R7\\crt-03.1-review-v1"
+}

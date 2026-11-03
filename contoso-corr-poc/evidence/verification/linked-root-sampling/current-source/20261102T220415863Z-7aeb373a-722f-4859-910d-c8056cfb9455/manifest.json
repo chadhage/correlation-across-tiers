@@ -1,0 +1,47 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "scope": "LOCAL_REHEARSAL_CURRENT_SOURCE_SAMPLER_DECISIONS_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "compiled-classes.json",
+      "sha256": "08d16582dcd2a3e53d1be5e2ec714acfe4791c642664b76570242ed7cf498b4e"
+    },
+    {
+      "path": "execution-receipt.json",
+      "sha256": "9b0db0a429ea1d3a23670e71d00c18fe6679dc992585eb94444474657f0d8efb"
+    },
+    {
+      "path": "observed-running-java.json",
+      "sha256": "d600239feebed9a6b0704ccf8e3ea793efedee7198f196088354edf1abef5132"
+    },
+    {
+      "path": "qualification.json",
+      "sha256": "7e980612bd85d3dd771c80975e569748790c594ee35b0450c38ed58c76cce92f"
+    },
+    {
+      "path": "runtime-dependencies.json",
+      "sha256": "e7e9e18905261a20ae31935d16444d5ce441ce0aa83be280dee9a149a103b64d"
+    },
+    {
+      "path": "sampler-build.log",
+      "sha256": "a42ba441fcccb638681823d94270850f44be7e5fef593f8f563db41a58ce2eab"
+    },
+    {
+      "path": "selected-test.log",
+      "sha256": "c2108bf44567223c17f686fbbfd2e25872b9bedbc3782f6e57c62a9ce704be3c"
+    },
+    {
+      "path": "source-build.json",
+      "sha256": "7f1d3def940739162a1f32abf96c9033ddbd7d4357f6c20c7ca59be1aa588949"
+    },
+    {
+      "path": "sources-after.json",
+      "sha256": "eb49ca69028426c4313319f31afb804cb1eddd951b9305666d710ddd2cfe29d8"
+    },
+    {
+      "path": "sources-before.json",
+      "sha256": "eb49ca69028426c4313319f31afb804cb1eddd951b9305666d710ddd2cfe29d8"
+    }
+  ]
+}

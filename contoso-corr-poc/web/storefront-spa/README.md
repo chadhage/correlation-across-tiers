@@ -79,3 +79,10 @@ fixture browser commands. Fixture entrypoints live only under Portal tests and
 Live authentication, actual browser-to-gateway rows/KQL, domain/CORS negative
 controls against APIM and visualizations remain **To Do**. Browser fixture
 success and 202/staged state are not Azure certification.
+
+Local-mode pages explicitly display **LOCAL REHEARSAL**, including the bounded
+window. The local browser driver uses the actual Storefront source and SDK with
+an in-memory synthetic identity seam, never the production Entra entrypoint.
+See the Portal README for the loopback pass-through driver and its required
+actual Orders exported parent join. Its local UI/SDK checks alone cannot close
+WEB-01.1, and neither local result closes a live WEB-01 facet.

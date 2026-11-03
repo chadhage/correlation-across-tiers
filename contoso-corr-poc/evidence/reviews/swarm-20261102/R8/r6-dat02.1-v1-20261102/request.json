@@ -1,0 +1,34 @@
+{
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "childIds": [
+    "DAT-02.1"
+  ],
+  "sourcePaths": [
+    "tools\\data\\local-redis-preflight.mjs",
+    "tools\\data\\local-redis-preflight.test.mjs",
+    "tools\\data\\LocalRedisLane.md",
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+    "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+    "services\\inventory-data\\pom.xml",
+    "config\\versions.lock.json"
+  ],
+  "testFiles": [
+    "tools\\data\\local-redis-preflight.test.mjs",
+    "services\\inventory-data\\tools\\local-redis-lane.test.mjs"
+  ],
+  "positiveTests": [
+    "SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter",
+    "LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed"
+  ],
+  "negativeTests": [
+    "CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane",
+    "EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat02.1-v1-20261102\\receipt"
+}

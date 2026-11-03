@@ -513,6 +513,7 @@ function initializeMicrosite() {
 
   const navigationDrawer = $('navigation-drawer');
   const navigationToggle = $('navigation-toggle');
+  const welcomeDialog = $('welcome-dialog');
   function syncNavigationDrawer() {
     navigationToggle.setAttribute('aria-expanded', String(navigationDrawer.open));
     document.documentElement.classList.toggle('navigation-open', navigationDrawer.open);
@@ -521,23 +522,72 @@ function initializeMicrosite() {
     if (navigationDrawer.open) navigationDrawer.close();
     syncNavigationDrawer();
   }
+  function syncWelcomeDialog() {
+    document.documentElement.classList.toggle('welcome-open', welcomeDialog.open);
+  }
+  function openWelcomeDialog() {
+    closeNavigationDrawer();
+    welcomeDialog.showModal();
+    $('welcome-content').scrollTop = 0;
+    syncWelcomeDialog();
+  }
+  function closeWelcomeDialog(restoreFocus = true) {
+    welcomeDialog.close();
+    syncWelcomeDialog();
+    if (restoreFocus) navigationToggle.focus({ preventScroll: true });
+  }
+  function bindDialogDismissal(dialog, close) {
+    dialog.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      close();
+    });
+    dialog.addEventListener('cancel', event => {
+      event.preventDefault();
+      close();
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right
+        || event.clientY < bounds.top || event.clientY > bounds.bottom) close();
+    });
+  }
+  welcomeDialog.addEventListener('close', syncWelcomeDialog);
+  bindDialogDismissal(welcomeDialog, closeWelcomeDialog);
+  document.querySelectorAll('[data-open-welcome]').forEach(node => node.addEventListener('click', openWelcomeDialog));
+  $('welcome-scenarios').replaceChildren(...data.demos.map(demo => {
+    const item = element('li');
+    const link = element('a');
+    link.href = `#demo-${demo.id}`;
+    link.append(element('span', 'mono', demo.id), element('span', '', demo.title));
+    item.append(link);
+    return item;
+  }));
+  welcomeDialog.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const match = /^#demo-(.+)$/.exec(link.hash);
+    const target = $(match ? 'walkthrough' : link.hash.slice(1));
+    if (!target) throw new Error(`Unknown guide destination: ${link.hash}`);
+    closeWelcomeDialog(false);
+    if (match) {
+      $('demo-search').value = '';
+      setGroup('all');
+      selectDemo(match[1]);
+    } else {
+      history.replaceState(null, '', link.hash);
+    }
+    target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    target.focus({ preventScroll: true });
+  });
   navigationToggle.addEventListener('click', () => {
     navigationDrawer.showModal();
     syncNavigationDrawer();
   });
   navigationDrawer.addEventListener('close', syncNavigationDrawer);
-  navigationDrawer.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      closeNavigationDrawer();
-    }
-  });
-  navigationDrawer.addEventListener('click', event => {
-    if (event.target !== navigationDrawer) return;
-    const bounds = navigationDrawer.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right
-      || event.clientY < bounds.top || event.clientY > bounds.bottom) closeNavigationDrawer();
-  });
+  bindDialogDismissal(navigationDrawer, closeNavigationDrawer);
   navigationDrawer.querySelectorAll('nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
     closeNavigationDrawer();
     $(link.hash.slice(1)).focus({ preventScroll: true });
@@ -592,8 +642,15 @@ function initializeMicrosite() {
     for (const key of environmentKeys) $(`environment-${key}`).setCustomValidity('');
     $('environment-error').textContent = '';
   });
-  document.querySelectorAll('[data-close-dialog]').forEach(node => node.addEventListener('click', () => $(node.dataset.closeDialog).close()));
-  document.querySelectorAll('[data-source]').forEach(node => node.addEventListener('click', () => showSource(node.dataset.source)));
+  document.querySelectorAll('[data-close-dialog]').forEach(node => node.addEventListener('click', () => {
+    const dialog = $(node.dataset.closeDialog);
+    if (dialog === welcomeDialog) closeWelcomeDialog();
+    else dialog.close();
+  }));
+  document.querySelectorAll('[data-source]').forEach(node => node.addEventListener('click', () => {
+    if (welcomeDialog.contains(node)) closeWelcomeDialog();
+    showSource(node.dataset.source);
+  }));
   $('source-select').replaceChildren(...data.sources.map(source => {
     const option = element('option', '', source.path);
     option.value = source.path;
@@ -664,6 +721,7 @@ function initializeMicrosite() {
   syncThemeControl();
   useHash();
   $('query-command').textContent = queryCommand();
+  openWelcomeDialog();
 }
 
 if (typeof document !== 'undefined') initializeMicrosite();

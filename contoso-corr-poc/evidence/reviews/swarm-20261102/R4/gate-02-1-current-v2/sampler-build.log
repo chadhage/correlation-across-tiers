@@ -1,0 +1,64 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Scanning for projects...
+[INFO] Loaded 24339 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Contoso correlation POC                                            [pom]
+[INFO] Contoso same-provider parent-safe sampler                          [jar]
+[INFO] 
+[INFO] --------------------< com.contoso:contoso-corr-poc >--------------------
+[INFO] Building Contoso correlation POC 1.0.0                             [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-corr-poc ---
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-corr-poc ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --------------< com.contoso:contoso-parent-safe-sampler >---------------
+[INFO] Building Contoso same-provider parent-safe sampler 1.1.0           [2/2]
+[INFO]   from extensions\parent-safe-sampler\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-parent-safe-sampler ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\extensions\parent-safe-sampler\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-parent-safe-sampler ---
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ contoso-parent-safe-sampler ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ contoso-parent-safe-sampler ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ contoso-parent-safe-sampler ---
+[INFO] skip non existing resourceDirectory C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\extensions\parent-safe-sampler\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ contoso-parent-safe-sampler ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ contoso-parent-safe-sampler ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ contoso-parent-safe-sampler ---
+[INFO] Building jar: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\extensions\parent-safe-sampler\target\contoso-parent-safe-sampler-1.1.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Contoso correlation POC 1.0.0 ...................... SUCCESS [  0.935 s]
+[INFO] Contoso same-provider parent-safe sampler 1.1.0 .... SUCCESS [  5.946 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.888 s
+[INFO] Finished at: 2026-11-02T17:02:23-05:00
+[INFO] ------------------------------------------------------------------------

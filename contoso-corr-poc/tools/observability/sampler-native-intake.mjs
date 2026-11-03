@@ -11,7 +11,8 @@ import { forbiddenString } from '../security/values.mjs';
 export const NATIVE_BODY_TIMEOUT_MS = 5000;
 const RECEIVER_ERRORS = new Set([
   'NATIVE_WIRE_BOUND', 'NATIVE_WIRE_TIMEOUT', 'NATIVE_WIRE_INCOMPLETE',
-  'NATIVE_ROUTE_UNEXPECTED', 'NATIVE_RECEIVER_INCOMPLETE', 'NATIVE_RECEIVER_SEALED'
+  'NATIVE_ROUTE_UNEXPECTED', 'NATIVE_RECEIVER_INCOMPLETE', 'NATIVE_RECEIVER_SEALED',
+  'NATIVE_CAPTURE_CALLBACK_FAILED', 'NATIVE_CAPTURE_CALLBACK_TIMEOUT', 'NATIVE_CAPTURE_CALLBACK_INVALID'
 ]);
 const FAILURE_STAGES = new Set([
   'readiness', 'sampling-response', 'sampling-parse', 'sampling-state', 'rate-observation',
@@ -31,7 +32,7 @@ const FAILURE_CODES = new Set([
   'HPE_PAUSED', 'HPE_PAUSED_UPGRADE', 'HPE_PAUSED_H2_UPGRADE', 'HPE_USER',
   'HPE_CB_HEADERS_COMPLETE', 'HPE_CLOSED_CONNECTION'
 ]);
-const RECEIVER_EVENTS = new Set(['receive', 'parse', 'finish', 'pending', 'clientError', 'drop', 'serverError', 'close']);
+const RECEIVER_EVENTS = new Set(['receive', 'parse', 'capture', 'finish', 'pending', 'clientError', 'drop', 'serverError', 'close']);
 const COUNTER_LIMIT = 4_294_967_295;
 const increment = (object, key, amount = 1) => {
   object[key] = Math.min(COUNTER_LIMIT, object[key] + amount);
@@ -135,7 +136,8 @@ export async function readNativeSamplerBody(request) {
   return readBody(request);
 }
 
-export function createSamplerNativeIntake({ publisherKeys, forbiddenValues }) {
+export function createSamplerNativeIntake({ publisherKeys, forbiddenValues, onCapture }) {
+  if (onCapture !== undefined && typeof onCapture !== 'function') fail('NATIVE_CAPTURE_CALLBACK_INVALID');
   const session = createNativePayloadSession({ publisherKeys, forbiddenValues });
   const observations = [];
   let pending = 0, accepted = 0, failed = null, sealed = false, result;
@@ -204,6 +206,21 @@ export function createSamplerNativeIntake({ publisherKeys, forbiddenValues }) {
         increment(events, 'parse');
         const capture = session.ingest(bytes, request.headers?.['content-encoding']);
         const observedAtUtc = new Date().toISOString();
+        if (onCapture) {
+          step = 'capture';
+          increment(events, 'capture');
+          let timer;
+          try {
+            await Promise.race([
+              Promise.resolve().then(() => onCapture(freeze(structuredClone(capture))))
+                .catch(() => fail('NATIVE_CAPTURE_CALLBACK_FAILED')),
+              new Promise((_, reject) => {
+                timer = setTimeout(() => reject(new Error('NATIVE_CAPTURE_CALLBACK_TIMEOUT')), NATIVE_BODY_TIMEOUT_MS);
+              })
+            ]);
+          } finally { clearTimeout(timer); }
+          if (failed) fail(failed);
+        }
         observations.push(...capture.nativeEnvelopes.map(envelope => ({
           envelope, observedAtUtc,
           encodedBytes: Buffer.byteLength(JSON.stringify(envelope), 'utf8')
@@ -265,8 +282,9 @@ export function createSamplerNativeIntake({ publisherKeys, forbiddenValues }) {
   });
 }
 
-export async function openSamplerNativeReceiver({ publisherKeys, forbiddenValues, onEcho }) {
-  const intake = createSamplerNativeIntake({ publisherKeys, forbiddenValues });
+export async function openSamplerNativeReceiver({ publisherKeys, forbiddenValues, onEcho, onCapture, port = 0 }) {
+  if (!Number.isSafeInteger(port) || port < 0 || port > 65535) fail('NATIVE_RECEIVER_PORT');
+  const intake = createSamplerNativeIntake({ publisherKeys, forbiddenValues, onCapture });
   const pending = new Set();
   const http = { requests: 0, nativePosts: 0, echoGets: 0, rejectedRoutes: 0, closeCalls: 0 };
   const server = createServer({
@@ -317,7 +335,7 @@ export async function openSamplerNativeReceiver({ publisherKeys, forbiddenValues
       reject(error);
     };
     server.once('error', failed);
-    server.listen(0, '127.0.0.1', () => {
+    server.listen(port, '127.0.0.1', () => {
       server.off('error', failed);
       intake.setTransportPhase('listening');
       ready();

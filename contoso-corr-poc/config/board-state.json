@@ -1,10 +1,28 @@
 {
   "schema": "contoso.board-acceptance.v1",
-  "revision": 59,
+  "revision": 80,
   "defaultStatus": "To Do",
   "phaseAwareConstructionApproved": true,
   "explicitActiveFacetsRequired": true,
   "acceptancePolicy": "config\\acceptance-scopes.json",
+  "checkoutReproducibilityValidation": {
+    "artifact": "evidence\\reviews\\swarm-20261102\\checkout-reproducibility-20261103\\prepared-checkout-result.json",
+    "sha256": "65984f67d8e13855208d11d80b498460dbd1406e8a02640bb0ea97bc85363dfc",
+    "scope": "Prepared isolated Git index checkout with core.autocrlf=true; local source/test validation only",
+    "preparationCommand": "npm run test:prepare",
+    "command": "npm test -- --test-reporter=tap --test-concurrency=2",
+    "testsPassed": 672,
+    "testsFailed": 0,
+    "testsSkipped": 0,
+    "testsCancelled": 0,
+    "sourceTestInputs": 540,
+    "sourceTestInputsStableBeforeAfter": true,
+    "originalReviewInputsAndReceiptsPreserved": true,
+    "javaTestsExecuted": false,
+    "azureTrafficGenerated": false,
+    "sourceAcceptanceIsCertification": false,
+    "certificationStatus": "NOT CERTIFIED"
+  },
   "implementationAssignments": {
     "approval": "USER independent_nine_roles",
     "owners": {
@@ -53,7 +71,7 @@
     },
     "acceptanceNote": "Logical backlog ownership/kickoff remain unchanged. WIP and priority use current physical implementation roles; aliases cannot authorize self-review or native acceptance."
   },
-  "currentImplementationRouting": {
+  "priorImplementationRoutingBeforeSwarm20261102": {
     "mode": "USER independent_nine_roles",
     "coordinator": "current-parent-session",
     "specialistRoleCount": 9,
@@ -92,7 +110,731 @@
     },
     "acceptanceNote": "Nine fresh task identities were reconciled by the coordinator. R1/R7 independently executed the exact frozen R9 policy candidate. This activates construction ownership only; source/unit reviews, roster labels and agent IDs do not grant native authority, organizational signoff or card completion."
   },
+  "currentImplementationRouting": {
+    "mode": "USER independent_nine_roles",
+    "coordinator": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+    "specialistRoleCount": 9,
+    "historicalAgentsResumed": false,
+    "activatedAtUtc": "2026-11-02T21:57:58.681Z",
+    "roles": {
+      "R1": "d5bacc3f-769e-4dcd-a6d9-431858a8a9b0",
+      "R2": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+      "R3": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+      "R4": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "R5": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+      "R6": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "R7": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+      "R8": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "R9": "fdd30a5a-41f1-4025-9333-35e497280cb5"
+    },
+    "acceptanceNote": "Fresh identities supplied by the parent for this one concurrent team. Earlier routing and receipts are preserved as history, never resumed or promoted to current runtime evidence. Construction ownership only; no native, deployment, spending, traffic, secrets or certification authority."
+  },
   "executableCards": [],
+  "childRecords": {
+    "GATE-11.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Complete GATE-13.1, then deliver the shipped-path lint with all three seeded violation classes and documented portable prerequisites when the implementation frontier permits.",
+      "waitingOn": [
+        "GATE-13.1 remains To Do",
+        "No current R1 lint packet was delivered before the below-four dispatch stop"
+      ],
+      "reviews": []
+    },
+    "GATE-08.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After ARC-01.1 is independently Done, add exact Orders workflow/worker store-boundary Invariant C assertions and seeded failures; retain native qualification separately.",
+      "waitingOn": [
+        "ARC-01.1",
+        "No new invariant implementation was dispatched below the four-owner threshold"
+      ],
+      "reviews": []
+    },
+    "GOV-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "R1 independently review the frozen real PR template/checker after R7's four-test current-source acceptance. Template source is not actual PR review or branch-protection signoff.",
+      "waitingOn": [
+        "Second current other-role review by R1"
+      ],
+      "reviews": []
+    },
+    "ARC-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Deliver a source-derived completeness check and single-map declarations for every Orders/worker PostgreSQL CLIENT boundary, then obtain R3/R8 reviews without changing ranked acceptance.",
+      "waitingOn": [
+        "R1 has not delivered a frozen exact child-exit packet",
+        "Fresh implementation dispatch stopped below four distinct ready owners"
+      ],
+      "reviews": []
+    },
+    "JVM-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "In a future eligible frontier, implement and actually run the one-command loopback Orders/Inventory pair with locked agent/sampler, explicit ports/PIDs, remote export disabled and bounded cleanup.",
+      "waitingOn": [
+        "R4 confirms Start-LocalPair.ps1 was not implemented or started",
+        "No new JVM parent was dispatched after the threshold stop"
+      ],
+      "reviews": []
+    },
+    "INF-05.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Obtain approved per-app targets/identities and run each consuming app's real PostgreSQL/Redis connectivity and denied-role controls under its own identity.",
+      "waitingOn": [
+        "Approved actual private data targets and app identities",
+        "Explicit native connectivity/window authorization"
+      ],
+      "reviews": []
+    },
+    "DAT-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Qualify run-owned cold-cache preparation/reset on actual PostgreSQL and Redis and prove unchanged unowned state; existing local fixture/H2/RESP evidence cannot close this exit.",
+      "waitingOn": [
+        "Actual approved PostgreSQL/Redis targets, identity and reset lease",
+        "Current authentic store/emission evidence"
+      ],
+      "reviews": []
+    },
+    "IDN-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Run the dual-token negative matrix through the actual approved Gateway and both APIs, preserving current wire and effect evidence without retaining tokens.",
+      "waitingOn": [
+        "Deployed Gateway/APIs and Entra registrations/grants",
+        "Approved bounded native window and safe original-wire observer"
+      ],
+      "reviews": []
+    },
+    "IDN-01.3": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Use a current R4 source-built/installed Java lineage handoff and approved bounded local wire capture to retake every required JVM's AV-23 controls; do not reuse historical epochs.",
+      "waitingOn": [
+        "Current per-JVM installed-agent/artifact/dependency handoff",
+        "Actual current header-isolation wire receipts and independent reviews"
+      ],
+      "reviews": []
+    },
+    "IDN-01.4": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Freeze the actual loaded Portal build/dependency scope and execute its bounded wire header-isolation controls with current source/byte correspondence.",
+      "waitingOn": [
+        "Current loaded Portal build and dependency handoff",
+        "Actual bounded current Portal wire capture; source/typechecking alone is insufficient"
+      ],
+      "reviews": []
+    },
+    "DOC-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After ARC-01.1 is Done, generate tier-role labels and hop table from that single map and independently execute the drift negatives.",
+      "waitingOn": [
+        "ARC-01.1",
+        "No R1 documentation packet was dispatched below the four-owner threshold"
+      ],
+      "reviews": []
+    },
+    "MSG-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Supply approved real queue/role/run-owned entities and observe publish attempts, uncertain-publish retry and duplicates with actual outbox effects and cleanup.",
+      "waitingOn": [
+        "No approved broker endpoint/DB-role/run-owned entity/bootstrap/window inputs",
+        "Actual real-queue evidence; source/H2/carrier tests cannot substitute"
+      ],
+      "reviews": []
+    },
+    "OBS-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DAT-01.1 and DEM-01.1, capture the actual browser/Gateway request+backend/Orders/Inventory/data path using independently enrolled native query and emission observers.",
+      "waitingOn": [
+        "DAT-01.1",
+        "DEM-01.1",
+        "Approved target/auth/privacy/lease/window and native observers"
+      ],
+      "reviews": []
+    },
+    "DEM-00.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Replace the source-only adapter contract with supplied real operations and saved-baseline durable recovery only after the actual golden-path prerequisites are qualified.",
+      "waitingOn": [
+        "DAT-01.1",
+        "DEM-01.1",
+        "OBS-02.1",
+        "Actual independently enrolled execution/query/sampling/preparation/reset/recovery operations"
+      ],
+      "reviews": []
+    },
+    "DEM-00.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Run two distinct complete native run/capture/assert/reset cycles and a separate interrupted cleanup regression with exact baseline restoration.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual runtime/reset lease and native capture window"
+      ],
+      "reviews": []
+    },
+    "DEM-03.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Retain the independently reviewed seven-test fail-closed inspector as source-only. Ship and run the actual four-carrier Gateway adapter only after real execution/query/sampling/reset/recovery operations exist.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved deployed Gateway/controller/query/sampling/reset/durable-recovery operations; no createAdapter is exported"
+      ],
+      "reviews": []
+    },
+    "DEM-04.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, implement and run the trusted/untrusted/malformed business-ID cases across actual HTTP and Service Bus with preserved trust-boundary effects.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual HTTP/broker identities, native operations and reset window"
+      ],
+      "reviews": []
+    },
+    "DEM-06.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, drive a real broker retry sequence and prove N+1 distinct attempts with terminal effects and run-owned cleanup.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved real broker entities/identity/window and native capture/reset"
+      ],
+      "reviews": []
+    },
+    "DEM-12.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1 and ARC-01.1, run the actual all-tier safe-store span/negative controls and restore run-owned state; local opt-in interfaces alone do not satisfy it.",
+      "waitingOn": [
+        "DEM-00.1",
+        "ARC-01.1",
+        "Approved actual stores/runtime/identities and native operations"
+      ],
+      "reviews": []
+    },
+    "DEM-13.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After the adapter, dual-token and Java AV-23 prerequisites, observe pseudonym-only telemetry over the real chain with current original-column privacy evidence.",
+      "waitingOn": [
+        "DEM-00.1",
+        "IDN-01.1",
+        "IDN-01.3",
+        "Approved actual identity/privacy runtime and native window"
+      ],
+      "reviews": []
+    },
+    "DEM-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Run the advertised real UI action over the approved Gateway/Orders/Inventory/both-store path with actual emitted joins; local browser substitutes must remain explicitly local.",
+      "waitingOn": [
+        "Actual approved full-chain target/auth/store/reset inputs",
+        "Native browser/Gateway/API/data observations; browser-only rehearsal is not this exit"
+      ],
+      "reviews": []
+    },
+    "DEM-01.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After all three local prerequisites are independently Done, deliver and actually reproduce the one-command LOCAL REHEARSAL without APIM/Azure/certification claims.",
+      "waitingOn": [
+        "JVM-01.1",
+        "WEB-01.1",
+        "OBS-02.2",
+        "No new R1 rehearsal parent was dispatched below threshold"
+      ],
+      "reviews": []
+    },
+    "DEM-11.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, run real spoofed/malformed broker-message controls and prove rejection effects and preserved trust boundaries with run-owned reset.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual broker/runtime identities, native wire/effect capture and reset"
+      ],
+      "reviews": []
+    },
+    "DEM-07.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, drive actual dead-letter and replay with run-owned drain/reset and exact attempt/link/terminal-effect evidence.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved real DLQ/replay entities, identities and native operations/window"
+      ],
+      "reviews": []
+    },
+    "DEM-08.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, observe actual fan-out PROCESS attempts and Aggregator contributor links against the durable ledger, then restore run-owned state.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual fan-out/fan-in broker/runtime and native query/reset operations"
+      ],
+      "reviews": []
+    },
+    "DEM-14.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1 and ARC-01.1, run the native orphan classifier for every candidate with actual paths/screenshots and zero unexplained defects.",
+      "waitingOn": [
+        "DEM-00.1",
+        "ARC-01.1",
+        "Approved actual native query/runtime/window; empty results are not zero defects"
+      ],
+      "reviews": []
+    },
+    "DOC-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.2 and GATE-11.2, have another engineer reproduce the shipped Windows run/reset/recovery commands without hidden repairs.",
+      "waitingOn": [
+        "DEM-00.2",
+        "GATE-11.2",
+        "Actual independent reproduction and baseline restoration, not a future-tense runbook"
+      ],
+      "reviews": []
+    },
+    "DOC-02.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Deliver the tested README classification of every top-level directory when a future eligible frontier can execute the R1 packet.",
+      "waitingOn": [
+        "R1 has not delivered an independently reviewed directory-map exit",
+        "New implementation dispatch stopped below threshold"
+      ],
+      "reviews": []
+    },
+    "MSG-06.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "Use an approved actual Event Hubs group/checkpoint store to prove fenced restart and replay with actual effects and run-owned cleanup.",
+      "waitingOn": [
+        "Approved real Event Hubs endpoint/group/checkpoint identity/window",
+        "Actual broker evidence; local fencing fixtures are not real-store proof"
+      ],
+      "reviews": []
+    },
+    "DEM-09.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, run a real mixed-context batch without a first-message parent and compare native links with the persisted contributor ledger.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual broker/runtime and native capture/reset operations"
+      ],
+      "reviews": []
+    },
+    "DEM-15.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1 and explicit owner/budget/load approval, execute the bounded native window, measured load report, rollback and restoration.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Actual approved load/sampling/ACK/loss/budget/owner window and native observers"
+      ],
+      "reviews": []
+    },
+    "DEM-05.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "In a future eligible frontier, qualify the current default-off Inventory timeout/database-error controls and role-gated reset; no completed frozen source exit was delivered in this stopped epoch.",
+      "waitingOn": [
+        "R4 exact source/role/default-off/reset packet and two current reviews",
+        "No new fault-switch parent was dispatched below threshold"
+      ],
+      "reviews": []
+    },
+    "DEM-05.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1 and DEM-05.1, ship and run the real fault adapter and prove the switches are cleared after both normal and interrupted execution.",
+      "waitingOn": [
+        "DEM-00.1",
+        "DEM-05.1",
+        "Approved actual native runtime/control/reset operations"
+      ],
+      "reviews": []
+    },
+    "DEM-10.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "nextAction": "After DEM-00.1, execute actual Event Grid and Storage Queue paths including a duplicate and preserve exact effect/trace/reset evidence.",
+      "waitingOn": [
+        "DEM-00.1",
+        "Approved actual Event Grid/Storage Queue entities, identities and native operations/window"
+      ],
+      "reviews": []
+    },
+    "GATE-11.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": false,
+      "nextAction": "Unimplemented at threshold STOP: R1 performed inspection only, changed no files and ran no tests. After an authorized reopened frontier, implement azure.yaml matching existing main/params/package inventory, run missing-path/service/secret negatives, then obtain R3/R8 reviews.",
+      "waitingOn": [
+        "Implementation did not begin before threshold STOP; no technical blocker or acceptance receipt was established"
+      ],
+      "reviews": []
+    },
+    "GATE-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "R6/R9 each passed sixteen current source checks and verified the retained 168-source/152-class/96-JAR record. The current loader remains deliberately empty; independently grounded actual local execution enrollment is still required, not source-review votes.",
+      "waitingOn": [
+        "Independently grounded actual current local execution witness/enrollment; neither recorded-build consistency nor caller JSON supplies it"
+      ],
+      "priorPrerequisiteFailure": "java absent from PATH and no tool/JAR environment; recovered only after portable-root changes and official pinned installer checks.",
+      "reviews": []
+    },
+    "GATE-05.1": {
+      "status": "Done",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Six-script portable-root construction is independently complete on the exact current 12-input scope. Parent deployed JDK/provider compatibility and hosted CI remain To Do.",
+      "waitingOn": [],
+      "certificationStatus": "NOT CERTIFIED",
+      "sourceAcceptanceIsCertification": false,
+      "definitionSha256": "20988397738ca6334bcf065eb929a15ecb79d02daad630fb30cb49b3743a5c66",
+      "authorAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "completionSources": [
+        "tools\\java\\PortableTools.ps1",
+        "tools\\java\\Use-Portable.ps1",
+        "tools\\java\\Install-Portable.ps1",
+        "tools\\java\\Install-Bicep.ps1",
+        "tools\\java\\Get-Agent.ps1",
+        "tools\\java\\Gate-05.ps1",
+        "tools\\java\\Validate-Compute.ps1",
+        "tools\\java\\Get-Extension.ps1",
+        "tests\\java\\portable-tools.test.mjs",
+        ".gitignore",
+        "docs\\JAVA_VALIDATION.md",
+        "config\\versions.lock.json"
+      ],
+      "reviews": [
+        {
+          "role": "R6",
+          "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R4",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.1-v1\\execution\\review.json",
+          "sha256": "53c663c867ec498ff8dacc510a2143ec5e97f8480217f9c927679026ef1fea53",
+          "scopeSha256": "57c358fbdab416f0337b809e3e2a213f2aebeed6d1126d0dadcd08fd42f49eba"
+        },
+        {
+          "role": "R9",
+          "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R4",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-1-independent-v1\\review.json",
+          "sha256": "1891fdeb27948f345e394d743139febcc1272ec4ffab46015f4f46c3a7300178",
+          "scopeSha256": "57c358fbdab416f0337b809e3e2a213f2aebeed6d1126d0dadcd08fd42f49eba"
+        }
+      ]
+    },
+    "INF-06.1": {
+      "status": "Done",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Compiler resolution and honest missing-prerequisite skip behavior are independently complete for construction. Actual messaging deployment/native acceptance remains To Do.",
+      "waitingOn": [],
+      "certificationStatus": "NOT CERTIFIED",
+      "sourceAcceptanceIsCertification": false,
+      "definitionSha256": "269e09f65345d04ea70bde4c203a2a08b638c526094c64bd6d49e3941d755dc3",
+      "authorAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+      "completionSources": [
+        "tests\\messaging\\infra.test.mjs",
+        "tests\\messaging\\infra-tool-resolution.test.mjs",
+        "tools\\messaging\\bicep-tool.mjs",
+        "workers\\messaging-core\\README.md",
+        "infra\\modules\\messaging.bicep",
+        "infra\\modules\\messaging-roles.bicep",
+        "config\\versions.lock.json"
+      ],
+      "reviews": [
+        {
+          "role": "R3",
+          "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R5",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json",
+          "sha256": "4049f4902f41aae642390a6fd390e3951d82d1ea0a4925e74125a437270154f0",
+          "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1"
+        },
+        {
+          "role": "R6",
+          "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R5",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\review.json",
+          "sha256": "7ad3dc5669c02c546eef3e719e9909ddd17849fc7f5ba296bab765d7535ae3c8",
+          "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1"
+        }
+      ]
+    },
+    "INF-05.2": {
+      "status": "Done",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "The original v2 warning/VERIFY scope remains byte-identical after the idempotent checkout repair. Both existing R4/R8 executed reviews and all eight inputs verify unchanged; provider/GA/deployment/connectivity remain To Do.",
+      "waitingOn": [],
+      "certificationStatus": "NOT CERTIFIED",
+      "sourceAcceptanceIsCertification": false,
+      "definitionSha256": "b596267d9ecddec35419c935df22fd9912f87e6d13db2952844e231a775de6ff",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "completionSources": [
+        "infra\\modules\\data-postgres.bicep",
+        "infra\\modules\\data-managed-redis.bicep",
+        "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+        "services\\inventory-data\\tools\\data-api-warnings.mjs",
+        "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+        "services\\inventory-data\\tools\\Test-DataModules.ps1",
+        "docs\\VERIFY.md",
+        "config\\verification-register.v1.json"
+      ],
+      "reviews": [
+        {
+          "role": "R4",
+          "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R6",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-INF05.2-v2\\review.json",
+          "sha256": "f9996429c67dce3af4e82b5b132fceab0ca4c20b47f263a5215074bedda1d365",
+          "scopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c"
+        },
+        {
+          "role": "R8",
+          "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R6",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R8\\r6-inf05.2-v2-20261102\\receipt\\review.json",
+          "sha256": "459ba8603bfd9dd70b4614722bb34641ba51838a06210ad4323c02e07bf2b80d",
+          "scopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c"
+        }
+      ],
+      "historicalInvalidation": "Owner/reviewer v1 receipts retained; prior register drift required actual v2 re-execution. The checkout repair preserves the exact current v2 inputs and original receipt bytes; no review hashes or approvals were rewritten."
+    },
+    "WEB-01.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Final v3 has both R3/R7 twelve-test real-Chromium source reviews, immutable inputs and bounded cleanup. Execute the actual JVM-pair ingress/emitted-parent conjunction after JVM-01.1; the launcher was never implemented.",
+      "waitingOn": [
+        "JVM-01.1 independently complete and actual current browser-to-JVM ingress/emitted-span join"
+      ],
+      "reviews": []
+    },
+    "OBS-02.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Corrective v3 passed 75 controls and both R2/R9 current replays. Mixed caller inputs now downgrade to structural-only. Actual complete browser/JVM capture remains missing because the pair launcher was not implemented.",
+      "waitingOn": [
+        "Actual current local JVM pair and complete canonical Demo01 Run-demo browser/JVM capture"
+      ],
+      "reviews": []
+    },
+    "GATE-03.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Review the frozen workflow source and obtain separately approved actual hosted clean/seeded PR executions; local synthetic-history evidence is construction-only.",
+      "waitingOn": [
+        "Actual hosted pull-request runner execution is unavailable without an approved PR/runner window"
+      ],
+      "reviews": []
+    },
+    "GATE-06.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Prior beta-classification/register receipts are historical after the checkout fixes. The two resolved beta packages and 635 open claims remain unverified; obtain two current source reviews without inferring GA/support/runtime clearance.",
+      "waitingOn": [
+        "Two current other-role executed reviews"
+      ],
+      "reviews": []
+    },
+    "GATE-13.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Prior owner v3/R7 receipts are historical after the recorded-versus-current location guard repair. Review current checker bytes with two other roles; cloned historical paths still cannot grant current native/private qualification.",
+      "waitingOn": [
+        "Two current other-role reviews of the repaired location and tool-root controls"
+      ],
+      "reviews": []
+    },
+    "DAT-01.3": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "R4/R8 source checks and twelve safe Java contracts are complete, with original XML independently witnessed. Actual PostgreSQL has not run; execute effective ACL/locking/provenance/cleanup on an approved real target before Done.",
+      "waitingOn": [
+        "Actual approved PostgreSQL target/tools and real grant/locking/cleanup execution"
+      ],
+      "reviews": []
+    },
+    "DAT-01.2": {
+      "status": "Done",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Portable fixture-root construction is independently complete: R4/R8 each executed 11 source/PowerShell controls on the same nine current inputs. Real store lifecycle/native qualification remains To Do.",
+      "waitingOn": [],
+      "certificationStatus": "NOT CERTIFIED",
+      "sourceAcceptanceIsCertification": false,
+      "definitionSha256": "c47663cbc4984800b78f21b21ccc926d06d408ee4fb2148aecea3f99381e17dd",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "completionSources": [
+        "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+        "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+        "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+        "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+        "tools\\java\\PortableTools.ps1",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java"
+      ],
+      "reviews": [
+        {
+          "role": "R4",
+          "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R6",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT01.2-v1\\review.json",
+          "sha256": "18e9f4ca23fce2eb941ce076f73a02c309fa5008d24490da54d0c8e889e27b1b",
+          "scopeSha256": "634fb3b9e8924548b040d36b3604412bd6ee7dd262c0c4b4c0c8b6eaf069b233"
+        },
+        {
+          "role": "R8",
+          "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R6",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.2-20261102\\receipt\\review.json",
+          "sha256": "511539a777921fcf46381ceb36e19ca784a704b41a4b04e13b9579c287229171",
+          "scopeSha256": "634fb3b9e8924548b040d36b3604412bd6ee7dd262c0c4b4c0c8b6eaf069b233"
+        }
+      ]
+    },
+    "IDN-01.2": {
+      "status": "Done",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "AV-23 portable prerequisite construction is independently complete: R4/R5 each executed 13 controls on nine current inputs. Installed-agent/per-JVM/Portal wire and native identity remain To Do.",
+      "waitingOn": [],
+      "certificationStatus": "NOT CERTIFIED",
+      "sourceAcceptanceIsCertification": false,
+      "definitionSha256": "5292bd516d3e1daeabe10eb0eb36376725f88403d5fd8b5e699513c17d68f691",
+      "authorAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "completionSources": [
+        "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+        "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+        "tests\\security\\java-probe-tools-root.test.mjs",
+        "tests\\security\\av23-check.test.mjs",
+        "tools\\security\\av23-check.mjs",
+        "tools\\security\\values.mjs",
+        "tools\\security\\native-identity-client.mjs",
+        "tools\\observability\\telemetry-contract.mjs",
+        "config\\versions.lock.json"
+      ],
+      "reviews": [
+        {
+          "role": "R4",
+          "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R8",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R8-IDN01.2-v1\\review.json",
+          "sha256": "87d1538facc92c28c7912dcaa5195fe610f3097bc1f22745ff04545d759b8430",
+          "scopeSha256": "d4c267a6842ce2173b43896f2aa2f2e9620e94591194e9077a29c2842344c81a"
+        },
+        {
+          "role": "R5",
+          "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+          "result": "accepted",
+          "reviewKind": "code",
+          "reviewedOwnerRole": "R8",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R5\\review-r8-idn01-20261102-a20e70fa-01\\receipt\\review.json",
+          "sha256": "0b8321c666464c32138e3028734481c63c39563ef615eebbdc4639779ce77380",
+          "scopeSha256": "d4c267a6842ce2173b43896f2aa2f2e9620e94591194e9077a29c2842344c81a"
+        }
+      ]
+    },
+    "CRT-03.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Historical coverage source/count guard passed five focused tests; R1/R7 independently review current exact inputs before the construction child can be Done.",
+      "waitingOn": [
+        "Two current other-role executed documentation reviews"
+      ],
+      "reviews": []
+    },
+    "GATE-12.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Prior report/Node-CI receipts are historical after adding clean-checkout build preparation. Review the current workflow and runner with two other roles; GATE-11.2 and actual hosted clean/seeded PR execution remain required before Done.",
+      "waitingOn": [
+        "Two current other-role source reviews of checkout preparation and verification",
+        "GATE-11.2 and actual hosted pull-request execution"
+      ],
+      "reviews": []
+    },
+    "DAT-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Both R4/R8 twelve-test source reviews and six safe Java contracts are complete. Actual Redis has not run; execute the adapter and exact cleanup on an approved real standalone target before Done.",
+      "waitingOn": [
+        "Approved real standalone Redis target/tools and actual adapter/cleanup execution"
+      ],
+      "reviews": []
+    },
+    "DEM-02.1": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "The earlier R3/R7 eight-test source reviews are historical after their declared Demo01 dependency changed in the bounded integration correction. No runnable adapter exists; current checks and actual native auth/query/sampling/original-baseline/reset/recovery remain required.",
+      "waitingOn": [
+        "Actual native SPA/SSR auth/query/sampling/original-baseline/reset/durable-recovery operations"
+      ],
+      "reviews": []
+    },
+    "GATE-05.2": {
+      "status": "To Do",
+      "scope": "construction",
+      "constructionReady": true,
+      "nextAction": "Final v3 has both R6/R9 six-test source approvals and independent five-case cancellation-count closure. Actual hosted clean/seeded full-reactor PR execution is still required; source-only checks cannot complete this child.",
+      "waitingOn": [
+        "Actual hosted full-reactor clean and seeded-negative PR executions"
+      ],
+      "reviews": []
+    }
+  },
   "swarmPlan": {
     "source": "..\\.docs\\wiki\\Contoso_E2E_Correlation_POC_Backlog.md#swarm-execution-plan",
     "status": "ACTIVE_CONSTRUCTION",
@@ -100,19 +842,198 @@
     "currentDistinctImplementationLanes": 9,
     "rosterPolicyTransitionRequiredBeforeNineWriterExecution": false,
     "parentCards": 78,
-    "childTasks": 6,
+    "childTasks": 52,
     "acceptanceClauses": 281,
     "requiredFacetChecks": 491,
     "scheduling": "event-driven-ready-facets-with-concurrent-build-capture-analysis-review",
     "exclusiveMutableResourceLeasesRequired": true,
-    "dispatchState": "WAITING_FOR_APPROVED_TARGET_AND_NATIVE_INTERFACE_DESIGN",
+    "dispatchState": "STOPPED_BELOW_THRESHOLD_BOUNDED_CORRECTION_FROZEN",
     "activeImplementationPackets": 0,
+    "activeImplementationOwners": [],
+    "reviewOrWaitingOwnersExcludedFromImplementation": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9"
+    ],
+    "thresholdObservation": {
+      "minimumOwners": 4,
+      "previousClaimBasedStopEstimate": 2,
+      "genuineOwnersAtDispatchStopAfterR1CloseoutCorrection": 1,
+      "originalRunningClaimsAtStop": [
+        "R1 GATE-11.1 static packet",
+        "R4 GATE-05.2 CI source packet"
+      ],
+      "boundedHandoffRepairCompletedAfterStop": "R2 WEB-01.1 immutable-input/preflight/environment cleanup; twelve-test successor frozen, no new parent/runtime started",
+      "currentBoundedOwnersClaimed": 0,
+      "r1CloseoutCorrection": "R1 confirmed inspection only: zero files/tests/builds/native commands, no technical blocker, and implementation never began before STOP. Historical board WIP counts include a claim, not verified R1 implementation activity.",
+      "resolvedWriterHandoff": "R1 has explicitly released all source/output/PID/port/cache leases; no writer remains outstanding.",
+      "newParentDispatchPaused": true,
+      "reopenOnlyWithAtLeastFourGenuinelyReadyDistinctOwners": true,
+      "blockedRemainder": "Native/hosted/store/target approvals are unavailable. R2/R7 local integration waits for the unshipped JVM launcher; R9 invariant/lint work waits for undelivered R1 map/lint. Reviews and these waits are not implementation."
+    },
+    "boundedParentHandoff": {
+      "role": "R1",
+      "agentId": "d5bacc3f-769e-4dcd-a6d9-431858a8a9b0",
+      "child": "GATE-11.1",
+      "status": "RESOLVED_INSPECTION_ONLY_UNIMPLEMENTED_AT_STOP",
+      "sourceLeaseReleaseReceived": true,
+      "implementationBegan": false,
+      "technicalBlockerEstablished": false,
+      "filesCreatedOrModified": 0,
+      "testsBuildsOrNativeCommandsRun": 0,
+      "acceptanceReceiptProduced": false,
+      "closeoutArtifact": "evidence\\reviews\\swarm-20261102\\orchestrator\\r1-final-handoff.json",
+      "lastScopedProjectAzdEntryExists": false,
+      "expectedPath": "azure.yaml beside infra\\",
+      "nextAction": "No current implementation dispatch. Parent may run integrated validation. A future authorized reopened frontier must implement the still-missing GATE-11.1 static entry point and obtain R3/R8 reviews before any child completion.",
+      "globalSourceFreezeAtR1Closeout": true,
+      "parentIntegratedValidationReadyAtR1Closeout": true,
+      "workerSourceOutputPidLeasesReleased": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ]
+    },
+    "postIntegrationReconciliation": {
+      "status": "RESOLVED_PARENT_FULL_659_PASS_ZERO_SKIPS",
+      "parentFailedEpoch": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-integrated-failure-v1.json",
+      "parentFailedEpochCounts": {
+        "tests": 656,
+        "passed": 649,
+        "failed": 2,
+        "skipped": 5,
+        "cancelled": 0
+      },
+      "coupledFailure": "Two positive Demo01 construction tests fail E_SOURCE_DRIFT at demo01-runtime.mjs line 109.",
+      "boundedSourceWriter": "R9",
+      "boundedSourceWriterAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "prospectiveReviewers": [
+        "R1",
+        "R7"
+      ],
+      "boundedSourceRepairWip": 0,
+      "ownerSourceFrozen": true,
+      "ownerSourceInputs": 79,
+      "ownerFocusedResults": {
+        "tests": 41,
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "ownerReviewRequest": "evidence\\reviews\\swarm-20261102\\R9\\demo01-integration-20261103\\owner-final-v3\\review-inputs.json",
+      "prospectiveCurrentBindingSha256": "a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794",
+      "historicalEightPinsAndExecutionReceiptHashesUnchanged": true,
+      "prospectiveReviewsReceived": [
+        "R1",
+        "R7"
+      ],
+      "prospectiveReviewAudit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-prospective-review-audit-v1.json",
+      "prospectiveReviewScopeSha256": "faf16d20c6262b4b122364fe6e2737429906bdfe1aaec64f9e3b2c908429615b",
+      "eachProspectiveReviewerResults": {
+        "tests": 41,
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "correctionSourceOutputPidLeasesReleased": true,
+      "parentTargetedAndFullRetry": "PARENT_EXECUTED_FULL_SUITE_PASS_659_ZERO_FAILURE_SKIP_CANCEL",
+      "parentFinalLocalEpoch": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\epoch.json",
+      "parentFinalLocalResults": {
+        "tests": 659,
+        "passed": 659,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "parentFinalDurationSeconds": 54.4384488,
+      "parentFinalSuccessfulStdoutSha256": "1c11a2717f974151997db2dfe65145ae298611fff40382283fe705e273a6628b",
+      "parentFinalExistingBicepVerifiedAndExplicitlyBound": true,
+      "parentFinalCompilerTestsPreviouslySkippedNowExecuted": 5,
+      "parentFinalNoInstallOrCloudOperation": true,
+      "affectedChildSourceAudit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-child-source-audit-v1.json",
+      "doneChildSourcesStillCurrent": true,
+      "freshParentCardsDispatched": 0,
+      "preservedSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation-failed-20261103T000437817Z.log",
+      "preservedSessionLogSha256": "fa700b6b31b03c25b0dc22b7954e95ec1b6791daa1c6904773e39c596724b9d7",
+      "newParentDispatch": false,
+      "newRuntimeOrNativeAuthority": false,
+      "globalSourceFreezeClaimed": true,
+      "parentIntegratedValidationReadyOnFinalWriterRelease": true,
+      "historicalReceiptsAndFailedSuiteLogMustRemainUnchanged": true,
+      "nextAction": "Parent full local npm suite passed 659/659 with zero failures/skips/cancellations using the verified existing compiler. Immutable failed and successful stdout are preserved as separate epochs. Complete this metadata-only board/report refresh, then release for the parent's last checks; no new implementation, native or card acceptance is granted."
+    },
+    "continuationRule": {
+      "totalSwarmIncludingOrchestrator": 10,
+      "minimumGenuineImplementationOwners": 4,
+      "reviewingWaitingOrBlockedCountAsImplementation": false,
+      "belowThresholdAction": "Finish already-running bounded work, return non-executable pieces to To Do, record exact blockers and stop; never manufacture activity."
+    },
+    "lifecycleReviewGate": {
+      "result": "ACCEPTED_TWO_INDEPENDENT_EXECUTIONS",
+      "toolsSha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d",
+      "testsSha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13",
+      "requiredReviewers": [
+        "R3",
+        "R5"
+      ],
+      "rejectedPreviousToolsSha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e",
+      "regressionRed": "evidence\\reviews\\swarm-20261102\\orchestrator\\aggregate-child-regression-red.tap",
+      "correctedFocusedRun": "evidence\\reviews\\swarm-20261102\\orchestrator\\board-tests-v5-aggregate-green.tap",
+      "actualCorrectedTests": 49,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "candidateEvidencePreserved": true,
+      "publicationHeld": false,
+      "acceptedReviews": [
+        {
+          "role": "R3",
+          "agentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9\\assessment.json",
+          "sha256": "88d47f9537e59755fc5c155ce04be707c9e5e4902c85da7d87c6cf6fd7c97ff0",
+          "focusedTests": 49,
+          "focusedFailed": 0,
+          "focusedSkipped": 0,
+          "focusedCancelled": 0,
+          "actualCopiedCliPositiveCommands": 5,
+          "actualCopiedCliRejectedCommands": 3
+        },
+        {
+          "role": "R5",
+          "agentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+          "artifact": "evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\assessment.v2.json",
+          "sha256": "83736077d1c8edd0200336e68ee61df71918d6def08fb59250efbba59b6f2248",
+          "focusedTests": 49,
+          "focusedFailed": 0,
+          "focusedSkipped": 0,
+          "focusedCancelled": 0,
+          "actualCopiedCliPositiveCommands": 4,
+          "actualCopiedCliRejectedCommands": 6
+        }
+      ]
+    },
     "activeAssignmentsChanged": true,
     "nativeTrafficOrDeploymentAuthorized": false,
     "cardCompletionGranted": false
   },
   "readOnlyAzureReadiness": {
     "authorization": "USER read_only_azure_readiness",
+    "historicalScopedLookupOnly": true,
+    "thisSwarmPerformedNoAzureLookup": true,
     "subscriptionId": "474c40eb-d385-40d8-baa2-06883dbdca2d",
     "checkedAtUtc": "2026-11-02T13:18:10.7922531Z",
     "expectedResourceGroup": "contoso-corr-poc-rg-fdb27c",
@@ -143,6 +1064,8 @@
     "nextAction": "Supply a different approved existing POC target or prepare a separately approved deployment/budget/quota/identity plan. No matching frozen-name deployment is available for full-chain native qualification."
   },
   "offlineJavaPackageIntegration": {
+    "historicalContextOnly": true,
+    "currentSourceQualified": false,
     "scope": "offline-incremental-package-integration-only",
     "command": "mvn -o -B -ntp -DskipTests package",
     "modules": 11,
@@ -158,6 +1081,27 @@
     "certificationEligible": false
   },
   "currentLocalSwarmValidation": {
+    "scope": "Focused construction-child lifecycle only; no full suite, runtime qualification or parent completion",
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "nodeVersion": "22.23.4",
+    "passed": 49,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "artifact": "evidence\\reviews\\swarm-20261102\\orchestrator\\board-tests-v5-aggregate-green.tap",
+    "independentCurrentRoleReplays": [
+      "R3",
+      "R5"
+    ],
+    "independentCopiedCliPositiveCommands": 9,
+    "independentCopiedCliRejectedCommands": 9,
+    "historicalRejected48PassFreezePreserved": true,
+    "fullNodeSuiteExecutedByOrchestrator": false,
+    "mavenExecutedByOrchestrator": false,
+    "sourceAcceptanceIsCertification": false,
+    "certificationStatus": "NOT CERTIFIED"
+  },
+  "priorLocalSwarmValidationBeforeSwarm20261102": {
     "nodeRegressionCommand": "npm test -- --test-reporter=spec --test-concurrency=2",
     "nodeTestsPassed": 491,
     "nodeTestsFailed": 0,
@@ -236,8 +1180,8 @@
     }
   },
   "sourceHashes": {
-    "backlog": "ab4b210ad8df0190c56b9e29d6790366f8f932b56302953df704b6070a99ab24",
-    "kanban": "0b47902a8e200facbc0a03de524ec81367862d169df80c41bd27c8784eb3a25c"
+    "backlog": "de3aa4e85eae71db77f0b729b10f80dd364ff8233b7c607313d8e2edc959b2d6",
+    "kanban": "4a02632e3dca984a17b19c8b700e61403afb793e2ecf5ff5df648206885cc762"
   },
   "historicalReadinessAtPriorKickoff": {
     "R1": "Original R1 implementation STOP/read-review-only. Existing R3 is acting Root R1; preserve original drafts and route Root writes/reviews through the approved assignment.",
@@ -263,6 +1207,138 @@
     "handoffSha256": "083f704af00e31050d69467d9507e1ad07b37a6b79fa5bba60d61587e6b28057"
   },
   "records": {
+    "DAT-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-opt-in-real-redis-lane-construction",
+      "constructionReady": true,
+      "implementationAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "activeChildId": "DAT-02.1",
+      "activeFacet": {
+        "index": 2,
+        "scope": "unit",
+        "action": "Construct the opt-in real-Redis cache-adapter lane with explicit missing/invalid-target controls and no RESP stand-in acceptance.",
+        "readiness": "executable"
+      },
+      "nextAction": "Both R4/R8 twelve-test source reviews and six safe Java contracts are complete. Actual Redis has never run; approved real adapter/cleanup evidence remains required.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT02.1-v1\\review.json",
+          "label": "R4 opt-in Redis source controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_REAL_STORE_EXECUTION / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat02.1-v1-20261102\\receipt\\review.json",
+          "label": "R8 opt-in Redis source controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_REAL_STORE_EXECUTION / NOT CERTIFIED"
+        }
+      ],
+      "waitingOn": [
+        "Actual approved standalone Redis target/tools and adapter/cleanup execution"
+      ],
+      "criteria": [],
+      "reviews": [],
+      "completionWaitingOn": [
+        "INF-05/JVM-01 completion",
+        "Actual approved Redis operations/client spans and safe cleanup",
+        "Two current other-role exact child-exit reviews"
+      ]
+    },
+    "GATE-13": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-security-qualification-portability",
+      "constructionReady": true,
+      "implementationAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "activeChildId": "GATE-13.1",
+      "activeFacet": {
+        "index": 1,
+        "scope": "unit",
+        "action": "Remove security-client qualification's session-root default while preserving exact hash/epoch/lineage checks and native enrollment rejection.",
+        "readiness": "executable"
+      },
+      "nextAction": "Final environment-required v3 and R7 each passed twelve current controls after final sampler imports. R1's second source review and independently enrolled native/runtime evidence remain unmet.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-13.1-review-v3\\review.json",
+          "label": "R7 current explicit-environment and immutable-byte controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_NATIVE_QUALIFICATION / NOT CERTIFIED"
+        }
+      ],
+      "waitingOn": [
+        "Second current child review by R1",
+        "Current independently enrolled runtime sources and approved native target/window"
+      ],
+      "criteria": [],
+      "reviews": [],
+      "completionWaitingOn": [
+        "Current independently enrolled live source and authentic untampered runtime packs",
+        "Approved native target/window and accountable completion"
+      ]
+    },
+    "GATE-05": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-every-pr-java-ci-skip-gate",
+      "constructionReady": true,
+      "implementationAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "activeChildId": "GATE-05.2",
+      "activeFacet": {
+        "index": 4,
+        "scope": "unit",
+        "action": "Construct every-PR pinned Java CI and fail on skipped/cancelled agent-gated tests without claiming an unexecuted hosted reactor run.",
+        "readiness": "executable"
+      },
+      "nextAction": "GATE-05.1 is independently Done for construction. Final CI v3 has both R6/R9 six-test approvals and independent cancellation-count closure; actual hosted full-reactor execution remains unrun and no JVM launcher was started.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v3\\execution\\review.json",
+          "label": "R6 CI v3 six source/PowerShell controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_HOSTED_CHILD_EXIT / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-source-independent-v3\\review.json",
+          "label": "R9 CI v3 six controls and cancellation-count review",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_HOSTED_CHILD_EXIT / NOT CERTIFIED"
+        }
+      ],
+      "waitingOn": [
+        "Actual hosted full-reactor clean and seeded-negative PR execution",
+        "Actual deployed JDK/provider compatibility, approved runtime and accountable acceptance"
+      ],
+      "completionWaitingOn": [
+        "Current locked Java/agent/sampler executable prerequisites",
+        "Actual deployed JDK image and all provider/exporter paths",
+        "Two current other-role executed child reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "INF-06": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-compiler-resolution-and-skip-controls",
+      "constructionReady": true,
+      "implementationAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+      "activeChildId": "INF-06.1",
+      "activeFacet": {
+        "index": 1,
+        "scope": "static",
+        "action": "Resolve Bicep through explicit environment/PATH prerequisites and report missing compiler as an honest skip with focused resolver negatives.",
+        "readiness": "executable"
+      },
+      "nextAction": "INF-06.1 is construction Done after R3/R6 each executed all 12 focused controls on the same seven current inputs and a real pinned compiler. Actual messaging deployment/native acceptance remains To Do.",
+      "waitingOn": [
+        "INF-03 completion and approved actual messaging infrastructure/broker observations"
+      ],
+      "completionWaitingOn": [
+        "INF-03 completion",
+        "Approved actual messaging infrastructure and provider observations",
+        "Two current other-role executed child reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
     "GATE-07": {
       "status": "To Do",
       "scope": "construction",
@@ -280,10 +1356,33 @@
     "GATE-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "returned",
+      "phase": "fresh-source-xml-entity-negative-controls",
       "constructionReady": true,
-      "nextAction": "R9 accepted the exact current 14-file source/local subset with actual41/41/0skip. R1 completes its assigned review and every-PR CI; approved actual APIM wire/export/native sampling/privacy still required.",
+      "implementationAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+      "activeFacet": {
+        "index": 1,
+        "scope": "unit",
+        "action": "Reject reproduced XML-entity RequestId and sampled-flag surgery bypasses with scoped positive/negative controls.",
+        "readiness": "executable"
+      },
+      "nextAction": "XML-entity bypass fixed; author/R2/R8 each executed 35 positive/negative tests against the same 25-source closure. Hosted CI and actual Gateway/wire/native acceptance remain To Do.",
       "waitingOn": [
+        "Actual hosted every-PR checks and separately approved deployed Gateway/logger/wire/privacy observations"
+      ],
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-gate01-20261102T165806181-5489d039-bf57-4d65-9eb0-f1e8a9b3fc57\\execution.json",
+          "label": "R2 current source/unit 35/35",
+          "scope": "construction-only / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R8\\r3-gate01-20261102T220900Z\\review.json",
+          "label": "R8 current source/unit 35/35",
+          "scope": "construction-only / NOT CERTIFIED"
+        }
+      ],
+      "historicalNextActionBeforeSwarm20261102": "R9 accepted the exact current 14-file source/local subset with actual41/41/0skip. R1 completes its assigned review and every-PR CI; approved actual APIM wire/export/native sampling/privacy still required.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Two accepted current source reviews",
         "Every-PR CI workflow outside R3 ownership",
         "Native APIM wire/logger/privacy/control observations",
@@ -349,6 +1448,14 @@
       "scope": "construction",
       "phase": "finite-local-build-and-orders-evidence-accepted-full-runtime-and-owner-blocked",
       "constructionReady": true,
+      "implementationAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "activeChildId": "GATE-02.1",
+      "activeFacet": {
+        "index": 1,
+        "scope": "unit",
+        "action": "Build and qualify current-source local unsampled/linked-root sampler decisions using the recovered pinned Java prerequisites.",
+        "readiness": "executable"
+      },
       "currentR4DocumentationContext": {
         "artifact": "evidence\\java-local\\r4-review-sources\\5054669e-0475-49ea-8b64-a193806bf117.json",
         "sha256": "6583341b88ee9b20f34bd1902232eb7d71109409571b957bd543cb87ca807041",
@@ -372,8 +1479,20 @@
         "conditionalNativePermission": "HOLD"
       },
       "executionOwner": "Parent/coordinator, original R4 recovery; no replacement agent",
-      "nextAction": "Actual d3ff182 clean11module/59copies/133BOM, selected5c682/4075 sampler, Node419 and recorded6ZIP/6negative guards are finite evidence nodes in the register. One Orders conditional native/private3-root epoch5795/graphbd926 is accepted Parenta2da, not all-JVM provider/global enumeration or healthy deployment. Keep historical166/40/13/failed epochs separate. Obtain actual remaining host/JVM startup/export/image/USED lineage, full compatibility and owner acceptance; no API_READY or card Done.",
+      "nextAction": "Final-grant local sampler epoch is sealed with one actual sampler test and twelve safe Java contracts; its private-current witness/enrollment remains unverified. R4 released this packet to To Do and moved to Java CI construction.",
       "waitingOn": [
+        "Independently grounded current private-local witness/enrollment and two final-source exit reviews",
+        "Approved deployed provider/image/whole-runtime/native and accountable acceptance"
+      ],
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2\\source-build.json",
+          "label": "Sealed 168-source local build and classpath receipt",
+          "scope": "RECORDED_LOCAL_BUILD_ONLY_NOT_CURRENT_AUTHORITY / NOT CERTIFIED"
+        }
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Actual d3ff182 clean11module/59copies/133BOM, selected5c682/4075 sampler, Node419 and recorded6ZIP/6negative guards are finite evidence nodes in the register. One Orders conditional native/private3-root epoch5795/graphbd926 is accepted Parenta2da, not all-JVM provider/global enumeration or healthy deployment. Keep historical166/40/13/failed epochs separate. Obtain actual remaining host/JVM startup/export/image/USED lineage, full compatibility and owner acceptance; no API_READY or card Done. The sampler-guard unsampled and linked-root re-qualification on current sources is child GATE-02.1.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Actual remaining per-JVM/host/image/provider/exporter and deployed compatibility evidence",
         "Approved full-runtime/packaging/owner completion facets; no new native run is currently granted"
       ],
@@ -467,10 +1586,22 @@
     "GATE-03": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "returned",
+      "phase": "fresh-secret-scan-ci-construction",
       "constructionReady": true,
-      "nextAction": "FINAL generic f7/D3fa now has BOTH original R2/R5 finite source/Node acceptance including corrected exact caller-marker conflict. Parent must use actual current raw-byte/PID/source/count consumer retakes; input-policy approval never supplies SourceVerified/global privacy. Preserve historical A841/B380/C40 and c42/00e epochs; current-source C remains invalid after source drift. DefaultNetty c9a1 actual fixture TLS/SDK2 is a separate finite scope, not MI/Entra/KV/workers/fullAV23/API_READY. Actual approved KV/Entra/privacy/owner clauses remain unmet.",
+      "implementationAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "activeChildId": "GATE-03.1",
+      "activeFacet": {
+        "index": 1,
+        "scope": "static",
+        "action": "Construct every-PR full-history secret scan and test seeded safe/failing Git-history controls.",
+        "readiness": "executable"
+      },
+      "nextAction": "Workflow source and local synthetic-history controls passed 27 tests; obtain R4/R5 source reviews and actual hosted clean/seeded PR execution. R8 released implementation to IDN-01.2.",
       "waitingOn": [
+        "Actual hosted PR executions and separately approved native KV/Entra/privacy/owner evidence"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "FINAL generic f7/D3fa now has BOTH original R2/R5 finite source/Node acceptance including corrected exact caller-marker conflict. Parent must use actual current raw-byte/PID/source/count consumer retakes; input-policy approval never supplies SourceVerified/global privacy. Preserve historical A841/B380/C40 and c42/00e epochs; current-source C remains invalid after source drift. DefaultNetty c9a1 actual fixture TLS/SDK2 is a separate finite scope, not MI/Entra/KV/workers/fullAV23/API_READY. Actual approved KV/Entra/privacy/owner clauses remain unmet. The every-PR secret-scan workflow (clause 1) is child GATE-03.1.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Actual approved KV secret/SDK SET/reader/logger and Entra/cloud lifecycle evidence",
         "Whole-worker/default-client/current installed consumer lineage and full native scope",
         "Actual runtime KV and global native privacy/Entra/owner evidence"
@@ -499,10 +1630,35 @@
     "WEB-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "reset-successor-source-reviewed-live-blocked",
+      "phase": "fresh-local-browser-parent-join-construction",
       "constructionReady": true,
-      "nextAction": "Current reset17ff/56/delta2 has BOTH original R7c207/R3cad5 finite source26/real reset counter1 acceptances. SuccessA-to-prepareB-to-REQUEST_INVALIDB clears stale/fake workflowA with neutral label; no auth/trace/lease repair. Preserve old5655 findings/epochs and new ordered36 artifact as-recorded scope, not whole36 restore/smoke. Implementation drained; actual deployed Entra/browser/Gateway/SSR/full native path and accountable acceptance remain unmet.",
+      "implementationAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+      "activeChildId": "WEB-01.1",
+      "activeFacet": {
+        "index": 2,
+        "scope": "unit",
+        "action": "Build the real Storefront click/pass-through loopback browser-to-Orders parent-join rehearsal without APIM or certification claims.",
+        "readiness": "executable"
+      },
+      "nextAction": "Final v3 fixes the real Run-demo control, immutable input declaration and preflight/cleanup handling. Both R3/R7 executed twelve current Chromium controls; actual JVM pair/ingress/emitted-parent join and native WEB-01 remain unmet.",
       "waitingOn": [
+        "JVM-01.1 and actual current browser/JVM parent-join execution",
+        "Approved deployed Entra/browser/Gateway/SSR/full native acceptance"
+      ],
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-v3-20261102-56a48b43\\review.json",
+          "label": "R3 final immutable Run-demo source/Chromium 12/12",
+          "scope": "SOURCE_UNIT_ONLY_NOT_CHILD_EXIT / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R7\\web-01.1-review-v3\\review.json",
+          "label": "R7 final immutable Run-demo source/Chromium 12/12",
+          "scope": "SOURCE_UNIT_ONLY_NOT_CHILD_EXIT / NOT CERTIFIED"
+        }
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Current reset17ff/56/delta2 has BOTH original R7c207/R3cad5 finite source26/real reset counter1 acceptances. SuccessA-to-prepareB-to-REQUEST_INVALIDB clears stale/fake workflowA with neutral label; no auth/trace/lease repair. Preserve old5655 findings/epochs and new ordered36 artifact as-recorded scope, not whole36 restore/smoke. Implementation drained; actual deployed Entra/browser/Gateway/SSR/full native path and accountable acceptance remain unmet. The local browser rehearsal driver is child WEB-01.1 (after JVM-01.1) and satisfies no live facet.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Parent coherent full-root current execution/probe/artifact/USED source handoff",
         "Actual deployed Entra/browser/Gateway/SSR/native full-path and accountable acceptance"
       ],
@@ -548,10 +1704,30 @@
     "GATE-06": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "accepted-local-evidence-recorded-numeric-support-and-deployed-verification-open",
+      "phase": "fresh-official-beta-package-classification",
       "constructionReady": true,
-      "nextAction": "Register boundedLocalEvidence now records actual Orders5795/graphbd926/c384 with Parent a2da plus genuine Node419/Java182/recorded6ZIP facts. This does not resolve any of628 numeric VERIFY/support/deployed-source items or close this card's clauses. Current executable2f52/test23da unchanged; final status is metadata/doc-only. Keep official-source, exact deployed-value, support/GA and broad live/owner requirements open; original failed epochs immutable and native window spent.",
+      "implementationAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "activeChildId": "GATE-06.1",
+      "activeFacet": {
+        "index": 1,
+        "scope": "documentation",
+        "action": "Classify resolved Portal beta packages using exact current official public sources and fail-closed support/GA limits.",
+        "readiness": "executable"
+      },
+      "nextAction": "Final beta-package classification and R7 review each passed thirteen tests at the stable register epoch. R1's second child review remains required; all 635 numeric/support/deployed VERIFY claims remain OPEN.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-06.1-review-v1\\review.json",
+          "label": "R7 exact beta/source classification thirteen controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_FULL_GATE / NOT CERTIFIED"
+        }
+      ],
       "waitingOn": [
+        "Second current child review by R1",
+        "Official-source content, support/GA and approved deployed-value verification for all remaining OPEN claims"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Register boundedLocalEvidence now records actual Orders5795/graphbd926/c384 with Parent a2da plus genuine Node419/Java182/recorded6ZIP facts. This does not resolve any of628 numeric VERIFY/support/deployed-source items or close this card's clauses. Current executable2f52/test23da unchanged; final status is metadata/doc-only. Keep official-source, exact deployed-value, support/GA and broad live/owner requirements open; original failed epochs immutable and native window spent. The resolved beta Node exporter and instrumentation packages are child GATE-06.1.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Exact official-source content, support/GA and approved deployed-value verification for all628 numeric claims",
         "Unrun Inventory/Gateway and real broker/PG/Redis/MI/fullgraph/all-layer privacy/retention/watchdog/overhead/SLO/owner acceptance",
         "Parent final configured Node check after metadata/doc-only handoff"
@@ -759,10 +1935,23 @@
     "GATE-11": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "source-ready-reviewed-partial-external-blockers",
-      "constructionReady": true,
-      "nextAction": "Rootv4 d9f584/all35 has BOTH original R5/R8 finite source25 acceptances; pinned Bicep main/params compile has6BCP081 diagnostic lines each, not ARM/provider/GA proof. Committed Workbook58797 now passes through existing sole telemetry input and actual root output; no new LAW/Appi/provider. Preserve v3 history without retrospective workbook claim. Implementation drained; actual Azure import/render/selected parameters/screenshots/Foundation/secret/SCM/GA/cost/owner and source-built package prerequisites remain unmet.",
+      "phase": "unstarted-at-threshold-stop-all-leases-released",
+      "constructionReady": false,
+      "implementationAgentId": "d5bacc3f-769e-4dcd-a6d9-431858a8a9b0",
+      "activeChildId": "GATE-11.1",
+      "historicalClaimedFacetBeforeStop": {
+        "index": 2,
+        "scope": "static",
+        "action": "Add the one root azure.yaml entry point and fail closed on missing Bicep/parameter/package/service paths and unsafe embedded values.",
+        "readiness": "executable"
+      },
+      "nextAction": "R1 closeout is inspection only with zero files/tests/builds and all leases released; no technical blocker was established. GATE-11.1 and other source children remain unimplemented at STOP. Resume only after an authorized reopened frontier; native deployment/what-if/teardown remains separately unmet.",
       "waitingOn": [
+        "Static entry-point implementation and current R3/R8 evidence were not produced before threshold STOP",
+        "Native deployment/what-if/teardown and all accountable completion remain separately unmet"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Rootv4 d9f584/all35 has BOTH original R5/R8 finite source25 acceptances; pinned Bicep main/params compile has6BCP081 diagnostic lines each, not ARM/provider/GA proof. Committed Workbook58797 now passes through existing sole telemetry input and actual root output; no new LAW/Appi/provider. Preserve v3 history without retrospective workbook claim. Implementation drained; actual Azure import/render/selected parameters/screenshots/Foundation/secret/SCM/GA/cost/owner and source-built package prerequisites remain unmet. Remaining repeatability gaps are children GATE-11.1 (root azure.yaml) and GATE-11.2 (machine-specific path lint).",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Parent current source-built/qualified Java deployment packages; eight actual auditor prerequisites remain",
         "Actual Azure Workbook import/render/selected resource parameters and screenshots",
         "Actual Foundation URLs/principals/secret/SQL/SCM/native/GA/cost/quota/owner and cloud permissions"
@@ -779,12 +1968,26 @@
     "INF-05": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "returned",
+      "phase": "fresh-untyped-data-api-diagnostic-gate",
       "constructionReady": true,
-      "nextAction": "ACTING R6 R5 supplies current private/Entra/grants source interfaces to ACTING R1 R3; preserve old R6 artifacts. Parent fresh builds/installed consumers and later authorized actual Inventory private connectivity smoke are separate requirements.",
+      "implementationAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "activeChildId": "INF-05.2",
+      "activeFacet": {
+        "index": 1,
+        "scope": "static",
+        "action": "Record frozen untyped PostgreSQL/Managed Redis BCP081 warnings with diagnostic drift negatives and VERIFY linkage.",
+        "readiness": "executable"
+      },
+      "nextAction": "INF-05.2 is construction Done: final v2 actual author/R4/R8 replays each passed six Node controls and two compiler checks at the stable register epoch. Provider properties, GA/support, deployment and own-identity connectivity remain To Do.",
       "waitingOn": [
+        "ADR-02/INF-02 completion and approved provider/private connectivity/per-app own-identity observations"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "ACTING R6 R5 supplies current private/Entra/grants source interfaces to ACTING R1 R3; preserve old R6 artifacts. Parent fresh builds/installed consumers and later authorized actual Inventory private connectivity smoke are separate requirements. Clause 3 now also requires a smoke test from every store-consuming app (Orders workflow store, Fulfillment/Notify/Aggregator messaging store) under its own database role. Bicep 0.48.1 has no types for redisEnterprise@2026-09-01 or flexibleServers@2026-10-01 (BCP081), so property validation happens only at deployment. The per-app smoke tests are child INF-05.1 and the untyped-version gating is child INF-05.2.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "ADR-02/INF-02 completion",
         "Authorized Azure deployment/private connectivity",
+        "Per-app smoke tests for Orders and the three workers under their own database roles",
+        "Provider property validation through live what-if/validate for the untyped data-tier API versions",
         "Two accepted current source reviews"
       ],
       "criteria": [],
@@ -793,12 +1996,38 @@
     "DAT-01": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "single-fixture-construction-frozen-review-and-native-blocked",
-      "constructionReady": false,
-      "nextAction": "R6 supplied single-fixture preparation/reset and a fixed stdio bridge; independent review found a retry defect, which was reproduced and corrected. Author and independent R8 each passed 51 CPU plus 15 source controls on the corrected frozen inputs. Do not repeat this completed live-handle construction slice. Reset still needs the original handle: decide and implement reviewed authenticated durable recovery before claiming saved-run Reset.ps1 support. Actual operator runtime/auth/private targets and native qualification remain separate.",
+      "phase": "fresh-opt-in-real-postgresql-lane-construction",
+      "constructionReady": true,
+      "implementationAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "activeChildId": "DAT-01.3",
+      "activeFacet": {
+        "index": 1,
+        "scope": "unit",
+        "action": "Construct the opt-in real-PostgreSQL lane with explicit missing/invalid-target controls, retaining actual store operations as unmet.",
+        "readiness": "executable"
+      },
+      "nextAction": "DAT-01.2 is construction Done. Opt-in PostgreSQL source and twelve safe Java contracts are complete, with original XML independently witnessed; actual PostgreSQL locking/effective ACL/provenance/cleanup has not run.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.3-v1-20261102\\receipt\\review.json",
+          "label": "R8 opt-in PostgreSQL source controls",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_REAL_STORE_EXECUTION / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.3-v1\\java-contract-witness.json",
+          "label": "Original safe Java contract XML witness",
+          "scope": "LOCAL_CONTRACTS_ONLY_NOT_POSTGRESQL_OR_ENTRA / NOT CERTIFIED"
+        }
+      ],
       "waitingOn": [
+        "Actual approved PostgreSQL target/tools and real grant/locking/cleanup execution",
+        "Real private/identity store and durable recovery/native acceptance"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "R6 supplied single-fixture preparation/reset and a fixed stdio bridge; independent review found a retry defect, which was reproduced and corrected. Author and independent R8 each passed 51 CPU plus 15 source controls on the corrected frozen inputs. Do not repeat this completed live-handle construction slice. Reset still needs the original handle: decide and implement reviewed authenticated durable recovery before claiming saved-run Reset.ps1 support. Actual operator runtime/auth/private targets and native qualification remain separate. Clause 1 now also covers CLIENT spans for the Orders workflow/outbox store and worker messaging stores through the same wrapper; local H2 spans exist, native proof and boundary-map declaration (ARC-01.1) are pending. The Test-InventoryFixture.ps1 tools-root default is child DAT-01.2 and the opt-in real-PostgreSQL local lane is child DAT-01.3.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Reviewed authenticated durable cross-process recovery operation",
-        "Actual built hash-pinned integrated classpath, approved operator identity/resources and native window"
+        "Actual built hash-pinned integrated classpath, approved operator identity/resources and native window",
+        "Boundary-map declaration of the Orders workflow-store and worker messaging-store CLIENT operations (ARC-01)"
       ],
       "constructionHandoff": {
         "result": "CORRECTED_LIVE_HANDLE_CONSTRUCTION_INDEPENDENTLY_VERIFIED",
@@ -838,10 +2067,35 @@
     "OBS-02": {
       "status": "To Do",
       "scope": "construction",
-      "phase": "collector-construction-frozen-native-source-blocked",
-      "constructionReady": false,
-      "nextAction": "R7 supplied the collector/raw-source binding and cancellation controls; author and coordinator independently passed the same 39 focused checker tests. Independent source review is in progress. Obtain real enrolled query/transport and independent emission/canary/wire observers plus approved target/auth/window before native qualification; do not relabel fixture or caller JSON as source authority.",
+      "phase": "fresh-local-rehearsal-trace-merger",
+      "constructionReady": true,
+      "implementationAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+      "activeChildId": "OBS-02.2",
+      "activeFacet": {
+        "index": 1,
+        "scope": "unit",
+        "action": "Implement the named LOCAL REHEARSAL trace-tree merger and A/B/C split/duplicate/parent/missing controls.",
+        "readiness": "executable"
+      },
+      "nextAction": "Final corrective v3 has both R2/R9 seventy-five-test current approvals and actual mixed-provenance regression closure. Actual complete browser/JVM capture is still missing because the pair launcher was not implemented; native authority is absent.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-v3-5f66321c-5fce-4ebd-9b14-3d525c8c308a\\review.json",
+          "label": "R2 corrected local provenance source controls 75/75",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_COMPLETE_LOCAL_CAPTURE / NOT CERTIFIED"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-source-independent-v3\\review.json",
+          "label": "R9 corrected local provenance source controls 75/75",
+          "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_COMPLETE_LOCAL_CAPTURE / NOT CERTIFIED"
+        }
+      ],
       "waitingOn": [
+        "Actual current local JVM pair and corrected canonical Run-demo browser capture",
+        "Approved native query/transport/emission/privacy/window authority"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "R7 supplied the collector/raw-source binding and cancellation controls; author and coordinator independently passed the same 39 focused checker tests. Independent source review is in progress. Obtain real enrolled query/transport and independent emission/canary/wire observers plus approved target/auth/window before native qualification; do not relabel fixture or caller JSON as source authority. The local merged-tree and Invariant A/B/C renderer for rehearsal captures is child OBS-02.2 and never replaces the native observer.",
+      "historicalWaitingOnBeforeSwarm20261102": [
         "Current independent collector/provenance source review",
         "Actual independently enrolled authenticated query/transport capability",
         "Concrete independent emission/canary/gateway-wire observer and separately approved target/auth/window"
@@ -881,7 +2135,8 @@
         "Independently enrolled authenticated query/transport capability",
         "Reviewed native sampling apply/observe/restore/stop operations and complete participant observer",
         "Independently reviewed bridge and actual hash-pinned integrated classpath/operator authentication/resources",
-        "Reviewed authenticated durable recovery callable by a new Reset.ps1 process"
+        "Reviewed authenticated durable recovery callable by a new Reset.ps1 process",
+        "Per-demo scenario adapters for Demos 02-15 (each DEM-02 to DEM-15 closing clause) once the shared adapter contract is reviewed; all fifteen Run.ps1 entry points returned FAIL D_MISSING_ADAPTER at commit 7279cd3"
       ],
       "constructionHandoff": {
         "result": "PARTIAL_OPERATIONS_VERIFIED_FULL_ADAPTER_BLOCKED",
@@ -915,7 +2170,7 @@
       "scope": "construction",
       "phase": "routing-fixture-qualified-native-blocked",
       "constructionReady": false,
-      "nextAction": "The advertised Demo 01 action, browser driver, telemetry scope and refresh path now use order submission. R1 passed 28 focused fixtures; R2 independently passed 16 on the same frozen source/output epoch. Do not repeat this completed construction packet or count it as Java/data/APIM proof. Next obtain reviewed real-store preparation/collector/adapter and separately approved native source/target/window, then execute full parentage and repeated/reset acceptance.",
+      "nextAction": "The advertised Demo 01 action, browser driver, telemetry scope and refresh path now use order submission. R1 passed 28 focused fixtures; R2 independently passed 16 on the same frozen source/output epoch. Do not repeat this completed construction packet or count it as Java/data/APIM proof. Next obtain reviewed real-store preparation/collector/adapter and separately approved native source/target/window, then execute full parentage and repeated/reset acceptance. The optional laptop-only LOCAL REHEARSAL entry point is child DEM-01.2 (after JVM-01.1, WEB-01.1 and OBS-02.2) and satisfies no live facet.",
       "waitingOn": [
         "Reviewed concrete DAT-01.1, OBS-02.1 and DEM-00.1 native operation handoffs",
         "Actual independently authorized deployed source/target/identity and bounded native execution window",
@@ -952,10 +2207,11 @@
       "status": "To Do",
       "scope": "construction",
       "phase": "child-task-planned",
-      "nextAction": "Complete DOC-02.1 after DEM-00.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Planning alone grants no native traffic or certification.",
+      "nextAction": "Complete DOC-02.1 after DEM-00.2 and GATE-11.2: align quick-start, runbook, demo and planning commands with shipped Windows wrappers using the default PowerShell execution policy form, regenerate the Kanban and obtain a second-engineer clone-to-two-cycle/reset result. Machine-specific tools-root defaults are removed by GATE-05.1, DAT-01.2, GATE-13.1, IDN-01.2 and INF-06.1 and enforced by the GATE-11.2 lint; the repository-map classification is child DOC-02.2. Planning alone grants no native traffic or certification.",
       "waitingOn": [
         "DEM-00.2 verified consecutive native runs and interrupted-run recovery",
-        "Reviewed shipped entrypoints and DOC-03 recovery contract"
+        "Reviewed shipped entrypoints and DOC-03 recovery contract",
+        "GATE-11.2 passing (no machine-specific tool paths) and an execution-policy-safe command form"
       ],
       "criteria": [],
       "reviews": []
@@ -1004,7 +2260,7 @@
       "scope": "construction",
       "phase": "finite-orders-root-exceptions-accepted-full-invariants-and-path-blocked",
       "constructionReady": true,
-      "nextAction": "Actual v7 Orders-only three trust-root exceptions plus four continuation/state/business/strict00 controls are accepted finite: epoch5795/graphbd926/c384 and Parent a2da. This is a private LocalValidate NOT_FULL_GRAPH contribution, not full A/B/C or link/path coverage. Keep all required Azure/native full-path evidence, unrun Inventory/Gateway/data/broker roles, contributor/emission ledgers, canaries and owner acceptance open. Formal live executor remains unenrolled; saved files cannot mint it.",
+      "nextAction": "Actual v7 Orders-only three trust-root exceptions plus four continuation/state/business/strict00 controls are accepted finite: epoch5795/graphbd926/c384 and Parent a2da. This is a private LocalValidate NOT_FULL_GRAPH contribution, not full A/B/C or link/path coverage. Keep all required Azure/native full-path evidence, unrun Inventory/Gateway/data/broker roles, contributor/emission ledgers, canaries and owner acceptance open. Formal live executor remains unenrolled; saved files cannot mint it. The Orders workflow and worker store boundaries in Invariant C are child GATE-08.1 (after ARC-01.1).",
       "waitingOn": [
         "Actual deployed/runtime boundary-map correspondence and remaining unrun conditional roles",
         "Actual native Azure observer and full-path emission/canary capture",
@@ -1160,7 +2416,8 @@
       "nextAction": "Current6dd/DFAF/fda has bothoriginal45SOURCEvotes and separatelyexecutedparent actual5c [2,0,2]/RPS5 proof explicitlyRootselected4075/VERSIONS. Retain old875 bothlifecycleCHANGES_REQUIRED/43PASS andthreefailedepochs unchanged; successdoesnotproveidle-socketcausality or allparticipants/globalfidelity. Actual fullmatrix/nativeowner/Azure clauses remainunmet, no cardDone. R7 supports originalR9ed4 source review without ownReader self-vote.",
       "waitingOn": [
         "Actual remaining complete participant/runtime/host sampling and bounded owner acceptance",
-        "Completion dependencies and approved fullpath/Azure evidence"
+        "Completion dependencies and approved fullpath/Azure evidence",
+        "Re-qualification of the linked-root local slice on current sources (invalidated at commit 7279cd3)"
       ],
       "completionWaitingOn": [
         "Successful separately granted actual current4JVM retake and explicit immutable RootGate02 selection",
@@ -1187,7 +2444,8 @@
         "sha256": "a0eb3028e4a3ba7b648ed96dff23fc87628a1e161f5164d7f169ff1f24f282dd",
         "sourceAcceptanceIsCertification": false,
         "completeMatrixVerified": false,
-        "r9IndependentRetake": false
+        "r9IndependentRetake": false,
+        "currentSourceStatus": "UNVERIFIED: sources changed after this qualification (verify:invalidate at commit 7279cd3 demoted it); re-qualify on current source before reuse"
       },
       "historicalResults": [
         {
@@ -1213,6 +2471,340 @@
         "withdrawnAcceptance": "R3 finite SSR/JVM subset observations retained but overall three-file accepted vote withdrawn after browser regression reproduction",
         "nextAction": "Preserve published browser layer and source, fix canonical browser key with active/expired positives; keep file/foreign-role negatives. Redirect and committed-workbook aefab integration require next owned source scope; no native permission or card completion."
       }
+    },
+    "ARC-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "map-extension-required-for-store-boundaries",
+      "nextAction": "Extend contracts\\expected-boundary-map.v1.json, the single source, with the CLIENT boundaries the shipped wrapper already emits for the Orders workflow/outbox store and each worker messaging store (local H2 captures show contoso.pg.transaction and contoso.pg.select under the Orders request, producer and PROCESS spans). Regenerate docs\\ARCHITECTURE.md, the workbook and KQL bindings and add boundary tests; keep no second map copy. This work is child ARC-01.1; GATE-08.1, DOC-01.1, DEM-12.1 and DEM-14.1 depend on it.",
+      "waitingOn": [
+        "R1 boundary-map change with regenerated architecture, workbook and KQL bindings",
+        "Two accepted current source reviews",
+        "Native spans for the new boundaries (DAT-01 and DEM-12 live facets)"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "IDN-01": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-av23-probe-tools-root",
+      "constructionReady": true,
+      "implementationAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "activeChildId": "IDN-01.2",
+      "activeFacet": {
+        "index": 3,
+        "scope": "unit",
+        "action": "Remove the actual auth-probe session-root default, enforce explicit portable prerequisite errors and preserve all current hash/lineage checks.",
+        "readiness": "executable"
+      },
+      "nextAction": "IDN-01.2 is construction Done after R4/R5 each executed 13 exact portable-probe controls on the same nine current inputs. Current installed-agent/per-JVM/Portal wire and native dual-token/identity acceptance remain To Do.",
+      "waitingOn": [
+        "Current source-built and loaded Java/Portal runtime handoff",
+        "Approved deployed Gateway/Entra negative controls and privacy/owner acceptance"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Clause 1 now names the dual-token chain (caller token validated at the Gateway, Gateway managed-identity proof and Orders to Inventory token verified at each API, with native negative controls) and clause 3 adds the server-side AV-23 requirement that JWKS and managed-identity attempts send no W3C or business headers. Local synthetic-key and loopback evidence stays construction-only; run the negative controls through the deployed Gateway and capture per-JVM and Portal wire evidence on the current build. The work is split into IDN-01.1 (native negative-control matrix), IDN-01.2 (AV-23 probe tools root), IDN-01.3 (Java AV-23 retake) and IDN-01.4 (Portal AV-23 capture).",
+      "historicalWaitingOnBeforeSwarm20261102": [
+        "Deployed Gateway (INF-04), APIs and Entra registrations/grants",
+        "Native negative controls for missing, forged, expired, wrong-audience and wrong-role tokens, workload pseudonym and demo/control permission",
+        "Current-build per-JVM and Portal AV-23 wire evidence including worker default clients and installed-consumer lineage",
+        "Two accepted current source reviews and the privacy owner decision"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "MSG-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "outbox-and-timer-poll-clauses-tightened-native-blocked",
+      "nextAction": "Clause 1 now covers the durable outbox (the persisted request context parents each publish-attempt PRODUCER span, a retry after an uncertain publish is a new span with a publish-attempt count, delayed publication never re-parents or re-samples, duplicates are idempotent by message ID) and clause 3 matches ADR A04: the selected path is timer-polled and SDK-managed, native trigger-binding parity is not claimed. Local carrier/H2 captures show attempts and links; real broker and Functions host evidence is pending. The real-broker outbox proof is child MSG-02.1.",
+      "waitingOn": [
+        "INF-06 deployed namespaces and managed-identity roles",
+        "Real broker publish attempts including an uncertain-publish retry",
+        "ai-azure-functions suppression and no-duplicate-span observation on the deployed host",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "MSG-06": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "checkpoint-recovery-clause-tightened-native-blocked",
+      "nextAction": "Clause 1 now also requires offsets to advance only after durable outcomes under the fenced partition lease, and a restart or replay that neither drops nor double-counts a contributor. Local H2/SDK-carrier evidence exists; actual Event Hubs checkpoint recovery is pending. The real-hub proof is child MSG-06.1.",
+      "waitingOn": [
+        "INF-06 deployed Event Hubs namespace and consumer roles",
+        "Real mixed-context batch with a restart and replay",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "MSG-07": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "sdk-path-clause-tightened-native-blocked",
+      "nextAction": "Clause 3 now tests the selected SDK-managed Storage Queue receive path and states that native trigger-binding behaviour is not claimed (ADR A04). Real queue round-trip, size and duplicate-delivery effects are pending.",
+      "waitingOn": [
+        "INF-06 deployed storage queue and roles",
+        "Real envelope round-trip, oversize/invalid rejection and duplicate delivery",
+        "Two accepted current source reviews"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-02": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-fail-closed-spa-ssr-construction-inspector",
+      "constructionReady": true,
+      "implementationAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+      "activeChildId": "DEM-02.1",
+      "activeFacet": {
+        "index": 3,
+        "scope": "unit",
+        "action": "Construct Demo02 source inspection and seeded separate-SPA/SSR-root controls without exporting a runnable adapter while native operations are absent.",
+        "readiness": "executable"
+      },
+      "nextAction": "The previous eight-test R3/R7 reviews remain historical after their declared Demo01 dependency changed in the bounded correction. No runnable adapter exists; current-source inspection and actual SPA/SSR auth/query/sampling/reset/recovery remain unmet.",
+      "constructionEvidence": [
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-demo02-20261102-c57297fa\\review.json",
+          "label": "R3 Demo02 inspector eight controls (pre-correction epoch)",
+          "scope": "HISTORICAL_AFTER_DEMO01_DEPENDENCY_CORRECTION_NOT_CHILD_EXIT / NOT CERTIFIED",
+          "changedDeclaredInput": "tools\\verification\\adapters\\demo01-runtime.mjs"
+        },
+        {
+          "artifact": "evidence\\reviews\\swarm-20261102\\R7\\dem-02.1-review-v1\\review.json",
+          "label": "R7 Demo02 inspector eight controls (pre-correction epoch)",
+          "scope": "HISTORICAL_AFTER_DEMO01_DEPENDENCY_CORRECTION_NOT_CHILD_EXIT / NOT CERTIFIED",
+          "changedDeclaredInput": "tools\\verification\\adapters\\demo01-runtime.mjs"
+        }
+      ],
+      "waitingOn": [
+        "Current-source checks/reviews for the changed declared Demo01 dependency; historical receipts are not rehashed",
+        "Actual native auth/query/sampling/original-baseline/reset/durable-recovery operations"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "Ship Demo 02's own scenario adapter (DEM-02.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Browser and SSR roots must be observed independently; the Portal controller authentication and Node 24 image are live prerequisites. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "historicalWaitingOnBeforeSwarm20261102": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-03": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 03's own scenario adapter (DEM-03.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Drive the valid, absent, invalid and -00 carriers through the deployed Gateway; apim\\demo03-cases.v1.json holds carrier vectors only. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-04": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 04's own scenario adapter (DEM-04.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Exercise a trusted-issuer (Portal workload) ID versus an untrusted caller ID and the exact business lookup. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-05": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Add the default-off Inventory fault switches (DEM-05.1), then ship Demo 05's own scenario adapter (DEM-05.2) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. The catalog requires an approved native Inventory-timeout and PostgreSQL-error injection; the data adapter ships no fault switch. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter and approved fault-injection mechanism",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-06": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 06's own scenario adapter (DEM-06.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. N injected failures plus success must show N+1 actual PROCESS attempts on a real broker. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-07": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 07's own scenario adapter (DEM-07.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Run the Fulfillment and Notify dead-letter cases and their replay PROCESS and SEND roots with a run-scoped drain. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-08": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 08's own scenario adapter (DEM-08.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Observe separate worker PROCESS spans and the Aggregator's links to every persisted contributor. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-09": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 09's own scenario adapter (DEM-09.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Produce events from different traces, consume them as one mixed-context batch and prove the first item is never the parent. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-10": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 10's own scenario adapter (DEM-10.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Drive the Event Grid relay and Storage Queue envelope paths including size limits and a duplicate delivery. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-11": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 11's own scenario adapter (DEM-11.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. The catalog requires authenticated malformed and spoofed delivery negative controls with a safe bounded rejection category. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter and authenticated spoofed-delivery controls",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-12": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-and-store-scope-required-native-blocked",
+      "nextAction": "Ship Demo 12's own scenario adapter (DEM-12.1, after ARC-01.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Clause 1 now covers every store-consuming tier (Inventory, the Orders workflow store and the worker messaging stores) with seeded SQL-literal and Redis-key negative controls. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Boundary-map declaration of the Orders and worker store operations (ARC-01) and real private data operations (INF-05)",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-13": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 13's own scenario adapter (DEM-13.1, after IDN-01.1 and IDN-01.3) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Show only the HMAC pseudonym and authentication-outcome category through the dual-token chain, with the AV-23 identity-client header isolation (IDN-01). Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "IDN-01 native dual-token and AV-23 evidence and the privacy owner decision",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-14": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 14's own scenario adapter (DEM-14.1, after ARC-01.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Triage every orphan candidate from the deployed trace set; unexplained candidates stay defects. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "DEM-15": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "scenario-adapter-required-native-blocked",
+      "nextAction": "Ship Demo 15's own scenario adapter (DEM-15.1) against the reviewed shared DEM-00 adapter contract; the closing clause now forbids a stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback. Toggle the bounded certification window, run the approved load and show the production profile and rollback. Run.ps1 returned FAIL D_MISSING_ADAPTER at commit 7279cd3.",
+      "waitingOn": [
+        "Reviewed DEM-00.1 shared adapter contract and Demo 01 native qualification",
+        "This demo's own reviewed scenario adapter",
+        "Approved deployed target, identities, load budget and a separately approved bounded native window"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "GATE-12": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "fresh-report-source-freshness-and-node-ci-construction",
+      "constructionReady": true,
+      "implementationAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "activeChildId": "GATE-12.1",
+      "activeFacet": {
+        "index": 3,
+        "scope": "unit",
+        "action": "Make report generation/checks source-current while preserving scoped history/notes, and construct every-PR Node checks without hosted acceptance claims.",
+        "readiness": "executable"
+      },
+      "nextAction": "R9 released the seventeen-test source-current/history-preserving report helper and every-PR Node workflow. Orchestrator will regenerate its two outputs after final source freeze; hosted/lint/native acceptance remains To Do.",
+      "waitingOn": [
+        "Second current source review by R1",
+        "GATE-11.2 and actual hosted PR execution",
+        "Approved native sampling/window/ACK/loss and accountable acceptance"
+      ],
+      "historicalNextActionBeforeSwarm20261102": "npm run verify:report failed (stale) at commit 7279cd3; verify:invalidate re-baselined evidence\\verification\\certification-assessment.json and demoted the linked-root local sampling qualification to UNVERIFIED because its sources changed. Keep the every-PR CI invalidation rule (clause 3, child GATE-12.1) as the durable control and re-qualify the local slice on current sources (child GATE-02.1).",
+      "historicalWaitingOnBeforeSwarm20261102": [
+        "Every-PR CI rule (GATE-12.1) that runs verify:report and marks affected rows INVALIDATED",
+        "Re-qualified local linked-root evidence on current sources (GATE-02.1)",
+        "Native sampling window, ACK and loss evidence"
+      ],
+      "criteria": [],
+      "reviews": []
+    },
+    "CRT-03": {
+      "status": "To Do",
+      "scope": "construction",
+      "phase": "deferrals-and-report-currency-clauses-tightened",
+      "nextAction": "Clause 2 now lists the deferrals recorded in ADR A04 and docs\\RESIDUAL_LIMITATIONS.md (native Functions-binding parity, automatic JDBC/Redis instrumentation qualification, third-party exporter parity) and clause 3 requires supporting status reports to name their source commit and quote counts only from current receipts. docs\\TEST_COVERAGE_REPORT.md cites commit 63a2a5d with Node 419 and Java 182 tests where the suites at 7279cd3 run Node 492 and Java 213: regenerate it from current receipts or label it historical (child CRT-03.1).",
+      "waitingOn": [
+        "Current local receipts for the Node and Java suites at the reviewed commit",
+        "Refreshed or historical-labelled supporting reports",
+        "Two accepted current documentation reviews"
+      ],
+      "criteria": [],
+      "reviews": []
     }
   }
 }

@@ -1,0 +1,364 @@
+TAP version 13
+# Subtest: rejects each removed claim/resource even when hidden in a disabled fragment
+ok 1 - rejects each removed claim/resource even when hidden in a disabled fragment
+  ---
+  duration_ms: 3.496
+  type: 'test'
+  ...
+# Subtest: rejects evaluation references on the certification deployment path
+ok 2 - rejects evaluation references on the certification deployment path
+  ---
+  duration_ms: 0.3605
+  type: 'test'
+  ...
+# Subtest: does not confuse a validation-tool rejection predicate with a deployment requirement
+ok 3 - does not confuse a validation-tool rejection predicate with a deployment requirement
+  ---
+  duration_ms: 0.2148
+  type: 'test'
+  ...
+# Subtest: fails closed on preview/unknown dependencies and missing official sources
+ok 4 - fails closed on preview/unknown dependencies and missing official sources
+  ---
+  duration_ms: 2.5523
+  type: 'test'
+  ...
+# Subtest: Contoso-owned customization is not presented as a Microsoft GA announcement
+ok 5 - Contoso-owned customization is not presented as a Microsoft GA announcement
+  ---
+  duration_ms: 0.2745
+  type: 'test'
+  ...
+# Subtest: both exact resolved Portal beta packages have public source classifications, not support clearance
+ok 6 - both exact resolved Portal beta packages have public source classifications, not support clearance
+  ---
+  duration_ms: 3.5601
+  type: 'test'
+  ...
+# Subtest: a different stable instrumentation release cannot promote the resolved beta
+ok 7 - a different stable instrumentation release cannot promote the resolved beta
+  ---
+  duration_ms: 2.3338
+  type: 'test'
+  ...
+# Subtest: Portal classification rejects lock drift, missing beta and caller GA/support labels
+ok 8 - Portal classification rejects lock drift, missing beta and caller GA/support labels
+  ---
+  duration_ms: 16.8352
+  type: 'test'
+  ...
+# Subtest: removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+ok 9 - removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+  ---
+  duration_ms: 4.3465
+  type: 'test'
+  ...
+# Subtest: raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+not ok 10 - raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+  ---
+  duration_ms: 1491.3165
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\checkout-reproducibility.test.mjs:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    fatal: cannot create directory at 'C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.cache\checkout-byte-policy-3038f45a-7b74-4dc0-b4bb-9a582c856968\checkout-true\.docs': No such file or directory
+    
+    
+    128 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 128
+  operator: 'strictEqual'
+  stack: |-
+    git (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:21:10)
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:49:7)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: certification source snapshots exclude installed portable tools but retain application sources
+ok 11 - certification source snapshots exclude installed portable tools but retain application sources
+  ---
+  duration_ms: 319.36
+  type: 'test'
+  ...
+# Subtest: VERIFY inventory excludes installed tool versions without hiding application dependency claims
+ok 12 - VERIFY inventory excludes installed tool versions without hiding application dependency claims
+  ---
+  duration_ms: 421.864
+  type: 'test'
+  ...
+# Subtest: repository scans exclude generated portable installations, not ordinary source files
+ok 13 - repository scans exclude generated portable installations, not ordinary source files
+  ---
+  duration_ms: 16.0767
+  type: 'test'
+  ...
+# Subtest: exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+ok 14 - exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+  ---
+  duration_ms: 30.1599
+  type: 'test'
+  ...
+# Subtest: all fifteen missing native adapters fail explicitly, not mock PASS or certification
+ok 15 - all fifteen missing native adapters fail explicitly, not mock PASS or certification
+  ---
+  duration_ms: 107.2544
+  type: 'test'
+  ...
+# Subtest: bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+ok 16 - bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+  ---
+  duration_ms: 7.7314
+  type: 'test'
+  ...
+# Subtest: exception and deadline abort always stop/reset captured own pre-state
+ok 17 - exception and deadline abort always stop/reset captured own pre-state
+  ---
+  duration_ms: 565.6952
+  type: 'test'
+  ...
+# Subtest: failed native reset cannot leave a passing demo result
+ok 18 - failed native reset cannot leave a passing demo result
+  ---
+  duration_ms: 285.6558
+  type: 'test'
+  ...
+# Subtest: missing-adapter failure packs are immutable, safe and tamper checked
+ok 19 - missing-adapter failure packs are immutable, safe and tamper checked
+  ---
+  duration_ms: 52.6508
+  type: 'test'
+  ...
+# Subtest: seeded agent bump and newly added runtime dependency invalidate affected claims
+ok 20 - seeded agent bump and newly added runtime dependency invalidate affected claims
+  ---
+  duration_ms: 0.7775
+  type: 'test'
+  ...
+# Subtest: positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+ok 21 - positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+  ---
+  duration_ms: 2.9644
+  type: 'test'
+  ...
+# Subtest: negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+ok 22 - negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+  ---
+  duration_ms: 0.8032
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser source/build closure is hash checked locally, not native evidence
+ok 23 - positive: supplied browser source/build closure is hash checked locally, not native evidence
+  ---
+  duration_ms: 16.3231
+  type: 'test'
+  ...
+# Subtest: negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+ok 24 - negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+  ---
+  duration_ms: 6.564
+  type: 'test'
+  ...
+# Subtest: positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+ok 25 - positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+  ---
+  duration_ms: 27.893
+  type: 'test'
+  ...
+# Subtest: negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+ok 26 - negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+  ---
+  duration_ms: 85.5622
+  type: 'test'
+  ...
+# Subtest: positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+ok 27 - positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+  ---
+  duration_ms: 0.5426
+  type: 'test'
+  ...
+# Subtest: negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+ok 28 - negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+  ---
+  duration_ms: 4.7203
+  type: 'test'
+  ...
+# Subtest: negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+ok 29 - negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+  ---
+  duration_ms: 4.1467
+  type: 'test'
+  ...
+# Subtest: negative: unsampled wire is rejected without changing its flags
+ok 30 - negative: unsampled wire is rejected without changing its flags
+  ---
+  duration_ms: 0.9917
+  type: 'test'
+  ...
+# Subtest: negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+ok 31 - negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+  ---
+  duration_ms: 1.4474
+  type: 'test'
+  ...
+# Subtest: negative: browser contexts remain original valid contexts and are never invented parent spans
+ok 32 - negative: browser contexts remain original valid contexts and are never invented parent spans
+  ---
+  duration_ms: 2.975
+  type: 'test'
+  ...
+# Subtest: negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+ok 33 - negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+  ---
+  duration_ms: 0.44
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+ok 34 - positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+  ---
+  duration_ms: 0.4936
+  type: 'test'
+  ...
+# Subtest: negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+ok 35 - negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+  ---
+  duration_ms: 0.3174
+  type: 'test'
+  ...
+# Subtest: positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+ok 36 - positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+  ---
+  duration_ms: 7.8142
+  type: 'test'
+  ...
+# Subtest: negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+ok 37 - negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+  ---
+  duration_ms: 2.8342
+  type: 'test'
+  ...
+# Subtest: negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+ok 38 - negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+  ---
+  duration_ms: 1.6765
+  type: 'test'
+  ...
+# Subtest: positive: source construction binds supplied modules and reports every missing production operation explicitly
+ok 39 - positive: source construction binds supplied modules and reports every missing production operation explicitly
+  ---
+  duration_ms: 52.0787
+  type: 'test'
+  ...
+# Subtest: positive: prospective current-source binding preserves historical pins without inheriting their approval
+ok 40 - positive: prospective current-source binding preserves historical pins without inheriting their approval
+  ---
+  duration_ms: 30.7931
+  type: 'test'
+  ...
+# Subtest: negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+ok 41 - negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+  ---
+  duration_ms: 743.547
+  type: 'test'
+  ...
+# Subtest: negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+ok 42 - negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+  ---
+  duration_ms: 296.6788
+  type: 'test'
+  ...
+# Subtest: negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+ok 43 - negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+  ---
+  duration_ms: 12.4323
+  type: 'test'
+  ...
+# Subtest: negative: the construction entrypoint does not permit execute/native/caller-module options
+ok 44 - negative: the construction entrypoint does not permit execute/native/caller-module options
+  ---
+  duration_ms: 0.5072
+  type: 'test'
+  ...
+# Subtest: positive: the construction entrypoint performs only side-effect-free inspection
+ok 45 - positive: the construction entrypoint performs only side-effect-free inspection
+  ---
+  duration_ms: 22.7122
+  type: 'test'
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 46 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 5.3942
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 47 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 0.7523
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 48 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 0.7236
+  type: 'test'
+  ...
+# Subtest: refresh construction preserves historical and prerelease metadata without inheriting verification
+ok 49 - refresh construction preserves historical and prerelease metadata without inheriting verification
+  ---
+  duration_ms: 1.3
+  type: 'test'
+  ...
+# Subtest: refresh retains removed generated-tool claims as invalidated history, not current verification
+ok 50 - refresh retains removed generated-tool claims as invalidated history, not current verification
+  ---
+  duration_ms: 3.8875
+  type: 'test'
+  ...
+# Subtest: assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+ok 51 - assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+  ---
+  duration_ms: 7.7984
+  type: 'test'
+  ...
+# Subtest: stale assessment sources and versions reject even when every rendered row was already invalidated
+ok 52 - stale assessment sources and versions reject even when every rendered row was already invalidated
+  ---
+  duration_ms: 2.0631
+  type: 'test'
+  ...
+# Subtest: prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+ok 53 - prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+  ---
+  duration_ms: 2.0497
+  type: 'test'
+  ...
+# Subtest: orchestrator source-only construction sections and current roster survive a preserving refresh
+ok 54 - orchestrator source-only construction sections and current roster survive a preserving refresh
+  ---
+  duration_ms: 3.2217
+  type: 'test'
+  ...
+# Subtest: notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+ok 55 - notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+  ---
+  duration_ms: 0.5888
+  type: 'test'
+  ...
+# Subtest: missing or duplicate source scopes and invalid version digests fail closed
+ok 56 - missing or duplicate source scopes and invalid version digests fail closed
+  ---
+  duration_ms: 0.4332
+  type: 'test'
+  ...
+1..56
+# tests 56
+# suites 0
+# pass 55
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3103.4312

@@ -1,0 +1,133 @@
+{
+  "schema": "contoso.swarm-role-triage.v1",
+  "role": "R2",
+  "agentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "observedAtUtc": "2026-11-02T22:25:12.751Z",
+  "implementationActive": false,
+  "newDispatchStopped": true,
+  "profile": "LOCAL REHEARSAL / SOURCE-UNIT CONSTRUCTION ONLY",
+  "nativeEvidence": false,
+  "certificationEligible": false,
+  "completedChildCandidates": [],
+  "sourceEpochs": {
+    "web01": {
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\web01-immutable-v3-20261102T222322748Z-1ce735f5-cc63-4016-8d53-9e93d44f1807\\execution.json",
+      "receiptSha256": "9b2dff30bee57fe4f42886915c373835f7c0fa73d5407caf1ecfcc75d8965d23",
+      "sources": 20,
+      "currentHashesMatched": true,
+      "changed": [],
+      "tests": [
+        "# tests 12",
+        "# pass 12",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0",
+        "# duration_ms 3682.8022"
+      ]
+    },
+    "demo02": {
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\demo02-construction-20261102T221945985Z-a66ff4c9-96ab-4eaf-acfb-4366d0f68944\\execution.json",
+      "receiptSha256": "e9d39900f9abd5024cde6913f6c9b71c1d2b6b7d5c24810f94004bbb3a136321",
+      "sources": 34,
+      "currentHashesMatched": true,
+      "changed": [],
+      "tests": [
+        "# tests 8",
+        "# pass 8",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0",
+        "# duration_ms 836.1127"
+      ]
+    }
+  },
+  "ownedChildren": [
+    {
+      "childId": "WEB-01.1",
+      "status": "To Do",
+      "construction": "Current-source driver and real trusted Demo01 Run-demo/browser SDK checks implemented; 12 source/unit tests pass; no actual JVM pair run",
+      "prerequisites": [
+        "JVM-01.1 actual current-source agent-attached Orders/Inventory pair",
+        "Actual safe ingressPath and emittedOrders RequestData parent join",
+        "Independent R3/R7 exact v3 source reviews"
+      ],
+      "nextAction": "Only after orchestrator reopens an exact ready local runtime claim: launch the R4-owned pair; run node web\\portal-ssr\\scripts\\local-rehearsal.mjs --pair <ready local-pair.json> --out <new repository directory>; require real received carrier plus emitted span join, then independently verify."
+    },
+    {
+      "childId": "DEM-02.1",
+      "status": "To Do",
+      "construction": "Fail-closed source inspector and concrete Portal trigger-input helper; 8 source/unit tests pass; no runnable adapter export",
+      "prerequisites": [
+        "Native-ready DEM-00.1 and reviewed deployed WEB-01/WEB-03 contracts",
+        "Approved Storefront/Portal targets, pinned Portal runtime and controller authentication",
+        "Independent actual browser/SSR roots, original emission/Gateway wire and SSR-to-Gateway parent join",
+        "Enrolled authenticated RAW query/privacy and concrete native sampling/admission/drain operations",
+        "Original live baseline/reset plus authenticated separate-process recovery",
+        "Independent source checks on a stable current map/invariant/sampling epoch"
+      ],
+      "nextAction": "Obtain concrete reviewed native operations and separate target/window authorization; only then implement all contoso.demo-adapter.v1 methods and native Run/reset behavior. Current --check must remain exit2 BLOCKED and Run D_MISSING_ADAPTER stays unresolved."
+    }
+  ],
+  "ownedParentRemainders": [
+    {
+      "cardId": "WEB-01",
+      "status": "To Do",
+      "reason": "No actual Entra/APIM/private target/native browser-to-Gateway evidence; local forwarder creates no Gateway span."
+    },
+    {
+      "cardId": "WEB-02",
+      "status": "To Do",
+      "reason": "Local excluded-origin Fetch/XHR/CORS controls passed only against loopback; no authorized deployed APIM origin/CORS negatives."
+    },
+    {
+      "cardId": "WEB-03",
+      "status": "To Do",
+      "reason": "Existing current SSR source/type checks are not pinned deployed-image, single-provider, actual Gateway continuation proof."
+    },
+    {
+      "cardId": "DEM-02",
+      "status": "To Do",
+      "reason": "Source-only inspector is not the shipped native adapter, evidence pack or reset."
+    }
+  ],
+  "releasedLeases": {
+    "sourceFiles": [
+      "web\\storefront-spa",
+      "web\\portal-ssr",
+      "tools\\verification\\adapters\\demo02-runtime.mjs"
+    ],
+    "output": "All persistent evidence is run-unique; no shared dist/target/cache or package/version file changed by R2",
+    "pids": [],
+    "helpersRunning": false,
+    "cleanup": "Dedicated Chromium and all self-contained loopback web/forwarder/excluded/test servers closed; unique .cache build/scratch directories removed; Node CLI children exited."
+  },
+  "crossReviews": [
+    {
+      "author": "R3",
+      "scope": "GATE-01 clause1 static/unit only",
+      "tests": 35,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-gate01-20261102T165806181-5489d039-bf57-4d65-9eb0-f1e8a9b3fc57\\execution.json"
+    },
+    {
+      "author": "R3",
+      "scope": "DEM-03.1 source/unit only; native unmet",
+      "tests": 7,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-demo03-aa306685-680c-4f59-abcf-f3ff0f2a8bb0\\review.json"
+    }
+  ],
+  "restrictionsPreserved": [
+    "No commits or pushes",
+    "No Azure deployment/spending/traffic or secrets access",
+    "No package/pom/version/Maven/shared build-output edits",
+    "No board/wiki/kanban tooling/tests/certification edits",
+    "No agents launched",
+    "No shared browser page disturbed",
+    "No fabricated runtime carrier or Orders/Gateway span rows"
+  ]
+}

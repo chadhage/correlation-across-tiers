@@ -1,0 +1,108 @@
+TAP version 13
+# Subtest: SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+ok 1 - SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+  ---
+  duration_ms: 24.1572
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+ok 2 - LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+  ---
+  duration_ms: 2326.7806
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+ok 3 - LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+  ---
+  duration_ms: 4818.0242
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+ok 4 - CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+  ---
+  duration_ms: 2226.214
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing environment-provided tools also fail explicitly without Maven
+not ok 5 - CONTROL: missing environment-provided tools also fail explicitly without Maven
+  ---
+  duration_ms: 4427.8917
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\inventory-data\\tools\\fixture-runner-portability.test.mjs:53:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /repository-local default is \.tools\\java/. Input:
+    
+    '\x1B[31;1mException: \x1B[0mC:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\services\\inventory-data\\tools\\Test-InventoryFixture.ps1:11\x1B[0m\r\n' +
+      '\x1B[31;1m\x1B[0m\x1B[36;1mLine |\x1B[0m\r\n' +
+      "\x1B[31;1m\x1B[0m\x1B[36;1m\x1B[36;1m  11 | \x1B[0m     \x1B[36;1mthrow 'Existing portable tools required. Pass -ToolsRoot or set C\x1B[0m …\x1B[0m\r\n" +
+      '\x1B[31;1m\x1B[0m\x1B[36;1m\x1B[36;1m\x1B[0m\x1B[36;1m\x1B[0m\x1B[36;1m     | \x1B[31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+      '\x1B[31;1m\x1B[0m\x1B[36;1m\x1B[36;1m\x1B[0m\x1B[36;1m\x1B[0m\x1B[36;1m\x1B[31;1m\x1B[31;1m\x1B[36;1m     | \x1B[31;1mExisting portable tools required. Pass -ToolsRoot or set CONTOSO_PORTABLE_TOOLS_ROOT; the repository-local\x1B[0m\r\n' +
+      '\x1B[31;1m\x1B[0m\x1B[36;1m\x1B[36;1m\x1B[0m\x1B[36;1m\x1B[0m\x1B[36;1m\x1B[31;1m\x1B[31;1m\x1B[36;1m\x1B[31;1m\x1B[36;1m     | \x1B[31;1mdefault is .tools\\java. This runner installs nothing.\x1B[0m\r\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    [31;1mException: [0mC:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\services\inventory-data\tools\Test-InventoryFixture.ps1:11[0m
+    [31;1m[0m[36;1mLine |[0m
+    [31;1m[0m[36;1m[36;1m  11 | [0m     [36;1mthrow 'Existing portable tools required. Pass -ToolsRoot or set C[0m …[0m
+    [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mExisting portable tools required. Pass -ToolsRoot or set CONTOSO_PORTABLE_TOOLS_ROOT; the repository-local[0m
+    [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m[31;1m[36;1m     | [31;1mdefault is .tools\java. This runner installs nothing.[0m
+    
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/services/inventory-data/tools/fixture-runner-portability.test.mjs:57:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+ok 6 - SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+  ---
+  duration_ms: 23.7536
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+ok 7 - SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+  ---
+  duration_ms: 2.4063
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+ok 8 - SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+  ---
+  duration_ms: 6.7099
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+ok 9 - SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+  ---
+  duration_ms: 3.2667
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+ok 10 - SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+  ---
+  duration_ms: 5.0613
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+ok 11 - SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+  ---
+  duration_ms: 7.4456
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 10
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14488.023

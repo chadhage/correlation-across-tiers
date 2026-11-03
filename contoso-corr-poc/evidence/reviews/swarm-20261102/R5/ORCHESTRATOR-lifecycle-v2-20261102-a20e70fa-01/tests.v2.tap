@@ -1,0 +1,304 @@
+TAP version 13
+# Subtest: imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+ok 1 - imports exactly 78 original ranks, 13 gates and the 1:5 Kano mix
+  ---
+  duration_ms: 2.6529
+  type: 'test'
+  ...
+# Subtest: extracts the complete canonical swarm plan without swallowing ranked work or board lanes
+ok 2 - extracts the complete canonical swarm plan without swallowing ranked work or board lanes
+  ---
+  duration_ms: 0.433
+  type: 'test'
+  ...
+# Subtest: swarm dispatch packages cover every parent exactly once under its logical owner
+ok 3 - swarm dispatch packages cover every parent exactly once under its logical owner
+  ---
+  duration_ms: 1.1147
+  type: 'test'
+  ...
+# Subtest: swarm child qualification edges cover every child without an observer-adapter cycle
+ok 4 - swarm child qualification edges cover every child without an observer-adapter cycle
+  ---
+  duration_ms: 3.3877
+  type: 'test'
+  ...
+# Subtest: nine-role target has independent review pairs and mode-aware construction lifecycle metadata
+ok 5 - nine-role target has independent review pairs and mode-aware construction lifecycle metadata
+  ---
+  duration_ms: 16.197
+  type: 'test'
+  ...
+# Subtest: swarm evidence totals match the exact parent facets rather than broad package PASS labels
+ok 6 - swarm evidence totals match the exact parent facets rather than broad package PASS labels
+  ---
+  duration_ms: 4.0184
+  type: 'test'
+  ...
+# Subtest: Kanban reproduces the source swarm plan rather than retaining stale generated planning
+ok 7 - Kanban reproduces the source swarm plan rather than retaining stale generated planning
+  ---
+  duration_ms: 6.3471
+  type: 'test'
+  ...
+# Subtest: preserves explicit atomic child tasks without adding cards or acceptance clauses
+ok 8 - preserves explicit atomic child tasks without adding cards or acceptance clauses
+  ---
+  duration_ms: 17.2016
+  type: 'test'
+  ...
+# Subtest: unproven-claim ledger cites only existing cards and children and accounts for every child
+ok 9 - unproven-claim ledger cites only existing cards and children and accounts for every child
+  ---
+  duration_ms: 2.151
+  type: 'test'
+  ...
+# Subtest: later independent activation can update child executors without changing parent acceptance
+ok 10 - later independent activation can update child executors without changing parent acceptance
+  ---
+  duration_ms: 24.636
+  type: 'test'
+  ...
+# Subtest: child checklist ticks neither change acceptance scope nor grant parent completion
+ok 11 - child checklist ticks neither change acceptance scope nor grant parent completion
+  ---
+  duration_ms: 95.7955
+  type: 'test'
+  ...
+# Subtest: construction children retain exact definitions and qualification prerequisites across checkbox-only updates
+ok 12 - construction children retain exact definitions and qualification prerequisites across checkbox-only updates
+  ---
+  duration_ms: 14.0691
+  type: 'test'
+  ...
+# Subtest: independently completed construction child ticks without closing its parent or native clauses
+ok 13 - independently completed construction child ticks without closing its parent or native clauses
+  ---
+  duration_ms: 100.2809
+  type: 'test'
+  ...
+# Subtest: child completion rejects missing prerequisites, generic metadata and native or hosted shortcuts
+ok 14 - child completion rejects missing prerequisites, generic metadata and native or hosted shortcuts
+  ---
+  duration_ms: 3.8911
+  type: 'test'
+  ...
+# Subtest: child reviews require two distinct current other-role agents, never author aliases or historical identities
+ok 15 - child reviews require two distinct current other-role agents, never author aliases or historical identities
+  ---
+  duration_ms: 1.8539
+  type: 'test'
+  ...
+# Subtest: child implementation WIP is linked to exactly one executable parent packet, not extra parallel cards
+ok 16 - child implementation WIP is linked to exactly one executable parent packet, not extra parallel cards
+  ---
+  duration_ms: 0.62
+  type: 'test'
+  ...
+# Subtest: printed PASS, skipped tests and absent negative assertions cannot substitute for executed child evidence
+ok 17 - printed PASS, skipped tests and absent negative assertions cannot substitute for executed child evidence
+  ---
+  duration_ms: 1.5127
+  type: 'test'
+  ...
+# Subtest: aggregate board evidence rejects a missing Done-child receipt even with no parent unit PASS
+ok 18 - aggregate board evidence rejects a missing Done-child receipt even with no parent unit PASS
+  ---
+  duration_ms: 25.6589
+  type: 'test'
+  ...
+# Subtest: actual scoped child review receipts verify logs and current sources and invalidate after drift or tampering
+ok 19 - actual scoped child review receipts verify logs and current sources and invalidate after drift or tampering
+  ---
+  duration_ms: 912.2623
+  type: 'test'
+  ...
+# Subtest: expands range dependencies without dropping final certification edges
+ok 20 - expands range dependencies without dropping final certification edges
+  ---
+  duration_ms: 0.5178
+  type: 'test'
+  ...
+# Subtest: rejects Blocked and unknown card states instead of silently defaulting
+ok 21 - rejects Blocked and unknown card states instead of silently defaulting
+  ---
+  duration_ms: 0.4525
+  type: 'test'
+  ...
+# Subtest: enforces one active card per role and returns stalled work to To Do
+ok 22 - enforces one active card per role and returns stalled work to To Do
+  ---
+  duration_ms: 0.3973
+  type: 'test'
+  ...
+# Subtest: approved acting roles retain logical ownership but share one implementation WIP limit
+ok 23 - approved acting roles retain logical ownership but share one implementation WIP limit
+  ---
+  duration_ms: 0.8127
+  type: 'test'
+  ...
+# Subtest: explicit independent-nine-role assignments permit nine distinct active construction facets
+ok 24 - explicit independent-nine-role assignments permit nine distinct active construction facets
+  ---
+  duration_ms: 2.1245
+  type: 'test'
+  ...
+# Subtest: a second active construction card fails for each independent implementation owner
+ok 25 - a second active construction card fails for each independent implementation owner
+  ---
+  duration_ms: 11.5578
+  type: 'test'
+  ...
+# Subtest: independent-role priority remains per owner rather than retaining obsolete acting-role aliases
+ok 26 - independent-role priority remains per owner rather than retaining obsolete acting-role aliases
+  ---
+  duration_ms: 5.3497
+  type: 'test'
+  ...
+# Subtest: independent-nine-role mode requires explicit exact identity assignments, never aliases or an unknown policy
+ok 27 - independent-nine-role mode requires explicit exact identity assignments, never aliases or an unknown policy
+  ---
+  duration_ms: 2.8976
+  type: 'test'
+  ...
+# Subtest: acting authors cannot count their own reviews through logical-role aliases
+ok 28 - acting authors cannot count their own reviews through logical-role aliases
+  ---
+  duration_ms: 0.8463
+  type: 'test'
+  ...
+# Subtest: two accepted logical-role aliases cannot count as two implementation reviewers
+ok 29 - two accepted logical-role aliases cannot count as two implementation reviewers
+  ---
+  duration_ms: 0.4838
+  type: 'test'
+  ...
+# Subtest: independent-role authors still cannot review themselves or manufacture two reviewers
+ok 30 - independent-role authors still cannot review themselves or manufacture two reviewers
+  ---
+  duration_ms: 2.7804
+  type: 'test'
+  ...
+# Subtest: unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+ok 31 - unapproved replacement roles reject and approved assignment changes invalidate board-policy review
+  ---
+  duration_ms: 0.4421
+  type: 'test'
+  ...
+# Subtest: a roster-policy transition invalidates board-policy source and review-scope digests
+ok 32 - a roster-policy transition invalidates board-policy source and review-scope digests
+  ---
+  duration_ms: 0.3386
+  type: 'test'
+  ...
+# Subtest: current synchronization/rendering cannot remove or null either approved assignment mode
+ok 33 - current synchronization/rendering cannot remove or null either approved assignment mode
+  ---
+  duration_ms: 5.3575
+  type: 'test'
+  ...
+# Subtest: cross-role WIP and author protection cannot fall back to parked roles without the map
+ok 34 - cross-role WIP and author protection cannot fall back to parked roles without the map
+  ---
+  duration_ms: 0.2119
+  type: 'test'
+  ...
+# Subtest: highest executable facet is compared across logical roles sharing an implementation owner
+ok 35 - highest executable facet is compared across logical roles sharing an implementation owner
+  ---
+  duration_ms: 3.6202
+  type: 'test'
+  ...
+# Subtest: rendered implementation lanes show acting owner instead of stopped original writer
+ok 36 - rendered implementation lanes show acting owner instead of stopped original writer
+  ---
+  duration_ms: 3.933
+  type: 'test'
+  ...
+# Subtest: independent routing renders all nine current lanes without reviving historical agents
+ok 37 - independent routing renders all nine current lanes without reviving historical agents
+  ---
+  duration_ms: 4.3518
+  type: 'test'
+  ...
+# Subtest: construction does not satisfy completion dependencies or evidence
+ok 38 - construction does not satisfy completion dependencies or evidence
+  ---
+  duration_ms: 1.5335
+  type: 'test'
+  ...
+# Subtest: does not mark a card Done on a draft, a vote, or missing acceptance
+ok 39 - does not mark a card Done on a draft, a vote, or missing acceptance
+  ---
+  duration_ms: 0.5191
+  type: 'test'
+  ...
+# Subtest: code completion cannot count earlier design-only or generic review markers
+ok 40 - code completion cannot count earlier design-only or generic review markers
+  ---
+  duration_ms: 0.1976
+  type: 'test'
+  ...
+# Subtest: review envelopes bind verdict, explicit completion sources, and source-scope hashes
+ok 41 - review envelopes bind verdict, explicit completion sources, and source-scope hashes
+  ---
+  duration_ms: 0.5386
+  type: 'test'
+  ...
+# Subtest: source digest detects code changes but does not self-invalidate on operational board transitions
+ok 42 - source digest detects code changes but does not self-invalidate on operational board transitions
+  ---
+  duration_ms: 0.362
+  type: 'test'
+  ...
+# Subtest: partial passing checkboxes require scope policy and current evidence too
+ok 43 - partial passing checkboxes require scope policy and current evidence too
+  ---
+  duration_ms: 0.5983
+  type: 'test'
+  ...
+# Subtest: persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+ok 44 - persisted live PASS labels, hashes, coverage and authentication flags cannot enroll authority
+  ---
+  duration_ms: 0.7956
+  type: 'test'
+  ...
+# Subtest: rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+ok 45 - rehydrates all card IDs once with accurate columns and unchanged Avoid doing
+  ---
+  duration_ms: 65.3493
+  type: 'test'
+  ...
+# Subtest: exact scopes cover all clauses and invalidate on a semantic source change
+ok 46 - exact scopes cover all clauses and invalidate on a semantic source change
+  ---
+  duration_ms: 12.9112
+  type: 'test'
+  ...
+# Subtest: partial local facet is rendered separately and cannot tick a whole live clause
+ok 47 - partial local facet is rendered separately and cannot tick a whole live clause
+  ---
+  duration_ms: 68.8716
+  type: 'test'
+  ...
+# Subtest: arbitrary live PASS and reviewer votes are not native acceptance
+ok 48 - arbitrary live PASS and reviewer votes are not native acceptance
+  ---
+  duration_ms: 2.48
+  type: 'test'
+  ...
+# Subtest: source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+ok 49 - source-backlog hash does not authorize removal of a live facet or weaker evidence kinds
+  ---
+  duration_ms: 10.2217
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1702.5657

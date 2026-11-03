@@ -29,6 +29,27 @@ test("hidden policy telemetry/raw metadata/third-party credential forwarding fai
   ]) assert.ok(inspectPolicyXml(source).some(finding => finding.code === code), code);
 });
 
+test("XML-encoded RequestId and sampled-flag surgery fail even in disabled policy branches", () => {
+  for (const [expression, code] of [
+    ["@(context.&#x52;equestId.ToString())", "REQUEST_ID_PROVENANCE"],
+    ["@(context.&#82;equestId.ToString())", "REQUEST_ID_PROVENANCE"],
+    ['@(&quot;carrier-00&quot;.Replace(&quot;-&#48;&#48;&quot;, &quot;-&#x30;&#x31;&quot;))', "SAMPLED_FLAG_SURGERY"],
+    ["@(trace&#70;lags = 1)", "SAMPLED_FLAG_SURGERY"]
+  ]) {
+    for (const condition of ["@(false)", "{{disabled-carrier-rewrite}}"]) {
+      const source = `<fragment><choose><when condition="${condition}"><set-variable name="candidate" value="${expression}" /></when></choose></fragment>`;
+      assert.ok(inspectPolicyXml(source).some(finding => finding.code === code), `${code}: direct policy inspection`);
+      assert.ok(scanSource(source, "disabled.xml").some(finding => finding.code === code), `${code}: source scan`);
+    }
+  }
+});
+
+test("XML decoding is single-pass and does not invent executable forbidden expressions", () => {
+  const source = '<fragment><set-variable name="literal" value="context.&amp;#x52;equestId" /></fragment>';
+  assert.deepEqual(inspectPolicyXml(source), []);
+  assert.deepEqual(scanSource(source, "literal.xml"), []);
+});
+
 test("named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero", () => {
   for (const value of [
     "DistributedTracingModes.W3C_TRACE | 17",
@@ -55,5 +76,27 @@ test("a W3C constant in another file cannot certify an unbound SDK initializatio
     const result = await runProtocolGate(fixture);
     assert.equal(result.codePassed, false);
     assert.ok(result.findings.some(finding => finding.code === "SDK_TRACING_MODE" && finding.path.endsWith("unsafe.ts")));
+  } finally { await rm(fixture, { recursive: true, force: true }); }
+});
+
+test("source gate rejects seeded encoded fragments and passes after their removal", async () => {
+  const root = fileURLToPath(new URL("../../", import.meta.url));
+  const fixture = path.join(root, ".cache", "r3-apim", `encoded-policy-${randomUUID()}`);
+  const deployed = path.join(fixture, "apim", "policies", "fragments");
+  const forbidden = path.join(deployed, "disabled.xml");
+  try {
+    await mkdir(deployed, { recursive: true });
+    await copyFile(path.join(root, "apim", "sdk-source-pin.json"), path.join(fixture, "apim", "sdk-source-pin.json"));
+    await copyFile(path.join(root, "apim", "policies", "fragments", "contoso-context-v1.xml"), path.join(deployed, "context.xml"));
+    const baseline = await runProtocolGate(fixture);
+    assert.equal(baseline.codePassed, true);
+    await writeFile(forbidden, '<fragment><choose><when condition="@(false)"><set-variable name="candidate" value="@(context.&#x52;equestId.ToString())" /><set-variable name="carrier" value="@(&quot;carrier-00&quot;.Replace(&quot;-&#48;&#48;&quot;, &quot;-&#48;&#49;&quot;))" /></when></choose></fragment>');
+    const seeded = await runProtocolGate(fixture);
+    assert.equal(seeded.codePassed, false);
+    for (const code of ["REQUEST_ID_PROVENANCE", "SAMPLED_FLAG_SURGERY"]) {
+      assert.ok(seeded.findings.some(finding => finding.code === code && finding.path === path.relative(fixture, forbidden)), code);
+    }
+    await rm(forbidden);
+    assert.equal((await runProtocolGate(fixture)).codePassed, true);
   } finally { await rm(fixture, { recursive: true, force: true }); }
 });

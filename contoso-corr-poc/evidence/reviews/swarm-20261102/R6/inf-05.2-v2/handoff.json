@@ -1,0 +1,120 @@
+{
+  "schema": "contoso.r6-construction-handoff.v1",
+  "childId": "INF-05.2",
+  "executorAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "childDefinitionSha256": "996667e5f802b5905468b56ec5ed8bc5c7ed1cf371ed0b3005931bdd03dbebae",
+  "parent": "INF-05",
+  "clause": 1,
+  "facet": "static",
+  "result": "AUTHOR_CHECKS_PASS_PENDING_TWO_INDEPENDENT_EXECUTIONS",
+  "freezeSha256": "e5c5dbc4c9176dfb664dc3f91f3ecf382531fd10f72c63bbcd0ef69487470f6e",
+  "frozenInputsUnchanged": true,
+  "files": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "2ef752704a815667fb51e13ac625d54c30c15f96c750fd083a4a503a62f054aa"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "8504843516f00d141f2de0fc43bdb43f7323bb5caca78a3e1afb3af20f44ae67"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "a74c51115009df9086ac88c50db555d6e0bb19eaa16385335ef6adbf618fc38d"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00"
+    }
+  ],
+  "commands": [
+    "node --test --test-reporter=tap .\\contoso-corr-poc\\services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+    ".\\contoso-corr-poc\\services\\inventory-data\\tools\\Test-DataModules.ps1 -BicepPath .\\contoso-corr-poc\\.cache\\r6-tools\\bicep.exe -OutputPath <new-run-owned-directory>"
+  ],
+  "runtime": {
+    "node": "22.23.4",
+    "powershell": "7.6.9",
+    "bicep": "0.48.1 (cec7951cf6)"
+  },
+  "actual": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "compiledModules": 2,
+    "expectedBCP081": 6,
+    "measuredBCP081": 6,
+    "unexpectedDiagnostics": 0
+  },
+  "negativeControls": [
+    "source/API drift",
+    "missing or mismatched VERIFY row",
+    "BCP081 suppression",
+    "deployment-proof promotion",
+    "missing/duplicate/extra/changed/error diagnostics",
+    "changed compiler",
+    "absent module",
+    "failed compile"
+  ],
+  "evidence": [
+    {
+      "path": "node.tap",
+      "sha256": "7629e84f6ee96f0e9d4c3bd02d01cafa5c60c92286db410eb7578ede7f36949a"
+    },
+    {
+      "path": "compiler.log",
+      "sha256": "651169e00369a33067cdd448e5b82af5656d2d1a415a457c2484282610f76f94"
+    },
+    {
+      "path": "compile\\data-postgres.sarif.json",
+      "sha256": "ff832dbd2c20ab0b126b204806e8d2fb2f569b88e69699d53c9abbc92827f93b"
+    },
+    {
+      "path": "compile\\data-managed-redis.sarif.json",
+      "sha256": "2e8e957c394411b4d683c2362953e6c4021f1e4f077fc15717f488c728f73d5b"
+    },
+    {
+      "path": "compile\\data-postgres.json",
+      "sha256": "54a761fee49caf9871cb3227cc9d2d23c8804061c303744cca451c8be940fb98"
+    },
+    {
+      "path": "compile\\data-managed-redis.json",
+      "sha256": "35ac0aa15499508cefbb404fb8bec8bb8b5175553e78b3b328d103ef46ee770f"
+    }
+  ],
+  "cleanup": "Compiler processes exited; only unique run-owned generated templates and SARIF retained; no store/cloud mutation.",
+  "nativeExecution": false,
+  "providerPropertiesValidated": false,
+  "deploymentVerified": false,
+  "nextAction": "R4 and R8 independently replay both focused commands against frozen bytes; separately approved provider deployment and per-app own-identity connectivity remain To Do.",
+  "testFiles": [
+    "services\\inventory-data\\tools\\data-api-warnings.test.mjs"
+  ],
+  "positiveTests": [
+    "SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows",
+    "DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity"
+  ],
+  "negativeTests": [
+    "CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed",
+    "CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected"
+  ],
+  "supersedes": "v1 tests were historical; manifest now has exact official source URLs, checker tests source mismatches, R9 batched six registration rows. Actual v2 Node/compiler rerun at register059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00.",
+  "compilerSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082"
+}

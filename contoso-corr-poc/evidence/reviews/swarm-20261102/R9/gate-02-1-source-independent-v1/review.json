@@ -1,0 +1,284 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tests\\verification\\current-sampling-qualification.test.mjs",
+      "sha256": "b4e745e0631f0eaaf92a506028a4e416205cab12b513369c2eacb12ec9a8cba0",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\sampling-fixture.mjs",
+      "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\sampling-qualification.test.mjs",
+      "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tests\\verification\\current-sampling-qualification.test.mjs",
+      "sha256": "b4e745e0631f0eaaf92a506028a4e416205cab12b513369c2eacb12ec9a8cba0",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\sampling-fixture.mjs",
+      "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\sampling-qualification.test.mjs",
+      "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R4",
+      "authorAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "result": "accepted",
+      "scopeSha256": "2f2e7d952421216d8e516050cfe9e456a0f93789cd88be3de7200513189f2abf",
+      "sources": [
+        {
+          "path": "tests\\verification\\current-sampling-qualification.test.mjs",
+          "sha256": "b4e745e0631f0eaaf92a506028a4e416205cab12b513369c2eacb12ec9a8cba0",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\sampling-fixture.mjs",
+          "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\sampling-qualification.test.mjs",
+          "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\raw-query.mjs",
+          "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\sampler-native-intake.mjs",
+          "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\av23-check.mjs",
+          "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\native-payload.mjs",
+          "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\values.mjs",
+          "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\conditional-observer.mjs",
+          "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\invariants.mjs",
+          "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\observers.mjs",
+          "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\sampling-qualification.mjs",
+          "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\trust-roots.mjs",
+          "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\current-sampling-qualification.test.mjs tests\\verification\\sampling-qualification.test.mjs",
+        "testFiles": [
+          "tests\\verification\\current-sampling-qualification.test.mjs",
+          "tests\\verification\\sampling-qualification.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:24:59.142Z",
+        "finishedAtUtc": "2026-11-02T22:25:00.117Z",
+        "exitCode": 0,
+        "passed": 16,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-02-1-source-independent-v1\\tests.tap",
+        "sha256": "1ea934e2dc665ea21cfd170af757a518342fffc84948f014c263d47a56085ff7",
+        "positiveTests": [
+          "current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority"
+        ],
+        "negativeTests": [
+          "seeded sampler source drift or omitted provider/class input returns UNVERIFIED",
+          "skipped assertions, stale build identity and absent runtime dependencies fail closed",
+          "caller JSON, copied metadata and checker labels cannot enroll a current-source execution",
+          "qualification routing rejects accessors before reading owner or current-route labels"
+        ]
+      },
+      "children": [
+        {
+          "id": "GATE-02.1",
+          "definitionSha256": "ea3c0f88ded08b707da65aa39725f5c1b31bd3f4784bd81f8b4474a8cebb442a",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

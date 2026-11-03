@@ -106,7 +106,8 @@ export function createStorefront(
     scenarioSelect.add(option);
   }
   element("execution-mode", HTMLSpanElement).textContent =
-    fixture ? "FIXTURE · not Azure certification" : `${config.executionMode.toUpperCase()} · Contoso POC`;
+    config.executionMode === "local" ? "LOCAL REHEARSAL · not APIM, Azure or certification evidence"
+      : fixture ? "FIXTURE · not Azure certification" : `${config.executionMode.toUpperCase()} · Contoso POC`;
   element("sdk-state", HTMLParagraphElement).textContent =
     `JS SDK ${telemetry.sdkVersion} · W3C_TRACE · ${config.telemetry.roleName}`;
   const portalLink = element("portal-link", HTMLAnchorElement);
@@ -115,10 +116,12 @@ export function createStorefront(
   function updateControls(): void {
     const signedIn = auth.signedIn();
     element("auth-state", HTMLParagraphElement).textContent = fixture
-      ? "FIXTURE identity adapter · no Entra authentication proof" : signedIn ? "Signed in · API authorization still enforced" : "Not signed in";
+      ? `${config.executionMode === "local" ? "LOCAL REHEARSAL synthetic" : "FIXTURE"} identity adapter · no Entra authentication proof`
+      : signedIn ? "Signed in · API authorization still enforced" : "Not signed in";
     const active = certificationActive(config);
     element("window-state", HTMLParagraphElement).textContent = active
-      ? "Bounded certification window active. Real workspace evidence is still required."
+      ? config.executionMode === "local" ? "Bounded LOCAL REHEARSAL active; no APIM, Azure or certification evidence."
+        : "Bounded certification window active. Real workspace evidence is still required."
       : "Certification window inactive; demo mutations are disabled.";
     const unavailable = running || quiesced || !telemetry.status().active;
     createOrderButton.disabled = unavailable || !signedIn;

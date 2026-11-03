@@ -46,6 +46,21 @@ GitHub Pages must use **GitHub Actions** as its source under
 query telemetry, configure environment launch URLs, or change certification
 status.
 
+## Start here guide
+
+The **Start here** modal opens on every document load, including direct scenario
+links. No seen/dismissed flag is stored. Incoming scenario selection is applied
+before the guide opens; **Continue exploring**, Close, Escape or the backdrop
+dismisses it without changing that selection. Reopen it with
+**Menu > Start here / Site guide**.
+
+The guide covers purpose, contents, audience, a repeatable scenario workflow,
+observations, considerations and embedded references. Its scenario links come
+from the current catalog. Section and scenario links close the guide and focus
+their destination; source controls hand off to the existing source viewer
+without stacking dialogs. The scrollable guide keeps its heading and exit
+controls visible, contains keyboard focus and locks background scrolling.
+
 ## Presenter flow
 
 Use the header's **Menu** button to open the navigation drawer on desktop or

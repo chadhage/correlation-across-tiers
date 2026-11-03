@@ -1,0 +1,7 @@
+# Source and evidence contracts hash raw bytes, including existing LF and CRLF.
+# Preserve reviewed content instead of applying checkout-specific normalization.
+/.gitattributes -text
+/contoso-corr-poc/** -text
+/.github/** -text
+/.docs/wiki/Contoso_E2E_Correlation_POC_Backlog.md -text
+/.docs/wiki/Contoso_E2E_Correlation_POC_Kanban.md -text

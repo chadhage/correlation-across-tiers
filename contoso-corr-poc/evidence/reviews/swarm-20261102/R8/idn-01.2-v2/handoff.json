@@ -1,0 +1,113 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "result": "AUTHOR_EXECUTION_NOT_INDEPENDENT_REVIEW",
+  "reviewerRole": "R8",
+  "agentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "cardId": "IDN-01",
+  "childIds": [
+    "IDN-01.2"
+  ],
+  "childDefinition": {
+    "id": "IDN-01.2",
+    "title": "Remove the session-folder default from the AV-23 Java probe",
+    "checked": false,
+    "start": 106938,
+    "owner": "R8",
+    "needs": [],
+    "requiredResult": "AV-23 Java probe free of the session-folder default",
+    "constructionOnly": true,
+    "definitionSha256": "5292bd516d3e1daeabe10eb0eb36376725f88403d5fd8b5e699513c17d68f691"
+  },
+  "childDefinitionSha256": "5292bd516d3e1daeabe10eb0eb36376725f88403d5fd8b5e699513c17d68f691",
+  "clauseIndex": 3,
+  "facets": [
+    "static",
+    "unit"
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "sources": [
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d"
+    },
+    {
+      "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+      "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
+    },
+    {
+      "path": "tests\\security\\java-probe-tools-root.test.mjs",
+      "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8"
+    },
+    {
+      "path": "tests\\security\\av23-check.test.mjs",
+      "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\security\\native-identity-client.mjs",
+      "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    }
+  ],
+  "tests": {
+    "command": "node --test --test-reporter=tap .\\contoso-corr-poc\\tests\\security\\java-probe-tools-root.test.mjs .\\contoso-corr-poc\\tests\\security\\av23-check.test.mjs",
+    "cwd": "repository-root",
+    "nodeVersion": "v22.23.4",
+    "tests": 13,
+    "pass": 13,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "sourcesBeforeAfterMatched": true,
+    "tapPath": "implementation.tap",
+    "tapSha256": "04e3e1c35291a813ba5144449602356f7630eee19f54069f2206da7ec2dd1df4"
+  },
+  "positives": [
+    "No profile/session defaults in both Java probes",
+    "Agent-extension and SDK source guard segments unchanged from pre-edit canonical bytes",
+    "Existing AV23 finite-used-client/JAR-member/header-isolation controls pass"
+  ],
+  "negativeControls": [
+    "Missing/empty/whitespace portable root exits1 with CONTOSO_PORTABLE_TOOLS_ROOT_REQUIRED before artifact reads/mkdir",
+    "Explicit root and agent override each reject synthetic unpinned agent with AGENT_HASH_MISMATCH",
+    "Five seeded profile/session path forms fail source guard",
+    "Existing wrong/missing/truncated JAR and seeded header-leak controls still fail"
+  ],
+  "changedFiles": [
+    "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+    "tests\\security\\java-probe-tools-root.test.mjs"
+  ],
+  "coordinatedLease": {
+    "role": "R4",
+    "agentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+    "file": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+    "modified": false,
+    "reason": "No portable/session default present; explicit existing options remain unchanged."
+  },
+  "cleanup": "UUID-named fixtures-generated portable directories removed in finally; preflight Node children exited; no Java/Maven/network/cloud/application processes or shared target writes.",
+  "runtimeQualification": "NOT RUN: tests use synthetic wrong-agent bytes and source-pinned guard segments; no correct installed agent/JAR/wire qualification claimed.",
+  "remainingPrerequisites": [
+    "R4/R5 independent current-source utility execution",
+    "IDN-01.3: current R4 source-bound Java artifacts, verified tool/agent/extension hashes and separately approved bounded local wire window",
+    "IDN-01.4: current R2 Portal build+locked loaded dependency lineage and separately approved bounded loopback capture",
+    "Native Entra/managed identity/KeyVault/global privacy and owner decisions remain separate unmet parent requirements"
+  ],
+  "capturedAtUtc": "2026-11-02T22:03:53.582Z"
+}

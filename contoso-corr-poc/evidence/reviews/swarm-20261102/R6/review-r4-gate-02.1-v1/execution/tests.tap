@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority
+ok 1 - current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority
+  ---
+  duration_ms: 7.0793
+  type: 'test'
+  ...
+# Subtest: seeded sampler source drift or omitted provider/class input returns UNVERIFIED
+ok 2 - seeded sampler source drift or omitted provider/class input returns UNVERIFIED
+  ---
+  duration_ms: 4.0853
+  type: 'test'
+  ...
+# Subtest: skipped assertions, stale build identity and absent runtime dependencies fail closed
+ok 3 - skipped assertions, stale build identity and absent runtime dependencies fail closed
+  ---
+  duration_ms: 5.6691
+  type: 'test'
+  ...
+# Subtest: valid-parent00 and all-unsampled linked roots cannot become sampled; mixed and unlinked retain delegate
+ok 4 - valid-parent00 and all-unsampled linked roots cannot become sampled; mixed and unlinked retain delegate
+  ---
+  duration_ms: 4.8532
+  type: 'test'
+  ...
+# Subtest: failed, repeated or unbounded child execution labels cannot qualify a current run
+ok 5 - failed, repeated or unbounded child execution labels cannot qualify a current run
+  ---
+  duration_ms: 3.4829
+  type: 'test'
+  ...
+# Subtest: caller JSON, copied metadata and checker labels cannot enroll a current-source execution
+ok 6 - caller JSON, copied metadata and checker labels cannot enroll a current-source execution
+  ---
+  duration_ms: 2.7966
+  type: 'test'
+  ...
+# Subtest: qualification routing rejects accessors before reading owner or current-route labels
+ok 7 - qualification routing rejects accessors before reading owner or current-route labels
+  ---
+  duration_ms: 1.4654
+  type: 'test'
+  ...
+# Subtest: complete synthetic qualification checks semantics only and cannot mint a report capability
+ok 8 - complete synthetic qualification checks semantics only and cannot mint a report capability
+  ---
+  duration_ms: 4.5532
+  type: 'test'
+  ...
+# Subtest: local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+ok 9 - local qualifier rejects wrong owner, failed/missing assertions and parent-only policy
+  ---
+  duration_ms: 1.2111
+  type: 'test'
+  ...
+# Subtest: source and actual execution receipts must bind complete scopes and successful literal testcase
+ok 10 - source and actual execution receipts must bind complete scopes and successful literal testcase
+  ---
+  duration_ms: 1.9314
+  type: 'test'
+  ...
+# Subtest: missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+ok 11 - missing/failing00 SDK decisions cannot pass from zero exports or a caller PASS flag
+  ---
+  duration_ms: 0.6001
+  type: 'test'
+  ...
+# Subtest: positive and MIX require actual native exports and unchanged original producer contexts
+ok 12 - positive and MIX require actual native exports and unchanged original producer contexts
+  ---
+  duration_ms: 1.5564
+  type: 'test'
+  ...
+# Subtest: native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+ok 13 - native replay/fanin/batch links and parentage must match independent actual inputs/contributors
+  ---
+  duration_ms: 1.6861
+  type: 'test'
+  ...
+# Subtest: changing owner accessor is rejected before any asynchronous load or accessor invocation
+ok 14 - changing owner accessor is rejected before any asynchronous load or accessor invocation
+  ---
+  duration_ms: 1.1591
+  type: 'test'
+  ...
+# Subtest: changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+ok 15 - changing version accessors and non-JSON proxy objects cannot become metadata snapshots
+  ---
+  duration_ms: 0.5577
+  type: 'test'
+  ...
+# Subtest: metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+ok 16 - metadata snapshots isolate nested mutable count objects and freeze returned identity fields
+  ---
+  duration_ms: 0.8629
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 559.3959

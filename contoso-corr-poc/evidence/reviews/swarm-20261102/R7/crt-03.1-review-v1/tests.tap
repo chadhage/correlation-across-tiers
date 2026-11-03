@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: whole historical coverage report binds its source commit and exact cited suite counts
+ok 1 - whole historical coverage report binds its source commit and exact cited suite counts
+  ---
+  duration_ms: 27.594
+  type: 'test'
+  ...
+# Subtest: coverage report rejects each seeded quoted count drift and missing source commit
+ok 2 - coverage report rejects each seeded quoted count drift and missing source commit
+  ---
+  duration_ms: 15.0967
+  type: 'test'
+  ...
+# Subtest: source commit or same-commit source closure drift requires the historical label
+ok 3 - source commit or same-commit source closure drift requires the historical label
+  ---
+  duration_ms: 6.5601
+  type: 'test'
+  ...
+# Subtest: changed receipt bytes and skipped tests cannot be counted as passes
+ok 4 - changed receipt bytes and skipped tests cannot be counted as passes
+  ---
+  duration_ms: 1.8981
+  type: 'test'
+  ...
+# Subtest: coverage checker accepts no rewrite or qualification argument and evidence links cannot escape
+ok 5 - coverage checker accepts no rewrite or qualification argument and evidence links cannot escape
+  ---
+  duration_ms: 0.7524
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 334.8847

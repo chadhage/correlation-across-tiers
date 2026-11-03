@@ -1,0 +1,64 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "orchestrator",
+  "reviewedOwnerAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "result": "CHANGES_REQUESTED",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "sourceFreeze": {
+    "tools\\kanban.mjs": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e",
+    "tests\\kanban.test.mjs": "e8b99c05cb7fcc3dd080c9acb6f4850ae075cfccf9fc025509d944fc1bc37d6e",
+    "fiveDeclaredSourceHashesStableBeforeAfter": true
+  },
+  "baselineExecution": {
+    "receipt": "execution.json",
+    "receiptSha256": "a8f859db8b9ac26609523f3dcca7d08c5946382eea79b0f33688e5cfec5d7f28",
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "nodeVersion": "v22.23.4",
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "findings": [
+    {
+      "id": "R3-LIFECYCLE-01",
+      "priority": "blocking-evidence-admission",
+      "file": "tools\\kanban.mjs",
+      "line": 491,
+      "description": "verifyConstructionEvidence is called only inside the source loop of a parent unit PASS code-review criterion. With no such criterion, the actual aggregate verifier never performs child artifact, TAP or current-source IO verification, even when a child is marked Done.",
+      "effect": "Metadata-valid child completion can be rendered/ticked without verifying its referenced execution evidence. When the branch is entered, the same full child verification is redundantly repeated once per parent source.",
+      "neededChange": "Call the child evidence verifier unconditionally once in the aggregate verification function used by synchronize, outside all parent facet/source loops, and add aggregate-path tests with To Do parents/no unit PASS plus missing/tampered child artifacts and source drift."
+    }
+  ],
+  "actualNegativeReproduction": {
+    "testFile": "aggregate-no-parent-unit.test.mjs",
+    "tapFile": "aggregate-repro.tap",
+    "method": "Read exact hash-pinned private aggregate function and expose it only in memory. All cards/state and missing-review references are in-memory negative fixtures; no production file or board is changed.",
+    "command": "node --test --test-reporter=tap evidence\\reviews\\swarm-20261102\\R3\\review-orchestrator-lifecycle-20261102T220823292Z-8a1543e8-e662-4c72-953a-c06812e71a74\\aggregate-no-parent-unit.test.mjs",
+    "exitCode": 1,
+    "tests": 2,
+    "passed": 1,
+    "failed": 1,
+    "skipped": 0,
+    "cancelled": 0,
+    "sourcesStableBeforeAfter": true,
+    "observations": [
+      "Direct real child IO verifier rejects the nonexistent review artifact.",
+      "The same metadata-valid Done child with no parent unit PASS is accepted by the frozen aggregate function.",
+      "Actual aggregate child IO verifier calls: 0.",
+      "The intended fail-closed regression fails with Missing expected rejection."
+    ]
+  },
+  "preservedRulesReviewed": [
+    "Canonical 78 parents, 52 children, 281 clauses, 491 facets and 13 gates are preserved by the baseline tests.",
+    "Construction-only allowlist, current author/reviewer identities, distinct other-role quorum and child prerequisite checks are present.",
+    "Native/hosted children and parent/native completion remain separate from construction metadata."
+  ],
+  "cleanup": "No implementation edits, board/wiki/scopes edits, services, Maven or cloud operations. Original passing baseline and failing negative reproduction are retained in unique R3 outputs.",
+  "nextAction": "Orchestrator confirmed the finding and owns the implementation fix/refreeze. A fresh exact aggregate integration rerun is required; the original 48 PASS is not acceptance."
+}

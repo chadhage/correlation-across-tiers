@@ -1,0 +1,50 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "R2",
+  "childId": "WEB-01.1",
+  "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "thresholdStopRespected": true,
+  "reviewScope": "Drain the already-running bounded source-hardening successor only; no implementation dispatch or native child completion",
+  "reviewReceipt": {
+    "path": "review.json",
+    "sha256": "b95eb8e1f112b8109b92ea455800492b51a07529ce9d9f42c85a34e9f3d5a102",
+    "scopeSha256": "280918e3b94c320f3e550f663c1fde886355e08b5bd97513656ce1afadb21807"
+  },
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-v3-request-20261102-56a48b43.json",
+    "nodeVersion": "v22.23.4",
+    "chromiumVersion": "156.0.8078.4",
+    "exitCode": 0,
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "allTwentyAuthorHashesMatchedBeforeAfter": true
+  },
+  "findings": [],
+  "resolvedFindingIds": ["R3-WEB01-01"],
+  "verifiedHardening": [
+    "The exported source-input array is frozen; the new executed regression proves caller removal fails and leaves the closure unchanged.",
+    "Preflight source hashing and initial source-manifest writing happen before mutation of TEMP/TMP/TMPDIR and browser environment values.",
+    "Source review confirms browser/server cleanup failures force BLOCKED before the final receipt; environment restoration precedes awaited post-run hashing.",
+    "The actual trusted Demo 01 Run-demo control, current SDK dependency, forwarder preservation, excluded-origin controls and exact ingress/emitted-parent structural negatives still pass.",
+    "Unavailable synthetic-token execution remains BLOCKED with no manufactured parentJoin and restores its environment."
+  ],
+  "notExecuted": [
+    "Fault injection into browser/server close operations; those new catch/status branches were source-reviewed, not separately runtime-fault-tested.",
+    "Actual JVM Orders/Inventory pair, real emitted Orders parent and ingress join.",
+    "APIM, Entra, Azure, native certification, hosted workflows or accountable signoff."
+  ],
+  "exactChildAcceptance": "WEB-01.1 remains To Do until its real local JVM prerequisite and actual ingress/emission join run; browser/unit stand-ins do not close it.",
+  "priorEvidencePreserved": [
+    "..\\review-r2-web01-20261102-a3209dc6\\assessment.json",
+    "..\\review-r2-web01-v2-20261102-b8b5e7f2\\assessment.json"
+  ],
+  "cleanupAndLeases": "Dedicated test-owned Chromium and loopback servers closed; test-owned unique build trees removed. No coauthor source edits, shared dist/target output, Maven, cloud or credential access. Review output complete; no source/PID/port or implementation lease retained."
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "documentation",
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "docs\\TEST_COVERAGE_REPORT.md",
+      "sha256": "2ed030eb7163dcaa185f54cd8019518609a1e22383f55dec84b7274cfa3ae908",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\test-coverage-report.mjs",
+      "sha256": "773530198f51f32db8650b6afa362172df95bae2870610f1b930c9b841f0b58a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\test-coverage-report.test.mjs",
+      "sha256": "a1b2d624bfa327664d75cec97beaa3907d70c3a515879920097e869e9050843c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\result.json",
+      "sha256": "a2a23bd9f4a1129edd48794658c5315182d1b556ea01f7f09eeba5a7c83fa17b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\after-sources.json",
+      "sha256": "e3f79389a4bb6774e9e847146c0e3270021a50db793c61044cb644e63c933d9f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+      "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "docs\\TEST_COVERAGE_REPORT.md",
+      "sha256": "2ed030eb7163dcaa185f54cd8019518609a1e22383f55dec84b7274cfa3ae908",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\test-coverage-report.mjs",
+      "sha256": "773530198f51f32db8650b6afa362172df95bae2870610f1b930c9b841f0b58a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\test-coverage-report.test.mjs",
+      "sha256": "a1b2d624bfa327664d75cec97beaa3907d70c3a515879920097e869e9050843c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\result.json",
+      "sha256": "a2a23bd9f4a1129edd48794658c5315182d1b556ea01f7f09eeba5a7c83fa17b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\after-sources.json",
+      "sha256": "e3f79389a4bb6774e9e847146c0e3270021a50db793c61044cb644e63c933d9f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+      "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R9",
+      "authorAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "result": "accepted",
+      "scopeSha256": "119d6cf3674bd60309075bae2f0e46f9ad42fe75a91c37c30b9d4056b074111f",
+      "sources": [
+        {
+          "path": "docs\\TEST_COVERAGE_REPORT.md",
+          "sha256": "2ed030eb7163dcaa185f54cd8019518609a1e22383f55dec84b7274cfa3ae908",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\test-coverage-report.mjs",
+          "sha256": "773530198f51f32db8650b6afa362172df95bae2870610f1b930c9b841f0b58a",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\test-coverage-report.test.mjs",
+          "sha256": "a1b2d624bfa327664d75cec97beaa3907d70c3a515879920097e869e9050843c",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\run-focused.mjs",
+          "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\result.json",
+          "sha256": "a2a23bd9f4a1129edd48794658c5315182d1b556ea01f7f09eeba5a7c83fa17b",
+          "hashMode": "raw"
+        },
+        {
+          "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\after-sources.json",
+          "sha256": "e3f79389a4bb6774e9e847146c0e3270021a50db793c61044cb644e63c933d9f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+          "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\test-coverage-report.test.mjs",
+        "testFiles": [
+          "tests\\verification\\test-coverage-report.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:11:33.293Z",
+        "finishedAtUtc": "2026-11-02T22:11:33.828Z",
+        "exitCode": 0,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\crt-03.1-review-v1\\tests.tap",
+        "sha256": "4e6cc1e1f3737526e9772a5eef64cee9620f55ba6fb8a3ca8e444b0867b66217",
+        "positiveTests": [
+          "whole historical coverage report binds its source commit and exact cited suite counts"
+        ],
+        "negativeTests": [
+          "source commit or same-commit source closure drift requires the historical label"
+        ]
+      },
+      "children": [
+        {
+          "id": "CRT-03.1",
+          "definitionSha256": "b922e020dc685476d02be4660ae3292bfcddb253e9f82c5b7408fd5a757098b9",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "contoso.source-review-finding-resolution.v1",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "authorRole": "R7",
+  "claim": "OBS-02.2",
+  "scope": "SYNTHETIC_PRODUCER_INPUTS_OVER_REAL_BOUNDED_LOOPBACK_CHECKER_ONLY",
+  "loadedCollectorSourceSha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+  "beforeSourceSha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+  "afterSourceSha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+  "sourceStable": true,
+  "positiveControl": {
+    "httpStatus": 200,
+    "received": 6,
+    "accepted": 6,
+    "captureEnvelopes": 6,
+    "mergedSpans": 6,
+    "sourceAuthority": "IN_PROCESS_LOOPBACK_LOCAL_ONLY"
+  },
+  "negativeControl": {
+    "callerOnlyAddedEnvelopes": 1,
+    "mergedResult": "PASS",
+    "mergedSpans": 7,
+    "sourceAuthority": "SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY",
+    "realLocalRows": 0,
+    "fixtureRows": 7
+  },
+  "result": "FIXED_MIXED_INPUTS_STRUCTURAL_ONLY",
+  "nativeEvidence": false,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "cleanup": {
+    "receiverTransportPhase": "closed",
+    "receiverStopped": true,
+    "noJavaMavenBrowserPairOrCloudRun": true
+  },
+  "historicalRedReceipt": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-mixed-provenance-finding-v1\\finding.json",
+  "remaining": "Actual complete browser/JVM pair, ARC/GATE08 and native collector/sampling/reset authority remain unmet; code review does not close OBS02.2."
+}

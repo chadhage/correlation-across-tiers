@@ -1,0 +1,51 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "scope": "LOCAL_REHEARSAL_CURRENT_SOURCE_SAMPLER_DECISIONS_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "compiled-classes.json",
+      "sha256": "94e62922e9b4637fea69d44f06b48092f4cf4e39cc2d9a48f89b2e3162b66367"
+    },
+    {
+      "path": "context-data-contracts.json",
+      "sha256": "9e5b1c8c6468458394565858d85fb3f5777614523beda9befddc4ad14dba2381"
+    },
+    {
+      "path": "execution-receipt.json",
+      "sha256": "cc44b51163b666173fa990ac25d16dee62715e727a21cc6720253114fc0fdd4f"
+    },
+    {
+      "path": "observed-running-java.json",
+      "sha256": "d6a098341af8beb9c80ae9916efb4d71615a128a7dfc9240236f0973fbfc1da6"
+    },
+    {
+      "path": "qualification.json",
+      "sha256": "63585ceb5263a85ff8e05036adbe9b9600974e2b8656e004486526214a4b2427"
+    },
+    {
+      "path": "runtime-dependencies.json",
+      "sha256": "e7e9e18905261a20ae31935d16444d5ce441ce0aa83be280dee9a149a103b64d"
+    },
+    {
+      "path": "sampler-build.log",
+      "sha256": "b52cad8d092929261209c04fadd7b332e836acc998627543a845d91b947f55fc"
+    },
+    {
+      "path": "selected-test.log",
+      "sha256": "4e59c5cc65c5b684f8275bbc4b6f43aee801c5766a7fa2ef819283cdd30d0d2d"
+    },
+    {
+      "path": "source-build.json",
+      "sha256": "cb450682825a1ed6eb8fe840c1988fc4f8fe6e44543503b393fb58e80db581bc"
+    },
+    {
+      "path": "sources-after.json",
+      "sha256": "dd37b41e7dba49a1b9567f4a7fca47bcbfb022bcba6700ba88678fccc6f75ea9"
+    },
+    {
+      "path": "sources-before.json",
+      "sha256": "dd37b41e7dba49a1b9567f4a7fca47bcbfb022bcba6700ba88678fccc6f75ea9"
+    }
+  ]
+}

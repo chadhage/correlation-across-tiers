@@ -1,0 +1,40 @@
+{
+  "schema": "contoso.r6-private-java-contract-witness.v1",
+  "reviewerAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "authorAgent": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "measuredAtUtc": "2026-11-02T22:29:17.1591351Z",
+  "authorHandoff": "evidence\\reviews\\swarm-20261102\\R6\\dat-02.1-v1\\handoff.json",
+  "authorHandoffSha256": "210b159d4b4d6b93591e9463296776504d1bab33ed80edbd84d4b14261db7992",
+  "actualSuite": "com.contoso.inventory.data.LocalRedisLaneContractTest",
+  "actualTests": 6,
+  "actualFailures": 0,
+  "actualErrors": 0,
+  "actualSkipped": 0,
+  "actualTestMethods": [
+    "invalidRunIdentifiersAndMismatchedMetadataPortsAreRejected",
+    "remoteDnsUrlAndAmbiguousLoopbackNamesNeverBecomeConnections",
+    "explicitLocalTargetRetainsActualAdapterPortAndNoTlsOutsideThisTest",
+    "credentialsAreOptionalValidatedAndRedacted",
+    "onlyThreeDistinctBoundedRunOwnedKeySuffixesAreConstructible",
+    "everyExplicitOptInTargetFieldIsRequiredWithoutConnecting"
+  ],
+  "originalXmlSha256": "66ef7ec573f27196cb11844d7b051271cc0b4ce7b699fe172a8cb6d3dc4d1db7",
+  "compiledTestClasses": [
+    {
+      "path": "services\\inventory-data\\target\\test-classes\\com\\contoso\\inventory\\data\\LocalRedisLane.class",
+      "sha256": "9502e39326cf5311635f6232cf340af46c17a8d59af36bfc7060a09cfd3512d8"
+    },
+    {
+      "path": "services\\inventory-data\\target\\test-classes\\com\\contoso\\inventory\\data\\LocalRedisLane$Settings.class",
+      "sha256": "fcbcf525afce341ae0586d0f9339c850cacb9c0cf22091c0f9d033dc0dcfa652"
+    },
+    {
+      "path": "services\\inventory-data\\target\\test-classes\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.class",
+      "sha256": "44b3d11c687b08a29df78e084f8f4023600cd55b560b5d6e880e0993f9a6b768"
+    }
+  ],
+  "all11SourceInputsStillCurrent": true,
+  "realRedisExecuted": false,
+  "rawXmlCopied": false,
+  "claim": "Independently hashed original current JUnit XML and compiled test classes; config/URI/key construction only, no Redis connection, TTL, ACL, cleanup or Entra proof."
+}

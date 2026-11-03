@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: rejects each removed claim/resource even when hidden in a disabled fragment
+ok 1 - rejects each removed claim/resource even when hidden in a disabled fragment
+  ---
+  duration_ms: 4.203
+  type: 'test'
+  ...
+# Subtest: rejects evaluation references on the certification deployment path
+ok 2 - rejects evaluation references on the certification deployment path
+  ---
+  duration_ms: 0.4942
+  type: 'test'
+  ...
+# Subtest: does not confuse a validation-tool rejection predicate with a deployment requirement
+ok 3 - does not confuse a validation-tool rejection predicate with a deployment requirement
+  ---
+  duration_ms: 0.2379
+  type: 'test'
+  ...
+# Subtest: fails closed on preview/unknown dependencies and missing official sources
+ok 4 - fails closed on preview/unknown dependencies and missing official sources
+  ---
+  duration_ms: 3.1479
+  type: 'test'
+  ...
+# Subtest: Contoso-owned customization is not presented as a Microsoft GA announcement
+ok 5 - Contoso-owned customization is not presented as a Microsoft GA announcement
+  ---
+  duration_ms: 0.8257
+  type: 'test'
+  ...
+# Subtest: both exact resolved Portal beta packages have public source classifications, not support clearance
+ok 6 - both exact resolved Portal beta packages have public source classifications, not support clearance
+  ---
+  duration_ms: 3.8417
+  type: 'test'
+  ...
+# Subtest: a different stable instrumentation release cannot promote the resolved beta
+ok 7 - a different stable instrumentation release cannot promote the resolved beta
+  ---
+  duration_ms: 27.3385
+  type: 'test'
+  ...
+# Subtest: Portal classification rejects lock drift, missing beta and caller GA/support labels
+ok 8 - Portal classification rejects lock drift, missing beta and caller GA/support labels
+  ---
+  duration_ms: 51.5188
+  type: 'test'
+  ...
+# Subtest: removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+ok 9 - removing the instrumentation gap from the manifest cannot hide a resolved prerelease
+  ---
+  duration_ms: 3.6937
+  type: 'test'
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 10 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 3.0748
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 11 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 0.7128
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 12 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 0.7069
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 888.1158

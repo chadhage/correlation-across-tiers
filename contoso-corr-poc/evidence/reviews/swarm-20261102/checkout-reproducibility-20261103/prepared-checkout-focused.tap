@@ -1,0 +1,538 @@
+TAP version 13
+# Subtest: production restoration reuses complete acknowledgement safety validation
+ok 1 - production restoration reuses complete acknowledgement safety validation
+  ---
+  duration_ms: 3.0849
+  type: 'test'
+  ...
+# Subtest: drain acknowledgement requires no in-flight work and safe native source
+ok 2 - drain acknowledgement requires no in-flight work and safe native source
+  ---
+  duration_ms: 0.7249
+  type: 'test'
+  ...
+# Subtest: an attempted/partially acknowledged native drain cannot satisfy completion
+ok 3 - an attempted/partially acknowledged native drain cannot satisfy completion
+  ---
+  duration_ms: 1.8849
+  type: 'test'
+  ...
+# Subtest: activation completion cannot report active at drain-start or after expiry
+ok 4 - activation completion cannot report active at drain-start or after expiry
+  ---
+  duration_ms: 0.397
+  type: 'test'
+  ...
+# Subtest: SSR keeps R2 configured production base below100 while the window derives eligible100
+ok 5 - SSR keeps R2 configured production base below100 while the window derives eligible100
+  ---
+  duration_ms: 122.0794
+  type: 'test'
+  ...
+# Subtest: all layer local activation and restoration preserve unrelated security fields
+ok 6 - all layer local activation and restoration preserve unrelated security fields
+  ---
+  duration_ms: 311.4812
+  type: 'test'
+  ...
+# Subtest: owned sampling revision conflict fails instead of overwriting a concurrent change
+ok 7 - owned sampling revision conflict fails instead of overwriting a concurrent change
+  ---
+  duration_ms: 172.6812
+  type: 'test'
+  ...
+# Subtest: expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+ok 8 - expired/incomplete inventory, live file acknowledgements and path escape are nonpassing
+  ---
+  duration_ms: 22.1536
+  type: 'test'
+  ...
+# Subtest: independent watchdog restores after controller interruption
+ok 9 - independent watchdog restores after controller interruption
+  ---
+  duration_ms: 1502.7171
+  type: 'test'
+  ...
+# Subtest: independent watchdog enforces expiry even while the owner stays alive
+ok 10 - independent watchdog enforces expiry even while the owner stays alive
+  ---
+  duration_ms: 2874.5745
+  type: 'test'
+  ...
+# Subtest: partial activation failure restores the write-ahead baseline
+ok 11 - partial activation failure restores the write-ahead baseline
+  ---
+  duration_ms: 92.0125
+  type: 'test'
+  ...
+# Subtest: watchdog starts drain before expiry without changing the full sampling profile early
+ok 12 - watchdog starts drain before expiry without changing the full sampling profile early
+  ---
+  duration_ms: 4967.3072
+  type: 'test'
+  ...
+# Subtest: late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+ok 13 - late recovery restores best-effort but fails the absolute expiry-plus-budget cutoff
+  ---
+  duration_ms: 2293.9204
+  type: 'test'
+  ...
+# Subtest: recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+ok 14 - recovery resumes an interrupted persisted mid-drain journal instead of trusting attempted
+  ---
+  duration_ms: 152.6975
+  type: 'test'
+  ...
+# Subtest: duplicate lease entry preserves the original write-ahead journal and rollback
+ok 15 - duplicate lease entry preserves the original write-ahead journal and rollback
+  ---
+  duration_ms: 126.1752
+  type: 'test'
+  ...
+# Subtest: interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+ok 16 - interpreter executable hash alone cannot approve mutable hook code or inline evaluation
+  ---
+  duration_ms: 469.0139
+  type: 'test'
+  ...
+# Subtest: actual immutable Surefire classpath removes only its single terminal implicit-CWD element
+ok 17 - actual immutable Surefire classpath removes only its single terminal implicit-CWD element
+  ---
+  duration_ms: 13.1841
+  type: 'test'
+  ...
+# Subtest: classpath selection preserves nonempty bytes/order and rejects all relative/interior/ambiguous empties
+ok 18 - classpath selection preserves nonempty bytes/order and rejects all relative/interior/ambiguous empties
+  ---
+  duration_ms: 1.0327
+  type: 'test'
+  ...
+# Subtest: production hash boundary accepts all seven saved returned runtime snapshots without enrolling saved evidence
+ok 19 - production hash boundary accepts all seven saved returned runtime snapshots without enrolling saved evidence
+  ---
+  duration_ms: 25.4401
+  type: 'test'
+  ...
+# Subtest: conditional hash normalization preserves ordinary canonical bytes and nested hardened map/row metadata
+ok 20 - conditional hash normalization preserves ordinary canonical bytes and nested hardened map/row metadata
+  ---
+  duration_ms: 1.2612
+  type: 'test'
+  ...
+# Subtest: conditional hash boundary rejects callbacks, accessors, proxies, custom objects and cycles without invoking them
+ok 21 - conditional hash boundary rejects callbacks, accessors, proxies, custom objects and cycles without invoking them
+  ---
+  duration_ms: 0.8568
+  type: 'test'
+  ...
+# Subtest: conditional observer limits direct ordinary-only hashing to its checked normalization boundary
+ok 22 - conditional observer limits direct ordinary-only hashing to its checked normalization boundary
+  ---
+  duration_ms: 3.7001
+  type: 'test'
+  ...
+# Subtest: closed failure code extraction does not read error text, accessors, inherited codes or proxy traps
+ok 23 - closed failure code extraction does not read error text, accessors, inherited codes or proxy traps
+  ---
+  duration_ms: 0.8369
+  type: 'test'
+  ...
+# Subtest: production-used fixed binding helper retains exact closed failure case and actual-match booleans only
+ok 24 - production-used fixed binding helper retains exact closed failure case and actual-match booleans only
+  ---
+  duration_ms: 2.2435
+  type: 'test'
+  ...
+# Subtest: binding diagnostics retain all seven positive checker cases and reject each original material predicate
+ok 25 - binding diagnostics retain all seven positive checker cases and reject each original material predicate
+  ---
+  duration_ms: 14.2148
+  type: 'test'
+  ...
+# Subtest: closed diagnostic allowlist covers current literal assertions without accepting arbitrary regex-shaped codes
+ok 26 - closed diagnostic allowlist covers current literal assertions without accepting arbitrary regex-shaped codes
+  ---
+  duration_ms: 7.13
+  type: 'test'
+  ...
+# Subtest: absent/invalid structural case checking does not enroll native source authority
+ok 27 - absent/invalid structural case checking does not enroll native source authority
+  ---
+  duration_ms: 1.693
+  type: 'test'
+  ...
+# Subtest: missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+ok 28 - missing/duplicate/foreign native and runtime observations cannot be repaired with expectations
+  ---
+  duration_ms: 5.7575
+  type: 'test'
+  ...
+# Subtest: invalid partial context cannot retain a carrier trace while being labelled a technical restart
+ok 29 - invalid partial context cannot retain a carrier trace while being labelled a technical restart
+  ---
+  duration_ms: 1.1996
+  type: 'test'
+  ...
+# Subtest: malformed native parents and oversize original carriers cannot be normalized into absent roots
+ok 30 - malformed native parents and oversize original carriers cannot be normalized into absent roots
+  ---
+  duration_ms: 1.6183
+  type: 'test'
+  ...
+# Subtest: valid parent, state-only and business-identity controls never authorize a null-parent waiver
+ok 31 - valid parent, state-only and business-identity controls never authorize a null-parent waiver
+  ---
+  duration_ms: 3.337
+  type: 'test'
+  ...
+# Subtest: unsampled continuation needs actual SDK state and never treats export absence alone as proof
+ok 32 - unsampled continuation needs actual SDK state and never treats export absence alone as proof
+  ---
+  duration_ms: 1.076
+  type: 'test'
+  ...
+# Subtest: strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+ok 33 - strict00 rejects every related Request/Dependency span, without rejecting unrelated traces or non-span records
+  ---
+  duration_ms: 2.5325
+  type: 'test'
+  ...
+# Subtest: original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+ok 34 - original runtime DTO rejects unknown, forbidden and nested fields instead of retaining or masking them
+  ---
+  duration_ms: 3.2982
+  type: 'test'
+  ...
+# Subtest: runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+ok 35 - runtime DTO value checks are bounded/shared-policy and exact-marker based; CodeSource has no query/hash/auth
+  ---
+  duration_ms: 3.6952
+  type: 'test'
+  ...
+# Subtest: original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+ok 36 - original runtime frame uses strict UTF8/decoded-duplicate JSON parsing before object validation
+  ---
+  duration_ms: 0.6041
+  type: 'test'
+  ...
+# Subtest: runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+ok 37 - runtime-only publisher marker rejects original DTO spill while legitimate native top-level publisher stays allowed
+  ---
+  duration_ms: 4.4775
+  type: 'test'
+  ...
+# Subtest: actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+ok 38 - actual Instant UTC zero-to-nine fractions remain accepted, comments/offsets/rollover dates reject
+  ---
+  duration_ms: 5.7499
+  type: 'test'
+  ...
+# Subtest: real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+ok 39 - real loopback HTTP controls settle rejected on aborted200 bodies and preserve complete-response/size behavior
+  ---
+  duration_ms: 96.3222
+  type: 'test'
+  ...
+# Subtest: real continuously active response still reaches the absolute ten-second control deadline
+ok 40 - real continuously active response still reaches the absolute ten-second control deadline
+  ---
+  duration_ms: 10012.1088
+  type: 'test'
+  ...
+# Subtest: original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+ok 41 - original wire mismatch and accessor/proxy inputs reject without mutable proof reads
+  ---
+  duration_ms: 1.5908
+  type: 'test'
+  ...
+# Subtest: genuine directly executed CPU source enrolls only its private non-native process identity
+ok 42 - genuine directly executed CPU source enrolls only its private non-native process identity
+  ---
+  duration_ms: 241.9215
+  type: 'test'
+  ...
+# Subtest: JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+ok 43 - JSON, source hashes, callbacks, query labels and CPU identities cannot enroll native roots
+  ---
+  duration_ms: 160.7135
+  type: 'test'
+  ...
+# Subtest: declared local factory and altered registry JSON never stand in for direct native execution
+ok 44 - declared local factory and altered registry JSON never stand in for direct native execution
+  ---
+  duration_ms: 5.5599
+  type: 'test'
+  ...
+# Subtest: one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+ok 45 - one-command source probe is real CPU-only; getter/extra/unknown command arguments reject before execution
+  ---
+  duration_ms: 133.5682
+  type: 'test'
+  ...
+# Subtest: adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+ok 46 - adopted loopback reader binds actual synthetic packet receipts/all safe kinds but grants no native source authority
+  ---
+  duration_ms: 12.5732
+  type: 'test'
+  ...
+# Subtest: positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+ok 47 - positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+  ---
+  duration_ms: 2.7353
+  type: 'test'
+  ...
+# Subtest: negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+ok 48 - negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+  ---
+  duration_ms: 0.976
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser source/build closure is hash checked locally, not native evidence
+ok 49 - positive: supplied browser source/build closure is hash checked locally, not native evidence
+  ---
+  duration_ms: 16.2612
+  type: 'test'
+  ...
+# Subtest: negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+ok 50 - negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+  ---
+  duration_ms: 8.101
+  type: 'test'
+  ...
+# Subtest: positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+ok 51 - positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+  ---
+  duration_ms: 27.0317
+  type: 'test'
+  ...
+# Subtest: negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+ok 52 - negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+  ---
+  duration_ms: 94.1461
+  type: 'test'
+  ...
+# Subtest: positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+ok 53 - positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+  ---
+  duration_ms: 0.5999
+  type: 'test'
+  ...
+# Subtest: negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+ok 54 - negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+  ---
+  duration_ms: 1.5318
+  type: 'test'
+  ...
+# Subtest: negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+ok 55 - negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+  ---
+  duration_ms: 1.1086
+  type: 'test'
+  ...
+# Subtest: negative: unsampled wire is rejected without changing its flags
+ok 56 - negative: unsampled wire is rejected without changing its flags
+  ---
+  duration_ms: 0.4474
+  type: 'test'
+  ...
+# Subtest: negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+ok 57 - negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+  ---
+  duration_ms: 0.5727
+  type: 'test'
+  ...
+# Subtest: negative: browser contexts remain original valid contexts and are never invented parent spans
+ok 58 - negative: browser contexts remain original valid contexts and are never invented parent spans
+  ---
+  duration_ms: 0.7711
+  type: 'test'
+  ...
+# Subtest: negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+ok 59 - negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+  ---
+  duration_ms: 0.3472
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+ok 60 - positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+  ---
+  duration_ms: 0.5792
+  type: 'test'
+  ...
+# Subtest: negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+ok 61 - negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+  ---
+  duration_ms: 0.3258
+  type: 'test'
+  ...
+# Subtest: positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+ok 62 - positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+  ---
+  duration_ms: 5.6043
+  type: 'test'
+  ...
+# Subtest: negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+ok 63 - negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+  ---
+  duration_ms: 3.4263
+  type: 'test'
+  ...
+# Subtest: negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+ok 64 - negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+  ---
+  duration_ms: 1.2757
+  type: 'test'
+  ...
+# Subtest: positive: source construction binds supplied modules and reports every missing production operation explicitly
+ok 65 - positive: source construction binds supplied modules and reports every missing production operation explicitly
+  ---
+  duration_ms: 36.2939
+  type: 'test'
+  ...
+# Subtest: positive: prospective current-source binding preserves historical pins without inheriting their approval
+ok 66 - positive: prospective current-source binding preserves historical pins without inheriting their approval
+  ---
+  duration_ms: 31.8572
+  type: 'test'
+  ...
+# Subtest: negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+ok 67 - negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+  ---
+  duration_ms: 671.9058
+  type: 'test'
+  ...
+# Subtest: negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+ok 68 - negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+  ---
+  duration_ms: 237.7681
+  type: 'test'
+  ...
+# Subtest: negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+ok 69 - negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+  ---
+  duration_ms: 8.2728
+  type: 'test'
+  ...
+# Subtest: negative: the construction entrypoint does not permit execute/native/caller-module options
+ok 70 - negative: the construction entrypoint does not permit execute/native/caller-module options
+  ---
+  duration_ms: 0.3015
+  type: 'test'
+  ...
+# Subtest: positive: the construction entrypoint performs only side-effect-free inspection
+ok 71 - positive: the construction entrypoint performs only side-effect-free inspection
+  ---
+  duration_ms: 21.7679
+  type: 'test'
+  ...
+# Subtest: Node test preparation builds the real pinned sampler and Portal output without running Java or native tests
+ok 72 - Node test preparation builds the real pinned sampler and Portal output without running Java or native tests
+  ---
+  duration_ms: 1.451
+  type: 'test'
+  ...
+# Subtest: preparation failures and lockfile changes are explicit and CI prepares before executing the root suite
+ok 73 - preparation failures and lockfile changes are explicit and CI prepares before executing the root suite
+  ---
+  duration_ms: 0.3472
+  type: 'test'
+  ...
+# Subtest: an unavailable explicit tool root fails before any package installation or success output
+ok 74 - an unavailable explicit tool root fails before any package installation or success output
+  ---
+  duration_ms: 1052.1116
+  type: 'test'
+  ...
+# Subtest: original A/B semantic consistency is structural only and cannot mint acceptance
+ok 75 - original A/B semantic consistency is structural only and cannot mint acceptance
+  ---
+  duration_ms: 8.541
+  type: 'test'
+  ...
+# Subtest: archived path consistency cannot enroll a relocated current execution
+ok 76 - archived path consistency cannot enroll a relocated current execution
+  ---
+  duration_ms: 0.3829
+  type: 'test'
+  ...
+# Subtest: historical compiler source, output and used artifact paths must retain one recorded root
+ok 77 - historical compiler source, output and used artifact paths must retain one recorded root
+  ---
+  duration_ms: 1.376
+  type: 'test'
+  ...
+# Subtest: omitted/duplicate/recomputed closure cannot qualify current-source lineage
+ok 78 - omitted/duplicate/recomputed closure cannot qualify current-source lineage
+  ---
+  duration_ms: 5.1542
+  type: 'test'
+  ...
+# Subtest: missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+ok 79 - missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+  ---
+  duration_ms: 10.6625
+  type: 'test'
+  ...
+# Subtest: all seven production header checks, raw negative and trusted advance remain required
+ok 80 - all seven production header checks, raw negative and trusted advance remain required
+  ---
+  duration_ms: 7.637
+  type: 'test'
+  ...
+# Subtest: fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+ok 81 - fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+  ---
+  duration_ms: 6.0227
+  type: 'test'
+  ...
+# Subtest: native/logical/physical counters stay independent and broad privacy/completeness remain false
+ok 82 - native/logical/physical counters stay independent and broad privacy/completeness remain false
+  ---
+  duration_ms: 3.4521
+  type: 'test'
+  ...
+# Subtest: the original14 source freeze is not retroactively extended to include another input
+ok 83 - the original14 source freeze is not retroactively extended to include another input
+  ---
+  duration_ms: 0.806
+  type: 'test'
+  ...
+# Subtest: JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+ok 84 - JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+  ---
+  duration_ms: 1.814
+  type: 'test'
+  ...
+# Subtest: security tool selection requires the named environment prerequisite and honors an explicit spaced root
+ok 85 - security tool selection requires the named environment prerequisite and honors an explicit spaced root
+  ---
+  duration_ms: 0.745
+  type: 'test'
+  ...
+# Subtest: actual security qualification CLI fails explicitly when the tools-root variable is unset
+ok 86 - actual security qualification CLI fails explicitly when the tools-root variable is unset
+  ---
+  duration_ms: 150.1238
+  type: 'test'
+  ...
+# Subtest: security qualification source has no machine or session-folder default
+ok 87 - security qualification source has no machine or session-folder default
+  ---
+  duration_ms: 9.7754
+  type: 'test'
+  ...
+# Subtest: explicit security tool byte checks remain read-only and cannot enroll a receipt
+ok 88 - explicit security tool byte checks remain read-only and cannot enroll a receipt
+  ---
+  duration_ms: 22.4153
+  type: 'test'
+  ...
+1..88
+# tests 88
+# suites 0
+# pass 88
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13816.9075

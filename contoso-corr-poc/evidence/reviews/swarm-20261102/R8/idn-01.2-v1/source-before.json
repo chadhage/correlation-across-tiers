@@ -1,0 +1,38 @@
+[
+  {
+    "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+    "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d"
+  },
+  {
+    "path": "tools\\java\\Run-DefaultNettyWireProbe.mjs",
+    "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
+  },
+  {
+    "path": "tests\\security\\java-probe-tools-root.test.mjs",
+    "sha256": "9e6a5b91b16115a60bffc4e876d0b4bc3a554b81a86a4cbd6f8732a750ce669b"
+  },
+  {
+    "path": "tests\\security\\av23-check.test.mjs",
+    "sha256": "ed4979ef761346af7836392773cc440a32d76b949c1433de80f2bf29fb3c0355"
+  },
+  {
+    "path": "tools\\security\\av23-check.mjs",
+    "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+  },
+  {
+    "path": "tools\\security\\values.mjs",
+    "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+  },
+  {
+    "path": "tools\\security\\native-identity-client.mjs",
+    "sha256": "00e0d2fd86d07881641b1f2c26ef47525698ce826470ec7799fd0061dcaf4eb9"
+  },
+  {
+    "path": "tools\\observability\\telemetry-contract.mjs",
+    "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+  },
+  {
+    "path": "config\\versions.lock.json",
+    "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+  }
+]

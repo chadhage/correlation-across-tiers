@@ -1,0 +1,37 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "startedAtUtc": "2026-11-03T00:17:40.072Z",
+  "finishedAtUtc": "2026-11-03T00:17:43.360Z",
+  "files": [
+    {
+      "path": "inspection-cli.json",
+      "sha256": "7f59ffc6d677ec040fbfb0e659d70d13753c5e915ed397418f2efeb514a4697f"
+    },
+    {
+      "path": "inspection-cli.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "owner-receipt.json",
+      "sha256": "04455dcff423cca3c1c669d3fd5b39b4624f3ecd5ff2432e5eb596634e9e2a62"
+    },
+    {
+      "path": "register-check.log",
+      "sha256": "96795aad841c54c9ba3a184c449dcf044f35b4f73083740f8bd21b92fec4b30d"
+    },
+    {
+      "path": "sources-before.json",
+      "sha256": "1cb17421551fbf30cad524a43c67acabb3ecfaceb96db47c32bf66070d2b8138"
+    },
+    {
+      "path": "stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests.tap",
+      "sha256": "b204f7be1a132fee4e42522928fcb63ffb93bb5d5573d86f1b1fb708d25aeb1f"
+    }
+  ]
+}

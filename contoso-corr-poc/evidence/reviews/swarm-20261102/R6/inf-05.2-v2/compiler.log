@@ -1,0 +1,3 @@
+PASS: 6 exact BCP081 warnings linked to existing VERIFY rows; provider/deployment validation remains To Do.
+PASS: local data-module contracts. BCP081 type gaps still require later provider validation; no Azure calls.
+Output: C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\evidence\reviews\swarm-20261102\R6\inf-05.2-v2\compile

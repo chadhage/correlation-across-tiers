@@ -1,0 +1,26 @@
+[
+  {
+    "path": "tools\\kanban.mjs",
+    "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d"
+  },
+  {
+    "path": "tests\\kanban.test.mjs",
+    "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13"
+  },
+  {
+    "path": "tools\\verification\\acceptance.mjs",
+    "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+  },
+  {
+    "path": "tools\\verification\\run-focused.mjs",
+    "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+  },
+  {
+    "path": "tools\\verification\\files.mjs",
+    "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+  },
+  {
+    "path": "tools\\observability\\telemetry-contract.mjs",
+    "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+  }
+]

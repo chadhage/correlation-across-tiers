@@ -1,0 +1,11 @@
+file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R3/review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9/copied-cli-work/repository/contoso-corr-poc/tools/kanban.mjs:400
+          if (reviewSourceDigest(source.path, await verifyConstructionSource(source.path)) !== source.sha256) throw new Error(`Child reviewed source changed: ${source.path}`);
+                                                                                                                    ^
+
+Error: Child reviewed source changed: tests\admission-fixture.test.mjs
+    at verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R3/review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9/copied-cli-work/repository/contoso-corr-poc/tools/kanban.mjs:400:117)
+    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R3/review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9/copied-cli-work/repository/contoso-corr-poc/tools/kanban.mjs:522:3)
+    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R3/review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9/copied-cli-work/repository/contoso-corr-poc/tools/kanban.mjs:646:3)
+    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R3/review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9/copied-cli-work/repository/contoso-corr-poc/tools/kanban.mjs:670:5
+
+Node.js v22.23.4

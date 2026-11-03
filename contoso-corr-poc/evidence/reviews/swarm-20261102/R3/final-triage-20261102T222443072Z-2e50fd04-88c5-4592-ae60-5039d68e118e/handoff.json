@@ -1,0 +1,467 @@
+{
+  "certificationStatus": "NOT CERTIFIED",
+  "reviewLane": {
+    "orchestrator": "corrected49/49 plus8 actual copiedCLI controls accepted; old failing epoch retained; no real child/native acceptance implied",
+    "R1_GATE11": "Await exact already-running frozen review request; no owner implementation started by R3",
+    "R5_INF06_1": "12/12 current scoped source/tool review delivered",
+    "R2_DEM02": "8/8 source-construction only with34 current inputs accepted; child To Do",
+    "R2_WEB01": "v2 11/11 source-only correction accepted; bounded v3 hardening already running, successor review not yet received; no native child completion"
+  },
+  "agentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "thresholdStopAcknowledged": true,
+  "reviewerRole": "R3",
+  "observedAtUtc": "2026-11-02T22:24:43.3514136Z",
+  "newImplementationDispatchAllowed": false,
+  "result": "AUTHOR_FINAL_TRIAGE_NOT_INDEPENDENT_REVIEW",
+  "reviewKind": "code",
+  "schema": "contoso.code-review.v1",
+  "genuineActiveImplementationClaims": 0,
+  "leases": {
+    "openOwnedPorts": 0,
+    "rootMavenPomPackageVersionTarget": "Never leased or edited",
+    "output": "Unique R3 packet writes complete; no shared outputs owned",
+    "cacheFixtureEntriesRemaining": 0,
+    "longLivedServicesStarted": 0,
+    "copiedCliWorkRemaining": false,
+    "frozenSourceInspection": "READ ONLY",
+    "sharedHarnessOrDispatcher": "Never leased or edited",
+    "PIDLeases": [],
+    "sourceWriteClaims": "RELEASED"
+  },
+  "ownedChildren": [
+    {
+      "nativeExecution": "NOT RUN",
+      "nativeAdapterExported": false,
+      "runtime": "Node v22.23.4",
+      "blockers": [
+        "Reviewed native-ready DEM-00.1 and Demo01 pattern",
+        "Approved deployed authenticated Gateway target and separately approved bounded window",
+        "Independent native Gateway ingress/outbound wire, spans and emission observations",
+        "Enrolled original-RAW query/privacy capability",
+        "Concrete native sampling/stop/drain/restore operations and participant inventory",
+        "Actual run-owned baseline/reset plus authenticated durable recovery"
+      ],
+      "currentSourceClosure": {
+        "sourceCount": 24,
+        "allMatch": true,
+        "current": [
+          {
+            "expectedSha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+            "matches": true,
+            "currentSha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+            "path": "apim\\DEMO03_CONSTRUCTION.md"
+          },
+          {
+            "expectedSha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+            "matches": true,
+            "currentSha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+            "path": "apim\\demo03-cases.v1.json"
+          },
+          {
+            "expectedSha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+            "matches": true,
+            "currentSha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+            "path": "apim\\policies\\api-policy.xml"
+          },
+          {
+            "expectedSha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+            "matches": true,
+            "currentSha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+            "path": "apim\\policies\\fragments\\contoso-authn-v1.xml"
+          },
+          {
+            "expectedSha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+            "matches": true,
+            "currentSha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+            "path": "apim\\policies\\fragments\\contoso-authz-v1.xml"
+          },
+          {
+            "expectedSha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+            "matches": true,
+            "currentSha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+            "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml"
+          },
+          {
+            "expectedSha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+            "matches": true,
+            "currentSha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+            "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml"
+          },
+          {
+            "expectedSha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+            "matches": true,
+            "currentSha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+            "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml"
+          },
+          {
+            "expectedSha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+            "matches": true,
+            "currentSha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+            "path": "apim\\policies\\fragments\\contoso-context-v1.xml"
+          },
+          {
+            "expectedSha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+            "matches": true,
+            "currentSha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+            "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml"
+          },
+          {
+            "expectedSha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+            "matches": true,
+            "currentSha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+            "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml"
+          },
+          {
+            "expectedSha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+            "matches": true,
+            "currentSha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+            "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml"
+          },
+          {
+            "expectedSha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+            "matches": true,
+            "currentSha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+            "path": "apim\\policies\\service-policy.xml"
+          },
+          {
+            "expectedSha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+            "matches": true,
+            "currentSha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+            "path": "apim\\sdk-source-pin.json"
+          },
+          {
+            "expectedSha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+            "matches": true,
+            "currentSha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+            "path": "infra\\modules\\apim-api-policies.bicep"
+          },
+          {
+            "expectedSha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+            "matches": true,
+            "currentSha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+            "path": "infra\\modules\\apim-observability.bicep"
+          },
+          {
+            "expectedSha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+            "matches": true,
+            "currentSha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+            "path": "tests\\apim\\demo03-construction.test.mjs"
+          },
+          {
+            "expectedSha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+            "matches": true,
+            "currentSha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+            "path": "tests\\apim\\fixtures\\flag-rewrite.xml"
+          },
+          {
+            "expectedSha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+            "matches": true,
+            "currentSha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+            "path": "tests\\apim\\fixtures\\request-id-parent.xml"
+          },
+          {
+            "expectedSha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+            "matches": true,
+            "currentSha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+            "path": "tools\\protocol.mjs"
+          },
+          {
+            "expectedSha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+            "matches": true,
+            "currentSha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+            "path": "tools\\verification\\adapters\\demo03-runtime.mjs"
+          },
+          {
+            "expectedSha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+            "matches": true,
+            "currentSha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+            "path": "tools\\verification\\files.mjs"
+          },
+          {
+            "expectedSha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+            "matches": true,
+            "currentSha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+            "path": "tools\\verification\\invariants.mjs"
+          },
+          {
+            "expectedSha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+            "matches": true,
+            "currentSha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+            "path": "tools\\verification\\observers.mjs"
+          }
+        ],
+        "freeze": "evidence\\reviews\\swarm-20261102\\R3\\demo03-construction-v2-20261102T220313886Z-3e7f8e07-0a57-437e-a731-628d6eb0a5ea\\sources-before.json"
+      },
+      "sourceConstructionResult": "BLOCKED",
+      "independentReviewReceipts": [
+        {
+          "matches": true,
+          "expectedSha256": "b6346d8f1d1bde90920fddc462fc8981afbb528e06fb55260a85f429666f4995",
+          "role": "R2",
+          "currentSha256": "b6346d8f1d1bde90920fddc462fc8981afbb528e06fb55260a85f429666f4995",
+          "path": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-demo03-aa306685-680c-4f59-abcf-f3ff0f2a8bb0\\review.json"
+        },
+        {
+          "matches": true,
+          "expectedSha256": "2646b0dcd056250c79e1e7ba4ab642ccac141a40f083e36fb4b00a75bafcba0b",
+          "role": "R8",
+          "currentSha256": "2646b0dcd056250c79e1e7ba4ab642ccac141a40f083e36fb4b00a75bafcba0b",
+          "path": "evidence\\reviews\\swarm-20261102\\R8\\r3-dem03-v2-20261102\\receipt\\review.json"
+        }
+      ],
+      "originalRed": "7 tests / 6 pass / 1 fail / 0 skip retained in demo03-source-mutation-baseline packet",
+      "parentFacet": "DEM-03 clause4 unit only",
+      "authorReceiptSha256": "2c28a047227944743e243c505ffbef684f3956f8cb18236509239d231757af58",
+      "status": "To Do",
+      "tests": {
+        "skip": 0,
+        "pass": 7,
+        "fail": 0,
+        "cancel": 0
+      },
+      "runnableDemoAdapter": false,
+      "nextAction": "Obtain native interfaces/approval separately; no new implementation packet may be opened during threshold stop.",
+      "exactNativeAcceptanceMet": false,
+      "authorReceipt": "evidence\\reviews\\swarm-20261102\\R3\\demo03-construction-v2-20261102T220313886Z-3e7f8e07-0a57-437e-a731-628d6eb0a5ea\\execution.json",
+      "id": "DEM-03.1",
+      "cliExit": 2
+    }
+  ],
+  "authorization": {
+    "agentsLaunched": 0,
+    "spending": false,
+    "commits": 0,
+    "pushes": 0,
+    "AzureTraffic": false,
+    "AzureDeployment": false,
+    "credentialOrSecretRetrieval": false
+  },
+  "gate01": {
+    "independentReviewsReportedBy": [
+      "R2",
+      "R8"
+    ],
+    "currentSourceClosure": {
+      "sourceCount": 25,
+      "allMatch": true,
+      "current": [
+        {
+          "expectedSha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+          "matches": true,
+          "currentSha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+          "path": "apim\\demo03-cases.v1.json"
+        },
+        {
+          "expectedSha256": "debcfb9ff54abca30d03bae98c6feada79480dbe68d3f762601555ac76d59d9d",
+          "matches": true,
+          "currentSha256": "debcfb9ff54abca30d03bae98c6feada79480dbe68d3f762601555ac76d59d9d",
+          "path": "apim\\openapi\\contoso-orders.v1.json"
+        },
+        {
+          "expectedSha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+          "matches": true,
+          "currentSha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+          "path": "apim\\policies\\api-policy.xml"
+        },
+        {
+          "expectedSha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+          "matches": true,
+          "currentSha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+          "path": "apim\\policies\\fragments\\contoso-authn-v1.xml"
+        },
+        {
+          "expectedSha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+          "matches": true,
+          "currentSha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+          "path": "apim\\policies\\fragments\\contoso-authz-v1.xml"
+        },
+        {
+          "expectedSha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+          "matches": true,
+          "currentSha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+          "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml"
+        },
+        {
+          "expectedSha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+          "matches": true,
+          "currentSha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+          "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml"
+        },
+        {
+          "expectedSha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+          "matches": true,
+          "currentSha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+          "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml"
+        },
+        {
+          "expectedSha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+          "matches": true,
+          "currentSha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+          "path": "apim\\policies\\fragments\\contoso-context-v1.xml"
+        },
+        {
+          "expectedSha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+          "matches": true,
+          "currentSha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+          "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml"
+        },
+        {
+          "expectedSha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+          "matches": true,
+          "currentSha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+          "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml"
+        },
+        {
+          "expectedSha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+          "matches": true,
+          "currentSha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+          "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml"
+        },
+        {
+          "expectedSha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+          "matches": true,
+          "currentSha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+          "path": "apim\\policies\\service-policy.xml"
+        },
+        {
+          "expectedSha256": "abe9746f452f6bf3504bc99a0dce4b8367ee7691a9683b8d7b47e007328fabee",
+          "matches": true,
+          "currentSha256": "abe9746f452f6bf3504bc99a0dce4b8367ee7691a9683b8d7b47e007328fabee",
+          "path": "apim\\README.md"
+        },
+        {
+          "expectedSha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+          "matches": true,
+          "currentSha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+          "path": "apim\\sdk-source-pin.json"
+        },
+        {
+          "expectedSha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+          "matches": true,
+          "currentSha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+          "path": "infra\\modules\\apim-api-policies.bicep"
+        },
+        {
+          "expectedSha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+          "matches": true,
+          "currentSha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+          "path": "infra\\modules\\apim-observability.bicep"
+        },
+        {
+          "expectedSha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+          "matches": true,
+          "currentSha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+          "path": "tests\\apim\\fixtures\\flag-rewrite.xml"
+        },
+        {
+          "expectedSha256": "de975a65459afc51b35a7601c5e4d5ea7828c5f0471faf6c8096a9380b052a12",
+          "matches": true,
+          "currentSha256": "de975a65459afc51b35a7601c5e4d5ea7828c5f0471faf6c8096a9380b052a12",
+          "path": "tests\\apim\\fixtures\\legacy-diagnostic.json"
+        },
+        {
+          "expectedSha256": "00b736020d28ef3fc2044ae9fc73c7bcf50f216dc9bbfe29597086fec492e196",
+          "matches": true,
+          "currentSha256": "00b736020d28ef3fc2044ae9fc73c7bcf50f216dc9bbfe29597086fec492e196",
+          "path": "tests\\apim\\fixtures\\manifest.json"
+        },
+        {
+          "expectedSha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+          "matches": true,
+          "currentSha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+          "path": "tests\\apim\\fixtures\\request-id-parent.xml"
+        },
+        {
+          "expectedSha256": "a88114ce39fb9344a8b474e940e3f1ca6dca32f7b50730938cbee70ea8fad882",
+          "matches": true,
+          "currentSha256": "a88114ce39fb9344a8b474e940e3f1ca6dca32f7b50730938cbee70ea8fad882",
+          "path": "tests\\apim\\gate01.test.mjs"
+        },
+        {
+          "expectedSha256": "3a97204576d98a55fd0dc282f16b148717a2af649e7c16d446cd552e7b3ef57b",
+          "matches": true,
+          "currentSha256": "3a97204576d98a55fd0dc282f16b148717a2af649e7c16d446cd552e7b3ef57b",
+          "path": "tests\\apim\\protocol.test.mjs"
+        },
+        {
+          "expectedSha256": "b58fbb40bc664dabe188a95ea2e0574431dd1b7db8465c1a6965ae7cd66442ad",
+          "matches": true,
+          "currentSha256": "b58fbb40bc664dabe188a95ea2e0574431dd1b7db8465c1a6965ae7cd66442ad",
+          "path": "tests\\apim\\scanner-regressions.test.mjs"
+        },
+        {
+          "expectedSha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+          "matches": true,
+          "currentSha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+          "path": "tools\\protocol.mjs"
+        }
+      ],
+      "freeze": "evidence\\reviews\\swarm-20261102\\R3\\gate01-encoded-candidate-20261102T215604855Z-b774e3b6-6c1d-493f-819c-257aaba3467a\\sources-before.json"
+    },
+    "tests": {
+      "skip": 0,
+      "pass": 35,
+      "fail": 0,
+      "cancel": 0
+    },
+    "authorReceipt": "evidence\\reviews\\swarm-20261102\\R3\\gate01-encoded-candidate-20261102T215604855Z-b774e3b6-6c1d-493f-819c-257aaba3467a\\execution.json",
+    "runtime": "Node v22.23.4",
+    "authorReceiptSha256": "a734462c75330c25cbd3bb8a2dec6e3673df7a80a587eb4bd7e95503e1934f11",
+    "cardStatus": "To Do",
+    "acceptedFinitePacket": "clause1 source/unit XML-entity forbidden-logic controls",
+    "originalRed": "7 tests / 5 pass / 2 fail / 0 skip retained in gate01-encoded-baseline packet",
+    "remainder": [
+      "Every-PR CI/actual hosted run and full clause completion",
+      "Required current certification-report linkage and complete declared source scope",
+      "No native Gateway/logger/wire/privacy proof is inherited by source/unit checks"
+    ]
+  },
+  "sourceAcceptanceIsCertification": false,
+  "orchestratorAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "ownedSourceFiles": [
+    {
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+      "path": "tools\\protocol.mjs"
+    },
+    {
+      "sha256": "b58fbb40bc664dabe188a95ea2e0574431dd1b7db8465c1a6965ae7cd66442ad",
+      "path": "tests\\apim\\scanner-regressions.test.mjs"
+    },
+    {
+      "sha256": "abe9746f452f6bf3504bc99a0dce4b8367ee7691a9683b8d7b47e007328fabee",
+      "path": "apim\\README.md"
+    },
+    {
+      "sha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+      "path": "tools\\verification\\adapters\\demo03-runtime.mjs"
+    },
+    {
+      "sha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+      "path": "tests\\apim\\demo03-construction.test.mjs"
+    },
+    {
+      "sha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+      "path": "apim\\DEMO03_CONSTRUCTION.md"
+    }
+  ],
+  "otherOwnedParents": [
+    {
+      "id": "INF-04",
+      "remaining": "Actual approved logger/MI/exported resource observations",
+      "status": "To Do",
+      "local": "Logger/named-value/W3C diagnostic bindings already exist; no duplicate implementation warranted"
+    },
+    {
+      "id": "API-01",
+      "remaining": "Native extraction/root timing, unchanged -00 and Gateway-backend-to-Orders wire/span proof",
+      "status": "To Do",
+      "local": "Actual context fragment and local model/CLR bindings already exist"
+    },
+    {
+      "id": "API-02",
+      "remaining": "Approved actual header/privacy and trusted-caller wire observations",
+      "status": "To Do",
+      "local": "Actual trusted business UUID, duplicate override and hygiene fragments already exist"
+    }
+  ]
+}

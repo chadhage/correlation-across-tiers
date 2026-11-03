@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
+import { mkdir, rm, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import test from 'node:test';
 import {
   BROWSER_SOURCE_PATHS, demo01BrowserSpec, validateDemo01BrowserObservation,
   verifyBrowserSources, driveDemo01Page, stopDemo01Page, drainDemo01Page
 } from '../../tools/verification/adapters/demo01-browser.mjs';
-import { readBoundFile, sha256 } from '../../tools/verification/files.mjs';
+import { projectRoot, readBoundFile, sha256 } from '../../tools/verification/files.mjs';
 import * as runtime from '../../tools/verification/adapters/demo01-runtime.mjs';
 import { runDemo } from '../../tools/verification/demo.mjs';
 import { rawFixture, fakeJwt } from '../security/fixtures.mjs';
@@ -20,6 +23,32 @@ const sourcePins = () => Promise.all(BROWSER_SOURCE_PATHS.map(async path => ({
   path, sha256: sha256(await readBoundFile(path))
 })));
 const code = expected => error => error?.code === expected;
+
+async function withConstructionFixture(action) {
+  const report = await runtime.inspectDemo01Construction();
+  const files = new Map();
+  async function visit(file) {
+    if (files.has(file)) return;
+    const bytes = await readBoundFile(file);
+    files.set(file, bytes);
+    if (!file.endsWith('.mjs')) return;
+    for (const match of bytes.toString('utf8').matchAll(/\b(?:from|import)\s+['"](\.[^'"]+)['"]/g)) {
+      await visit(path.relative(projectRoot, path.resolve(projectRoot, path.dirname(file), match[1])));
+    }
+  }
+  for (const source of report.sources) await visit(source.path);
+  const directory = path.join(projectRoot, 'tests', 'verification', 'generated-fixtures', `demo01-${randomUUID()}`);
+  try {
+    for (const [file, bytes] of files) {
+      const target = path.join(directory, file);
+      await mkdir(path.dirname(target), { recursive: true });
+      await writeFile(target, bytes);
+    }
+    const moduleUrl = pathToFileURL(path.join(directory, 'tools', 'verification', 'adapters', 'demo01-runtime.mjs')).href;
+    const copied = await import(moduleUrl);
+    await action({ copied, directory, files, moduleUrl });
+  } finally { await rm(directory, { recursive: true, force: true }); }
+}
 
 function fixture() {
   const run = context();
@@ -414,6 +443,7 @@ test('positive: source construction binds supplied modules and reports every mis
   assert.equal(report.sources.find(source => source.path === BROWSER_SOURCE_PATHS[2]).sha256,
     '4c756dc29696018e00d30df22129f3db1daef6cce982d48f4b755e41b949e944');
   const bindings = new Map(report.authorFrozenSources.map(source => [source.path, source.sha256]));
+  const currentBindings = new Map(report.prospectiveSourceBinding.components.map(source => [source.path, source.sha256]));
   for (const [file, hash] of [
     ['services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java',
       '829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041'],
@@ -423,11 +453,75 @@ test('positive: source construction binds supplied modules and reports every mis
       'd65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626']
   ]) {
     assert.equal(bindings.get(file), hash);
-    assert.equal(report.sources.find(source => source.path === file).sha256, hash);
+    assert.equal(report.sources.find(source => source.path === file).sha256, currentBindings.get(file));
   }
   assert.match(report.availableOperations.preparation.scope, /same-handle retry revalidates its private checkpoint/);
   assert.ok(Object.isFrozen(report.blockingInterfaces));
   assert.throws(() => { report.runnableDemoAdapter = true; }, TypeError);
+});
+
+test('positive: prospective current-source binding preserves historical pins without inheriting their approval', async () => {
+  const report = await runtime.inspectDemo01Construction();
+  const binding = report.prospectiveSourceBinding;
+  assert.equal(binding.schema, 'contoso.demo01-construction-source-binding.v2');
+  assert.equal(binding.scope, 'PROSPECTIVE_CURRENT_SOURCE_CONSTRUCTION_ONLY');
+  assert.equal(binding.sha256, 'a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794');
+  assert.equal(sha256(await readBoundFile(binding.path)), binding.sha256);
+  assert.equal(report.authorFrozenSourcesDisposition, 'HISTORICAL_ONLY_NOT_CURRENT_APPROVAL');
+  const historical = new Map(report.authorFrozenSources.map(source => [source.path, source.sha256]));
+  const current = new Map(binding.components.map(source => [source.path, source.sha256]));
+  assert.equal(historical.get('web\\storefront-spa\\src\\app.ts'), '2f4eee79496b3f0f089f78bb48ef4986e2b33389b13d9c145affec2f604185ac');
+  assert.equal(current.get('web\\storefront-spa\\src\\app.ts'), 'e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456');
+  assert.equal(historical.get('services\\inventory-data\\tools\\InventoryFixtureContract.md'),
+    'd65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626');
+  assert.equal(current.get('services\\inventory-data\\tools\\InventoryFixtureContract.md'),
+    '8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca');
+  assert.equal(binding.components.length, historical.size);
+  for (const source of binding.components) {
+    assert.equal(report.sources.find(value => value.path === source.path).sha256, source.sha256);
+  }
+  assert.equal(binding.sourceAcceptanceIsCertification, false);
+  assert.equal(binding.runnableDemoAdapter, false);
+  assert.equal(binding.nativeExecution, 'NOT RUN');
+  assert.ok(Object.isFrozen(binding.components));
+});
+
+test('negative: real isolated component, loaded-module and privacy-policy drift fail closed after import', async () => {
+  await withConstructionFixture(async ({ copied, directory, files }) => {
+    assert.equal((await copied.inspectDemo01Construction()).result, 'BLOCKED');
+    for (const file of [
+      'web\\storefront-spa\\src\\app.ts',
+      'services\\inventory-data\\tools\\InventoryFixtureContract.md',
+      'tools\\observability\\demo01-collector.mjs',
+      'tools\\verification\\adapters\\demo01-runtime.mjs',
+      'tools\\verification\\adapters\\demo01-browser.mjs',
+      'tools\\security\\telemetry.mjs',
+      'tools\\security\\telemetry-policy.v1.json',
+      'tools\\verification\\adapters\\demo01-source-binding.v2.json'
+    ]) {
+      const original = files.get(file);
+      await writeFile(path.join(directory, file), Buffer.concat([original, Buffer.from('\n ')]));
+      try {
+        await assert.rejects(copied.inspectDemo01Construction(), code('E_SOURCE_DRIFT'), file);
+        await assert.rejects(copied.demo01ConstructionMain(['--check']), code('E_SOURCE_DRIFT'), file);
+      } finally { await writeFile(path.join(directory, file), original); }
+      assert.equal((await copied.inspectDemo01Construction()).result, 'BLOCKED');
+    }
+  });
+});
+
+test('negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import', async () => {
+  await withConstructionFixture(async ({ copied, directory, files, moduleUrl }) => {
+    const app = 'web\\storefront-spa\\src\\app.ts';
+    const binding = 'tools\\verification\\adapters\\demo01-source-binding.v2.json';
+    const changed = Buffer.concat([files.get(app), Buffer.from('\n// checker-only changed source\n')]);
+    const forged = JSON.parse(files.get(binding));
+    forged.components.find(source => source.path === app).sha256 = sha256(changed);
+    await writeFile(path.join(directory, app), changed);
+    await writeFile(path.join(directory, binding), JSON.stringify(forged));
+    await assert.rejects(copied.inspectDemo01Construction(), code('E_SOURCE_DRIFT'));
+    await assert.rejects(import(`${moduleUrl}?unreviewed=${randomUUID()}`), code('E_SOURCE_DRIFT'));
+  });
 });
 
 test('negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub', async () => {
@@ -444,6 +538,10 @@ test('negative: the construction entrypoint does not permit execute/native/calle
   for (const args of [[], ['--execute'], ['--check', '--native'], ['--adapter', 'caller.mjs']]) {
     await assert.rejects(runtime.demo01ConstructionMain(args), code('D_ARGUMENT'));
   }
+  let reads = 0;
+  const caller = { get components() { reads++; return []; }, approved: true };
+  await assert.rejects(runtime.inspectDemo01Construction(caller), code('D_ARGUMENT'));
+  assert.equal(reads, 0);
 });
 
 test('positive: the construction entrypoint performs only side-effect-free inspection', async () => {

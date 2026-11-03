@@ -1,0 +1,42 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R7",
+  "ownerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "childId": "OBS-02.2",
+  "scope": "SAME_PACKET_PROVENANCE_RED_REGRESSION_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "nodeVersion": "v22.23.4",
+  "command": "node --test --test-reporter=tap tests\\observability\\local-trace-tree.test.mjs",
+  "startedAtUtc": "2026-11-02T22:32:31.823Z",
+  "finishedAtUtc": "2026-11-02T22:32:33.143Z",
+  "exitCode": 1,
+  "tests": 31,
+  "passed": 29,
+  "failed": 2,
+  "skipped": 0,
+  "cancelled": 0,
+  "beforeSources": [
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "d6cb0e0cf56f9dacb43e074d11b08aeefd23b312de43e63e1ba0c43a4b861fff"
+    },
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "d6cb0e0cf56f9dacb43e074d11b08aeefd23b312de43e63e1ba0c43a4b861fff"
+    },
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe"
+    }
+  ],
+  "sourcesBeforeAfterMatched": true,
+  "result": "EXPECTED_RED_FAILURE",
+  "actualReceiverPayloads": "6 synthetic envelopes for mixed-input control;0 for empty-capture control",
+  "cleanup": "Both new controls close original loopback receivers in finally even after failing assertions; no JVM/SDK/browserpair/native/cloud operations."
+}

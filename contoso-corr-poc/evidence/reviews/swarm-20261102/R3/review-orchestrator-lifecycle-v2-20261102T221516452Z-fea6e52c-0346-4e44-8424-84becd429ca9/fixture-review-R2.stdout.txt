@@ -1,0 +1,1 @@
+{"role":"R2","reviewerAgentId":"1634ca2c-fe00-4c8e-93d1-03a3da6983af","result":"accepted","reviewKind":"code","reviewedOwnerRole":"R1","artifact":"evidence\\reviews\\swarm-20261102\\R3\\copied-cli-R2\\review.json","sha256":"5a2490d2bfe6e9537cc3de2bf2f823360710c1f2d437a12f8d92e6d85197e76b","scopeSha256":"c38b6bdee815320f3401435e616d79ca212dcdc7bf6d2d2198dc174044fedb8c"}

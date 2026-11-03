@@ -1,0 +1,30 @@
+{
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "childIds": [
+    "INF-05.2"
+  ],
+  "sourcePaths": [
+    "infra\\modules\\data-postgres.bicep",
+    "infra\\modules\\data-managed-redis.bicep",
+    "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+    "services\\inventory-data\\tools\\data-api-warnings.mjs",
+    "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+    "services\\inventory-data\\tools\\Test-DataModules.ps1",
+    "docs\\VERIFY.md",
+    "config\\verification-register.v1.json"
+  ],
+  "testFiles": [
+    "services\\inventory-data\\tools\\data-api-warnings.test.mjs"
+  ],
+  "positiveTests": [
+    "SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows",
+    "DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity"
+  ],
+  "negativeTests": [
+    "CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed",
+    "CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R8\\r6-inf05.2-v2-20261102\\receipt"
+}

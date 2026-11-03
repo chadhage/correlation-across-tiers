@@ -1,0 +1,34 @@
+[
+  {
+    "path": "infra\\modules\\data-postgres.bicep",
+    "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+  },
+  {
+    "path": "infra\\modules\\data-managed-redis.bicep",
+    "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+  },
+  {
+    "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+    "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f"
+  },
+  {
+    "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+    "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550"
+  },
+  {
+    "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+    "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d"
+  },
+  {
+    "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+    "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799"
+  },
+  {
+    "path": "docs\\VERIFY.md",
+    "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb"
+  },
+  {
+    "path": "config\\verification-register.v1.json",
+    "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716"
+  }
+]

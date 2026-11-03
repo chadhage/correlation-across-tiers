@@ -1,0 +1,64 @@
+{
+  "schema": "contoso.parent-final-local-validation-epoch.v1",
+  "result": "PASS",
+  "executor": "Parent",
+  "scope": "Configured full local npm suite; not native, hosted workflow, parent-card or certification acceptance",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "command": "npm test -- --test-reporter=spec --test-concurrency=2",
+  "loggedRunnerCommand": "node tools/run-tests.mjs --test-reporter=spec --test-concurrency=2",
+  "nodeVersion": "22.23.4",
+  "npmVersion": "10.9.9",
+  "counts": { "tests": 659, "passed": 659, "failed": 0, "skipped": 0, "cancelled": 0 },
+  "durationSeconds": 54.4384488,
+  "durationMilliseconds": 54438.4488,
+  "stdoutSummaryIndependentlyReadByOrchestrator": true,
+  "successfulEpoch": {
+    "originalSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation-fixed.log",
+    "originalLastWriteUtc": "2026-11-03T00:35:42.3264384Z",
+    "repoLog": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\successful-stdout.log",
+    "sha256": "1c11a2717f974151997db2dfe65145ae298611fff40382283fe705e273a6628b",
+    "bytes": 68367,
+    "verbatimCopyVerifiedBeforeAndAfter": true,
+    "syntheticPassOutput": false
+  },
+  "preservedFailedEpoch": {
+    "summary": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-integrated-failure-v1.json",
+    "originalSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation.log",
+    "immutableSessionCopy": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation-failed-20261103T000437817Z.log",
+    "repoLog": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\failed-stdout.log",
+    "sha256": "fa700b6b31b03c25b0dc22b7954e95ec1b6791daa1c6904773e39c596724b9d7",
+    "bytes": 70550,
+    "counts": { "tests": 656, "passed": 649, "failed": 2, "skipped": 5, "cancelled": 0 },
+    "verbatimCopyVerifiedBeforeAndAfter": true,
+    "originalFailureAndHistoricalSourceReceiptsUnmodified": true
+  },
+  "compiler": {
+    "existingPath": ".cache\\r6-tools\\bicep.exe",
+    "version": "0.48.1 (cec7951cf6)",
+    "sha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "verifiedBy": "Parent",
+    "explicitEnvironment": ["CONTOSO_BICEP_PATH", "CONTOSO_BICEP_EXE", "compiler directory prepended to PATH"],
+    "previouslySkippedCompilerTestsNowExecuted": 5,
+    "installationOrCloudOperation": false
+  },
+  "parentIndependentChecksAtSameFreeze": {
+    "board": "PASS: five Done children, forty-seven To Do children, seventy-eight To Do parents",
+    "register": "PASS: 635 registered, 635 OPEN",
+    "report": "PASS: eleven INVALIDATED criteria, zero live PASS, NOT CERTIFIED"
+  },
+  "acceptanceUnchanged": {
+    "parents": 78,
+    "children": 52,
+    "doneConstructionChildren": 5,
+    "inProgress": 0,
+    "nativeOrParentCompletionGranted": false,
+    "historical491And182FactsOverwritten": false
+  },
+  "orchestrator": {
+    "fullSuiteRerun": false,
+    "productionSourceEdits": false,
+    "newImplementationOrPeerDispatch": false,
+    "role": "Metadata-only recording and board/report closure"
+  }
+}

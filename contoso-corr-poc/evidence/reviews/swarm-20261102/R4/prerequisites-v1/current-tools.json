@@ -1,0 +1,6 @@
+{
+  "agentPath": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.tools\\java\\agent\\applicationinsights-agent-3.7.10.jar",
+  "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+  "javaHome": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.tools\\java\\jdk-25.0.5+8",
+  "portableRoot": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.tools\\java"
+}

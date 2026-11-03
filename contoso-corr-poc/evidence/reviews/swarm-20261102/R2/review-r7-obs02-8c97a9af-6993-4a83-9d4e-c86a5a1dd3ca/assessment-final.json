@@ -1,0 +1,54 @@
+{
+  "reviewerRole": "R2",
+  "negative": "Split/duplicate/wrong-parent/missing hops/unsafe original/poisoned callback reject; untouched full-chain still fails missing Gateway, saved rows cannot gain native authority",
+  "childId": "OBS-02.2",
+  "scope": "Finite current-source loopback intake, tree checker and seeded mutations only; actual agent-attached browser/JVM merge was NOT executed",
+  "sourceAcceptanceIsCertification": false,
+  "cleanup": "All test-owned loopback receivers, CLI children and UUID scratch closed/removed; no JVM, Azure, Maven, coauthor edit or shared output touched",
+  "reviewSha256": "f68cbf0137886b66733d6e3f6d314a69e9eed55f36415c98c425251f9b26ea5c",
+  "remainingPrerequisites": [
+    "Actual current-source R4 agent pair, pinned bytes, safe real ingress and emitted spans",
+    "Actual R2 canonical Run-demo driver and complete local merge",
+    "Separate native target/query/emission/Gateway/sampling/reset authority"
+  ],
+  "reviewArtifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-8c97a9af-6993-4a83-9d4e-c86a5a1dd3ca\\review.json",
+  "schema": "contoso.scoped-review-assessment.v1",
+  "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+  "positive": "Single connected local tree and immutable original native IDs; missing browser parent and 32hex page-view context preserved without invented span; loopback fixture intake scans before projection and closes",
+  "nativeEvidence": false,
+  "localPairStatus": "R4 explicitly confirms launcher NOT STARTED and Start-LocalPair.ps1 absent; proposal only",
+  "authorRole": "R7",
+  "reviewerAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "completedChildCandidate": false,
+  "nodeVersion": "v22.23.4",
+  "sourceCount": 21,
+  "sourcesBeforeAfterMatched": true,
+  "tests": {
+    "runner": "node-tap",
+    "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+    "testFiles": [
+      "tests\\observability\\local-trace-tree.test.mjs",
+      "tests\\observability\\sampler-native-intake.test.mjs",
+      "tests\\verification\\invariants.test.mjs"
+    ],
+    "startedAtUtc": "2026-11-02T22:27:32.316Z",
+    "finishedAtUtc": "2026-11-02T22:27:35.224Z",
+    "exitCode": 0,
+    "passed": 73,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-8c97a9af-6993-4a83-9d4e-c86a5a1dd3ca\\tests.tap",
+    "sha256": "b95eba5dbcb3b33ed4ca6c06a442be9ac78b7c50dc83afa5918433eeeae8460a",
+    "positiveTests": [
+      "complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile",
+      "actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance",
+      "safe incremental capture callbacks are immutable, per-payload and awaited before acceptance"
+    ],
+    "negativeTests": [
+      "seeded split, duplicate, parent and every missing-hop control fail without modifying original captures",
+      "untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed",
+      "unsafe originals never reach an incremental callback and callback failures poison all acceptance"
+    ]
+  }
+}

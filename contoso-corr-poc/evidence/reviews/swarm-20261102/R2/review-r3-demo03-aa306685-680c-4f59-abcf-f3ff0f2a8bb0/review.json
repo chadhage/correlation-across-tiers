@@ -1,0 +1,418 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R2",
+  "reviewerAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "apim\\DEMO03_CONSTRUCTION.md",
+      "sha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\demo03-cases.v1.json",
+      "sha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\api-policy.xml",
+      "sha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authn-v1.xml",
+      "sha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authz-v1.xml",
+      "sha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml",
+      "sha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml",
+      "sha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml",
+      "sha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-context-v1.xml",
+      "sha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml",
+      "sha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml",
+      "sha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml",
+      "sha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\service-policy.xml",
+      "sha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\sdk-source-pin.json",
+      "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\apim-api-policies.bicep",
+      "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\apim-observability.bicep",
+      "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\demo03-construction.test.mjs",
+      "sha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\flag-rewrite.xml",
+      "sha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\request-id-parent.xml",
+      "sha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo03-runtime.mjs",
+      "sha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "apim\\DEMO03_CONSTRUCTION.md",
+      "sha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\demo03-cases.v1.json",
+      "sha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\api-policy.xml",
+      "sha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authn-v1.xml",
+      "sha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-authz-v1.xml",
+      "sha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml",
+      "sha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml",
+      "sha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml",
+      "sha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-context-v1.xml",
+      "sha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml",
+      "sha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml",
+      "sha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml",
+      "sha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\policies\\service-policy.xml",
+      "sha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+      "hashMode": "raw"
+    },
+    {
+      "path": "apim\\sdk-source-pin.json",
+      "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\apim-api-policies.bicep",
+      "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\apim-observability.bicep",
+      "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\demo03-construction.test.mjs",
+      "sha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\flag-rewrite.xml",
+      "sha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\apim\\fixtures\\request-id-parent.xml",
+      "sha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo03-runtime.mjs",
+      "sha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R3",
+      "authorAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+      "result": "accepted",
+      "scopeSha256": "6dfdb6e5843fb8aece5579afc8fcf66dee84aab0c5d758bae59543c2d801c4f9",
+      "sources": [
+        {
+          "path": "apim\\DEMO03_CONSTRUCTION.md",
+          "sha256": "dd444af553ef57ce9a5e706aa058e8a18235d50cf952307e013ed07bb4740da0",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\demo03-cases.v1.json",
+          "sha256": "b17f2fb83ce0a4d5fedc4452cd374fa07bda82b0273251381ff70e6ae6e1f2a3",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\api-policy.xml",
+          "sha256": "079c7d4c95a5177f9b3a6979b514d317e9517c40eadd2694f98df1f80071ebd1",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-authn-v1.xml",
+          "sha256": "3396da3724881c1a8ef2708c26e9f97da9b6731ba56d1dd7e78169b37f1f2b98",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-authz-v1.xml",
+          "sha256": "54f62b01b72b039fd0c70ac6c6c26455185b3e5b7f31cfee86845a8e43d1daf4",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-backend-proof-v1.xml",
+          "sha256": "27e46717b0231a0f80b256511aaf11c41d2244e72ed938092c8781657b6399b5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-business-id-v1.xml",
+          "sha256": "af92a25403e8a1227e6e03e1f8107918ebe0969679e5e896aef5d41f1b489b26",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-business-observe-v1.xml",
+          "sha256": "b9107635b9974c147a1b96122edc5863d172f0a5b2b9005e34e3edcf2722fa31",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-context-v1.xml",
+          "sha256": "fee0e0c76cb281bf9a6bc01c1b3141d21cc67104e2f4f54584e313f3e2bf7f9f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml",
+          "sha256": "479e41ef95eb5f74ed37434ac1d606cf6baf0e3a5c72720159d07ef2bf61ba5f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-request-guard-v1.xml",
+          "sha256": "ddd2bbe084bd90d16534633f660320cd92b3ea3f242abcb52bb63519a4ce0247",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\fragments\\contoso-response-id-v1.xml",
+          "sha256": "c8e68d793ac4d3cb81f530d42637062053addcb5f6ecf25e6c849c1478fc7070",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\policies\\service-policy.xml",
+          "sha256": "1c8e4c383a6112ec3622e75bf93cf709d934dc8e3f147797dcd0c13f06debe12",
+          "hashMode": "raw"
+        },
+        {
+          "path": "apim\\sdk-source-pin.json",
+          "sha256": "82c25f6bf6e01b48ceaf5246c6473ef2f369de69d0f166a6bc019c371a04ee36",
+          "hashMode": "raw"
+        },
+        {
+          "path": "infra\\modules\\apim-api-policies.bicep",
+          "sha256": "bc9dfdcedbf47b4ee7e8957932f1c64ff48da98e0369c0da43955efb0cbdfbac",
+          "hashMode": "raw"
+        },
+        {
+          "path": "infra\\modules\\apim-observability.bicep",
+          "sha256": "8ce677ec1b19bb19c55c66119ecf602c06c0290440eb9b952a5fab5525da4b0f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\apim\\demo03-construction.test.mjs",
+          "sha256": "aa4cb8a879e637cdc070190fbef7d16983acaaf2dd2d74f6e4756dfaea5ea507",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\apim\\fixtures\\flag-rewrite.xml",
+          "sha256": "a36c138626cfb36b9a90180fd9ee1013b0056496398eaa0225736199c3417ec1",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\apim\\fixtures\\request-id-parent.xml",
+          "sha256": "24130914ffb1de55cde53e11e4d24929b1a11e29d0f1be6ee5b3624ace16503d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\protocol.mjs",
+          "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\adapters\\demo03-runtime.mjs",
+          "sha256": "333e819d3c41b7ff86eca9d068934b61416aa312b6191569de3b8037cddb9624",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\invariants.mjs",
+          "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\observers.mjs",
+          "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\apim\\demo03-construction.test.mjs",
+        "testFiles": [
+          "tests\\apim\\demo03-construction.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:06:39.819Z",
+        "finishedAtUtc": "2026-11-02T22:06:44.650Z",
+        "exitCode": 0,
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-demo03-aa306685-680c-4f59-abcf-f3ff0f2a8bb0\\tests.tap",
+        "sha256": "8fd63ed242eb64f5170b2f5207bfebfac56244274b159ed2973a4283a908d38b",
+        "positiveTests": [
+          "positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations",
+          "positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly"
+        ],
+        "negativeTests": [
+          "negative: missing/repeated carriers and invented native observations never become a valid plan",
+          "negative: caller mutation during an awaited source check cannot alter its verified receipt",
+          "negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority"
+        ]
+      },
+      "children": [
+        {
+          "id": "DEM-03.1",
+          "definitionSha256": "076d6d8e4980754bcc11a687cca28d45b029a72787830dec63772f17121ec540",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

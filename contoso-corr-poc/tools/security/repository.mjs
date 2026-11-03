@@ -7,7 +7,7 @@ import { scanAuthorizationIdentifierUse } from './identifiers.mjs';
 
 const MAX_BLOB_BYTES = 128 * 1024 * 1024;
 const MAX_HISTORY_BYTES = 256 * 1024 * 1024;
-const generated = new Set(['.git', 'node_modules', 'target', 'dist', '.cache', '.java-work', 'playwright-report', 'test-results']);
+const generated = new Set(['.git', 'node_modules', 'target', 'dist', '.cache', '.tools', '.java-work', 'playwright-report', 'test-results']);
 const secretPatterns = [
   ['PRIVATE_KEY', /-----BEGIN (?:RSA |EC |OPENSSH |ENCRYPTED )?PRIVATE KEY-----/g],
   ['CONNECTION_STRING', /\b(?:InstrumentationKey\s*=\s*[0-9a-f-]{32,36}|DefaultEndpointsProtocol\s*=\s*https?;|(?:AccountKey|SharedAccessKey|SharedAccessSignature)\s*=\s*[A-Za-z0-9+/=%._~-]{16,})/gi],

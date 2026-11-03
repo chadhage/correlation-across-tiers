@@ -1,0 +1,18 @@
+[
+  {
+    "path": "tools\\verification\\sampling-qualification.mjs",
+    "sha256": "2361c2bf06f8c1404e172deb05dff549182db9f0831d0b27e1e0668ca106dad1"
+  },
+  {
+    "path": "tests\\verification\\current-sampling-qualification.test.mjs",
+    "sha256": "dfd2f817ab1ca7ab29ed707bdc1d359acb17f8776129473b0a318232b663f481"
+  },
+  {
+    "path": "tests\\verification\\sampling-qualification.test.mjs",
+    "sha256": "1921939e87d2d844a5c4c5e4c552da85a9ab8b4073d13cd30c4676d088ba483b"
+  },
+  {
+    "path": "tests\\verification\\sampling-fixture.mjs",
+    "sha256": "372e23eca952dd79550b2039c417942a3d648ed2e677481e0363c416550a79ca"
+  }
+]

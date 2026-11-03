@@ -1,0 +1,26 @@
+{
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R9",
+  "childIds": ["GATE-06.1"],
+  "sourcePaths": [
+    "tools\\certification-path.mjs",
+    "tools\\verification\\register.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\run-focused.mjs",
+    "config\\certification-dependencies.json",
+    "config\\verification-register.v1.json",
+    "web\\portal-ssr\\package-lock.json",
+    "tests\\certification-path.test.mjs",
+    "tests\\verification\\register.test.mjs",
+    "docs\\RESIDUAL_LIMITATIONS.md",
+    "services\\inventory-data\\docs\\data-api-warning-contract.v1.json"
+  ],
+  "testFiles": [
+    "tests\\certification-path.test.mjs",
+    "tests\\verification\\register.test.mjs"
+  ],
+  "positiveTests": ["both exact resolved Portal beta packages have public source classifications, not support clearance"],
+  "negativeTests": ["Portal classification rejects lock drift, missing beta and caller GA/support labels"],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R7\\gate-06.1-review-v1"
+}

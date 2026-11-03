@@ -1,0 +1,374 @@
+{
+  "schema": "contoso.swarm-role-final-triage.v1",
+  "role": "R9",
+  "agentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "orchestratorId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "nodeVersion": "v22.23.4",
+  "startedAtUtc": "2026-11-02T22:43:05.519Z",
+  "finishedAtUtc": "2026-11-02T22:43:06.280Z",
+  "thresholdStopHonored": true,
+  "newImplementationParentsDispatchedAfterStop": false,
+  "packets": [
+    {
+      "id": "GATE-06.1",
+      "disposition": "SOURCE_CHILD_CANDIDATE",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-06-1-owner-v2\\owner-receipt.json",
+      "ownerReceiptSha256": "c736f1d512de1572e188437619974426e40cc1737e438b04b81cab54eaefebe8",
+      "sourceSnapshot": "evidence\\reviews\\swarm-20261102\\R9\\gate-06-1-owner-v2\\sources-before.json",
+      "sourceCount": 11,
+      "currentSourceMismatches": [],
+      "actualFocusedChecks": {
+        "command": "node --test --test-reporter=tap tests\\certification-path.test.mjs tests\\verification\\register.test.mjs",
+        "nodeVersion": "v22.23.4",
+        "tests": 13,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentReviewR7": {
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-06.1-review-v1\\review.json",
+        "sha256": "2d8f5f9c35b51cd0c0147f17554962ace39f59683cc62fd43c3dee6c8121d807"
+      },
+      "independentReviewR1": "NOT PROVIDED TO R9; orchestrator must bind exact current other-role review before Done",
+      "sourceAcceptanceIsCertification": false
+    },
+    {
+      "id": "GATE-13.1",
+      "disposition": "SOURCE_CHILD_CANDIDATE",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-13-1-owner-v3-final\\owner-receipt.json",
+      "ownerReceiptSha256": "2fa64ddd4620f0440e950e025709701272d634c2636de194292e65ef993ba670",
+      "sourceSnapshot": "evidence\\reviews\\swarm-20261102\\R9\\gate-13-1-owner-v3-final\\sources-before.json",
+      "sourceCount": 19,
+      "currentSourceMismatches": [],
+      "actualFocusedChecks": {
+        "command": "node --test --test-reporter=tap tests\\verification\\security-client-qualification.test.mjs",
+        "nodeVersion": "v22.23.4",
+        "tests": 12,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentReviewR7": {
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-13.1-review-v3\\review.json",
+        "sha256": "2233dc51d0817ae9fa10bb01b87d0a2f08d93e43fbda2b02429bb6aeeb076529"
+      },
+      "independentReviewR1": "NOT PROVIDED TO R9; orchestrator must bind exact current other-role review before Done",
+      "sourceAcceptanceIsCertification": false
+    },
+    {
+      "id": "GOV-01.1",
+      "disposition": "SOURCE_CHILD_CANDIDATE",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gov-01-1-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "3a7c7825adeed310c20adcf5cb1c437fb9cac12fb3a4053f6ddea4bf52e396cc",
+      "sourceSnapshot": "evidence\\reviews\\swarm-20261102\\R9\\gov-01-1-owner-v1\\sources-before.json",
+      "sourceCount": 7,
+      "currentSourceMismatches": [],
+      "actualFocusedChecks": {
+        "command": "node --test --test-reporter=tap tests\\verification\\pull-request-template.test.mjs",
+        "nodeVersion": "v22.23.4",
+        "tests": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentReviewR7": {
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gov-01.1-review-v1\\review.json",
+        "sha256": "d1f3b7f786d8ae5f9b8fe97bb9bc87ef128f510a8ee7f443be9a009c89dbb615"
+      },
+      "independentReviewR1": "NOT PROVIDED TO R9; orchestrator must bind exact current other-role review before Done",
+      "sourceAcceptanceIsCertification": false
+    },
+    {
+      "id": "CRT-03.1",
+      "disposition": "SOURCE_CHILD_CANDIDATE",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\crt-03-1-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "fddfc6ccc742f1d3baeaf933ec873c21b49b15e7033f5d52fbf0d8270803d22c",
+      "sourceSnapshot": "evidence\\reviews\\swarm-20261102\\R9\\crt-03-1-owner-v1\\sources-before.json",
+      "sourceCount": 9,
+      "currentSourceMismatches": [],
+      "actualFocusedChecks": {
+        "command": "node --test --test-reporter=tap tests\\verification\\test-coverage-report.test.mjs",
+        "nodeVersion": "v22.23.4",
+        "tests": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentReviewR7": {
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\crt-03.1-review-v1\\review.json",
+        "sha256": "cfad290697e5b4175c760284fa463a7d0ad4d14d859c0ef3482e49bbee858fcd"
+      },
+      "independentReviewR1": "NOT PROVIDED TO R9; orchestrator must bind exact current other-role review before Done",
+      "sourceAcceptanceIsCertification": false
+    },
+    {
+      "id": "GATE-12.1",
+      "disposition": "TO_DO_HOSTED_PR_AND_LINT_UNMET",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-12-1-source-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "cc8f683b56022c7b4eac079cf9506ee2a290fe1a48e82fcd9a8ec8ccbf80ff85",
+      "sourceSnapshot": "evidence\\reviews\\swarm-20261102\\R9\\gate-12-1-source-owner-v1\\sources-before.json",
+      "sourceCount": 35,
+      "currentSourceMismatches": [],
+      "actualFocusedChecks": {
+        "command": "node --test --test-reporter=tap tests\\verification\\report.test.mjs tests\\verification\\report-freshness.test.mjs tests\\verification\\ci-node.test.mjs tests\\verification\\ci-workflow.test.mjs",
+        "nodeVersion": "v22.23.4",
+        "tests": 17,
+        "passed": 17,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentReviewR7": {
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-12.1-review-v1\\review.json",
+        "sha256": "12de25303073384d4543ad2d97ac0c83e98a5eda92e03f72e9dbe154634fc352"
+      },
+      "independentReviewR1": "NOT PROVIDED TO R9; orchestrator must bind exact current other-role review before Done",
+      "sourceAcceptanceIsCertification": false
+    }
+  ],
+  "unstarted": [
+    {
+      "id": "GATE-08.1",
+      "status": "To Do",
+      "reason": "R1 ARC-01.1 boundary-map interface never frozen/delivered; threshold STOP prohibits starting the dependent invariant implementation",
+      "unchangedInvariantSha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "nextAction": "In a later genuinely executable approved wave, consume the one frozen root map and add Orders/worker data CLIENT assertions plus positive/negative controls."
+    }
+  ],
+  "earlyAdapterContract": {
+    "artifact": "evidence\\reviews\\swarm-20261102\\R9\\dem-00.1-contract-handoff.json",
+    "sha256": "49d237fa70ec79d78f08ceadc57e6a74d95944b84998d2e34ca16b0fef080852",
+    "nativeHarnessReady": false,
+    "nativeExecution": "NOT RUN",
+    "componentFreshness": "Original Storefront hardpin is now historical/stale after R2 LOCAL REHEARSAL labeling; do not blindly repin or weaken source rejection",
+    "remaining": [
+      "Independent native execution/emission/canary observer",
+      "Authenticated enrolled query transport",
+      "Complete native sampling/control/restore operations",
+      "Reviewed preparation runtime/authentication/resources and finite approved window",
+      "Durable owned saved-run recovery"
+    ]
+  },
+  "independentReviewsPerformed": [
+    {
+      "id": "GATE-05.1",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-1-independent-v1\\review.json",
+      "sha256": "1891fdeb27948f345e394d743139febcc1272ec4ffab46015f4f46c3a7300178",
+      "actualChecks": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\java\\portable-tools.test.mjs",
+        "testFiles": [
+          "tests\\java\\portable-tools.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:00:11.429Z",
+        "finishedAtUtc": "2026-11-02T22:00:52.949Z",
+        "exitCode": 0,
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-1-independent-v1\\tests.tap",
+        "sha256": "8b93d3021fe3c63f7a5b44cbce69246582cb1149c5b879df1367d6c104636f14",
+        "positiveTests": [
+          "explicit root beats the environment and preserves spaced paths with locked versions"
+        ],
+        "negativeTests": [
+          "portable installation rejects a changed archive before extraction or download"
+        ]
+      },
+      "scope": "SOURCE_UNIT_ONLY_NOT_NATIVE_OR_ORGANIZATIONAL_SIGNOFF"
+    },
+    {
+      "id": "GATE-02.1",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-02-1-source-independent-v1\\review.json",
+      "sha256": "e6cac64a12b41a6b4b7ee078b1ab99492f5f70a29796dd630ff9224016974f60",
+      "actualChecks": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\current-sampling-qualification.test.mjs tests\\verification\\sampling-qualification.test.mjs",
+        "testFiles": [
+          "tests\\verification\\current-sampling-qualification.test.mjs",
+          "tests\\verification\\sampling-qualification.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:24:59.142Z",
+        "finishedAtUtc": "2026-11-02T22:25:00.117Z",
+        "exitCode": 0,
+        "passed": 16,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-02-1-source-independent-v1\\tests.tap",
+        "sha256": "1ea934e2dc665ea21cfd170af757a518342fffc84948f014c263d47a56085ff7",
+        "positiveTests": [
+          "current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority"
+        ],
+        "negativeTests": [
+          "seeded sampler source drift or omitted provider/class input returns UNVERIFIED",
+          "skipped assertions, stale build identity and absent runtime dependencies fail closed",
+          "caller JSON, copied metadata and checker labels cannot enroll a current-source execution",
+          "qualification routing rejects accessors before reading owner or current-route labels"
+        ]
+      },
+      "scope": "SOURCE_UNIT_ONLY_NOT_NATIVE_OR_ORGANIZATIONAL_SIGNOFF"
+    },
+    {
+      "id": "GATE-05.2",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-source-independent-v3\\review.json",
+      "sha256": "755f90c647838407f1e8fb49084adaaa60f91cef648575375197f96dfb4a4684",
+      "actualChecks": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\java\\ci-java.test.mjs",
+        "testFiles": [
+          "tests\\java\\ci-java.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:33:21.589Z",
+        "finishedAtUtc": "2026-11-02T22:33:35.555Z",
+        "exitCode": 0,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-source-independent-v3\\tests.tap",
+        "sha256": "c146c97ea0adbac797f1f611a3944c8f230ed14ac9e7b6fa05ab4cee9dd8f3e1",
+        "positiveTests": [
+          "every PR runs the locked serial reactor with both artifacts and fail-closed totals",
+          "fresh complete XML prints executed and skipped totals and covers every required agent class"
+        ],
+        "negativeTests": [
+          "workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger",
+          "skipped or cancelled agent assertions fail even when Maven reported zero failures",
+          "missing gated testcase, incomplete counts and stale reports cannot pass silently",
+          "duplicate emitted tests and DTD-bearing XML are rejected"
+        ]
+      },
+      "scope": "SOURCE_UNIT_ONLY_NOT_NATIVE_OR_ORGANIZATIONAL_SIGNOFF"
+    },
+    {
+      "id": "OBS-02.2",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-source-independent-v3\\review.json",
+      "sha256": "14092e5802065ec05789ea38d543ef2bd98d99a56d4bd450c0ab2038f0de2f03",
+      "actualChecks": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+        "testFiles": [
+          "tests\\observability\\local-trace-tree.test.mjs",
+          "tests\\observability\\sampler-native-intake.test.mjs",
+          "tests\\verification\\invariants.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:36:26.551Z",
+        "finishedAtUtc": "2026-11-02T22:36:28.096Z",
+        "exitCode": 0,
+        "passed": 75,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-source-independent-v3\\tests.tap",
+        "sha256": "53927b6d11d6a8090e6c2a157f78eab3fbbd2cb21bde1006e0a5691967f857be",
+        "positiveTests": [
+          "complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile",
+          "actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance",
+          "safe incremental capture callbacks are immutable, per-payload and awaited before acceptance"
+        ],
+        "negativeTests": [
+          "seeded split, duplicate, parent and every missing-hop control fail without modifying original captures",
+          "untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed",
+          "unsafe originals never reach an incremental callback and callback failures poison all acceptance",
+          "mixed caller envelopes cannot inherit an original loopback capture provenance",
+          "an empty original loopback capture cannot lend provenance to caller-only spans"
+        ]
+      },
+      "scope": "SOURCE_UNIT_ONLY_NOT_NATIVE_OR_ORGANIZATIONAL_SIGNOFF"
+    }
+  ],
+  "manualFindingAndConsistencyArtifacts": [
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-02-1-record-consistency-v1\\record-consistency.json",
+      "sha256": "f640aa79326af3fa1be279ad20444663410edd6078a80bc4a72ecd39a68c0367"
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-cancel-count-finding-v1\\finding.json",
+      "sha256": "d7367ac42b304a73cda7a840ff3a4097d7d5263fea92bda708c5232e66e2d68d"
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-cancel-count-fixed-v3\\resolution.json",
+      "sha256": "4b1b18c48b5e438a421069d806ca70238fa5fba52140045d618639cac34ce1a6"
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-mixed-provenance-finding-v1\\finding.json",
+      "sha256": "304a462b65bf781a297d82bba7c6b71717642e349f434dc849ac0558be5e6105"
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-mixed-provenance-fixed-v3\\resolution.json",
+      "sha256": "b28c06be3b6ce0ae3db660eb1dce71e8405e505410cd5038586609f9481bed8a"
+    }
+  ],
+  "reportWriter": {
+    "soleWriter": "orchestrator",
+    "helper": "tools\\verification\\report.mjs",
+    "helperSha256": "a4a43d632d9a6a97e13f9e70294bff7c23fd9e156a8ae28fb9a82b9e5562f149",
+    "fromPocRoot": [
+      "node tools\\verification\\report.mjs --invalidate",
+      "node tools\\verification\\report.mjs --check"
+    ],
+    "constructionNoteSchema": "contoso.certification-construction-notes.v1",
+    "notesAlreadyPopulatedByOrchestrator": true,
+    "unknownAssessmentKeysPreservedByHelper": true,
+    "priorQualificationMetadataArchivedAs": "HISTORICAL_ONLY; no private execution capability inherited",
+    "writerExecutedByR9": false,
+    "orchestratorOwnedOutputsWrittenByR9": false
+  },
+  "registerSha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00",
+  "cliChecks": [
+    {
+      "command": "node tools\\verification\\register.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"sourceAcceptanceIsCertification\":false,\"registered\":635,\"open\":635}",
+      "stderr": ""
+    },
+    {
+      "command": "node tools\\verification\\test-coverage-report.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"status\":\"HISTORICAL\",\"sourceCommit\":\"63a2a5d58cd041b9893270bc9f4e2d2294e0476d\",\"nodePassed\":419,\"nodeSkipped\":0,\"javaPassed\":182,\"javaSkipped\":0,\"currentSourceEquivalenceClaimed\":false,\"codeCoverageMeasured\":false,\"sourceAcceptanceIsCertification\":false,\"certificationStatus\":\"NOT CERTIFIED\"}",
+      "stderr": ""
+    },
+    {
+      "command": "node tools\\verification\\pull-request-template.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"scope\":\"template-source-only\",\"actualReviewsVerified\":false,\"sourceAcceptanceIsCertification\":false,\"certificationStatus\":\"NOT CERTIFIED\"}",
+      "stderr": ""
+    }
+  ],
+  "remaining": [
+    "Two distinct current independent other-role reviews before any child Done; orchestrator owns final acceptance/status writes",
+    "All 635 observed numeric VERIFY claims remain OPEN; exact beta classification is not GA/support/deployed/runtime clearance",
+    "GATE-11.2 passing machine-path lint handoff absent; GATE-12.1 actual hosted PR run NOT RUN",
+    "ARC-01.1/GATE-08.1 and actual complete browser/JVM pair remain To Do",
+    "New current sampler private loader remains empty/UNVERIFIED; retained 168-source/152-class/96-JAR consistency is not retrospective PID, full-loaded-code or Azure authority",
+    "No new native executor enrollment, Azure resources/queries/deployment/spending/traffic/secrets access, root-enrolled live verifier waiver or organizational certification"
+  ],
+  "leases": {
+    "activeImplementationParent": null,
+    "sourceEditsReleased": true,
+    "sharedTargetWriteLeaseHeld": false,
+    "certificationOutputLeaseNeverAcquired": true,
+    "ownedPersistentProcesses": [],
+    "ownedLoopbackReceiversClosed": true,
+    "generatedFixtureDirectoriesRemoved": true,
+    "rootPackagePomVersionFilesEditedByR9": false,
+    "orchestratorBoardWikiKanbanCertificationFilesEditedByR9": false
+  },
+  "validationLimits": {
+    "fullConfiguredRootNodeSuiteRunByR9": false,
+    "mavenOrJavaRuntimeRunByR9": false,
+    "hostedPrRunByR9": false,
+    "bicepInstalledOrInvokedByR9": false,
+    "commitsOrPushesByR9": false,
+    "newAgentsSpawned": false
+  },
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "result": "FINAL_CURRENT_SOURCE_HANDOFF_ONLY"
+}

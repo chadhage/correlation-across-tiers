@@ -1,0 +1,256 @@
+TAP version 13
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 1 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 56.6399
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 2 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 4.3333
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 3 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 16.3189
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 4 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 8.6599
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 5 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 6.3805
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 6 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 4.5086
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 7 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 8.6714
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 8 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 4.7844
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 9 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 12.6019
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 10 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 10.1396
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 11 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 7.3766
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 12 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 7.8906
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 13 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.5355
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 14 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.1243
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 15 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 3.0307
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 16 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 6.321
+  type: 'test'
+  ...
+# Subtest: a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+ok 17 - a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+  ---
+  duration_ms: 17.7851
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 18 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 5.2578
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 19 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 6.1347
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 20 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 8.7553
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 21 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 8.5853
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 22 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 2.178
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 23 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 23.0523
+  type: 'test'
+  ...
+# Subtest: seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+ok 24 - seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+  ---
+  duration_ms: 101.7523
+  type: 'test'
+  ...
+# Subtest: original envelope ordinals survive non-span filtering and unrelated invocation records
+ok 25 - original envelope ordinals survive non-span filtering and unrelated invocation records
+  ---
+  duration_ms: 81.3698
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 26 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 278.5017
+  type: 'test'
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 27 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 148.8261
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 28 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 2884.8722
+  type: 'test'
+  ...
+# Subtest: exact A/B/C fixture check never claims live or certification
+ok 29 - exact A/B/C fixture check never claims live or certification
+  ---
+  duration_ms: 15.5498
+  type: 'test'
+  ...
+# Subtest: empty telemetry and logs-only cannot pass
+ok 30 - empty telemetry and logs-only cannot pass
+  ---
+  duration_ms: 0.6422
+  type: 'test'
+  ...
+# Subtest: A fails a split, zero, or silently absent expected trace
+ok 31 - A fails a split, zero, or silently absent expected trace
+  ---
+  duration_ms: 0.7238
+  type: 'test'
+  ...
+# Subtest: B rejects duplicate emitted records, nonzero ID reuse and bad parents
+ok 32 - B rejects duplicate emitted records, nonzero ID reuse and bad parents
+  ---
+  duration_ms: 2.9842
+  type: 'test'
+  ...
+# Subtest: missing Gateway request/backend hop names the actual broken boundary
+ok 33 - missing Gateway request/backend hop names the actual broken boundary
+  ---
+  duration_ms: 1.1144
+  type: 'test'
+  ...
+# Subtest: logs/events/exceptions and page-view display IDs are not counted as new spans
+ok 34 - logs/events/exceptions and page-view display IDs are not counted as new spans
+  ---
+  duration_ms: 161.2148
+  type: 'test'
+  ...
+# Subtest: kind/role expectations cannot overwrite missing native facts
+ok 35 - kind/role expectations cannot overwrite missing native facts
+  ---
+  duration_ms: 1.1639
+  type: 'test'
+  ...
+# Subtest: APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+ok 36 - APIM/non-W3C identifier substitutions are rejected, including GUID conversion
+  ---
+  duration_ms: 0.5287
+  type: 'test'
+  ...
+# Subtest: native fan-in links equal every contributor, not an arbitrary first parent
+ok 37 - native fan-in links equal every contributor, not an arbitrary first parent
+  ---
+  duration_ms: 16.3977
+  type: 'test'
+  ...
+# Subtest: actual result SEND links require independent complete ledgers, not just renamed expected roots
+ok 38 - actual result SEND links require independent complete ledgers, not just renamed expected roots
+  ---
+  duration_ms: 19.96
+  type: 'test'
+  ...
+# Subtest: map deliberate roots alone never authorize a split-trace claim
+ok 39 - map deliberate roots alone never authorize a split-trace claim
+  ---
+  duration_ms: 0.7818
+  type: 'test'
+  ...
+# Subtest: an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+ok 40 - an opaque page-view display ID, even 16hex, cannot authorize missing parentage
+  ---
+  duration_ms: 102.9383
+  type: 'test'
+  ...
+# Subtest: browser context-only events require a separately observed SDK context, not a display-ID cast
+ok 41 - browser context-only events require a separately observed SDK context, not a display-ID cast
+  ---
+  duration_ms: 1.9382
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6972.4785

@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: original A/B semantic consistency is structural only and cannot mint acceptance
+ok 1 - original A/B semantic consistency is structural only and cannot mint acceptance
+  ---
+  duration_ms: 15.7348
+  type: 'test'
+  ...
+# Subtest: omitted/duplicate/recomputed closure cannot qualify current-source lineage
+ok 2 - omitted/duplicate/recomputed closure cannot qualify current-source lineage
+  ---
+  duration_ms: 137.8717
+  type: 'test'
+  ...
+# Subtest: missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+ok 3 - missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+  ---
+  duration_ms: 56.6711
+  type: 'test'
+  ...
+# Subtest: all seven production header checks, raw negative and trusted advance remain required
+ok 4 - all seven production header checks, raw negative and trusted advance remain required
+  ---
+  duration_ms: 28.2008
+  type: 'test'
+  ...
+# Subtest: fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+ok 5 - fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+  ---
+  duration_ms: 55.8546
+  type: 'test'
+  ...
+# Subtest: native/logical/physical counters stay independent and broad privacy/completeness remain false
+ok 6 - native/logical/physical counters stay independent and broad privacy/completeness remain false
+  ---
+  duration_ms: 59.5673
+  type: 'test'
+  ...
+# Subtest: the original14 source freeze is not retroactively extended to include another input
+ok 7 - the original14 source freeze is not retroactively extended to include another input
+  ---
+  duration_ms: 1.2006
+  type: 'test'
+  ...
+# Subtest: JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+ok 8 - JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+  ---
+  duration_ms: 30.6299
+  type: 'test'
+  ...
+# Subtest: security tool selection is repository-local by default and honors an explicit spaced root
+ok 9 - security tool selection is repository-local by default and honors an explicit spaced root
+  ---
+  duration_ms: 1.0172
+  type: 'test'
+  ...
+# Subtest: security qualification source has no machine or session-folder default
+ok 10 - security qualification source has no machine or session-folder default
+  ---
+  duration_ms: 54.0982
+  type: 'test'
+  ...
+# Subtest: explicit security tool byte checks remain read-only and cannot enroll a receipt
+ok 11 - explicit security tool byte checks remain read-only and cannot enroll a receipt
+  ---
+  duration_ms: 36.6984
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1624.2106

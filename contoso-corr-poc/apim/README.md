@@ -104,6 +104,8 @@ The compiler test checks the executable's version/hash against the existing vers
 
 Tests cover context limits/forward compatibility/duplicates/zero IDs/state rejection, business trust, case-variant/folded dual-token headers, CORS negatives, all capture positions, exact source/version-pinned SDK **3.4.5 W3C_TRACE=18**, unsafe defaults/flag writes/RequestId provenance, inactive bad fragments, API schema, native-management CAS/restore and test-only fixture exclusion.
 
+The protocol scan also inspects XML-parsed policy text and attributes after one entity-decoding pass, so numeric-entity `RequestId` and sampled-flag rewrites fail even in disabled or named-value-controlled branches. Seed/remove regressions run the source gate against isolated local policy trees and retain no deployable fixture. This is source validation, not proof of native gateway extraction, sampling or wire behavior.
+
 `Invoke-PolicyExpressions.ps1` loads the actual fragment XML with DTD/resolver disabled, extracts and compiles its C# expressions, and executes context/business/auth-shape cases against local context/Jwt carrier bindings. This is real local CLR expression execution, **not APIM hosting, native extraction/root reset, JWT signature validation or wire evidence**. `tools\protocol.mjs` reports source/configuration findings without credential values and returns nonzero for violations.
 
 SDK enum provenance is frozen in `sdk-source-pin.json`: v3.4.5 commit `9f3440d9ac3dd8941f7d004dbae43108b08baf7e`, enum value18 and full source digest. Old mode2 and mixed mode17 are not accepted for this contract. Installed SDK and actual wire behavior require their own observations.

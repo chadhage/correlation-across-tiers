@@ -1,0 +1,221 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tools\\certification-path.mjs",
+      "sha256": "dee8e90f66460f0c7c6fec499e681e813973ee7dee8f59615676b962ee29249e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "847cb20dfd9cd251812f03fa374d8cfb8edc7f604530d921db7c66e84960cc9a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\certification-dependencies.json",
+      "sha256": "c6f58bd861e510879ce1a9c4cd80c5f719c29fbc2ef99fd5ff832d5ac0ee8454",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package-lock.json",
+      "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\certification-path.test.mjs",
+      "sha256": "8686e119e098b4b03823643245372dcac62b7a92fd026108c291f6638d362ab9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\register.test.mjs",
+      "sha256": "4b8cc7cef6c174af8e54985c3721a894a89440c5b474ecd7c85db2d9aef50062",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "40434fe122b509387018ba0f07a6e707619463aaa65cbb583dde9d15e1db8551",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "2ef752704a815667fb51e13ac625d54c30c15f96c750fd083a4a503a62f054aa",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\certification-path.mjs",
+      "sha256": "dee8e90f66460f0c7c6fec499e681e813973ee7dee8f59615676b962ee29249e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\register.mjs",
+      "sha256": "847cb20dfd9cd251812f03fa374d8cfb8edc7f604530d921db7c66e84960cc9a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\certification-dependencies.json",
+      "sha256": "c6f58bd861e510879ce1a9c4cd80c5f719c29fbc2ef99fd5ff832d5ac0ee8454",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "web\\portal-ssr\\package-lock.json",
+      "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\certification-path.test.mjs",
+      "sha256": "8686e119e098b4b03823643245372dcac62b7a92fd026108c291f6638d362ab9",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\register.test.mjs",
+      "sha256": "4b8cc7cef6c174af8e54985c3721a894a89440c5b474ecd7c85db2d9aef50062",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\RESIDUAL_LIMITATIONS.md",
+      "sha256": "40434fe122b509387018ba0f07a6e707619463aaa65cbb583dde9d15e1db8551",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "2ef752704a815667fb51e13ac625d54c30c15f96c750fd083a4a503a62f054aa",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R9",
+      "authorAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "result": "accepted",
+      "scopeSha256": "8468e9cac681abfb959ab44455d6ce807d456b456bb5d73cd6c946faf2330c11",
+      "sources": [
+        {
+          "path": "tools\\certification-path.mjs",
+          "sha256": "dee8e90f66460f0c7c6fec499e681e813973ee7dee8f59615676b962ee29249e",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\register.mjs",
+          "sha256": "847cb20dfd9cd251812f03fa374d8cfb8edc7f604530d921db7c66e84960cc9a",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\run-focused.mjs",
+          "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\certification-dependencies.json",
+          "sha256": "c6f58bd861e510879ce1a9c4cd80c5f719c29fbc2ef99fd5ff832d5ac0ee8454",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\verification-register.v1.json",
+          "sha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00",
+          "hashMode": "raw"
+        },
+        {
+          "path": "web\\portal-ssr\\package-lock.json",
+          "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\certification-path.test.mjs",
+          "sha256": "8686e119e098b4b03823643245372dcac62b7a92fd026108c291f6638d362ab9",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\register.test.mjs",
+          "sha256": "4b8cc7cef6c174af8e54985c3721a894a89440c5b474ecd7c85db2d9aef50062",
+          "hashMode": "raw"
+        },
+        {
+          "path": "docs\\RESIDUAL_LIMITATIONS.md",
+          "sha256": "40434fe122b509387018ba0f07a6e707619463aaa65cbb583dde9d15e1db8551",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+          "sha256": "2ef752704a815667fb51e13ac625d54c30c15f96c750fd083a4a503a62f054aa",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\certification-path.test.mjs tests\\verification\\register.test.mjs",
+        "testFiles": [
+          "tests\\certification-path.test.mjs",
+          "tests\\verification\\register.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:06:20.350Z",
+        "finishedAtUtc": "2026-11-02T22:06:22.820Z",
+        "exitCode": 0,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-06.1-review-v1\\tests.tap",
+        "sha256": "f60d7a75e82781fa10497c9d851de2c49ac2f3041600fd4de9638cbfe54120a9",
+        "positiveTests": [
+          "both exact resolved Portal beta packages have public source classifications, not support clearance"
+        ],
+        "negativeTests": [
+          "Portal classification rejects lock drift, missing beta and caller GA/support labels"
+        ]
+      },
+      "children": [
+        {
+          "id": "GATE-06.1",
+          "definitionSha256": "7682382958fa262b3008362b959e4c7f542376f138d7f8c1984e9b6fdf35ebd1",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

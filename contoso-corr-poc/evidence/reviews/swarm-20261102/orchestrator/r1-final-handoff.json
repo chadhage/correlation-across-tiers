@@ -1,0 +1,35 @@
+{
+  "schema": "contoso.swarm-role-closeout.v1",
+  "role": "R1",
+  "agentId": "d5bacc3f-769e-4dcd-a6d9-431858a8a9b0",
+  "source": "Direct R1 final freeze message, subsequently confirmed by the parent",
+  "receivedAtUtc": "2026-11-02T23:54:11.573Z",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "outcome": "INSPECTION_ONLY_UNIMPLEMENTED_AT_THRESHOLD_STOP",
+  "implementationBegan": false,
+  "technicalBlockerEstablished": false,
+  "filesCreated": 0,
+  "filesModified": 0,
+  "testsRun": 0,
+  "buildsRun": 0,
+  "nativeCommandsRun": 0,
+  "acceptanceReceiptProduced": false,
+  "projectRootAzureYamlExists": false,
+  "sourceOutputPidPortCacheLeasesReleased": true,
+  "remainingCommandsOrProcesses": 0,
+  "existingDirtyWorkPreserved": true,
+  "ownedChildren": [
+    "GATE-11.1", "GATE-11.2", "ARC-01.1", "DOC-01.1",
+    "DOC-02.2", "DEM-01.1", "DEM-01.2", "DOC-02.1"
+  ],
+  "childCompletionClaims": [],
+  "gate07Audit": {
+    "existingLocalConstructionAlreadyRecorded": true,
+    "repeatedExistingTests": false,
+    "remaining": ["Native deployment what-if", "Accepted current whole-scope reviews"]
+  },
+  "nextAction": "Only after an authorized reopened frontier, implement GATE-11.1 beside infra\\ matching existing main/params/package inventory, run missing-path/service/secret negatives, then obtain R3/R8 reviews. Other R1 children remain unstarted or runtime-dependent To Do.",
+  "parentIntegratedValidationMayStart": true,
+  "newImplementationOrReviewDispatchRequested": false
+}

@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter
+ok 1 - SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter
+  ---
+  duration_ms: 2.391
+  type: 'test'
+  ...
+# Subtest: CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane
+ok 2 - CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane
+  ---
+  duration_ms: 6.752
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real cache operations check TTL, canonical/error safety, restoration and a declared witness
+ok 3 - SOURCE ONLY: real cache operations check TTL, canonical/error safety, restoration and a declared witness
+  ---
+  duration_ms: 1.7173
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: NX ownership and watched exact-key cleanup never use a global Redis command
+ok 4 - SOURCE ONLY: NX ownership and watched exact-key cleanup never use a global Redis command
+  ---
+  duration_ms: 0.485
+  type: 'test'
+  ...
+# Subtest: DOCUMENTATION ONLY: configuration and parser tests cannot be promoted into real Redis or Entra evidence
+ok 5 - DOCUMENTATION ONLY: configuration and parser tests cannot be promoted into real Redis or Entra evidence
+  ---
+  duration_ms: 41.9398
+  type: 'test'
+  ...
+# Subtest: LOCAL CONFIGURATION ONLY: explicit loopback approval derives unique bounded cache key inputs
+ok 6 - LOCAL CONFIGURATION ONLY: explicit loopback approval derives unique bounded cache key inputs
+  ---
+  duration_ms: 2.2781
+  type: 'test'
+  ...
+# Subtest: CONTROL: default-off approval and every required target input fail closed
+ok 7 - CONTROL: default-off approval and every required target input fail closed
+  ---
+  duration_ms: 0.7844
+  type: 'test'
+  ...
+# Subtest: CONTROL: remote, DNS, wildcard, tunnel-shaped and ambiguous loopback target strings are rejected
+ok 8 - CONTROL: remote, DNS, wildcard, tunnel-shaped and ambiguous loopback target strings are rejected
+  ---
+  duration_ms: 0.4694
+  type: 'test'
+  ...
+# Subtest: CONTROL: noncanonical run IDs and nonmatching production-adapter telemetry ports are rejected
+ok 9 - CONTROL: noncanonical run IDs and nonmatching production-adapter telemetry ports are rejected
+  ---
+  duration_ms: 0.4575
+  type: 'test'
+  ...
+# Subtest: LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed
+ok 10 - LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed
+  ---
+  duration_ms: 323.4282
+  type: 'test'
+  ...
+# Subtest: CONTROL: malformed optional authentication fails without echoing credentials
+ok 11 - CONTROL: malformed optional authentication fails without echoing credentials
+  ---
+  duration_ms: 0.8623
+  type: 'test'
+  ...
+# Subtest: EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success
+ok 12 - EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success
+  ---
+  duration_ms: 405.8927
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1759.5268

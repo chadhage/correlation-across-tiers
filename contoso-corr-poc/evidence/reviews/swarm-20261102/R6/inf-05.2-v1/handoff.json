@@ -1,0 +1,107 @@
+{
+  "schema": "contoso.r6-construction-handoff.v1",
+  "childId": "INF-05.2",
+  "executorAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "childDefinitionSha256": "996667e5f802b5905468b56ec5ed8bc5c7ed1cf371ed0b3005931bdd03dbebae",
+  "parent": "INF-05",
+  "clause": 1,
+  "facet": "static",
+  "result": "AUTHOR_CHECKS_PASS_PENDING_TWO_INDEPENDENT_EXECUTIONS",
+  "freezeSha256": "3de2100545444d67b48c35c999b682a8669f05d8ae722af77ef04e21a879d058",
+  "frozenInputsUnchanged": true,
+  "files": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "ea58fd2686ce21562c07baec3399761142831fd61e5e7d893e9fdb694324158f"
+    }
+  ],
+  "commands": [
+    "node --test --test-reporter=tap .\\contoso-corr-poc\\services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+    ".\\contoso-corr-poc\\services\\inventory-data\\tools\\Test-DataModules.ps1 -BicepPath .\\contoso-corr-poc\\.cache\\r6-tools\\bicep.exe -OutputPath <new-run-owned-directory>"
+  ],
+  "runtime": {
+    "node": "22.23.4",
+    "powershell": "7.6.9",
+    "bicep": "0.48.1 (cec7951cf6)"
+  },
+  "actual": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "compiledModules": 2,
+    "expectedBCP081": 6,
+    "measuredBCP081": 6,
+    "unexpectedDiagnostics": 0
+  },
+  "negativeControls": [
+    "source/API drift",
+    "missing or mismatched VERIFY row",
+    "BCP081 suppression",
+    "deployment-proof promotion",
+    "missing/duplicate/extra/changed/error diagnostics",
+    "changed compiler",
+    "absent module",
+    "failed compile"
+  ],
+  "evidence": [
+    {
+      "path": "node.tap",
+      "sha256": "d1c2816e5a08204551ce1eaf64e4697d3778f6f4661fa6d51bef8f9384183a76"
+    },
+    {
+      "path": "compiler.log",
+      "sha256": "5db718ed0c42812a4df86f9939e668d67f51a24b74e4a9b642031a9a2cc0c852"
+    },
+    {
+      "path": "compile\\data-postgres.sarif.json",
+      "sha256": "ff832dbd2c20ab0b126b204806e8d2fb2f569b88e69699d53c9abbc92827f93b"
+    },
+    {
+      "path": "compile\\data-managed-redis.sarif.json",
+      "sha256": "2e8e957c394411b4d683c2362953e6c4021f1e4f077fc15717f488c728f73d5b"
+    },
+    {
+      "path": "compile\\data-postgres.json",
+      "sha256": "54a761fee49caf9871cb3227cc9d2d23c8804061c303744cca451c8be940fb98"
+    },
+    {
+      "path": "compile\\data-managed-redis.json",
+      "sha256": "35ac0aa15499508cefbb404fb8bec8bb8b5175553e78b3b328d103ef46ee770f"
+    }
+  ],
+  "cleanup": "Compiler processes exited; only unique run-owned generated templates and SARIF retained; no store/cloud mutation.",
+  "nativeExecution": false,
+  "providerPropertiesValidated": false,
+  "deploymentVerified": false,
+  "nextAction": "R4 and R8 independently replay both focused commands against frozen bytes; separately approved provider deployment and per-app own-identity connectivity remain To Do."
+}

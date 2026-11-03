@@ -1,0 +1,47 @@
+{
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R3",
+  "childIds": [
+    "DEM-03.1"
+  ],
+  "sourcePaths": [
+    "apim\\DEMO03_CONSTRUCTION.md",
+    "apim\\demo03-cases.v1.json",
+    "apim\\policies\\api-policy.xml",
+    "apim\\policies\\fragments\\contoso-authn-v1.xml",
+    "apim\\policies\\fragments\\contoso-authz-v1.xml",
+    "apim\\policies\\fragments\\contoso-backend-proof-v1.xml",
+    "apim\\policies\\fragments\\contoso-business-id-v1.xml",
+    "apim\\policies\\fragments\\contoso-business-observe-v1.xml",
+    "apim\\policies\\fragments\\contoso-context-v1.xml",
+    "apim\\policies\\fragments\\contoso-header-hygiene-v1.xml",
+    "apim\\policies\\fragments\\contoso-request-guard-v1.xml",
+    "apim\\policies\\fragments\\contoso-response-id-v1.xml",
+    "apim\\policies\\service-policy.xml",
+    "apim\\sdk-source-pin.json",
+    "infra\\modules\\apim-api-policies.bicep",
+    "infra\\modules\\apim-observability.bicep",
+    "tests\\apim\\demo03-construction.test.mjs",
+    "tests\\apim\\fixtures\\flag-rewrite.xml",
+    "tests\\apim\\fixtures\\request-id-parent.xml",
+    "tools\\protocol.mjs",
+    "tools\\verification\\adapters\\demo03-runtime.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\invariants.mjs",
+    "tools\\verification\\observers.mjs"
+  ],
+  "testFiles": [
+    "tests\\apim\\demo03-construction.test.mjs"
+  ],
+  "positiveTests": [
+    "positive: four real source vectors retain sampled, absent, invalid and unsampled meanings without generated observations",
+    "positive: concrete source and forbidden-fixture scans report all unavailable native operations honestly"
+  ],
+  "negativeTests": [
+    "negative: missing/repeated carriers and invented native observations never become a valid plan",
+    "negative: caller mutation during an awaited source check cannot alter its verified receipt",
+    "negative: only source --check is accepted; CLI BLOCKED exits nonzero and never creates native authority"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R8\\r3-dem03-v2-20261102\\receipt"
+}

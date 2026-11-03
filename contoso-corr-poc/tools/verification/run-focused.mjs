@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createBoundDirectory, jsonBytes, projectRoot, readBoundFile, sha256, writeManifest } from './files.mjs';
 
 const directory = path.join(projectRoot, 'tests', 'verification');
-const excluded = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.java-work', 'evidence']);
+const excluded = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.tools', '.java-work', 'evidence']);
 
 async function sourceTree(prefix) {
   const files = [];

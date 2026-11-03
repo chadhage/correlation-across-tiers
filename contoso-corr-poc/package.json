@@ -15,6 +15,7 @@
     "microsite:serve": "node web\\demo-microsite\\serve.mjs",
     "microsite:test": "node --test tests\\microsite.test.mjs",
     "test": "node tools/run-tests.mjs",
+    "test:prepare": "pwsh -NoProfile -File tools\\Prepare-NodeTests.ps1",
     "board:check": "node tools/kanban.mjs --check",
     "board:rehydrate": "node tools/kanban.mjs --write",
     "verify:register": "node tools\\verification\\register.mjs --check",

@@ -1,0 +1,81 @@
+{
+  "schema": "contoso.local-check.v1",
+  "owner": "R9",
+  "agentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "claim": "CRT-03.1",
+  "scope": "unit",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "nodeVersion": "v22.23.4",
+  "command": "node --test --test-reporter=tap tests\\verification\\test-coverage-report.test.mjs",
+  "startedAtUtc": "2026-11-02T22:09:59.370Z",
+  "finishedAtUtc": "2026-11-02T22:09:59.884Z",
+  "tests": 5,
+  "passed": 5,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "sourceDrift": [],
+  "sourcesVerified": true,
+  "result": "PASS",
+  "sources": [
+    {
+      "path": "docs\\TEST_COVERAGE_REPORT.md",
+      "sha256": "2ed030eb7163dcaa185f54cd8019518609a1e22383f55dec84b7274cfa3ae908"
+    },
+    {
+      "path": "tools\\verification\\test-coverage-report.mjs",
+      "sha256": "773530198f51f32db8650b6afa362172df95bae2870610f1b930c9b841f0b58a"
+    },
+    {
+      "path": "tests\\verification\\test-coverage-report.test.mjs",
+      "sha256": "a1b2d624bfa327664d75cec97beaa3907d70c3a515879920097e869e9050843c"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\result.json",
+      "sha256": "a2a23bd9f4a1129edd48794658c5315182d1b556ea01f7f09eeba5a7c83fa17b"
+    },
+    {
+      "path": "evidence\\verification\\root-node\\20261102T044452090Z-0314607f-8474-41a8-baeb-4267f7447368\\after-sources.json",
+      "sha256": "e3f79389a4bb6774e9e847146c0e3270021a50db793c61044cb644e63c933d9f"
+    },
+    {
+      "path": "evidence\\java-local\\source-builds\\20261102T020237806Z-integrated-reactor-bbf3e7ef-36b8-4d66-b009-df47b708d6d3\\source-build.json",
+      "sha256": "d3ff1ed1755c258066a6ee8f07f5cecce33423fb9d8f2e6a70e6eff858d2c7df"
+    }
+  ],
+  "beforeSourcesSha256": "ea04fad13ac6ee7cac8f52fae11125e469cfb2fba54d54bbefc411b8ba108d1a",
+  "afterSourcesSha256": "ea04fad13ac6ee7cac8f52fae11125e469cfb2fba54d54bbefc411b8ba108d1a",
+  "positiveControls": [
+    "whole report explicitly HISTORICAL source63a2a5d exact419Node182Java receipt bytes",
+    "separate failures/errors/skips/cancellations",
+    "not measured code coverage/current suite"
+  ],
+  "negativeControls": [
+    "quoted count drift",
+    "missing source commit",
+    "changed commit or same-commit source closure without HISTORICAL",
+    "receipt-byte drift",
+    "skip cannot count as pass",
+    "escaping link",
+    "unsupported rewrite argument"
+  ],
+  "cleanup": "No full Node/Maven suite, tools, native process, cloud access or shared outputs generated; only focused checker tests executed.",
+  "remaining": [
+    "Two independent R1/R7 source/unit reviews",
+    "Current full-suite receipts and actual coverage instrumentation are intentionally not supplied"
+  ]
+}

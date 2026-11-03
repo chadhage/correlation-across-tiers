@@ -1,0 +1,72 @@
+name: Java reactor gates
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  java:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    env:
+      APPLICATIONINSIGHTS_STATSBEAT_DISABLED: 'true'
+      APPLICATIONINSIGHTS_LIVE_METRICS_ENABLED: 'false'
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: contoso-corr-poc
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.4
+      - name: Install checksum-locked Java and Maven
+        run: |
+          & .\tools\java\Install-Portable.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Locked portable tools failed' }
+      - name: Build and verify the checksum-locked sampler
+        run: |
+          . .\tools\java\Use-Portable.ps1
+          $agent = & .\tools\java\Get-Agent.ps1
+          mvn -B -ntp -pl :contoso-parent-safe-sampler -am clean package
+          if ($LASTEXITCODE -ne 0) { throw 'Sampler build failed' }
+          $lock = Get-Content .\config\versions.lock.json -Raw | ConvertFrom-Json
+          $sampler = (Resolve-Path .\extensions\parent-safe-sampler\target\contoso-parent-safe-sampler-1.1.0.jar).Path
+          if ((Get-FileHash $sampler).Hash.ToLowerInvariant() -ne $lock.extensions[0].sha256) {
+            throw 'Sampler differs from the lock'
+          }
+          "CONTOSO_AGENT_JAR=$agent" >> $env:GITHUB_ENV
+          "CONTOSO_PARENT_SAFE_JAR=$sampler" >> $env:GITHUB_ENV
+      - name: Run every Java module with both artifacts supplied
+        run: |
+          . .\tools\java\Use-Portable.ps1
+          "CONTOSO_JAVA_TEST_START=$([datetimeoffset]::UtcNow.ToString('o'))" >> $env:GITHUB_ENV
+          mvn -B -ntp clean verify
+          if ($LASTEXITCODE -ne 0) { throw 'Java reactor failed' }
+      - name: Require actual unskipped agent tests and print totals
+        if: always()
+        run: |
+          if (-not $env:CONTOSO_JAVA_TEST_START) {
+            Write-Output 'JAVA_TEST_TOTALS {"tests":0,"executed":0,"passed":0,"skipped":0,"cancelled":0}'
+            throw 'Java reactor never started; no tests qualified'
+          }
+          & .\tools\java\Assert-JavaTestResults.ps1 -StartedAtUtc $env:CONTOSO_JAVA_TEST_START -SummaryPath .\.java-work\ci-java-results.json
+      - name: Reject second SDK and disabled-module fixtures
+        run: |
+          . .\tools\java\Use-Portable.ps1
+          & .\tools\java\Gate-02.ps1 -RequireArtifacts
+          node --test .\tests\java\gates.test.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Java negative controls failed' }
+      - name: Retain runner-scoped test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-source-unit-results
+          path: |
+            contoso-corr-poc/.java-work/ci-java-results.json
+            contoso-corr-poc/**/target/surefire-reports/TEST-*.xml
+          if-no-files-found: error

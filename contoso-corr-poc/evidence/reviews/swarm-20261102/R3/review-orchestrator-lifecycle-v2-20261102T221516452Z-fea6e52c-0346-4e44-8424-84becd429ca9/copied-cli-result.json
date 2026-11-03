@@ -1,0 +1,147 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "orchestrator",
+  "reviewedOwnerAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "result": "ACCEPTED_COPIED_CLI_CONTROLS_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "executionScope": "Isolated copied CLI and synthetic metadata/TAP fixtures only; reviewer IDs in the copy are test inputs, not independent review authority",
+  "nodeVersion": "v22.23.4",
+  "beforeSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "originalBoardPolicyStable": true,
+  "originalBacklogSemanticHashStable": true,
+  "realBoardOperationalStatusNotCompared": true,
+  "parentUnitPassFacetsInCopy": 0,
+  "parentCardsDoneInCopy": 0,
+  "runs": [
+    {
+      "name": "fixture-review-R2",
+      "command": "node tools\\kanban.mjs --review-child request-R2.json",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "stdoutSha256": "6c4d8dadf3d959149a16a49348c65a4b98092d666abc96046d12412a8c9d0711",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "fixture-review-R3",
+      "command": "node tools\\kanban.mjs --review-child request-R3.json",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "stdoutSha256": "67de6ebe9c0c503ed16bc7ba6840e7f141db557d4a4fa84e2c7ac3e140c5c18c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "valid-fixture-write",
+      "command": "node tools\\kanban.mjs --write",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "stdoutSha256": "6bee61b9ed1a7498b92a109601513cd83f4cbfd4a58321b6791222308abf98c6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "valid-fixture-check",
+      "command": "node tools\\kanban.mjs --check",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "stdoutSha256": "6bee61b9ed1a7498b92a109601513cd83f4cbfd4a58321b6791222308abf98c6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "missing-child-review",
+      "command": "node tools\\kanban.mjs --check",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 1,
+      "expectedExit": 1,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "ff1846e90faf0283c1bdac909f2573e48df50f6608f69ebf12410aa1b0ab44e6"
+    },
+    {
+      "name": "changed-child-source",
+      "command": "node tools\\kanban.mjs --check",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 1,
+      "expectedExit": 1,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "5ff1afef50486be3a34bf9ac631cab0e097a7be4086d64782e9c6b671e189825"
+    },
+    {
+      "name": "tampered-child-tap",
+      "command": "node tools\\kanban.mjs --check",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 1,
+      "expectedExit": 1,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "8116b0ca51fd3907a2af344554201f4eb8d9a0f29adac82db192ffd441623785"
+    },
+    {
+      "name": "restored-fixture-check",
+      "command": "node tools\\kanban.mjs --check",
+      "cwd": "copied-cli-work\\repository\\contoso-corr-poc",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "stdoutSha256": "6bee61b9ed1a7498b92a109601513cd83f4cbfd4a58321b6791222308abf98c6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "failure": null,
+  "cleanup": "Private copied repository, fixture source/state and fixture review records removed; immutable stdout/stderr and receipt retained. No real board/wiki/scopes edits, services, Maven, cloud or secret access."
+}

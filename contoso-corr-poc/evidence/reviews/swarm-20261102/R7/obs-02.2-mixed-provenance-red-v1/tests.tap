@@ -1,0 +1,234 @@
+TAP version 13
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 1 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 41.7759
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 2 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 4.0062
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 3 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 10.2925
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 4 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 7.5564
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 5 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 5.1842
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 6 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 6.5532
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 7 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 4.3881
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 8 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 6.2665
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 9 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 4.8784
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 10 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 5.0718
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 11 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 5.5215
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 12 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 4.9621
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 13 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.2724
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 14 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.1337
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 15 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 3.2109
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 16 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 4.4777
+  type: 'test'
+  ...
+# Subtest: a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+ok 17 - a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+  ---
+  duration_ms: 6.7556
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 18 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 4.6117
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 19 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 3.4006
+  type: 'test'
+  ...
+# Subtest: actual SDK-shaped absent browser parent and page-view display ID stay context-only without an invented span
+ok 20 - actual SDK-shaped absent browser parent and page-view display ID stay context-only without an invented span
+  ---
+  duration_ms: 4.8434
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 21 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 6.6445
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 22 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 6.7515
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 23 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 2.2791
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 24 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 3.3072
+  type: 'test'
+  ...
+# Subtest: seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+ok 25 - seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+  ---
+  duration_ms: 36.0277
+  type: 'test'
+  ...
+# Subtest: original envelope ordinals survive non-span filtering and unrelated invocation records
+ok 26 - original envelope ordinals survive non-span filtering and unrelated invocation records
+  ---
+  duration_ms: 34.0798
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 27 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 97.8619
+  type: 'test'
+  ...
+# Subtest: mixed caller envelopes cannot inherit an original loopback capture provenance
+not ok 28 - mixed caller envelopes cannot inherit an original loopback capture provenance
+  ---
+  duration_ms: 26.8112
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\observability\\local-trace-tree.test.mjs:325:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'IN_PROCESS_LOOPBACK_LOCAL_ONLY'
+    - 'SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY'
+  actual: 'IN_PROCESS_LOOPBACK_LOCAL_ONLY'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/observability/local-trace-tree.test.mjs:338:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: an empty original loopback capture cannot lend provenance to caller-only spans
+not ok 29 - an empty original loopback capture cannot lend provenance to caller-only spans
+  ---
+  duration_ms: 16.9164
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\observability\\local-trace-tree.test.mjs:347:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'IN_PROCESS_LOOPBACK_LOCAL_ONLY'
+    - 'SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY'
+  actual: 'IN_PROCESS_LOOPBACK_LOCAL_ONLY'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/observability/local-trace-tree.test.mjs:356:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 30 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 21.2511
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 31 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 411.131
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 29
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1151.6021

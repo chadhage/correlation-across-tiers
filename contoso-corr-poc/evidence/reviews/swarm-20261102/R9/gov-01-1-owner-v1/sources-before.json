@@ -1,0 +1,30 @@
+[
+  {
+    "path": "..\\.github\\pull_request_template.md",
+    "sha256": "6ba641a208c5f5d4bc6621969da1c80fa16e4ff927cf6aa2a82d2c693bf8c8cf"
+  },
+  {
+    "path": "tools\\verification\\pull-request-template.mjs",
+    "sha256": "1ee253a356708804c5b98e9367c6b52525cc8971be22155b210b373a39c2b465"
+  },
+  {
+    "path": "tests\\verification\\pull-request-template.test.mjs",
+    "sha256": "7356632d576cbe7fcebb96840a555fbc9636912ea05ee1cd9e323c9b58d59d6f"
+  },
+  {
+    "path": "tools\\verification\\files.mjs",
+    "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+  },
+  {
+    "path": "tools\\verification\\run-focused.mjs",
+    "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+  },
+  {
+    "path": "tools\\observability\\telemetry-contract.mjs",
+    "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+  },
+  {
+    "path": "DECISIONS.md",
+    "sha256": "9c6d2baa654cc13cb051812572d8d2dff73044cf19e53cb2b04834ecf45e57da"
+  }
+]

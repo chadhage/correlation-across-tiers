@@ -1,10 +1,14 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import test from 'node:test';
 import { projectRoot, sha256 } from '../../tools/verification/files.mjs';
 import { checkSelectedSecurityEpoch, intakeSelectedSecurityClientEpoch, requireSelectedSecurityQualification,
-  validateSecurityFreezeSources } from '../../tools/verification/security-client-qualification.mjs';
+  validateSecurityFreezeSources, resolveSecurityToolsRoot,
+  validateSecurityEpochLocation, validateSecurityToolBindings } from '../../tools/verification/security-client-qualification.mjs';
 
 const original = {
   build: JSON.parse(await readFile(path.join(projectRoot, 'evidence', 'java-local', 'source-builds',
@@ -21,6 +25,27 @@ test('original A/B semantic consistency is structural only and cannot mint accep
   assert.equal(result.authorityGranted, false);
   assert.deepEqual(result.counts, { jwks: 1, managedIdentity: 2 });
   assert.throws(() => requireSelectedSecurityQualification(result), /private genuine/);
+});
+
+function recordedRoot() {
+  let root = fileURLToPath(original.native.probeCompilation.actualCodeSource);
+  for (let depth = 0; depth < 5; depth++) root = path.dirname(root);
+  return root;
+}
+
+test('archived path consistency cannot enroll a relocated current execution', () => {
+  const root = recordedRoot();
+  const result = validateSecurityEpochLocation(original.native, root);
+  assert.equal(result.authorityGranted, false);
+  assert.throws(() => requireSelectedSecurityQualification(result), /private genuine/);
+  assert.throws(() => validateSecurityEpochLocation(original.native, path.join(root, 'relocated-copy')), /Relocated project copies/);
+});
+
+test('historical compiler source, output and used artifact paths must retain one recorded root', () => {
+  const candidate = copy();
+  candidate.native.probeCompilation.compilerArguments[4] = path.join(recordedRoot(), 'relocated-copy',
+    'services', 'security-core', 'src', 'test', 'java', 'com', 'contoso', 'security', 'AuthPropagationProbe.java');
+  assert.throws(() => checkSelectedSecurityEpoch(candidate), /compiler\/source\/class\/CodeSource/);
 });
 
 test('omitted/duplicate/recomputed closure cannot qualify current-source lineage', () => {
@@ -114,4 +139,58 @@ test('JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed loc
   Object.defineProperty(candidate.native, 'identityClientOutput', { enumerable: true, get() { reads++; return {}; } });
   assert.throws(() => checkSelectedSecurityEpoch(candidate), /accessors/);
   assert.equal(reads, 0);
+});
+
+test('security tool selection requires the named environment prerequisite and honors an explicit spaced root', () => {
+  for (const value of ['', '   ', null, {}, 'bad\0root']) {
+    assert.throws(() => resolveSecurityToolsRoot(value), /CONTOSO_PORTABLE_TOOLS_ROOT is required/);
+  }
+  const selected = path.join(projectRoot, 'tests', 'verification', 'selected tools');
+  assert.equal(resolveSecurityToolsRoot(` ${selected} `), selected);
+});
+
+test('actual security qualification CLI fails explicitly when the tools-root variable is unset', () => {
+  const env = { ...process.env };
+  delete env.CONTOSO_PORTABLE_TOOLS_ROOT;
+  const result = spawnSync(process.execPath, ['tools\\verification\\security-client-qualification.mjs'], {
+    cwd: projectRoot, env, encoding: 'utf8', timeout: 30000
+  });
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  const diagnostic = JSON.parse(result.stderr.trim());
+  assert.equal(diagnostic.code, 'E_SECURITY_TOOLS_ROOT');
+  assert.equal(diagnostic.missingPrerequisite, 'CONTOSO_PORTABLE_TOOLS_ROOT');
+  assert.equal(diagnostic.result, 'FAIL_OR_UNVERIFIED');
+  assert.equal(diagnostic.apiReady, false);
+});
+
+test('security qualification source has no machine or session-folder default', async () => {
+  const source = await readFile(path.join(projectRoot, 'tools', 'verification', 'security-client-qualification.mjs'), 'utf8');
+  assert.doesNotMatch(source, /[a-z]:[\\/]+users[\\/]|session-state/iu);
+  assert.match(source, /CONTOSO_PORTABLE_TOOLS_ROOT/);
+});
+
+test('explicit security tool byte checks remain read-only and cannot enroll a receipt', async () => {
+  const root = path.join(projectRoot, 'tests', 'verification', 'generated-fixtures', randomUUID(), 'selected tools');
+  const tools = {};
+  const files = [
+    ['mavenCommand', 'mavenCommandSha256', 'apache-maven-3.10.0', 'mvn.cmd'],
+    ['java', 'javaSha256', 'jdk-25.0.5+8', 'java.exe'],
+    ['javac', 'javacSha256', 'jdk-25.0.5+8', 'javac.exe']
+  ];
+  try {
+    for (const [property, hash, directory, file] of files) {
+      tools[property] = path.join(root, directory, 'bin', file);
+      tools[hash] = sha256(Buffer.from(file));
+      await mkdir(path.dirname(tools[property]), { recursive: true });
+      await writeFile(tools[property], file);
+    }
+    const checked = await validateSecurityToolBindings(tools, root);
+    assert.equal(checked.authorityGranted, false);
+    assert.throws(() => requireSelectedSecurityQualification(checked), /private genuine/);
+    await assert.rejects(validateSecurityToolBindings(tools, `${root}-relocated`), /cannot inherit execution identity/);
+    await writeFile(tools.java, 'changed');
+    await assert.rejects(validateSecurityToolBindings(tools, root), /unavailable or changed/);
+    await rm(tools.java);
+    await assert.rejects(validateSecurityToolBindings(tools, root), /CONTOSO_PORTABLE_TOOLS_ROOT/);
+  } finally { await rm(path.dirname(root), { recursive: true, force: true }); }
 });

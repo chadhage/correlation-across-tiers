@@ -1,0 +1,32 @@
+{
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "childIds": [
+    "DAT-01.3"
+  ],
+  "sourcePaths": [
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+    "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+    "tools\\data\\LocalPostgresLane.md",
+    "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+    "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+    "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+    "services\\inventory-data\\pom.xml",
+    "config\\versions.lock.json"
+  ],
+  "testFiles": [
+    "services\\inventory-data\\tools\\local-postgres-lane.test.mjs"
+  ],
+  "positiveTests": [
+    "SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter",
+    "SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field"
+  ],
+  "negativeTests": [
+    "CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.3-v1-20261102\\receipt"
+}

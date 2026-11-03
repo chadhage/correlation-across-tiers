@@ -1,0 +1,22 @@
+{
+  "schema": "contoso.author-canonical-binding.v1",
+  "childId": "GATE-03.1",
+  "priorHandoffPath": "handoff.json",
+  "priorHandoffSha256": "30d5fd35904275acfc593aca2f9927370135a936483a0d172dad2a8e9b1bd679",
+  "correction": "The prior author handoff hashed the summary table row. That is not the canonical complete child definition. Use this canonical binding and the two independent helper receipts; original handoff stays immutable.",
+  "canonicalChild": {
+    "id": "GATE-03.1",
+    "title": "Run the secret scan on every pull request and over full history in CI",
+    "checked": false,
+    "start": 49023,
+    "owner": "R8",
+    "needs": [],
+    "requiredResult": "Secret-scan workflow on every pull request and over full history",
+    "constructionOnly": false,
+    "definitionSha256": "8fe6074bdf0b5fe9ed0759ea412b56c6c313a4fe023f44a059ed7706349aae67"
+  },
+  "childDefinitionSha256": "8fe6074bdf0b5fe9ed0759ea412b56c6c313a4fe023f44a059ed7706349aae67",
+  "sourceScopeSha256": "bb8210475d67699ea03a9a8c3e8510386a4e8bc33506bb2d8ad2da71b727b57e",
+  "hostedAcceptance": "To Do: actual hosted clean and seeded-fail PR runs are unexecuted",
+  "capturedAtUtc": "2026-11-02T22:03:53.591Z"
+}

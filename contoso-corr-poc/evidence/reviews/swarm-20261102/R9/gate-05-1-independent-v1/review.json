@@ -1,0 +1,235 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "fdd8fd29660230c7a209f0d67603333e6382e17c30683ce265b3b8d537725d05",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Install-Portable.ps1",
+      "sha256": "311f8a48d9446304ba16e0cca55368b9bc6251da36459117091134b964ebd613",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Install-Bicep.ps1",
+      "sha256": "b9a9a219d01859538fbcbd7281b01917bea43409713decf373ad79ab2586471d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "4e2549a5bb333541081b2606a272437cf9f4a15d8cd69502690d3cdcbc2592a5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Gate-05.ps1",
+      "sha256": "408b9ff311b65048c94d0184fc4e1e0c5ca9a97cd6b98dcf10f3cf4e9d48f906",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Validate-Compute.ps1",
+      "sha256": "54dce045e12cf10fa077d4c1174246906ea234a88fe53fc6a2920030675dd10d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Get-Extension.ps1",
+      "sha256": "a10fc9f06d1034f1180797626f4ebdabb6c2640332e067b330844a719af0d565",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\java\\portable-tools.test.mjs",
+      "sha256": "9737a94c9e4442fda6e472d21bc1275324098b9f205bb561c3097acf093f7091",
+      "hashMode": "raw"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "133b84f0cc5dcf74b2333a5b6adf25e80e89b550afbcd414420889aec98e8c77",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\JAVA_VALIDATION.md",
+      "sha256": "b7a5228273cd5500f4d93c68747ee290e46e2c49a1470640864d475d8147a235",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "fdd8fd29660230c7a209f0d67603333e6382e17c30683ce265b3b8d537725d05",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Install-Portable.ps1",
+      "sha256": "311f8a48d9446304ba16e0cca55368b9bc6251da36459117091134b964ebd613",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Install-Bicep.ps1",
+      "sha256": "b9a9a219d01859538fbcbd7281b01917bea43409713decf373ad79ab2586471d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "4e2549a5bb333541081b2606a272437cf9f4a15d8cd69502690d3cdcbc2592a5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Gate-05.ps1",
+      "sha256": "408b9ff311b65048c94d0184fc4e1e0c5ca9a97cd6b98dcf10f3cf4e9d48f906",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Validate-Compute.ps1",
+      "sha256": "54dce045e12cf10fa077d4c1174246906ea234a88fe53fc6a2920030675dd10d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Get-Extension.ps1",
+      "sha256": "a10fc9f06d1034f1180797626f4ebdabb6c2640332e067b330844a719af0d565",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\java\\portable-tools.test.mjs",
+      "sha256": "9737a94c9e4442fda6e472d21bc1275324098b9f205bb561c3097acf093f7091",
+      "hashMode": "raw"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "133b84f0cc5dcf74b2333a5b6adf25e80e89b550afbcd414420889aec98e8c77",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\JAVA_VALIDATION.md",
+      "sha256": "b7a5228273cd5500f4d93c68747ee290e46e2c49a1470640864d475d8147a235",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R4",
+      "authorAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "result": "accepted",
+      "scopeSha256": "57c358fbdab416f0337b809e3e2a213f2aebeed6d1126d0dadcd08fd42f49eba",
+      "sources": [
+        {
+          "path": "tools\\java\\PortableTools.ps1",
+          "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Use-Portable.ps1",
+          "sha256": "fdd8fd29660230c7a209f0d67603333e6382e17c30683ce265b3b8d537725d05",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Install-Portable.ps1",
+          "sha256": "311f8a48d9446304ba16e0cca55368b9bc6251da36459117091134b964ebd613",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Install-Bicep.ps1",
+          "sha256": "b9a9a219d01859538fbcbd7281b01917bea43409713decf373ad79ab2586471d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Get-Agent.ps1",
+          "sha256": "4e2549a5bb333541081b2606a272437cf9f4a15d8cd69502690d3cdcbc2592a5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Gate-05.ps1",
+          "sha256": "408b9ff311b65048c94d0184fc4e1e0c5ca9a97cd6b98dcf10f3cf4e9d48f906",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Validate-Compute.ps1",
+          "sha256": "54dce045e12cf10fa077d4c1174246906ea234a88fe53fc6a2920030675dd10d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Get-Extension.ps1",
+          "sha256": "a10fc9f06d1034f1180797626f4ebdabb6c2640332e067b330844a719af0d565",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\java\\portable-tools.test.mjs",
+          "sha256": "9737a94c9e4442fda6e472d21bc1275324098b9f205bb561c3097acf093f7091",
+          "hashMode": "raw"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "133b84f0cc5dcf74b2333a5b6adf25e80e89b550afbcd414420889aec98e8c77",
+          "hashMode": "raw"
+        },
+        {
+          "path": "docs\\JAVA_VALIDATION.md",
+          "sha256": "b7a5228273cd5500f4d93c68747ee290e46e2c49a1470640864d475d8147a235",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\versions.lock.json",
+          "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\java\\portable-tools.test.mjs",
+        "testFiles": [
+          "tests\\java\\portable-tools.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:00:11.429Z",
+        "finishedAtUtc": "2026-11-02T22:00:52.949Z",
+        "exitCode": 0,
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-1-independent-v1\\tests.tap",
+        "sha256": "8b93d3021fe3c63f7a5b44cbce69246582cb1149c5b879df1367d6c104636f14",
+        "positiveTests": [
+          "explicit root beats the environment and preserves spaced paths with locked versions"
+        ],
+        "negativeTests": [
+          "portable installation rejects a changed archive before extraction or download"
+        ]
+      },
+      "children": [
+        {
+          "id": "GATE-05.1",
+          "definitionSha256": "20988397738ca6334bcf065eb929a15ecb79d02daad630fb30cb49b3743a5c66",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

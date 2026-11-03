@@ -1,0 +1,85 @@
+name: Node source verification
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: contoso-corr-poc
+    steps:
+      - name: Check out the PR source without persisted credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Use the supported Node runtime
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.23.4'
+      - name: Initialize explicit execution scope
+        run: |
+          'Configured root Node suite: NOT RUN until all prerequisites pass and an actual result is appended below. Missing prerequisites are not passing tests. Source checks are NOT CERTIFIED.' | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY
+      - name: Prepare the existing checksum-pinned local Bicep compiler
+        run: |
+          $tools = Join-Path $PWD '.tools\java'
+          & .\tools\java\Install-Bicep.ps1 -ToolsRoot $tools
+          if ($LASTEXITCODE -ne 0) { throw 'PINNED_BICEP_PREREQUISITE_FAILED' }
+          $compiler = Join-Path $tools 'bicep.exe'
+          "CONTOSO_BICEP_PATH=$compiler" | Add-Content -LiteralPath $env:GITHUB_ENV
+          "CONTOSO_BICEP_EXE=$compiler" | Add-Content -LiteralPath $env:GITHUB_ENV
+      - name: Check current board, explicit VERIFY claims and source-only documentation
+        run: |
+          node tools\kanban.mjs --check
+          if ($LASTEXITCODE -ne 0) { throw 'BOARD_CHECK_FAILED' }
+          node tools\verification\register.mjs --check
+          if ($LASTEXITCODE -ne 0) { throw 'VERIFY_REGISTER_FAILED' }
+          node tools\verification\test-coverage-report.mjs --check
+          if ($LASTEXITCODE -ne 0) { throw 'COVERAGE_REPORT_FAILED' }
+          node tools\verification\pull-request-template.mjs --check
+          if ($LASTEXITCODE -ne 0) { throw 'PR_TEMPLATE_SOURCE_FAILED' }
+      - name: Require current report sources and retain invalidated diagnostics on staleness
+        run: |
+          node tools\verification\report.mjs --check
+          if ($LASTEXITCODE -ne 0) {
+            'Configured root Node suite: NOT RUN because the report prerequisite failed. No tests are counted as passes.' | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY
+            node tools\verification\report.mjs --invalidate
+            if ($LASTEXITCODE -ne 0) { throw 'REPORT_INVALIDATION_FAILED_NO_CURRENT_ACCEPTANCE' }
+            throw 'REPORT_STALE: affected rows were INVALIDATED in this ephemeral checkout; update and review the report before merge'
+          }
+      - name: Build checksum-locked Node test prerequisites from this checkout
+        run: |
+          & .\tools\java\Install-Portable.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'NODE_TEST_JAVA_PREREQUISITE_FAILED' }
+          npm run test:prepare
+          if ($LASTEXITCODE -ne 0) { throw 'NODE_TEST_BUILD_PREREQUISITE_FAILED' }
+      - name: Run the configured root Node suite including repository portability tests
+        run: |
+          $output = & node tools\verification\ci-node.mjs
+          $code = $LASTEXITCODE
+          $output | Write-Output
+          if (@($output).Count -gt 0) {
+            $summary = @($output)[-1] | ConvertFrom-Json
+            "Root Node actual result: $($summary.result); tests $($summary.tests), passed $($summary.passed), failed $($summary.failed), skipped $($summary.skipped), cancelled $($summary.cancelled). Source/current-scope only; NOT CERTIFIED." | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY
+          } else {
+            'Root Node suite: NOT RUN OR INCOMPLETE; no passing total is inferred.' | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY
+          }
+          if ($code -ne 0) { throw 'NODE_TEST_EXECUTION_OR_SKIP_ACCOUNTING_FAILED' }
+      - name: Retain actual TAP, counts and current or invalidated report diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: node-source-verification
+          if-no-files-found: warn
+          path: |
+            contoso-corr-poc\evidence\ci-node
+            contoso-corr-poc\evidence\verification\certification-assessment.json
+            contoso-corr-poc\docs\CERTIFICATION_REPORT.md

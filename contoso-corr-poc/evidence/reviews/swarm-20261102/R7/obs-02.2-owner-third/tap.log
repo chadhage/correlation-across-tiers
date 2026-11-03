@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 1 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 86.1929
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 2 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 24.1109
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 3 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 13.3589
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 4 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 8.1075
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 5 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 3.5718
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 6 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 17.8952
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 7 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 12.3409
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 8 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 6.4792
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 9 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 4.1674
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 10 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 4.0535
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 11 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.1826
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 12 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.6311
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 13 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 8.0296
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 14 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 6.6738
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 15 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 2.8293
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 16 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 22.1617
+  type: 'test'
+  ...
+# Subtest: a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+ok 17 - a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+  ---
+  duration_ms: 4.6529
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 18 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 4.4107
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 19 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 3.809
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 20 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 5.9269
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 21 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 21.6361
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 22 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 2.2584
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 23 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 3.2996
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 24 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 111.9167
+  type: 'test'
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 25 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 33.9194
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 26 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 356.7173
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1551.4775

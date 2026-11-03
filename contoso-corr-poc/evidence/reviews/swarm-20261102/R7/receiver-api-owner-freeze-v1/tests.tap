@@ -1,0 +1,198 @@
+TAP version 13
+# (node:46436) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+ok 1 - safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+  ---
+  duration_ms: 33.2471
+  type: 'test'
+  ...
+# Subtest: unsafe originals never reach an incremental callback and callback failures poison all acceptance
+ok 2 - unsafe originals never reach an incremental callback and callback failures poison all acceptance
+  ---
+  duration_ms: 5.9769
+  type: 'test'
+  ...
+# Subtest: a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+ok 3 - a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+  ---
+  duration_ms: 6.3213
+  type: 'test'
+  ...
+# Subtest: the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+ok 4 - the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+  ---
+  duration_ms: 269.2692
+  type: 'test'
+  ...
+# Subtest: invalid configured ports are rejected before creating a loopback listener
+ok 5 - invalid configured ports are rejected before creating a loopback listener
+  ---
+  duration_ms: 1.0092
+  type: 'test'
+  ...
+# Subtest: sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+ok 6 - sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+  ---
+  duration_ms: 8.7136
+  type: 'test'
+  ...
+# Subtest: zero observed native payloads are explicit absence, never an invented successful privacy scan
+ok 7 - zero observed native payloads are explicit absence, never an invented successful privacy scan
+  ---
+  duration_ms: 1.4189
+  type: 'test'
+  ...
+# Subtest: a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+ok 8 - a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+  ---
+  duration_ms: 101.771
+  type: 'test'
+  ...
+# Subtest: strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+ok 9 - strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+  ---
+  duration_ms: 3.1675
+  type: 'test'
+  ...
+# Subtest: scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+ok 10 - scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+  ---
+  duration_ms: 89.4281
+  type: 'test'
+  ...
+# Subtest: raw body limit is checked while reading and does not drain an oversized stream
+ok 11 - raw body limit is checked while reading and does not drain an oversized stream
+  ---
+  duration_ms: 15.6643
+  type: 'test'
+  ...
+# Subtest: oversized declared or truncated body rejects without fabricated native receipts
+ok 12 - oversized declared or truncated body rejects without fabricated native receipts
+  ---
+  duration_ms: 1.0507
+  type: 'test'
+  ...
+# Subtest: fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+ok 13 - fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+  ---
+  duration_ms: 1.4563
+  type: 'test'
+  ...
+# Subtest: gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+ok 14 - gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+  ---
+  duration_ms: 21.9668
+  type: 'test'
+  ...
+# Subtest: one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+ok 15 - one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+  ---
+  duration_ms: 159.0805
+  type: 'test'
+  ...
+# Subtest: known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+ok 16 - known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+  ---
+  duration_ms: 2.1487
+  type: 'test'
+  ...
+# Subtest: pending original scan cannot be finalized or mislabeled as a complete receiver
+ok 17 - pending original scan cannot be finalized or mislabeled as a complete receiver
+  ---
+  duration_ms: 4.8711
+  type: 'test'
+  ...
+# Subtest: only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+ok 18 - only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+  ---
+  duration_ms: 81.8873
+  type: 'test'
+  ...
+# Subtest: real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+ok 19 - real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+  ---
+  duration_ms: 37.8523
+  type: 'test'
+  ...
+# Subtest: fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+ok 20 - fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+  ---
+  duration_ms: 42.1352
+  type: 'test'
+  ...
+# Subtest: failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+ok 21 - failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+  ---
+  duration_ms: 3.6942
+  type: 'test'
+  ...
+# Subtest: echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+ok 22 - echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+  ---
+  duration_ms: 51.557
+  type: 'test'
+  ...
+# Subtest: safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+ok 23 - safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+  ---
+  duration_ms: 0.9498
+  type: 'test'
+  ...
+# Subtest: scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+ok 24 - scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+  ---
+  duration_ms: 6.7889
+  type: 'test'
+  ...
+# Subtest: forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+ok 25 - forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+  ---
+  duration_ms: 17.7488
+  type: 'test'
+  ...
+# Subtest: receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+ok 26 - receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+  ---
+  duration_ms: 1.3357
+  type: 'test'
+  ...
+# Subtest: receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+ok 27 - receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+  ---
+  duration_ms: 6.6483
+  type: 'test'
+  ...
+# Subtest: actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+ok 28 - actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+  ---
+  duration_ms: 10.5119
+  type: 'test'
+  ...
+# Subtest: actual ninth connection records drop and retains the unchanged eight-connection poison limit
+ok 29 - actual ninth connection records drop and retains the unchanged eight-connection poison limit
+  ---
+  duration_ms: 21.5222
+  type: 'test'
+  ...
+# Subtest: successful native and echo responses explicitly close completed connections
+ok 30 - successful native and echo responses explicitly close completed connections
+  ---
+  duration_ms: 34.6187
+  type: 'test'
+  ...
+# Subtest: aborted native upload still poisons a previously accepted prefix after connection-close change
+ok 31 - aborted native upload still poisons a previously accepted prefix after connection-close change
+  ---
+  duration_ms: 32.4526
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2090.6975

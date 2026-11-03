@@ -1,0 +1,31 @@
+{
+  "schema": "contoso.r6-construction-freeze.v1",
+  "childId": "DAT-01.2",
+  "childDefinition": "| DAT-01.2 | R6 | none | Inventory fixture script free of the session-folder default |",
+  "childDefinitionSha256": "f28da08661e7f062e556ed53a69ffbc799d0e0c7c72f0c6585ff8ccd1e00bc0f",
+  "executorAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "facet": "construction-repeatability",
+  "frozenAtUtc": "2026-11-02T21:58:23.2403180Z",
+  "files": [
+    {
+      "path": "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+      "sha256": "4d808308213c3a280bf3f1183a01b34b7cc8536931a7f4a7d4a42fe822c1087d"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+      "sha256": "6880474215a3b579c55bfdd763fe039dc491f5f9208d4e01541b5477414d1ae7"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+      "sha256": "09357e4f3257a6b4be3b7343a29ea7059a8eb96f01d94e9b62b64b15190f41cb"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+      "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca"
+    },
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de"
+    }
+  ]
+}

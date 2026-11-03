@@ -1,0 +1,70 @@
+{
+  "schema": "contoso.demo-contract-handoff.v1",
+  "owner": "R9",
+  "agentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "claim": "DEM-00.1",
+  "scope": "EXISTING INTERFACE FREEZE FOR SOURCE CONSTRUCTION ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "nativeHarnessReady": false,
+  "nativeExecution": "NOT RUN",
+  "adapterSchema": "contoso.demo-adapter.v1",
+  "moduleExport": "createAdapter() or adapter; CLI requires explicit reviewed relative module path and exact SHA-256",
+  "methods": {
+    "prepare(context)": "Capture actual run-scoped baseline before effects; return nonempty baselineHashes [{component,sha256}].",
+    "execute(context, prepared)": "Return observed businessInvocationId, observationOrigin native-runtime, expectation, bounded fromUtc/toUtc, independently observed trafficLedger/nativeFacts/proofArtifacts. Caller JSON cannot enroll authority.",
+    "drain(context, execution)": "Bounded actual owned traffic/export drain.",
+    "collect(context, execution)": "Return original in-memory RAW capture with receipt, rawTables, scanReceipt and native query capabilities. adaptR7Capture retains originalCapture.",
+    "scanPrivacy(capture, execution)": "Use trusted original-column scan; PASS requires scannedAllColumns true. No global privacy claim.",
+    "observeSampling(context, execution)": "Native inventory/admission observation over the exact traffic window, not settings-only proof.",
+    "stopTraffic(context)": "Bounded own-run traffic stop; always attempted after prepare.",
+    "reset(context, prepared)": "Return contoso.demo-reset.v1, scope run-only, unownedStateTouched false, trafficStopped/samplingRestored/flagsRestored/seedRestored/ownedMessagesDrained true, evidenceSha256, unchanged baselineHashes.",
+    "restoreCapturedRun(summary)": "Optional separate-process durable recovery; fail closed if unavailable. Baseline hashes are not recoverable baseline values."
+  },
+  "context": [
+    "schema contoso.demo-context.v1",
+    "demoId",
+    "fresh runId",
+    "mode LocalValidate|BootstrapValidate|Certify",
+    "catalog spec",
+    "startedAtUtc",
+    "requestedBusinessInvocationId is a request, never proof",
+    "boundaryMapSha256",
+    "AbortSignal"
+  ],
+  "sourceConstructionRules": [
+    "Implement only role-owned demoXX-runtime.mjs and focused tests; do not edit shared dispatcher, pipeline, invariants, trust roots, observer registry or sibling adapters without coordination.",
+    "If complete real operations are unavailable, expose a construction inspector with result BLOCKED/runnableDemoAdapter false, explicit missing interfaces and no createAdapter/adapter export.",
+    "A fixture may validate checkers but must remain fixture-check/LocalValidate and never mint native execution, authenticated query or trust-root enrollment.",
+    "No-root-enrolled live verifier and acceptance remain unchanged.",
+    "Boundary IDs must come from contracts\\expected-boundary-map.v1.json; ARC-01.1 map revision is not frozen by this handoff.",
+    "No cloud access, traffic, secrets, deployment or spending is authorized."
+  ],
+  "leasePaths": {
+    "R2": ["tools\\verification\\adapters\\demo02-runtime.mjs"],
+    "R3": ["tools\\verification\\adapters\\demo03-runtime.mjs"],
+    "R5": ["tools\\verification\\adapters\\demo06-runtime.mjs", "tools\\verification\\adapters\\demo07-runtime.mjs", "tools\\verification\\adapters\\demo08-runtime.mjs", "tools\\verification\\adapters\\demo09-runtime.mjs", "tools\\verification\\adapters\\demo10-runtime.mjs"],
+    "R6": ["tools\\verification\\adapters\\demo05-runtime.mjs", "tools\\verification\\adapters\\demo12-runtime.mjs"],
+    "R7": ["tools\\verification\\adapters\\demo14-runtime.mjs", "tools\\verification\\adapters\\demo15-runtime.mjs"],
+    "R8": ["tools\\verification\\adapters\\demo04-runtime.mjs", "tools\\verification\\adapters\\demo11-runtime.mjs", "tools\\verification\\adapters\\demo13-runtime.mjs"]
+  },
+  "frozenSources": [
+    {"path":"tools\\verification\\demo.mjs","sha256":"eafc26ca681dd36d2c27e99c8c9ff848d70fd228bbf348a121c9e1049badb3b5"},
+    {"path":"tools\\verification\\pipeline.mjs","sha256":"c7ebc2ade134a75c2d73b553330fe93de8378912f98e7620c484287a7948b5b6"},
+    {"path":"tools\\verification\\invariants.mjs","sha256":"f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"},
+    {"path":"tools\\verification\\raw-intake.mjs","sha256":"a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"},
+    {"path":"tools\\verification\\observers.mjs","sha256":"3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"},
+    {"path":"tools\\verification\\trust-roots.mjs","sha256":"5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"},
+    {"path":"tools\\verification\\adapters\\demo01-runtime.mjs","sha256":"73da91cc755d955f0bab254ce5b11875ba87f4e09e54f9fd63e78e032b8c782b"},
+    {"path":"demos\\catalog.json","sha256":"eae62d808cd31c4ef90a6550eead9a47d9b5604faa7e625ac2ef2e7c693dc839"}
+  ],
+  "reviewStatus": "UNREVIEWED HANDOFF; R1/R7 independent source/unit checks and exact-current-source comparison required",
+  "existingDemo01Blockers": [
+    "Independent native emission/canary/gateway-wire execution observer",
+    "Enrolled authenticated native query transport",
+    "Native sampling apply/observe/restore/stop operations and full participant inventory",
+    "Reviewed operator runtime/authentication/resources and finite approved window",
+    "Authenticated durable saved-run recovery"
+  ],
+  "nextAction": "Role owners may construct fail-closed source adapters and positive/negative unit tests now. Missing native operations remain To Do; no harness or demo certification closure is asserted."
+}

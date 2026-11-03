@@ -1,0 +1,256 @@
+TAP version 13
+# Subtest: fixture construction binds actual carrier and raw row locators through existing six-table graph intake, never native qualification
+ok 1 - fixture construction binds actual carrier and raw row locators through existing six-table graph intake, never native qualification
+  ---
+  duration_ms: 83.4333
+  type: 'test'
+  ...
+# Subtest: omitted emitted hop and wrong actual parent fail without repairing source IDs or parents
+ok 2 - omitted emitted hop and wrong actual parent fail without repairing source IDs or parents
+  ---
+  duration_ms: 41.8918
+  type: 'test'
+  ...
+# Subtest: browser route, SDK run/version/context and Gateway carrier cannot be substituted from expectations
+ok 3 - browser route, SDK run/version/context and Gateway carrier cannot be substituted from expectations
+  ---
+  duration_ms: 83.5112
+  type: 'test'
+  ...
+# Subtest: row-only ledgers, lost full-path canaries, duplicate physical spans and unstable settlement fail
+ok 4 - row-only ledgers, lost full-path canaries, duplicate physical spans and unstable settlement fail
+  ---
+  duration_ms: 51.2023
+  type: 'test'
+  ...
+# Subtest: actual original-column privacy rejects unsafe inputs and caller PASS cannot hide a projected-row injection
+ok 5 - actual original-column privacy rejects unsafe inputs and caller PASS cannot hide a projected-row injection
+  ---
+  duration_ms: 24.2982
+  type: 'test'
+  ...
+# Subtest: fixtures, JSON clones, native labels, observer IDs and saved settlement cannot mint private source authority
+ok 6 - fixtures, JSON clones, native labels, observer IDs and saved settlement cannot mint private source authority
+  ---
+  duration_ms: 12.0442
+  type: 'test'
+  ...
+# Subtest: production constructor rejects query/privacy/authentication callback injection and accepts no caller settlement
+ok 7 - production constructor rejects query/privacy/authentication callback injection and accepts no caller settlement
+  ---
+  duration_ms: 14.8479
+  type: 'test'
+  ...
+# Subtest: actual native verifier rejects an invented observer selector before any CLI query; no transport is injected or invoked
+ok 8 - actual native verifier rejects an invented observer selector before any CLI query; no transport is injected or invoked
+  ---
+  duration_ms: 109.5104
+  type: 'test'
+  ...
+# Subtest: native construction snapshots query-window and observation inputs before asynchronous source checks
+ok 9 - native construction snapshots query-window and observation inputs before asynchronous source checks
+  ---
+  duration_ms: 51.3673
+  type: 'test'
+  ...
+# Subtest: exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+ok 10 - exact fifteen runnable Windows demo wrappers use native scenarios and the one expected map
+  ---
+  duration_ms: 30.5026
+  type: 'test'
+  ...
+# Subtest: all fifteen missing native adapters fail explicitly, not mock PASS or certification
+ok 11 - all fifteen missing native adapters fail explicitly, not mock PASS or certification
+  ---
+  duration_ms: 102.5732
+  type: 'test'
+  ...
+# Subtest: bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+ok 12 - bootstrap fails missing effects but is always explicitly NOT CERTIFIED
+  ---
+  duration_ms: 5.8429
+  type: 'test'
+  ...
+# Subtest: exception and deadline abort always stop/reset captured own pre-state
+ok 13 - exception and deadline abort always stop/reset captured own pre-state
+  ---
+  duration_ms: 634.4491
+  type: 'test'
+  ...
+# Subtest: failed native reset cannot leave a passing demo result
+ok 14 - failed native reset cannot leave a passing demo result
+  ---
+  duration_ms: 317.2908
+  type: 'test'
+  ...
+# Subtest: missing-adapter failure packs are immutable, safe and tamper checked
+ok 15 - missing-adapter failure packs are immutable, safe and tamper checked
+  ---
+  duration_ms: 53.2009
+  type: 'test'
+  ...
+# Subtest: seeded agent bump and newly added runtime dependency invalidate affected claims
+ok 16 - seeded agent bump and newly added runtime dependency invalidate affected claims
+  ---
+  duration_ms: 1.5926
+  type: 'test'
+  ...
+# Subtest: positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+ok 17 - positive: construction-only input uses the advertised demo action and owned SKU, never a requested observation ID
+  ---
+  duration_ms: 3.1746
+  type: 'test'
+  ...
+# Subtest: negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+ok 18 - negative: wrong demo, scenario, run identity, SKU and cancelled runs reject before browser effects
+  ---
+  duration_ms: 2.3083
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser source/build closure is hash checked locally, not native evidence
+ok 19 - positive: supplied browser source/build closure is hash checked locally, not native evidence
+  ---
+  duration_ms: 26.9567
+  type: 'test'
+  ...
+# Subtest: negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+ok 20 - negative: changed, omitted, repeated, outside-root or extra browser sources cannot substitute a driver
+  ---
+  duration_ms: 9.8604
+  type: 'test'
+  ...
+# Subtest: positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+ok 21 - positive: fixed supplied production driver executes through a controlled Page dependency without browser/network/native execution
+  ---
+  duration_ms: 29.1375
+  type: 'test'
+  ...
+# Subtest: negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+ok 22 - negative: unavailable browser target/run lease/admission is refused before the supplied action driver is called
+  ---
+  duration_ms: 76.5283
+  type: 'test'
+  ...
+# Subtest: positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+ok 23 - positive: controlled browser observation validation preserves original IDs and is not downstream/native acceptance
+  ---
+  duration_ms: 0.89
+  type: 'test'
+  ...
+# Subtest: negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+ok 24 - negative: fixture/local/stale/rejected browser output never becomes a native Demo 01 execution
+  ---
+  duration_ms: 1.2003
+  type: 'test'
+  ...
+# Subtest: negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+ok 25 - negative: obsolete demo-runs route, alternate origin, extra request, redaction and missing native response reject
+  ---
+  duration_ms: 1.1813
+  type: 'test'
+  ...
+# Subtest: negative: unsampled wire is rejected without changing its flags
+ok 26 - negative: unsampled wire is rejected without changing its flags
+  ---
+  duration_ms: 0.65
+  type: 'test'
+  ...
+# Subtest: negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+ok 27 - negative: SDK dependencies must join the exact run/version/wire trace and span without duplicates or backfill
+  ---
+  duration_ms: 0.7961
+  type: 'test'
+  ...
+# Subtest: negative: browser contexts remain original valid contexts and are never invented parent spans
+ok 28 - negative: browser contexts remain original valid contexts and are never invented parent spans
+  ---
+  duration_ms: 0.6857
+  type: 'test'
+  ...
+# Subtest: negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+ok 29 - negative: browser target input rejects noncanonical, credential-bearing and non-HTTPS targets
+  ---
+  duration_ms: 0.3257
+  type: 'test'
+  ...
+# Subtest: positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+ok 30 - positive: supplied browser controller stop/drain/flush operations are invoked, not callback PASS receipts
+  ---
+  duration_ms: 0.4664
+  type: 'test'
+  ...
+# Subtest: negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+ok 31 - negative: absent controller, continued admission or remaining in-flight browser work cannot acknowledge cleanup
+  ---
+  duration_ms: 0.2807
+  type: 'test'
+  ...
+# Subtest: positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+ok 32 - positive: concrete privacy operation runs the real original-column scanner and cannot certify a fixture
+  ---
+  duration_ms: 4.1747
+  type: 'test'
+  ...
+# Subtest: negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+ok 33 - negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections
+  ---
+  duration_ms: 1.3693
+  type: 'test'
+  ...
+# Subtest: negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+ok 34 - negative: missing original tables, lost pagination and unscanned tables cannot be replaced with receipt flags
+  ---
+  duration_ms: 0.7562
+  type: 'test'
+  ...
+# Subtest: positive: source construction binds supplied modules and reports every missing production operation explicitly
+ok 35 - positive: source construction binds supplied modules and reports every missing production operation explicitly
+  ---
+  duration_ms: 22.9818
+  type: 'test'
+  ...
+# Subtest: positive: prospective current-source binding preserves historical pins without inheriting their approval
+ok 36 - positive: prospective current-source binding preserves historical pins without inheriting their approval
+  ---
+  duration_ms: 36.4432
+  type: 'test'
+  ...
+# Subtest: negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+ok 37 - negative: real isolated component, loaded-module and privacy-policy drift fail closed after import
+  ---
+  duration_ms: 629.524
+  type: 'test'
+  ...
+# Subtest: negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+ok 38 - negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import
+  ---
+  duration_ms: 219.5494
+  type: 'test'
+  ...
+# Subtest: negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+ok 39 - negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub
+  ---
+  duration_ms: 8.757
+  type: 'test'
+  ...
+# Subtest: negative: the construction entrypoint does not permit execute/native/caller-module options
+ok 40 - negative: the construction entrypoint does not permit execute/native/caller-module options
+  ---
+  duration_ms: 0.7293
+  type: 'test'
+  ...
+# Subtest: positive: the construction entrypoint performs only side-effect-free inspection
+ok 41 - positive: the construction entrypoint performs only side-effect-free inspection
+  ---
+  duration_ms: 16.5683
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2047.5719

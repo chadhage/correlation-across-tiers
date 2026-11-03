@@ -1,15 +1,28 @@
-param([string]$BicepPath = '')
+param(
+    [string]$BicepPath = '',
+    [string]$OutputPath = ''
+)
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 if (-not $BicepPath) { $BicepPath = Join-Path $root '.cache\r6-tools\bicep.exe' }
 if (-not (Test-Path -LiteralPath $BicepPath)) { throw 'Provide an existing Bicep CLI; this script never installs or deploys.' }
-$output = Join-Path $root '.cache\r6-build'
+$output = $OutputPath
+if (-not $output) {
+    $output = Join-Path $root ('.cache\r6-build\' + [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ') + '-' + [Guid]::NewGuid().ToString('N'))
+}
+if (Test-Path -LiteralPath $output) { throw 'OutputPath must be a new run-owned directory.' }
 New-Item -ItemType Directory -Path $output -Force | Out-Null
 function Require([bool]$Condition, [string]$Code) { if (-not $Condition) { throw $Code } }
+$compilerVersion = (& $BicepPath --version | Out-String).Trim()
+if ($LASTEXITCODE -ne 0) { throw 'compiler_version_failed' }
 foreach ($name in @('data-postgres','data-managed-redis')) {
-    & $BicepPath build (Join-Path $root "infra\modules\$name.bicep") --outfile (Join-Path $output "$name.json")
+    $diagnostics = & $BicepPath build (Join-Path $root "infra\modules\$name.bicep") --no-restore --diagnostics-format sarif --outfile (Join-Path $output "$name.json") 2>&1
     if ($LASTEXITCODE -ne 0) { throw "compile_failed_$name" }
+    ($diagnostics | ForEach-Object { $_.ToString() }) -join "`n" |
+        Set-Content -LiteralPath (Join-Path $output "$name.sarif.json") -Encoding utf8NoBOM
 }
+& node (Join-Path $PSScriptRoot 'data-api-warnings.mjs') --check $compilerVersion $output
+if ($LASTEXITCODE -ne 0) { throw 'data_api_warning_contract_failed' }
 $pg = Get-Content -LiteralPath (Join-Path $output 'data-postgres.json') -Raw | ConvertFrom-Json
 $redis = Get-Content -LiteralPath (Join-Path $output 'data-managed-redis.json') -Raw | ConvertFrom-Json
 function Resources($Template) {
@@ -41,3 +54,4 @@ $json = (Get-Content -LiteralPath (Join-Path $output 'data-postgres.json') -Raw)
         (Get-Content -LiteralPath (Join-Path $output 'data-managed-redis.json') -Raw)
 Require ($json -notmatch 'administratorLoginPassword|listKeys\(|accessString|redisVersion') 'unsafe_or_unsupported_data_contract'
 'PASS: local data-module contracts. BCP081 type gaps still require later provider validation; no Azure calls.'
+'Output: ' + $output

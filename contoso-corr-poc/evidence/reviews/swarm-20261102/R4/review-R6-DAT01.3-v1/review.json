@@ -1,0 +1,221 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+      "sha256": "1b869e2912f1aa9b543fc8ea5c2212b9eb8ea311a614ad07e8d4d0756d26bd8c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+      "sha256": "f64a62cffdd48ab2e8a884777aa036e1f35e17ccf90001819f3dd5dd34130367",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+      "sha256": "934ea2c975de916f489c813d02d8982be37ef66ca8e1e9409dee4ae232f72017",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+      "sha256": "dfac955f26ced6890670fa38c32f64881a4d6774e80a003fc97a0a3b2fcc7923",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\LocalPostgresLane.md",
+      "sha256": "c3ecb5a58a06578d8b2eb5c591a0f8127be8562cef198da1478d7472bfa2448e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+      "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+      "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+      "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+      "sha256": "1b869e2912f1aa9b543fc8ea5c2212b9eb8ea311a614ad07e8d4d0756d26bd8c",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+      "sha256": "f64a62cffdd48ab2e8a884777aa036e1f35e17ccf90001819f3dd5dd34130367",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+      "sha256": "934ea2c975de916f489c813d02d8982be37ef66ca8e1e9409dee4ae232f72017",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+      "sha256": "dfac955f26ced6890670fa38c32f64881a4d6774e80a003fc97a0a3b2fcc7923",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\LocalPostgresLane.md",
+      "sha256": "c3ecb5a58a06578d8b2eb5c591a0f8127be8562cef198da1478d7472bfa2448e",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+      "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+      "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+      "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R6",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "result": "accepted",
+      "scopeSha256": "bc10fa94d99bd92ef5ecf0df2a5e595887f1e827aee7cf1c310878d608cedf30",
+      "sources": [
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+          "sha256": "1b869e2912f1aa9b543fc8ea5c2212b9eb8ea311a614ad07e8d4d0756d26bd8c",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+          "sha256": "f64a62cffdd48ab2e8a884777aa036e1f35e17ccf90001819f3dd5dd34130367",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+          "sha256": "934ea2c975de916f489c813d02d8982be37ef66ca8e1e9409dee4ae232f72017",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+          "sha256": "dfac955f26ced6890670fa38c32f64881a4d6774e80a003fc97a0a3b2fcc7923",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\data\\LocalPostgresLane.md",
+          "sha256": "c3ecb5a58a06578d8b2eb5c591a0f8127be8562cef198da1478d7472bfa2448e",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+          "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+          "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+          "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+          "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\pom.xml",
+          "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\versions.lock.json",
+          "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+        "testFiles": [
+          "services\\inventory-data\\tools\\local-postgres-lane.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:13:09.951Z",
+        "finishedAtUtc": "2026-11-02T22:13:10.356Z",
+        "exitCode": 0,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT01.3-v1\\tests.tap",
+        "sha256": "b6ba9051df6d9ffdbb97d7ec0af2a78334722b17928749008c164bb4744c32d6",
+        "positiveTests": [
+          "SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter",
+          "SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field"
+        ],
+        "negativeTests": [
+          "CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification"
+        ]
+      },
+      "children": [
+        {
+          "id": "DAT-01.3",
+          "definitionSha256": "f6236e19dd66f5b6c802b307b7f09d4a1ff98ca95afaee3a1fae3b85276de358",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

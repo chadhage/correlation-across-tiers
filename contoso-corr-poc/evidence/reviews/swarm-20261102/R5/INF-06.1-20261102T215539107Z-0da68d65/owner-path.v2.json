@@ -1,0 +1,116 @@
+{
+  "schema": "contoso.r5-check.v1",
+  "role": "R5",
+  "agentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "card": "INF-06.1",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "--test-reporter=tap",
+    "contoso-corr-poc\\tests\\messaging\\infra.test.mjs"
+  ],
+  "runtime": "v22.23.4",
+  "settings": {
+    "PATH": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.cache\\r6-tools",
+    "Path": "C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.cache\\r6-tools"
+  },
+  "compiler": {
+    "path": "contoso-corr-poc\\.cache\\r6-tools\\bicep.exe",
+    "sha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+    "version": "Bicep CLI version 0.48.1 (cec7951cf6)"
+  },
+  "expected": {
+    "exitCode": 0,
+    "tests": 3,
+    "pass": 3,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "actual": {
+    "exitCode": 0,
+    "tests": 3,
+    "pass": 3,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "expectationsMet": true,
+  "error": null,
+  "before": [
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\infra.test.mjs",
+      "sha256": "aa729cacefabb76f986fade68ea32c417932ad4252107456e903b1653d044d1f",
+      "size": 3630
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\infra-tool-resolution.test.mjs",
+      "sha256": "87b081f0590987159235664ceea650609485488ceabb747c113ef40ceff818a6",
+      "size": 5376
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\messaging\\bicep-tool.mjs",
+      "sha256": "d099e33adf16d7e930e97cda3575ee93492ced7b453027577da92d6005dcfa5b",
+      "size": 1343
+    },
+    {
+      "path": "contoso-corr-poc\\workers\\messaging-core\\README.md",
+      "sha256": "e1054683fffa66e8bf8953905c6d3313b4a96220ff332aadb39085d2a67bc4fe",
+      "size": 17788
+    },
+    {
+      "path": "contoso-corr-poc\\infra\\modules\\messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+      "size": 7098
+    },
+    {
+      "path": "contoso-corr-poc\\infra\\modules\\messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c",
+      "size": 7529
+    },
+    {
+      "path": "contoso-corr-poc\\config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "size": 16325
+    }
+  ],
+  "after": [
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\infra.test.mjs",
+      "sha256": "aa729cacefabb76f986fade68ea32c417932ad4252107456e903b1653d044d1f",
+      "size": 3630
+    },
+    {
+      "path": "contoso-corr-poc\\tests\\messaging\\infra-tool-resolution.test.mjs",
+      "sha256": "87b081f0590987159235664ceea650609485488ceabb747c113ef40ceff818a6",
+      "size": 5376
+    },
+    {
+      "path": "contoso-corr-poc\\tools\\messaging\\bicep-tool.mjs",
+      "sha256": "d099e33adf16d7e930e97cda3575ee93492ced7b453027577da92d6005dcfa5b",
+      "size": 1343
+    },
+    {
+      "path": "contoso-corr-poc\\workers\\messaging-core\\README.md",
+      "sha256": "e1054683fffa66e8bf8953905c6d3313b4a96220ff332aadb39085d2a67bc4fe",
+      "size": 17788
+    },
+    {
+      "path": "contoso-corr-poc\\infra\\modules\\messaging.bicep",
+      "sha256": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+      "size": 7098
+    },
+    {
+      "path": "contoso-corr-poc\\infra\\modules\\messaging-roles.bicep",
+      "sha256": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c",
+      "size": 7529
+    },
+    {
+      "path": "contoso-corr-poc\\config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "size": 16325
+    }
+  ],
+  "sourceUnchanged": true,
+  "nativeAcceptance": false
+}

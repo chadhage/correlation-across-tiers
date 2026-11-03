@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: isolated rewrite and RequestId fixtures fail even behind a false flag
+ok 1 - isolated rewrite and RequestId fixtures fail even behind a false flag
+  ---
+  duration_ms: 16.2356
+  type: 'test'
+  ...
+# Subtest: legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+ok 2 - legacy diagnostic/nonzero bodies and missing/unresolved protocol fail
+  ---
+  duration_ms: 4.4338
+  type: 'test'
+  ...
+# Subtest: composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+ok 3 - composed flag surgery, dynamic headers, unguarded deletion and fixture deployment references fail
+  ---
+  duration_ms: 1.5204
+  type: 'test'
+  ...
+# Subtest: SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+ok 4 - SDK numeric/symbol pins accepted; mixed/old/unresolved/wrong-version settings fail
+  ---
+  duration_ms: 2.1721
+  type: 'test'
+  ...
+# Subtest: all owned policy templates pass the protocol/security structure checks
+ok 5 - all owned policy templates pass the protocol/security structure checks
+  ---
+  duration_ms: 21.9821
+  type: 'test'
+  ...
+# Subtest: caller/workload policy is post-validation, app-only and separate from raw-header trust
+ok 6 - caller/workload policy is post-validation, app-only and separate from raw-header trust
+  ---
+  duration_ms: 14.9353
+  type: 'test'
+  ...
+# Subtest: CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+ok 7 - CORS nested/wildcard/proof exposure, business append and MI caller-token replacement fail
+  ---
+  duration_ms: 0.7743
+  type: 'test'
+  ...
+# Subtest: real service CORS permits SDK metadata without capture or credential exposure
+ok 8 - real service CORS permits SDK metadata without capture or credential exposure
+  ---
+  duration_ms: 17.4849
+  type: 'test'
+  ...
+# Subtest: malformed XML, DTD and nested fragment controls fail without fetching external entities
+ok 9 - malformed XML, DTD and nested fragment controls fail without fetching external entities
+  ---
+  duration_ms: 4.7573
+  type: 'test'
+  ...
+# Subtest: negative fixture manifest excludes every test artifact from deployment
+ok 10 - negative fixture manifest excludes every test artifact from deployment
+  ---
+  duration_ms: 25.0868
+  type: 'test'
+  ...
+# Subtest: OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+ok 11 - OpenAPI is versioned, finite, preserves the prefix mapping and never exposes proof credentials
+  ---
+  duration_ms: 16.0819
+  type: 'test'
+  ...
+# Subtest: valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+ok 12 - valid carriers preserve raw flags/IDs rather than synthesizing or rewriting them
+  ---
+  duration_ms: 3.1652
+  type: 'test'
+  ...
+# Subtest: version-forward-compatible known prefix accepts extensions without parsing them
+ok 13 - version-forward-compatible known prefix accepts extensions without parsing them
+  ---
+  duration_ms: 0.9156
+  type: 'test'
+  ...
+# Subtest: malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+ok 14 - malformed/zero/duplicate/oversized parent controls leave root creation to the tracer
+  ---
+  duration_ms: 1.8747
+  type: 'test'
+  ...
+# Subtest: invalid state drops state only and never invalidates a valid parent
+ok 15 - invalid state drops state only and never invalidates a valid parent
+  ---
+  duration_ms: 1.7439
+  type: 'test'
+  ...
+# Subtest: line breaks in state keys discard only state and preserve the valid parent's flags
+ok 16 - line breaks in state keys discard only state and preserve the valid parent's flags
+  ---
+  duration_ms: 0.9326
+  type: 'test'
+  ...
+# Subtest: Demo03 carrier manifest describes policy behavior without fabricated telemetry
+ok 17 - Demo03 carrier manifest describes policy behavior without fabricated telemetry
+  ---
+  duration_ms: 13.5014
+  type: 'test'
+  ...
+# Subtest: state order/multi-fields/empty OWS and strict member grammar
+ok 18 - state order/multi-fields/empty OWS and strict member grammar
+  ---
+  duration_ms: 0.5511
+  type: 'test'
+  ...
+# Subtest: state accepts 32 and 512 but not 33/513; long values are bounded
+ok 19 - state accepts 32 and 512 but not 33/513; long values are bounded
+  ---
+  duration_ms: 0.4051
+  type: 'test'
+  ...
+# Subtest: business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+ok 20 - business trust is separate; duplicates/untrusted/malformed input gets one UUIDv4
+  ---
+  duration_ms: 1.7494
+  type: 'test'
+  ...
+# Subtest: transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+ok 21 - transport proof checks preserve caller Authorization and do not pretend to validate JWTs
+  ---
+  duration_ms: 1.7184
+  type: 'test'
+  ...
+# Subtest: case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+ok 22 - case-variant/folded headers cannot hide duplicates or reuse caller identity as gateway proof
+  ---
+  duration_ms: 0.6473
+  type: 'test'
+  ...
+# Subtest: CORS grants only frontend origin/custom-header list and never grants the gateway proof
+ok 23 - CORS grants only frontend origin/custom-header list and never grants the gateway proof
+  ---
+  duration_ms: 0.5989
+  type: 'test'
+  ...
+# Subtest: SDK appId metadata preflight remains permitted on a subsequent approved request
+ok 24 - SDK appId metadata preflight remains permitted on a subsequent approved request
+  ---
+  duration_ms: 2.8994
+  type: 'test'
+  ...
+# Subtest: public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+ok 25 - public/backend path distinction rejects queries and invalid IDs without a clean telemetry claim
+  ---
+  duration_ms: 0.7896
+  type: 'test'
+  ...
+# Subtest: source/version guard accepts only SDK3.4.5 W3C_TRACE18
+ok 26 - source/version guard accepts only SDK3.4.5 W3C_TRACE18
+  ---
+  duration_ms: 7.4219
+  type: 'test'
+  ...
+# Subtest: module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+ok 27 - module parameter negatives enforce physical input, exact scope, fixed backend and caller subsets
+  ---
+  duration_ms: 5.1218
+  type: 'test'
+  ...
+# Subtest: all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+ok 28 - all4 capture positions and timing approval controls; no unbounded 100% or fake clean status
+  ---
+  duration_ms: 2.1128
+  type: 'test'
+  ...
+# Subtest: textual guard mentions do not authorize deletion behind unconditional alternatives
+ok 29 - textual guard mentions do not authorize deletion behind unconditional alternatives
+  ---
+  duration_ms: 5.5652
+  type: 'test'
+  ...
+# Subtest: hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+ok 30 - hidden policy telemetry/raw metadata/third-party credential forwarding fails closed
+  ---
+  duration_ms: 1.3144
+  type: 'test'
+  ...
+# Subtest: XML-encoded RequestId and sampled-flag surgery fail even in disabled policy branches
+ok 31 - XML-encoded RequestId and sampled-flag surgery fail even in disabled policy branches
+  ---
+  duration_ms: 5.1097
+  type: 'test'
+  ...
+# Subtest: XML decoding is single-pass and does not invent executable forbidden expressions
+ok 32 - XML decoding is single-pass and does not invent executable forbidden expressions
+  ---
+  duration_ms: 2.1864
+  type: 'test'
+  ...
+# Subtest: named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+ok 33 - named SDK values cannot conceal composed mixed mode and dynamic bodies cannot pass as zero
+  ---
+  duration_ms: 1.3848
+  type: 'test'
+  ...
+# Subtest: a W3C constant in another file cannot certify an unbound SDK initialization
+ok 34 - a W3C constant in another file cannot certify an unbound SDK initialization
+  ---
+  duration_ms: 167.0658
+  type: 'test'
+  ...
+# Subtest: source gate rejects seeded encoded fragments and passes after their removal
+ok 35 - source gate rejects seeded encoded fragments and passes after their removal
+  ---
+  duration_ms: 90.545
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 624.3627

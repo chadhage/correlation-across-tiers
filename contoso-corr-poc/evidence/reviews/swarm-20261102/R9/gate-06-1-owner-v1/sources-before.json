@@ -1,0 +1,42 @@
+[
+  {
+    "path": "tools\\certification-path.mjs",
+    "sha256": "dee8e90f66460f0c7c6fec499e681e813973ee7dee8f59615676b962ee29249e"
+  },
+  {
+    "path": "tools\\verification\\register.mjs",
+    "sha256": "79c4381908f9a86db97083907d7d2ad63a9d94f7bf061500e399fd188c99b771"
+  },
+  {
+    "path": "tools\\verification\\files.mjs",
+    "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+  },
+  {
+    "path": "tools\\verification\\run-focused.mjs",
+    "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+  },
+  {
+    "path": "config\\certification-dependencies.json",
+    "sha256": "c6f58bd861e510879ce1a9c4cd80c5f719c29fbc2ef99fd5ff832d5ac0ee8454"
+  },
+  {
+    "path": "config\\verification-register.v1.json",
+    "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716"
+  },
+  {
+    "path": "web\\portal-ssr\\package-lock.json",
+    "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f"
+  },
+  {
+    "path": "tests\\certification-path.test.mjs",
+    "sha256": "8686e119e098b4b03823643245372dcac62b7a92fd026108c291f6638d362ab9"
+  },
+  {
+    "path": "tests\\verification\\register.test.mjs",
+    "sha256": "8add4e0d67a212fedead3ab23ee373acb55f45faf1686fcc8644d8fc307538fd"
+  },
+  {
+    "path": "docs\\RESIDUAL_LIMITATIONS.md",
+    "sha256": "40434fe122b509387018ba0f07a6e707619463aaa65cbb583dde9d15e1db8551"
+  }
+]

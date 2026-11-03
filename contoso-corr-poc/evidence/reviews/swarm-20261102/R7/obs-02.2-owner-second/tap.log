@@ -1,0 +1,160 @@
+TAP version 13
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 1 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 44.0347
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 2 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 3.9084
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 3 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 14.96
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 4 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 8.7028
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 5 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 3.5744
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 6 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 3.6007
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 7 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 6.6501
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 8 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 46.8544
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 9 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 4.934
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 10 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 4.3785
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 11 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.6876
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 12 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 3.031
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 13 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 2.9319
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 14 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 2.3552
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 15 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 3.6114
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 16 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 2.1248
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 17 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 4.5866
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 18 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 12.5846
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 19 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 43.7871
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 20 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 17.4608
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 21 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 5.83
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 22 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 91.0937
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 23 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 191.5594
+  type: 'test'
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 24 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 31.8072
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 25 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 2116.9136
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3742.8532

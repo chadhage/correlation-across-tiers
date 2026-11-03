@@ -1,16 +1,16 @@
 param(
-  [string]$ToolsRoot = 'C:\Users\chhage\.copilot\session-state\a2820816-7000-4e63-9cf2-cd2c8da2162f\files\tools\r4'
+  [string]$ToolsRoot = $env:CONTOSO_PORTABLE_TOOLS_ROOT
 )
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'PortableTools.ps1')
+$ToolsRoot = Resolve-ContosoToolsRoot $ToolsRoot
 $root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $compiler = Join-Path $ToolsRoot 'bicep.exe'
 if (-not (Test-Path -LiteralPath $compiler)) {
-  throw 'Portable Bicep compiler missing; verify/install locked archive in session tools first'
+  throw 'Portable Bicep compiler missing. Set CONTOSO_PORTABLE_TOOLS_ROOT or run tools\java\Install-Bicep.ps1.'
 }
 $lock = Get-Content -LiteralPath (Join-Path $root 'config\versions.lock.json') -Raw | ConvertFrom-Json
-if ((Get-FileHash -LiteralPath $compiler -Algorithm SHA256).Hash.ToLowerInvariant() -ne $lock.portableTools.bicep.sha256) {
-  throw 'Compute Bicep compiler integrity failure'
-}
+Assert-ContosoToolHash $compiler SHA256 $lock.portableTools.bicep.sha256
 $validation = Join-Path $root '.java-work\compute'
 New-Item -ItemType Directory -Path $validation -Force | Out-Null
 & $compiler build "$root\infra\modules\compute.bicep" --outfile "$validation\compute.json"

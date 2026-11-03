@@ -1,0 +1,29 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "startedAtUtc": "2026-11-03T00:20:09.060Z",
+  "finishedAtUtc": "2026-11-03T00:20:11.241Z",
+  "files": [
+    {
+      "path": "owner-receipt.json",
+      "sha256": "c3a16a79e21a69252cb534c6ca6d2744457916ec3fc198018855cf444da5d6fe"
+    },
+    {
+      "path": "review-inputs.json",
+      "sha256": "21fa8b7ed31cb4df4739d5e93733cfc4b59b0ed51aabb9b0e9a5387eddee2c65"
+    },
+    {
+      "path": "sources-before.json",
+      "sha256": "08fd4478033b7dcb4f1b34c285206efc6bd2ec42bcb315c9cf9cc9a717ec2473"
+    },
+    {
+      "path": "stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests.tap",
+      "sha256": "1b8638265cbf4c2876fd48fc4d4c4b423ec1888e1184cd513f8c284349d88295"
+    }
+  ]
+}

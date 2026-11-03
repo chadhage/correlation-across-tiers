@@ -1,0 +1,82 @@
+[
+  {
+    "path": "web\\portal-ssr\\README.md",
+    "sha256": "25a396f8c2354d46125a10da5e6b36cc90fc602f986f30b26cfaa0a5ffcce157"
+  },
+  {
+    "path": "web\\portal-ssr\\package-lock.json",
+    "sha256": "ffca7da77f90d05730a9a8b9f0a17222411fa97c2a0dc677909e8d18e0af104f"
+  },
+  {
+    "path": "web\\portal-ssr\\package.json",
+    "sha256": "7de29a38d2aae04391f5015840036924b5c754d892e1b865615b41b3cb4e9e2e"
+  },
+  {
+    "path": "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+    "sha256": "80a6a1959e5d390ff79d7fadf704cebbd445c9494666bd7d5d692867ed7157cf"
+  },
+  {
+    "path": "web\\portal-ssr\\src\\browser-adapter.ts",
+    "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62"
+  },
+  {
+    "path": "web\\portal-ssr\\src\\shared\\browser-api.ts",
+    "sha256": "021419628cdbb4d2b4f775400cd3cf280c5fbbd6ee97d3e1786929d65f1384c9"
+  },
+  {
+    "path": "web\\portal-ssr\\src\\shared\\browser-telemetry.ts",
+    "sha256": "54a5a4c96596a9f2cad25ad10702db731cfc0098d25517de669457f082cb472a"
+  },
+  {
+    "path": "web\\portal-ssr\\src\\shared\\contracts.ts",
+    "sha256": "044329ec034b2748af5b8306fbe38dcd6bebb401f9405ee06bfab3374b42fe0d"
+  },
+  {
+    "path": "web\\portal-ssr\\src\\shared\\deadline.ts",
+    "sha256": "d0cf380fa394706c9e4bb96d9809061188da12abd732acc9b2485b17d8381189"
+  },
+  {
+    "path": "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+    "sha256": "baeb2578ebdff3f4af9c080f301b5ab77c07f1f2d5e3964f92f263d1083047b6"
+  },
+  {
+    "path": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+    "sha256": "e2b2b1115b6723ffa43761f419412a902f059b9a466e62622ce6d684d688af1f"
+  },
+  {
+    "path": "web\\portal-ssr\\tsconfig.json",
+    "sha256": "96119365a9a467d0f299869197bb67c6e04491abdc85b418cc8e294697bef7ee"
+  },
+  {
+    "path": "web\\portal-ssr\\tsconfig.tests.json",
+    "sha256": "ab8843a8a6fe9618caba2a728e8224a56bfc607bf39bf8d881cbf3caec60d723"
+  },
+  {
+    "path": "web\\storefront-spa\\README.md",
+    "sha256": "a0880c11f53af46d908a3a5fe04b693e5dd01eb8284d90d4aea783269016a85c"
+  },
+  {
+    "path": "web\\storefront-spa\\index.html",
+    "sha256": "fb4434ed033b4b903bac85e361a7aa8816f01430fbf5934ff39a1846b53ecc63"
+  },
+  {
+    "path": "web\\storefront-spa\\package-lock.json",
+    "sha256": "671056455752c8adf89d3b66b95c744d634b06e4112fd9be3b9c9c3e6559fb33"
+  },
+  {
+    "path": "web\\storefront-spa\\package.json",
+    "sha256": "bc6788b7c47acb37912fa34697b53e2148ca257f7364ae5e7697187a5b1a6933"
+  },
+  {
+    "path": "web\\storefront-spa\\src\\app.ts",
+    "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456"
+  },
+  {
+    "path": "web\\storefront-spa\\src\\style.css",
+    "sha256": "df11864e72efee76e1f70f786250e7ccddc45c7c8b55543a0d739c5e20419f3b"
+  },
+  {
+    "path": "web\\storefront-spa\\tsconfig.json",
+    "sha256": "73c80bb2f4ecc656ce977756920772651e591dccf672c02428cb13f37b6c5334"
+  }
+]

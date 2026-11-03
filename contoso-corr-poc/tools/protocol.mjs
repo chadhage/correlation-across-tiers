@@ -534,12 +534,21 @@ function ancestors(node) {
   return result;
 }
 
+function inspectProtocolExpressions(text, add) {
+  if (/context\s*\.\s*RequestId/i.test(text)) add("REQUEST_ID_PROVENANCE", "APIM request identity must not supply technical trace context.");
+  if (/(?:\.replace|\.Replace)\s*\([^)]{0,160}(?:-00|00\$)[^)]{0,160}(?:-01|01)/s.test(text)
+    || /(?:traceFlags|trace_flags|sampled)\s*(?:\|=|=\s*[^;\n]{0,100}\|)\s*(?:0x0?1|1)\b/i.test(text)
+    || /\b(?:traceFlags|trace_flags)\s*=\s*(?:0x0?1|1)\b/.test(text)
+    || /(?:setTraceFlags|withTraceFlags)\s*\(|TraceFlags\.getSampled\s*\(/.test(text)) add("SAMPLED_FLAG_SURGERY", "Manual sampled-bit surgery is forbidden, including disabled branches.");
+}
+
 export function inspectPolicyXml(source, sourcePath = "policy.xml") {
   const errors = [];
   let root;
   try { root = parsePolicyXml(source); } catch { return [{ code: "POLICY_XML_INVALID", path: sourcePath, message: "Policy XML is malformed or contains forbidden declarations." }]; }
   const add = (code, message) => errors.push({ code, path: sourcePath, message });
   const nodes = allNodes(root);
+  inspectProtocolExpressions(nodes.flatMap(node => [node.text, ...Object.values(node.attributes)]).join("\n"), add);
   if (!["fragment", "policies"].includes(root.name)) add("POLICY_ROOT_INVALID", "Expected policies or fragment root.");
   if (root.name === "fragment" && nodes.some(node => ["base", "inbound", "outbound", "backend", "on-error", "include-fragment"].includes(node.name))) add("FRAGMENT_STRUCTURE_INVALID", "Fragments may not contain sections/base/nested fragments.");
   for (const node of nodes) {
@@ -618,11 +627,7 @@ export function scanSource(source, sourcePath, { sdkVersion = SDK_VERSION, const
   const findings = [];
   const add = (code, message) => findings.push({ code, path: sourcePath, message });
   const text = stripComments(source);
-  if (/context\s*\.\s*RequestId/i.test(text)) add("REQUEST_ID_PROVENANCE", "APIM request identity must not supply technical trace context.");
-  if (/(?:\.replace|\.Replace)\s*\([^)]{0,160}(?:-00|00\$)[^)]{0,160}(?:-01|01)/s.test(text)
-    || /(?:traceFlags|trace_flags|sampled)\s*(?:\|=|=\s*[^;\n]{0,100}\|)\s*(?:0x0?1|1)\b/i.test(text)
-    || /\b(?:traceFlags|trace_flags)\s*=\s*(?:0x0?1|1)\b/.test(text)
-    || /(?:setTraceFlags|withTraceFlags)\s*\(|TraceFlags\.getSampled\s*\(/.test(text)) add("SAMPLED_FLAG_SURGERY", "Manual sampled-bit surgery is forbidden, including disabled branches.");
+  inspectProtocolExpressions(text, add);
   if (/\bbytes\s*:\s*[1-9]\d*/.test(text) && /\.bicep$/i.test(sourcePath)) add("BODY_CAPTURE_NONZERO", "APIM body capture must be zero even in inactive alternatives.");
   for (const match of text.matchAll(/['"]Microsoft\.ApiManagement\/[^'"]+@([^'"]+)['"]/g)) {
     if (match[1] !== APIM_API_VERSION) add("APIM_API_PIN", "Every APIM resource must use the frozen GA2024-05-01 contract.");
@@ -646,9 +651,14 @@ export function scanSource(source, sourcePath, { sdkVersion = SDK_VERSION, const
     if (mode !== SDK_W3C_MODE || sdkVersion !== SDK_VERSION) add("SDK_TRACING_MODE", "SDK initialization requires version-pinned W3C_TRACE18; unresolved/legacy/mixed modes fail closed.");
   }
   if (/\bnew\s+ApplicationInsights\s*\(/.test(text) && !/\bdistributedTracingMode["']?\s*:/.test(text)) add("SDK_TRACING_MODE", "SDK initialization must explicitly bind the approved W3C_TRACE mode, not an SDK default.");
-  if (/^\s*<(?:fragment|policies)\b/.test(text)) findings.push(...inspectPolicyXml(text, sourcePath));
+  const inspectPolicy = xml => {
+    for (const finding of inspectPolicyXml(xml, sourcePath)) {
+      if (!findings.some(existing => existing.code === finding.code && existing.path === finding.path && existing.message === finding.message)) findings.push(finding);
+    }
+  };
+  if (/^\s*<(?:fragment|policies)\b/.test(text)) inspectPolicy(text);
   else {
-    for (const match of text.matchAll(/<(?:fragment|policies)\b[\s\S]*?<\/(?:fragment|policies)>/g)) findings.push(...inspectPolicyXml(match[0].replace(/\\'/g, "'"), sourcePath));
+    for (const match of text.matchAll(/<(?:fragment|policies)\b[\s\S]*?<\/(?:fragment|policies)>/g)) inspectPolicy(match[0].replace(/\\'/g, "'"));
   }
   if (/\.json$/i.test(sourcePath)) {
     try {

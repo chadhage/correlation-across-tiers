@@ -1,0 +1,397 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R9",
+  "ownerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "scope": "unit",
+  "sourceKind": "actual-local-node-test-run",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "integrationCorrection": "DEMO01_PROSPECTIVE_CURRENT_SOURCE_BINDING",
+  "command": "node --test --test-reporter=tap --test-concurrency=2 tests\\verification\\demo01-runtime.test.mjs tests\\verification\\demo.test.mjs tests\\observability\\demo01-collector.test.mjs",
+  "nodeVersion": "v22.23.4",
+  "startedAtUtc": "2026-11-03T00:20:09.060Z",
+  "finishedAtUtc": "2026-11-03T00:20:11.241Z",
+  "tests": 41,
+  "passed": 41,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "sourceDrift": [],
+  "sourcesVerified": true,
+  "result": "PASS",
+  "sources": [
+    {
+      "path": "VERSIONS.md",
+      "sha256": "db3b5a11896ef83d38c90d4ad59812e529e1e82a46fad77184de58746ae85583"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "contracts\\verification-observer-registry.v1.json",
+      "sha256": "7a3645edda1b55757dbe9a866a892196c24fba3c2913d8f502878e4746aec1d9"
+    },
+    {
+      "path": "demos\\01\\Reset.ps1",
+      "sha256": "f509807fc5a8aaffbcab7f58d7a4f2aaf1e8c6fecf4a2b90a8b14dc0cfea720b"
+    },
+    {
+      "path": "demos\\01\\Run.ps1",
+      "sha256": "5e43199516c703072de223483f2c7f01d6d37f85dfd50d3359da7bea066e72e5"
+    },
+    {
+      "path": "demos\\02\\Reset.ps1",
+      "sha256": "dcc2d2555d6fc93e71a331055c0780d4988945bcd95db18c51cb84695e4e18b1"
+    },
+    {
+      "path": "demos\\02\\Run.ps1",
+      "sha256": "dca80be3164a15c86b2b6f03e08169796d989f2c2f3b61724e413408c05215a1"
+    },
+    {
+      "path": "demos\\03\\Reset.ps1",
+      "sha256": "b12a96c2ec152a2bbb121d200f59496f4ccf8c989c19ecf124fecc5c7ac0194a"
+    },
+    {
+      "path": "demos\\03\\Run.ps1",
+      "sha256": "10bd79775f6fdb3f9e3f48970ff2cccd41877deb3bd999d044818f30c48db7ae"
+    },
+    {
+      "path": "demos\\04\\Reset.ps1",
+      "sha256": "2c9c36e85c8facc07353e14708fdf1106fc509f1dd4d3b0bd64c7c7685169c06"
+    },
+    {
+      "path": "demos\\04\\Run.ps1",
+      "sha256": "2a4319678d527a7c13073580068dedd3dc6203d0d08332aa6bd7293043fe77d8"
+    },
+    {
+      "path": "demos\\05\\Reset.ps1",
+      "sha256": "ad07c778f0eee2cb17c16ed2218cb00dae693d684e7cea14f230b90d5238acaf"
+    },
+    {
+      "path": "demos\\05\\Run.ps1",
+      "sha256": "9fc27c371ccb65e45e71e1a4d564561ff5a5f2e8da46d337161c51d5e970890d"
+    },
+    {
+      "path": "demos\\06\\Reset.ps1",
+      "sha256": "d0c3b6c99a84be170e3627b73d91b953d8aa848456e2a15970031c48cb698ac6"
+    },
+    {
+      "path": "demos\\06\\Run.ps1",
+      "sha256": "75019748600389497d2c0a31a0bee9f188b65e21efc9dd0777519898e9c92581"
+    },
+    {
+      "path": "demos\\07\\Reset.ps1",
+      "sha256": "bbe51ca9640bfc17f7ee6f892fd3c8f7e12c8f345615d11d3847b5c1fd7fd09e"
+    },
+    {
+      "path": "demos\\07\\Run.ps1",
+      "sha256": "7ed6447bcdd7ebfc853c58b31fd26f0b816ebcd445549762be00d1398eb772cf"
+    },
+    {
+      "path": "demos\\08\\Reset.ps1",
+      "sha256": "9febc217c05a270860adb114f755568577fc0e3b368a221e6f236664fa24c740"
+    },
+    {
+      "path": "demos\\08\\Run.ps1",
+      "sha256": "f0e72c15dbb2a11c9cdd40e65616799756137ca3953cda2a0b107e242fb6fad5"
+    },
+    {
+      "path": "demos\\09\\Reset.ps1",
+      "sha256": "63517256933bdd97e772bbcef9047e79465017836c099e936cddb3ed761980f1"
+    },
+    {
+      "path": "demos\\09\\Run.ps1",
+      "sha256": "a60815e8aaef1465fe03509f8a41d4742e449fbcdbb0a6073ea508e572312366"
+    },
+    {
+      "path": "demos\\10\\Reset.ps1",
+      "sha256": "8a6d7d6154a4eea5d194800f3bada6f9873f1c70b187fd8d4040344772f03d29"
+    },
+    {
+      "path": "demos\\10\\Run.ps1",
+      "sha256": "47de6e2e5027c4707255cd8d7ced72ee322488d4d3794f8fd73c5fa1b7e176b5"
+    },
+    {
+      "path": "demos\\11\\Reset.ps1",
+      "sha256": "24f7e2f85e5a9a67c4028e066d92d5a26297ca03c1ecf52d1cf9458af8f5c879"
+    },
+    {
+      "path": "demos\\11\\Run.ps1",
+      "sha256": "244641ce713e0e5df39817a100478fc76e7119711adf6fce420680b688a234d6"
+    },
+    {
+      "path": "demos\\12\\Reset.ps1",
+      "sha256": "4f0a37a7c3776cab0d9b116465199f9fb12adace8a1e48799646e752bdae3d81"
+    },
+    {
+      "path": "demos\\12\\Run.ps1",
+      "sha256": "66e8d5b340e9cb0697b59dd1978044cac0647b55fdda5d42f1217aee25c3490a"
+    },
+    {
+      "path": "demos\\13\\Reset.ps1",
+      "sha256": "9b3fdb4953a5ee13487f6e04515c908053ca1386b009ebf79c3ca34410ddb584"
+    },
+    {
+      "path": "demos\\13\\Run.ps1",
+      "sha256": "7f411018cdfe25f035520b9ab86376423bb11c6c3772a7e0dbd4db4bef887037"
+    },
+    {
+      "path": "demos\\14\\Reset.ps1",
+      "sha256": "6d4ac7474c66d9cee562018f0a1c886ab007cf6e7e67c8a49562bce9165f1a64"
+    },
+    {
+      "path": "demos\\14\\Run.ps1",
+      "sha256": "b2abaeaa7369710bf1f75c0075cfb3327f5e9aaf02882def9db6538afb910759"
+    },
+    {
+      "path": "demos\\15\\Reset.ps1",
+      "sha256": "8b6d7103e4dcbaa220fda8bfe1cace5969f75d9146d740404ee516cf013a3793"
+    },
+    {
+      "path": "demos\\15\\Run.ps1",
+      "sha256": "3103fc8092aaa03149b8e17c131a328e9d1f1a2beff400b0f2a62d6e72b2b1de"
+    },
+    {
+      "path": "demos\\catalog.json",
+      "sha256": "eae62d808cd31c4ef90a6550eead9a47d9b5604faa7e625ac2ef2e7c693dc839"
+    },
+    {
+      "path": "docs\\DEMO01_SOURCE_BINDING.md",
+      "sha256": "d9d2dc66f33372a07e7868e7859bc301f2ca461315c4efd4d98b434855d3cfa9"
+    },
+    {
+      "path": "services\\correlation-core\\src\\main\\java\\com\\contoso\\correlation\\workflow\\RunScenario.java",
+      "sha256": "5ce376fa0dc657d8b886ea182e0ade4ef90f9b98927e0bee73ecd8890a0b3881"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+      "sha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java",
+      "sha256": "bf28812f7910c3d3ceae27b6ad554bb9ff2bae209c1b6612e51a3237628f4389"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+      "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca"
+    },
+    {
+      "path": "tests\\observability\\demo01-collector.test.mjs",
+      "sha256": "97b0f96e3d9a758e73237b1958b8350886b92090d6dc41ada1477c5c946d5d1a"
+    },
+    {
+      "path": "tests\\security\\fixtures.mjs",
+      "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00"
+    },
+    {
+      "path": "tests\\verification\\demo.test.mjs",
+      "sha256": "9ddcc0c100afca60208e4238b6c9d1e32e9af099f59d1feada37448d2a282a2b"
+    },
+    {
+      "path": "tests\\verification\\demo01-runtime.test.mjs",
+      "sha256": "9f422ccb327bc1a6088cf23a6667f3281e17a90fa8f73be1b0b00790b9771d9f"
+    },
+    {
+      "path": "tools\\messaging\\async-honesty.mjs",
+      "sha256": "b36abd67fdd6fdba161c884b239f0b82ac4b472a21c3c66dc21e7dccb3ced67f"
+    },
+    {
+      "path": "tools\\observability\\demo01-collector.mjs",
+      "sha256": "dcb5f95d247a385c6760a595ef97073613ea927f70e125f9e42dfc3966cb82ad"
+    },
+    {
+      "path": "tools\\observability\\kql.mjs",
+      "sha256": "b3f0e1f97c5560c58e08d6648c2e942a037ec3f4ca9583797696afe1c61fcb3d"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3"
+    },
+    {
+      "path": "tools\\observability\\runtime-adapters.mjs",
+      "sha256": "6a05fcbf7ae74aec51cbfdb371c7188322c77cc417f65030317b728725b761e6"
+    },
+    {
+      "path": "tools\\observability\\runtime-lease.mjs",
+      "sha256": "405970bfcb02df2915e8e9bc19338f4a7c6ad403b321d4549115e735133995a9"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+    },
+    {
+      "path": "tools\\observability\\sampling-controller.mjs",
+      "sha256": "e29740cbff0001918c3f044093b51d50781943fde52fad4812f14532ce8ad6b6"
+    },
+    {
+      "path": "tools\\observability\\state-io.mjs",
+      "sha256": "6bff52e23fe08e78d31f59b28e778f12cd1e3a43883e3be6b5126ee71cb47aeb"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\telemetry-policy.v1.json",
+      "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo01-browser.mjs",
+      "sha256": "f77dc6e4618f7a71ece8b3a4ab9749570fb78db5c8a26cd7a8a895e59985e690"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo01-runtime.mjs",
+      "sha256": "30cf83d98075284e7915c84e336f0dd6b3ff307f3031b5130d2f8a30e9d494f5"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo01-source-binding.v2.json",
+      "sha256": "a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+    },
+    {
+      "path": "tools\\verification\\demo.mjs",
+      "sha256": "eafc26ca681dd36d2c27e99c8c9ff848d70fd228bbf348a121c9e1049badb3b5"
+    },
+    {
+      "path": "tools\\verification\\evidence.mjs",
+      "sha256": "2d6e540e326e8773dbe68b2a125ac17e1a8178409cdf8b6cbc1b3fd79eb04180"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\pipeline.mjs",
+      "sha256": "c7ebc2ade134a75c2d73b553330fe93de8378912f98e7620c484287a7948b5b6"
+    },
+    {
+      "path": "tools\\verification\\raw-intake.mjs",
+      "sha256": "a16d39f6b365f7aa00cbc3ec17930bab79ca575a65ba128904cb44872ddfe576"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d"
+    },
+    {
+      "path": "tools\\verification\\scenarios.mjs",
+      "sha256": "7433dec3e3b04beaedba1b36e3420b7c929dedcef5d177c43a91fdadc371417a"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    },
+    {
+      "path": "web\\portal-ssr\\dist\\browser-adapter.js",
+      "sha256": "4c756dc29696018e00d30df22129f3db1daef6cce982d48f4b755e41b949e944"
+    },
+    {
+      "path": "web\\portal-ssr\\dist\\shared\\contracts.js",
+      "sha256": "f11154d38127381e30772db2739dec86c4cffda58cc06463778b9d118c897905"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\browser-adapter.ts",
+      "sha256": "ed6616eed2ef9ab8e428837f4d978d8985e70239f5968f7b3651b4271d76fc62"
+    },
+    {
+      "path": "web\\portal-ssr\\src\\shared\\contracts.ts",
+      "sha256": "044329ec034b2748af5b8306fbe38dcd6bebb401f9405ee06bfab3374b42fe0d"
+    },
+    {
+      "path": "web\\storefront-spa\\src\\app.ts",
+      "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456"
+    }
+  ],
+  "beforeSourcesSha256": "08fd4478033b7dcb4f1b34c285206efc6bd2ec42bcb315c9cf9cc9a717ec2473",
+  "afterSourcesSha256": "08fd4478033b7dcb4f1b34c285206efc6bd2ec42bcb315c9cf9cc9a717ec2473",
+  "bindingSha256": "a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794",
+  "historicalBefore": [
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\dem-00.1-contract-handoff.json",
+      "sha256": "49d237fa70ec79d78f08ceadc57e6a74d95944b84998d2e34ca16b0fef080852"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\final-handoff-v1\\triage.json",
+      "sha256": "f285eea2d48b3e37858978c9c55985ebbea9f7f9da33d647ce72cd0066f6a8f1"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v7.json",
+      "sha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4"
+    }
+  ],
+  "historicalAfter": [
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\dem-00.1-contract-handoff.json",
+      "sha256": "49d237fa70ec79d78f08ceadc57e6a74d95944b84998d2e34ca16b0fef080852"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R9\\final-handoff-v1\\triage.json",
+      "sha256": "f285eea2d48b3e37858978c9c55985ebbea9f7f9da33d647ce72cd0066f6a8f1"
+    },
+    {
+      "path": "tools\\verification\\conditional-source-freeze.v7.json",
+      "sha256": "c10e0dd611bd38a10668a044aea02ca991167b56b41662da7fe9f59cdd78c5b4"
+    }
+  ],
+  "historicalReceiptsUnchanged": true,
+  "inspection": {
+    "result": "BLOCKED",
+    "runnableDemoAdapter": false,
+    "nativeExecution": "NOT RUN",
+    "nativeQueryObserverCount": 0
+  },
+  "cliAndRegistryWitness": "evidence\\reviews\\swarm-20261102\\R9\\demo01-integration-20261103\\owner-final-v2\\owner-receipt.json",
+  "coverage": "Exact direct source/import closure plus consumed root map/catalog/scenario/version and fifteen wrapper pairs; not a native runtime closure or execution",
+  "positiveControls": [
+    "Both integration-failing inspection positives rerun successfully on current real bytes",
+    "New prospective binding matches current8 while old8author hashes remain historical",
+    "Original dispatcher/collector source and privacy consumers still pass"
+  ],
+  "negativeControls": [
+    "Actual isolated-copy app/contract/collector/runtime/browser/scanner/policy/binding-byte changes after import fail closed",
+    "Rewritten JSON binding cannot authorize a fresh runtime module import",
+    "Caller source/getter approval rejected before access",
+    "Original-column unsafe fields/fixture authority/createAdapter/native options remain rejected"
+  ],
+  "cleanup": "Isolated source-copy fixture UUIDs removed; no Java/Maven/native/browser/cloud process, shared target or parent certification-output write.",
+  "remaining": [
+    "R1/R7 independent current positive and negative review",
+    "Orchestrator alone invalidates reports and reruns the integrated suite",
+    "Native/demo/parent acceptance remains unmet"
+  ]
+}

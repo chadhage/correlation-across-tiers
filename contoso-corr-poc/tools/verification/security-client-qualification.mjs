@@ -31,9 +31,7 @@ const epoch = Object.freeze({
   compilerPid: 62968,
   childPid: 61972
 });
-const toolRoot = path.resolve(projectRoot, '..', '..', '..', '.copilot', 'session-state',
-  'a2820816-7000-4e63-9cf2-cd2c8da2162f', 'files', 'tools', 'r4');
-const sdkFile = path.join(toolRoot, 'm2', 'com', 'azure', 'azure-core-http-okhttp', '1.13.8',
+const sdkPath = root => path.join(root, 'm2', 'com', 'azure', 'azure-core-http-okhttp', '1.13.8',
   'azure-core-http-okhttp-1.13.8.jar');
 const fail = detail => { throw Object.assign(new Error(detail), { code: 'E_SECURITY_EPOCH' }); };
 const check = (condition, detail) => { if (!condition) fail(detail); };
@@ -44,6 +42,49 @@ const fromUri = value => {
   catch { fail('Actual public file CodeSource is required'); }
 };
 const safeTime = value => typeof value === 'string' && value.endsWith('Z') && Number.isFinite(Date.parse(value));
+
+function recordedSecurityProjectRoot(native) {
+  const source = native?.probeCompilation?.compilerArguments?.[4];
+  check(typeof source === 'string' && path.isAbsolute(source),
+    'Actual absolute compiler source path is required');
+  let root = source;
+  for (let depth = 0; depth < epoch.probeSource.split(/[\\/]/).length; depth++) root = path.dirname(root);
+  check(sameFile(source, path.join(root, epoch.probeSource)),
+    'Recorded compiler source must retain the exact expected project-relative path');
+  return root;
+}
+
+export function validateSecurityEpochLocation(native, expectedRoot) {
+  check(typeof expectedRoot === 'string' && path.isAbsolute(expectedRoot) &&
+    sameFile(recordedSecurityProjectRoot(native), expectedRoot),
+  'Relocated project copies cannot inherit the original selected execution identity');
+  return Object.freeze({ scope: 'PROJECT_LOCATION_CONSISTENCY_ONLY', authorityGranted: false });
+}
+
+export function resolveSecurityToolsRoot(configured = process.env.CONTOSO_PORTABLE_TOOLS_ROOT) {
+  if (typeof configured !== 'string' || !configured.trim() || configured.includes('\0')) {
+    throw Object.assign(new Error('CONTOSO_PORTABLE_TOOLS_ROOT is required and must name the witnessed local tool directory'), {
+      code: 'E_SECURITY_TOOLS_ROOT', missingPrerequisite: 'CONTOSO_PORTABLE_TOOLS_ROOT'
+    });
+  }
+  return path.resolve(projectRoot, configured.trim());
+}
+
+export async function validateSecurityToolBindings(tools, root) {
+  for (const [file, expected, canonical] of [
+    [tools.mavenCommand, tools.mavenCommandSha256, path.join(root, 'apache-maven-3.10.0', 'bin', 'mvn.cmd')],
+    [tools.java, tools.javaSha256, path.join(root, 'jdk-25.0.5+8', 'bin', 'java.exe')],
+    [tools.javac, tools.javacSha256, path.join(root, 'jdk-25.0.5+8', 'bin', 'javac.exe')]
+  ]) {
+    check(sameFile(file, canonical),
+      'Configured tools differ from the witnessed epoch; set CONTOSO_PORTABLE_TOOLS_ROOT explicitly. Relocated copies cannot inherit execution identity');
+    let bytes;
+    try { bytes = await readFile(canonical); }
+    catch { fail('Witnessed tool bytes unavailable; set CONTOSO_PORTABLE_TOOLS_ROOT to the exact witnessed tool directory'); }
+    check(sha256(bytes) === expected, 'Exact original executable bytes unavailable or changed');
+  }
+  return Object.freeze({ scope: 'TOOL_BYTE_CONSISTENCY_ONLY', authorityGranted: false });
+}
 
 export function checkSelectedSecurityEpoch(candidate) {
   const { build: a, native: b } = snapshotQualificationMetadata(candidate);
@@ -88,6 +129,7 @@ export function checkSelectedSecurityEpoch(candidate) {
     Date.parse(b.processStartUtc) < Date.parse(b.observedAtUtc) &&
     Date.parse(b.observedAtUtc) <= Date.parse(b.capturedAtUtc), 'Native child/artifact/execution window binding required');
   const compile = b.probeCompilation;
+    const recordedRoot = recordedSecurityProjectRoot(b);
   check(compile?.verified === true && compile.compilerPid === epoch.compilerPid && compile.compilerExitCode === 0 &&
     safeTime(compile.compilerStartedAtUtc) && safeTime(compile.compilerEndedAtUtc) &&
     Date.parse(a.finishedAtUtc) < Date.parse(compile.compilerStartedAtUtc) &&
@@ -99,11 +141,11 @@ export function checkSelectedSecurityEpoch(candidate) {
     compile.classResourceSha256 === epoch.probeClassSha256 &&
     compile.compiledClassSha256Before === epoch.probeClassSha256 &&
     compile.compiledClassSha256After === epoch.probeClassSha256 &&
-    sameFile(fromUri(compile.actualCodeSource), path.join(projectRoot, epoch.probeDirectory)) &&
+    sameFile(fromUri(compile.actualCodeSource), path.join(recordedRoot, epoch.probeDirectory)) &&
     Array.isArray(compile.compilerArguments) && compile.compilerArguments.length === 5 &&
     compile.compilerArguments[0] === '-cp' && compile.compilerArguments[2] === '-d' &&
-    sameFile(compile.compilerArguments[3], path.join(projectRoot, epoch.probeDirectory)) &&
-    sameFile(compile.compilerArguments[4], path.join(projectRoot, epoch.probeSource)) &&
+    sameFile(compile.compilerArguments[3], path.join(recordedRoot, epoch.probeDirectory)) &&
+    sameFile(compile.compilerArguments[4], path.join(recordedRoot, epoch.probeSource)) &&
     compile.productionModuleRebuilt === false && compile.widerSourceBuildLineageClaimed === false,
   'Separate actual current test-probe compiler/source/class/CodeSource witness required');
   check(b.checkerSha256 === epoch.checkerSha256 && b.probeSourceSha256 === epoch.probeSourceSha256 &&
@@ -114,10 +156,11 @@ export function checkSelectedSecurityEpoch(candidate) {
   check(checkHeaderIsolation(b, b.wireHeaderPresence).verified &&
     b.authHeadersAbsent === true && b.rawNativeInterceptorPresent === true && b.trustedPropagationObserved === true &&
     b.trustedParentAdvanced === true && b.retryObserved === true, 'Both original header controls and trusted/retry observations are required');
+  const witnessedToolRoot = path.dirname(path.dirname(path.dirname(a.toolchain.mavenCommand)));
   const used = checkUsedIdentityScope(b, b.wireHeaderPresence, {
-    securityArtifactUri: pathToFileURL(path.join(projectRoot, epoch.artifact)).href,
+    securityArtifactUri: pathToFileURL(path.join(recordedRoot, epoch.artifact)).href,
     securityArtifactSha256: epoch.artifactSha256, wrapperMemberSha256: epoch.wrapperMemberSha256,
-    sdkArtifactUri: pathToFileURL(sdkFile).href, sdkArtifactSha256: epoch.sdkSha256,
+    sdkArtifactUri: pathToFileURL(sdkPath(witnessedToolRoot)).href, sdkArtifactSha256: epoch.sdkSha256,
     sdkMemberSha256: epoch.sdkMemberSha256, childPid: epoch.childPid
   });
   check(used.verified && used.logicalIdentitySendCalls === 2 && used.physicalIdentityWireAttempts === 3,
@@ -196,11 +239,13 @@ async function bindingToolSources() {
 
 export async function intakeSelectedSecurityClientEpoch(...args) {
   check(args.length === 0, 'Caller paths, reports, flags and callbacks cannot enroll a selected execution');
+  const toolRoot = resolveSecurityToolsRoot();
   const bindingBefore = await bindingToolSources();
   const [a, b, f] = await Promise.all([
     original(epoch.build, epoch.buildSha256), original(epoch.native, epoch.nativeSha256),
     original(epoch.freeze, epoch.freezeSha256)
   ]);
+  validateSecurityEpochLocation(b.value, projectRoot);
   const observed = checkSelectedSecurityEpoch({ build: a.value, native: b.value });
   const sources = [...a.value.afterSources, ...validateSecurityFreezeSources(f.value),
     { path: epoch.checker, sha256: epoch.checkerSha256 }];
@@ -227,16 +272,9 @@ export async function intakeSelectedSecurityClientEpoch(...args) {
       Number(new RegExp(`\\b${name}="(\\d+)"`).exec(head)?.[1] ?? -1) === suite[name]),
     'Original actual JUnit counts do not match the executed report');
   }
-  const tools = a.value.toolchain;
-  for (const [file, expected, canonical] of [
-    [tools.mavenCommand, tools.mavenCommandSha256, path.join(toolRoot, 'apache-maven-3.10.0', 'bin', 'mvn.cmd')],
-    [tools.java, tools.javaSha256, path.join(toolRoot, 'jdk-25.0.5+8', 'bin', 'java.exe')],
-    [tools.javac, tools.javacSha256, path.join(toolRoot, 'jdk-25.0.5+8', 'bin', 'javac.exe')]
-  ]) {
-    check(sameFile(file, canonical) && sha256(await readFile(canonical)) === expected, 'Exact original executable bytes unavailable or changed');
-  }
+  await validateSecurityToolBindings(a.value.toolchain, toolRoot);
   const jar = await readBoundFile(epoch.artifact);
-  const sdk = await readFile(sdkFile);
+  const sdk = await readFile(sdkPath(toolRoot));
   const probeClass = await readBoundFile(path.join(epoch.probeDirectory, 'com', 'contoso', 'security', 'AuthPropagationProbe.class'));
   check(sha256(jar) === epoch.artifactSha256 &&
     jarMemberSha256(jar, 'com/contoso/security/IdentityHttpClients$ContextFreeRestClient.class') === epoch.wrapperMemberSha256 &&
@@ -309,5 +347,6 @@ export async function securityClientMain(args) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try { await securityClientMain(process.argv.slice(2)); }
   catch (error) { console.error(JSON.stringify({ result: 'FAIL_OR_UNVERIFIED', code: error.code ?? 'E_SECURITY_EPOCH',
+    missingPrerequisite: error.missingPrerequisite,
     certification: 'NOT_CERTIFIED', apiReady: false })); process.exitCode = 1; }
 }

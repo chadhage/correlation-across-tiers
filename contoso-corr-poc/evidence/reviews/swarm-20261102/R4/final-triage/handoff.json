@@ -1,0 +1,200 @@
+{
+  "schema": "contoso.swarm-lane-handoff.v1",
+  "lane": "R4",
+  "agentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "createdAtUtc": "2026-11-02T22:32:43.030Z",
+  "sources": [
+    {
+      "path": ".gitignore",
+      "sha256": "133b84f0cc5dcf74b2333a5b6adf25e80e89b550afbcd414420889aec98e8c77"
+    },
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de"
+    },
+    {
+      "path": "tools\\java\\Use-Portable.ps1",
+      "sha256": "fdd8fd29660230c7a209f0d67603333e6382e17c30683ce265b3b8d537725d05"
+    },
+    {
+      "path": "tools\\java\\Install-Portable.ps1",
+      "sha256": "311f8a48d9446304ba16e0cca55368b9bc6251da36459117091134b964ebd613"
+    },
+    {
+      "path": "tools\\java\\Install-Bicep.ps1",
+      "sha256": "b9a9a219d01859538fbcbd7281b01917bea43409713decf373ad79ab2586471d"
+    },
+    {
+      "path": "tools\\java\\Get-Agent.ps1",
+      "sha256": "4e2549a5bb333541081b2606a272437cf9f4a15d8cd69502690d3cdcbc2592a5"
+    },
+    {
+      "path": "tools\\java\\Gate-05.ps1",
+      "sha256": "408b9ff311b65048c94d0184fc4e1e0c5ca9a97cd6b98dcf10f3cf4e9d48f906"
+    },
+    {
+      "path": "tools\\java\\Validate-Compute.ps1",
+      "sha256": "54dce045e12cf10fa077d4c1174246906ea234a88fe53fc6a2920030675dd10d"
+    },
+    {
+      "path": "tests\\java\\portable-tools.test.mjs",
+      "sha256": "9737a94c9e4442fda6e472d21bc1275324098b9f205bb561c3097acf093f7091"
+    },
+    {
+      "path": "docs\\JAVA_VALIDATION.md",
+      "sha256": "b7a5228273cd5500f4d93c68747ee290e46e2c49a1470640864d475d8147a235"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d"
+    },
+    {
+      "path": "tests\\verification\\current-sampling-qualification.test.mjs",
+      "sha256": "b4e745e0631f0eaaf92a506028a4e416205cab12b513369c2eacb12ec9a8cba0"
+    },
+    {
+      "path": "..\\.github\\workflows\\ci-java.yml",
+      "sha256": "2a54d3dd2acfd7e691efd52f57091d838cda16681995e68fc7c267e95ca9f16d"
+    },
+    {
+      "path": "tools\\java\\Assert-JavaTestResults.ps1",
+      "sha256": "3caf94e158b4b8f4b63b0e6083178d16fa4fefbb0697506404d7fcf57e6f9292"
+    },
+    {
+      "path": "tests\\java\\ci-java.test.mjs",
+      "sha256": "4d441355c2f8dd06c23a66d64bec40b45a7efba8f468275aab0d2d3cca54a2c4"
+    },
+    {
+      "path": "docs\\JAVA_CI.md",
+      "sha256": "6df2d7d793db3cb2215a9d4691c593d6cd7fe073a4bb9bdb3d6245a05f563478"
+    }
+  ],
+  "children": [
+    {
+      "id": "GATE-02.1",
+      "status": "To Do",
+      "completed": "Actual current listed-source sampler receipts; final clean scoped five-project retake, 1 sampler assertion PASS/0skip/94.211sec plus 12 default-safe PostgreSQL contract assertions. Two current independent 16-case pure-checker source reviews.",
+      "receipt": "evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2\\manifest.json",
+      "sha256": "c9c5783f8a840f17cbc3e6ed4a3e1378b392801c3778b7af15b65b4262f050ee",
+      "blocker": "Private current-loader map deliberately EMPTY: no independently grounded current execution enrollment/report authority. Recorded-build consistency and source votes cannot mint it.",
+      "nextAction": "Parent actual final integrated Java execution/witness after all Java freezes; independently grounded LOCAL-only binding decision plus report integration. Never Azure/native/live executor enrollment."
+    },
+    {
+      "id": "GATE-05.1",
+      "status": "Done construction only (orchestrator persisted)",
+      "completed": "Six machine/session defaults removed; shared explicit/env/repository resolver and checksum gates. Owner/R6/R9 actual 8-case positives+negatives, zero skips/cancellations. Exact12 reviewed-source scope remains unchanged.",
+      "reviewScopeSha256": "57c358fbdab416f0337b809e3e2a213f2aebeed6d1126d0dadcd08fd42f49eba",
+      "nextAction": "Keep parent deployed compatibility/owner facets To Do; any of12 reviewed-source changes require actual independent replays."
+    },
+    {
+      "id": "GATE-05.2",
+      "status": "To Do",
+      "completed": "Every-PR Windows Java reactor workflow and strict JUnit result guard. Final v3 actual6 Node/PowerShell source controls passed; cancellation-only count fix and statsbeat/live-metrics-off source controls included.",
+      "freeze": "evidence\\reviews\\swarm-20261102\\R4\\gate-05-2-owner-v3\\sources-before.json",
+      "freezeSha256": "0aaaac67e465110c07d36bdc2a4e1bc2fc4a3bb9faf61e2735cdc980cf562f9b",
+      "blocker": "Independent final v3 source reviews pending; no actual clean/seeded hosted PR execution, no commit/push authorized.",
+      "nextAction": "R6/R9 actual v3 focused replay, then an explicitly approved hosted clean/seeded workflow run. No Azure operations."
+    },
+    {
+      "id": "JVM-01.1",
+      "status": "To Do",
+      "completed": "Consumer contract PROPOSED to R1/R2/R7 only. Start-LocalPair.ps1 NOT created. No API pair/receiver launched; no ports reserved.",
+      "blocker": "New implementation dispatch stopped when genuine frontier dropped below4 of10. Implementation and actual bounded local rehearsal not performed.",
+      "nextAction": "On fresh orchestrator readiness authorization implement the one-command launcher using current-built APIs, pinned agent/sampler and existing test-only H2/RESP/synthetic-token seams; real receive+export joins, final receiver barrier and explicit PID cleanup. Label LOCAL REHEARSAL only."
+    },
+    {
+      "id": "DEM-04.1",
+      "status": "To Do",
+      "completed": "Not started.",
+      "blocker": "DEM-00.1 and reviewed JVM-04/MSG-02/OBS-02 contracts; new-dispatch threshold stop. Approved native topology/window absent.",
+      "nextAction": "After prerequisites and explicit frontier authorization implement concrete shipped Demo04 adapter; keep native execution separately blocked."
+    },
+    {
+      "id": "DEM-05.1",
+      "status": "To Do",
+      "completed": "Not started; no fault-switch source changed.",
+      "blocker": "Reviewed JVM-03/DAT-01 interfaces plus new-dispatch threshold stop.",
+      "nextAction": "When dispatch reopens implement default-off run-scoped timeout/PG-error switches in Inventory API service layer only, require demo/control role, restore baseline, add always-on/unprivileged negatives; request R6 permission before any data-adapter edit."
+    },
+    {
+      "id": "DEM-05.2",
+      "status": "To Do",
+      "completed": "Not started.",
+      "blocker": "DEM-00.1 and unimplemented DEM-05.1; native target/window closed.",
+      "nextAction": "After prerequisite construction and explicit frontier authorization implement concrete shipped Demo05 adapter and cleanup; native APIM/error telemetry remains independently blocked."
+    }
+  ],
+  "tools": {
+    "portableRoot": ".tools\\java",
+    "jdk": "Temurin25.0.5+8",
+    "maven": "3.10.0",
+    "mavenRepository": ".cache\\r6-m2",
+    "agentSha256": "93a70c8f5d364c7e777f6c4d1b235dba91aef8448bd3fa94359f1d7f3e2eb0ec",
+    "samplerSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+    "availability": "Installed only after actual missing tool/dependency failures; official archive hashes verified; ignored reusable tools preserved. Quote all -D arguments in PowerShell."
+  },
+  "reviewedOtherLanes": [
+    {
+      "child": "INF-05.2",
+      "owner": "R6",
+      "actual": "6Node +2Bicep modules/6expectedBCP081/0unexpected",
+      "receipt": "review-R6-INF05.2-v2\\review.json"
+    },
+    {
+      "child": "DAT-01.2",
+      "owner": "R6",
+      "actual": "11Node source/portable preflight only",
+      "receipt": "review-R6-DAT01.2-v1\\review.json"
+    },
+    {
+      "child": "DAT-01.3",
+      "owner": "R6",
+      "actual": "6Node +12 Java safe contracts (7+2+3); no real PostgreSQL",
+      "receipt": "review-R6-DAT01.3-v1\\review.json"
+    },
+    {
+      "child": "DAT-02.1",
+      "owner": "R6",
+      "actual": "12Node +6 Java safe contracts; no Redis connection",
+      "receipt": "review-R6-DAT02.1-v1\\review.json",
+      "javaSummary": "review-R6-DAT02-java-v1\\java-summary.json"
+    },
+    {
+      "child": "GATE-03.1",
+      "owner": "R8",
+      "actual": "27Node clean/seeded scanner source controls; no hosted PR",
+      "receipt": "review-R8-GATE03.1-v1\\review.json"
+    },
+    {
+      "child": "IDN-01.2",
+      "owner": "R8",
+      "actual": "13Node source/negative preflight controls; no native auth/wire",
+      "receipt": "review-R8-IDN01.2-v1\\review.json"
+    }
+  ],
+  "cleanup": {
+    "ownedJavaProcessCount": 0,
+    "apiOrTelemetryServersStarted": false,
+    "portsReserved": [],
+    "newChildAgents": 0,
+    "cloudOperations": 0,
+    "secretsAccessed": false,
+    "commits": 0,
+    "pushes": 0,
+    "generatedUnitFixturesRemoved": true,
+    "immutableEvidenceAndIgnoredToolsPreserved": true
+  },
+  "release": {
+    "mavenAndTargetOutputs": "RELEASED to orchestrator final integrated validation ONLY; no R4 build remaining",
+    "sourceFiles": "FROZEN; R6/R9 pending CI reviews may read. Root pom/package/version unchanged by R4.",
+    "samplerVerificationLease": "Authored exact files frozen; current private enrollment map empty; downstream importer may replay c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+    "pidAndPortLeases": "RELEASED; zero task-owned Java processes, no servers or reserved ports"
+  },
+  "validationCaveats": [
+    "No full npm/Maven reactor run by R4; parent owns integrated validation.",
+    "Initial malformed unquoted Maven -D invocation and missing-dependency attempts retained, never counted as qualification.",
+    "Earlier166-source sampler epoch retained historical; final168-listed-source receipt excludes later2Redis test-only additions.",
+    "Whole-repository git diff --check reports trailing whitespace in other owners TEST_COVERAGE_REPORT/InventoryFixtureContract/Test-InventoryFixture files; no R4 edits made there and no whole-repository whitespace PASS claimed.",
+    "Source/unit review or workflow source never substitutes for hosted/native/deployed/GA/owner acceptance."
+  ]
+}

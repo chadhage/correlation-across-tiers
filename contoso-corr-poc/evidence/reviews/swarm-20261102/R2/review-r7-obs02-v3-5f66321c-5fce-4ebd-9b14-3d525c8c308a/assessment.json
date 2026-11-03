@@ -1,0 +1,54 @@
+{
+  "schema": "contoso.scoped-review-assessment.v1",
+  "reviewerRole": "R2",
+  "reviewerAgentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "authorRole": "R7",
+  "childId": "OBS-02.2",
+  "result": "ACCEPTED_CORRECTIVE_SOURCE_UNIT_ONLY",
+  "findingClosure": "R9 mixed-envelope provenance finding closed on the exact c36f992... source epoch; external arrays materialized once, only original capture with zero external envelopes retains local physical transport provenance; all mixed/caller-only rows and aggregate stay fixture-check/structural.",
+  "codeSha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+  "nodeVersion": "v22.23.4",
+  "sourceCount": 21,
+  "sourcesBeforeAfterMatched": true,
+  "tests": {
+    "runner": "node-tap",
+    "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+    "testFiles": [
+      "tests\\observability\\local-trace-tree.test.mjs",
+      "tests\\observability\\sampler-native-intake.test.mjs",
+      "tests\\verification\\invariants.test.mjs"
+    ],
+    "startedAtUtc": "2026-11-02T22:35:09.310Z",
+    "finishedAtUtc": "2026-11-02T22:35:10.908Z",
+    "exitCode": 0,
+    "passed": 75,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-v3-5f66321c-5fce-4ebd-9b14-3d525c8c308a\\tests.tap",
+    "sha256": "899cd80ba5a3ab9d87c989feed54f9c25cdecbf7e2bb28762f4088bb9562863d",
+    "positiveTests": [
+      "complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile",
+      "actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance",
+      "safe incremental capture callbacks are immutable, per-payload and awaited before acceptance"
+    ],
+    "negativeTests": [
+      "seeded split, duplicate, parent and every missing-hop control fail without modifying original captures",
+      "untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed",
+      "unsafe originals never reach an incremental callback and callback failures poison all acceptance",
+      "mixed caller envelopes cannot inherit an original loopback capture provenance",
+      "an empty original loopback capture cannot lend provenance to caller-only spans",
+      "mixed caller envelopes cannot inherit an original loopback capture provenance",
+      "an empty original loopback capture cannot lend provenance to caller-only spans"
+    ]
+  },
+  "positive": "Pure original six-envelope loopback capture remains local transport only, never native; existing tree and full-chain controls preserved.",
+  "negative": "Six original + one caller envelope and an empty original capture + caller-only spans cannot elevate any row or aggregate provenance.",
+  "priorReview": "The old 73-test immutable receipt and subsequent HOLD remain historical; this corrective 75-test execution is the current finite source/unit check.",
+  "completedChildCandidate": false,
+  "nativeEvidence": false,
+  "sourceAcceptanceIsCertification": false,
+  "status": "To Do",
+  "remaining": "Actual R4 launcher/pair, R2 browser-to-real-Orders received carrier/emitted parent join, complete genuine merge and all separately authorized native prerequisites remain absent.",
+  "cleanup": "All test-owned loopback receivers/CLI children/UUID scratch closed/removed; no new parent/runtime dispatch, source coauthoring, JVM, Maven or cloud traffic."
+}

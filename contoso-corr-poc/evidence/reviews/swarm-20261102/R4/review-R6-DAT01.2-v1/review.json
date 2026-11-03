@@ -1,0 +1,193 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+      "sha256": "4d808308213c3a280bf3f1183a01b34b7cc8536931a7f4a7d4a42fe822c1087d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+      "sha256": "6880474215a3b579c55bfdd763fe039dc491f5f9208d4e01541b5477414d1ae7",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+      "sha256": "09357e4f3257a6b4be3b7343a29ea7059a8eb96f01d94e9b62b64b15190f41cb",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+      "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+      "sha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java",
+      "sha256": "bf28812f7910c3d3ceae27b6ad554bb9ff2bae209c1b6612e51a3237628f4389",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+      "sha256": "4d808308213c3a280bf3f1183a01b34b7cc8536931a7f4a7d4a42fe822c1087d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+      "sha256": "6880474215a3b579c55bfdd763fe039dc491f5f9208d4e01541b5477414d1ae7",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+      "sha256": "09357e4f3257a6b4be3b7343a29ea7059a8eb96f01d94e9b62b64b15190f41cb",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+      "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\PortableTools.ps1",
+      "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+      "sha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java",
+      "sha256": "bf28812f7910c3d3ceae27b6ad554bb9ff2bae209c1b6612e51a3237628f4389",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R6",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "result": "accepted",
+      "scopeSha256": "634fb3b9e8924548b040d36b3604412bd6ee7dd262c0c4b4c0c8b6eaf069b233",
+      "sources": [
+        {
+          "path": "services\\inventory-data\\tools\\Test-InventoryFixture.ps1",
+          "sha256": "4d808308213c3a280bf3f1183a01b34b7cc8536931a7f4a7d4a42fe822c1087d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+          "sha256": "6880474215a3b579c55bfdd763fe039dc491f5f9208d4e01541b5477414d1ae7",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+          "sha256": "09357e4f3257a6b4be3b7343a29ea7059a8eb96f01d94e9b62b64b15190f41cb",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+          "sha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\PortableTools.ps1",
+          "sha256": "65a8d87e8b32dfef48f5fd1eb49f37fe326bdf57612e19a8bee7ea91a7de04de",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureRun.java",
+          "sha256": "829fa86e661ffaca01dafcb13528539566312322a3380f52f3f32ba8244a2041",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+          "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+          "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventoryFixtureStdio.java",
+          "sha256": "bf28812f7910c3d3ceae27b6ad554bb9ff2bae209c1b6612e51a3237628f4389",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 services\\inventory-data\\tools\\fixture-runner-portability.test.mjs services\\inventory-data\\tools\\inventory-fixture-source.test.mjs",
+        "testFiles": [
+          "services\\inventory-data\\tools\\fixture-runner-portability.test.mjs",
+          "services\\inventory-data\\tools\\inventory-fixture-source.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:01:40.986Z",
+        "finishedAtUtc": "2026-11-02T22:01:48.500Z",
+        "exitCode": 0,
+        "passed": 11,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT01.2-v1\\tests.tap",
+        "sha256": "99f204ec538fad76c63cf0a3288c98993bb604f9bd6d4d4d0611232d0632f13f",
+        "positiveTests": [
+          "LOCAL POWERSHELL: no override resolves the repository-local portable tool directory",
+          "LOCAL POWERSHELL: environment override and explicit-argument precedence are executable"
+        ],
+        "negativeTests": [
+          "CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance",
+          "CONTROL: missing environment-provided tools also fail explicitly without Maven"
+        ]
+      },
+      "children": [
+        {
+          "id": "DAT-01.2",
+          "definitionSha256": "c47663cbc4984800b78f21b21ccc926d06d408ee4fb2148aecea3f99381e17dd",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "..\\.github\\workflows\\secret-scan.yml",
+      "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\secret-scan-workflow.test.mjs",
+      "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\repository.test.mjs",
+      "sha256": "316ce5f1f246c0edbaa854bf1270e58a9c02cc9c997fe8da5a8e54fe215cf9ba",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\fixtures.mjs",
+      "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\repository.mjs",
+      "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\Run-SecurityGates.ps1",
+      "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\identifiers.mjs",
+      "sha256": "d8517e2f9f116eadbe1cbdc05fba953cf41b4a3e43195865157efda3185d1832",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\telemetry-policy.v1.json",
+      "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "..\\.github\\workflows\\secret-scan.yml",
+      "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\secret-scan-workflow.test.mjs",
+      "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\repository.test.mjs",
+      "sha256": "316ce5f1f246c0edbaa854bf1270e58a9c02cc9c997fe8da5a8e54fe215cf9ba",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\security\\fixtures.mjs",
+      "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\repository.mjs",
+      "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\Run-SecurityGates.ps1",
+      "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\identifiers.mjs",
+      "sha256": "d8517e2f9f116eadbe1cbdc05fba953cf41b4a3e43195865157efda3185d1832",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\telemetry.mjs",
+      "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\telemetry-policy.v1.json",
+      "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R8",
+      "authorAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+      "result": "accepted",
+      "scopeSha256": "bb8210475d67699ea03a9a8c3e8510386a4e8bc33506bb2d8ad2da71b727b57e",
+      "sources": [
+        {
+          "path": "..\\.github\\workflows\\secret-scan.yml",
+          "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\security\\secret-scan-workflow.test.mjs",
+          "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\security\\repository.test.mjs",
+          "sha256": "316ce5f1f246c0edbaa854bf1270e58a9c02cc9c997fe8da5a8e54fe215cf9ba",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\security\\fixtures.mjs",
+          "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\repository.mjs",
+          "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\Run-SecurityGates.ps1",
+          "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\values.mjs",
+          "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\identifiers.mjs",
+          "sha256": "d8517e2f9f116eadbe1cbdc05fba953cf41b4a3e43195865157efda3185d1832",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\telemetry.mjs",
+          "sha256": "457481f67b06a4fee44dcb628ded36b678f8487bef510de9cbb1bf4faaf2c843",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\telemetry-policy.v1.json",
+          "sha256": "70079043f194c6933e7db13fa7bde88ec1b6aec7b9b13bf3683ff4a7395e8f24",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\security\\secret-scan-workflow.test.mjs tests\\security\\repository.test.mjs",
+        "testFiles": [
+          "tests\\security\\secret-scan-workflow.test.mjs",
+          "tests\\security\\repository.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:01:57.481Z",
+        "finishedAtUtc": "2026-11-02T22:02:02.486Z",
+        "exitCode": 0,
+        "passed": 27,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R5\\review-r8-gate03-20261102-a20e70fa-01\\receipt\\tests.tap",
+        "sha256": "7d7ced642b772a05035a38b6ffe80149e128769851ce65752a4668ebffea974a",
+        "positiveTests": [
+          "every PR and push scan merged full history with fork-safe read-only permissions"
+        ],
+        "negativeTests": [
+          "workflow guard rejects missing pull-request trigger",
+          "workflow guard rejects shallow checkout",
+          "workflow guard rejects worktree-only scan",
+          "actual scanner CLI passes a clean repository and rejects deleted fake secrets in merged history",
+          "seeded secret forms are detected with location/code only"
+        ]
+      },
+      "children": [
+        {
+          "id": "GATE-03.1",
+          "definitionSha256": "8fe6074bdf0b5fe9ed0759ea412b56c6c313a4fe023f44a059ed7706349aae67",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

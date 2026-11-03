@@ -1,0 +1,24 @@
+{
+  "schema": "contoso.swarm-review-addendum.v1",
+  "ownerRole": "R4",
+  "child": "GATE-05.2",
+  "reviewerRole": "R9",
+  "sourceReviewSha256": "755f90c647838407f1e8fb49084adaaa60f91cef648575375197f96dfb4a4684",
+  "resolutionPath": "evidence\\reviews\\swarm-20261102\\R9\\gate-05-2-cancel-count-fixed-v3\\resolution.json",
+  "resolutionSha256": "4b1b18c48b5e438a421069d806ca70238fa5fba52140045d618639cac34ce1a6",
+  "reportedActual": {
+    "result": "EXPECTED_FAIL",
+    "skipped": 0,
+    "executed": 5,
+    "errors": 0,
+    "cancelled": 1,
+    "failures": 0,
+    "passed": 4,
+    "exitCode": 1,
+    "xmlCases": 5
+  },
+  "sourceAcceptanceIsCertification": false,
+  "hostedPrExecuted": false,
+  "sourceChanged": false,
+  "mavenAndPidLeases": "RELEASED"
+}

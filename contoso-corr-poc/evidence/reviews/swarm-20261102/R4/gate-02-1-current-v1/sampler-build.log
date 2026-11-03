@@ -1,0 +1,54 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir="C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\.java-work"
+[INFO] Scanning for projects...
+[INFO] Loaded 24316 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Contoso correlation POC                                            [pom]
+[INFO] Contoso same-provider parent-safe sampler                          [jar]
+[INFO] 
+[INFO] --------------------< com.contoso:contoso-corr-poc >--------------------
+[INFO] Building Contoso correlation POC 1.0.0                             [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ contoso-corr-poc ---
+[INFO] Deleting C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (gate-02-api-only) @ contoso-corr-poc ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --------------< com.contoso:contoso-parent-safe-sampler >---------------
+[INFO] Building Contoso same-provider parent-safe sampler 1.1.0           [2/2]
+[INFO]   from extensions\parent-safe-sampler\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:jar:1.65.0 is missing, no dependency information available
+[WARNING] The POM for io.opentelemetry:opentelemetry-sdk-trace:jar:1.65.0 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Contoso correlation POC 1.0.0 ...................... SUCCESS [  0.872 s]
+[ERROR] Contoso same-provider parent-safe sampler 1.1.0 .... FAILURE [  0.318 s]
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.656 s
+[INFO] Finished at: 2026-11-02T16:59:36-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project contoso-parent-safe-sampler: Could not resolve dependencies for project com.contoso:contoso-parent-safe-sampler:jar:1.1.0
+[ERROR] dependency: io.opentelemetry:opentelemetry-sdk-trace:jar:1.65.0 (provided)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact io.opentelemetry:opentelemetry-sdk-trace:jar:1.65.0 has not been downloaded from it before.
+[ERROR] dependency: io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:jar:1.65.0 (provided)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:jar:1.65.0 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :contoso-parent-safe-sampler

@@ -1,0 +1,128 @@
+{
+  "schema": "contoso.r5-scoped-assessment.v1",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "ORCHESTRATOR",
+  "authorAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "result": "REJECTED_OLD_FREEZE_AGGREGATE_CHILD_EVIDENCE_BYPASS",
+  "scopeSha256": "769a4c3566f8f0c657ba595d2e28a34b52ba1dbe3d3b22fbf055dd9090e2388a",
+  "sources": [
+    {
+      "path": "tools\\kanban.mjs",
+      "sha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e"
+    },
+    {
+      "path": "tests\\kanban.test.mjs",
+      "sha256": "e8b99c05cb7fcc3dd080c9acb6f4850ae075cfccf9fc025509d944fc1bc37d6e"
+    },
+    {
+      "path": "tools\\verification\\acceptance.mjs",
+      "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    }
+  ],
+  "tests": {
+    "schema": "contoso.r5-check.v1",
+    "reviewerRole": "R5",
+    "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+    "authorRole": "ORCHESTRATOR",
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "runtime": "v22.23.4",
+    "startedAtUtc": "2026-11-02T22:09:30.431Z",
+    "finishedAtUtc": "2026-11-02T22:09:34.942Z",
+    "exitCode": 0,
+    "error": null,
+    "counts": {
+      "tests": 48,
+      "pass": 48,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "sourcesUnchangedBeforeAfter": true,
+    "boardPolicyUnchanged": true,
+    "backlogSemanticUnchanged": true,
+    "operationalBefore": {
+      "boardPolicySha256": "0ed1965404ad9c359be9a361e2e31d22bd8bf205aaf0078f0cc4adff76aafc23",
+      "backlogSemanticSha256": "e19ad37583dbdb4bd6f1beea4236fb0c39d775d91e17612fe5488fb9601973a4",
+      "counts": {
+        "parents": 78,
+        "children": 52,
+        "clauses": 281,
+        "facets": 491,
+        "gates": 13
+      }
+    },
+    "operationalAfter": {
+      "boardPolicySha256": "0ed1965404ad9c359be9a361e2e31d22bd8bf205aaf0078f0cc4adff76aafc23",
+      "backlogSemanticSha256": "e19ad37583dbdb4bd6f1beea4236fb0c39d775d91e17612fe5488fb9601973a4",
+      "counts": {
+        "parents": 78,
+        "children": 52,
+        "clauses": 281,
+        "facets": 491,
+        "gates": 13
+      }
+    },
+    "tapSha256": "c3733ab07266b7074913efd58d2d15ba2f6ab3d635e9728eb303a69d7cae4c17",
+    "sourceAcceptanceIsCertification": false,
+    "certificationStatus": "NOT CERTIFIED"
+  },
+  "findings": [
+    {
+      "id": "R5-ORCH-01",
+      "priority": "P1",
+      "location": "tools\\kanban.mjs: verifyEvidence parent unit code-review source loop; synchronize aggregate boundary",
+      "summary": "Construction Done evidence is not verified on the ordinary aggregate path when parent criteria/reviews are empty.",
+      "details": "verifyConstructionEvidence is only called from inside a parent unit code-review source iteration. synchronize invokes verifyEvidence but does not independently invoke child verification. Structural validateState accepts the well-shaped seeded child metadata, so absent child review files/TAP/current sources are never opened on --write or --check.",
+      "actualReproduction": {
+        "receipt": "evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-20261102-a20e70fa-01\\cli-route-reproduction.v1.json",
+        "sha256": "d0509853b9d359f9fd14506aa56e1850bdbaeb43ae055b7232a43748b9896333",
+        "directHelperRejected": "ENOENT",
+        "actualWriteExitCode": 0,
+        "actualCheckExitCode": 0,
+        "unexpectedDoneChildren": 1,
+        "fixtureRemoved": true,
+        "sharedBoardEdits": false
+      },
+      "requestedFix": "Invoke the child evidence verifier unconditionally at the aggregate verification boundary, remove the nested call and add aggregate-route missing/tampered/drifted child regressions."
+    }
+  ],
+  "positiveAndNegativeCoverage": [
+    "Existing 48 focused tests all execute, including child prerequisite/identity/WIP/scoped source/TAP/tamper and native-authority anti-shortcut controls.",
+    "The direct child-evidence test passes but does not cover the aggregate entrypoint; the additional actual copied CLI negative demonstrates the missing integration."
+  ],
+  "preservedCounts": {
+    "parents": 78,
+    "children": 52,
+    "clauses": 281,
+    "facets": 491,
+    "gates": 13
+  },
+  "boardPolicyUnchanged": true,
+  "backlogSemanticUnchanged": true,
+  "cleanup": {
+    "isolatedFixtureRemoved": true,
+    "sourceEdits": 0,
+    "sharedBoardEdits": 0,
+    "javaMavenRuns": 0,
+    "cloudOrApplicationTraffic": false,
+    "backgroundProcesses": 0
+  },
+  "nextAction": "Orchestrator has acknowledged the same independent R3 finding and holds old freeze. Await new exact code/test hashes and rerun independently; do not approve d54ab48.",
+  "sourceAcceptanceIsCertification": false,
+  "parentCompletionGranted": false,
+  "nativeAcceptance": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

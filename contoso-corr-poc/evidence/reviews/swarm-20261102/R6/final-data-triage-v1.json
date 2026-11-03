@@ -1,0 +1,255 @@
+{
+  "schema": "contoso.r6-final-child-triage.v1",
+  "executorRole": "R6",
+  "executorAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "orchestratorAgent": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "createdAtUtc": "2026-11-02T22:37:42.3063268Z",
+  "activeImplementationClaims": [],
+  "nativeExecution": false,
+  "realStoreExecutions": 0,
+  "parentCardsRemain": "INF-05/DAT-01/DAT-02/DEM-12 native obligations To Do; only orchestrator writes board status.",
+  "runtime": {
+    "mavenViaR4": "3.10.0 offline/scoped",
+    "node": "22.23.4",
+    "javaViaR4": "25.0.5 Eclipse Adoptium",
+    "bicep": "0.48.1 (cec7951cf6)",
+    "powershell": "7.6.9"
+  },
+  "ownedChildren": [
+    {
+      "child": "INF-05.1",
+      "state": "To Do",
+      "blocker": "No separately approved native per-app identity/connectivity execution, targets/auth/private reachability or observer window.",
+      "nextAction": "Obtain bounded authorization and hash-built per-app packages; observe actual PostgreSQL/Managed Redis operations under each own identity. Config/source is not that proof."
+    },
+    {
+      "child": "INF-05.2",
+      "state": "REVIEWED_CONSTRUCTION_EXIT_FOR_ORCHESTRATOR",
+      "evidence": {
+        "handoff": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\inf-05.2-v2\\handoff.json",
+          "sha256": "2913513f8870005d5b39acdf8870fc821d045d91e5961e5df7ee657af3ca98ad"
+        },
+        "freeze": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\inf-05.2-v2\\freeze-before.json",
+          "sha256": "e5c5dbc4c9176dfb664dc3f91f3ecf382531fd10f72c63bbcd0ef69487470f6e"
+        },
+        "sourceCount": 8,
+        "allDeclaredSourceBytesStillCurrent": true,
+        "independentReviews": [
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-INF05.2-v2\\review.json",
+            "sha256": "f9996429c67dce3af4e82b5b132fceab0ca4c20b47f263a5215074bedda1d365"
+          },
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R8\\r6-inf05.2-v2-20261102\\receipt\\review.json",
+            "sha256": "459ba8603bfd9dd70b4614722bb34641ba51838a06210ad4323c02e07bf2b80d"
+          }
+        ],
+        "reviewScopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c"
+      },
+      "actual": {
+        "unexpectedDiagnostics": 0,
+        "nodePass": 6,
+        "expectedBCP081": 6,
+        "measuredBCP081": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "compiledDataModules": 2,
+        "nodeFail": 0
+      },
+      "remaining": "Six numeric VERIFY rows, API/provider/SKU/region/GA/deployment and own-identity native obligations remain open; frozen APIs unchanged."
+    },
+    {
+      "child": "DAT-01.1",
+      "state": "FINITE_REVIEWED_LIFECYCLE_SOURCE_NOT_REPEATED",
+      "remaining": "Cold-cache fixture Java/bridge routines unchanged; shared InventorySchemaHooks class changed only its inventory grant construction. Historical complete-runtime hashes are not fresh native execution. No new prepare/reset/store operation run.",
+      "nextAction": "Use existing reviewed bounded capture/prepare/reset lifecycle only after approved native target/runtime/operator lease; verify run-owned and declared unowned state restoration."
+    },
+    {
+      "child": "DAT-01.2",
+      "state": "REVIEWED_CONSTRUCTION_EXIT_FOR_ORCHESTRATOR",
+      "evidence": {
+        "handoff": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.2-v3\\handoff.json",
+          "sha256": "14a9b4e4cfa30804d668b50427ce2e31c14aabdcadbc0395d10597f6e044b511"
+        },
+        "freeze": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.2-v3\\freeze-before.json",
+          "sha256": "92896cfd7467296a14e03a0d7c4303c086ba7348cd6dc1ea368ca93232f64366"
+        },
+        "sourceCount": 9,
+        "allDeclaredSourceBytesStillCurrent": true,
+        "independentReviews": [
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT01.2-v1\\review.json",
+            "sha256": "18e9f4ca23fce2eb941ce076f73a02c309fa5008d24490da54d0c8e889e27b1b"
+          },
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.2-20261102\\receipt\\review.json",
+            "sha256": "511539a777921fcf46381ceb36e19ca784a704b41a4b04e13b9579c287229171"
+          }
+        ],
+        "reviewScopeSha256": "634fb3b9e8924548b040d36b3604412bd6ee7dd262c0c4b4c0c8b6eaf069b233"
+      },
+      "actual": {
+        "skipped": 0,
+        "fail": 0,
+        "nodeAndPowerShellPass": 11,
+        "cancelled": 0,
+        "javaLifecycleRerun": 0
+      },
+      "result": "Explicit ToolsRoot > CONTOSO_PORTABLE_TOOLS_ROOT > repository .tools\\java, no operator session default, actionable missing prerequisites before Maven/output."
+    },
+    {
+      "child": "DAT-01.3",
+      "state": "To Do",
+      "constructionEvidence": {
+        "handoff": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.3-v1\\handoff.json",
+          "sha256": "5478c6052c9fb0da1441bdccde4488a903ed588a5f5544707f9a447757584a6f"
+        },
+        "freeze": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.3-v1\\freeze-before.json",
+          "sha256": "c85f3c59fa85d4723ebe961fb8c0f5cfad1a78850b4992da9454675ae09da157"
+        },
+        "sourceCount": 11,
+        "allDeclaredSourceBytesStillCurrent": true,
+        "independentReviews": [
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT01.3-v1\\review.json",
+            "sha256": "cb262ed6e260839101883541e3ed939fce15684867be9c9d8ca4feb1e478f5f8"
+          },
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat01.3-v1-20261102\\receipt\\review.json",
+            "sha256": "cfd0b5345c24356fa59783dfa52067eaef56b6d95d57aba24d0bc17a3d0b4b22"
+          }
+        ],
+        "reviewScopeSha256": "bc10fa94d99bd92ef5ecf0df2a5e595887f1e827aee7cf1c310878d608cedf30"
+      },
+      "javaWitness": {
+        "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-01.3-v1\\java-contract-witness.json",
+        "sha256": "10abffe40332763e937dd19999eecbaee93f050a4b7479206749b0f2416ca09c"
+      },
+      "actual": {
+        "existingMarkerAndWorkflowJavaPass": 5,
+        "compatibilitySourcePass": 9,
+        "fail": 0,
+        "javaContractPass": 7,
+        "realPostgresRuns": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "sourceNodePass": 6
+      },
+      "sourceDelta": "InventorySchemaHooks extracts original inventory SQL, revokes marker ALL then grants SELECT/UPDATE(singleton). V001, native/OID/marker guards, adapter and workflow grants unchanged. Real test-only class added; default-safe contract tested via R4.",
+      "blocker": "No approved existing local PostgreSQL18 target; postgres/psql/Docker executables unavailable. No connection or resource operation attempted.",
+      "nextAction": "Approve existing numeric-loopback PostgreSQL18 target/admin and explicit fresh run UUID, then explicitly select LocalPostgresLane. Verify actual product, V001/shared grants, seeded old-grant revocation/effective denials, row lock, 23514/23502, operations, witness and exact created DB/role cleanup. SET ROLE is not Entra."
+    },
+    {
+      "child": "DAT-02.1",
+      "state": "To Do",
+      "constructionEvidence": {
+        "handoff": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-02.1-v1\\handoff.json",
+          "sha256": "210b159d4b4d6b93591e9463296776504d1bab33ed80edbd84d4b14261db7992"
+        },
+        "freeze": {
+          "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-02.1-v1\\freeze-before.json",
+          "sha256": "35ffe3543a39d6cae5422d681400884717e6b7f38ae99f74de8d64bb08b24c03"
+        },
+        "sourceCount": 11,
+        "allDeclaredSourceBytesStillCurrent": true,
+        "independentReviews": [
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT02.1-v1\\review.json",
+            "sha256": "78ceb0dce88875b7b5609cfbd99c9bbbd2aa1aad7f7bcd7efc13bf6696777aaf"
+          },
+          {
+            "path": "evidence\\reviews\\swarm-20261102\\R8\\r6-dat02.1-v1-20261102\\receipt\\review.json",
+            "sha256": "724977c97c1fa3ead1117a0dc202278cd738b2e13d4e8f56ea9a56cd4cca7a91"
+          }
+        ],
+        "reviewScopeSha256": "721726fc0665122cc3668e928718fec864f2b4e8d0971b28b4dfb5cb6ef44b68"
+      },
+      "javaWitness": {
+        "path": "evidence\\reviews\\swarm-20261102\\R6\\dat-02.1-v1\\java-contract-witness.json",
+        "sha256": "523d3e8a690689c9a49dd58ad3406c55fdf627bf687c2c18ab5e09987da19cf6"
+      },
+      "actual": {
+        "defaultPreflightExit": 2,
+        "fail": 0,
+        "validPreflight": "INPUTS_VALID_NOT_CONNECTED",
+        "cancelled": 0,
+        "skipped": 0,
+        "realRedisRuns": 0,
+        "sourceAndExecutablePreflightPass": 12,
+        "safeJavaContractPass": 6
+      },
+      "sourceDelta": "New test-only lane/contract and pure Node configuration preflight; existing cache adapter/fixture/dependencies unchanged. Java additions happened only after R4 source hold release.",
+      "blocker": "No approved existing local Redis>=7 standalone target; redis-server/redis-cli/Docker executables unavailable. No socket/helper/store mutation attempted.",
+      "nextAction": "Approve existing127.0.0.1:10000 target (matches unchanged adapter telemetry port), credentials if needed, exclusive fresh run UUID; explicitly select LocalRedisLane. Measure real adapter GET/SETEX/DEL+TTL/PXAT/canonical/privacy controls, unchanged witness and NX-ledger/WATCH exact-key cleanup. RESP or local TCP cannot prove Managed Redis/Entra."
+    },
+    {
+      "child": "DEM-12.1",
+      "state": "To Do",
+      "blocker": "DEM00 early source contract is not native-ready; frozen all-store ARC map, actual authenticated query/transport/data observers and separately approved native runtime/auth/window absent. No adapter/authority invented.",
+      "nextAction": "Bind R1 complete CLIENT map and R9/R7 source contracts, then separately authorize and observe every real store-consuming tier with run-owned preparation/reset and native negatives. Dispatch stopped at threshold; no fresh adapter parent started."
+    }
+  ],
+  "completedAssignedIndependentReviews": [
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.1-v1\\execution\\review.json",
+      "sha256": "53c663c867ec498ff8dacc510a2143ec5e97f8480217f9c927679026ef1fea53"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\review.json",
+      "sha256": "7ad3dc5669c02c546eef3e719e9909ddd17849fc7f5ba296bab765d7535ae3c8"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-02.1-v1\\execution\\review.json",
+      "sha256": "f10b4a957bd39f81450a5a40dfaa9104dc85914287f4c3bf273d02a76adfd093"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-02.1-v1\\private-epoch-witness.json",
+      "sha256": "1a6c277bb285b98d5fe20d48b4bc10882f11a9258368f93e437c953207edcb6c"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v3\\execution\\review.json",
+      "sha256": "e8cfc31dac0ee118aaa1d4777ed718674291e1ecd3e56597f88bba980f080069"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v3\\cancelled-only-manual\\witness.json",
+      "sha256": "84f1b450b457266623bd7f522f84898418c6b1729f2b9c34e8c461babd495034"
+    }
+  ],
+  "ciV3ManualActual": {
+    "actualGuardExit": 1,
+    "guardResult": "FAIL",
+    "syntheticCases": 5,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "hostedPrExecuted": false,
+    "expectedGuardExit": 1,
+    "errors": 0,
+    "cancelled": 1
+  },
+  "historicalReceiptsRetained": [
+    "INF05.2 v1 register drift and pre-source-URL warning records",
+    "DAT01.2 v1 formatting-only negative test failure and narrower v2 scope",
+    "R4 GATE05.2 v2 review superseded by actual v3 retest"
+  ],
+  "finalCurrentSourceClosuresVerified": true,
+  "lint": "Windows-aware git -c core.whitespace=cr-at-eol diff --check PASS; changed CRLF files have zero trailing spaces/tabs. Default diff check flagged CR-at-EOL only; no reviewed-byte churn.",
+  "releasedLeases": {
+    "storeOrCloudLease": "None",
+    "mavenOrSharedTargets": "Never held by R6; all Java requests executed by exclusive R4",
+    "boardWikiRegisterWrites": "None",
+    "helperPids": [],
+    "commitsOrPushes": "None",
+    "dataSourceWrites": "RELEASED/frozen",
+    "verifyDocNarrowLease": "Released to R1; current frozen bytes unchanged"
+  },
+  "cleanup": "No services/helper processes started. Removed own Bicep probe and manual synthetic XML fixture directory. Retained only immutable run-owned evidence/logs/generated compiler templates.",
+  "nextAction": "Orchestrator alone performs final integrated current-source checks and may publish the two fully reviewed construction exits; keep real-store/native/hosted pieces To Do. No fresh parent dispatch below4/10 threshold."
+}

@@ -1,0 +1,136 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R7",
+  "ownerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "childId": "OBS-02.2",
+  "result": "SOURCE_UNIT_BASELINE_PASS_NOT_CHILD_DONE",
+  "completedChildCandidate": false,
+  "profile": "LOCAL REHEARSAL",
+  "sourceAcceptanceIsCertification": false,
+  "nodeVersion": "v22.23.4",
+  "command": "node --test --test-reporter=tap tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+  "startedAtUtc": "2026-11-02T22:10:46.774Z",
+  "finishedAtUtc": "2026-11-02T22:10:48.222Z",
+  "exitCode": 0,
+  "tests": 73,
+  "passed": 73,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "sourcesBeforeAfterMatched": true,
+  "sources": [
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "ee7c7572756a77d1cd1af21f531aeb6ffd0387eaa80ec3484fb38fab0c35b5cb"
+    },
+    {
+      "path": "tests\\observability\\sampler-native-intake.test.mjs",
+      "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d"
+    },
+    {
+      "path": "tests\\verification\\invariants.test.mjs",
+      "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef"
+    },
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "d6cb0e0cf56f9dacb43e074d11b08aeefd23b312de43e63e1ba0c43a4b861fff"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "9667bd97886f7d1a68524d662599780ee48795d363dfb21cdf83123d8dba7302"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "6f1d5c15940d43982033b49056e59bfec2ac6537979807c4513f0697e64e3c42"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+      "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    }
+  ],
+  "positiveTests": [
+    "complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile",
+    "actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance",
+    "safe incremental capture callbacks are immutable, per-payload and awaited before acceptance"
+  ],
+  "negativeTests": [
+    "seeded split, duplicate, parent and every missing-hop control fail without modifying original captures",
+    "untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed",
+    "unsafe originals never reach an incremental callback and callback failures poison all acceptance"
+  ],
+  "cleanup": "Test-owned sockets and scratch directories closed/removed; no JVM/helper process/exporter/provider or Azure operations created.",
+  "remainingLocalRuntimePrerequisites": [
+    "Actual current-source R4 agent-attached Orders/Inventory local pair with complete scanned capture",
+    "Actual current-source R2 canonical Demo 01 Run-demo browser driver and ingress/carrier join",
+    "R7 one-command merged actual browser/JVM tree and seeded checker-failure controls",
+    "Current-source independent R2 and R9 positive/negative execution receipts"
+  ],
+  "reviewReplayRequiredAfter": [
+    "R1 immutable ARC-01.1 boundary-map handoff",
+    "R4 final imported tools\\verification\\sampling-qualification.mjs handoff"
+  ],
+  "remainingNativePrerequisites": [
+    "OBS-02.1 independently enrolled authenticated query and transport source",
+    "Independent complete emission ledger, before/after full-path canaries and Gateway wire observations",
+    "Reviewed complete runtime/host roster and original live reset handle",
+    "Approved deployed INF-01/INF-04/runtime outputs, reviewed sampling and original-column privacy intake",
+    "All required actual Gateway and data CLIENT boundaries with original IDs and source locators",
+    "Separately approved target, authentication and bounded native traffic/sampling/cleanup window"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "contoso.clean-checkout-validation.v1",
+  "command": "npm test -- --test-reporter=tap --test-concurrency=2",
+  "executionScope": "fresh Git index checkout with core.autocrlf=true, no installed tools or cache copied",
+  "nodeVersion": "v22.23.4",
+  "npmVersion": "10.9.9",
+  "startedAtUtc": "2026-11-03T02:24:51.6889592Z",
+  "finishedAtUtc": "2026-11-03T02:25:47.9694715Z",
+  "exitCode": 1,
+  "counts": {
+    "tests": 667,
+    "pass": 646,
+    "fail": 21,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "beforeSources": {
+    "sources": 469,
+    "sha256": "e93d2a6aff5dbd355d38ee79fe324ad354b5e59e964da66b2bdbee2e1accfa7c"
+  },
+  "afterSources": {
+    "sources": 469,
+    "sha256": "e93d2a6aff5dbd355d38ee79fe324ad354b5e59e964da66b2bdbee2e1accfa7c"
+  },
+  "sourceInputsStable": true,
+  "bicepSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+  "stdoutSha256": "e23b271932a300224107fc98f71689853081dfddca24abd855897abb769bc3b4",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

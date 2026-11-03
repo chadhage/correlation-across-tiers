@@ -1,0 +1,243 @@
+{
+  "schema": "contoso.swarm-role-triage.v1",
+  "role": "R2",
+  "agentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+  "observedAtUtc": "2026-11-02T22:34:07.516Z",
+  "implementationActive": false,
+  "newDispatchStopped": true,
+  "profile": "LOCAL REHEARSAL / SOURCE-UNIT CONSTRUCTION ONLY",
+  "nativeEvidence": false,
+  "certificationEligible": false,
+  "completedChildCandidates": [],
+  "sourceEpochs": {
+    "web01": {
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\web01-immutable-v3-20261102T222322748Z-1ce735f5-cc63-4016-8d53-9e93d44f1807\\execution.json",
+      "receiptSha256": "9b2dff30bee57fe4f42886915c373835f7c0fa73d5407caf1ecfcc75d8965d23",
+      "sources": 20,
+      "currentHashesMatched": true,
+      "changed": [],
+      "tests": [
+        "# tests 12",
+        "# pass 12",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0",
+        "# duration_ms 3682.8022"
+      ]
+    },
+    "demo02": {
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\demo02-construction-20261102T221945985Z-a66ff4c9-96ab-4eaf-acfb-4366d0f68944\\execution.json",
+      "receiptSha256": "e9d39900f9abd5024cde6913f6c9b71c1d2b6b7d5c24810f94004bbb3a136321",
+      "sources": 34,
+      "currentHashesMatched": true,
+      "changed": [],
+      "tests": [
+        "# tests 8",
+        "# pass 8",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0",
+        "# duration_ms 836.1127"
+      ]
+    }
+  },
+  "ownedChildren": [
+    {
+      "childId": "WEB-01.1",
+      "status": "To Do",
+      "construction": "Current-source driver and real trusted Demo01 Run-demo/browser SDK checks implemented; 12 source/unit tests pass; no actual JVM pair run",
+      "prerequisites": [
+        "JVM-01.1 launcher is not implemented; tools\\java\\Start-LocalPair.ps1 does not exist per R4; no actual Orders/Inventory agent pair or telemetry exists",
+        "Actual safe ingressPath and emittedOrders RequestData parent join"
+      ],
+      "nextAction": "Only after orchestrator reopens an exact ready local runtime claim: launch the R4-owned pair; run node web\\portal-ssr\\scripts\\local-rehearsal.mjs --pair <ready local-pair.json> --out <new repository directory>; require real received carrier plus emitted span join, then independently verify."
+    },
+    {
+      "childId": "DEM-02.1",
+      "status": "To Do",
+      "construction": "Fail-closed source inspector and concrete Portal trigger-input helper; 8 source/unit tests pass; no runnable adapter export",
+      "prerequisites": [
+        "Native-ready DEM-00.1 and reviewed deployed WEB-01/WEB-03 contracts",
+        "Approved Storefront/Portal targets, pinned Portal runtime and controller authentication",
+        "Independent actual browser/SSR roots, original emission/Gateway wire and SSR-to-Gateway parent join",
+        "Enrolled authenticated RAW query/privacy and concrete native sampling/admission/drain operations",
+        "Original live baseline/reset plus authenticated separate-process recovery"
+      ],
+      "nextAction": "Obtain concrete reviewed native operations and separate target/window authorization; only then implement all contoso.demo-adapter.v1 methods and native Run/reset behavior. Current --check must remain exit2 BLOCKED and Run D_MISSING_ADAPTER stays unresolved."
+    }
+  ],
+  "ownedParentRemainders": [
+    {
+      "cardId": "WEB-01",
+      "status": "To Do",
+      "reason": "No actual Entra/APIM/private target/native browser-to-Gateway evidence; local forwarder creates no Gateway span."
+    },
+    {
+      "cardId": "WEB-02",
+      "status": "To Do",
+      "reason": "Local excluded-origin Fetch/XHR/CORS controls passed only against loopback; no authorized deployed APIM origin/CORS negatives."
+    },
+    {
+      "cardId": "WEB-03",
+      "status": "To Do",
+      "reason": "Existing current SSR source/type checks are not pinned deployed-image, single-provider, actual Gateway continuation proof."
+    },
+    {
+      "cardId": "DEM-02",
+      "status": "To Do",
+      "reason": "Source-only inspector is not the shipped native adapter, evidence pack or reset."
+    }
+  ],
+  "releasedLeases": {
+    "sourceFiles": [
+      "web\\storefront-spa",
+      "web\\portal-ssr",
+      "tools\\verification\\adapters\\demo02-runtime.mjs"
+    ],
+    "output": "All persistent evidence is run-unique; no shared dist/target/cache or package/version file changed by R2",
+    "pids": [],
+    "helpersRunning": false,
+    "cleanup": "Dedicated Chromium and all self-contained loopback web/forwarder/excluded/test servers closed; unique .cache build/scratch directories removed; Node CLI children exited."
+  },
+  "crossReviews": [
+    {
+      "author": "R3",
+      "scope": "GATE-01 clause1 static/unit only",
+      "tests": 35,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-gate01-20261102T165806181-5489d039-bf57-4d65-9eb0-f1e8a9b3fc57\\execution.json"
+    },
+    {
+      "author": "R3",
+      "scope": "DEM-03.1 source/unit only; native unmet",
+      "tests": 7,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\review-r3-demo03-aa306685-680c-4f59-abcf-f3ff0f2a8bb0\\review.json"
+    },
+    {
+      "author": "R7",
+      "scope": "OBS-02.2 finite current-source loopback intake/tree checker/seeded controls only; no actual browser/JVM merge",
+      "tests": 73,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "receipt": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-8c97a9af-6993-4a83-9d4e-c86a5a1dd3ca\\review.json",
+      "sha256": "f68cbf0137886b66733d6e3f6d314a69e9eed55f36415c98c425251f9b26ea5c",
+      "assessment": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-8c97a9af-6993-4a83-9d4e-c86a5a1dd3ca\\assessment-final.json",
+      "assessmentSha256": "7ad5387525978f08701bf1d8a99ca913cd64d8762682ebb05d91d5c2897ae98b",
+      "status": "AT_EXECUTION/HISTORICAL; HOLD FOR LATER R9 MIXED-CAPTURE PROVENANCE FINDING",
+      "followup": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-8c97a9af-6993-4a83-9d4e-c86a5a1dd3ca\\assessment-provenance-hold.json",
+      "followupSha256": "a217813e6f61d1eb36071affd17ca04bd621e22eb633055ab7c99be6e7359933"
+    }
+  ],
+  "restrictionsPreserved": [
+    "No commits or pushes",
+    "No Azure deployment/spending/traffic or secrets access",
+    "No package/pom/version/Maven/shared build-output edits",
+    "No board/wiki/kanban tooling/tests/certification edits",
+    "No agents launched",
+    "No shared browser page disturbed",
+    "No fabricated runtime carrier or Orders/Gateway span rows"
+  ],
+  "predecessor": "evidence\\reviews\\swarm-20261102\\R2\\final-triage-v2-20261102T223154579Z-8d757e7c-f439-4686-bbf1-708d7bc4c94d\\queue-triage.json",
+  "localPairInterface": {
+    "status": "PROPOSED_ONLY_NOT_IMPLEMENTED_OR_EXECUTED",
+    "launcher": "tools\\java\\Start-LocalPair.ps1",
+    "launcherImplemented": false,
+    "actualTelemetryProduced": false,
+    "actualIngressProduced": false,
+    "portsReserved": [],
+    "pidsReserved": [],
+    "evidence": "R4 explicitly confirmed NOT STARTED after orchestrator threshold STOP; the consumer input-shape proposal is not an executable or frozen-source runtime handoff"
+  },
+  "sourceReviewReceipts": {
+    "web01v3": [
+      {
+        "role": "R3",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-v3-20261102-56a48b43\\review.json",
+        "sha256": "b95eb8e1f112b8109b92ea455800492b51a07529ce9d9f42c85a34e9f3d5a102",
+        "scope": "AT_EXECUTION SOURCE/UNIT only;12passed,0failed,0skipped,0cancelled;20source hashes stable"
+      },
+      {
+        "role": "R7",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\web-01.1-review-v3\\review.json",
+        "sha256": "02b5cf33a0331fa6fdfc975032cac343430d9e5d85f75857fbd680718019101f",
+        "scope": "Measured AT_EXECUTION source/unit only;12passed,0failed,0skipped,0cancelled;20source hashes stable"
+      }
+    ],
+    "demo02": [
+      {
+        "role": "R3",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-demo02-20261102-c57297fa\\review.json",
+        "sha256": "ad4444880f81784886a3b5dbbab118ad823f88b306d2f7ff1421681333c0db15",
+        "scope": "AT_EXECUTION SOURCE/UNIT only;8passed,0failed,0skipped,0cancelled;34source hashes stable"
+      },
+      {
+        "role": "R7",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\dem-02.1-review-v1\\review.json",
+        "sha256": "14396a8c0adb7164efde174110bd01746ee7d84d1a9f525628ebf36583685e05",
+        "scope": "Measured AT_EXECUTION source/unit only;8passed,0failed,0skipped,0cancelled;34source hashes stable"
+      }
+    ]
+  },
+  "notExecuted": [
+    "Actual JVM launcher or browser-to-Orders emitted parent join",
+    "Native Entra/APIM/private targets, Azure traffic or deployment",
+    "Forced browser/server-close failure injection (the new BLOCKED cleanup guards were source-reviewed, not separately fault-injected)",
+    "Full npm suite, any Maven command or hosted CI"
+  ],
+  "ownedSourceFiles": [
+    "web\\storefront-spa\\src\\app.ts",
+    "web\\storefront-spa\\README.md",
+    "web\\portal-ssr\\README.md",
+    "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+    "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+    "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+    "tools\\verification\\adapters\\demo02-runtime.mjs",
+    "web\\portal-ssr\\tests\\demo02-construction.test.mjs",
+    "web\\portal-ssr\\DEMO02_CONSTRUCTION.md"
+  ],
+  "ownedSourceHashes": [
+    {
+      "path": "web\\storefront-spa\\src\\app.ts",
+      "sha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456"
+    },
+    {
+      "path": "web\\storefront-spa\\README.md",
+      "sha256": "a0880c11f53af46d908a3a5fe04b693e5dd01eb8284d90d4aea783269016a85c"
+    },
+    {
+      "path": "web\\portal-ssr\\README.md",
+      "sha256": "5473ddf0bcad8511cf5ee215de02fecb12eacf400ae0444197f0fb426f61cd8c"
+    },
+    {
+      "path": "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+      "sha256": "f3fb69a9f1eacb6910d4bc502c43864938e05421e067006260a40f25597f9ea2"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\browser\\local-rehearsal-entry.ts",
+      "sha256": "9c9d1477f82bf28a71136681263f1ebf535d00a1851184bea4a0ebe8956d3f71"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\local-rehearsal.test.mjs",
+      "sha256": "19dfbb9f9a8a84f25618e01dc9dabad76a956369452116ea7a28b796e767da00"
+    },
+    {
+      "path": "tools\\verification\\adapters\\demo02-runtime.mjs",
+      "sha256": "ad29b24d80efc77f6b8ede22708a2daa4048be9f4c35e235f132bf3fa08186b3"
+    },
+    {
+      "path": "web\\portal-ssr\\tests\\demo02-construction.test.mjs",
+      "sha256": "a6544e53cfc51bdf6cb3affe77c90329b23463668241db77f2ab664e0213edd6"
+    },
+    {
+      "path": "web\\portal-ssr\\DEMO02_CONSTRUCTION.md",
+      "sha256": "ec8eb7618cb23e9c76425eb57fa68ada8fa72fc022f3ed956082e3b67f790e04"
+    }
+  ],
+  "queuedIndependentReviewOnly": "Existing R7 same-packet mixed-capture provenance corrective freeze when released; no new parent/runtime/adapter dispatch"
+}

@@ -11,7 +11,7 @@ import { projectRoot, createBoundDirectory, jsonBytes, sha256, readBoundFile, re
 const MODES = new Set(['LocalValidate', 'BootstrapValidate', 'Certify']);
 const REQUIRED_ADAPTER_METHODS = ['prepare', 'execute', 'drain', 'collect', 'scanPrivacy', 'observeSampling', 'stopTraffic', 'reset'];
 const SOURCE_EXTENSIONS = /\.(?:json|bicep|bicepparam|xml|java|ts|js|mjs|ps1|sh|ya?ml)$/;
-const skip = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.java-work', '.git', 'deployment-artifact', 'evidence', 'tests']);
+const skip = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.tools', '.java-work', '.git', 'deployment-artifact', 'evidence', 'tests']);
 const failure = (code, detail) => { throw new VerificationFailure(code, detail); };
 
 export async function loadCatalog() {

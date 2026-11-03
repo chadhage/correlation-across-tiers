@@ -1,0 +1,51 @@
+{
+  "schema": "contoso.r5-scoped-assessment.v1",
+  "reviewerRole": "R5",
+  "reviewerAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "authorRole": "R8",
+  "authorAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "childId": "GATE-03.1",
+  "childDefinitionSha256": "8fe6074bdf0b5fe9ed0759ea412b56c6c313a4fe023f44a059ed7706349aae67",
+  "result": "ACCEPTED_SOURCE_ONLY_NOT_CHILD_COMPLETION",
+  "reviewReceipt": "evidence\\reviews\\swarm-20261102\\R5\\review-r8-gate03-20261102-a20e70fa-01\\receipt\\review.json",
+  "reviewReceiptSha256": "8d17188a07279b9ea1bcad4f54d3115af64b3865bc1089f10edbac2a6cdf85f5",
+  "scopeSha256": "bb8210475d67699ea03a9a8c3e8510386a4e8bc33506bb2d8ad2da71b727b57e",
+  "tests": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R5\\review-r8-gate03-20261102-a20e70fa-01\\request.json",
+    "actualRunner": "node --test --test-reporter=tap --test-concurrency=1 tests\\security\\secret-scan-workflow.test.mjs tests\\security\\repository.test.mjs",
+    "runtime": "v22.23.4",
+    "exitCode": 0,
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "tapSha256": "7d7ced642b772a05035a38b6ffe80149e128769851ce65752a4668ebffea974a",
+    "authorInputsMatched": 10,
+    "sourceHashesUnchangedBeforeAfter": true
+  },
+  "findings": [
+    "No high-confidence defect found in the changed workflow and focused source-only contract.",
+    "Unfiltered pull_request and push triggers, read-only contents permission, exact action pins, fetch-depth zero, tags enabled and no persisted checkout credentials are source-verified.",
+    "Shallow checkout is explicitly rejected; the configured PowerShell runner propagates failed unit tests and scanner exit status.",
+    "The genuine local Git fixture passes a clean repository and worktree-only clean state, then full-history scanning rejects three deleted synthetic JWTs in merged history with six historical blobs.",
+    "Sixteen workflow-policy mutations are rejected, including omitted PR trigger, shallow checkout, history bypass and ignored failures.",
+    "Findings expose locations and rule IDs rather than seeded matched values."
+  ],
+  "cleanup": {
+    "remainingGeneratedCiRepositoriesObserved": 0,
+    "productionSourceEdits": 0,
+    "sharedBuildOutputWrites": 0,
+    "backgroundProcesses": 0,
+    "cloudOrApplicationTraffic": false,
+    "repositoryCommitsOrPushes": false,
+    "localFixtureOnlyGitHistory": true
+  },
+  "remainingPrerequisites": [
+    "Actual approved hosted clean-PR workflow run.",
+    "Actual approved hosted seeded-failure PR workflow run.",
+    "Accountable parent completion and any separately required owner acceptance."
+  ],
+  "childStatusRecommendation": "To Do: source review is not the hosted PR acceptance outcome.",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

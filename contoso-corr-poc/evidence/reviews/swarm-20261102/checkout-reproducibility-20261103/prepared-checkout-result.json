@@ -1,0 +1,33 @@
+{
+  "schema": "contoso.prepared-clean-checkout-validation.v1",
+  "command": "npm test -- --test-reporter=tap --test-concurrency=2",
+  "preparationCommand": "npm run test:prepare",
+  "nodeVersion": "v22.23.4",
+  "npmVersion": "10.9.9",
+  "startedAtUtc": "2026-11-03T02:58:10.3457658Z",
+  "finishedAtUtc": "2026-11-03T02:59:09.0067145Z",
+  "exitCode": 0,
+  "counts": {
+    "tests": 672,
+    "pass": 672,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "beforeSources": {
+    "sources": 540,
+    "sha256": "4fb220363758eed649627613485c94744e2dcc364a609538c4c3f7a1051db31e"
+  },
+  "afterSources": {
+    "sources": 540,
+    "sha256": "4fb220363758eed649627613485c94744e2dcc364a609538c4c3f7a1051db31e"
+  },
+  "sourceInputsStable": true,
+  "samplerSha256": "bb829be676bdc86e9a0657391764a419c7665c47542c2e53f64c37761f45193f",
+  "bicepSha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+  "stdoutSha256": "100a6d8b164c611561390b621c5c791d85fdb7e8bd77b710209fe4197b56e188",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "javaTestsExecuted": false,
+  "azureTrafficGenerated": false
+}

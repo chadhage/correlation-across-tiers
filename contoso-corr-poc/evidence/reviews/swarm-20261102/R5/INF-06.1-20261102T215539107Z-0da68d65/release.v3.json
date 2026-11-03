@@ -1,0 +1,102 @@
+{
+  "schema": "contoso.r5-scoped-release.v1",
+  "authorRole": "R5",
+  "authorAgentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "childId": "INF-06.1",
+  "status": "EXACT_CONSTRUCTION_EXIT_VERIFIED_TWO_INDEPENDENT_REVIEWS_ORCHESTRATOR_APPLIES_BOARD_STATUS",
+  "sourceFreeze": "evidence\\reviews\\swarm-20261102\\R5\\INF-06.1-20261102T215539107Z-0da68d65\\source-freeze.v2.json",
+  "sourceFreezeSha256": "1a8f3c51c62488323d38db87f0dbe166361ba14a1532d1e0d7a249090c387c72",
+  "sourceInputsStillCurrent": true,
+  "handoff": "evidence\\reviews\\swarm-20261102\\R5\\INF-06.1-20261102T215539107Z-0da68d65\\handoff.v2.json",
+  "handoffSha256": "7e46afb2968b77fd5ea997bbb6fd234d03bcfb657ebcbd9e9632e1bdb0c5863f",
+  "reviews": [
+    {
+      "reviewerRole": "R3",
+      "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+      "receipt": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json",
+      "sha256": "4049f4902f41aae642390a6fd390e3951d82d1ea0a4925e74125a437270154f0",
+      "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1",
+      "childDefinitionSha256": "269e09f65345d04ea70bde4c203a2a08b638c526094c64bd6d49e3941d755dc3",
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\messaging\\infra.test.mjs tests\\messaging\\infra-tool-resolution.test.mjs",
+        "testFiles": [
+          "tests\\messaging\\infra.test.mjs",
+          "tests\\messaging\\infra-tool-resolution.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:00:46.022Z",
+        "finishedAtUtc": "2026-11-02T22:00:56.161Z",
+        "exitCode": 0,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\tests.tap",
+        "sha256": "953a82b1319cf27150229548da3d83a29af87946337b33ec78f38a6c5e87efca",
+        "positiveTests": [
+          "real messaging ARM compiles all carriers with identity-only local auth disabled",
+          "resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias"
+        ],
+        "negativeTests": [
+          "resolver negative: an explicitly configured missing compiler fails without fallback",
+          "missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed",
+          "source portability guard rejects absolute user-profile and operator-session defaults"
+        ]
+      },
+      "sourceInputs": 7,
+      "sourceStable": true
+    },
+    {
+      "reviewerRole": "R6",
+      "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "receipt": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\review.json",
+      "sha256": "7ad3dc5669c02c546eef3e719e9909ddd17849fc7f5ba296bab765d7535ae3c8",
+      "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1",
+      "childDefinitionSha256": "269e09f65345d04ea70bde4c203a2a08b638c526094c64bd6d49e3941d755dc3",
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\messaging\\infra.test.mjs tests\\messaging\\infra-tool-resolution.test.mjs",
+        "testFiles": [
+          "tests\\messaging\\infra.test.mjs",
+          "tests\\messaging\\infra-tool-resolution.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:03:43.822Z",
+        "finishedAtUtc": "2026-11-02T22:04:10.254Z",
+        "exitCode": 0,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R6\\review-r5-inf-06.1-v1\\execution\\tests.tap",
+        "sha256": "c69ece2da42f2ac17a99da84d6d579c29e132b689aa2988e08ad4c61c888ae5a",
+        "positiveTests": [
+          "real messaging ARM compiles all carriers with identity-only local auth disabled",
+          "resolver unit: CONTOSO_BICEP_PATH takes precedence over the existing EXE alias"
+        ],
+        "negativeTests": [
+          "resolver negative: an explicitly configured missing compiler fails without fallback",
+          "missing-prerequisite subprocess counts all three required compilation tests as skipped, never passed",
+          "source portability guard rejects absolute user-profile and operator-session defaults"
+        ]
+      },
+      "sourceInputs": 7,
+      "sourceStable": true
+    }
+  ],
+  "queueTriage": "evidence\\reviews\\swarm-20261102\\R5\\INF-06.1-20261102T215539107Z-0da68d65\\queue-triage.v1.json",
+  "queueTriageSha256": "ee9a9c0bb1346bebaac824ead6dd61c3266bb45e2980eb426ebcf00eb48ac81a",
+  "remainingNativeChildren": [
+    "MSG-02.1",
+    "MSG-06.1",
+    "DEM-06.1",
+    "DEM-07.1",
+    "DEM-08.1",
+    "DEM-09.1",
+    "DEM-10.1"
+  ],
+  "nextAction": "Orchestrator may persist the exact source/tool construction child completion; all native parents and the seven broker/native children remain To Do. No further executable R5 construction packet is justified under current permissions.",
+  "cloudTraffic": false,
+  "javaMavenRuns": 0,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

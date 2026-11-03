@@ -1,0 +1,366 @@
+TAP version 13
+# Subtest: complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+ok 1 - complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile
+  ---
+  duration_ms: 161.2342
+  type: 'test'
+  ...
+# Subtest: rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+ok 2 - rehearsal projection never mutates the immutable root map and excludes exactly the two Gateway hops
+  ---
+  duration_ms: 15.4834
+  type: 'test'
+  ...
+# Subtest: untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+ok 3 - untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed
+  ---
+  duration_ms: 39.3258
+  type: 'test'
+  ...
+# Subtest: full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+ok 4 - full-chain checker needs actual Gateway spans, and the rehearsal profile refuses to hide captured Gateway spans
+  ---
+  duration_ms: 27.2493
+  type: 'test'
+  ...
+# Subtest: split trace is not filtered out of the same invocation or silently joined
+ok 5 - split trace is not filtered out of the same invocation or silently joined
+  ---
+  duration_ms: 8.5355
+  type: 'test'
+  ...
+# Subtest: physical duplicate span exports are not deduplicated
+ok 6 - physical duplicate span exports are not deduplicated
+  ---
+  duration_ms: 18.6736
+  type: 'test'
+  ...
+# Subtest: span ID reuse across different logical operations fails B
+ok 7 - span ID reuse across different logical operations fails B
+  ---
+  duration_ms: 4.7625
+  type: 'test'
+  ...
+# Subtest: wrong Inventory ParentId fails naming the actual intended edge
+ok 8 - wrong Inventory ParentId fails naming the actual intended edge
+  ---
+  duration_ms: 4.0916
+  type: 'test'
+  ...
+# Subtest: wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+ok 9 - wrong Orders ParentId cannot be excused as the omitted Gateway boundary
+  ---
+  duration_ms: 9.5629
+  type: 'test'
+  ...
+# Subtest: missing orders.request fails C naming the missing edge, never expected-remote
+ok 10 - missing orders.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 5.0179
+  type: 'test'
+  ...
+# Subtest: missing orders.inventory fails C naming the missing edge, never expected-remote
+ok 11 - missing orders.inventory fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 4.6666
+  type: 'test'
+  ...
+# Subtest: missing inventory.request fails C naming the missing edge, never expected-remote
+ok 12 - missing inventory.request fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 7.7299
+  type: 'test'
+  ...
+# Subtest: missing postgres.logical fails C naming the missing edge, never expected-remote
+ok 13 - missing postgres.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 32.8877
+  type: 'test'
+  ...
+# Subtest: missing redis.logical fails C naming the missing edge, never expected-remote
+ok 14 - missing redis.logical fails C naming the missing edge, never expected-remote
+  ---
+  duration_ms: 2.8583
+  type: 'test'
+  ...
+# Subtest: the browser dependency is mandatory and a carrier/context alone is not a span
+ok 15 - the browser dependency is mandatory and a carrier/context alone is not a span
+  ---
+  duration_ms: 4.2261
+  type: 'test'
+  ...
+# Subtest: a different browser SDK dependency identity cannot stand in for the actual wire carrier
+ok 16 - a different browser SDK dependency identity cannot stand in for the actual wire carrier
+  ---
+  duration_ms: 8.1214
+  type: 'test'
+  ...
+# Subtest: a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+ok 17 - a second distinct HTTP server span cannot mask duplicate instrumentation within the one browser invocation
+  ---
+  duration_ms: 3.4787
+  type: 'test'
+  ...
+# Subtest: an unproven browser SDK context cannot waive a missing parent
+ok 18 - an unproven browser SDK context cannot waive a missing parent
+  ---
+  duration_ms: 36.215
+  type: 'test'
+  ...
+# Subtest: composite browser serialization retains the original ID while joining exact canonical span IDs
+ok 19 - composite browser serialization retains the original ID while joining exact canonical span IDs
+  ---
+  duration_ms: 3.8738
+  type: 'test'
+  ...
+# Subtest: data server-continuation substitution and wrong business identity fail
+ok 20 - data server-continuation substitution and wrong business identity fail
+  ---
+  duration_ms: 61.4422
+  type: 'test'
+  ...
+# Subtest: extra disconnected roots and cycles cannot print an apparently complete single tree
+ok 21 - extra disconnected roots and cycles cannot print an apparently complete single tree
+  ---
+  duration_ms: 12.146
+  type: 'test'
+  ...
+# Subtest: unsafe non-span originals cannot disappear behind span filtering
+ok 22 - unsafe non-span originals cannot disappear behind span filtering
+  ---
+  duration_ms: 2.7051
+  type: 'test'
+  ...
+# Subtest: saved publisher credentials and live browser labels cannot enroll a local or native observer
+ok 23 - saved publisher credentials and live browser labels cannot enroll a local or native observer
+  ---
+  duration_ms: 4.9642
+  type: 'test'
+  ...
+# Subtest: seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+ok 24 - seeded split, duplicate, parent and every missing-hop control fail without modifying original captures
+  ---
+  duration_ms: 62.3427
+  type: 'test'
+  ...
+# Subtest: original envelope ordinals survive non-span filtering and unrelated invocation records
+ok 25 - original envelope ordinals survive non-span filtering and unrelated invocation records
+  ---
+  duration_ms: 40.6854
+  type: 'test'
+  ...
+# Subtest: actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+ok 26 - actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance
+  ---
+  duration_ms: 158.1862
+  type: 'test'
+  ...
+# Subtest: a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+ok 27 - a later unsafe loopback original poisons the capture instead of yielding a partial successful tree
+  ---
+  duration_ms: 21.8413
+  type: 'test'
+  ...
+# Subtest: one CLI command prints the labelled tree and persists only hash-bound local structural results
+ok 28 - one CLI command prints the labelled tree and persists only hash-bound local structural results
+  ---
+  duration_ms: 1092.4467
+  type: 'test'
+  ...
+# (node:52376) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+ok 29 - safe incremental capture callbacks are immutable, per-payload and awaited before acceptance
+  ---
+  duration_ms: 34.1517
+  type: 'test'
+  ...
+# Subtest: unsafe originals never reach an incremental callback and callback failures poison all acceptance
+ok 30 - unsafe originals never reach an incremental callback and callback failures poison all acceptance
+  ---
+  duration_ms: 3.4169
+  type: 'test'
+  ...
+# Subtest: a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+ok 31 - a stalled incremental capture callback has a fixed deadline and cannot qualify a partial capture
+  ---
+  duration_ms: 7.0381
+  type: 'test'
+  ...
+# Subtest: the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+ok 32 - the receiver honors an explicit unique loopback port and invokes the safe callback before HTTP success
+  ---
+  duration_ms: 306.6408
+  type: 'test'
+  ...
+# Subtest: invalid configured ports are rejected before creating a loopback listener
+ok 33 - invalid configured ports are rejected before creating a loopback listener
+  ---
+  duration_ms: 0.8937
+  type: 'test'
+  ...
+# Subtest: sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+ok 34 - sampler intake scans every original before projection and retains exact native identities and raw hash receipt
+  ---
+  duration_ms: 55.0397
+  type: 'test'
+  ...
+# Subtest: zero observed native payloads are explicit absence, never an invented successful privacy scan
+ok 35 - zero observed native payloads are explicit absence, never an invented successful privacy scan
+  ---
+  duration_ms: 0.6491
+  type: 'test'
+  ...
+# Subtest: a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+ok 36 - a later unsafe non-span original poisons the whole current JVM and prevents any partial file persistence
+  ---
+  duration_ms: 224.5135
+  type: 'test'
+  ...
+# Subtest: strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+ok 37 - strict decoded duplicate JSON and NDJSON keys fail before overwritten marker fields can disappear
+  ---
+  duration_ms: 3.4043
+  type: 'test'
+  ...
+# Subtest: scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+ok 38 - scalar, UTF8 key and envelope limits are applied to originals before shared patterns or span filtering
+  ---
+  duration_ms: 150.0895
+  type: 'test'
+  ...
+# Subtest: raw body limit is checked while reading and does not drain an oversized stream
+ok 39 - raw body limit is checked while reading and does not drain an oversized stream
+  ---
+  duration_ms: 17.5273
+  type: 'test'
+  ...
+# Subtest: oversized declared or truncated body rejects without fabricated native receipts
+ok 40 - oversized declared or truncated body rejects without fabricated native receipts
+  ---
+  duration_ms: 1.1805
+  type: 'test'
+  ...
+# Subtest: fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+ok 41 - fixed absolute body deadline stops a stalled native stream and poisons partial acceptance
+  ---
+  duration_ms: 0.8814
+  type: 'test'
+  ...
+# Subtest: gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+ok 42 - gzip bombs, invalid compression and unsupported encoding cannot release any native projection
+  ---
+  duration_ms: 11.7972
+  type: 'test'
+  ...
+# Subtest: one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+ok 43 - one current JVM has a fixed128 POST budget and never rotates sessions after the129th request
+  ---
+  duration_ms: 232.6587
+  type: 'test'
+  ...
+# Subtest: known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+ok 44 - known publisher placement and exact forbidden marker conflicts cannot be waived by the consumer
+  ---
+  duration_ms: 6.0573
+  type: 'test'
+  ...
+# Subtest: pending original scan cannot be finalized or mislabeled as a complete receiver
+ok 45 - pending original scan cannot be finalized or mislabeled as a complete receiver
+  ---
+  duration_ms: 1.6845
+  type: 'test'
+  ...
+# Subtest: only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+ok 46 - only exact native POST routes receive ingestion acknowledgement; echo and foreign routes never count as telemetry
+  ---
+  duration_ms: 105.0782
+  type: 'test'
+  ...
+# Subtest: real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+ok 47 - real loopback receiver fails closed across good then unsafe non-span and never resumes from the partial prefix
+  ---
+  duration_ms: 71.1955
+  type: 'test'
+  ...
+# Subtest: fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+ok 48 - fresh evidence directories and exclusive JSON writes never overwrite an old epoch or selected native report
+  ---
+  duration_ms: 20.6293
+  type: 'test'
+  ...
+# Subtest: failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+ok 49 - failed runtime observation diagnostics persist only bounded safe scalar fields, not malformed nested values
+  ---
+  duration_ms: 1.3353
+  type: 'test'
+  ...
+# Subtest: echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+ok 50 - echo callback records actual input and receiver returns the exact carrier required by the production Java fixture
+  ---
+  duration_ms: 41.064
+  type: 'test'
+  ...
+# Subtest: safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+ok 51 - safe failures retain only a fixed stage and static reason, never raw message, expected values, stack or cause
+  ---
+  duration_ms: 0.6698
+  type: 'test'
+  ...
+# Subtest: scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+ok 52 - scoped native count selection preserves both request and client identities and rejects related00 exports unchanged
+  ---
+  duration_ms: 1.8991
+  type: 'test'
+  ...
+# Subtest: forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+ok 53 - forced failure evidence preserves stage and static code without persisting unsafe diagnostic originals
+  ---
+  duration_ms: 64.9268
+  type: 'test'
+  ...
+# Subtest: receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+ok 54 - receiver preserves first transport cause and static HTTP code across later generic rejects and finish checks
+  ---
+  duration_ms: 3.8943
+  type: 'test'
+  ...
+# Subtest: receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+ok 55 - receive cause tracks safe declared-length and partial byte counts without reading hostile error descriptors
+  ---
+  duration_ms: 0.9091
+  type: 'test'
+  ...
+# Subtest: actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+ok 56 - actual malformed HTTP records clientError parser code without raw packet, URL, query or headers
+  ---
+  duration_ms: 15.5894
+  type: 'test'
+  ...
+# Subtest: actual ninth connection records drop and retains the unchanged eight-connection poison limit
+ok 57 - actual ninth connection records drop and retains the unchanged eight-connection poison limit
+  ---
+  duration_ms: 21.186
+  type: 'test'
+  ...
+# Subtest: successful native and echo responses explicitly close completed connections
+ok 58 - successful native and echo responses explicitly close completed connections
+  ---
+  duration_ms: 34.1137
+  type: 'test'
+  ...
+# Subtest: aborted native upload still poisons a previously accepted prefix after connection-close change
+ok 59 - aborted native upload still poisons a previously accepted prefix after connection-close change
+  ---
+  duration_ms: 37.8357
+  type: 'test'
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2854.9084

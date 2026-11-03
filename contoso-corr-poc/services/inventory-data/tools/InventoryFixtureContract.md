@@ -184,10 +184,19 @@ summary supplies that missing authority.
 From the repository root, using already installed portable tools/cache:
 
 ```powershell
+# Explicit -ToolsRoot wins over CONTOSO_PORTABLE_TOOLS_ROOT.
+# With neither set, use the repository-local contoso-corr-poc\.tools\java.
+$env:CONTOSO_PORTABLE_TOOLS_ROOT = '<existing-portable-tool-directory>'
 .\contoso-corr-poc\services\inventory-data\tools\Test-InventoryFixture.ps1
 .\contoso-corr-poc\services\inventory-data\tools\Test-InventoryFixture.ps1 -RetryReproductionOnly
-node --test --test-reporter=spec .\contoso-corr-poc\services\inventory-data\tools\data-source-contract.test.mjs .\contoso-corr-poc\services\inventory-data\tools\inventory-fixture-source.test.mjs
+node --test --test-reporter=spec .\contoso-corr-poc\services\inventory-data\tools\data-source-contract.test.mjs .\contoso-corr-poc\services\inventory-data\tools\inventory-fixture-source.test.mjs .\contoso-corr-poc\services\inventory-data\tools\fixture-runner-portability.test.mjs
 ```
+
+There is no operator/session-folder default. The shared
+`tools\java\PortableTools.ps1` resolver supplies the same explicit/environment/
+repository-local precedence as the Java tooling. A missing tools directory,
+JDK25, Maven3.10 or offline repository fails before the run directory or Maven
+invocation; this script never installs tools or dependencies.
 
 The runner clones the module POM into its own ignored tools\.java-work run
 directory, uses Maven **offline test only**, and writes only isolated module

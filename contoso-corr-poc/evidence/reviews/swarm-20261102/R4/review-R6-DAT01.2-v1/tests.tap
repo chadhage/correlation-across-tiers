@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+ok 1 - SOURCE ONLY: fixture runner uses the shared portable resolver with environment/explicit override, not an operator session
+  ---
+  duration_ms: 10.1343
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+ok 2 - LOCAL POWERSHELL: no override resolves the repository-local portable tool directory
+  ---
+  duration_ms: 1356.0024
+  type: 'test'
+  ...
+# Subtest: LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+ok 3 - LOCAL POWERSHELL: environment override and explicit-argument precedence are executable
+  ---
+  duration_ms: 2699.8692
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+ok 4 - CONTROL: missing explicit tools fail before Maven/output creation with actionable guidance
+  ---
+  duration_ms: 1496.6076
+  type: 'test'
+  ...
+# Subtest: CONTROL: missing environment-provided tools also fail explicitly without Maven
+ok 5 - CONTROL: missing environment-provided tools also fail explicitly without Maven
+  ---
+  duration_ms: 1270.4039
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+ok 6 - SOURCE ONLY: preparation uses existing target guards and one parameterized fixture, never bootstrap/reset-all
+  ---
+  duration_ms: 13.7908
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+ok 7 - SOURCE ONLY: real cache baseline has typed explicit operations, bounded expiry and no global/raw command surface
+  ---
+  duration_ms: 3.9455
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+ok 8 - SOURCE ONLY: fixed bridge opens actual operator clients without accepting saved JSON as baseline authority
+  ---
+  duration_ms: 3.8366
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+ok 9 - SOURCE ONLY: retry checkpoints precede SQL mutation, bind observed state and clear only after verified restoration
+  ---
+  duration_ms: 3.6169
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+ok 10 - SOURCE ONLY: offline runner isolates outputs and explicitly selects no native qualification test
+  ---
+  duration_ms: 2.2919
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+ok 11 - SOURCE ONLY: handoff discloses actual prerequisites, bounded hash coverage and missing durable recovery
+  ---
+  duration_ms: 2.4242
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7324.1461

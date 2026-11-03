@@ -1,0 +1,10 @@
+[
+  {
+    "sha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e",
+    "path": "tools\\kanban.mjs"
+  },
+  {
+    "sha256": "2f53a67758949c5749e876a9d965a9df25537ab0e01069fa6ecb038aa55ea5c9",
+    "path": "evidence\\reviews\\swarm-20261102\\R3\\review-orchestrator-lifecycle-20261102T220823292Z-8a1543e8-e662-4c72-953a-c06812e71a74\\aggregate-no-parent-unit.test.mjs"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "R2",
+  "childId": "WEB-01.1",
+  "result": "CHANGES_REQUESTED_EXACT_SOURCE_DELIVERABLE",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "utilityExecutionReceipt": {
+    "path": "review.json",
+    "sha256": "7d5e5d63c8f65c9b7618dabab45ff3d8acaa524f6460208d823cddebba66a761",
+    "scopeSha256": "7059b747ffa682dc30de4887a4bcc64201a710852ade0af8276a8e6b43a6fd63",
+    "meaning": "The existing focused tests executed successfully. The utility's accepted result does not override this manual exact-deliverable finding or close the child."
+  },
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-request-20261102-a3209dc6.json",
+    "nodeVersion": "v22.23.4",
+    "chromiumVersion": "156.0.8078.4",
+    "exitCode": 0,
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "allTwentyAuthorHashesMatchedBeforeAfter": true
+  },
+  "findings": [
+    {
+      "id": "R3-WEB01-01",
+      "priority": "blocking-exact-child-source-deliverable",
+      "files": [
+        "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+        "web\\portal-ssr\\tests\\local-rehearsal.test.mjs"
+      ],
+      "evidence": "The driver supplies kind:'order' to driveContosoBrowser and disables demos in startLocalSurface. The unchanged browser-adapter.ts clicks contoso-create-order for that kind; it never clicks the specified Demo 01 contoso-run-demo control.",
+      "requirement": "WEB-01.1 deliverable explicitly requires clicking the real Demo 01 Run demo control.",
+      "neededChange": "Use the actual Demo 01 demo spec with bounded local Demo 01 admission and a real-browser assertion that the Run demo control, rather than Create order, was clicked. Preserve local-only identity/telemetry labels and all pass-through/negative controls."
+    }
+  ],
+  "acceptedLocalSubset": [
+    "The current-source actual Chromium click emits a real JS SDK dependency and preserves the sampled carrier through the HTTP stand-in.",
+    "Excluded Fetch/XHR and foreign-origin CORS controls execute, and missing Orders export is rejected.",
+    "The current tests do not represent a JVM Orders parent join, APIM, Entra or Azure proof."
+  ],
+  "remainingPrerequisites": [
+    "Resolve R3-WEB01-01 and obtain fresh exact-current-source reviews.",
+    "JVM-01.1 actual agent-attached Orders/Inventory pair and real emitted Orders parent join.",
+    "Native WEB-01 facets and accountable acceptance remain To Do."
+  ],
+  "cleanup": "Dedicated test-owned Chromium and loopback servers closed; test-owned unique build trees removed. No coauthor source edits, shared dist/target output, browser MCP, Maven or cloud operations."
+}

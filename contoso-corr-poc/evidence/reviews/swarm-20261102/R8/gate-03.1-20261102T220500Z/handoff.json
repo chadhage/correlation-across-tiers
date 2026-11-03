@@ -1,0 +1,79 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "result": "AUTHOR_EXECUTION_NOT_INDEPENDENT_REVIEW",
+  "agentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "reviewerRole": "R8",
+  "cardId": "GATE-03",
+  "childIds": [
+    "GATE-03.1"
+  ],
+  "childDefinition": "| GATE-03.1 | R8 | none | Secret-scan workflow on every pull request and over full history |",
+  "childDefinitionSha256": "7fb3df65c4cb30e27965126e62a14688ff288c348101b449976aff3433a3410a",
+  "clauseIndex": 1,
+  "clauseTextSha256": "7ad40e04a148f7385bdc2aa2c19b38a769b50287c60ec55263139c8076848484",
+  "facets": [
+    "static",
+    "unit"
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "sources": [
+    {
+      "path": ".\\.github\\workflows\\secret-scan.yml",
+      "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6"
+    },
+    {
+      "path": ".\\contoso-corr-poc\\tests\\security\\secret-scan-workflow.test.mjs",
+      "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d"
+    },
+    {
+      "path": ".\\contoso-corr-poc\\tests\\security\\repository.test.mjs",
+      "sha256": "316ce5f1f246c0edbaa854bf1270e58a9c02cc9c997fe8da5a8e54fe215cf9ba"
+    },
+    {
+      "path": ".\\contoso-corr-poc\\tools\\security\\repository.mjs",
+      "sha256": "6d35bd221bc2775b4c5b488408b7043a2e19f0e8c4e456eccf9faf260d52ff75"
+    },
+    {
+      "path": ".\\contoso-corr-poc\\tools\\security\\Run-SecurityGates.ps1",
+      "sha256": "8c7185a9b4f98ea283cad8558f487eb49197997492ae7cbc52926aba6442dcd1"
+    },
+    {
+      "path": ".\\contoso-corr-poc\\tests\\security\\fixtures.mjs",
+      "sha256": "d98d6cc332c4a92734a44071429345e4bb12b5296e2dd8788503cdcf0733cd00"
+    }
+  ],
+  "tests": {
+    "command": "node --test .\\contoso-corr-poc\\tests\\security\\secret-scan-workflow.test.mjs .\\contoso-corr-poc\\tests\\security\\repository.test.mjs",
+    "cwd": "repository-root",
+    "nodeVersion": "v22.23.4",
+    "gitVersion": "git version 2.56.0.windows.4",
+    "exitCode": 0,
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "sourcesBeforeAfterMatched": true,
+    "tapPath": "implementation.tap",
+    "tapSha256": "6d70ec08363420ac12c00fe7f4e472e4d549b83c3fa6fbfe93764c21818ada2e"
+  },
+  "positives": [
+    "Unfiltered pull_request and push triggers; contents-read only; pinned actions; credentials not persisted; non-shallow merged checkout; configured Run-SecurityGates.ps1 command",
+    "Actual CLI clean local Git repository: exit0,3worktree files,3history blobs,0findings",
+    "After fake JWTs were committed and reverted on merged branch: worktree-only exit0"
+  ],
+  "negativeControls": [
+    "16 workflow trigger/permission/history/skip/command mutations fail the static guard",
+    "Actual scanner default full-history CLI finds exactly3 historical JWT_VALUE findings across infra\\params\\poc.bicepparam,demos\\canary.ps1,evidence\\canary.json; exit1,6history blobs; findings contain locations/rule IDs, not seeded values",
+    "Existing repository negative controls remain enabled; scanner rules unchanged"
+  ],
+  "cleanup": "UUID-named tests\\security\\fixtures-generated\\ci-* repositories removed in finally; no credentials, cloud calls, shared build output or application traffic",
+  "remainingPrerequisites": [
+    "R4/R5 independent current-source execution",
+    "Approved hosted PR workflow clean run and seeded-fail run; no commit/push authorized",
+    "Parent GATE-03 actual KeyVault/Entra/privacy/owner requirements remain To Do"
+  ],
+  "childAcceptance": "To Do: hosted PR execution not supplied",
+  "capturedAtUtc": "2026-11-02T21:59:43.1095975Z"
+}

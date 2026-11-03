@@ -1,0 +1,36 @@
+{
+  "schema": "contoso.post-integration-prospective-review-audit.v1",
+  "checkedAtUtc": "2026-11-03T00:30:55.070Z",
+  "result": "PASS_SOURCE_CORRECTION_ONLY",
+  "reviews": [
+    {
+      "role": "R1",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R1\\demo01-integration-independent-v3-01\\execution\\review.json",
+      "sha256": "5c3bf510855f39f2c1e2c1d75623968a369dbf87589114977f3fd4ad4658bf2f",
+      "sourceInputs": 79,
+      "scopeSha256": "faf16d20c6262b4b122364fe6e2737429906bdfe1aaec64f9e3b2c908429615b",
+      "tests": 41,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\demo01-runtime.test.mjs tests\\verification\\demo.test.mjs tests\\observability\\demo01-collector.test.mjs"
+    },
+    {
+      "role": "R7",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\demo01-integration-20261103-review-v3\\review.json",
+      "sha256": "bc991d31bb6da1331cd2604e2c3a098f4adc2a7966a61773425868d929cf63d0",
+      "sourceInputs": 79,
+      "scopeSha256": "faf16d20c6262b4b122364fe6e2737429906bdfe1aaec64f9e3b2c908429615b",
+      "tests": 41,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\demo01-runtime.test.mjs tests\\verification\\demo.test.mjs tests\\observability\\demo01-collector.test.mjs"
+    }
+  ],
+  "doneChildEvidenceCurrent": true,
+  "doneChildCount": 5,
+  "DEM00ChildStatus": "To Do",
+  "parentFullRetryExecutedByOrchestrator": false,
+  "certificationStatus": "NOT CERTIFIED"
+}

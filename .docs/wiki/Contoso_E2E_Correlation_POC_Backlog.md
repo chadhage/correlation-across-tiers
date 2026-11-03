@@ -76,13 +76,13 @@ One owner role, one artifact or change, one verifiable outcome, 2 days or less, 
 
 Roles: R1 Lead Architect; R2 Front-end Engineer; R3 API Platform Engineer; R4 Java/OTel Engineer; R5 Async/Integration Engineer; R6 Data-Tier Engineer; R7 Observability/KQL Engineer; R8 Security & Privacy Red Team; R9 Verifier / Adjudicator.
 
-Unranked child checklists below decompose existing parent acceptance, not additional cards or estimates. Each child has one existing implementation executor, explicit prerequisites, one bounded deliverable and independently verifiable acceptance. All six start To Do and retain the existing WIP/review rules; child checkmarks never substitute for parent evidence, waive completion dependencies or authorize deployment, spending or native traffic. Construction may use reviewed interfaces before predecessor Done; native qualification still requires the separately approved runtime and bounded execution window.
+Unranked child checklists below decompose existing parent acceptance, not additional cards or estimates. Each child has one existing implementation executor, explicit prerequisites, one bounded deliverable and independently verifiable acceptance, and meets the same atomic test as a card: one owner role, one artifact or change, one verifiable outcome, two ideal days or less and testable on its own. A deliverable that cannot meet it is split into further children, not enlarged. All children start To Do and retain the existing WIP/review rules; child checkmarks never substitute for parent evidence, waive completion dependencies or authorize deployment, spending or native traffic. Construction may use reviewed interfaces before predecessor Done; native qualification still requires the separately approved runtime and bounded execution window.
 
 ## Swarm execution plan
 
 **Mode: ACTIVE CONSTRUCTION SWARM.** The user authorized launch of one coordinator and nine fresh specialist agents. The exact nine-role policy candidate received independent R1/R7 source/unit acceptance before construction activation; actual fresh task identities are recorded in the board state. This section groups the existing work; it does not add ranked cards, change acceptance, grant native authority or authorize deployment/spending/traffic. The Kanban reproduces this canonical plan.
 
-**Coverage baseline:** 78 unfinished parent cards, six child tasks, 281 acceptance clauses and 491 required facet checks: 63 static, 157 unit, 58 documentation, 202 live and 11 signoff. The exact clause/facet map in `config\acceptance-scopes.json` remains authoritative; these are obligations, not passing results. The 70 ideal-day sizing and 13-day historical dependency estimate are not an execution forecast: approvals, runtime support and live evidence have no verified completion date.
+**Coverage baseline:** 78 unfinished parent cards, 52 child tasks, 281 acceptance clauses and 491 required facet checks: 63 static, 157 unit, 58 documentation, 202 live and 11 signoff. The exact clause/facet map in `config\acceptance-scopes.json` remains authoritative; these are obligations, not passing results. The 70 ideal-day sizing and 13-day historical dependency estimate are not an execution forecast: approvals, runtime support and live evidence have no verified completion date.
 
 ### Staffing and independent review
 
@@ -129,7 +129,7 @@ Parallelism means independent packets execute simultaneously; concurrency means 
 
 ### Complete parent-card coverage
 
-These are dispatch packages, not new cards, rankings or completion dependencies. Each parent appears once; execute its exact acceptance clauses and Needs edges inside its package. A package may stream across several waves and has no independent Done status. Shared native evidence may support multiple clauses only through explicit per-clause provenance and assertions.
+These are dispatch packages, not new cards, rankings or completion dependencies. Each parent appears once; execute its exact acceptance clauses and Needs edges inside its package. A package may stream across several waves and has no independent Done status. Every DEM-02 to DEM-15 parent also ships its own scenario adapter (trigger, effect, collect and reset handlers); none inherits Demo 01 PASS or relies on a presenter-supplied callback. Each adapter is its own child (DEM-02.1 to DEM-15.1; Demo 05 also splits its fault switches into DEM-05.1), so no half-day demo card is asked to absorb adapter construction. Shared native evidence may support multiple clauses only through explicit per-clause provenance and assertions.
 
 | Package | Owner | Cards | Empirical exit |
 |---|---|---|---|
@@ -139,14 +139,14 @@ These are dispatch packages, not new cards, rankings or completion dependencies.
 | P04 | R3 | GATE-01, INF-04, API-02, API-01, DEM-03 | Source guards plus actual APIM config, four context vectors, backend parent advancement and canonical business identity |
 | P05 | R4 | GATE-02, GATE-05, JVM-05, INF-03, JVM-01, JVM-02, JVM-04, JVM-03 | Coherent reactor/SBOM/packages, actual loaded agent/provider/runtime/export and API/log/async context associations; missing-agent negatives are not healthy-host proof |
 | P06 | R4 | DEM-04, DEM-05 | Trusted/untrusted business lookup and actual timeout/database-error effects retain correct HTTP/message/span/log associations |
-| P07 | R5 | GATE-09, INF-06, MSG-01, MSG-07, MSG-02, MSG-03, MSG-04, MSG-08, MSG-06, MSG-05 | Real broker/carrier/store state transitions, distinct attempts and exact persisted replay/contributor/batch links with seeded anti-pattern failures |
+| P07 | R5 | GATE-09, INF-06, MSG-01, MSG-07, MSG-02, MSG-03, MSG-04, MSG-08, MSG-06, MSG-05 | Real broker/carrier/store state transitions, distinct attempts, durable-outbox publish attempts, fenced batch-checkpoint recovery and exact persisted replay/contributor/batch links with seeded anti-pattern failures |
 | P08 | R5 | DEM-06, DEM-07, DEM-08, DEM-09, DEM-10 | Live retry, two-actor DLQ/replay, fan-out/fan-in, mixed batch and Event Grid/Storage delivery, terminal outcomes and run-owned resets |
-| P09 | R6 | INF-05, DAT-01, DAT-02, DEM-12 | Actual private Entra PostgreSQL/Managed Redis operations, safe CLIENT spans, forced cold-cache path and restored owned/unowned baseline |
+| P09 | R6 | INF-05, DAT-01, DAT-02, DEM-12 | Actual private Entra PostgreSQL/Managed Redis operations, safe CLIENT spans for Inventory, the Orders workflow store and the worker stores, forced cold-cache path and restored owned/unowned baseline |
 | P10 | R7 | INF-01, OBS-03, OBS-01, OBS-02 | Actual telemetry resources, complete sampling roster/admission/drain/restore, executed three KQL procedures and source-bound full-path collection |
 | P11 | R7 | DEM-14, OBS-05, OBS-06 | Imported/rendered workbook and actual query/UI results; every orphan candidate accounted for, with unexplained defects failing |
 | P12 | R7 | OBS-04, OBS-07, DEM-15 | Approved-load measured thresholds, independent emission/backend counts, restart/flush and watchdog/rollback/restoration evidence |
 | P13 | R7 | EVL-B, EVL-A | Separately approved isolated evaluation evidence and decision; never on the certification critical path or relabelled certified |
-| P14 | R8 | GATE-03, GATE-04, GATE-10, INF-02, IDN-01, IDN-02, INF-07 | Secret/history and all-original-table scans, real auth/grant/rotation/retention/purge negatives and required accountable decisions |
+| P14 | R8 | GATE-03, GATE-04, GATE-10, INF-02, IDN-01, IDN-02, INF-07 | Secret/history and all-original-table scans, real dual-token auth/grant/rotation/retention/purge negatives, server-side identity-client header isolation (AV-23) and required accountable decisions |
 | P15 | R8 | DEM-13, DEM-11 | Actual identity/privacy and spoofed-message effects, safe rejection telemetry and preserved trust boundaries; no fixture-only live result |
 | P16 | R9 | GATE-06, GATE-08, GATE-12, GATE-13, CRT-01, GOV-01, CRT-03 | Exact claim/facet ledger, independently enrolled source-bound live executor, A/B/C/coverage and provenance negatives, scoped report/limitations |
 | P17 | R9 | DEM-00, CRT-02 | Shipped concrete adapter, consecutive run/reset plus interrupted recovery; all fifteen demonstrations, current gate evidence and six real owner signoffs |
@@ -162,9 +162,64 @@ The child Executor fields now name their independent logical-role owner under th
 | OBS-02.1 | R7 | DAT-01.1, DEM-01.1 | One qualified actual browser -> APIM request/backend -> Orders -> Inventory -> data capture, using the existing browser driver without waiting for DEM-00.1 |
 | DEM-00.1 | R9 | DAT-01.1, DEM-01.1, OBS-02.1 | Supplied concrete native adapter and saved-baseline restore, not an interface requiring the presenter to implement it |
 | DEM-00.2 | R9 | DEM-00.1 | Two distinct complete run/capture/assert/reset cycles and a separate interrupted-run cleanup regression |
-| DOC-02.1 | R1 | DEM-00.2 | Shipped Windows commands reproduced by another engineer without hidden repairs or unsupported script examples |
+| DOC-02.1 | R1 | DEM-00.2, GATE-11.2 | Shipped Windows commands reproduced by another engineer without hidden repairs, unsupported script examples or machine-specific paths |
 
 Construction contracts for the first two children, observer and adapter can be drafted in parallel under file leases. The table orders native qualification, not all source edits: the collector can qualify via the existing browser driver before adapter integration. Its real target/auth/privacy/lease prerequisites remain mandatory, avoiding an observer-adapter circular dependency.
+
+### Gap-closure child dependency graph
+
+These children close the gaps found when the execution evidence at commit `7279cd3` was compared with the claims (see the unproven-claim ledger). Each is unranked, starts To Do and meets the atomic test above; none adds a card, clause, facet or estimate, waives a parent Needs edge or grants native authority. Its executor equals the parent owner. The local rehearsal children (JVM-01.1, WEB-01.1, OBS-02.2, DEM-01.2) and the opt-in real-store lanes (DAT-01.3, DAT-02.1) are construction aids that retire integration risk before a native window; they are labelled local and satisfy no live facet. Child prerequisites name only other children; every parent Needs edge, approval and native-window requirement still applies.
+
+Files introduced here are exclusive to their owner while leased (`.github\` sits at the Git repository root, above `contoso-corr-poc\`): `azure.yaml` and `tools\Rehearse-Demo01.ps1` (R1); `.github\workflows\ci-node.yml` and `.github\pull_request_template.md` (R9); `.github\workflows\ci-java.yml` and `tools\java\Start-LocalPair.ps1` (R4); `.github\workflows\secret-scan.yml` (R8); and each `tools\verification\adapters\demoNN-runtime.mjs` (its demo's owner, integrated by R9 only through the shared adapter contract).
+
+| Child | Target owner | Child prerequisites | Required result |
+|---|---|---|---|
+| ARC-01.1 | R1 | none | Every store-consuming role's PostgreSQL CLIENT boundary declared in the single map, with a source-derived completeness test |
+| GATE-11.1 | R1 | none | Root `azure.yaml` consistent with the Bicep infrastructure and every deployable package, statically checked |
+| GATE-11.2 | R1 | GATE-05.1, DAT-01.2, GATE-13.1, IDN-01.2, INF-06.1 | Lint rejecting machine-specific tool and user paths in shipped files |
+| DEM-01.2 | R1 | JVM-01.1, WEB-01.1, OBS-02.2 | One-command local rehearsal labelled LOCAL REHEARSAL, never APIM, Azure or certification evidence |
+| DOC-01.1 | R1 | ARC-01.1 | Tier-role labels and a hop-by-hop table generated from the single map, with a drift test |
+| DOC-02.2 | R1 | none | Every top-level directory classified in the README repository map and tested |
+| WEB-01.1 | R2 | JVM-01.1 | Real Storefront click through a pass-through forwarder to local Orders, with the browser-to-Orders parent join asserted |
+| DEM-02.1 | R2 | DEM-00.1 | Shipped Demo 02 adapter observing SSR and SPA roots separately |
+| DEM-03.1 | R3 | DEM-00.1 | Shipped Demo 03 adapter driving the four carrier cases through the Gateway |
+| GATE-02.1 | R4 | none | Current-source local receipt for the sampler guard's unsampled and linked-root decisions |
+| GATE-05.1 | R4 | none | Six Java tooling scripts free of the session-folder default |
+| GATE-05.2 | R4 | GATE-05.1 | Every-PR Java reactor workflow that fails on skipped agent-gated tests |
+| JVM-01.1 | R4 | none | Local Orders and Inventory JVMs with the agent and a loopback receiver from one command |
+| DEM-04.1 | R4 | DEM-00.1 | Shipped Demo 04 adapter for trusted, untrusted and malformed IDs over HTTP and Service Bus |
+| DEM-05.1 | R4 | none | Default-off Inventory timeout and database-error fault switches gated by the demo/control role |
+| DEM-05.2 | R4 | DEM-00.1, DEM-05.1 | Shipped Demo 05 adapter that uses and then clears the fault switches |
+| INF-06.1 | R5 | none | Messaging infrastructure test that skips explicitly instead of failing on a machine path |
+| MSG-02.1 | R5 | none | Real-queue proof of outbox publish attempts, uncertain-publish retries and duplicates |
+| MSG-06.1 | R5 | none | Real Event Hubs proof of fenced checkpoint restart and replay |
+| DEM-06.1 | R5 | DEM-00.1 | Shipped Demo 06 adapter showing N+1 distinct retry attempts on a real broker |
+| DEM-07.1 | R5 | DEM-00.1 | Shipped Demo 07 adapter for dead-letter and replay with a run-owned drain |
+| DEM-08.1 | R5 | DEM-00.1 | Shipped Demo 08 adapter for fan-out PROCESS spans and Aggregator links |
+| DEM-09.1 | R5 | DEM-00.1 | Shipped Demo 09 adapter for a mixed-context batch without a first-message parent |
+| DEM-10.1 | R5 | DEM-00.1 | Shipped Demo 10 adapter for the Event Grid and Storage Queue paths with a duplicate |
+| INF-05.1 | R6 | none | Per-app database and Redis connection smoke tests under each app's own identity |
+| INF-05.2 | R6 | none | Untyped data-tier API-version warnings recorded, test-gated and tied to VERIFY rows |
+| DAT-01.2 | R6 | none | Inventory fixture script free of the session-folder default |
+| DAT-01.3 | R6 | none | Opt-in real-PostgreSQL local lane for the migration, grants and operations |
+| DAT-02.1 | R6 | none | Opt-in real-Redis local lane for the cache adapter |
+| DEM-12.1 | R6 | DEM-00.1, ARC-01.1 | Shipped Demo 12 adapter with safe store spans in every tier and seeded negative controls |
+| OBS-02.2 | R7 | none | Merged local trace tree with Invariants A, B and C under a named local profile |
+| DEM-14.1 | R7 | DEM-00.1, ARC-01.1 | Shipped Demo 14 adapter classifying every orphan candidate with zero defects |
+| DEM-15.1 | R7 | DEM-00.1 | Shipped Demo 15 adapter for the bounded certification window, load report and rollback |
+| GATE-03.1 | R8 | none | Secret-scan workflow on every pull request and over full history |
+| IDN-01.1 | R8 | none | Native dual-token negative-control matrix through the deployed Gateway |
+| IDN-01.2 | R8 | none | AV-23 Java probe free of the session-folder default |
+| IDN-01.3 | R8 | IDN-01.2 | Current-build AV-23 header-isolation receipts for every Java JVM |
+| IDN-01.4 | R8 | none | Current-build AV-23 wire evidence for the Portal Node process |
+| DEM-11.1 | R8 | DEM-00.1 | Shipped Demo 11 adapter with an authenticated spoofed-delivery publisher |
+| DEM-13.1 | R8 | DEM-00.1, IDN-01.1, IDN-01.3 | Shipped Demo 13 adapter showing pseudonym-only telemetry through the dual-token chain |
+| GATE-06.1 | R9 | none | Official-source classification of the Portal's resolved beta Node packages |
+| GATE-08.1 | R9 | ARC-01.1 | Invariant C assertions and seeded failures for the Orders workflow and worker store boundaries |
+| GATE-12.1 | R9 | GATE-11.2 | Every-PR Node gate workflow with report-staleness and skip accounting |
+| GATE-13.1 | R9 | none | Security client qualification free of the session-folder default |
+| GOV-01.1 | R9 | none | Pull-request template enforcing two-role review and claim labels |
+| CRT-03.1 | R9 | none | Test-coverage report regenerated from current receipts or labelled historical |
 
 ### Overlapping waves and release conditions
 
@@ -182,7 +237,7 @@ Waves are release conditions, not global barriers: continue independent ready wo
 
 ### Evidence receipts and Done Done
 
-For every parent, R9 expands the existing exact clause map into `card / clause / required facet` rows; the six children reference their parent clauses plus their own measurable exit. An owner supplies evidence, not their own acceptance. Use existing manifests/receipts and register interfaces rather than a second status database.
+For every parent, R9 expands the existing exact clause map into `card / clause / required facet` rows; every child references its parent clauses plus its own measurable exit. An owner supplies evidence, not their own acceptance. Use existing manifests/receipts and register interfaces rather than a second status database.
 
 | Facet | Evidence that can satisfy it | Evidence that cannot substitute |
 |---|---|---|
@@ -305,6 +360,14 @@ Blocks any secret, token or connection string from entering the repository, app 
 - [ ] `infra/params/poc.bicepparam`, `demos/` scripts and generated `evidence/` are inside the scan scope.
 - [ ] A seeded fake secret in a fixture makes the job fail.
 
+#### Child tasks
+
+  - [ ] **GATE-03.1 - Run the secret scan on every pull request and over full history in CI**
+    - Executor: R8.
+    - Prerequisites: The existing `tools\security\repository.mjs` scanner and `Run-SecurityGates.ps1`; a hosted pull-request runner. No Azure access, secret or deployment is required.
+    - Deliverable: One workflow file, `.github\workflows\secret-scan.yml`, that runs the existing scanner on every pull request and, from a full-history checkout, over the merged history.
+    - Acceptance: A pull request containing the existing seeded fake-secret fixture fails the job and the clean tree passes. The scan scope includes `infra\params\poc.bicepparam`, `demos\` scripts and generated `evidence\`; the full-history step reports zero findings or fails the job with locations and rule IDs only, never the matched value. The workflow uses no repository secret and does not change the scanner's rules.
+
 ### 2. GATE-07 · Removed-claims and preview-isolation lint
 
 **Dissatisfier** · Owner: R1 Lead Architect · Build phase A · CD3 82.0 (CoD 41 ÷ 0.5 d) · Needs: none  
@@ -329,6 +392,14 @@ The §8 item 7 register: every version or capability assumption has an official 
 - [ ] A lint fails on any version, API version, SKU capability, GA date or support-matrix claim in the repository that has no register entry.
 - [ ] Open items are listed in README.md and in the executive summary.
 
+#### Child tasks
+
+  - [ ] **GATE-06.1 - Classify the Portal's resolved beta Node packages from official sources**
+    - Executor: R9.
+    - Prerequisites: The `node-azure-exporter` entry in `config\certification-dependencies.json`, its VERIFY register rows and the locked Portal dependency tree; access to the official Microsoft package and support pages.
+    - Deliverable: One reviewed register and manifest update that records, for `@azure/monitor-opentelemetry-exporter` 1.0.0-beta.46 and `@azure/opentelemetry-instrumentation-azure-sdk` 1.1.0-beta.1, the exact official page, owner and GA, preview or unsupported classification, or the documented decision to keep the Portal exporter outside the certification statement.
+    - Acceptance: Each entry cites an official source that states the classification; without such a source it stays UNVERIFIED and the GATE-07 preview-isolation lint keeps it off the certified path. The register test fails closed when the locked version or the recorded source link changes. A lock pin, registry listing or successful local run is never accepted as a support claim.
+
 ### 4. GATE-11 · Deployability and naming-conformance gate
 
 **Dissatisfier** · Owner: R1 Lead Architect · Build phase B · CD3 53.0 (CoD 53 ÷ 1 d) · Needs: none  
@@ -336,10 +407,24 @@ Traces to: Prompt §0, §3, §4 · Brief §6 Service identity, §24 Repeatabilit
 
 Proves the POC deploys from scratch and that every resource and role name follows the Contoso convention.
 
-- [ ] `azd up` (or the documented equivalent) deploys the full topology into an empty resource group with no manual steps beyond the README prerequisites; a second run shows no changes in what-if.
+- [ ] `azd up` (or the documented equivalent) deploys the full topology into an empty resource group with no manual steps beyond the README prerequisites; a second run shows no changes in what-if. No shipped script or test depends on a particular operator's machine: tool locations come from the repository or a documented prerequisite variable.
 - [ ] A naming lint checks the frozen logical-to-physical map: use the `contoso-corr-poc-` prefix where legal, documented storage/Key Vault/global-name and fixed-child exceptions, and an availability-checked discriminator where required. Every `service.name` and cloud role name still equals its §3 identifier: `contoso-storefront-spa`, `contoso-portal-ssr`, `contoso-orders-api`, `contoso-inventory-api`, `contoso-fulfillment-worker`, `contoso-notify-worker`, `contoso-order-aggregator`. The provider rejects a Service Bus namespace ending in `-sb`; its approved legal physical alias must be frozen.
 - [ ] Fails on instance IDs in role names (they belong only in `service.instance.id`) and on the reference pattern's header names (`x-business-correlation-id`, `business.correlation_id`).
 - [ ] Teardown and redeploy reproduce the same names.
+
+#### Child tasks
+
+  - [ ] **GATE-11.1 - Add the root azd entry point beside `infra\`**
+    - Executor: R1.
+    - Prerequisites: The existing `infra\main.bicep`, `infra\params\poc.bicepparam` and the package outputs of `tools\Prepare-DeploymentPackages.ps1`. No Azure access is required for the static check.
+    - Deliverable: One `azure.yaml` at the project root beside `infra\`, naming the Bicep infrastructure path and parameter file and every deployable app in `infra\main.bicep` with its packaging step, without a second deployment definition.
+    - Acceptance: A static test fails when a service project path, packaging script, infrastructure path or parameter file named in `azure.yaml` does not exist, when a deployable app in `infra\main.bicep` is missing from it, or when it embeds a secret or connection string (GATE-03 scope); its commands match the README and runbook. Provisioning an empty group, the no-change second what-if and teardown/redeploy remain the native facets of clauses 1 and 4 and are not claimed here.
+
+  - [ ] **GATE-11.2 - Reject machine-specific tool and user paths in shipped files**
+    - Executor: R1.
+    - Prerequisites: GATE-05.1, DAT-01.2, GATE-13.1, IDN-01.2 and INF-06.1, each of which removes one existing violation.
+    - Deliverable: One static lint over shipped scripts, tools, tests and documents that fails on an absolute user-profile, `.copilot\session-state` or fixed drive-letter tool path used as a default. Preserved evidence, receipt and source-freeze files record historical paths and are explicitly out of scope.
+    - Acceptance: The lint passes on the cleaned tree and fails for a seeded fixture of each violation class (PowerShell default parameter, Node default constant and test constant), naming the file and line. `npm test` runs it, and the documented prerequisite variables (`CONTOSO_PORTABLE_TOOLS_ROOT`, `CONTOSO_BICEP_PATH`, `CONTOSO_AGENT_JAR`, `CONTOSO_PARENT_SAFE_JAR`) are listed once in the README prerequisites.
 
 ### 5. GATE-01 · Protocol-integrity static scan
 
@@ -365,6 +450,14 @@ Proves every JVM runs exactly one OpenTelemetry provider: the Azure Monitor Java
 - [ ] A code scan fails on in-process SDK construction (`OpenTelemetrySdk.builder`, `SdkTracerProvider`); manual spans use `GlobalOpenTelemetry` only.
 - [ ] A seeded fixture with a second SDK makes both the dependency check and the startup check fail.
 - [ ] Per-JVM output is saved under `evidence/` and satisfies the §9 one-provider check.
+
+#### Child tasks
+
+  - [ ] **GATE-02.1 - Re-qualify the Contoso sampler guard's unsampled and linked-root decisions on current sources**
+    - Executor: R4.
+    - Prerequisites: The pinned agent and the locked `contoso-parent-safe-sampler` artifact (`CONTOSO_AGENT_JAR`, `CONTOSO_PARENT_SAFE_JAR`), the existing `tools\verification\sampling-qualification.mjs` and the preserved historical receipts. No Azure access is required.
+    - Deliverable: One new source-bound qualification receipt under `evidence\verification\linked-root-sampling\`, produced by the existing tool against the current sampler, provider and test sources. The historical failed `b81339...` receipt stays unchanged.
+    - Acceptance: With the agent loaded, actual decisions show that a valid-parent `-00` request stays dropped, a declared no-parent root whose links are all valid and unsampled is dropped, and sampled/mixed-link and unlinked roots keep the delegate decision. The receipt binds current source hashes, the executed command and the runtime and agent identity; `npm run verify:report` moves the local sampling claim off UNVERIFIED only for that receipt, and a seeded guard change returns it to UNVERIFIED. The result is labelled local and never stands for native sampling, roster acknowledgement or full-path evidence.
 
 ### 7. GATE-09 · Async-honesty assertions
 
@@ -404,6 +497,14 @@ A shared assertion library every demo calls to prove Invariants A, B and C again
 - [ ] Fixture sets for each failure (split trace, duplicate span-id, wrong ParentId, missing hop) fail with a message naming the broken edge.
 - [ ] Linked from the Trace identity and Span identity rows.
 
+#### Child tasks
+
+  - [ ] **GATE-08.1 - Assert the Orders workflow and worker store boundaries in Invariant C**
+    - Executor: R9.
+    - Prerequisites: ARC-01.1 and the existing GATE-08 invariant library and fixture sets.
+    - Deliverable: One extension of the shared Invariant C assertion and its fixture sets so the Orders workflow/outbox and worker messaging-store CLIENT spans are checked as children of their request, producer or PROCESS span using only the single boundary map.
+    - Acceptance: A fixture trace with every store CLIENT span correctly parented passes; fixtures with a missing store span, a wrong parent, a non-CLIENT span kind and an undeclared store boundary each fail with a message naming the broken edge. Inventory's PostgreSQL and Redis chain behaviour is unchanged. These are assertion fixtures only and prove no native store span (DAT-01 clause 1, DEM-12 clause 1).
+
 ### 10. GATE-10 · Identifier-integrity guard
 
 **Dissatisfier** · Owner: R8 Security & Privacy Red Team · Build phase H · CD3 39.0 (CoD 39 ÷ 1 d) · Needs: none  
@@ -429,6 +530,14 @@ Bounds 100% sampling to the certification window and keeps the certification cla
 - [ ] A CI rule marks the affected CERTIFICATION_REPORT.md rows "invalidated" when a dependency, runtime, agent, policy or message-schema file changes, until the regression suite passes again.
 - [ ] A seeded agent-version bump flips the affected rows to "invalidated".
 
+#### Child tasks
+
+  - [ ] **GATE-12.1 - Run the Node gates and verification checks on every pull request**
+    - Executor: R9.
+    - Prerequisites: GATE-11.2 and the existing `npm test`, `board:check`, `verify:report`, `verify:register` and `demos:check` scripts.
+    - Deliverable: One workflow file, `.github\workflows\ci-node.yml`, that runs those scripts from `contoso-corr-poc` on every pull request with the Node version required by `package.json`, the browser dependency installed and the Bicep compiler provisioned from the locked version or reported as an explicit skip.
+    - Acceptance: A clean pull request passes. A seeded change to a pinned dependency, runtime, agent, policy or message-schema file without refreshed `verify:invalidate` output fails the `verify:report` step and names the invalidated rows (clause 3); a seeded stale board or register fails its own step. Bicep-gated tests that cannot run print their reason and are counted as skipped, not passed. The workflow deploys nothing, spends nothing and sends no native traffic.
+
 ### 12. GATE-13 · Evidence-integrity and gap-log gate
 
 **Dissatisfier** · Owner: R9 Verifier / Adjudicator · Build phase I · CD3 34.0 (CoD 34 ÷ 1 d) · Needs: none  
@@ -440,6 +549,14 @@ Certifies only on live, untampered evidence, and logs every place where document
 - [ ] Every pack under `evidence/demo-XX/<timestamp>/` carries the query text, non-secret resource identifiers, UTC timestamps, a config snapshot, the VERSIONS.md hash and a SHA-256 manifest; a tampered file fails verification.
 - [ ] A gap log records each case where documented and observed behaviour differ (claim, source, observed evidence, impact); the affected demo shows the observed behaviour and no code compensates for it.
 - [ ] Linked from the Repeatability row.
+
+#### Child tasks
+
+  - [ ] **GATE-13.1 - Remove the session-folder default from the security client qualification**
+    - Executor: R9.
+    - Prerequisites: The documented `CONTOSO_PORTABLE_TOOLS_ROOT` convention for the portable Maven repository.
+    - Deliverable: One change to `tools\verification\security-client-qualification.mjs` so the tool root and the `azure-core-http-okhttp` artifact path come from `CONTOSO_PORTABLE_TOOLS_ROOT`, not from a `.copilot\session-state` path.
+    - Acceptance: With the variable unset the tool fails with an explicit missing-prerequisite error that names it. With a valid root the existing unit tests and `npm run verify:security-client` behave exactly as before, with no relaxed hash, epoch or lineage check. A source test fails when the file contains an absolute user-profile or session-state path.
 
 ### 13. GATE-05 · JDK 25 compatibility gate
 
@@ -453,6 +570,20 @@ Proves the pinned Java provider emits the expected spans for every selected auto
 - [ ] A seeded fixture with one instrumentation module disabled makes the gate fail.
 - [ ] CI blocks certification of any demo that exercises a Java service or worker until the gate passes on the deployed build.
 - [ ] Results are saved per service under `evidence/`.
+
+#### Child tasks
+
+  - [x] **GATE-05.1 - Remove the session-folder default from the Java tooling scripts**
+    - Executor: R4.
+    - Prerequisites: The documented `CONTOSO_PORTABLE_TOOLS_ROOT` convention, or a repository-relative default that version control excludes.
+    - Deliverable: One change across `tools\java\Use-Portable.ps1`, `Install-Portable.ps1`, `Install-Bicep.ps1`, `Get-Agent.ps1`, `Gate-05.ps1` and `Validate-Compute.ps1` that replaces each hard-coded `C:\Users\...\session-state\...` default with that convention.
+    - Acceptance: Run without the variable, each script installs into the documented repository-relative root or stops with an explicit error naming the variable; with it set, the scripts behave as before and still verify the agent, JDK, Maven and Bicep hashes from `config\versions.lock.json`. A source test fails on any absolute user-profile or session-state path in these scripts.
+
+  - [ ] **GATE-05.2 - Run the Java reactor on every pull request**
+    - Executor: R4.
+    - Prerequisites: GATE-05.1; a runner with the pinned JDK, the locked Maven version and the locked agent and sampler artifacts.
+    - Deliverable: One workflow file, `.github\workflows\ci-java.yml`, that runs the full Maven reactor with the pinned agent and sampler supplied so the environment-gated tests execute.
+    - Acceptance: The job prints executed and skipped totals. Any skipped or cancelled test whose gate requires the agent or sampler fails the job instead of passing silently (clause 4), and the existing seeded second-SDK and disabled-module fixtures fail as expected. Agent and sampler hashes must equal the lock. Success is source and unit evidence on that runner image and does not replace the deployed-build JDK 25 check.
 
 ### 14. INF-02 · Key Vault and Key Vault-reference wiring
 
@@ -501,6 +632,14 @@ Sets up the cross-review and adjudication trail in DECISIONS.md so every dispute
 - [ ] The log states that majority vote is not evidence; a resolution without a source is rejected in review.
 - [ ] The first conflict between the two attached sources (`x-business-correlation-id` in the reference pattern versus `x-business-invocation-id` in prompt §3) is logged and resolved in favour of the prompt.
 
+#### Child tasks
+
+  - [ ] **GOV-01.1 - Commit the pull-request template that enforces two-role review and claim labels**
+    - Executor: R9.
+    - Prerequisites: The GOV-01 adjudication-log vocabulary in `DECISIONS.md`.
+    - Deliverable: One `.github\pull_request_template.md` requiring the author role, two other-role reviewers who are different people or agents, a Verified, Partially verified, Unsupported, Incorrect or Outdated label with an evidence link on every material technical claim, the no-majority-vote rule, and a reminder that nothing in the change grants native authority or certification.
+    - Acceptance: A repository test parses the template and fails when any required item is absent; a seeded copy without the claim-label item fails. The template links to `DECISIONS.md` and adds no approval authority beyond the Definition of Done.
+
 ### 18. ADR-01 · ADRs A01-A03: causality, business ID, trust policy
 
 **Satisfier** · Owner: R1 Lead Architect · Build phase A · CD3 48.0 (CoD 48 ÷ 1 d) · Needs: none  
@@ -520,9 +659,17 @@ Traces to: Prompt §4 topology · Brief §17, §18 orphan interpretation
 
 One machine-readable map of every hop, edge type and deliberate new root, used by tests, triage and the diagram.
 
-- [ ] Lists every hop with its expected span kind and edge type (parent or link) across the sync path, the SSR path, each transport, each worker, the Aggregator and replay.
+- [ ] Lists every hop with its expected span kind and edge type (parent or link) across the sync path, the SSR path, each transport, each worker, the Aggregator and replay, plus every tier's data-store CLIENT operation (Inventory PostgreSQL and Redis, the Orders workflow/outbox store and each worker's messaging store), so no span emitted by the Contoso correlation wrapper lacks a declared boundary; auto-instrumented identity HTTP dependencies stay governed by the map's identity-client constraint.
 - [ ] Lists every API origin the Storefront calls and every SSR hop, and marks each deliberate new-root point with its ADR A03 rule.
 - [ ] GATE-08 (Invariant C), the orphan-candidate query, Demo 02 and the Mermaid diagram all read this one file; no second copy exists.
+
+#### Child tasks
+
+  - [ ] **ARC-01.1 - Declare the Orders workflow and worker store boundaries in the single map**
+    - Executor: R1.
+    - Prerequisites: ADR-01 decisions and the existing `contracts\expected-boundary-map.v1.json` with its consumers (diagram generator, orphan-query inputs, workbook and GATE-08).
+    - Deliverable: One edit of the single boundary map that declares the PostgreSQL CLIENT boundary of the Orders workflow/outbox store and of the Fulfillment, Notify and Aggregator messaging stores, each with its role name, parent edge and ADR A03 rule, plus the regenerated generated artifacts; no second map or consumer-side copy.
+    - Acceptance: A source-derived test lists every role whose Java sources call `PgOperations.execute`, the path that emits `contoso.pg.*` CLIENT spans, and fails when a role has no declared store boundary; removing one declared boundary fails naming the missing edge. Inventory's `postgres.logical` and `redis.logical` entries, the identity-client constraint and every existing edge are unchanged, and the diagram check still passes. This declares expectation only; native spans stay with DAT-01 clause 1 and DEM-12 clause 1.
 
 ### 20. ADR-02 · ADRs A04-A06: export baseline, telemetry topology, cache
 
@@ -617,6 +764,14 @@ Stands up `contoso-orders-api` and `contoso-inventory-api` on JDK 25 with the ag
 - [ ] Startup logs show one agent, one provider and a working exporter (GATE-02 passes).
 - [ ] An Orders → Inventory call produces a client span in Orders and a server child span in Inventory whose ParentId matches.
 
+#### Child tasks
+
+  - [ ] **JVM-01.1 - Add a local two-JVM launcher with the agent and a loopback receiver**
+    - Executor: R4.
+    - Prerequisites: The pinned agent and sampler artifacts verified against `config\versions.lock.json`, and the H2 (PostgreSQL mode), RESP and synthetic-token seams used by `NativeApiIntegrationTest`.
+    - Deliverable: One launcher, `tools\java\Start-LocalPair.ps1`, that starts Inventory and Orders as separate JVMs, each with the agent attached once and the sampler extension loaded, plus a loopback telemetry receiver, and prints their local origins until stopped.
+    - Acceptance: A request to Orders yields, in one captured trace, an Orders SERVER span, its outbound HTTP CLIENT span, an Inventory SERVER span parented to that client span and the Redis and JDBC logical CLIENT children. Startup logs show one agent and one provider per JVM (GATE-02 checks apply), and a launch with a missing or second agent, or a sampler artifact whose hash differs from the lock, fails before any traffic is accepted. Stopping the launcher ends both JVMs and the receiver and leaves no tracked file modified. The output labels the substitute stores and synthetic tokens, and no production validation path is relaxed.
+
 ### 28. JVM-02 · Structured logging correlation (MDC)
 
 **Satisfier** · Owner: R4 Java/OTel Engineer · Build phase E · CD3 52.0 (CoD 26 ÷ 0.5 d) · Needs: JVM-01  
@@ -640,6 +795,14 @@ Deploys every async transport the demos exercise, wired for managed identity.
 - [ ] Max delivery count, lock duration and dead-lettering are parameters (used by Demos 06 and 07).
 - [ ] Deploys idempotently under GATE-11.
 
+#### Child tasks
+
+  - [x] **INF-06.1 - Make the messaging infrastructure test independent of one machine's Bicep path**
+    - Executor: R5.
+    - Prerequisites: None; follow the compiler convention of the APIM and telemetry tests.
+    - Deliverable: One change to `tests\messaging\infra.test.mjs` that resolves the compiler from `CONTOSO_BICEP_PATH`, accepts the existing `CONTOSO_BICEP_EXE` alias and removes the absolute `.copilot\session-state` default.
+    - Acceptance: With a valid compiler the existing assertions run unchanged. Without one the tests are reported as skipped with an explicit not-verified reason, counted as skipped rather than passed, instead of failing on a missing machine path. A source test fails on an absolute user-profile path in the file.
+
 ### 30. MSG-01 · Message envelope v1, validator and untrusted-context handling
 
 **Satisfier** · Owner: R5 Async/Integration Engineer · Build phase G · CD3 34.0 (CoD 34 ÷ 1 d) · Needs: ADR-01  
@@ -661,7 +824,7 @@ Carries context through `contoso-legacy-jobs` inside envelope v1.
 
 - [ ] Jobs use envelope v1; the worker extracts the envelope context and starts its PROCESS span explicitly.
 - [ ] The envelope round-trips within size and privacy limits; oversized or invalid envelopes are rejected.
-- [ ] Trigger binding behaviour is tested for the properties it does and does not expose; gaps go to the gap log.
+- [ ] The selected SDK-managed Storage Queue receive path is tested for the properties it does and does not expose; native trigger-binding behaviour is not claimed, and gaps go to the gap log.
 
 ### 32. JVM-04 · Trusted-edge business invocation ID and HTTP propagation
 
@@ -684,8 +847,22 @@ Deploys `contoso-corr-poc-pg` (database `contoso_orders`) and `contoso-corr-poc-
 
 - [ ] `contoso-corr-poc-pg` with database `contoso_orders` and `contoso-corr-poc-amr` (Azure Managed Redis; SKU and region `VERIFY:`) deploy with private connectivity from the App Service apps.
 - [ ] Credentials use Microsoft Entra authentication or Key Vault references, never source or logs.
-- [ ] A connection smoke test from Inventory API passes and its logs contain no secrets.
+- [ ] A connection smoke test from every store-consuming app (Inventory API; Orders API workflow store; Fulfillment, Notify and Aggregator messaging store) passes under that app's own database role and Redis identity where used, and its logs contain no secrets.
 - [ ] No Azure Cache for Redis resource exists (GATE-07 passes).
+
+#### Child tasks
+
+  - [ ] **INF-05.1 - Ship per-app data-tier connection smoke tests**
+    - Executor: R6.
+    - Prerequisites: Reviewed INF-05 outputs and the existing per-app workflow grant files in `services\inventory-data`. Native execution additionally needs approved private connectivity, Entra grants and a separately approved bounded window.
+    - Deliverable: One smoke-test command that, for each store-consuming app (Inventory; Orders workflow store; Fulfillment, Notify and Aggregator messaging stores), connects under that app's own database role and Redis identity where used, through the app's own runtime identity, and performs one read-only probe.
+    - Acceptance: The report gives one pass or fail per app naming only the role identity. A wrong-role or missing-grant case fails, and no connection string, token, password or SQL parameter reaches output or logs. Runs against H2 or the RESP fixture test the harness only and are labelled construction.
+
+  - [x] **INF-05.2 - Record and gate the untyped data-tier API versions**
+    - Executor: R6.
+    - Prerequisites: The frozen Bicep compiler (`CONTOSO_BICEP_PATH`) and the existing data-tier modules. Native `validate` and `what-if` additionally need the approved subscription and resource group.
+    - Deliverable: One test and register update that compile `infra\modules\data-postgres.bicep` and `data-managed-redis.bicep` and record the BCP081 warnings for `Microsoft.DBforPostgreSQL/flexibleServers@2026-10-01` and `Microsoft.Cache/redisEnterprise@2026-09-01`, each tied to a VERIFY register row.
+    - Acceptance: The test passes only when the warning set equals the recorded set and fails on an unrecorded warning or any error; without a compiler it reports skipped. The documentation states that provider property validation for those resources happens at deployment. A successful ARM validate and no-change what-if against the approved group (GATE-11 clauses 1 and 4) is the native exit and is not claimed here.
 
 ### 34. DAT-01 · PostgreSQL JDBC client spans
 
@@ -694,7 +871,7 @@ Traces to: Prompt §4 services/inventory-api, §5.7 · Brief §9
 
 Produces safe JDBC client spans from Inventory API to `contoso_orders`.
 
-- [ ] The selected safe JDBC logical-operation wrapper uses the existing provider to produce one CLIENT dependency under Inventory, with only database system, approved logical namespace, endpoint and fixed operation/outcome attributes. Automatic JDBC capture is disabled on this path; any automatic qualification is separate and never runs in parallel at the same logical boundary.
+- [ ] The selected safe JDBC logical-operation wrapper uses the existing provider to produce one CLIENT dependency under Inventory (and, through the same wrapper, under the Orders workflow/outbox store and each worker messaging-store operation, parented to its request, producer or PROCESS span), with only database system, approved logical namespace, endpoint and fixed operation/outcome attributes. Automatic JDBC capture is disabled on this path; any automatic qualification is separate and never runs in parallel at the same logical boundary.
 - [ ] SQL text and parameter capture are off or sanitized; GATE-04 finds no literals, parameters or credentials.
 - [ ] The span wraps the logical operation, not just pool acquisition, and driver retries are visible as a count.
 - [ ] A runbook note states these are client spans, not PostgreSQL server spans, and gives the time-correlation method for server logs.
@@ -707,6 +884,18 @@ Produces safe JDBC client spans from Inventory API to `contoso_orders`.
     - Deliverable: One Demo 01 preparation/reset implementation that captures the run-owned baseline, seeds the approved synthetic fixture and evicts only its owned cache entry before the measured invocation.
     - Acceptance: A source-bound test proves a cold lookup executes Redis GET, PostgreSQL SELECT and cache population, rather than skipping PostgreSQL on a hit. An approved real-store probe confirms those operations and baseline restoration; H2/RESP results remain construction-only. Before/after hashes prove unrelated rows and cache state unchanged. Reset restores the captured baseline without global cache flushes or broad deletes; evidence retains ownership/hashes, not cache keys, values or credentials.
 
+  - [x] **DAT-01.2 - Remove the session-folder default from the Inventory fixture test script**
+    - Executor: R6.
+    - Prerequisites: The documented `CONTOSO_PORTABLE_TOOLS_ROOT` convention.
+    - Deliverable: One change to `services\inventory-data\tools\Test-InventoryFixture.ps1` that replaces its absolute `.copilot\session-state` `ToolsRoot` default.
+    - Acceptance: Run without the variable, the script stops with an explicit prerequisite error naming it; with it set, the fixture contract and source tests behave as before. A source test fails on an absolute user-profile or session-state path in the script.
+
+  - [ ] **DAT-01.3 - Add an opt-in real-PostgreSQL local lane for the data adapter**
+    - Executor: R6.
+    - Prerequisites: A developer-supplied PostgreSQL instance or container runtime, enabled only by an explicit variable; the committed `V001__inventory.sql` migration, the workflow grant files and the existing adapter tests.
+    - Deliverable: One opt-in integration lane that applies the committed migration and workflow grants to a real PostgreSQL instance and runs the Inventory SELECT and transaction paths through `PgOperations` under the existing provider.
+    - Acceptance: Without the variable the lane reports skipped with the reason, never a pass. Enabled, the migration and every grant file apply unmodified, operations return the same results as the H2 (PostgreSQL mode) tests and each emits one CLIENT span with only system, namespace, operation and outcome attributes. A seeded dialect difference that H2 accepts must fail here. The result is labelled local real-store evidence, not Entra-authenticated private-network evidence (INF-05, DAT-01 native facets).
+
 ### 35. DAT-02 · Azure Managed Redis client spans
 
 **Satisfier** · Owner: R6 Data-Tier Engineer · Build phase F · CD3 39.0 (CoD 39 ÷ 1 d) · Needs: INF-05, JVM-01  
@@ -717,6 +906,14 @@ Produces safe Redis client spans from Inventory API to `contoso-corr-poc-amr`.
 - [ ] The Redis client version is checked against the pinned agent's supported list (`VERIFY:`); if unsupported, a manual client span wraps a safe abstraction boundary.
 - [ ] Spans record operation category, endpoint and outcome only; keys, values, scripts, command arguments and session IDs are never captured.
 - [ ] Each cache call appears once; hit or miss is a bounded attribute or a metric.
+
+#### Child tasks
+
+  - [ ] **DAT-02.1 - Add an opt-in real-Redis local lane for the cache adapter**
+    - Executor: R6.
+    - Prerequisites: A developer-supplied Redis-compatible server or container runtime, enabled only by an explicit variable; the existing `LettuceInventoryCache`, `OwnedInventoryCache` and RESP-fixture tests.
+    - Deliverable: One opt-in integration lane that runs the cache adapter against a real Redis-compatible server.
+    - Acceptance: Without the variable the lane reports skipped with the reason. Enabled, a GET miss, population, GET hit, owned-entry eviction and reset behave as under the RESP fixture, and each cache call emits one CLIENT span with no key, value, script or argument attribute; a seeded key capture fails. The result is labelled local; Entra-authenticated Azure Managed Redis behaviour stays with the INF-05 and DAT-02 native facets.
 
 ### 36. WEB-01 · Contoso Storefront SPA instrumentation
 
@@ -730,6 +927,14 @@ Instruments `contoso-storefront-spa` with the Application Insights JavaScript SD
 - [ ] Route changes produce page views, and each order action produces an AJAX dependency whose Id is the Gateway request's ParentId.
 - [ ] All Storefront telemetry carries role name `contoso-storefront-spa`.
 
+#### Child tasks
+
+  - [ ] **WEB-01.1 - Add a local browser rehearsal driver through a pass-through forwarder**
+    - Executor: R2.
+    - Prerequisites: JVM-01.1 for the local Orders and Inventory pair, the built Storefront with its fixture identity adapter and the existing browser test setup.
+    - Deliverable: One rehearsal driver that serves the built Storefront, routes its Gateway origin through a pass-through forwarder that adds no span and changes no trace header, clicks the real Demo 01 Run demo control and writes the browser dependency telemetry to a local capture file.
+    - Acceptance: The captured AJAX dependency Id equals the ParentId of the Orders SERVER request and the `traceparent` Orders receives equals the one the browser sent, flags included. A forwarder that rewrites, drops or invents a header fails the assertion. The run is labelled LOCAL REHEARSAL: the forwarder is not APIM, the fixture identity is not Entra, and nothing here satisfies the Gateway-parent or native facets of WEB-01 clauses 2 and 3.
+
 ### 37. IDN-01 · Entra authentication and safe identity attributes
 
 **Satisfier** · Owner: R8 Security & Privacy Red Team · Build phase H · CD3 34.0 (CoD 34 ÷ 1 d) · Needs: ADR-01, JVM-01, WEB-01  
@@ -737,9 +942,35 @@ Traces to: Prompt §4 Identity, §5.9 · Brief §10
 
 Authenticates the Storefront and APIs with Microsoft Entra ID and records only safe identity facts.
 
-- [ ] Microsoft Entra ID authenticates the Storefront and the APIs; authorization failures stay correlated to the request span.
+- [ ] Microsoft Entra ID authenticates the Storefront and the APIs through the actual dual-token chain on the deployed Gateway (INF-04): caller token validated at the Gateway, independent Gateway managed-identity proof and Orders → Inventory token verified at each API. Native negative controls are refused: missing, forged, expired, wrong-audience or wrong-role tokens, a workload principal given a human pseudonym, and a caller without demo/control permission. Authorization failures stay correlated to the request span.
 - [ ] An attribute allowlist permits only authentication outcome and policy or role category; no JWTs, refresh tokens, Authorization headers or claims bundles.
-- [ ] Entra request and correlation IDs, when kept, sit only in the separate security-approved attribute and never replace W3C IDs.
+- [ ] Entra request and correlation IDs, when kept, sit only in the separate security-approved attribute and never replace W3C IDs. Production identity attempts (JWKS retrieval and managed-identity token acquisition, including retries) send no W3C or business headers to Microsoft identity endpoints (AV-23, server side), proven by native wire evidence for every Java API/worker JVM and the Portal Node process; the raw unfiltered transport stays a recorded negative control.
+
+#### Child tasks
+
+  - [ ] **IDN-01.1 - Run the native dual-token negative-control matrix**
+    - Executor: R8.
+    - Prerequisites: An approved deployed Gateway (INF-04), Entra app registrations and roles with Key Vault wiring (INF-02), the reviewed Orders and Inventory authenticators and the GATE-04 original-intake interface, plus a separately approved bounded native window. Local synthetic-JWT runs construct the matrix only.
+    - Deliverable: One matrix runner and source-bound receipt covering, through the deployed Gateway, missing, forged, expired, wrong-audience and wrong-role caller tokens; a missing or invalid Gateway managed-identity proof; a missing or invalid Orders to Inventory token; a workload principal presented with a human pseudonym; and a caller without demo/control permission.
+    - Acceptance: Every case is refused at the tier that owns the check, the authorization-failure telemetry joins the same request trace and span, and no JWT, claim or Authorization value reaches Application Insights (GATE-04 original-column scan). A valid-token positive control passes. A case that is accepted, refused at the wrong tier or uncorrelated fails; fixtures and expected-role maps are not native evidence.
+
+  - [x] **IDN-01.2 - Remove the session-folder default from the AV-23 Java probe**
+    - Executor: R8.
+    - Prerequisites: The documented `CONTOSO_PORTABLE_TOOLS_ROOT` convention.
+    - Deliverable: One change to `tools\security\Run-JavaAuthPropagationProbe.mjs` that removes its absolute `.copilot\session-state` default for the portable tools root.
+    - Acceptance: Run without the variable, the probe exits with an explicit missing-prerequisite error naming it; with it set, the existing AV-23 tests and the agent, extension and SDK hash checks behave as before. A source test fails on an absolute user-profile or session-state path in the file.
+
+  - [ ] **IDN-01.3 - Retake the AV-23 header isolation on the current build for every Java JVM**
+    - Executor: R8.
+    - Prerequisites: IDN-01.2; the pinned agent and sampler artifacts verified against `config\versions.lock.json`; current built security-core, Orders, Inventory and worker artifacts. No Azure access is required for the local retake; native Entra and managed-identity endpoints stay a separate approved qualification.
+    - Deliverable: One source-bound receipt set from the existing probe and `av23-check.mjs` covering the Orders, Inventory, Fulfillment, Notify and Aggregator launch paths, including each worker's default identity client and the installed consumer, with jar-member lineage showing which HTTP client class was actually used.
+    - Acceptance: For JWKS retrieval and managed-identity token attempts, retries included, none of the W3C, baggage, legacy and business correlation headers listed in `services\security-core\docs\AV23.md` reaches the wire while the eligible identity CLIENT span is still produced in the same provider. The raw unfiltered transport stays a recorded negative control and a seeded header leak fails. Historical failed receipts stay unchanged; the report claim changes only through `verify:invalidate` rules.
+
+  - [ ] **IDN-01.4 - Capture current Portal Node-process AV-23 wire evidence**
+    - Executor: R8.
+    - Prerequisites: The existing `tools\security\Run-NodeAuthPropagationProbe.mjs`, the current Portal build and its locked identity dependencies. No Azure access is required for the local capture.
+    - Deliverable: One source-bound receipt from the Node probe for the Portal's JWKS and managed-identity token paths on the current build, recording the Node runtime and package versions actually loaded.
+    - Acceptance: JWKS and managed-identity attempts, retries included, carry no W3C, baggage, legacy or business correlation header, while the Portal's outbound Gateway calls still carry `traceparent`. A seeded header leak fails. Local fixture endpoints are labelled and never count as Entra or managed-identity evidence.
 
 ### 38. IDN-02 · HMAC pseudonymization and key rotation
 
@@ -770,9 +1001,17 @@ Traces to: Prompt §8 item 2 · Brief Figure 1, §17
 
 The §8 item 2 diagram of the Contoso topology and its correlation boundaries.
 
-- [ ] Shows every §3 component by its Contoso name, the trust boundaries and the deliberate new roots.
+- [ ] Shows every §3 component by its Contoso name and tier role (including the role the Orders API plays between the front end and its downstream services), the trust boundaries and the deliberate new roots.
 - [ ] Sync parent edges and async link edges are visually distinct.
 - [ ] Generated from, or checked against, the boundary map, and renders on GitHub.
+
+#### Child tasks
+
+  - [ ] **DOC-01.1 - Label tier roles and generate the hop-by-hop table from the boundary map**
+    - Executor: R1.
+    - Prerequisites: ARC-01.1 and the existing diagram generator (`tools\architecture.mjs`) and diagram check.
+    - Deliverable: One `docs\ARCHITECTURE.md` update that labels each component's tier role (browser, SSR portal, edge gateway, orchestrating backend-for-frontend, downstream microservice, data store, async worker), states which role the Orders API plays because the repository never names a backend-for-frontend, and adds a hop-by-hop table (caller, carrier, span kind, parent or link, store boundary) generated from the single boundary map. Tier labels are keyed by the map's role names.
+    - Acceptance: A drift test fails when the table or a tier label disagrees with the map, when a component lacks exactly one tier label or when a store boundary declared by ARC-01.1 is missing. The diagram still renders on GitHub with sync parent edges and async link edges visually distinct.
 
 ### 41. JVM-03 · Manual spans for uncovered business boundaries
 
@@ -792,10 +1031,18 @@ Traces to: Prompt §4 workers/ · Brief §8
 
 Orders API produces to `contoso-orders`; Fulfillment Worker processes it with correct parentage.
 
-- [ ] Orders API sends with a producer span and W3C context in application properties through supported Azure SDK instrumentation or an explicit propagator (`VERIFY:` property name and behaviour for the pinned Java SDK); `business.invocation_id` travels as an application property.
+- [ ] Orders API sends with a producer span and W3C context in application properties through supported Azure SDK instrumentation or an explicit propagator (`VERIFY:` property name and behaviour for the pinned Java SDK); `business.invocation_id` travels as an application property. Publication goes through the durable outbox: the persisted request context parents every publish-attempt PRODUCER span (a retry after an uncertain publish is a new span with a publish-attempt count), delayed publication neither re-parents nor re-samples that context, and at-least-once duplicates are idempotent by message ID.
 - [ ] Fulfillment Worker creates a PROCESS span per delivery, parented or linked to the producer context as the boundary map defines.
-- [ ] The Functions host and the Java worker do not emit duplicate spans; trigger parentage is verified.
+- [ ] The Functions host and the Java worker do not emit duplicate spans on the selected timer-polled, SDK-managed receive path (`ai-azure-functions` suppression verified); native trigger-binding parentage and parity are not claimed and stay a separate qualification (ADR A04).
 - [ ] Message ID, delivery count and dead-letter reason are recorded as safe attributes.
+
+#### Child tasks
+
+  - [ ] **MSG-02.1 - Prove durable-outbox publish attempts against a real Service Bus queue**
+    - Executor: R5.
+    - Prerequisites: The reviewed outbox dispatcher and message-schema contract; an approved INF-06 deployment with managed-identity data roles, a run-owned queue and a separately approved bounded window.
+    - Deliverable: One opt-in qualification that drives the persisted-context outbox through delayed, retried-after-uncertain-publish and duplicate publication against a real queue and writes a source-bound receipt. Without an approved namespace it skips with an explicit reason.
+    - Acceptance: The persisted request context parents every publish-attempt PRODUCER span; a retry after an uncertain publish is a new span with an incremented publish-attempt count; delayed publication neither re-parents nor re-samples the context; a duplicate delivery is idempotent by message ID so one effect occurs; and `business.invocation_id` is unchanged. A seeded re-parenting or span-ID reuse fails (GATE-09). `UnavailableBroker` and in-memory runs are construction only.
 
 ### 43. MSG-03 · Retry attempt semantics
 
@@ -839,6 +1086,12 @@ Delivers `kql/trace-reconstruct.kql` and `kql/business-lookup.kql`, with separat
     - Deliverable: One collector implementation using the existing raw-query/intake path, with a source-bound Demo 01 native qualification receipt; no additional telemetry provider.
     - Acceptance: Bind the actual browser carrier, gateway SERVER and backend CLIENT, Orders SERVER and outbound HTTP CLIENT, Inventory SERVER and PostgreSQL/Redis CLIENT spans to the same observed invocation and UTC window. Preserve original IDs/parents, source locators, executed queries, runtime/source identity, independent emission accounting and before/after full-path canaries. Original-column privacy scanning precedes safe persistence. An omitted or mismatched required hop fails. Fixtures, expected-map IDs, saved JSON or caller authentication flags cannot enroll an observer or establish native authority; qualification must traverse the approved source-bound intake.
 
+  - [ ] **OBS-02.2 - Render one merged local trace tree and run Invariants A, B and C over it**
+    - Executor: R7.
+    - Prerequisites: The existing browser and loopback-receiver capture formats and the GATE-08 invariant library. No Azure access is required.
+    - Deliverable: One command that merges the browser and JVM local captures of a single invocation into one parent/child tree, prints it and runs Invariants A, B and C over the merged rows under a named local-rehearsal profile that marks only the Gateway request and Gateway backend-dependency hops as expected-remote.
+    - Acceptance: A complete rehearsal capture prints one tree (one trace ID, unique span IDs, each child under its parent) and passes A, B and C under the profile. Fixtures with a split trace, a duplicate span ID, a wrong ParentId or any other missing hop fail naming the edge, and the full-chain profile still fails a capture that lacks the Gateway hops, so a rehearsal can never satisfy Invariant C (GATE-08 clause 3). Output is labelled LOCAL REHEARSAL.
+
 ### 46. DEM-00 · Demo harness: one-command run, evidence capture, reset
 
 **Delighter** · Owner: R9 Verifier / Adjudicator · Build phase I · CD3 24.0 (CoD 36 ÷ 1.5 d) · Needs: GATE-13, INF-01, OBS-01, OBS-02  
@@ -846,10 +1099,10 @@ Traces to: Prompt §6 demo parts · Brief §19 evidence
 
 The shared machinery that makes every demo one command with an automatic evidence pack.
 
-- [ ] `./demos/XX/run.sh` drives synthetic traffic with a known `business.invocation_id`, then saves raw `traceparent` at trusted test points, AI rows, KQL output, screenshot slots for Application Map and Transaction Diagnostics, and config snapshots to `evidence/demo-XX/<timestamp>/`.
+- [ ] The shipped Windows entry point `demos\XX\Run.ps1` drives synthetic traffic with a known `business.invocation_id`, then saves raw `traceparent` at trusted test points, AI rows, KQL output, screenshot slots for Application Map and Transaction Diagnostics, and config snapshots to `evidence/demo-XX/<timestamp>/`.
 - [ ] Before asserting, it confirms certification mode (OBS-01) is on for the run window; if not, the run is marked inconclusive rather than passed or failed.
 - [ ] It runs the demo's assertion and prints PASS or FAIL with the §19 and §24 IDs.
-- [ ] `./demos/XX/reset.sh` returns flags, seed data, queues and sampling to baseline and verifies it.
+- [ ] `demos\XX\Reset.ps1` returns flags, seed data, queues and sampling to baseline and verifies it.
 - [ ] A demo folder template carries Purpose, Pre-state, Run, Live show, Evidence capture, Assertion and Reset.
 
 #### Child tasks
@@ -876,7 +1129,15 @@ Shows Brief §7, D05-D07 and the sampling invariant live, then the matching evid
 - [ ] Four cases run: valid context is continued; absent and invalid context get a new compliant root; `-00` is forwarded unchanged.
 - [ ] The GATE-01 scan result is shown live: no rewrite, no RequestId conversion.
 - [ ] Negative control: GATE-01 run against the rewrite fixture fails, showing the guard firing.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-03.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-03.1 - Ship the Demo 03 Gateway inbound-context adapter**
+    - Executor: R3.
+    - Prerequisites: DEM-00.1 and the reviewed Demo 01 adapter pattern. Native execution additionally needs the approved deployed Gateway and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo03-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 03.
+    - Acceptance: The shipped `demos\03\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It drives the valid, absent, invalid and `-00` carriers through the deployed Gateway (`apim\demo03-cases.v1.json` supplies carrier vectors only) and asserts continued context, compliant new roots for absent and invalid input, an unchanged `-00`, and the GATE-01 result with its rewrite-fixture negative control. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset restores the run-owned baseline and leaves unowned state unchanged, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 48. DEM-04 · Contoso Demo 04: Trusted-edge business invocation ID
 
@@ -888,7 +1149,15 @@ Shows Brief §11 and the §18 trusted-edge logic (E09, E10) live, then the match
 - [ ] An untrusted or malformed ID is replaced; a trusted valid ID is accepted and carried over HTTP and Service Bus.
 - [ ] Business-lookup KQL returns every intended trace and nothing extra.
 - [ ] Negative control: an untrusted caller's ID is visibly rejected and replaced.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-04.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-04.1 - Ship the Demo 04 trusted-edge business-ID adapter**
+    - Executor: R4.
+    - Prerequisites: DEM-00.1 and the reviewed JVM-04, MSG-02 and OBS-02 contracts. Native execution additionally needs the approved deployed topology and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo04-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 04.
+    - Acceptance: The shipped `demos\04\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It exercises a trusted-issuer (Portal workload) ID, an untrusted caller's ID and a malformed ID over HTTP and Service Bus, asserts the untrusted and malformed IDs are visibly replaced and the trusted ID is carried, and checks that the business-lookup query returns every intended trace and nothing extra. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset restores the run-owned baseline and leaves unowned state unchanged, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 49. DEM-06 · Contoso Demo 06: Service Bus retry semantics
 
@@ -899,7 +1168,15 @@ Shows Brief §8, G02 and G07 (retry attempts) live, then the matching evidence i
 
 - [ ] Declare injectedFailures, expectedAttempts, terminal outcome and delivery-count convention. N injected failures followed by success produce N+1 distinct PROCESS attempts; a run stopping after N failed deliveries has N attempts and no success. Actual extra redeliveries are classified, not hidden.
 - [ ] Message and business identity are preserved and no span-id is reused (GATE-09).
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-06.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-06.1 - Ship the Demo 06 Service Bus retry adapter**
+    - Executor: R5.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-03 and GATE-09 retry contracts. Native execution additionally needs the approved INF-06 broker and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo06-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 06.
+    - Acceptance: The shipped `demos\06\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It declares injectedFailures, expectedAttempts, the terminal outcome and the delivery-count convention and, on a real broker, asserts that N injected failures followed by success produce N+1 distinct PROCESS attempts with new span IDs, that a run stopped after N failures shows N attempts and no success, and that extra redeliveries are classified (GATE-09). Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset drains only run-owned messages, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 50. DEM-12 · Contoso Demo 12: Data-tier safety
 
@@ -908,10 +1185,18 @@ Traces to: Prompt §6 Demo 12 · Brief §9
 
 Shows Brief §9 and F01-F05 (data-tier safety) live, then the matching evidence in Application Insights and KQL.
 
-- [ ] JDBC and Redis client spans are present with safe attributes and wrap the logical operation.
+- [ ] JDBC and Redis client spans are present with safe attributes and wrap the logical operation in every tier that touches a store (Inventory, the Orders workflow store and the worker messaging stores).
 - [ ] GATE-04 finds no SQL literals or parameters and no Redis keys, values or scripts.
 - [ ] Negative control: a seeded SQL literal and Redis key are not captured, and the scan proves it.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-12.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-12.1 - Ship the Demo 12 data-tier safety adapter**
+    - Executor: R6.
+    - Prerequisites: DEM-00.1 and ARC-01.1, the reviewed DAT-01, DAT-02 and GATE-04 interfaces. Native execution additionally needs the approved private data tier and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo12-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 12.
+    - Acceptance: The shipped `demos\12\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It runs the seeded SQL-literal and Redis-key negative controls and asserts safe CLIENT spans in every store-consuming tier (Inventory, the Orders workflow store and the worker messaging stores) with no SQL literal, parameter, Redis key, value or script captured by the GATE-04 original-column scan; the clean run passes and the seeded run fails. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset restores the run-owned baseline without global cache flushes or broad deletes, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 51. DEM-13 · Contoso Demo 13: Identity and privacy enrichment
 
@@ -923,7 +1208,15 @@ Shows Brief §10 and H01-H03 (identity and privacy) live, then the matching evid
 - [ ] Telemetry carries only the HMAC pseudonym and the authentication-outcome category.
 - [ ] No JWTs, claims or Entra IDs are used as trace IDs (GATE-10) and the classification scan is clean (GATE-04).
 - [ ] Negative control: an attempt to capture a forbidden header is rejected or redacted.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-13.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-13.1 - Ship the Demo 13 identity and privacy adapter**
+    - Executor: R8.
+    - Prerequisites: DEM-00.1, IDN-01.1 and IDN-01.3, plus the reviewed IDN-02, GATE-04 and GATE-10 interfaces. Native execution additionally needs the approved deployed Gateway, Entra roles and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo13-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 13.
+    - Acceptance: The shipped `demos\13\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It drives the dual-token chain with a workload and a human caller and asserts that telemetry carries only the HMAC pseudonym and the authentication-outcome category, that no JWT, claim or Entra ID is used as a trace ID (GATE-10), that the classification scan is clean (GATE-04), that a forbidden-header capture attempt is rejected or redacted, and that AV-23 header isolation holds. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset restores the run-owned baseline and leaves unowned state unchanged, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 52. DEM-01 · Contoso Demo 01: Synchronous golden path
 
@@ -932,10 +1225,10 @@ Traces to: Prompt §6 Demo 01 · Brief §17 sync, §19
 
 Shows Brief §17 synchronous flow and §19 Invariants A, B and C live, then the matching evidence in Application Insights and KQL.
 
-- [ ] `./demos/01/run.sh` drives Storefront → Gateway → Orders → Inventory → PostgreSQL + Redis with a known business ID.
+- [ ] `demos\01\Run.ps1` drives Storefront → Gateway → Orders → Inventory → PostgreSQL + Redis with a known business ID.
 - [ ] GATE-08 passes: one trace-id/OperationId on all rows, unique non-zero span-ids, each child ParentId equals its parent's Id; logs carry the same IDs.
 - [ ] The live show finds the expected nodes in Application Map and the expected graph in Transaction Diagnostics.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using the shipped Demo 01 adapter (DEM-00.1), and the demo fits 3-5 minutes.
 
 #### Child tasks
 
@@ -944,6 +1237,12 @@ Shows Brief §17 synchronous flow and §19 Invariants A, B and C live, then the 
     - Prerequisites: Reviewed WEB-01/WEB-02 browser, Gateway order-route and JVM-04 API contracts, plus the existing two-JVM data fixtures for the construction regression; this does not depend on parent DEM-00 being Done.
     - Deliverable: One Demo 01 action-routing correction with a browser-to-Orders/Inventory integration regression.
     - Acceptance: Click the actual Demo 01 Run demo control and observe the order-submission route, the real Orders -> Inventory HTTP call, Inventory SERVER span and its Redis/JDBC logical CLIENT children in the same trace. The regression fails if the action only stages `/demo-runs`, bypasses Inventory, omits either data boundary or reuses unrelated telemetry. Preserve other demo routes. H2/RESP may prove the local routing construction but must be labelled as substitutes; OBS-02.1 separately qualifies the deployed Gateway and real stores using DAT-01.1 preparation.
+
+  - [ ] **DEM-01.2 - Add the one-command local rehearsal entry point**
+    - Executor: R1.
+    - Prerequisites: JVM-01.1, WEB-01.1 and OBS-02.2, and the documented local prerequisites (JDK, Node, browser dependency, pinned agent and sampler).
+    - Deliverable: One `tools\Rehearse-Demo01.ps1` that starts the local Orders and Inventory pair, runs the browser rehearsal, prints the merged trace tree with the Invariant A, B and C result under the local-rehearsal profile, and stops everything it started.
+    - Acceptance: From a fresh clone with only the documented prerequisites it prints one tree containing the browser dependency, Orders, Inventory and both store CLIENT spans for one business ID. It exits non-zero with an explicit message when a prerequisite is missing or any rehearsal hop is absent, and leaves no process, port or tracked-file change. Its output states LOCAL REHEARSAL: not APIM, Entra, Azure or certification evidence. The README quick start links it as a laptop preview and never as a substitute for `demos\01\Run.ps1`.
 
 ### 53. DEM-11 · Contoso Demo 11: Spoofed and malformed message context
 
@@ -954,7 +1253,15 @@ Shows Brief G10 and A03 (untrusted message context) live, then the matching evid
 
 - [ ] Spoofed and malformed message context follows ADR A03: a new root and bounded rejection outcome; raw values are absent. Any displayed digest follows the reviewed safe-input/key policy, rather than treating an arbitrary unkeyed personal-data hash as safe.
 - [ ] Negative control: the spoofed context is visibly refused.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-11.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-11.1 - Ship the Demo 11 spoofed-context adapter with an authenticated publisher**
+    - Executor: R8.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-01 and MSG-02 contracts and ADR A03 rules. Native execution additionally needs the approved INF-06 broker, a publisher identity limited to a run-owned entity and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo11-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, including a bounded authenticated publisher that delivers malformed and spoofed message context to a run-owned entity.
+    - Acceptance: The shipped `demos\11\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. Delivery is authenticated, so the negative control exercises the consumer's validation rather than transport refusal; the adapter asserts a new root and a bounded rejection outcome, no raw value in telemetry, any displayed digest following the reviewed safe-input and key policy, and the spoofed context visibly refused. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset removes only run-owned messages, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 54. MSG-04 · Dead-letter preservation and replay tool
 
@@ -976,7 +1283,15 @@ Shows Brief G08 and §17 async step 5 (dead-letter and replay) live, then the ma
 
 - [ ] The dead-lettered message keeps its safe identity and reason.
 - [ ] Replay links to the original context or starts a new trace linked to it; `business.invocation_id` is unchanged (GATE-09); the reset drains the dead-letter queue.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-07.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-07.1 - Ship the Demo 07 dead-letter and replay adapter**
+    - Executor: R5.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-04 and GATE-09 replay contracts. Native execution additionally needs the approved INF-06 broker and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo07-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 07.
+    - Acceptance: The shipped `demos\07\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It runs the Fulfillment and Notify dead-letter cases and their replay PROCESS and SEND roots and asserts the dead-lettered message keeps its safe identity and reason, replay links to the original context or starts a linked new trace with `business.invocation_id` unchanged (GATE-09), and reset drains only run-owned dead-letter messages. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 56. MSG-08 · Fan-out and fan-in with links
 
@@ -998,7 +1313,15 @@ Shows Brief G09 and §17 async step 6 (fan-out, fan-in) live, then the matching 
 
 - [ ] Fulfillment and Notify each show their own PROCESS span.
 - [ ] The Aggregator has at most one parent plus bounded links to every contributor (GATE-09).
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-08.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-08.1 - Ship the Demo 08 fan-out and fan-in adapter**
+    - Executor: R5.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-08 and GATE-09 contracts. Native execution additionally needs the approved INF-06 broker and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo08-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 08.
+    - Acceptance: The shipped `demos\08\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It observes the separate Fulfillment and Notify PROCESS spans and asserts the Aggregator has at most one parent plus bounded links to every persisted contributor (GATE-09). Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset removes only run-owned messages and state, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 58. DEM-14 · Contoso Demo 14: Orphan-candidate triage
 
@@ -1009,7 +1332,15 @@ Shows Brief §18 orphan query and I08 live, then the matching evidence in Applic
 
 - [ ] Every candidate is classified as expected-remote, cross-resource, sampled, delayed or defect, with justification.
 - [ ] Defects = 0.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-14.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-14.1 - Ship the Demo 14 orphan-candidate triage adapter**
+    - Executor: R7.
+    - Prerequisites: DEM-00.1 and ARC-01.1, the reviewed OBS-03 query and a deployed Demo 01 trace set. Native execution additionally needs approved workspace query permission and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo14-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 14.
+    - Acceptance: The shipped `demos\14\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It runs the orphan-candidate query over the deployed trace set and classifies every candidate as expected-remote, cross-resource, sampled, delayed or defect from the boundary map; defects must be 0 and an unexplained candidate stays a defect. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset removes only run-owned query artifacts, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 59. DOC-02 · README quick start
 
@@ -1020,15 +1351,21 @@ Gets a new engineer from clone to a passing Demo 01.
 
 - [ ] Lists prerequisites (tools, Azure roles, quotas, region) and the steps from clone to `azd up` to a passing Demo 01.
 - [ ] Links the VERIFY register and lists the open items.
-- [ ] Includes a repository map that matches §4.
+- [ ] Includes a repository map that matches §4 and classifies each top-level directory as reference implementation, verification and governance tooling, evidence or documentation, so the product under demonstration is separable from its verification machinery.
 
 #### Child tasks
 
   - [ ] **DOC-02.1 - Align and verify the shipped Windows run/reset commands**
     - Executor: R1.
-    - Prerequisites: DEM-00.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
+    - Prerequisites: DEM-00.2 and GATE-11.2, the shipped PowerShell/package entrypoints and the reviewed DOC-03 runbook/recovery contract.
     - Deliverable: One consistent Windows command set across the quick start, runbook, demo instructions and source planning criteria, with the Kanban regenerated from that source.
-    - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
+    - Acceptance: Replace obsolete `run.sh`/`reset.sh` examples with the actual `Run.ps1`/`Reset.ps1` entrypoints and documented working directory, arguments, reviewed adapter/hash selection and approved deployment equivalent. A second engineer follows the commands from a fresh clone with declared approved prerequisites and reproduces the passing two-cycle/reset result without writing an adapter or undocumented manual repairs. Missing configuration fails explicitly. The documented commands run under the default PowerShell execution policy (an explicit `-ExecutionPolicy Bypass -File` form or signed scripts) and, with GATE-11.2 passing, no shipped script or test depends on another operator's machine. Do not imply that the microsite executes demos, or that these commands authorize native traffic or certification.
+
+  - [ ] **DOC-02.2 - Classify every top-level directory in the repository map**
+    - Executor: R1.
+    - Prerequisites: None.
+    - Deliverable: One README repository-map update that classifies each top-level directory of `contoso-corr-poc\` as reference implementation (for example `web`, `services`, `workers`, `apim`, `infra`, `kql` and `workbooks`), verification and governance tooling (for example `tools`, `tests`, `contracts` and `config`), evidence, documentation or demo wrapper, or build output, with a start-here pointer to the Orders to Inventory source path.
+    - Acceptance: A test fails when a top-level directory is absent from the map, has more than one classification, or is named by the map but does not exist. The section states that verification code is not the product under demonstration and claims no certification or native execution.
 
 ### 60. WEB-03 · Contoso Portal SSR instrumentation
 
@@ -1051,7 +1388,15 @@ Shows Brief §5 (SSR versus SPA roots) live, then the matching evidence in Appli
 
 - [ ] SSR requests appear under the stable role name `contoso-portal-ssr`.
 - [ ] Separate roots between browser page telemetry and the server render are shown and explained from the boundary map.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-02.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-02.1 - Ship the Demo 02 Portal SSR versus SPA adapter**
+    - Executor: R2.
+    - Prerequisites: DEM-00.1 and the reviewed WEB-01 and WEB-03 contracts. Native execution additionally needs the approved deployed Storefront and Portal, the Portal controller authentication, the pinned Portal runtime image and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo02-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 02.
+    - Acceptance: The shipped `demos\02\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It observes browser page telemetry under `contoso-storefront-spa` and the server render under `contoso-portal-ssr` as independently captured roots, asserts the SSR-to-Gateway parent join and explains the separate roots from the boundary map. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset restores the run-owned baseline and leaves unowned state unchanged, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 62. MSG-06 · Event Hubs mixed-context batch path
 
@@ -1060,9 +1405,17 @@ Traces to: Prompt §4 async path · Brief §8
 
 Processes a batch of events from different traces without inventing a parent.
 
-- [ ] Events from different traces go to `contoso-telemetry-batch` and are consumed as one batch.
+- [ ] Events from different traces go to `contoso-telemetry-batch` and are consumed as one batch; offsets advance only after durable outcomes under the fenced partition lease, and a restart or replay neither drops nor double-counts a contributor.
 - [ ] The batch span links to each contributing context within a configured bound, or uses a documented bounded per-item representation; the first message is never the parent.
 - [ ] Partition and offset are recorded as safe attributes; the link bound is a parameter.
+
+#### Child tasks
+
+  - [ ] **MSG-06.1 - Prove fenced Event Hubs checkpoint recovery against a real hub**
+    - Executor: R5.
+    - Prerequisites: The reviewed batch handler and checkpoint-store contract; an approved INF-06 hub `contoso-telemetry-batch` with a run-owned consumer group and a separately approved bounded window.
+    - Deliverable: One opt-in restart-and-replay qualification against the real hub with a source-bound receipt. Without an approved namespace it skips with an explicit reason.
+    - Acceptance: Offsets advance only after durable outcomes under the fenced partition lease. Killing the consumer after processing but before its checkpoint and restarting it neither drops nor double-counts a contributor, and a consumer that lost its fence cannot advance the checkpoint. Each batch span links every contributor within the configured bound and the first event is never the parent. A seeded early checkpoint fails. In-memory runs are construction only.
 
 ### 63. DEM-09 · Contoso Demo 09: Event Hubs mixed-context batch
 
@@ -1073,7 +1426,15 @@ Shows Brief G04 and the batch test live, then the matching evidence in Applicati
 
 - [ ] Batch processing uses links or a bounded per-item representation.
 - [ ] The first message is never the parent (GATE-09).
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-09.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-09.1 - Ship the Demo 09 mixed-context batch adapter**
+    - Executor: R5.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-06 and GATE-09 contracts. Native execution additionally needs the approved INF-06 Event Hubs namespace and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo09-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 09.
+    - Acceptance: The shipped `demos\09\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It produces events from different traces to `contoso-telemetry-batch`, consumes them as one mixed-context batch and asserts links or a bounded per-item representation with the first message never the parent (GATE-09). Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset removes only run-owned events and state, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 64. OBS-04 · Load, overhead and cost test
 
@@ -1108,7 +1469,15 @@ Shows Brief §12, I01, I09 and J02 (sampling, overhead, switch) live, then the m
 - [ ] Shows the sampling matrix and toggles 100% certification mode on and off through configuration, inside the GATE-12 window.
 - [ ] Shows the load-test report against thresholds: latency, CPU, memory, throughput, ingestion volume and cost.
 - [ ] Shows the version-controlled production profile and its tested rollback.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-15.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-15.1 - Ship the Demo 15 sampling, overhead and production-switch adapter**
+    - Executor: R7.
+    - Prerequisites: DEM-00.1 and the reviewed OBS-01, OBS-04 and OBS-07 interfaces. Native execution additionally needs the approved deployed topology, the approved load budget and thresholds, and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo15-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 15.
+    - Acceptance: The shipped `demos\15\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It toggles the bounded 100% certification window on and off inside the GATE-12 window, runs the approved load profile and reports it against the agreed thresholds, shows the version-controlled production profile with its tested rollback, and verifies after reset that no layer remains at 100% outside the window. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 67. MSG-05 · Event Grid CloudEvents path
 
@@ -1142,7 +1511,21 @@ Shows Brief I04 (errors keep correlation) live, then the matching evidence in Ap
 
 - [ ] Feature flags inject an Inventory timeout and a PostgreSQL error.
 - [ ] Trace and business correlation hold; exceptions attach to the right span; APIM error telemetry appears (alwaysLog).
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-05.2, using the DEM-05.1 fault switches: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-05.1 - Add default-off Inventory fault switches for Demo 05**
+    - Executor: R4.
+    - Prerequisites: The reviewed JVM-03 manual-span and DAT-01 data-adapter interfaces. No Azure access is required for the construction tests.
+    - Deliverable: Two run-scoped, default-off fault switches in the Inventory API service layer, not the data adapter: an upstream timeout and a PostgreSQL-error outcome. Only a caller holding the demo/control role can set them, and the run's baseline restore clears them.
+    - Acceptance: With both switches off, behaviour and telemetry equal the existing tests. Enabled, the Orders to Inventory call times out or fails as configured, exceptions attach to the correct span, and trace and business IDs persist. A caller without the demo/control role cannot enable a switch, no production configuration enables one, and a seeded always-on setting fails a test.
+
+  - [ ] **DEM-05.2 - Ship the Demo 05 error and timeout adapter**
+    - Executor: R4.
+    - Prerequisites: DEM-00.1 and DEM-05.1. Native execution additionally needs the approved deployed topology and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo05-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations and the DEM-05.1 switches for Demo 05.
+    - Acceptance: The shipped `demos\05\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It enables each switch through the control path, drives a timeout and a PostgreSQL-error invocation through the deployed Gateway, and asserts that trace and business correlation hold, exceptions attach to the right span and APIM error telemetry (alwaysLog) appears; reset turns both switches off and verifies the baseline. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 70. DEM-10 · Contoso Demo 10: Event Grid CloudEvents and Storage Queue envelope
 
@@ -1153,7 +1536,15 @@ Shows Brief G03, G05 and the envelope contract live, then the matching evidence 
 
 - [ ] CloudEvent `id` differs from the trace-id; context survives through the distributed-tracing extension and through the envelope.
 - [ ] Size and validation limits are enforced and a duplicate delivery is handled.
-- [ ] Assertion, evidence pack and reset run through DEM-00, and the demo fits 3-5 minutes.
+- [ ] Assertion, evidence pack and reset run through DEM-00 using this demo's own shipped scenario adapter (DEM-10.1: trigger, effect, collect and reset handlers; no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), and the demo fits 3-5 minutes.
+
+#### Child tasks
+
+  - [ ] **DEM-10.1 - Ship the Demo 10 Event Grid and Storage Queue adapter**
+    - Executor: R5.
+    - Prerequisites: DEM-00.1 and the reviewed MSG-05, MSG-07 and GATE-09 contracts. Native execution additionally needs the approved INF-06 Event Grid topic, relay and Storage Queue, and a separately approved bounded native window.
+    - Deliverable: One `tools\verification\adapters\demo10-runtime.mjs` exporting `createAdapter()` under the existing `contoso.demo-adapter.v1` contract, composing the existing shipped implementations for Demo 10.
+    - Acceptance: The shipped `demos\10\Run.ps1` loads the reviewed adapter by its actual SHA-256 and no longer returns `D_MISSING_ADAPTER`. It drives the Event Grid relay and Storage Queue envelope paths, including the size and validation limits and a duplicate delivery, and asserts the CloudEvent `id` differs from the trace ID, context survives the distributed-tracing extension and the envelope, and the duplicate is handled. Every adapter method is concrete (no stub, inherited Demo 01 PASS, fixture PASS or presenter-supplied callback), reset removes only run-owned messages, and local runs are construction only (BootstrapValidate stays NOT CERTIFIED).
 
 ### 71. DOC-03 · DEMO_RUNBOOK.md: operations
 
@@ -1174,8 +1565,16 @@ Traces to: Prompt §8 item 8, §9 · Brief §20, §23
 States plainly what the POC covers and what it does not.
 
 - [ ] Every §20 failure mode is marked covered (with the card, demo or gate) or not covered (with the reason).
-- [ ] Every §23 production-ready item is marked in scope (with evidence) or explicitly deferred, including the Azure Cache for Redis migration plan (F06) and production rollout (J03-J10).
-- [ ] Delivered as §8 item 8 and satisfies the first §9 check.
+- [ ] Every §23 production-ready item is marked in scope (with evidence) or explicitly deferred, including the Azure Cache for Redis migration plan (F06), production rollout (J03-J10) and the deferrals recorded in ADR A04 and `docs\RESIDUAL_LIMITATIONS.md` (native Functions-binding parity, automatic JDBC/Redis instrumentation qualification, third-party exporter parity).
+- [ ] Delivered as §8 item 8 and satisfies the first §9 check; every supporting status report under `docs\` (test coverage, Java validation, observability) names its source commit and quotes counts only from current receipts, or is labelled historical when sources change.
+
+#### Child tasks
+
+  - [ ] **CRT-03.1 - Refresh or label the test-coverage report**
+    - Executor: R9.
+    - Prerequisites: Current Node and Java test receipts on a recorded source commit.
+    - Deliverable: One update of `docs\TEST_COVERAGE_REPORT.md` that either regenerates its commit and counts from those receipts or labels the whole report HISTORICAL with the commit it describes (currently `63a2a5d`).
+    - Acceptance: A static check fails when the report quotes a total that differs from the receipt it cites, names no source commit, or lacks a HISTORICAL label while its source closure has changed. Skipped tests are reported as skipped, not as passes.
 
 ### 73. OBS-05 · Correlation workbook
 
@@ -1399,6 +1798,34 @@ Rule 2 compares a delighter with the best satisfier that can start at that point
 | J08 | EVL-B |
 | J09 | Deferred: outside the Prompt's build sequence (§7 stops at J01); recorded in CRT-03 |
 | J10 | Deferred: outside the Prompt's build sequence (§7 stops at J01); recorded in CRT-03 |
+
+### Unproven-claim ledger → cards
+
+Every claim that the repository, its local evidence or its review reports make without native proof maps to the acceptance clauses that must close it. The ledger adds no cards, clauses or estimates; each gap that needs bounded work is carried by an atomic child task named in the third column; its sources are `README.md`, `docs\RESIDUAL_LIMITATIONS.md`, `docs\CERTIFICATION_REPORT.md`, `apim\README.md`, `services\security-core\docs\AV23.md`, `DECISIONS.md`, the board state and an execution review at commit `7279cd3`. A clause marked *(updated)* was tightened in that review because it was silent on the claim. Local fixtures never close a live facet.
+
+| ID | Unproven or unplanned claim | Accounted for by | Evidence still required |
+|---|---|---|---|
+| UC-01 | One trace from browser or Portal through the Gateway, Orders and Inventory to the data stores. No captured local trace contains a Gateway or browser row, and every end-to-end local trace begins at the Orders request. | GATE-08 clauses 1-3, DEM-01 clauses 1-3, DEM-01.1, OBS-02.1 | Deployed capture bound to one UTC window with source-emitted and native row correspondence |
+| UC-02 | APIM native extraction, parent advancement, absent/invalid root timing and strict `-00`; Demo 03 vectors are carrier-only (`liveAcceptance` To Do). | API-01 clauses 1-4, DEM-03, DEM-03.1, INF-04 clauses 3-4, GATE-01 clause 4 | Real inbound/outbound carriers, Gateway backend dependency ID and SDK sampled/recording state |
+| UC-03 | Dual-token chain: caller token at the Gateway, Gateway managed-identity proof, Orders → Inventory token, workload without human pseudonym, demo/control role. | IDN-01 clause 1 *(updated)*, IDN-01.1, DEM-13, DEM-13.1 | Native negative controls through the deployed Gateway |
+| UC-04 | No W3C or business headers reach identity endpoints on JWKS or managed-identity attempts (AV-23 server side). Historical Java failures are preserved; current-source, worker default-client and installed-consumer lineage is unverified. | IDN-01 clause 3 *(updated)*, IDN-01.2, IDN-01.3, IDN-01.4, GATE-04 clauses 1-2, WEB-02 (browser side) | Per-JVM and Portal native wire evidence on the current build |
+| UC-05 | Real PostgreSQL and Redis operations. Local evidence uses H2 in PostgreSQL mode, a RESP fixture, synthetic JWTs and an unavailable broker. | INF-05, INF-05.1, DAT-01, DAT-02, DAT-01.1, DAT-01.3, DAT-02.1, DEM-12, DEM-12.1 | Private Entra-authenticated operations with exported CLIENT spans |
+| UC-06 | The Orders workflow/outbox store and each worker messaging store emit PostgreSQL CLIENT spans that the boundary map does not declare. | ARC-01 clause 1, ARC-01.1, GATE-08.1, DAT-01 clause 1, DEM-12 clause 1, INF-05 clause 3 *(all updated)* | Map extension plus native spans for every store-consuming tier |
+| UC-07 | Durable-outbox publication keeps the persisted request context across delayed and retried publish attempts without re-parenting or re-sampling it. | MSG-02 clause 1 *(updated)*, MSG-02.1, MSG-05 clause 3 | Real broker publish attempts, including an uncertain-publish retry |
+| UC-08 | Real brokers and Functions host. The selected path is timer-polled and SDK-managed; native trigger-binding parity is not claimed. | INF-06, MSG-02 clause 3 and MSG-07 clause 3 *(updated)*, MSG-03 to MSG-08, DEM-06 to DEM-10 | Real delivery, DLQ, replay, fan-in and batch rows; parity stays a separate qualification |
+| UC-09 | Event Hubs checkpoint recovery under the fenced partition lease. | MSG-06 clause 1 *(updated)*, MSG-06.1 | Restart and replay that neither drops nor double-counts a contributor |
+| UC-10 | Sampling: Contoso-owned guard 1.1.0 is not a vendor-supported sampler; strict `-00` and linked-root behaviour, complete participant ACKs and loss accounting remain unproven natively. | OBS-01, GATE-02.1, GATE-06 clause 1, GATE-09 clauses 2-3, GATE-12, GATE-13 clauses 1-3, OBS-04 clause 3 | Native roster ACKs, independent emission ledger and bracketing canaries |
+| UC-11 | Runnable demos. At commit `7279cd3` all fifteen `Run.ps1` entry points return `FAIL D_MISSING_ADAPTER` and no adapter ships; the harness fails closed by design. | DEM-00 clauses 1-4 *(updated)*, DEM-00.1, DEM-00.2, DEM-02 to DEM-15 closing clause *(updated)*, DEM-02.1, DEM-03.1, DEM-04.1, DEM-05.1, DEM-05.2, DEM-06.1, DEM-07.1, DEM-08.1, DEM-09.1, DEM-10.1, DEM-11.1, DEM-12.1, DEM-13.1, DEM-14.1, DEM-15.1 | Shipped per-demo adapters and two consecutive run/reset cycles |
+| UC-12 | Backend usability: Application Map and Transaction Diagnostics captures are NOT CAPTURED; the three KQL procedures and the workbook have not run on a real workspace. | DEM-00 clause 1, DEM-01 clause 3, OBS-02, OBS-03, OBS-05, DEM-14 | Live queries, workbook import and render, and screenshots |
+| UC-13 | All-table privacy; arbitrary URL, header, body and exception privacy; public browser telemetry injection is a disclosed limit. | GATE-04 clauses 1-3, DEM-12, DEM-13, CRT-03 | Full workspace raw-column classification and negative effects |
+| UC-14 | Deployability. Bicep 0.48.1 has no type definitions for `Microsoft.Cache/redisEnterprise@2026-09-01` or `Microsoft.DBforPostgreSQL/flexibleServers@2026-10-01` (BCP081), so provider property validation happens only at deployment. | GATE-11 clauses 1 and 4, INF-05 clause 1, INF-05.2, GATE-06 clause 1 | Empty-group deployment, no-change second what-if and teardown/redeploy |
+| UC-15 | Repeatability by another engineer: tool-root defaults that point at another operator's session folder (six Java scripts, the Inventory fixture script, the AV-23 probe, the security client qualification and the messaging infrastructure test), the default PowerShell execution policy, and the missing `azure.yaml`, every-PR CI workflows and pull-request template. | DOC-02.1 *(updated)*, GATE-11.1, GATE-11.2, GATE-05.1, GATE-05.2, DAT-01.2, GATE-13.1, IDN-01.2, INF-06.1, GATE-03.1, GATE-12.1, GOV-01.1, INF-01 clause 4, GATE-11 clause 1 *(updated)*, GATE-01 clause 1, GATE-03 clause 1, GATE-05 clause 4, GATE-12 clause 3, GOV-01 clause 2 | Fresh-clone reproduction, a running CI workflow and a committed review template |
+| UC-16 | 628 numeric version, API and SKU pins remain OPEN, including the Node exporter beta dependency and the user-approved Contoso sampler. | GATE-06 clauses 1-4, GATE-06.1, JVM-05 clause 3 | Official-source content, support/GA review and deployed values |
+| UC-17 | Status-report currency: `verify:report` reported the certification report stale at `7279cd3` (refreshed by `verify:invalidate` in this review, which demoted the linked-root local qualification to UNVERIFIED because its sources changed), and `docs\TEST_COVERAGE_REPORT.md` cites commit `63a2a5d` with Node 419 and Java 182 tests where the suites at `7279cd3` run Node 492 and Java 213. | GATE-12 clause 3, GATE-12.1, CRT-03 clause 3 *(updated)*, CRT-03.1, GATE-02.1, CRT-01 | Re-qualified local evidence on current sources and a refreshed or historical-labelled coverage report |
+| UC-18 | RBAC, retention, purge and six accountable owner signoffs. | INF-07, CRT-01 clause 3, CRT-02 clauses 1-3 | Real access tests, purge evidence and signed decisions |
+| UC-19 | Explicit non-claims: F06, J03-J10, native Functions-binding parity, automatic JDBC/Redis instrumentation, third-party exporter parity and the Eval A/B lanes. | CRT-03 clause 2 *(updated)*, EVL-A, EVL-B | Recorded as deferrals; never certified by this POC |
+| UC-20 | No single local run joins the browser, a Gateway stand-in, Orders, Inventory and both data boundaries, and the data-tier local evidence cannot reveal real PostgreSQL or Redis behaviour (H2 in PostgreSQL mode and a RESP fixture). | JVM-01.1, WEB-01.1, OBS-02.2, DEM-01.2, DAT-01.3, DAT-02.1 | A one-command local rehearsal tree and opt-in real-store lanes, each labelled local; neither closes a live facet |
+| UC-21 | Reader orientation: no document names the tier that fronts the Storefront and orchestrates Inventory and messaging (the Orders API), and the verification tooling and repository-level tests are larger, by source size, than the product code they verify. | DOC-01 clause 1 *(updated)*, DOC-01.1, DOC-02 clause 3 *(updated)*, DOC-02.2 | A generated tier table checked against the boundary map and a tested, classified repository map |
 
 ## Definition of Done (every item)
 

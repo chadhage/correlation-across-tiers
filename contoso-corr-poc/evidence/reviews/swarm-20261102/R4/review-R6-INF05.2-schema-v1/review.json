@@ -1,0 +1,179 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce",
+      "hashMode": "raw"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R6",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "result": "accepted",
+      "scopeSha256": "40f77bdb4a14ddb3f3ecc29681d2e4ad8e65e724f57fde8738ad132e8bf02307",
+      "sources": [
+        {
+          "path": "infra\\modules\\data-postgres.bicep",
+          "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce",
+          "hashMode": "raw"
+        },
+        {
+          "path": "infra\\modules\\data-managed-redis.bicep",
+          "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+          "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+          "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+          "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+          "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799",
+          "hashMode": "raw"
+        },
+        {
+          "path": "docs\\VERIFY.md",
+          "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\verification-register.v1.json",
+          "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+        "testFiles": [
+          "services\\inventory-data\\tools\\data-api-warnings.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T21:58:07.592Z",
+        "finishedAtUtc": "2026-11-02T21:58:08.654Z",
+        "exitCode": 0,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-INF05.2-schema-v1\\tests.tap",
+        "sha256": "eb9da8962561fdfe4306d0921e966b8d18f74aecd81cec8d3cd63e1c5d67f382",
+        "positiveTests": [
+          "SOURCE ONLY: six frozen untyped declarations bind their exact existing VERIFY rows",
+          "DIAGNOSTIC CHECKER ONLY: accepts exactly the six recorded BCP081 messages, not deployment validity"
+        ],
+        "negativeTests": [
+          "CONTROL: source/API drift and missing or mismatched VERIFY rows fail closed",
+          "CONTROL: suppressing BCP081 or upgrading compilation into deployment proof is rejected",
+          "CONTROL: missing, duplicate, extra, changed or error diagnostics are rejected",
+          "CONTROL: changed compiler, absent module and failed compiler cannot masquerade as an accepted warning"
+        ]
+      },
+      "children": [
+        {
+          "id": "INF-05.2",
+          "definitionSha256": "b596267d9ecddec35419c935df22fd9912f87e6d13db2952844e231a775de6ff",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

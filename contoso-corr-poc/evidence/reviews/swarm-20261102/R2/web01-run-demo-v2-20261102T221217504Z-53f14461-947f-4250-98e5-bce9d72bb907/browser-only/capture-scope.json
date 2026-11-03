@@ -1,0 +1,17 @@
+{
+  "profile": "LOCAL REHEARSAL",
+  "status": "BROWSER_ONLY_NOT_JVM_PARENT_JOIN",
+  "backend": "unit-loopback-not-JVM",
+  "nativeEvidence": false,
+  "certificationEligible": false,
+  "noOrdersSpanManufactured": true,
+  "browserVersion": "156.0.8078.4",
+  "excludedOriginRequests": 2,
+  "excludedOriginContextHeaders": 0,
+  "unapprovedOriginCorsDenied": true,
+  "forwardedUnapprovedOriginRequests": 0,
+  "entryControl": {
+    "control": "contoso-run-demo",
+    "trustedClicks": 1
+  }
+}

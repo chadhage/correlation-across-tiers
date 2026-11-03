@@ -1,0 +1,119 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R6",
+  "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "..\\.github\\workflows\\ci-java.yml",
+      "sha256": "69d714a2ad0937380c32426d630abef16d6e3312618701cbbc1adb6040a8ae91",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Assert-JavaTestResults.ps1",
+      "sha256": "fa19855675b0016b5f74a35840c714d30d8339f27b1e3f9e24a96326720a6bd7",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\java\\ci-java.test.mjs",
+      "sha256": "fac1dd5cb7b107c6524c0b7326b7bf58c8dc1f888139c5fcc96e448369817394",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\JAVA_CI.md",
+      "sha256": "fdbc71d3cc58a730c4e9fab70f8a1899b64f7e34b1f1b81236f66b45db182e4e",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "..\\.github\\workflows\\ci-java.yml",
+      "sha256": "69d714a2ad0937380c32426d630abef16d6e3312618701cbbc1adb6040a8ae91",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\java\\Assert-JavaTestResults.ps1",
+      "sha256": "fa19855675b0016b5f74a35840c714d30d8339f27b1e3f9e24a96326720a6bd7",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\java\\ci-java.test.mjs",
+      "sha256": "fac1dd5cb7b107c6524c0b7326b7bf58c8dc1f888139c5fcc96e448369817394",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\JAVA_CI.md",
+      "sha256": "fdbc71d3cc58a730c4e9fab70f8a1899b64f7e34b1f1b81236f66b45db182e4e",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R4",
+      "authorAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+      "result": "accepted",
+      "scopeSha256": "50d966821deee6a46905da6c77bb0837aa74597f9f9ddfe6d7b57406824bc30c",
+      "sources": [
+        {
+          "path": "..\\.github\\workflows\\ci-java.yml",
+          "sha256": "69d714a2ad0937380c32426d630abef16d6e3312618701cbbc1adb6040a8ae91",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\java\\Assert-JavaTestResults.ps1",
+          "sha256": "fa19855675b0016b5f74a35840c714d30d8339f27b1e3f9e24a96326720a6bd7",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\java\\ci-java.test.mjs",
+          "sha256": "fac1dd5cb7b107c6524c0b7326b7bf58c8dc1f888139c5fcc96e448369817394",
+          "hashMode": "raw"
+        },
+        {
+          "path": "docs\\JAVA_CI.md",
+          "sha256": "fdbc71d3cc58a730c4e9fab70f8a1899b64f7e34b1f1b81236f66b45db182e4e",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\java\\ci-java.test.mjs",
+        "testFiles": [
+          "tests\\java\\ci-java.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:27:26.690Z",
+        "finishedAtUtc": "2026-11-02T22:27:39.516Z",
+        "exitCode": 0,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.2-v1\\execution\\tests.tap",
+        "sha256": "10beaf1547be29f0427b97c6c343a5db7e2c945a7d0dbcb9e7e5ecdf10bd7dba",
+        "positiveTests": [
+          "every PR runs the locked serial reactor with both artifacts and fail-closed totals",
+          "fresh complete XML prints executed and skipped totals and covers every required agent class"
+        ],
+        "negativeTests": [
+          "workflow controls reject skipped reactor, missing sampler pin and restricted PR trigger",
+          "skipped or cancelled agent assertions fail even when Maven reported zero failures",
+          "missing gated testcase, incomplete counts and stale reports cannot pass silently",
+          "duplicate emitted tests and DTD-bearing XML are rejected"
+        ]
+      },
+      "children": [
+        {
+          "id": "GATE-05.2",
+          "definitionSha256": "7eb578f20cfa06606a86890bd7768da25299c3dbf40ad3239f87b23fe150d2bf",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

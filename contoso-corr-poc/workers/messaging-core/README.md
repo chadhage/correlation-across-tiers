@@ -3,6 +3,28 @@
 This is the one `com.contoso:messaging-core:1.0.0` implementation consumed by
 Orders and all four worker modules. It is not a construction stub.
 
+## Local messaging infrastructure checks
+
+From `contoso-corr-poc`, select the existing frozen Bicep compiler using
+`CONTOSO_BICEP_PATH`; `CONTOSO_BICEP_EXE` remains a supported lower-precedence
+alias. Empty settings are ignored, then `bicep` is resolved from `PATH`.
+No operator's profile or session directory is a default. Use the compiler
+version and SHA-256 recorded in `config\versions.lock.json`.
+
+```powershell
+$env:CONTOSO_BICEP_PATH = (Resolve-Path .\path\to\bicep.exe).Path
+node --test .\tests\messaging\infra.test.mjs .\tests\messaging\infra-tool-resolution.test.mjs
+```
+
+The compiler is probed with `--version`; builds use `--stdout`, without ARM
+output files. If no compiler is configured or available on `PATH`, all three
+required compilation tests are explicitly **SKIP / NOT VERIFIED** (zero
+passes), not successful compiler evidence. An explicitly configured missing
+compiler, failed probe or compilation error fails rather than falling back.
+The resolver's unit controls include a separate subprocess that verifies the
+three-skip/zero-pass outcome; passing those controls is not actual compilation
+or Azure deployment evidence.
+
 ## Frozen API and runtime
 
 `MessagingWorkflowPort.fromEnvironment(PgConnectionFactory)` returns the real

@@ -1,0 +1,78 @@
+[
+  {
+    "path": "docs\\DEMO_RUNBOOK.md",
+    "sha256": "db4c3f1142de2dc2cbbc358f1fe91978b77cebedf1b4ed6888e00f9168168547"
+  },
+  {
+    "path": "evidence\\java-local\\source-builds\\20261101T182202080Z-client-security-652c7229-6b6a-4dae-85a5-575eeee113cd\\source-build.json",
+    "sha256": "8412700a7792eea3b1cf8dc7a321fd71aff16eb5762e3c2985695eb47589611b"
+  },
+  {
+    "path": "services\\security-core\\docs\\av23-java-client-output-parent-20261101T182444029Z.json",
+    "sha256": "b380966e1858f455348dd9bbf071fb76f432ed664367f817a9ab860d8028742e"
+  },
+  {
+    "path": "services\\security-core\\docs\\native-client-source-freeze.v1.json",
+    "sha256": "79f81525aec2b4a9e4d9c34d51d58667839476451dad1f32808f8830bcdad1a7"
+  },
+  {
+    "path": "tests\\verification\\security-client-qualification.test.mjs",
+    "sha256": "0f98d331a0d298af2e20964e023cf931b66ac1a457d60a8b20af6e92d3f8ad43"
+  },
+  {
+    "path": "tools\\observability\\raw-query.mjs",
+    "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3"
+  },
+  {
+    "path": "tools\\observability\\sampler-native-intake.mjs",
+    "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+  },
+  {
+    "path": "tools\\observability\\telemetry-contract.mjs",
+    "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+  },
+  {
+    "path": "tools\\security\\av23-check.mjs",
+    "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+  },
+  {
+    "path": "tools\\security\\native-payload.mjs",
+    "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+  },
+  {
+    "path": "tools\\security\\values.mjs",
+    "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+  },
+  {
+    "path": "tools\\verification\\conditional-observer.mjs",
+    "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+  },
+  {
+    "path": "tools\\verification\\files.mjs",
+    "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+  },
+  {
+    "path": "tools\\verification\\invariants.mjs",
+    "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+  },
+  {
+    "path": "tools\\verification\\observers.mjs",
+    "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+  },
+  {
+    "path": "tools\\verification\\run-focused.mjs",
+    "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+  },
+  {
+    "path": "tools\\verification\\sampling-qualification.mjs",
+    "sha256": "5c81b3ccfeaa94897b42cbd8f220775547863c6a1de1f850bb3ae9e01bc64cb5"
+  },
+  {
+    "path": "tools\\verification\\security-client-qualification.mjs",
+    "sha256": "28ef109b47116e796e0fa47cc23bd238d179645fab25975437c444c5d9e61798"
+  },
+  {
+    "path": "tools\\verification\\trust-roots.mjs",
+    "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+  }
+]

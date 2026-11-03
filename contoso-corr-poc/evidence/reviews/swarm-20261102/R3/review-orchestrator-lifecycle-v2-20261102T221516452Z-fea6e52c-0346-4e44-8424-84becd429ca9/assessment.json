@@ -1,0 +1,68 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "orchestrator",
+  "reviewedOwnerAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "sourceFreeze": {
+    "tools\\kanban.mjs": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d",
+    "tests\\kanban.test.mjs": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13",
+    "focusedFiveSourceScopeSha256": "c55488c33a99740efbde7b1c653eab182fb6d8e79fd477d01c73816207447cd4",
+    "copiedCliSixSourceScopeSha256": "3eba4fb308c895cf26d237cf358fab2c88552348becf43b5c52b1b86416f5670",
+    "sourcesStableBeforeAfter": true
+  },
+  "focusedExecution": {
+    "receipt": "execution.json",
+    "receiptSha256": "ebbc7f2d2b62bf87ff13515264bc64a828b720aab0c05323d22ebebe47f80e3e",
+    "command": "node --test --test-reporter=tap tests\\kanban.test.mjs",
+    "nodeVersion": "v22.23.4",
+    "exitCode": 0,
+    "tests": 49,
+    "passed": 49,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "copiedCliExecution": {
+    "receipt": "copied-cli-result.json",
+    "receiptSha256": "883caf7dfbd62b289990580787a21e1fdba20e666aefe76b7836e54249db61ab",
+    "script": "copied-cli-replay.mjs",
+    "result": "ACCEPTED_COPIED_CLI_CONTROLS_ONLY",
+    "actualCommands": 8,
+    "positiveCommands": 5,
+    "negativeCommands": 3,
+    "allExpectedExitCodesMatched": true,
+    "negativeObservations": [
+      "With every parent To Do and zero parent unit PASS facets, missing Done-child review artifact fails the actual copied CLI with exit 1 / ENOENT.",
+      "The same aggregate CLI rejects changed reviewed child source with exit 1 / Child reviewed source changed.",
+      "The same aggregate CLI rejects printed-PASS TAP tampering with exit 1 / Evidence hash mismatch."
+    ],
+    "positiveObservations": [
+      "Two synthetic fixture reviews execute their positive and negative Node checks in the private copy.",
+      "Valid fixture write/check pass with 78 parent cards To Do and exactly one metadata-valid fixture child Done.",
+      "Restoring the reviewed source and original TAP returns the actual copied CLI check to exit 0."
+    ],
+    "authorityLimit": "Copied reviewer identities, arithmetic assertions and Done metadata are unit-fixture inputs only. They are never real child acceptance or independent review enrollment."
+  },
+  "resolvedFindingIds": ["R3-LIFECYCLE-01"],
+  "findings": [],
+  "verifiedCodeChange": "The child IO evidence verifier is called unconditionally exactly once at the exit of the exported aggregate verifyEvidence function that synchronize invokes. It is no longer conditional on a parent unit PASS or repeated per parent source.",
+  "preservedRules": [
+    "78 parents, 52 children, 281 clauses, 491 required facets and 13 gates.",
+    "Exact child definitions and prerequisite completion.",
+    "Two distinct current other-role executed reviews; stale, self and duplicate identities rejected.",
+    "Positive and forbidden-input tests must actually execute with no skips/cancels.",
+    "Current artifacts, original TAP and source hashes are reverified.",
+    "Construction-only child allowlist does not grant native/hosted child or parent/card completion."
+  ],
+  "originalFindingPreserved": "..\\review-orchestrator-lifecycle-20261102T220823292Z-8a1543e8-e662-4c72-953a-c06812e71a74\\assessment.json",
+  "cleanup": "Private copied repository and all copied fixtures/state/reviews removed; original positive and negative stdout/stderr retained. Real board policy and backlog semantics remained unchanged; operational checkbox/status changes were not treated as source drift. No real board/wiki/scopes edits, coauthor implementation edits, services, Maven, cloud or secret access.",
+  "notReviewed": [
+    "Actual five child candidates or their semantic acceptance beyond the isolated lifecycle mechanism.",
+    "Native/Azure/hosted runs, source truth outside declared inputs, organizational signoff or certification."
+  ]
+}

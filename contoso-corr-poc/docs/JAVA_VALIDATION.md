@@ -77,6 +77,19 @@ Other locally executed checks:
 
 ## Reproduce
 
+`CONTOSO_PORTABLE_TOOLS_ROOT` selects an existing portable JDK/Maven/Bicep
+directory; an explicit `-ToolsRoot` takes precedence. Without either, the six
+portable-tool scripts use the ignored project-relative `.tools\java` directory,
+never a user profile or session folder. The agent defaults to its `agent`
+subdirectory (`Get-Agent.ps1 -Destination` can override that location).
+`Install-Portable.ps1` verifies the locked JDK SHA-256 and Maven SHA-512 before
+extracting; `Use-Portable.ps1` rechecks those archives and requires the exact
+locked-version directories. `Install-Bicep.ps1` and `Validate-Compute.ps1`
+verify the locked compiler SHA-256; `Get-Agent.ps1` verifies the agent SHA-256
+and size. Missing prerequisites fail with the portable-root variable named.
+Only run installers after a missing-prerequisite failure; repeated shells
+reuse existing checksum-verified files.
+
 From the repository root:
 
 ```powershell

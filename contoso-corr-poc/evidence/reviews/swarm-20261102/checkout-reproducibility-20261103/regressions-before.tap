@@ -1,0 +1,134 @@
+TAP version 13
+# Subtest: raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+not ok 1 - raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+  ---
+  duration_ms: 6.0194
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\checkout-reproducibility.test.mjs:25:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, copyfile 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\.gitattributes' -> 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\.cache\\checkout-byte-policy-278f2b99-55ad-4ba1-9c4a-63bf2bf319fa\\.gitattributes'"
+  code: 'ENOENT'
+  stack: |-
+    async copyFile (node:internal/fs/promises:621:10)
+    async TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:37:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: certification source snapshots exclude installed portable tools but retain application sources
+not ok 2 - certification source snapshots exclude installed portable tools but retain application sources
+  ---
+  duration_ms: 288.0765
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\checkout-reproducibility.test.mjs:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(sources.every(source => source.path.split(/[\\/]/)[0] !== '.tools'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:64:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: VERIFY inventory excludes installed tool versions without hiding application dependency claims
+not ok 3 - VERIFY inventory excludes installed tool versions without hiding application dependency claims
+  ---
+  duration_ms: 324.2083
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\checkout-reproducibility.test.mjs:72:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(claims.every(claim => claim.file.split(/[\\/]/)[0] !== '.tools'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:77:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: repository scans exclude generated portable installations, not ordinary source files
+not ok 4 - repository scans exclude generated portable installations, not ordinary source files
+  ---
+  duration_ms: 13.5745
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\checkout-reproducibility.test.mjs:85:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'FAIL' !== 'PASS'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'PASS'
+  actual: 'FAIL'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/checkout-reproducibility.test.mjs:92:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 5 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 2.4306
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 6 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 0.7238
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 7 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 0.8121
+  type: 'test'
+  ...
+# Subtest: refresh construction preserves historical and prerelease metadata without inheriting verification
+ok 8 - refresh construction preserves historical and prerelease metadata without inheriting verification
+  ---
+  duration_ms: 1.0808
+  type: 'test'
+  ...
+# Subtest: refresh retains removed generated-tool claims as invalidated history, not current verification
+not ok 9 - refresh retains removed generated-tool claims as invalidated history, not current verification
+  ---
+  duration_ms: 0.3363
+  type: 'test'
+  location: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\tests\\verification\\register.test.mjs:56:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'length')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/tests/verification/register.test.mjs:62:52)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 4
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 964.5781

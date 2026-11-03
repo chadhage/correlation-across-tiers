@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tools\\data\\local-redis-preflight.mjs",
+    "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d"
+  },
+  {
+    "path": "tools\\data\\local-redis-preflight.test.mjs",
+    "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49"
+  },
+  {
+    "path": "tools\\data\\LocalRedisLane.md",
+    "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b"
+  }
+]

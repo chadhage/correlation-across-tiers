@@ -2,15 +2,19 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createDemo01Collector, DEMO01_COLLECTOR_SOURCE_SHA256 } from '../../observability/demo01-collector.mjs';
 import { scanGraphIntake, policySha256 } from '../../security/telemetry.mjs';
-import { readBoundFile, sha256 } from '../files.mjs';
+import { HASH, readBoundFile, sha256 } from '../files.mjs';
 import { VerificationFailure } from '../invariants.mjs';
 import { immutableReceiptMetadata } from '../observers.mjs';
 import { BROWSER_SOURCE_PATHS } from './demo01-browser.mjs';
 
 export { demo01BrowserSpec, driveDemo01Page, stopDemo01Page, drainDemo01Page } from './demo01-browser.mjs';
 
+const runtimeSourcePath = 'tools\\verification\\adapters\\demo01-runtime.mjs';
+const sourceBindingPath = 'tools\\verification\\adapters\\demo01-source-binding.v2.json';
+const sourceBindingSha256 = 'a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794';
 const sourcePaths = [
-  'tools\\verification\\adapters\\demo01-runtime.mjs',
+  runtimeSourcePath,
+  sourceBindingPath,
   'tools\\verification\\adapters\\demo01-browser.mjs',
   'tools\\verification\\demo.mjs',
   'tools\\verification\\raw-intake.mjs',
@@ -42,6 +46,27 @@ const authorFrozenSources = new Map([
     'd65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626']
 ]);
 const fail = (code, detail) => { throw new VerificationFailure(code, detail); };
+const sourceBindingBytes = await readBoundFile(sourceBindingPath);
+if (sha256(sourceBindingBytes) !== sourceBindingSha256) {
+  fail('E_SOURCE_DRIFT', 'The prospective construction source binding changed');
+}
+const prospectiveSourceBinding = JSON.parse(sourceBindingBytes.toString('utf8'));
+if (prospectiveSourceBinding.schema !== 'contoso.demo01-construction-source-binding.v2' ||
+    prospectiveSourceBinding.scope !== 'PROSPECTIVE_CURRENT_SOURCE_CONSTRUCTION_ONLY' ||
+    prospectiveSourceBinding.sourceAcceptanceIsCertification !== false ||
+    prospectiveSourceBinding.nativeExecution !== 'NOT RUN' ||
+    prospectiveSourceBinding.runnableDemoAdapter !== false ||
+    prospectiveSourceBinding.historicalPinsDisposition !== 'HISTORICAL_ONLY_NOT_CURRENT_APPROVAL' ||
+    !Array.isArray(prospectiveSourceBinding.components) ||
+    prospectiveSourceBinding.components.length !== authorFrozenSources.size ||
+    new Set(prospectiveSourceBinding.components.map(source => source.path)).size !== authorFrozenSources.size ||
+    prospectiveSourceBinding.components.some(source => !authorFrozenSources.has(source.path) || !HASH.test(source.sha256 ?? ''))) {
+  fail('E_SOURCE_DRIFT', 'Exact prospective construction-only component bindings required');
+}
+const prospectiveFrozenSources = new Map(prospectiveSourceBinding.components.map(source => [source.path, source.sha256]));
+const loadedModuleSources = new Map(await Promise.all([
+  runtimeSourcePath, 'tools\\verification\\adapters\\demo01-browser.mjs', 'tools\\security\\telemetry.mjs'
+].map(async file => [file, sha256(await readBoundFile(file))])));
 
 // No contoso.demo-adapter.v1/createAdapter is advertised until every production
 // operation exists. In particular, saved hashes cannot restore a private baseline.
@@ -91,10 +116,15 @@ export function scanDemo01Capture(capture) {
 }
 
 async function sourceSnapshot() {
-  return Promise.all(sourcePaths.map(async file => ({ path: file, sha256: sha256(await readBoundFile(file)) })));
+  try {
+    return await Promise.all(sourcePaths.map(async file => ({ path: file, sha256: sha256(await readBoundFile(file)) })));
+  } catch {
+    fail('E_SOURCE_DRIFT', 'A bound construction source is unavailable');
+  }
 }
 
-export async function inspectDemo01Construction() {
+export async function inspectDemo01Construction(...args) {
+  if (args.length) fail('D_ARGUMENT', 'Construction inspection cannot accept caller source bindings or approval');
   const sources = await sourceSnapshot();
   const registry = JSON.parse((await readBoundFile('contracts\\verification-observer-registry.v1.json')).toString('utf8'));
   if (registry.schema !== 'contoso.verification-observer-registry.v1' ||
@@ -102,7 +132,9 @@ export async function inspectDemo01Construction() {
     fail('E_OBSERVER_REGISTRY', 'The existing independent observer registry must be intact');
   }
   if (typeof createDemo01Collector !== 'function' ||
-      sources.some(source => authorFrozenSources.has(source.path) && authorFrozenSources.get(source.path) !== source.sha256) ||
+      sources.some(source => prospectiveFrozenSources.has(source.path) && prospectiveFrozenSources.get(source.path) !== source.sha256 ||
+        loadedModuleSources.has(source.path) && loadedModuleSources.get(source.path) !== source.sha256) ||
+      sources.find(source => source.path === sourceBindingPath).sha256 !== sourceBindingSha256 ||
       sources.find(source => source.path === 'tools\\observability\\demo01-collector.mjs').sha256 !== DEMO01_COLLECTOR_SOURCE_SHA256 ||
       sources.find(source => source.path === 'tools\\security\\telemetry-policy.v1.json').sha256 !== policySha256 ||
       JSON.stringify(sources) !== JSON.stringify(await sourceSnapshot())) {
@@ -115,7 +147,9 @@ export async function inspectDemo01Construction() {
     sourceAcceptanceIsCertification: false,
     certificationStatus: 'NOT CERTIFIED',
     nativeExecution: 'NOT RUN',
-    sourceBinding: 'AUTHOR-FROZEN COMPONENT BYTES ONLY; INDEPENDENT REVIEW AND NATIVE AUTHORITY ARE NOT INHERITED',
+    sourceBinding: 'PROSPECTIVE CURRENT COMPONENT BYTES ONLY; HISTORICAL RECEIPTS, INDEPENDENT REVIEW AND NATIVE AUTHORITY ARE NOT INHERITED',
+    prospectiveSourceBinding: { ...prospectiveSourceBinding, path: sourceBindingPath, sha256: sourceBindingSha256 },
+    authorFrozenSourcesDisposition: 'HISTORICAL_ONLY_NOT_CURRENT_APPROVAL',
     availableOperations: {
       browser: {
         module: 'web\\portal-ssr\\dist\\browser-adapter.js',

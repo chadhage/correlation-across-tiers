@@ -1,0 +1,118 @@
+{
+  "schema": "contoso.scoped-review-assessment.v1",
+  "reviewerRole": "R7",
+  "reviewerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "authorRole": "R9",
+  "reviewOnlyChildId": "DEM-00.1",
+  "result": "ACCEPTED_BOUNDED_INTEGRATION_CORRECTION_SOURCE_UNIT_ONLY",
+  "recordedAtUtc": "2026-11-03T00:27:57.455Z",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "codeOrSourceEditsByReviewer": false,
+  "sourceCount": 79,
+  "sourcesMatchedAuthorBeforeAndAfter": true,
+  "currentReadOnlySourceCheck": {
+    "matched": 79,
+    "drift": [],
+    "isNewExecution": false
+  },
+  "actualIndependentTests": {
+    "runner": "node-tap",
+    "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\verification\\demo01-runtime.test.mjs tests\\verification\\demo.test.mjs tests\\observability\\demo01-collector.test.mjs",
+    "testFiles": [
+      "tests\\verification\\demo01-runtime.test.mjs",
+      "tests\\verification\\demo.test.mjs",
+      "tests\\observability\\demo01-collector.test.mjs"
+    ],
+    "startedAtUtc": "2026-11-03T00:26:15.192Z",
+    "finishedAtUtc": "2026-11-03T00:26:17.571Z",
+    "exitCode": 0,
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "artifact": "evidence\\reviews\\swarm-20261102\\R7\\demo01-integration-20261103-review-v3\\tests.tap",
+    "sha256": "1130e95f98e9a8d809dfc3d560fa56086c628142946564c3d2c20acfd27cbd3b",
+    "positiveTests": [
+      "positive: source construction binds supplied modules and reports every missing production operation explicitly",
+      "positive: the construction entrypoint performs only side-effect-free inspection",
+      "positive: prospective current-source binding preserves historical pins without inheriting their approval"
+    ],
+    "negativeTests": [
+      "negative: real isolated component, loaded-module and privacy-policy drift fail closed after import",
+      "negative: rewriting a prospective JSON pin cannot approve changed bytes or a fresh module import",
+      "negative: original unsafe or unknown columns reject despite a caller PASS and benign replacement projections",
+      "negative: incomplete construction does not advertise a v1 adapter or a throw-only createAdapter stub",
+      "fixtures, JSON clones, native labels, observer IDs and saved settlement cannot mint private source authority"
+    ],
+    "tests": 41
+  },
+  "manualFindings": [],
+  "bindingAssessment": {
+    "prospectiveBindingPath": "tools\\verification\\adapters\\demo01-source-binding.v2.json",
+    "prospectiveBindingSha256": "a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794",
+    "totalHistoricalComponentPins": 8,
+    "unchangedComponentPins": 6,
+    "changedComponents": [
+      {
+        "path": "web\\storefront-spa\\src\\app.ts",
+        "historicalSha256": "2f4eee79496b3f0f089f78bb48ef4986e2b33389b13d9c145affec2f604185ac",
+        "prospectiveSha256": "e5895fc497ea8157bcdcfd1cedbde1d0c3bb608acc6f54263aadc0e126d62456"
+      },
+      {
+        "path": "services\\inventory-data\\tools\\InventoryFixtureContract.md",
+        "historicalSha256": "d65bec32b8ad03024a05ce87fc8a89d79aaa1f9d343322e65269249bf972d626",
+        "prospectiveSha256": "8976f2b6e21b800d34b782ec0f599c9c13062b35f122000280560762a7d0c5ca"
+      }
+    ],
+    "historicalPinsDisposition": "HISTORICAL_ONLY_NOT_CURRENT_APPROVAL",
+    "noHistoricalApprovalInherited": true,
+    "noCallerBindingRefresh": true
+  },
+  "verifiedControls": [
+    "All three exact positive names and five exact negative names actually pass; no renamed or expected-failure substitute",
+    "Real isolated-copy mutation of component/runtime/browser/scanner/collector/privacy policy fails closed after import",
+    "Edited prospective JSON cannot approve changed bytes or a fresh module import",
+    "Original-column privacy and private collector source/capture authority controls remain fail-closed",
+    "No runnable createAdapter/adapter export or throw-only stub is introduced"
+  ],
+  "inspectorCli": {
+    "artifact": "evidence\\reviews\\swarm-20261102\\R7\\demo01-integration-20261103-cli-v3\\result.json",
+    "sha256": "4557527536a170c273dbd801464a4278a1934a1f0f3b5c21107eadbee13b3976",
+    "actualExitCode": 2,
+    "result": "BLOCKED",
+    "runnableDemoAdapter": false,
+    "nativeExecution": "NOT RUN",
+    "nativeQueryObserverCount": 0
+  },
+  "completedChildCandidate": false,
+  "nativeEvidence": false,
+  "childStatus": "To Do",
+  "remaining": [
+    {
+      "id": "independent-native-execution",
+      "missing": "An original independently observed emission/canary/gateway-wire operation supplying execution.expectation, trafficLedger and proofArtifacts"
+    },
+    {
+      "id": "native-query-enrollment",
+      "missing": "Independently enrolled authenticated query/transport capability accepted by verifyQueryExecutorReceipt"
+    },
+    {
+      "id": "native-sampling-control",
+      "missing": "Reviewed native apply/observe/restore/stopTraffic command entrypoints and a full native inventory/admission/fidelity observer for every sampling participant"
+    },
+    {
+      "id": "reviewed-preparation-process",
+      "missing": "An independently verified integrated operator-runtime classpath, authentication/resources and bounded execution window; local source acceptance is not runtime readiness"
+    },
+    {
+      "id": "durable-owned-recovery",
+      "missing": "A reviewed authenticated durable recovery operation available to the new Reset.ps1 process"
+    }
+  ],
+  "cleanup": "Bounded Node source tests/inspector only; isolated copied fixtures cleaned. No Maven, browser/JVM service, Azure query/resource, native traffic, full configured suite or parent certification-output write. Source/output/PID leases released.",
+  "reviewArtifact": {
+    "path": "evidence\\reviews\\swarm-20261102\\R7\\demo01-integration-20261103-review-v3\\review.json",
+    "sha256": "bc991d31bb6da1331cd2604e2c3a098f4adc2a7966a61773425868d929cf63d0"
+  }
+}

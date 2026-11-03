@@ -1,0 +1,282 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R7",
+  "ownerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "recordedAtUtc": "2026-11-02T22:44:01.243Z",
+  "scope": "FINAL_STOPPED_EPOCH_SOURCE_UNIT_HANDOFF_ONLY",
+  "thresholdStop": true,
+  "noNewImplementationDispatched": true,
+  "completedChildCandidates": [],
+  "sourceAcceptanceIsCertification": false,
+  "nativeEvidence": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "changedFiles": [
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157"
+    },
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+    },
+    {
+      "path": "tests\\observability\\sampler-native-intake.test.mjs",
+      "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "2b3f9f240ba5421a215911d8bf5807459bb19c9be1128f5ed2cfd7cff95d8890"
+    }
+  ],
+  "sources": [
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe"
+    },
+    {
+      "path": "tests\\observability\\sampler-native-intake.test.mjs",
+      "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d"
+    },
+    {
+      "path": "tests\\verification\\invariants.test.mjs",
+      "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef"
+    },
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "2b3f9f240ba5421a215911d8bf5807459bb19c9be1128f5ed2cfd7cff95d8890"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+      "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03"
+    }
+  ],
+  "currentSourceCheck": {
+    "matched": 21,
+    "drift": [],
+    "isNewTestExecution": false
+  },
+  "ownerExecution": {
+    "artifact": "evidence\\reviews\\swarm-20261102\\R7\\obs-02.2-provenance-fix-v3\\owner-receipt.json",
+    "sha256": "6efc1166cc8ba61731617d26a7bd891942b7cea2b5dd5df0aef470bf5e26d8d4",
+    "nodeVersion": "v22.23.4",
+    "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+    "tests": 75,
+    "passed": 75,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "sourcesBeforeAfterMatched": true
+  },
+  "independentReviews": [
+    {
+      "role": "R2",
+      "agentId": "1634ca2c-fe00-4c8e-93d1-03a3da6983af",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R2\\review-r7-obs02-v3-5f66321c-5fce-4ebd-9b14-3d525c8c308a\\review.json",
+      "sha256": "691815d22ba68e404c4007e18c0a381044593a0a470c5a6964a9d3bf8a5ee864",
+      "actualExecutionCounts": {
+        "tests": 75,
+        "passed": 75,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "scope": "CURRENT_CORRECTIVE_SOURCE_UNIT_ONLY_NOT_CHILD_DONE"
+    },
+    {
+      "role": "R9",
+      "agentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-source-independent-v3\\review.json",
+      "sha256": "14092e5802065ec05789ea38d543ef2bd98d99a56d4bd450c0ab2038f0de2f03",
+      "actualExecutionCounts": {
+        "tests": 75,
+        "passed": 75,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "scope": "CURRENT_CORRECTIVE_SOURCE_UNIT_ONLY_NOT_CHILD_DONE"
+    }
+  ],
+  "provenanceFinding": {
+    "status": "CLOSED_CURRENT_SOURCE_UNIT_ONLY",
+    "redArtifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-mixed-provenance-finding-v1\\finding.json",
+    "redSha256": "304a462b65bf781a297d82bba7c6b71717642e349f434dc849ac0558be5e6105",
+    "ownerRedArtifact": "evidence\\reviews\\swarm-20261102\\R7\\obs-02.2-mixed-provenance-red-v1\\owner-receipt.json",
+    "ownerRedSha256": "987d9b61021720bf93deb42a68a3879c2deaac654f48cfd786f66536a1a1c942",
+    "ownerRedCounts": {
+      "tests": 31,
+      "passed": 29,
+      "failed": 2,
+      "skipped": 0,
+      "cancelled": 0,
+      "testExitCode": 1
+    },
+    "resolutionArtifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-mixed-provenance-fixed-v3\\resolution.json",
+    "resolutionSha256": "b28c06be3b6ce0ae3db660eb1dce71e8405e505410cd5038586609f9481bed8a",
+    "measuredPositive": {
+      "httpStatus": 200,
+      "received": 6,
+      "accepted": 6,
+      "captureEnvelopes": 6,
+      "mergedSpans": 6,
+      "sourceAuthority": "IN_PROCESS_LOOPBACK_LOCAL_ONLY"
+    },
+    "measuredNegative": {
+      "callerOnlyAddedEnvelopes": 1,
+      "mergedResult": "PASS",
+      "mergedSpans": 7,
+      "sourceAuthority": "SAVED_CAPTURE_STRUCTURAL_CHECK_ONLY",
+      "realLocalRows": 0,
+      "fixtureRows": 7
+    }
+  },
+  "localRuntime": {
+    "pairLauncherImplemented": false,
+    "pairLauncherExecuted": false,
+    "pairTelemetryProduced": false,
+    "proposedInterfaceOnly": "tools\\java\\Start-LocalPair.ps1",
+    "actualCompleteBrowserJvmMergeExecuted": false,
+    "syntheticLoopbackCheckerExecuted": true,
+    "expectedRemoteBoundaries": [
+      "gateway.request",
+      "gateway.backend"
+    ],
+    "fullChainMissingGatewayRejected": true,
+    "seededControls": "Copied checker input mutations only, not runtime fault injection"
+  },
+  "children": [
+    {
+      "id": "OBS-02.1",
+      "status": "To Do",
+      "reason": "No independently enrolled authenticated native query/transport, original live reset handle, complete actual boundary/emission/canary/wire evidence or approved native target/auth/window.",
+      "nextAction": "Only after separately authorized native prerequisites exist, execute current reviewed collector; saved JSON or rehearsal rows cannot enroll authority."
+    },
+    {
+      "id": "OBS-02.2",
+      "status": "To Do",
+      "sourceUnitFacet": "Two independent actual corrective75-test acceptances; source-only.",
+      "reason": "Actual R4 launcher/pair was never implemented or started; no complete real browser/JVM rehearsal capture exists.",
+      "nextAction": "After orchestrator legitimately reopens dispatch, implement the R4 pair, execute canonical R2 Run-demo carrier/ingress/emitted-parent join, finish the receiver successfully, and execute the merged tree with current-source independent checks. No new runtime under current stop."
+    },
+    {
+      "id": "DEM-14.1",
+      "status": "To Do",
+      "reason": "Concrete DEM-00.1 native operations, formal ARC-01.1 and approved deployed trace/query source are absent.",
+      "nextAction": "Wait for concrete reviewed native operations and actual source/authorization; do not export a fabricated adapter or count construction as native Done."
+    },
+    {
+      "id": "DEM-15.1",
+      "status": "To Do",
+      "reason": "Concrete native sampling/load/baseline/reset/recovery operations, complete topology, agreed load thresholds and approved window are absent.",
+      "nextAction": "Compose reviewed concrete operations only after prerequisites and orchestrator authorization; do not substitute local fixture PASS."
+    }
+  ],
+  "parentFacets": {
+    "INF-01": "Existing local/static controls are not native resource/runtime/privacy/cost/owner acceptance; live clauses remain To Do.",
+    "OBS-03": "Current source/unit checks do not enroll native observers or prove full-graph/root/privacy/owner acceptance; live clauses remain To Do."
+  },
+  "kqlAndWorkbook": {
+    "regenerated": false,
+    "azureQueriesExecuted": 0,
+    "reason": "No new ARC packet or native source was executed; existing stopped-epoch map remains current source, not formal ARC/native qualification."
+  },
+  "peerReviewIndex": {
+    "artifact": "evidence\\reviews\\swarm-20261102\\R7\\final-peer-review-index-v1\\result.json",
+    "sha256": "2de724d3511975e9ff9228d04a1b62ddb02af3e406e0c8a68e849314dd3310c4",
+    "scope": "Seven actual completed peer source/unit reviews with a separate read-only source-current check; not a new suite."
+  },
+  "releasedLeases": {
+    "sourceWriterActive": false,
+    "outputWriterActive": false,
+    "processIds": [],
+    "reservedPorts": [],
+    "sourceFilesFrozen": [
+      "tools\\observability\\local-trace-tree.mjs",
+      "tests\\observability\\local-trace-tree.test.mjs",
+      "tools\\observability\\sampler-native-intake.mjs",
+      "tests\\observability\\sampler-native-intake.test.mjs",
+      "docs\\OBSERVABILITY.md"
+    ],
+    "notes": "All test-owned loopback receivers, dedicated browser/CLI subprocesses and UUID scratch directories closed/removed. No R7 JVM service, detached helper or shared Maven/package/target writer was started."
+  },
+  "prohibitedOperationsPerformed": {
+    "azure": false,
+    "secretsAccess": false,
+    "nativeApplicationTraffic": false,
+    "extraTelemetryProvider": false,
+    "secondExporter": false,
+    "commits": false,
+    "pushes": false,
+    "boardOrWikiEdits": false,
+    "parentCertificationOutputEdits": false
+  },
+  "historicalEvidencePolicy": "Old73 source epochs, HOLDs and actual red failures remain unchanged history; only current c36 corrective75-test executions close the local provenance finding."
+}

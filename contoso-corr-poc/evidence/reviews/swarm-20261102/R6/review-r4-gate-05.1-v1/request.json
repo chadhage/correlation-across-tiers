@@ -1,0 +1,30 @@
+{
+  "reviewerRole": "R6",
+  "reviewerAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "authorRole": "R4",
+  "childIds": ["GATE-05.1"],
+  "sourcePaths": [
+    "tools\\java\\PortableTools.ps1",
+    "tools\\java\\Use-Portable.ps1",
+    "tools\\java\\Install-Portable.ps1",
+    "tools\\java\\Install-Bicep.ps1",
+    "tools\\java\\Get-Agent.ps1",
+    "tools\\java\\Gate-05.ps1",
+    "tools\\java\\Validate-Compute.ps1",
+    "tests\\java\\portable-tools.test.mjs",
+    ".gitignore",
+    "docs\\JAVA_VALIDATION.md",
+    "config\\versions.lock.json",
+    "tools\\java\\Get-Extension.ps1"
+  ],
+  "testFiles": ["tests\\java\\portable-tools.test.mjs"],
+  "positiveTests": [
+    "explicit root beats the environment and preserves spaced paths with locked versions",
+    "agent lookup honors the root, checks checksum and size, and never needs network for existing bytes"
+  ],
+  "negativeTests": [
+    "portable installation rejects a changed archive before extraction or download",
+    "Bicep install honors the root and rejects a changed compiler before executing it"
+  ],
+  "outputDirectory": "evidence\\reviews\\swarm-20261102\\R6\\review-r4-gate-05.1-v1\\execution"
+}

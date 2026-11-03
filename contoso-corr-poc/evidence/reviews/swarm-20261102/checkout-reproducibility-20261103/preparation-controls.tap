@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+ok 1 - raw source, lockfile, board and evidence bytes survive every Git autocrlf checkout mode
+  ---
+  duration_ms: 1758.5006
+  type: 'test'
+  ...
+# Subtest: certification source snapshots exclude installed portable tools but retain application sources
+ok 2 - certification source snapshots exclude installed portable tools but retain application sources
+  ---
+  duration_ms: 269.8892
+  type: 'test'
+  ...
+# Subtest: VERIFY inventory excludes installed tool versions without hiding application dependency claims
+ok 3 - VERIFY inventory excludes installed tool versions without hiding application dependency claims
+  ---
+  duration_ms: 425.0172
+  type: 'test'
+  ...
+# Subtest: repository scans exclude generated portable installations, not ordinary source files
+ok 4 - repository scans exclude generated portable installations, not ordinary source files
+  ---
+  duration_ms: 12.0286
+  type: 'test'
+  ...
+# Subtest: Node CI summary reports actual successful tests without granting native certification
+ok 5 - Node CI summary reports actual successful tests without granting native certification
+  ---
+  duration_ms: 1.7155
+  type: 'test'
+  ...
+# Subtest: Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+ok 6 - Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+  ---
+  duration_ms: 0.5331
+  type: 'test'
+  ...
+# Subtest: Node CI missing TAP, source drift, failed or signalled execution cannot pass
+ok 7 - Node CI missing TAP, source drift, failed or signalled execution cannot pass
+  ---
+  duration_ms: 0.5461
+  type: 'test'
+  ...
+# Subtest: Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+ok 8 - Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+  ---
+  duration_ms: 1.1183
+  type: 'test'
+  ...
+# Subtest: configured Node source snapshot includes tooling tests once without executing their suites
+ok 9 - configured Node source snapshot includes tooling tests once without executing their suites
+  ---
+  duration_ms: 487.5286
+  type: 'test'
+  ...
+# Subtest: real every-PR Windows Node workflow requires report freshness and honest execution accounting
+ok 10 - real every-PR Windows Node workflow requires report freshness and honest execution accounting
+  ---
+  duration_ms: 1.3086
+  type: 'test'
+  ...
+# Subtest: workflow source rejects omitted report staleness, selective triggers and skip waivers
+ok 11 - workflow source rejects omitted report staleness, selective triggers and skip waivers
+  ---
+  duration_ms: 2.8251
+  type: 'test'
+  ...
+# Subtest: Node test preparation builds the real pinned sampler and Portal output without running Java or native tests
+ok 12 - Node test preparation builds the real pinned sampler and Portal output without running Java or native tests
+  ---
+  duration_ms: 1.3034
+  type: 'test'
+  ...
+# Subtest: preparation failures and lockfile changes are explicit and CI prepares before executing the root suite
+ok 13 - preparation failures and lockfile changes are explicit and CI prepares before executing the root suite
+  ---
+  duration_ms: 0.4589
+  type: 'test'
+  ...
+# Subtest: an unavailable explicit tool root fails before any package installation or success output
+ok 14 - an unavailable explicit tool root fails before any package installation or success output
+  ---
+  duration_ms: 967.7713
+  type: 'test'
+  ...
+# Subtest: VERIFY exact official source/owner/test entry is explicit and not live verified
+ok 15 - VERIFY exact official source/owner/test entry is explicit and not live verified
+  ---
+  duration_ms: 2.7051
+  type: 'test'
+  ...
+# Subtest: missing source and arbitrary unofficial GitHub repo fail closed
+ok 16 - missing source and arbitrary unofficial GitHub repo fail closed
+  ---
+  duration_ms: 1.4065
+  type: 'test'
+  ...
+# Subtest: locked and deployed drift, new or removed numeric claims fail closed
+ok 17 - locked and deployed drift, new or removed numeric claims fail closed
+  ---
+  duration_ms: 2.3912
+  type: 'test'
+  ...
+# Subtest: refresh construction preserves historical and prerelease metadata without inheriting verification
+ok 18 - refresh construction preserves historical and prerelease metadata without inheriting verification
+  ---
+  duration_ms: 6.8722
+  type: 'test'
+  ...
+# Subtest: refresh retains removed generated-tool claims as invalidated history, not current verification
+ok 19 - refresh retains removed generated-tool claims as invalidated history, not current verification
+  ---
+  duration_ms: 1.4527
+  type: 'test'
+  ...
+# Subtest: refresh preserves unchanged owner/test actions without inheriting verification or changed-source annotations
+ok 20 - refresh preserves unchanged owner/test actions without inheriting verification or changed-source annotations
+  ---
+  duration_ms: 0.565
+  type: 'test'
+  ...
+# Subtest: unchanged refresh preserves raw byte pins and claim order but cannot retain stale verification
+ok 21 - unchanged refresh preserves raw byte pins and claim order but cannot retain stale verification
+  ---
+  duration_ms: 2.8587
+  type: 'test'
+  ...
+# Subtest: original A/B semantic consistency is structural only and cannot mint acceptance
+ok 22 - original A/B semantic consistency is structural only and cannot mint acceptance
+  ---
+  duration_ms: 14.8721
+  type: 'test'
+  ...
+# Subtest: archived path consistency cannot enroll a relocated current execution
+ok 23 - archived path consistency cannot enroll a relocated current execution
+  ---
+  duration_ms: 1.0999
+  type: 'test'
+  ...
+# Subtest: historical compiler source, output and used artifact paths must retain one recorded root
+ok 24 - historical compiler source, output and used artifact paths must retain one recorded root
+  ---
+  duration_ms: 3.996
+  type: 'test'
+  ...
+# Subtest: omitted/duplicate/recomputed closure cannot qualify current-source lineage
+ok 25 - omitted/duplicate/recomputed closure cannot qualify current-source lineage
+  ---
+  duration_ms: 18.9008
+  type: 'test'
+  ...
+# Subtest: missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+ok 26 - missing/zero/duplicate/wrong-root/native-kind IDs fail without expected-name synthesis
+  ---
+  duration_ms: 26.032
+  type: 'test'
+  ...
+# Subtest: all seven production header checks, raw negative and trusted advance remain required
+ok 27 - all seven production header checks, raw negative and trusted advance remain required
+  ---
+  duration_ms: 10.961
+  type: 'test'
+  ...
+# Subtest: fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+ok 28 - fresh probe compilation and actual USED instances cannot be inferred from old A/created objects
+  ---
+  duration_ms: 10.1546
+  type: 'test'
+  ...
+# Subtest: native/logical/physical counters stay independent and broad privacy/completeness remain false
+ok 29 - native/logical/physical counters stay independent and broad privacy/completeness remain false
+  ---
+  duration_ms: 5.972
+  type: 'test'
+  ...
+# Subtest: the original14 source freeze is not retroactively extended to include another input
+ok 30 - the original14 source freeze is not retroactively extended to include another input
+  ---
+  duration_ms: 1.4569
+  type: 'test'
+  ...
+# Subtest: JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+ok 31 - JSON/clones/getters/caller callbacks cannot enroll the fixed witnessed local epoch
+  ---
+  duration_ms: 2.5458
+  type: 'test'
+  ...
+# Subtest: security tool selection requires the named environment prerequisite and honors an explicit spaced root
+ok 32 - security tool selection requires the named environment prerequisite and honors an explicit spaced root
+  ---
+  duration_ms: 0.5746
+  type: 'test'
+  ...
+# Subtest: actual security qualification CLI fails explicitly when the tools-root variable is unset
+ok 33 - actual security qualification CLI fails explicitly when the tools-root variable is unset
+  ---
+  duration_ms: 175.4043
+  type: 'test'
+  ...
+# Subtest: security qualification source has no machine or session-folder default
+ok 34 - security qualification source has no machine or session-folder default
+  ---
+  duration_ms: 10.7692
+  type: 'test'
+  ...
+# Subtest: explicit security tool byte checks remain read-only and cannot enroll a receipt
+ok 35 - explicit security tool byte checks remain read-only and cannot enroll a receipt
+  ---
+  duration_ms: 21.1381
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2718.4601

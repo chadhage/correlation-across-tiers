@@ -1,0 +1,31 @@
+{
+  "schema": "contoso.post-integration-child-source-audit.v1",
+  "checkedAtUtc": "2026-11-03T00:23:36.675Z",
+  "doneChildEvidenceCurrent": true,
+  "doneChildren": [
+    "GATE-05.1",
+    "INF-06.1",
+    "INF-05.2",
+    "DAT-01.2",
+    "IDN-01.2"
+  ],
+  "partialSourceReviewReportsChecked": 13,
+  "partialReviewsNowHistorical": [
+    {
+      "card": "DEM-02",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R3\\review-r2-demo02-20261102-c57297fa\\review.json",
+      "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_RUNNABLE_ADAPTER / NOT CERTIFIED",
+      "changedSources": [
+        "tools\\verification\\adapters\\demo01-runtime.mjs"
+      ]
+    },
+    {
+      "card": "DEM-02",
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\dem-02.1-review-v1\\review.json",
+      "scope": "CURRENT_SOURCE_UNIT_ONLY_NOT_RUNNABLE_ADAPTER / NOT CERTIFIED",
+      "changedSources": [
+        "tools\\verification\\adapters\\demo01-runtime.mjs"
+      ]
+    }
+  ]
+}

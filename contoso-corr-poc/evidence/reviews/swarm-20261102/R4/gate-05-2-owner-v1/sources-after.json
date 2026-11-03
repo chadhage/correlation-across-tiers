@@ -1,0 +1,18 @@
+[
+  {
+    "path": "..\\.github\\workflows\\ci-java.yml",
+    "sha256": "6ed64bd7b94209f76f4d1259332b061a051fa7db11309be32a80ec0051f284e2"
+  },
+  {
+    "path": "tools\\java\\Assert-JavaTestResults.ps1",
+    "sha256": "bb76eff0685c9d934d334b343656a27c0a10f08ca5c6ffdc372f07865296d167"
+  },
+  {
+    "path": "tests\\java\\ci-java.test.mjs",
+    "sha256": "7bd1eb6c6c1674295ff4e8e9cfd583234e76c384152492eea2d1cf8a9436e1a5"
+  },
+  {
+    "path": "docs\\JAVA_CI.md",
+    "sha256": "fdbc71d3cc58a730c4e9fab70f8a1899b64f7e34b1f1b81236f66b45db182e4e"
+  }
+]

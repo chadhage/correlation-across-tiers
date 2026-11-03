@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: Node CI summary reports actual successful tests without granting native certification
+ok 1 - Node CI summary reports actual successful tests without granting native certification
+  ---
+  duration_ms: 2.6003
+  type: 'test'
+  ...
+# Subtest: Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+ok 2 - Node CI cannot count skipped or cancelled tests as passes even on runner exit zero
+  ---
+  duration_ms: 0.7007
+  type: 'test'
+  ...
+# Subtest: Node CI missing TAP, source drift, failed or signalled execution cannot pass
+ok 3 - Node CI missing TAP, source drift, failed or signalled execution cannot pass
+  ---
+  duration_ms: 1.1067
+  type: 'test'
+  ...
+# Subtest: Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+ok 4 - Node CI runner rejects selective or skip-waiver arguments before starting the full suite
+  ---
+  duration_ms: 1.2009
+  type: 'test'
+  ...
+# Subtest: configured Node source snapshot includes tooling tests once without executing their suites
+ok 5 - configured Node source snapshot includes tooling tests once without executing their suites
+  ---
+  duration_ms: 1049.7867
+  type: 'test'
+  ...
+# Subtest: real every-PR Windows Node workflow requires report freshness and honest execution accounting
+ok 6 - real every-PR Windows Node workflow requires report freshness and honest execution accounting
+  ---
+  duration_ms: 1.3706
+  type: 'test'
+  ...
+# Subtest: workflow source rejects omitted report staleness, selective triggers and skip waivers
+ok 7 - workflow source rejects omitted report staleness, selective triggers and skip waivers
+  ---
+  duration_ms: 6.5681
+  type: 'test'
+  ...
+# Subtest: assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+ok 8 - assessment invalidation advances exact source and version snapshots without resetting invalidated rows
+  ---
+  duration_ms: 4.9916
+  type: 'test'
+  ...
+# Subtest: stale assessment sources and versions reject even when every rendered row was already invalidated
+ok 9 - stale assessment sources and versions reject even when every rendered row was already invalidated
+  ---
+  duration_ms: 1.3644
+  type: 'test'
+  ...
+# Subtest: prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+ok 10 - prior scoped sampling and security metadata survive as immutable-identity history, not qualification
+  ---
+  duration_ms: 1.6206
+  type: 'test'
+  ...
+# Subtest: orchestrator source-only construction sections and current roster survive a preserving refresh
+ok 11 - orchestrator source-only construction sections and current roster survive a preserving refresh
+  ---
+  duration_ms: 0.7593
+  type: 'test'
+  ...
+# Subtest: notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+ok 12 - notes, history and prior JSON cannot mint native approval or resurrect a passing criterion
+  ---
+  duration_ms: 0.4474
+  type: 'test'
+  ...
+# Subtest: missing or duplicate source scopes and invalid version digests fail closed
+ok 13 - missing or duplicate source scopes and invalid version digests fail closed
+  ---
+  duration_ms: 0.3279
+  type: 'test'
+  ...
+# Subtest: persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+ok 14 - persisted assessment PASS/coverage/auth/source labels cannot grant a native result
+  ---
+  duration_ms: 2.3589
+  type: 'test'
+  ...
+# Subtest: local metadata without validated original source/execution capability cannot affirm success
+ok 15 - local metadata without validated original source/execution capability cannot affirm success
+  ---
+  duration_ms: 1.2245
+  type: 'test'
+  ...
+# Subtest: reviewer four same-identity negative metadata vectors cannot render literal00 success
+ok 16 - reviewer four same-identity negative metadata vectors cannot render literal00 success
+  ---
+  duration_ms: 3.2751
+  type: 'test'
+  ...
+# Subtest: saved Security PASS/source/count labels cannot render selected A/B/C qualification
+ok 17 - saved Security PASS/source/count labels cannot render selected A/B/C qualification
+  ---
+  duration_ms: 0.6657
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2402.0703

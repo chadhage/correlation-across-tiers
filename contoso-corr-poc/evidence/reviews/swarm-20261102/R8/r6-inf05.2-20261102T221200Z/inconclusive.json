@@ -1,0 +1,102 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "childId": "INF-05.2",
+  "result": "INCONCLUSIVE_SOURCE_DRIFT_NOT_ACCEPTED",
+  "sourceAcceptanceIsCertification": false,
+  "beforeSources": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "ea58fd2686ce21562c07baec3399761142831fd61e5e7d893e9fdb694324158f"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "infra\\modules\\data-postgres.bicep",
+      "sha256": "d12c9f0ebe2f8ce64048dcca2ffc11a32bf3a9e456470f60c6d00c644524edce"
+    },
+    {
+      "path": "infra\\modules\\data-managed-redis.bicep",
+      "sha256": "1dbe5460d450432cb4a0c89cfb0749bf277dffa4de1c604136b1fe878bd262ef"
+    },
+    {
+      "path": "services\\inventory-data\\docs\\data-api-warning-contract.v1.json",
+      "sha256": "1f4a5c2cf90c2360f850601a660607aaf591c39c5e9e44deb8101aa77921bc4f"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.mjs",
+      "sha256": "81dca723df713498f82a40c2eb8a03895b9568a3e782a2c1184b585f96e8d550"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\data-api-warnings.test.mjs",
+      "sha256": "55733f3b3faa475d1a817ed0ad2eda2956da4f9842f44d322f1a1ce21896b02d"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\Test-DataModules.ps1",
+      "sha256": "c5755d3d239211816795f91c536f89fab4c681066e5055eb37d401fc111ee799"
+    },
+    {
+      "path": "docs\\VERIFY.md",
+      "sha256": "4807b5af5eb66c6d937240ecc222197514152b2af0a0dcbab408bd7f930b3dbb"
+    },
+    {
+      "path": "config\\verification-register.v1.json",
+      "sha256": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716"
+    }
+  ],
+  "drift": [
+    {
+      "path": "config\\verification-register.v1.json",
+      "before": "ea58fd2686ce21562c07baec3399761142831fd61e5e7d893e9fdb694324158f",
+      "after": "e7084c639f2d71d9227dfc8490cea765fa35937b171b75580e9d6df666200716"
+    }
+  ],
+  "actualTests": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "tapSha256": "8c5e16dfbc0e34ccaec7a36a12f80abbd876dbfc216e7da775ce015853226c62"
+  },
+  "actualCompile": {
+    "compiledModules": 2,
+    "measuredBCP081": 6,
+    "unexpectedDiagnostics": 0
+  },
+  "limitation": "The shared register changed between before/after hashes. Passing old-epoch commands are not current source acceptance.",
+  "supersededBy": "evidence\\reviews\\swarm-20261102\\R8\\r6-inf05.2-v2-20261102\\receipt\\review.json",
+  "supersedingReviewSha256": "459ba8603bfd9dd70b4614722bb34641ba51838a06210ad4323c02e07bf2b80d",
+  "cleanup": "Compiler exited; unique historical templates/SARIF retained; no store/cloud mutation.",
+  "capturedAtUtc": "2026-11-02T22:11:14.525Z"
+}

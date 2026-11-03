@@ -3,6 +3,7 @@ dist/
 target/
 .cache/
 .java-work/
+.tools/
 .env
 .env.*
 !.env.example

@@ -1,0 +1,21 @@
+{
+  "schema": "contoso.owner-check.v1",
+  "ownerRole": "R4",
+  "ownerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "childId": "GATE-05.2",
+  "scope": "SOURCE_UNIT_ONLY_NOT_HOSTED_PR",
+  "tests": 6,
+  "passed": 6,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "exitCode": 0,
+  "sourcesStable": true,
+  "command": "node --test --test-reporter=tap tests\\java\\ci-java.test.mjs",
+  "node": "v22.23.4",
+  "tapSha256": "e081c1af9059f54dc3b549091cd694e9acc2293979f89d27c4331f16cffe6bab",
+  "hostedPrExecuted": false,
+  "javaReactorExecutedByThisPacket": false,
+  "sourceAcceptanceIsCertification": false,
+  "nextAction": "Two independent source/unit reviews; actual clean and seeded hosted pull-request runs remain To Do. No Azure operations."
+}

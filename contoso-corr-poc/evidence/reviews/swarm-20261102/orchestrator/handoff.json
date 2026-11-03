@@ -1,0 +1,397 @@
+{
+  "schema": "contoso.swarm-orchestrator-handoff.v1",
+  "status": "FROZEN_PARENT_FINAL_LOCAL_VALIDATION_RECORDED",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "orchestratorAgentId": "1ebe7a51-b442-482a-aa51-b8da393798a0",
+  "globalSourceFreezeClaimed": true,
+  "parentIntegratedValidationReady": true,
+  "finalMetadataReconciliation": {
+    "checkedAtUtc": "2026-11-03T00:40:17.301Z",
+    "result": "PASS_METADATA_ONLY",
+    "audit": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-final-metadata-audit-v1.json",
+    "revision": 76,
+    "parentFinalFullSuite": "659/659 passed, zero failed/skipped/cancelled",
+    "verbatimFailedAndSuccessfulLogsVerified": true,
+    "historical491And182FactsPreserved": true,
+    "productionSourceUnchangedByOrchestrator": true,
+    "orchestratorReranFullSuite": false,
+    "boardRehydrateAndCheck": "PASS: 78/0/0 parent columns, 47/0/5 child columns",
+    "reportInvalidateAndCheck": "PASS: eleven INVALIDATED criteria, zero live PASS, NOT CERTIFIED",
+    "sourceSnapshotEntries": 471,
+    "qualificationHistoryEntries": 1,
+    "allLeasesReleased": true,
+    "nextAction": "Parent performs only its last board/report checks after this writer release; no further implementation or peer dispatch."
+  },
+  "postIntegrationReconciliation": {
+    "result": "PARENT_FINAL_FULL_LOCAL_PASS_659_ZERO_FAILURE_SKIP_CANCEL",
+    "failedEpoch": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-integrated-failure-v1.json",
+    "preservedSessionLog": "C:\\Users\\chhage\\.copilot\\session-state\\1607b470-d5a0-496e-ad80-f22e65305333\\files\\swarm-node-validation-failed-20261103T000437817Z.log",
+    "logSha256": "fa700b6b31b03c25b0dc22b7954e95ec1b6791daa1c6904773e39c596724b9d7",
+    "parentFailedEpochCounts": { "tests": 656, "passed": 649, "failed": 2, "skipped": 5, "cancelled": 0 },
+    "parentFinalLocalEpoch": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\epoch.json",
+    "parentFinalCounts": { "tests": 659, "passed": 659, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "parentFinalDurationSeconds": 54.4384488,
+    "parentFinalSuccessfulStdoutSha256": "1c11a2717f974151997db2dfe65145ae298611fff40382283fe705e273a6628b",
+    "verbatimFailedAndSuccessfulRepoLogs": [
+      "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\failed-stdout.log",
+      "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\successful-stdout.log"
+    ],
+    "boundedCorrectionOwner": "R9",
+    "prospectiveReviewers": ["R1", "R7"],
+    "ownerFrozenCorrection": {
+      "request": "evidence\\reviews\\swarm-20261102\\R9\\demo01-integration-20261103\\owner-final-v3\\review-inputs.json",
+      "requestSha256": "21fa8b7ed31cb4df4739d5e93733cfc4b59b0ed51aabb9b0e9a5387eddee2c65",
+      "sourceInputs": 79,
+      "freshFocusedTests": 41,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "prospectiveBindingSha256": "a064083844ad91ad01a47f9ed3dcd52ad6afcd204aa2fd911fb67a7aa07bb794",
+      "historicalPinsAndReceiptsUnchanged": true,
+      "loadedCollectorAndPrivacyGuardsPreserved": true
+    },
+    "prospectiveReviewsReceived": [
+      {
+        "role": "R1",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R1\\demo01-integration-independent-v3-01\\execution\\review.json",
+        "sha256": "5c3bf510855f39f2c1e2c1d75623968a369dbf87589114977f3fd4ad4658bf2f",
+        "scopeSha256": "faf16d20c6262b4b122364fe6e2737429906bdfe1aaec64f9e3b2c908429615b",
+        "tests": 41, "failed": 0, "skipped": 0, "cancelled": 0,
+        "scope": "Source/unit correction only, not a native DEM-00.1 exit"
+      },
+      {
+        "role": "R7",
+        "artifact": "evidence\\reviews\\swarm-20261102\\R7\\demo01-integration-20261103-review-v3\\review.json",
+        "sha256": "bc991d31bb6da1331cd2604e2c3a098f4adc2a7966a61773425868d929cf63d0",
+        "scopeSha256": "faf16d20c6262b4b122364fe6e2737429906bdfe1aaec64f9e3b2c908429615b",
+        "tests": 41, "failed": 0, "skipped": 0, "cancelled": 0,
+        "scope": "Source/unit correction only, not a native DEM-00.1 exit"
+      }
+    ],
+    "prospectiveReviewsValidatedAgainstActualTapsAndAll79CurrentInputs": true,
+    "prospectiveReviewAudit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-prospective-review-audit-v1.json",
+    "allCorrectionSourceOutputPidLeasesReleased": true,
+    "finalClosureAudit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-correction-freeze-audit-v1.json",
+    "finalClosureCheckedAtUtc": "2026-11-03T00:32:46.686Z",
+    "boardAndReportClosure": "PASS, revision 75, five current source-only Done children, NOT CERTIFIED",
+    "parentTargetedAndFullRetryStatus": "PARENT_FULL_RETRY_EXECUTED_PASS_659_ORCHESTRATOR_DID_NOT_RERUN",
+    "affectedSourceAudit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-child-source-audit-v1.json",
+    "fiveDoneChildScopesStillCurrent": true,
+    "partialDemo02ReviewsMarkedHistoricalWithoutRehash": true,
+    "parentRetryWillUseExistingHashVerifiedBicep": {
+      "path": ".cache\\r6-tools\\bicep.exe",
+      "sha256": "398af294cf16ac4becdbd008a77d148d0e8e91492309a6b60ec911b7e1cab082",
+      "version": "0.48.1 (cec7951cf6)",
+      "parentSetBothEnvironmentBindingsAndPath": true,
+      "compilerTestsSkippedInFailedEpoch": 5,
+      "compilerTestsSkippedInSuccessfulEpoch": 0,
+      "allFivePreviouslySkippedCompilerTestsExecuted": true,
+      "installOrCloudOperationsRequired": false
+    },
+    "noNewParentOrNativeAuthority": true,
+    "priorScopedBoardAndReportPassesAreNotAWholeSuitePass": true,
+    "nextAction": "NEW parent 659/659 zero-skip local epoch and immutable failed/successful stdout are recorded; metadata board/report closure passes at revision 76. Parent performs its last board/report checks after this writer release. No additional full suite, source implementation, review dispatch, native or card acceptance is authorized."
+  },
+  "parentFinalLocalValidation": {
+    "executor": "Parent",
+    "command": "npm test -- --test-reporter=spec --test-concurrency=2",
+    "nodeVersion": "22.23.4",
+    "npmVersion": "10.9.9",
+    "tests": 659,
+    "passed": 659,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationSeconds": 54.4384488,
+    "epoch": "evidence\\reviews\\swarm-20261102\\orchestrator\\parent-validation-final-20261103T003542326Z\\epoch.json",
+    "rawStdoutCopiedVerbatimAndSha256Verified": true,
+    "parentIndependentBoardRegisterReportChecks": "PASS: five Done/47 To Do children, 78 To Do parents, 635 registered/OPEN, eleven INVALIDATED criteria, zero live PASS",
+    "sourceAcceptanceIsCertification": false,
+    "certificationStatus": "NOT CERTIFIED",
+    "historical491And182FactsPreserved": true
+  },
+  "historicalScopedFreeze": {
+    "checkedAtUtc": "2026-11-03T00:00:21.676Z",
+    "revision": 73,
+    "audit": "evidence\\reviews\\swarm-20261102\\orchestrator\\r1-resolved-freeze-audit.json",
+    "result": "Original scoped checks passed before the parent exposed the preserved full-suite source-binding regression."
+  },
+  "finalScopedFreeze": {
+    "checkedAtUtc": "2026-11-03T00:32:46.686Z",
+    "result": "PASS_SCOPED_CLOSURE_PARENT_FULL_RETRY_PENDING",
+    "audit": "evidence\\reviews\\swarm-20261102\\orchestrator\\post-integration-correction-freeze-audit-v1.json",
+    "revision": 75,
+    "focusedTests": 49,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "boardRehydrate": "PASS",
+    "boardCheck": "PASS",
+    "reportInvalidate": "PASS: eleven INVALIDATED, zero live PASS",
+    "reportCheck": "PASS: current source snapshot, NOT CERTIFIED",
+    "sourceSnapshotEntries": 471,
+    "qualificationHistoryEntries": 1,
+    "allNineRoleTriageReferencesExist": true,
+    "allNineSourceOutputPidLeasesReleased": true,
+    "blockingSourceOrWriterHandoffQuestions": []
+  },
+  "boundedOutstandingWork": {
+    "role": "R1",
+    "agentId": "d5bacc3f-769e-4dcd-a6d9-431858a8a9b0",
+    "child": "GATE-11.1",
+    "scope": "Resolved closeout of the already-owned static entry-point packet: inspection only, unimplemented at threshold STOP.",
+    "expectedFile": "contoso-corr-poc\\azure.yaml beside infra\\",
+    "lastScopedExpectedFileExists": false,
+    "handoffOrWriterReleaseReceived": true,
+    "status": "RESOLVED_INSPECTION_ONLY_NO_IMPLEMENTATION",
+    "implementationBegan": false,
+    "technicalBlockerEstablished": false,
+    "filesCreatedOrModified": 0,
+    "testsBuildsOrNativeCommandsRun": 0,
+    "acceptanceReceiptProduced": false,
+    "closeoutArtifact": "evidence\\reviews\\swarm-20261102\\orchestrator\\r1-final-handoff.json",
+    "peerReadAgentResult": "No agent found from the subagent context; this is not evidence that the parent-owned task was cleared.",
+    "nextAction": "No implementation or new review dispatch. Parent may start integrated validation after the final scoped checks. A future authorized reopened frontier must implement the still-missing entry point, execute missing-path/service/secret negatives, then obtain R3/R8 reviews.",
+    "boardTreatment": "Parent and child remain To Do because implementation never began before STOP, not because of an invented technical prerequisite. All R1 source/output/PID leases are explicitly released.",
+    "afterSourceChanges": "Recheck affected child source closures, re-run genuinely changed reviews rather than rehashing receipts, rehydrate/check the board, and invalidate/check the report again through this same orchestrator."
+  },
+  "ownedFiles": [
+    "contoso-corr-poc\\tools\\kanban.mjs",
+    "contoso-corr-poc\\tests\\kanban.test.mjs",
+    "contoso-corr-poc\\config\\board-state.json",
+    ".docs\\wiki\\Contoso_E2E_Correlation_POC_Backlog.md",
+    ".docs\\wiki\\Contoso_E2E_Correlation_POC_Kanban.md",
+    "contoso-corr-poc\\docs\\CERTIFICATION_REPORT.md",
+    "contoso-corr-poc\\evidence\\verification\\certification-assessment.json"
+  ],
+  "preservedAcceptanceMap": {
+    "file": "contoso-corr-poc\\config\\acceptance-scopes.json",
+    "orchestratorRewroteIt": false,
+    "initialDirtyWorkPreserved": true,
+    "backlogSemanticHash": "e19ad37583dbdb4bd6f1beea4236fb0c39d775d91e17612fe5488fb9601973a4",
+    "checkboxOnlySemanticHashUnchanged": true,
+    "originalParents": 78,
+    "originalChildren": 52,
+    "originalGates": 13,
+    "originalClauses": 281,
+    "requiredFacets": 491,
+    "ranksNeedsClauseTextsAndFacetRequirementsUnchanged": true,
+    "newRankedCardsOrChildrenAdded": 0
+  },
+  "counts": {
+    "baselineRevision": 61,
+    "baselineParents": { "To Do": 78, "In Progress": 0, "Done": 0 },
+    "baselineChildren": { "To Do": 52, "In Progress": 0, "Done": 0 },
+    "currentRevision": 76,
+    "currentParents": { "To Do": 78, "In Progress": 0, "Done": 0 },
+    "currentChildren": { "To Do": 47, "In Progress": 0, "Done": 5 },
+    "explicitChildRecords": 52,
+    "nativeOrHostedDependentChildExitsCompletedFromSourceOnlyChecks": 0
+  },
+  "transitions": [
+    {
+      "revision": 62,
+      "event": "Fresh independent identities reconciled, previous routing preserved as history, nine executable parent facets claimed with no waitingOn.",
+      "parents": { "To Do": 69, "In Progress": 9, "Done": 0 },
+      "children": { "To Do": 44, "In Progress": 8, "Done": 0 }
+    },
+    {
+      "revision": 64,
+      "event": "First independently reviewed local child exit recorded; parents and runtime facets remained incomplete.",
+      "parents": { "To Do": 71, "In Progress": 7, "Done": 0 },
+      "children": { "To Do": 44, "In Progress": 7, "Done": 1 }
+    },
+    {
+      "revision": 66,
+      "event": "All five current-evidence candidates temporarily held To Do after both reviewers reproduced the aggregate verifier defect. Passing 48 tests was explicitly rejected as implementation acceptance.",
+      "children": { "To Do": 47, "In Progress": 5, "Done": 0 }
+    },
+    {
+      "revision": 69,
+      "event": "Corrected aggregate verifier and actual CLI rejection routes independently accepted by R3/R5; five exact current-source exits republished only after both approvals.",
+      "parents": { "To Do": 74, "In Progress": 4, "Done": 0 },
+      "children": { "To Do": 43, "In Progress": 4, "Done": 5 }
+    },
+    {
+      "revision": 72,
+      "event": "Below-threshold stop; bounded review repairs drained, all source/runtime remainders explicitly To Do, unresolved R1 packet handed back to its parent owner without a false source freeze.",
+      "parents": { "To Do": 78, "In Progress": 0, "Done": 0 },
+      "children": { "To Do": 47, "In Progress": 0, "Done": 5 }
+    },
+    {
+      "revision": 73,
+      "event": "R1 final closeout confirmed inspection only, zero files/tests/builds/native commands, no technical blocker, and all leases released. No implementation or review packet was reopened; parent integration may proceed after scoped checks.",
+      "parents": { "To Do": 78, "In Progress": 0, "Done": 0 },
+      "children": { "To Do": 47, "In Progress": 0, "Done": 5 }
+    }
+  ],
+  "historicalActivityCorrection": {
+    "historicalBoardCountsAreRecordedClaimsNotActivityProof": true,
+    "initialRecordedImplementationClaims": 9,
+    "knownRolesThatActuallyImplemented": 8,
+    "R1InspectionOnlyExcludedFromGenuineImplementation": true,
+    "earlierClaimBasedStopEstimate": 2,
+    "genuineOwnersAtDispatchStopAfterCloseoutCorrection": 1,
+    "pastCountsRetainedRatherThanSilentlyRewritten": true
+  },
+  "reviewedCompletedChildren": [
+    {
+      "id": "GATE-05.1",
+      "authorRole": "R4",
+      "reviewers": ["R6", "R9"],
+      "actualFocusedTestsPerReviewer": 8,
+      "sourceInputs": 12,
+      "scopeSha256": "57c358fbdab416f0337b809e3e2a213f2aebeed6d1126d0dadcd08fd42f49eba",
+      "evidenceLocation": "config\\board-state.json#childRecords.GATE-05.1",
+      "scope": "Six-script portable-root construction only; not deployed JDK/provider or hosted CI."
+    },
+    {
+      "id": "INF-06.1",
+      "authorRole": "R5",
+      "reviewers": ["R3", "R6"],
+      "actualFocusedTestsPerReviewer": 12,
+      "sourceInputs": 7,
+      "scopeSha256": "624d1254c5ceac585e0d05bf89d7767a4b7d0bcffd11b7ce71f8198aba2047b1",
+      "evidenceLocation": "config\\board-state.json#childRecords.INF-06.1",
+      "scope": "Actual pinned compiler/resolver controls; missing-compiler subprocess skips remain explicit, never compiler passes."
+    },
+    {
+      "id": "INF-05.2",
+      "authorRole": "R6",
+      "reviewers": ["R4", "R8"],
+      "actualFocusedTestsPerReviewer": 6,
+      "actualBicepModulesPerReviewer": 2,
+      "expectedAndMeasuredBCP081WarningsPerReviewer": 6,
+      "sourceInputs": 8,
+      "scopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c",
+      "evidenceLocation": "config\\board-state.json#childRecords.INF-05.2",
+      "scope": "Warning/VERIFY source guard only; provider properties, deployment, GA/support and connectivity remain unverified.",
+      "historicalDriftRetained": "Version-one register drift caused acceptance to be withheld; version two was actually re-executed at the final register epoch."
+    },
+    {
+      "id": "DAT-01.2",
+      "authorRole": "R6",
+      "reviewers": ["R4", "R8"],
+      "actualFocusedTestsPerReviewer": 11,
+      "sourceInputs": 9,
+      "scopeSha256": "634fb3b9e8924548b040d36b3604412bd6ee7dd262c0c4b4c0c8b6eaf069b233",
+      "evidenceLocation": "config\\board-state.json#childRecords.DAT-01.2",
+      "scope": "Portable fixture prerequisite/source controls only; no fixture lifecycle, PostgreSQL, Redis or native rerun."
+    },
+    {
+      "id": "IDN-01.2",
+      "authorRole": "R8",
+      "reviewers": ["R4", "R5"],
+      "actualFocusedTestsPerReviewer": 13,
+      "sourceInputs": 9,
+      "scopeSha256": "d4c267a6842ce2173b43896f2aa2f2e9620e94591194e9077a29c2842344c81a",
+      "evidenceLocation": "config\\board-state.json#childRecords.IDN-01.2",
+      "scope": "Explicit AV-23 tool-root prerequisite controls only; installed-agent, per-JVM, Portal wire and native identity proof remain To Do."
+    }
+  ],
+  "lifecycleValidation": {
+    "toolsSha256": "21bef385253b8656f73d66fd161c78d089ceb8268dfe3d9aa68c870034a4346d",
+    "testsSha256": "a9a49ba2c2b60e996d70bcca6b3f7ef07bb8594e2fa13702350795f5ebb32d13",
+    "rejectedOldToolsSha256": "d54ab48af3f1d4e7b50873e73141e86c1d27164d8d7de7898059301d6a760e8e",
+    "oldPassingUnitTestsDidNotProveAcceptance": 48,
+    "actualPreFixAggregateRegression": { "tests": 2, "passed": 0, "failed": 2, "skipped": 0 },
+    "actualCorrectedFocusedRun": { "tests": 49, "passed": 49, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "independentCurrentReviewerRoles": ["R3", "R5"],
+    "independentActualCopiedCliPositiveCommands": 9,
+    "independentActualCopiedCliRejectedCommands": 9,
+    "rejectedRoutes": ["Missing Done-child receipt", "Reviewed source drift", "TAP printed-PASS or hash tampering"],
+    "allParentsToDoAndZeroParentUnitPassCoveredByActualCliTests": true,
+    "redArtifact": "aggregate-child-regression-red.tap",
+    "finalFocusedArtifact": "board-tests-v10-post-integration-correction.tap",
+    "reviews": [
+      "evidence\\reviews\\swarm-20261102\\R3\\review-orchestrator-lifecycle-v2-20261102T221516452Z-fea6e52c-0346-4e44-8424-84becd429ca9\\assessment.json",
+      "evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\assessment.v2.json"
+    ],
+    "parentCompletionRulesUnchanged": true,
+    "rootLiveExecutorMapStillEmpty": true
+  },
+  "boundedReviewDefectsAndClosures": [
+    "R3 GATE-01 XML-entity RequestId/flag-surgery bypass: actual red retained, current source owner and R2/R8 each 35/35; parent/native proof remains To Do.",
+    "Lifecycle aggregate placement: child verification moved unconditionally once outside parent facet loops; both independent real CLI matrices reject missing/tampered evidence even with every parent To Do.",
+    "WEB-01.1: actual Create-order versus required Run-demo mismatch fixed, then immutable-input/preflight/environment-cleanup repair; both R3/R7 current 12/12 real Chromium source controls, but no actual JVM pair or parent join.",
+    "Demo03 inspector awaited caller-array mutation fixed; both R2/R8 seven-test current source checks. No createAdapter/native completion.",
+    "Java CI cancelled-only counts: original five-case report incorrectly printed five passes plus one cancelled; corrected source prints four passes/one cancelled and fails the job. R6/R9 each replayed six focused tests and the manual five-case regression. Hosted CI never ran.",
+    "OBS-02.2 mixed provenance: original genuine HTTP six plus caller one incorrectly labelled all seven real-local; corrected mixed input downgrades all to structural/fixture, pure original six retain loopback-transport-only provenance. Owner and both R2/R9 75/75, with actual red/manual replay retained. No actual browser/JVM merge.",
+    "PostgreSQL marker row-lock privilege: bounded Inventory-only SELECT plus UPDATE(singleton), after REVOKE ALL, with safe contracts and read-only provenance checks. Actual PostgreSQL/Redis execution remains zero; source/H2/SET ROLE are not Entra proof."
+  ],
+  "remainingToDoBlockers": [
+    "GATE-11.1 and other R1 source children remain unimplemented at threshold STOP. R1 established no technical blocker, changed no files and ran no tests; its explicit release now clears source integration, not child acceptance.",
+    "GATE-06.1, GATE-13.1, GOV-01.1 and CRT-03.1 have current owner/R7 source evidence but lack the second required R1 review, so are not checked Done.",
+    "Hosted clean/seeded PR runs are missing for GATE-03.1, GATE-05.2 and GATE-12.1. Workflow source/unit checks cannot substitute.",
+    "JVM-01.1 launcher was never implemented or started. Actual WEB-01.1 ingress/emitted parent join, OBS-02.2 complete local capture and R1 local rehearsal remain To Do.",
+    "ARC-01.1, GATE-11.2 and GATE-08.1 were not delivered; new architecture/invariant/runtime work was not dispatched below threshold.",
+    "DAT-01.3 and DAT-02.1 have source/preflight and safe Java contracts, but zero actual real-store runs; approved targets/tools, effective ACL/adapter operations and cleanup remain mandatory.",
+    "GATE-02.1 current loader remains deliberately unenrolled/UNVERIFIED despite retained actual local test/build records and two source-consistency reviews; copied JSON or source votes cannot mint authority.",
+    "All native targets/observers/privacy/sampling/loss/load/cost/Entra/KV/broker/store and accountable-owner acceptance remain unmet. Prior scoped target absence is historical, not a new runtime lookup.",
+    "All 635 registered VERIFY numeric/support/deployed claims remain OPEN; the two beta-package classifications do not grant GA/support/deployed acceptance.",
+    "All 52 child records carry their exact next actions/waiting inputs; all 78 parent needs edges and required facets remain intact."
+  ],
+  "actualOrchestratorCommands": [
+    { "command": "node --test --test-reporter=tap tests\\kanban.test.mjs", "result": "49 passed, zero failed/skipped/cancelled on final scoped run; not the configured full root suite" },
+    { "command": "npm run board:rehydrate", "result": "PASS, revision 76 final metadata-only recording; 78/0/0 parent columns, 47/0/5 child columns" },
+    { "command": "npm run board:check", "result": "PASS, actual artifacts/TAP/current sources verified; all 52 original child records explicit" },
+    { "command": "node tools\\verification\\report.mjs --invalidate", "result": "11 INVALIDATED, zero live PASS; NOT CERTIFIED" },
+    { "command": "node tools\\verification\\report.mjs --check", "result": "PASS after final parent-result metadata/source refresh; NOT CERTIFIED, eleven INVALIDATED and zero live PASS" },
+    { "command": "git diff --check -- owned MJS/tests/board JSON/assessment JSON", "result": "PASS; Git emitted LF-to-CRLF notices, no source formatting errors" },
+    { "command": "verifyEvidence(cards, currentState) and visible construction-link existence check", "result": "PASS: five Done-child scopes current; seventeen linked partial evidence artifacts existed" }
+  ],
+  "certificationOutputPreservation": {
+    "backupDirectory": "evidence\\reviews\\swarm-20261102\\orchestrator\\report-before-20261102T230002203Z",
+    "priorMarkdownBytes": "certification-report.txt",
+    "priorAssessmentBytes": "certification-assessment.json",
+    "audit": "preservation-audit.json",
+    "unknownAssessmentKeysLost": [],
+    "constructionNotesPreserved": true,
+    "qualificationHistoryEntries": 1,
+    "sourceSnapshotEntries": 470,
+    "nativeCriteria": 11,
+    "nativeCriteriaInvalidated": 11,
+    "nativeCriteriaLivePassed": 0,
+    "sourceAcceptanceIsCertification": false
+  },
+  "threshold": {
+    "totalSwarmIncludingOrchestrator": 10,
+    "minimumGenuineImplementationOwners": 4,
+    "initialClaimedImplementationOwners": 9,
+    "knownRolesThatActuallyImplemented": 8,
+    "R1InspectionOnlyExcludedFromGenuineCounts": true,
+    "earlierClaimBasedStopEstimate": 2,
+    "genuineOwnersAtDispatchStopAfterCloseoutCorrection": 1,
+    "reviewingWaitingAndBlockedExcluded": true,
+    "boundedReviewRepairsDrainedWithoutFreshParentDispatch": true,
+    "currentActiveBoardImplementationOwners": 0,
+    "newRuntimeArchitectureAndLocalPairNotStarted": true
+  },
+  "workerFinalTriageReferences": {
+    "R1": "evidence\\reviews\\swarm-20261102\\orchestrator\\r1-final-handoff.json",
+    "R2": "evidence\\reviews\\swarm-20261102\\R2\\final-triage-v4-20261102T223617347Z-d4174108-aafe-4ee6-8efa-8f3150095bb8\\queue-triage.json",
+    "R3": "evidence\\reviews\\swarm-20261102\\R3\\final-triage-20261102T222443072Z-2e50fd04-88c5-4592-ae60-5039d68e118e\\handoff.json",
+    "R4": "evidence\\reviews\\swarm-20261102\\R4\\final-triage\\handoff.json",
+    "R5": "evidence\\reviews\\swarm-20261102\\R5\\INF-06.1-20261102T215539107Z-0da68d65\\final-triage.v4.json",
+    "R6": "evidence\\reviews\\swarm-20261102\\R6\\final-data-triage-v1.json",
+    "R7": "evidence\\reviews\\swarm-20261102\\R7\\final-own-handoff-v1\\handoff.json",
+    "R8": "evidence\\reviews\\swarm-20261102\\R8\\queue-triage-20261102-v3.json",
+    "R9": "evidence\\reviews\\swarm-20261102\\R9\\final-handoff-v1\\triage.json"
+  },
+  "leaseAndAuthorizationLimits": {
+    "orchestratorOwnedCodeFrozen": true,
+    "orchestratorMetadataAndReportLeaseReleasedOnThisHandoff": true,
+    "otherEightWorkerSourceOutputPidLeasesReleased": true,
+    "allNineWorkerSourceOutputPidLeasesReleased": true,
+    "R1WriterReleaseAssumed": false,
+    "R1WriterReleaseExplicitlyReceived": true,
+    "orchestratorStartedPersistentHelpers": false,
+    "orchestratorRanFullNpmSuite": false,
+    "orchestratorRanMaven": false,
+    "azureDeploymentSpendingTrafficOrSecretsAuthorized": false,
+    "newAgentsLaunchedByOrchestrator": 0,
+    "commitsOrPushes": 0,
+    "historicalAgentIdsRevived": false
+  }
+}

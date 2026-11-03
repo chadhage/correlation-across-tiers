@@ -1,0 +1,20 @@
+{
+  "before": {
+    "contoso-corr-poc\\tests\\messaging\\infra.test.mjs": "f7e85e014b2d45ecfe90ddfee35197a13229d9b51f4847c28e0a0b200f30bf32",
+    "contoso-corr-poc\\infra\\modules\\messaging.bicep": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+    "contoso-corr-poc\\infra\\modules\\messaging-roles.bicep": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c"
+  },
+  "after": {
+    "contoso-corr-poc\\tests\\messaging\\infra.test.mjs": "f7e85e014b2d45ecfe90ddfee35197a13229d9b51f4847c28e0a0b200f30bf32",
+    "contoso-corr-poc\\infra\\modules\\messaging.bicep": "bb881531e1076404fbe9571d1c980336c4d094dcf20e0fd5ae983b18bb2bac8c",
+    "contoso-corr-poc\\infra\\modules\\messaging-roles.bicep": "92c621b0006d328efc61daf517e1ca99c844627f5c7bc1c5a02ee810d48ad46c"
+  },
+  "runtime": "v22.23.4",
+  "schema": "contoso.r5-check.v1",
+  "role": "R5",
+  "exitCode": 0,
+  "agentId": "a20e70fa-6785-4537-88bf-6bd024fd2d5e",
+  "command": "node --test --test-reporter=tap contoso-corr-poc\\tests\\messaging\\infra.test.mjs",
+  "nativeAcceptance": false,
+  "kind": "pre-change-observation"
+}

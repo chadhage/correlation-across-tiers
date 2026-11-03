@@ -1,0 +1,2 @@
+JAVA_TEST_TOTALS {"tests":5,"executed":5,"passed":5,"failures":0,"errors":0,"skipped":0,"cancelled":1,"reports":5}
+JAVA_REQUIRED_AGENT_TESTS 5

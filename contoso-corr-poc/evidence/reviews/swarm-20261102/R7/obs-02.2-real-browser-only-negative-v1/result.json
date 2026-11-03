@@ -1,0 +1,34 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R7",
+  "ownerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "profile": "LOCAL REHEARSAL",
+  "sourceAcceptanceIsCertification": false,
+  "nodeVersion": "v22.23.4",
+  "collectorSourceSha256": "d6cb0e0cf56f9dacb43e074d11b08aeefd23b312de43e63e1ba0c43a4b861fff",
+  "inputFiles": [
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R2\\web01-local-browser-source-20261102T220509916Z-3e221b24-5676-428e-9221-0ecdf0daa927\\browser-only\\browser-evidence.json",
+      "sha256": "711107268ac4d9489c191ea7ac2585e424ec70412e6fc298d5de23ba6615f8e7"
+    },
+    {
+      "path": "evidence\\reviews\\swarm-20261102\\R2\\web01-local-browser-source-20261102T220509916Z-3e221b24-5676-428e-9221-0ecdf0daa927\\browser-only\\browser-telemetry.ndjson",
+      "sha256": "71c8734bf4a5609f99895ddf07567d611e24312cc57047856bb4f303555584e1"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f"
+    }
+  ],
+  "actualBrowserEnvelopes": 2,
+  "actualJvmEnvelopes": 0,
+  "expectedFailureCode": "C_MISSING_HOP",
+  "actualFailureCode": "C_MISSING_HOP",
+  "detail": "C_MISSING_HOP: Missing observed edge storefront.http -> orders.request",
+  "result": "EXPECTED_FAILURE",
+  "sourceScope": "ACTUAL_BROWSER_CAPTURE_AGAINST_HTTP_TEST_RESPONDER_ONLY_NOT_JVM",
+  "positiveLocalChainExecuted": false,
+  "completedChildCandidate": false,
+  "nativeEvidence": false,
+  "cleanup": "No server/process or application request was started; read-only structural negative on preserved captured files."
+}

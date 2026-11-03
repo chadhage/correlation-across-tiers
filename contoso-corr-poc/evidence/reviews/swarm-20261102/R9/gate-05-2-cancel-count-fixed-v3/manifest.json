@@ -1,0 +1,19 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "actual-bounded-checker-negative-control-resolution",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "resolution.json",
+      "sha256": "4b1b18c48b5e438a421069d806ca70238fa5fba52140045d618639cac34ce1a6"
+    },
+    {
+      "path": "stderr.txt",
+      "sha256": "0972c1a9bf9a14f0128fdf49f28929a834f32db6af9f82738e3738124aa107a9"
+    },
+    {
+      "path": "stdout.txt",
+      "sha256": "4b00ddd89f3936f50c6d10d7730a6df4c8af3c713a34b6756c16891d14d09a56"
+    }
+  ]
+}

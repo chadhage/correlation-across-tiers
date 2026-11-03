@@ -1,0 +1,26 @@
+[
+  {
+    "suite": "com.contoso.inventory.data.InventoryGrantMarkerTest",
+    "tests": 2,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "originalXmlSha256": "cbc13ae6ebf2c0f1567115339de8c3d3cff1c53bf9202f51279e6cb8750f6c4b"
+  },
+  {
+    "suite": "com.contoso.inventory.data.LocalPostgresLaneContractTest",
+    "tests": 7,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "originalXmlSha256": "465c58d99fa913612c435f1e5cae27717623f48bedb463b34da865fd71feb421"
+  },
+  {
+    "suite": "com.contoso.inventory.data.WorkflowGrantPolicyTest",
+    "tests": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "originalXmlSha256": "a79edf48376639c9da71addf8aabdf850d0a56519f3923d68ff3ff0c153ac4c4"
+  }
+]

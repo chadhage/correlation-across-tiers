@@ -1,0 +1,41 @@
+{
+  "schema": "contoso.r6-private-sampler-witness.v1",
+  "reviewerAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "authorAgent": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "measuredAtUtc": "2026-11-02T22:24:12.3973855Z",
+  "epoch": "evidence\\verification\\linked-root-sampling\\current-source\\20261102T221357375Z-dbde0a8e-ce7c-46e6-98b2-6f00ce7613b2",
+  "manifestSha256": "c9c5783f8a840f17cbc3e6ed4a3e1378b392801c3778b7af15b65b4262f050ee",
+  "scope": "PRIVATE_FROZEN_LOCAL_BUILD_CONSISTENCY_ONLY",
+  "result": "ACCEPTED_BOUNDED_FROZEN_EPOCH_NOT_NATIVE_AUTHORITY",
+  "verifiedManifestPayloads": 11,
+  "verifiedSourceFiles": 168,
+  "verifiedCompiledClassAndResourceFiles": 152,
+  "verifiedRuntimeJars": 96,
+  "recordedSourceBeforeAfterEqual": true,
+  "allListedCurrentFileHashesMatch": true,
+  "originalSamplerXmlSha256": "d9bd04c54f176671067b5fa8775457c875c60f99500fa9eb9ea5e6496291ca08",
+  "actualSamplerTests": 1,
+  "actualSamplerFailures": 0,
+  "actualSamplerErrors": 0,
+  "actualSamplerSkipped": 0,
+  "samplerSeconds": 94.211,
+  "retainedObservationCases": 3,
+  "retainedUniqueSuccessfulChildPids": 5,
+  "javaAgentExtensionFileHashesVerified": true,
+  "postEpochNewTestOnlySourceFiles": [
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+    "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java"
+  ],
+  "postEpochFilesNotRetrofittedOrClaimedExecuted": true,
+  "rawXmlCopied": false,
+  "notVerified": [
+    "Independent live PID observation by this reviewer",
+    "Complete per-loaded-class/JVM provider enumeration",
+    "Current-source inclusion or execution of the two post-epoch Redis test files",
+    "Azure/native/live executor enrollment",
+    "Actual PostgreSQL/Redis/Entra connectivity or grants"
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "nativeExecutionAuthority": false,
+  "currentLiveMapEnrollment": false
+}

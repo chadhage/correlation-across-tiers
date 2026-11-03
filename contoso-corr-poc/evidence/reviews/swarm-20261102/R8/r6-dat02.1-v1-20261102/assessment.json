@@ -1,0 +1,116 @@
+{
+  "schema": "contoso.r8-source-assessment.v1",
+  "reviewerRole": "R8",
+  "reviewerAgentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "authorRole": "R6",
+  "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "childId": "DAT-02.1",
+  "result": "ACCEPTED_EXACT_SOURCE_CONFIGURATION_ONLY_REAL_REDIS_NOT_EXECUTED",
+  "childStatus": "To Do",
+  "findings": [],
+  "formalReviewPath": "receipt\\review.json",
+  "formalReviewSha256": "724977c97c1fa3ead1117a0dc202278cd738b2e13d4e8f56ea9a56cd4cca7a91",
+  "sourceScopeSha256": "721726fc0665122cc3668e928718fec864f2b4e8d0971b28b4dfb5cb6ef44b68",
+  "formalSourcesStable": true,
+  "finalObservedSources": [
+    {
+      "path": "tools\\data\\local-redis-preflight.mjs",
+      "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d"
+    },
+    {
+      "path": "tools\\data\\local-redis-preflight.test.mjs",
+      "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49"
+    },
+    {
+      "path": "tools\\data\\LocalRedisLane.md",
+      "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+      "sha256": "e1e5969af1a6ce50e41660e659494c6f00fce1f8dfd1de35a588a78a285cf35d"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+      "sha256": "e0ff4d63799ee265f1f97a080f315c25b7d90a6566c131f1d528c886d6373ec6"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+      "sha256": "ca73abdcb0cfe5598fcb6ca80df894eec8794babd74aa9515ddc1cd8b22ee372"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+    }
+  ],
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R8\\r6-dat02.1-v1-20261102\\request.json",
+    "nodeVersion": "v22.23.4",
+    "tests": 12,
+    "pass": 12,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "javaTestsRunByR8": 0,
+    "realRedisTestsRun": 0,
+    "networkConnectionsByR8": 0,
+    "defaultPreflightExit": 2,
+    "defaultPreflightStatus": "BLOCKED",
+    "validPreflightExit": 0,
+    "validPreflightStatus": "INPUTS_VALID_NOT_CONNECTED",
+    "validPreflightRealStoreExecuted": false,
+    "credentialsUsed": "Synthetic local canary only; inherited CONTOSO_LOCAL_REDIS_* variables removed by the test child harness."
+  },
+  "sourceFindings": [
+    "Preflight is a pure validator with no networking imports; explicit approval, numeric127.0.0.1, actual10000 port and canonical nonzero run UUID are mandatory. Returned settings never include username/password.",
+    "The real Java lane is explicit rather than default Test discovery; its parser mirrors the preflight, uses fixed loopback/port/database0 and confines no-TLS configuration to test source.",
+    "Existing production LettuceInventoryCache, RestorableInventoryCache, OwnedInventoryCache, module manifest and version lock remain byte-unchanged.",
+    "The unexecuted real lane requires INFO server product/version>=7 and standalone mode, then injects real Lettuce connections into the unchanged cache adapter. It checks declared GET/SETEX/DEL,TTL,PXAT,canonical/error-safety and one witness; those are not measured by this source review.",
+    "Only three bounded run-UUID keys can be constructed. NX claims precede ledger enrollment; cleanup verifies the live lease/value ledger under WATCH, deletes only successfully claimed exact keys in MULTI/EXEC, rejects discarded transactions and verifies absence.",
+    "Cleanup never uses broad scan/flush/script/config/ACL commands. Unknown acknowledgement and failed cleanup are not replayed; finite seeded TTLs and an independent external exclusive run lease are documented.",
+    "Clients/resources have bounded shutdown. Local TCP/password configuration and INFO are not Managed Redis/TLS/Entra/token-refresh/per-app identity proof."
+  ],
+  "measuredPositiveControls": [
+    "Explicit valid preflight returns INPUTS_VALID_NOT_CONNECTED and realStoreExecuted=false",
+    "Synthetic optional credential inputs are accepted without being returned or printed",
+    "Actual source-policy assertions retain the production adapter and exact-key cleanup form"
+  ],
+  "measuredNegativeControls": [
+    "Default CLI fails with exit2 BLOCKED, never skip/store success",
+    "Missing opt-in/target fields, remote/DNS/wildcard/tunnel-shaped hosts, wrong port and malformed/noncanonical/zero UUID reject",
+    "Malformed optional credentials reject without echo",
+    "Injected RESP/H2/proxy sources and removal of INFO product check reject"
+  ],
+  "unexecutedAssertions": [
+    "Java compilation/default-safe LocalRedisLaneContractTest",
+    "Actual Redis product/operations/TTL/PXAT/privacy behavior",
+    "Actual NX collision, WATCH conflict, exact cleanup and client-resource lifecycle behavior"
+  ],
+  "remainingPrerequisites": [
+    "R4-exclusive Java compilation and default-safe LocalRedisLaneContractTest result",
+    "An independently approved existing standalone Redis>=7 instance at actual127.0.0.1:10000 and external exclusive run lease",
+    "Actual LocalRedisLane execution plus independent real-store and exact-cleanup review; child remains To Do",
+    "Managed Redis EnterpriseCluster/TLS/Entra/identity/provider/native telemetry qualification remains separate and unproven"
+  ],
+  "cleanup": "R8 ran only Node pure-source/configuration checks; preflight children exited; no Java/Maven/Redis/server/helper/store/network process or connection was started.",
+  "sourceEditsByReviewer": false,
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "capturedAtUtc": "2026-11-02T22:23:36.221Z"
+}

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: SOURCE ONLY: real PostgreSQL lane is explicit, loopback-only and excluded from default Surefire name patterns
+ok 1 - SOURCE ONLY: real PostgreSQL lane is explicit, loopback-only and excluded from default Surefire name patterns
+  ---
+  duration_ms: 2.3337
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter
+ok 2 - SOURCE ONLY: actual V001 and shared production grant statements feed the real adapter
+  ---
+  duration_ms: 1.4059
+  type: 'test'
+  ...
+# Subtest: CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification
+ok 3 - CONTROL: real-store policy rejects H2, RESP, proxies and missing PostgreSQL product verification
+  ---
+  duration_ms: 9.391
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: cleanup adopts no existing state and drops only successfully created exact run-owned objects
+ok 4 - SOURCE ONLY: cleanup adopts no existing state and drops only successfully created exact run-owned objects
+  ---
+  duration_ms: 0.7173
+  type: 'test'
+  ...
+# Subtest: SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field
+ok 5 - SOURCE ONLY: PostgreSQL row-lock grant preserves every marker provenance field
+  ---
+  duration_ms: 17.4397
+  type: 'test'
+  ...
+# Subtest: DOCUMENTATION ONLY: unexecuted real PostgreSQL requirements are not H2, Redis, Entra or native proof
+ok 6 - DOCUMENTATION ONLY: unexecuted real PostgreSQL requirements are not H2, Redis, Entra or native proof
+  ---
+  duration_ms: 14.9889
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 262.7659

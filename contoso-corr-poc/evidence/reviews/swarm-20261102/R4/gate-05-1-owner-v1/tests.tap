@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: all six portable scripts reject machine/session defaults and use the shared convention
+ok 1 - all six portable scripts reject machine/session defaults and use the shared convention
+  ---
+  duration_ms: 11.6665
+  type: 'test'
+  ...
+# Subtest: unset root resolves to this repository, and missing tools stop explicitly before Maven
+ok 2 - unset root resolves to this repository, and missing tools stop explicitly before Maven
+  ---
+  duration_ms: 6121.3659
+  type: 'test'
+  ...
+# Subtest: explicit root beats the environment and preserves spaced paths with locked versions
+ok 3 - explicit root beats the environment and preserves spaced paths with locked versions
+  ---
+  duration_ms: 1132.1547
+  type: 'test'
+  ...
+# Subtest: environment root is honored and both archive hashes are rechecked before reuse
+ok 4 - environment root is honored and both archive hashes are rechecked before reuse
+  ---
+  duration_ms: 8307.7388
+  type: 'test'
+  ...
+# Subtest: portable installation rejects a changed archive before extraction or download
+ok 5 - portable installation rejects a changed archive before extraction or download
+  ---
+  duration_ms: 1461.5386
+  type: 'test'
+  ...
+# Subtest: agent lookup honors the root, checks checksum and size, and never needs network for existing bytes
+ok 6 - agent lookup honors the root, checks checksum and size, and never needs network for existing bytes
+  ---
+  duration_ms: 3188.4552
+  type: 'test'
+  ...
+# Subtest: Bicep install honors the root and rejects a changed compiler before executing it
+ok 7 - Bicep install honors the root and rejects a changed compiler before executing it
+  ---
+  duration_ms: 1556.3297
+  type: 'test'
+  ...
+# Subtest: Gate-05 carries the explicit root to the agent and keeps its extension verification
+ok 8 - Gate-05 carries the explicit root to the agent and keeps its extension verification
+  ---
+  duration_ms: 1.1775
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21982.9949

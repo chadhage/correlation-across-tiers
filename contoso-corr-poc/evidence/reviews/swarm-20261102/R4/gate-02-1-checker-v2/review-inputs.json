@@ -1,0 +1,36 @@
+{
+  "authorRole": "R4",
+  "childIds": [
+    "GATE-02.1"
+  ],
+  "sourcePaths": [
+    "tests\\verification\\current-sampling-qualification.test.mjs",
+    "tests\\verification\\sampling-fixture.mjs",
+    "tests\\verification\\sampling-qualification.test.mjs",
+    "tools\\observability\\raw-query.mjs",
+    "tools\\observability\\sampler-native-intake.mjs",
+    "tools\\observability\\telemetry-contract.mjs",
+    "tools\\security\\av23-check.mjs",
+    "tools\\security\\native-payload.mjs",
+    "tools\\security\\values.mjs",
+    "tools\\verification\\conditional-observer.mjs",
+    "tools\\verification\\files.mjs",
+    "tools\\verification\\invariants.mjs",
+    "tools\\verification\\observers.mjs",
+    "tools\\verification\\sampling-qualification.mjs",
+    "tools\\verification\\trust-roots.mjs"
+  ],
+  "testFiles": [
+    "tests\\verification\\current-sampling-qualification.test.mjs",
+    "tests\\verification\\sampling-qualification.test.mjs"
+  ],
+  "positiveTests": [
+    "current-source decision checker accepts complete ALL0/ALL1/MIX controls without granting authority"
+  ],
+  "negativeTests": [
+    "seeded sampler source drift or omitted provider/class input returns UNVERIFIED",
+    "skipped assertions, stale build identity and absent runtime dependencies fail closed",
+    "caller JSON, copied metadata and checker labels cannot enroll a current-source execution",
+    "qualification routing rejects accessors before reading owner or current-route labels"
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R4",
+  "reviewerAgentId": "ba7ff3e3-f822-40e3-9e94-21bc8cef771a",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tools\\data\\local-redis-preflight.mjs",
+      "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\local-redis-preflight.test.mjs",
+      "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\LocalRedisLane.md",
+      "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+      "sha256": "e1e5969af1a6ce50e41660e659494c6f00fce1f8dfd1de35a588a78a285cf35d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+      "sha256": "e0ff4d63799ee265f1f97a080f315c25b7d90a6566c131f1d528c886d6373ec6",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+      "sha256": "ca73abdcb0cfe5598fcb6ca80df894eec8794babd74aa9515ddc1cd8b22ee372",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tools\\data\\local-redis-preflight.mjs",
+      "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\local-redis-preflight.test.mjs",
+      "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\data\\LocalRedisLane.md",
+      "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+      "sha256": "e1e5969af1a6ce50e41660e659494c6f00fce1f8dfd1de35a588a78a285cf35d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+      "sha256": "e0ff4d63799ee265f1f97a080f315c25b7d90a6566c131f1d528c886d6373ec6",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+      "sha256": "ca73abdcb0cfe5598fcb6ca80df894eec8794babd74aa9515ddc1cd8b22ee372",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+      "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+      "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+      "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "services\\inventory-data\\pom.xml",
+      "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "config\\versions.lock.json",
+      "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R6",
+      "authorAgentId": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+      "result": "accepted",
+      "scopeSha256": "721726fc0665122cc3668e928718fec864f2b4e8d0971b28b4dfb5cb6ef44b68",
+      "sources": [
+        {
+          "path": "tools\\data\\local-redis-preflight.mjs",
+          "sha256": "18f318a2a5d7fe998ea710bdfbe75852a72df23f148b2136d862d72647ead72d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\data\\local-redis-preflight.test.mjs",
+          "sha256": "9744f3bb0245c79d42fa5f1322982f45d21ae8569589cfff5935f6222788ab49",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\data\\LocalRedisLane.md",
+          "sha256": "41f4c19e1811ce89cad3f735092c2f915085d6542ec069c99e2a8d40ab2e1e9b",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLane.java",
+          "sha256": "e1e5969af1a6ce50e41660e659494c6f00fce1f8dfd1de35a588a78a285cf35d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalRedisLaneContractTest.java",
+          "sha256": "e0ff4d63799ee265f1f97a080f315c25b7d90a6566c131f1d528c886d6373ec6",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+          "sha256": "ca73abdcb0cfe5598fcb6ca80df894eec8794babd74aa9515ddc1cd8b22ee372",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\LettuceInventoryCache.java",
+          "sha256": "0dffb70479d2842dd0d54e10408d49a964841581edd7ad8225e0b93d4be9cdc4",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
+          "sha256": "6271cc38ed941b8959f3dd57ee92a1dc408f6005d760ebbd51f3ddcf773bd751",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+          "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63",
+          "hashMode": "raw"
+        },
+        {
+          "path": "services\\inventory-data\\pom.xml",
+          "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "config\\versions.lock.json",
+          "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tools\\data\\local-redis-preflight.test.mjs services\\inventory-data\\tools\\local-redis-lane.test.mjs",
+        "testFiles": [
+          "tools\\data\\local-redis-preflight.test.mjs",
+          "services\\inventory-data\\tools\\local-redis-lane.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:25:51.575Z",
+        "finishedAtUtc": "2026-11-02T22:25:53.882Z",
+        "exitCode": 0,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R4\\review-R6-DAT02.1-v1\\tests.tap",
+        "sha256": "fa38dd81530ed5d3f1d97bbf64eebb51357af1fb9b91a3fa2d1b3ba5a12872ac",
+        "positiveTests": [
+          "SOURCE ONLY: real Redis lane is explicit and uses actual Redis plus the unchanged production adapter",
+          "LOCAL CONFIGURATION ONLY: optional credentials are validated but never returned or printed"
+        ],
+        "negativeTests": [
+          "CONTROL: fake RESP, H2, proxies or missing actual Redis product evidence cannot qualify the source lane",
+          "EXECUTABLE NEGATIVE: default CLI reports BLOCKED, never skipped or real-store success"
+        ]
+      },
+      "children": [
+        {
+          "id": "DAT-02.1",
+          "definitionSha256": "9da5ab839aba6066521407e6ae07a0e2d7263b2c02cd3f8eda20186a50b43b1e",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

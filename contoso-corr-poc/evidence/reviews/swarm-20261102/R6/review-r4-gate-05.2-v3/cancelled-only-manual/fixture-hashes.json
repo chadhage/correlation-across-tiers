@@ -1,0 +1,46 @@
+[
+  {
+    "path": "pom.xml",
+    "sha256": "0d9be552c3ddc0e4903fdfb6ef2aa33998680230a6c5751125602548fb01e033"
+  },
+  {
+    "path": "sample\\src\\test\\java\\com\\contoso\\correlation\\SingleAgentExportTest.java",
+    "sha256": "aa17b01aaf852a0f7d77e503d0510c7e78affe7bcfadc4c2e5c6fc36b03463b7"
+  },
+  {
+    "path": "sample\\src\\test\\java\\com\\contoso\\inventory\\data\\DataAgentQualificationTest.java",
+    "sha256": "ec724a5a704edbed399c0c3726b1dc715d136cb17dd1102b143bdceddab0ef21"
+  },
+  {
+    "path": "sample\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
+    "sha256": "54c05005a5f586e7dbac93727971d5ee76e76f4a6222bcd1fec7fa6f355d6aa6"
+  },
+  {
+    "path": "sample\\src\\test\\java\\com\\contoso\\messaging\\LinkedRootSamplingTest.java",
+    "sha256": "742c5280402d4eb7855422103b4077e4bd0ab1df6c6c40a06c2979ca0e615141"
+  },
+  {
+    "path": "sample\\src\\test\\java\\com\\contoso\\orders\\NativeApiIntegrationTest.java",
+    "sha256": "1aee05836a9965949621bcd6b46824f9fdca1d42096f4f8131b24df817c4df9d"
+  },
+  {
+    "path": "sample\\target\\surefire-reports\\TEST-com.contoso.correlation.SingleAgentExportTest.xml",
+    "sha256": "b5a33dbe0eb7e3455c712d7ca68d1c5fa76f887650464faf9cf36552c5cf3d1b"
+  },
+  {
+    "path": "sample\\target\\surefire-reports\\TEST-com.contoso.inventory.data.DataAgentQualificationTest.xml",
+    "sha256": "bd93b4d59508d402b335fd5b69810b45e92ea8b1ffa3c73ff9c41a5a4ae6a913"
+  },
+  {
+    "path": "sample\\target\\surefire-reports\\TEST-com.contoso.messaging.AsyncNativeAgentTest.xml",
+    "sha256": "5f7bcd20228d77f1a2cabedbdfbaad34cd36d5ba5ae012273c37130776884ee9"
+  },
+  {
+    "path": "sample\\target\\surefire-reports\\TEST-com.contoso.messaging.LinkedRootSamplingTest.xml",
+    "sha256": "08f1d0def985e927a1b7111dcafb9bdb89301ad62acd4e75264a6e3b4a8b27c0"
+  },
+  {
+    "path": "sample\\target\\surefire-reports\\TEST-com.contoso.orders.NativeApiIntegrationTest.xml",
+    "sha256": "df47a124b10b6fd376eba6cba36b1ddd5a20ed6cfd9757fa1457cc1c8fae1495"
+  }
+]

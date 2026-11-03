@@ -1,0 +1,22 @@
+{
+  "schema": "contoso.r6-ci-manual-negative.v1",
+  "reviewerAgent": "b06c8a34-b521-4a9c-8325-dc58c0119fe1",
+  "scope": "SOURCE_UNIT_MANUAL_SYNTHETIC_XML_ONLY",
+  "guardSha256": "3caf94e158b4b8f4b63b0e6083178d16fa4fefbb0697506404d7fcf57e6f9292",
+  "result": "EXPECTED_FAILURE_VERIFIED",
+  "exitCode": 1,
+  "totals": {
+    "tests": 5,
+    "executed": 5,
+    "passed": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cancelled": 1,
+    "reports": 5
+  },
+  "fixtureRemoved": true,
+  "javaExecuted": false,
+  "hostedPrExecuted": false,
+  "nativeAuthority": false
+}

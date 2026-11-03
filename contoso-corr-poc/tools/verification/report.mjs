@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { projectRoot, jsonBytes, readBoundFile, sha256 } from './files.mjs';
+import { projectRoot, jsonBytes, readBoundFile, sha256, HASH, relativeFile } from './files.mjs';
 import { invalidateChangedSources, sourceSnapshot } from './demo.mjs';
 import { loadPreservedLinkedSamplingQualification, requireLinkedSamplingQualification } from './sampling-qualification.mjs';
 import { intakeSelectedSecurityClientEpoch, requireSelectedSecurityQualification } from './security-client-qualification.mjs';
@@ -22,6 +22,86 @@ export const CERTIFICATION_CRITERIA = [
 const statePath = path.join(projectRoot, 'evidence', 'verification', 'certification-assessment.json');
 const reportPath = path.join(projectRoot, 'docs', 'CERTIFICATION_REPORT.md');
 
+function validateSourceSnapshot(sources, versionsSha256) {
+  if (!HASH.test(versionsSha256 ?? '') || !Array.isArray(sources) || !sources.length ||
+      sources.some(source => !HASH.test(source.sha256 ?? '')) ||
+      new Set(sources.map(source => relativeFile(source.path))).size !== sources.length) {
+    throw new Error('Exact nonempty unique assessment source snapshot and versions digest required');
+  }
+}
+
+function validateConstructionNotes(notes) {
+  if (notes === undefined) return;
+  if (notes?.schema !== 'contoso.certification-construction-notes.v1' ||
+      notes.sourceAcceptanceIsCertification !== false ||
+      notes.currentRoster !== undefined && (typeof notes.currentRoster !== 'string' ||
+        !notes.currentRoster.trim() || /[\r\n]/.test(notes.currentRoster)) ||
+      !Array.isArray(notes.sections) || notes.sections.some(section => typeof section.title !== 'string' ||
+        !section.title.trim() || /[\r\n]/.test(section.title) || typeof section.markdown !== 'string')) {
+    throw new Error('Construction notes must be explicit source-only notes, never native approval authority');
+  }
+}
+
+export function preserveHistoricalQualification(state, key, reason) {
+  const metadata = state[key];
+  if (!metadata) return;
+  const metadataSha256 = sha256(jsonBytes(metadata));
+  state.qualificationHistory ??= [];
+  if (!Array.isArray(state.qualificationHistory)) throw new Error('Qualification history must remain an array');
+  if (!state.qualificationHistory.some(item => item.kind === key && item.metadataSha256 === metadataSha256)) {
+    state.qualificationHistory.push({
+      kind: key, status: 'HISTORICAL_ONLY', sourceAcceptanceIsCertification: false,
+      metadataSha256, originalMetadata: structuredClone(metadata), reason
+    });
+  }
+}
+
+export function prepareCertificationAssessment(previous, current, versionsSha256) {
+  validateSourceSnapshot(current, versionsSha256);
+  if (!previous) return {
+    schema: 'contoso.certification-assessment.v1', certificationStatus: 'NOT CERTIFIED',
+    sourceAcceptanceIsCertification: false, versionsSha256, sourceSnapshot: structuredClone(current),
+    sourceSnapshotSha256: sha256(jsonBytes(current)),
+    rows: CERTIFICATION_CRITERIA.map(item => ({ criterion: item.name, result: 'NOT RUN',
+      sources: current.map(source => source.path), evidence: [] }))
+  };
+  validateCertificationAssessment(previous);
+  const state = structuredClone(previous);
+  const before = state.sourceSnapshot ?? [];
+  const versionsChanged = state.versionsSha256 !== versionsSha256;
+  const changed = versionsChanged || JSON.stringify(before) !== JSON.stringify(current);
+  if (changed) {
+    for (const key of ['localSamplingQualification', 'localSecurityQualification']) {
+      preserveHistoricalQualification(state, key, 'Assessment source or versions changed; preserved metadata supplies no current execution capability');
+      if (state[key]) state[`${key}Status`] = 'UNVERIFIED';
+    }
+  }
+  const newSources = current.filter(source => !before.some(item => item.path === source.path)).map(source => source.path);
+  let rows = before.length ? invalidateChangedSources(before, current, state.rows)
+    : state.rows.map(row => ({ ...row, result: 'INVALIDATED', changedSources: current.map(source => source.path) }));
+  if (versionsChanged) rows = rows.map(row => ({ ...row, result: 'INVALIDATED',
+    changedSources: [...(row.changedSources ?? []), 'VERSIONS.md'] }));
+  state.rows = rows.map((row, index) => ({
+    ...row,
+    result: state.rows[index].result === 'INVALIDATED' ? 'INVALIDATED' : row.result,
+    sources: [...new Set([...(row.sources ?? []), ...newSources])],
+    changedSources: [...new Set([...(state.rows[index].changedSources ?? []), ...(row.changedSources ?? [])])]
+  }));
+  state.sourceSnapshot = structuredClone(current);
+  state.sourceSnapshotSha256 = sha256(jsonBytes(current));
+  state.versionsSha256 = versionsSha256;
+  return state;
+}
+
+export function assertCertificationAssessmentCurrent(state, current, versionsSha256) {
+  validateCertificationAssessment(state);
+  validateSourceSnapshot(current, versionsSha256);
+  if (state.versionsSha256 !== versionsSha256 || state.sourceSnapshotSha256 !== sha256(jsonBytes(current)) ||
+      JSON.stringify(state.sourceSnapshot) !== JSON.stringify(current)) {
+    throw new Error('Certification assessment source snapshot or versions are stale; run verify:invalidate');
+  }
+}
+
 export function validateCertificationAssessment(state) {
   if (state?.schema !== 'contoso.certification-assessment.v1' ||
       state.certificationStatus !== 'NOT CERTIFIED' || state.sourceAcceptanceIsCertification !== false ||
@@ -30,6 +110,14 @@ export function validateCertificationAssessment(state) {
       state.rows.some(row => !CERTIFICATION_CRITERIA.some(item => item.name === row.criterion) ||
         !['NOT RUN', 'INVALIDATED'].includes(row.result))) {
     throw new Error('Preparation assessment cannot grant native results from persisted JSON; actual live execution authority is unavailable');
+  }
+  validateConstructionNotes(state.constructionNotes);
+  if (state.qualificationHistory !== undefined && (!Array.isArray(state.qualificationHistory) ||
+      state.qualificationHistory.some(item => !['localSamplingQualification', 'localSecurityQualification'].includes(item.kind) ||
+        item.status !== 'HISTORICAL_ONLY' ||
+        item.sourceAcceptanceIsCertification !== false || !HASH.test(item.metadataSha256 ?? '') ||
+        sha256(jsonBytes(item.originalMetadata)) !== item.metadataSha256))) {
+    throw new Error('Preserved qualification history cannot grant current/native authority or change original metadata');
   }
 }
 
@@ -54,8 +142,15 @@ export function renderCertificationReport(state, { localSamplingCapability, loca
     '- No bounded full-path Azure emission-versus-backend evidence, global privacy clearance or performance/owner signoff is claimed.',
     '- The source-bound VERIFY inventory includes direct/transitive lock pins; official source contents, support/GA and deployed values remain open.',
     '- Dependency/runtime/agent/policy/schema changes invalidate affected rows rather than silently retaining acceptance.',
-    '- Approved acting implementation roles: logical R1 → existing R3; logical R6 → existing R5; parent performs failed R4 recovery. Logical backlog/kickoff remain unchanged, one WIP per executor, no alias self-review.',
-    '',
+    `- ${state.constructionNotes?.currentRoster ?? 'Current construction routing is the user-approved independent R1–R9 roster recorded in `config\\board-state.json`; previous acting/failed-agent routing remains historical only. One executable packet per actual owner, two distinct current other-role executed reviews, and no self-review or native authority by roster label.'}`,
+    ''
+  ];
+  if (state.constructionNotes?.sections.length) {
+    lines.push('## Persisted construction notes — NOT CERTIFIED', '',
+      'These source/construction-only notes supply no current native/hosted execution capability or accountable signoff.', '');
+    for (const section of state.constructionNotes.sections) lines.push(`### ${section.title}`, '', section.markdown, '');
+  }
+  lines.push(
     '## Scoped certification statement — GATE-12', '',
     'No environment or production path is certified. Prepared target: `contoso-corr / poc`, `centralus`.',
     `VERSIONS.md SHA-256 at this assessment: \`${state.versionsSha256}\`.`,
@@ -66,7 +161,7 @@ export function renderCertificationReport(state, { localSamplingCapability, loca
     '## Brief §24 criteria', '',
     '| Criterion | Demos | Gates/checks | Native result | Evidence and next action |',
     '|---|---|---|---|---|'
-  ];
+  );
   for (const row of state.rows) {
     const definition = CERTIFICATION_CRITERIA.find(item => item.name === row.criterion);
     lines.push(`| ${row.criterion} | ${definition.demos} | ${definition.gates}; tests\\verification | **${row.result}** | Local-only: evidence\\verification\\preparation-tests.json (when present). ${definition.next} |`);
@@ -113,6 +208,10 @@ export function renderCertificationReport(state, { localSamplingCapability, loca
     '## VERIFY and residuals', '',
     'See config\\verification-register.v1.json for exact owners/values/source links/tests and open statuses. Numeric pin/API/SKU lint is executable; uncited semantic prose/support claims still require source review and remain unaccepted.',
     'See docs\\RESIDUAL_LIMITATIONS.md for all Brief §20 failure modes and §23 production-ready items, and docs\\DEMO_RUNBOOK.md for all fifteen operations/talk tracks.',
+    '', '## Preserved qualification history — not current authority', '',
+    ...(state.qualificationHistory?.length
+      ? state.qualificationHistory.map(item => `- ${item.kind}: HISTORICAL_ONLY, metadata SHA-256 \`${item.metadataSha256}\`. Original metadata is preserved in the assessment; no private execution capability is inherited.`)
+      : ['No historical metadata has been archived by this assessment refresh.']),
     '', '## Source invalidation', '',
     '`npm run verify:invalidate` compares the frozen assessment source scope with current dependencies, runtimes, agents, policies and contracts and marks affected rows INVALIDATED.',
     'A local regression rerun does not resurrect a prior live certification: new current native evidence and accountable approvals are required.',
@@ -128,15 +227,11 @@ export async function reportMain(args) {
   let state;
   try { state = JSON.parse(await readFile(statePath, 'utf8')); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
-  if (!state || args[0] === '--write') {
-    state = {
-      schema: 'contoso.certification-assessment.v1', certificationStatus: 'NOT CERTIFIED',
-      sourceAcceptanceIsCertification: false, versionsSha256, sourceSnapshot: current,
-      rows: CERTIFICATION_CRITERIA.map(item => ({ criterion: item.name, result: 'NOT RUN',
-        sources: current.map(source => source.path), evidence: [] }))
-    };
+  if (args[0] === '--check') {
+    assertCertificationAssessmentCurrent(state, current, versionsSha256);
+    state = structuredClone(state);
   } else {
-    state.rows = invalidateChangedSources(state.sourceSnapshot, current, state.rows);
+    state = prepareCertificationAssessment(state, current, versionsSha256);
   }
   let localSamplingCapability;
   if (state.localSamplingQualification) {
@@ -145,6 +240,7 @@ export async function reportMain(args) {
       state.localSamplingQualificationStatus = 'VALIDATED_LOCAL_COMPILED_BINARY_SLICE';
       delete state.localSamplingQualificationFailure;
     } catch (error) {
+      preserveHistoricalQualification(state, 'localSamplingQualification', 'Current sampling capability unavailable; original metadata retained as history only');
       state.localSamplingQualificationStatus = 'UNVERIFIED';
       state.localSamplingQualificationFailure = error.code ?? 'E_LOCAL_QUALIFICATION_UNAVAILABLE';
     }
@@ -156,6 +252,7 @@ export async function reportMain(args) {
     state.localSecurityQualification = requireSelectedSecurityQualification(localSecurityCapability);
     delete state.localSecurityQualificationFailure;
   } catch (error) {
+    preserveHistoricalQualification(state, 'localSecurityQualification', 'Current selected Security capability unavailable; original metadata retained as history only');
     state.localSecurityQualificationStatus = 'UNVERIFIED';
     state.localSecurityQualificationFailure = error.code ?? 'E_SECURITY_EPOCH';
     delete state.localSecurityQualification;

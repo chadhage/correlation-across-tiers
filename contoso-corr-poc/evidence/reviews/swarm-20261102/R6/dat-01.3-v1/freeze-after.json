@@ -1,0 +1,46 @@
+[
+  {
+    "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\InventorySchemaHooks.java",
+    "sha256": "1b869e2912f1aa9b543fc8ea5c2212b9eb8ea311a614ad07e8d4d0756d26bd8c"
+  },
+  {
+    "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLane.java",
+    "sha256": "f64a62cffdd48ab2e8a884777aa036e1f35e17ccf90001819f3dd5dd34130367"
+  },
+  {
+    "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\LocalPostgresLaneContractTest.java",
+    "sha256": "934ea2c975de916f489c813d02d8982be37ef66ca8e1e9409dee4ae232f72017"
+  },
+  {
+    "path": "services\\inventory-data\\tools\\local-postgres-lane.test.mjs",
+    "sha256": "dfac955f26ced6890670fa38c32f64881a4d6774e80a003fc97a0a3b2fcc7923"
+  },
+  {
+    "path": "tools\\data\\LocalPostgresLane.md",
+    "sha256": "c3ecb5a58a06578d8b2eb5c591a0f8127be8562cef198da1478d7472bfa2448e"
+  },
+  {
+    "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+    "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a"
+  },
+  {
+    "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+    "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08"
+  },
+  {
+    "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\PgRedisInventoryDataAdapter.java",
+    "sha256": "c001860840adf179e4d4921a785104e7b63be5d2c55fef95ab89eaf870b75b92"
+  },
+  {
+    "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\OwnedInventoryCache.java",
+    "sha256": "c73da72d7286b0a5e4772545016d70b9775eba3193a53bdf3fcc42b6a9439c63"
+  },
+  {
+    "path": "services\\inventory-data\\pom.xml",
+    "sha256": "756a4fe7301af5da4461dedee59a68888250277b91758b901f05ce141d82735f"
+  },
+  {
+    "path": "config\\versions.lock.json",
+    "sha256": "407504461fb02848c8baf99c98b78105cbdfb75b52891556d43a4dcc12a531e5"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R3",
+  "reviewerAgentId": "5b8ca6ff-5b97-464f-877a-5f42ee562abb",
+  "reviewedOwnerRole": "R2",
+  "childId": "WEB-01.1",
+  "result": "ACCEPTED_SOURCE_UNIT_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "reviewReceipt": {
+    "path": "review.json",
+    "sha256": "9c173d81f65b1ffcdf0572e1ccd6b51565573c0bf3a6dfed7fb5b62070fafa85",
+    "scopeSha256": "b7730654c4de0eef5f6054b5063e54b1fc5a15f72e77a09a197e991fbbdd5928"
+  },
+  "actualExecution": {
+    "command": "node tools\\kanban.mjs --review-child evidence\\reviews\\swarm-20261102\\R3\\review-r2-web01-v2-request-20261102-b8b5e7f2.json",
+    "nodeVersion": "v22.23.4",
+    "chromiumVersion": "156.0.8078.4",
+    "exitCode": 0,
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "allTwentyAuthorHashesMatchedBeforeAfter": true
+  },
+  "resolvedFindingIds": ["R3-WEB01-01"],
+  "findings": [],
+  "verifiedLocalChanges": [
+    "The executable driver and real-browser test both use shared localDemo01Spec with kind demo and demoId 1.",
+    "Local admission enables only Demo 01. The test observes the enabled contoso-run-demo control and exactly one trusted real browser click.",
+    "The actual current JS SDK dependency and unmodified pass-through carrier remain observed.",
+    "The structural join requires both an actual-emitted Orders RequestData parent and an Orders ingress receipt with exact received carrier, flags and tracestate.",
+    "Missing/drop/rewrite/invented carrier or state, absent export, wrong parent/role/run, false local labels, excluded-origin injection and unavailable-token controls fail closed."
+  ],
+  "remainingPrerequisites": [
+    "JVM-01.1 actual agent-attached Orders/Inventory pair and real ingress/emitted parent join execution.",
+    "The current HTTP stand-in browser check is not that JVM join.",
+    "WEB-01.1 remains To Do until its real local runtime prerequisites and exact acceptance are executed.",
+    "APIM, Entra, Azure/native parent facets and accountable certification remain To Do."
+  ],
+  "originalIndependentFindingPreserved": "..\\review-r2-web01-20261102-a3209dc6\\assessment.json",
+  "cleanup": "Dedicated test-owned Chromium and loopback servers closed; unique test build trees removed. No coauthor source edits, browser MCP, shared dist/target output, Maven or cloud operations."
+}

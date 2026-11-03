@@ -1,0 +1,99 @@
+{
+  "schema": "contoso.final-source-consistency.v1",
+  "ownerRole": "R9",
+  "ownerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "nodeVersion": "v22.23.4",
+  "startedAtUtc": "2026-11-02T22:33:21.660Z",
+  "finishedAtUtc": "2026-11-02T22:33:22.847Z",
+  "sourceResults": [
+    {
+      "packet": "gate-06-1-owner-v2",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-06-1-owner-v2\\owner-receipt.json",
+      "ownerReceiptSha256": "c736f1d512de1572e188437619974426e40cc1737e438b04b81cab54eaefebe8",
+      "sources": 11,
+      "currentMismatches": [],
+      "actualFocusedTests": 13,
+      "actualFailures": 0,
+      "actualSkipped": 0,
+      "actualCancelled": 0
+    },
+    {
+      "packet": "gate-13-1-owner-v3-final",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-13-1-owner-v3-final\\owner-receipt.json",
+      "ownerReceiptSha256": "2fa64ddd4620f0440e950e025709701272d634c2636de194292e65ef993ba670",
+      "sources": 19,
+      "currentMismatches": [],
+      "actualFocusedTests": 12,
+      "actualFailures": 0,
+      "actualSkipped": 0,
+      "actualCancelled": 0
+    },
+    {
+      "packet": "gov-01-1-owner-v1",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gov-01-1-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "3a7c7825adeed310c20adcf5cb1c437fb9cac12fb3a4053f6ddea4bf52e396cc",
+      "sources": 7,
+      "currentMismatches": [],
+      "actualFocusedTests": 4,
+      "actualFailures": 0,
+      "actualSkipped": 0,
+      "actualCancelled": 0
+    },
+    {
+      "packet": "crt-03-1-owner-v1",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\crt-03-1-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "fddfc6ccc742f1d3baeaf933ec873c21b49b15e7033f5d52fbf0d8270803d22c",
+      "sources": 9,
+      "currentMismatches": [],
+      "actualFocusedTests": 5,
+      "actualFailures": 0,
+      "actualSkipped": 0,
+      "actualCancelled": 0
+    },
+    {
+      "packet": "gate-12-1-source-owner-v1",
+      "ownerReceipt": "evidence\\reviews\\swarm-20261102\\R9\\gate-12-1-source-owner-v1\\owner-receipt.json",
+      "ownerReceiptSha256": "cc8f683b56022c7b4eac079cf9506ee2a290fe1a48e82fcd9a8ec8ccbf80ff85",
+      "sources": 35,
+      "currentMismatches": [],
+      "actualFocusedTests": 17,
+      "actualFailures": 0,
+      "actualSkipped": 0,
+      "actualCancelled": 0
+    }
+  ],
+  "commands": [
+    {
+      "command": "node tools\\verification\\register.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"sourceAcceptanceIsCertification\":false,\"registered\":635,\"open\":635}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools\\verification\\test-coverage-report.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"status\":\"HISTORICAL\",\"sourceCommit\":\"63a2a5d58cd041b9893270bc9f4e2d2294e0476d\",\"nodePassed\":419,\"nodeSkipped\":0,\"javaPassed\":182,\"javaSkipped\":0,\"currentSourceEquivalenceClaimed\":false,\"codeCoverageMeasured\":false,\"sourceAcceptanceIsCertification\":false,\"certificationStatus\":\"NOT CERTIFIED\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools\\verification\\pull-request-template.mjs --check",
+      "exitCode": 0,
+      "stdout": "{\"result\":\"PASS\",\"scope\":\"template-source-only\",\"actualReviewsVerified\":false,\"sourceAcceptanceIsCertification\":false,\"certificationStatus\":\"NOT CERTIFIED\"}\n",
+      "stderr": ""
+    }
+  ],
+  "result": "PASS_SOURCE_ONLY",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "registerSha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00",
+  "reportHelperSha256": "a4a43d632d9a6a97e13f9e70294bff7c23fd9e156a8ae28fb9a82b9e5562f149",
+  "invariantSha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+  "noFullSuiteOrNativeRun": true,
+  "reportWriterNotExecuted": true,
+  "reportOutputsUntouched": true,
+  "limitations": [
+    "Independent R1/R7 source reviews remain orchestrator-owned completion prerequisites",
+    "GATE12 hostedPR and GATE11.2 lint remain unmet",
+    "ARC01.1 and GATE08 were not started under threshold STOP"
+  ]
+}

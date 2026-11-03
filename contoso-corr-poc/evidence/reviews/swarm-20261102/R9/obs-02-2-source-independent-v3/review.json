@@ -1,0 +1,378 @@
+{
+  "schema": "contoso.code-review.v1",
+  "reviewKind": "code",
+  "reviewerRole": "R9",
+  "reviewerAgentId": "fdd30a5a-41f1-4025-9333-35e497280cb5",
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "notReviewed": [
+    "Native/Azure/hosted execution, parent completion and accountable signoff"
+  ],
+  "beforeSources": [
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\observability\\sampler-native-intake.test.mjs",
+      "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\invariants.test.mjs",
+      "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+      "hashMode": "raw"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "2b3f9f240ba5421a215911d8bf5807459bb19c9be1128f5ed2cfd7cff95d8890",
+      "hashMode": "raw"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+      "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    }
+  ],
+  "afterSources": [
+    {
+      "path": "tests\\observability\\local-trace-tree.test.mjs",
+      "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\observability\\sampler-native-intake.test.mjs",
+      "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tests\\verification\\invariants.test.mjs",
+      "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\local-trace-tree.mjs",
+      "sha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\raw-query.mjs",
+      "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\sampler-native-intake.mjs",
+      "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\observability\\telemetry-contract.mjs",
+      "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\protocol.mjs",
+      "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\av23-check.mjs",
+      "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\native-payload.mjs",
+      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\security\\values.mjs",
+      "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\conditional-observer.mjs",
+      "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\files.mjs",
+      "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\invariants.mjs",
+      "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\observers.mjs",
+      "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\sampling-qualification.mjs",
+      "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\trust-roots.mjs",
+      "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+      "hashMode": "raw"
+    },
+    {
+      "path": "contracts\\expected-boundary-map.v1.json",
+      "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+      "hashMode": "raw"
+    },
+    {
+      "path": "docs\\OBSERVABILITY.md",
+      "sha256": "2b3f9f240ba5421a215911d8bf5807459bb19c9be1128f5ed2cfd7cff95d8890",
+      "hashMode": "raw"
+    },
+    {
+      "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+      "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b",
+      "hashMode": "raw"
+    },
+    {
+      "path": "tools\\verification\\run-focused.mjs",
+      "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+      "hashMode": "raw"
+    }
+  ],
+  "sourcesVerifiedBeforeAfter": true,
+  "roles": [
+    {
+      "role": "R7",
+      "authorAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+      "result": "accepted",
+      "scopeSha256": "c0ad27321a0b37d5237798c163f3c534bed4302c2474874e46e2c2d9c17e5b80",
+      "sources": [
+        {
+          "path": "tests\\observability\\local-trace-tree.test.mjs",
+          "sha256": "48074d5bf9b2fccf898ae1dffd3626cdc49a53f99c5ed21e87a167f8433776fe",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\observability\\sampler-native-intake.test.mjs",
+          "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tests\\verification\\invariants.test.mjs",
+          "sha256": "5c7ee98733811cabca10340c4eeb5cfdc888a86d24d140470712cf0879f725ef",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\local-trace-tree.mjs",
+          "sha256": "c36f9923780733200dae61c9e74b8357c5e387014c22499d97ec7eacbb828157",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\raw-query.mjs",
+          "sha256": "a63fae68076a40b67f9fe8807ecc4fbbcc558ccac2a2aa677f3a2bf9524940e3",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\sampler-native-intake.mjs",
+          "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\observability\\telemetry-contract.mjs",
+          "sha256": "e2bf8365ce2103d935b728a531924aa31643b0c8be48d767209407f3eb16a4c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\protocol.mjs",
+          "sha256": "bdb5e4a9cc26fa295d5b98cd922eb187185ba4810161c745db42e2956f8194fe",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\av23-check.mjs",
+          "sha256": "d9daf0ee1a4e7254349bc6e0e0b02d101adcf04e6c0d9eaccfe050ec4ff18882",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\native-payload.mjs",
+          "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\security\\values.mjs",
+          "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\conditional-observer.mjs",
+          "sha256": "2f5207e7d602a394fc8983900f92294be2cf94ea5add1b04b738eab58563bfb3",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\files.mjs",
+          "sha256": "1684ea11a5c7cd812a8c2a13eedfa66c6597344d1a28ff7178045e5c73bc59b2",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\invariants.mjs",
+          "sha256": "f2c64a45db3ca73e7eb75e7288e08ae5af07866f880e151036d0ddf7f2dd90c5",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\observers.mjs",
+          "sha256": "3591dd9a3f62633ad1472d6327be2f8b34e27bc8ab6d89e10c8d5ab5e0019386",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\sampling-qualification.mjs",
+          "sha256": "c67ca134d885dec8029fdb3d86c1ba89dbff828b2f8336be4d3f4e8784579e6d",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\trust-roots.mjs",
+          "sha256": "5b0831c9757de9ab76ff62c794513bf5b9a3b21cf0151eecdca724595239bb09",
+          "hashMode": "raw"
+        },
+        {
+          "path": "contracts\\expected-boundary-map.v1.json",
+          "sha256": "aefab352e0090759aa64834f8cae0c94c30951b01750b17819ca762c8f11423f",
+          "hashMode": "raw"
+        },
+        {
+          "path": "docs\\OBSERVABILITY.md",
+          "sha256": "2b3f9f240ba5421a215911d8bf5807459bb19c9be1128f5ed2cfd7cff95d8890",
+          "hashMode": "raw"
+        },
+        {
+          "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+          "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b",
+          "hashMode": "raw"
+        },
+        {
+          "path": "tools\\verification\\run-focused.mjs",
+          "sha256": "8fe539cba5875d5fef9d06d9130248f5b8a8a4db380e146dadee09b944eeae03",
+          "hashMode": "raw"
+        }
+      ],
+      "tests": {
+        "runner": "node-tap",
+        "command": "node --test --test-reporter=tap --test-concurrency=1 tests\\observability\\local-trace-tree.test.mjs tests\\observability\\sampler-native-intake.test.mjs tests\\verification\\invariants.test.mjs",
+        "testFiles": [
+          "tests\\observability\\local-trace-tree.test.mjs",
+          "tests\\observability\\sampler-native-intake.test.mjs",
+          "tests\\verification\\invariants.test.mjs"
+        ],
+        "startedAtUtc": "2026-11-02T22:36:26.551Z",
+        "finishedAtUtc": "2026-11-02T22:36:28.096Z",
+        "exitCode": 0,
+        "passed": 75,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "artifact": "evidence\\reviews\\swarm-20261102\\R9\\obs-02-2-source-independent-v3\\tests.tap",
+        "sha256": "53927b6d11d6a8090e6c2a157f78eab3fbbd2cb21bde1006e0a5691967f857be",
+        "positiveTests": [
+          "complete local checker renders one six-span tree and A/B/C PASS only under the named rehearsal profile",
+          "actual loopback HTTP intake scans before projection, merges one tree, closes the receiver and grants local-only provenance",
+          "safe incremental capture callbacks are immutable, per-payload and awaited before acceptance"
+        ],
+        "negativeTests": [
+          "seeded split, duplicate, parent and every missing-hop control fail without modifying original captures",
+          "untouched full-chain assertion rejects Gateway-free rows even after local A/B/C passed",
+          "unsafe originals never reach an incremental callback and callback failures poison all acceptance",
+          "mixed caller envelopes cannot inherit an original loopback capture provenance",
+          "an empty original loopback capture cannot lend provenance to caller-only spans"
+        ]
+      },
+      "children": [
+        {
+          "id": "OBS-02.2",
+          "definitionSha256": "e4edd39f02b89281164c8469c6ec5a51f7b71c3210093fa158902b44b6a5638d",
+          "result": "accepted"
+        }
+      ]
+    }
+  ]
+}

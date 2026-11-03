@@ -1,0 +1,26 @@
+[
+  {
+    "path": "tools\\observability\\sampler-native-intake.mjs",
+    "sha256": "e5e2407a1e15d80bb9ac26abf7eca1c6bcfaee3568094bbe8ff823b973944bee"
+  },
+  {
+    "path": "tests\\observability\\sampler-native-intake.test.mjs",
+    "sha256": "bb136a1271d2b8790908fe22e3139e793f79003770f9c399efaa2f224231f85d"
+  },
+  {
+    "path": "tools\\security\\native-payload.mjs",
+    "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+  },
+  {
+    "path": "tools\\security\\values.mjs",
+    "sha256": "298739c8f3951010cc023be5796571aff28fc1e2b48d94ab07d3a1b76ccfe699"
+  },
+  {
+    "path": "extensions\\parent-safe-sampler\\src\\test\\java\\com\\contoso\\correlation\\sampling\\ParentSafeProbeApplication.java",
+    "sha256": "75032f13aafd1050519699004a016afe74957aded5ac1fd8afc7950477ee424b"
+  },
+  {
+    "path": "docs\\OBSERVABILITY.md",
+    "sha256": "6f1d5c15940d43982033b49056e59bfec2ac6537979807c4513f0697e64e3c42"
+  }
+]

@@ -1,0 +1,18 @@
+node:internal/fs/promises:1179
+  return await PromisePrototypeThen(
+         ^
+
+Error: ENOENT: no such file or directory, realpath 'C:\Users\chhage\repos\correlation-across-tiers\contoso-corr-poc\evidence\reviews\swarm-20261102\R5\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\project\evidence\reviews\swarm-20261102\R3\review-r5-inf06-20261102-8d9476d4\review.json'
+    at async realpath (node:internal/fs/promises:1179:10)
+    at async verifyArtifact (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:331:20)
+    at async verifyConstructionEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:396:36)
+    at async verifyEvidence (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:522:3)
+    at async synchronize (file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:646:3)
+    at async file:///C:/Users/chhage/repos/correlation-across-tiers/contoso-corr-poc/evidence/reviews/swarm-20261102/R5/ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01/cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7/project/tools/kanban.mjs:670:5 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'realpath',
+  path: 'C:\\Users\\chhage\\repos\\correlation-across-tiers\\contoso-corr-poc\\evidence\\reviews\\swarm-20261102\\R5\\ORCHESTRATOR-lifecycle-v2-20261102-a20e70fa-01\\cli-route-fixture-468e57ea-74c5-42c6-891b-4b4f45c58fa7\\project\\evidence\\reviews\\swarm-20261102\\R3\\review-r5-inf06-20261102-8d9476d4\\review.json'
+}
+
+Node.js v22.23.4

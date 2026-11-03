@@ -1,0 +1,142 @@
+{
+  "schema": "contoso.local-check.v1",
+  "ownerRole": "R7",
+  "ownerAgentId": "afdbb854-41b9-4c53-8e09-6e8b4ccea2dd",
+  "recordedAtUtc": "2026-11-02T22:35:21.701Z",
+  "scope": "READ_ONLY_STATUS_OF_ACTUAL_PRIOR_REVIEW_EXECUTIONS_NOT_A_NEW_REVIEW",
+  "sourceAcceptanceIsCertification": false,
+  "testReexecutionPerformed": false,
+  "entries": [
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-06.1-review-v1\\review.json",
+      "sha256": "2d8f5f9c35b51cd0c0147f17554962ace39f59683cc62fd43c3dee6c8121d807",
+      "sourceCount": 11,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 13,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gov-01.1-review-v1\\review.json",
+      "sha256": "d1f3b7f786d8ae5f9b8fe97bb9bc87ef128f510a8ee7f443be9a009c89dbb615",
+      "sourceCount": 7,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\crt-03.1-review-v1\\review.json",
+      "sha256": "cfad290697e5b4175c760284fa463a7d0ad4d14d859c0ef3482e49bbee858fcd",
+      "sourceCount": 9,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\web-01.1-review-v3\\review.json",
+      "sha256": "02b5cf33a0331fa6fdfc975032cac343430d9e5d85f75857fbd680718019101f",
+      "sourceCount": 20,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 12,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\dem-02.1-review-v1\\review.json",
+      "sha256": "14396a8c0adb7164efde174110bd01746ee7d84d1a9f525628ebf36583685e05",
+      "sourceCount": 34,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 8,
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-12.1-review-v1\\review.json",
+      "sha256": "12de25303073384d4543ad2d97ac0c83e98a5eda92e03f72e9dbe154634fc352",
+      "sourceCount": 35,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 17,
+        "passed": 17,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    },
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\gate-13.1-review-v3\\review.json",
+      "sha256": "2233dc51d0817ae9fa10bb01b87d0a2f08d93e43fbda2b02429bb6aeeb076529",
+      "sourceCount": 19,
+      "sourceStableAtOriginalExecution": true,
+      "currentSourceMatchAtThisReadOnlyCheck": true,
+      "drift": [],
+      "originalExecutionCounts": {
+        "tests": 12,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "testReexecutionPerformedByThisIndex": false,
+      "nativeOrHostedOrChildCompletionGranted": false
+    }
+  ],
+  "historicalReviews": [
+    {
+      "artifact": "evidence\\reviews\\swarm-20261102\\R7\\web-01.1-review-v2\\review.json",
+      "whyHistorical": "R2 immutable source successor changed driver and tests",
+      "currentDriftPaths": [
+        "web\\portal-ssr\\scripts\\local-rehearsal.mjs",
+        "web\\portal-ssr\\tests\\local-rehearsal.test.mjs"
+      ]
+    }
+  ],
+  "noNewImplementationDispatched": true,
+  "thresholdStop": true
+}

@@ -10,6 +10,74 @@ diagnostic sink. HTTP hooks replace raw user-agent, caller Host URL and client
 IP metadata; request/response header capture lists are empty. The
 `enableSensitiveData` vendor option alone is not a blanket HTTP privacy guard.
 
+## WEB-01.1 local Storefront rehearsal
+
+This is **LOCAL REHEARSAL**, not Entra, APIM, real-store, Azure or certification
+evidence. It does not initialize a second telemetry provider/exporter. The
+test-only entrypoint builds the current Storefront source into a unique output
+directory, uses the actual JS SDK and the existing real-click browser adapter,
+and supplies synthetic pair credentials only in memory. It admits only Demo 01
+and clicks the real **Run selected Contoso demo** button, not Create order.
+The test-only click receipt requires one trusted click on `contoso-run-demo`.
+
+After R4's `tools\java\Start-LocalPair.ps1` produces a ready `local-pair.json`,
+run from `contoso-corr-poc` with a **new** repository-local output directory:
+
+```powershell
+node web\portal-ssr\scripts\local-rehearsal.mjs --pair evidence\local-pair\local-pair.json --out evidence\reviews\swarm-20261102\R2\local-browser-UNIQUE
+```
+
+The manifest must declare `schemaVersion: 1`, `profile: "LOCAL REHEARSAL"`,
+`ready: true`, literal HTTP loopback `ordersOrigin`, `inventoryOrigin`,
+`receiverOrigin` and `controlOrigin`, and `telemetryPath` / `ingressPath`
+(relative to the manifest or absolute inside this repository). `GET controlOrigin/token`
+returns synthetic `accessToken` and `gatewayAccessToken`; neither belongs in
+the manifest, files, logs or evidence. The browser sends the former; the
+loopback forwarder adds only the local gateway proof. Production authentication
+is unchanged.
+
+The uninstrumented forwarder maps `/contoso/v1/orders` to `/api/orders`,
+preserving the browser's actual W3C carrier, request body and backend response.
+It creates **no Gateway span**. It rejects foreign origins, unsafe preflights,
+unapproved paths and redirects. A browser-wide allowlist permits only this run's
+three loopback origins. Excluded-origin Fetch/XHR must send no correlation or
+authorization headers, and a real second-origin CORS preflight must not reach
+Orders.
+
+PASS requires one successful actual browser click, its current SDK dependency,
+the captured browser `RemoteDependencyData`, and an **actual agent-emitted**
+Orders `RequestData` with the same trace and ParentId equal to that dependency's
+span. The separate actual Orders ingress receipt must also preserve the whole
+browser `traceparent`, including flags, and `tracestate` (including absence),
+and join that actual emitted Orders span. An ingress echo, business-ID match alone, absent export, stale run,
+unsampled carrier or synthesized row cannot satisfy the join. The driver
+waits at most 45 seconds for the pair's incrementally written telemetry.
+Original browser envelope IDs, time and optional parent are preserved;
+missing context is never filled from an expected graph.
+
+`browser-evidence.json`, `browser-telemetry.ndjson`,
+`forwarder-observations.json`, before/after hashes of the 16 declared current
+inputs, and `local-browser-rehearsal.json` contain no tokens or connection
+configuration. The last receipt is BLOCKED on a missing join or changing
+source. Browser/server cleanup runs on success and failure. The driver does
+not own or stop R4's pair; its launcher owner must stop that separate process
+after all consumers finish.
+
+Focused source/unit checks (including a dedicated real Chromium, not a shared
+browser page) run without writing shared `dist`, Maven targets or caches:
+
+```powershell
+node --test --test-reporter=tap web\portal-ssr\tests\local-rehearsal.test.mjs
+```
+
+Those tests use an explicitly labelled HTTP test responder, **not JVM Orders**.
+They assert that missing actual Orders export fails; they cannot close
+WEB-01.1 before JVM-01.1 runs. Optional
+`CONTOSO_LOCAL_REHEARSAL_CAPTURE_DIRECTORY` saves only their sanitized real
+browser records in a new repository-local directory, labelled
+`BROWSER_ONLY_NOT_JVM_PARENT_JOIN`. Every helper and unique build scratch tree
+is cleaned up. The full WEB-01 native parent remains **To Do**.
+
 OpenTelemetry API is pinned to **1.9.1**, matching the published NodeSDK
 0.221.0 peer constraint `>=1.3.0 <1.10.0`; blindly choosing latest API1.10.0
 creates an incompatible split API graph. HTTP hook configuration is typed with

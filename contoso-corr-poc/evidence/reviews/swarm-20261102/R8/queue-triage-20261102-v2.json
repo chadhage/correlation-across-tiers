@@ -1,0 +1,244 @@
+{
+  "schema": "contoso.r8-queue-triage.v1",
+  "agentId": "16cd37a9-01df-4351-9f38-782641b455b1",
+  "implementationActive": false,
+  "ownImplementationSourceFiles": [
+    {
+      "path": "..\\.github\\workflows\\secret-scan.yml",
+      "sha256": "d045150b17fb7c51d0f08adfed08fb9fae63c35f6d1017cde960ef109ad15de6"
+    },
+    {
+      "path": "tools\\security\\Run-JavaAuthPropagationProbe.mjs",
+      "sha256": "99d9e61c8f185924b497ca2cb1b0bfa811b77aa9e0f58e50a7853c8c71df835d"
+    },
+    {
+      "path": "tests\\security\\secret-scan-workflow.test.mjs",
+      "sha256": "d3e4e5534d44d8508cffbc9b8c8ccca28c30c99c175a516efa6ff3f7cac2654d"
+    },
+    {
+      "path": "tests\\security\\java-probe-tools-root.test.mjs",
+      "sha256": "bd9989fffad277c3ff86ce0b3733b8e3563ae92f21be44ac129223b6845f70e8"
+    }
+  ],
+  "ownedChildren": [
+    {
+      "parentId": "GATE-03",
+      "parentNeeds": [],
+      "childId": "GATE-03.1",
+      "definitionSha256": "8fe6074bdf0b5fe9ed0759ea412b56c6c313a4fe023f44a059ed7706349aae67",
+      "constructionOnly": false,
+      "needs": [],
+      "candidate": "SOURCE_UNIT_REVIEWED_HOSTED_TO_DO",
+      "nextAction": "An authorized owner opens/runs the frozen workflow on a clean PR and seeded-secret PR. No commit/push is authorized in this lane.",
+      "missingInput": [
+        "Actual hosted clean and seeded-fail PR runs"
+      ],
+      "reviews": [
+        {
+          "role": "R4",
+          "sha256": "69a5222c1e811bb29f799db8b9ca488fc1f804795a8c9e2d68921bd6eb3c83ca"
+        },
+        {
+          "role": "R5",
+          "sha256": "8d17188a07279b9ea1bcad4f54d3115af64b3865bc1089f10edbac2a6cdf85f5"
+        }
+      ]
+    },
+    {
+      "parentId": "IDN-01",
+      "parentNeeds": [
+        "ADR-01",
+        "JVM-01",
+        "WEB-01"
+      ],
+      "childId": "IDN-01.1",
+      "definitionSha256": "dc85b62ab485558171e7c3019309ee4c533f36dd9dada0f2abb5f9fbc3a2b9ce",
+      "constructionOnly": false,
+      "needs": [],
+      "candidate": "TO_DO_NATIVE_BLOCKED",
+      "missingInput": [
+        "Approved deployed Gateway/APIs and Entra roles/grants/KeyVault wiring",
+        "Approved bounded native window and original-column privacy evidence"
+      ],
+      "nextAction": "Owner supplies deployed identity readiness and separately approved bounded native matrix window; synthetic JWT fixtures cannot substitute."
+    },
+    {
+      "parentId": "IDN-01",
+      "parentNeeds": [
+        "ADR-01",
+        "JVM-01",
+        "WEB-01"
+      ],
+      "childId": "IDN-01.2",
+      "definitionSha256": "5292bd516d3e1daeabe10eb0eb36376725f88403d5fd8b5e699513c17d68f691",
+      "constructionOnly": true,
+      "needs": [],
+      "candidate": "EXACT_LOCAL_CHILD_DONE_CANDIDATE_PENDING_ORCHESTRATOR_ADJUDICATION",
+      "missingInput": [],
+      "nextAction": "Orchestrator adjudicates the exact local child with two accepted current-source reviews; leave parent/native clauses To Do.",
+      "reviews": [
+        {
+          "role": "R4",
+          "sha256": "87d1538facc92c28c7912dcaa5195fe610f3097bc1f22745ff04545d759b8430"
+        },
+        {
+          "role": "R5",
+          "sha256": "0b8321c666464c32138e3028734481c63c39563ef615eebbdc4639779ce77380"
+        }
+      ]
+    },
+    {
+      "parentId": "IDN-01",
+      "parentNeeds": [
+        "ADR-01",
+        "JVM-01",
+        "WEB-01"
+      ],
+      "childId": "IDN-01.3",
+      "definitionSha256": "7af5c51589d1b149688e7cbf2473b4162f6c64ef9f35da1bb4464ff78511239a",
+      "constructionOnly": true,
+      "needs": [
+        "IDN-01.2"
+      ],
+      "candidate": "TO_DO_CURRENT_BUILD_HANDOFF_MISSING",
+      "missingInput": [
+        "R4 frozen current agent/extension/SDK/build artifact and loaded-provider/installed-consumer lineage for Orders/Inventory/Fulfillment/Notify/Aggregator",
+        "R4-owned build/output/runtime execution handoff; old probe security-core-1.0.0.jar cannot be guessed current"
+      ],
+      "nextAction": "R4 supplies source-bound current artifacts/runtime handoff; qualify only that epoch and label loopback fixtures, leaving real Entra/managed identity/cloud proof separate."
+    },
+    {
+      "parentId": "IDN-01",
+      "parentNeeds": [
+        "ADR-01",
+        "JVM-01",
+        "WEB-01"
+      ],
+      "childId": "IDN-01.4",
+      "definitionSha256": "59702c41be2893444e24739f60b12253aedbf1339f198f0bdb692f81de416da7",
+      "constructionOnly": true,
+      "needs": [],
+      "candidate": "TO_DO_CURRENT_PORTAL_BUILD_HANDOFF_MISSING",
+      "missingInput": [
+        "R2 frozen current Portal build and actually loaded locked identity dependency/runtime lineage"
+      ],
+      "nextAction": "R2 supplies a frozen current-build handoff for a local loopback capture. Local capture is not cloud traffic; no additional local permission is invented, but the closed native cloud window remains closed."
+    },
+    {
+      "parentId": "DEM-13",
+      "parentNeeds": [
+        "GATE-04",
+        "GATE-10",
+        "DEM-00",
+        "IDN-01",
+        "IDN-02"
+      ],
+      "childId": "DEM-13.1",
+      "definitionSha256": "2dcec01e2bccab063fe57559c08a6c478f0fb538e141ddd6e41b7aa2b3e682a3",
+      "constructionOnly": false,
+      "needs": [
+        "DEM-00.1",
+        "IDN-01.1",
+        "IDN-01.3"
+      ],
+      "candidate": "TO_DO_NATIVE_DEPENDENCIES_MISSING",
+      "missingInput": [
+        "Native-ready reviewed DEM-00.1 implementation",
+        "IDN-01.1 native dual-token and IDN-01.3 current wire qualification",
+        "HMAC/privacy prerequisites and approved deployed target/window"
+      ],
+      "nextAction": "Supply real scenario operations and identity/privacy readiness; do not export a runnable adapter backed only by fixtures or callbacks."
+    },
+    {
+      "parentId": "DEM-11",
+      "parentNeeds": [
+        "DEM-00",
+        "MSG-01",
+        "MSG-02"
+      ],
+      "childId": "DEM-11.1",
+      "definitionSha256": "cbf321ffea440944f888b8c1379478c75b4461ffe501f859a6bcae0ab10c3f42",
+      "constructionOnly": false,
+      "needs": [
+        "DEM-00.1"
+      ],
+      "candidate": "TO_DO_NATIVE_PUBLISHER_PREREQUISITES_MISSING",
+      "missingInput": [
+        "Native-ready DEM-00.1 pattern",
+        "MSG-01/MSG-02 authenticated transport readiness and separately approved bounded spoofed-delivery publisher window"
+      ],
+      "nextAction": "An authorized owner supplies an authenticated native publisher/transport and approved window; caller JSON or synthetic delivery rows cannot supply native authority."
+    }
+  ],
+  "otherOwnedParentRemainders": [
+    "GATE-04/GATE-10: existing local controls are not replayed for throughput; global native telemetry/identity observations remain unqualified.",
+    "INF-02: no KeyVault secret reads/writes or generation/deployment approval; runtime secret/reference/RBAC proof absent.",
+    "IDN-02: native HMAC lifecycle/rotation and actual privacy-owner approval absent; no agent-imputed signoff.",
+    "INF-07: deployed access/retention validation and accountable-owner decisions remain separate unmet requirements."
+  ],
+  "assignedIndependentReviews": [
+    {
+      "scope": "R3 GATE-01 clause1 static/unit",
+      "tests": 35,
+      "skips": 0,
+      "cancels": 0,
+      "receiptSha256": "19eae7da9b6fbe07ac72cc79523fa2ce07aa2849870b875d2a57b843262c853b",
+      "result": "ACCEPTED_LOCAL_ONLY"
+    },
+    {
+      "scope": "R3 DEM-03.1 construction v2",
+      "tests": 7,
+      "skips": 0,
+      "cancels": 0,
+      "receiptSha256": "2646b0dcd056250c79e1e7ba4ab642ccac141a40f083e36fb4b00a75bafcba0b",
+      "result": "ACCEPTED_LOCAL_ONLY_NATIVE_CHILD_TO_DO"
+    },
+    {
+      "scope": "R6 DAT-01.2",
+      "tests": 11,
+      "skips": 0,
+      "cancels": 0,
+      "receiptSha256": "511539a777921fcf46381ceb36e19ca784a704b41a4b04e13b9579c287229171",
+      "result": "ACCEPTED_CONSTRUCTION_ONLY"
+    },
+    {
+      "scope": "R6 INF-05.2 v2",
+      "tests": 6,
+      "skips": 0,
+      "cancels": 0,
+      "compiledModules": 2,
+      "exactBCP081": 6,
+      "unexpectedDiagnostics": 0,
+      "receiptSha256": "459ba8603bfd9dd70b4614722bb34641ba51838a06210ad4323c02e07bf2b80d",
+      "result": "ACCEPTED_LOCAL_COMPILATION_ONLY"
+    },
+    {
+      "scope": "R6 DAT-01.3 inventory marker least privilege",
+      "result": "ACCEPTED_SOURCE_UNIT_ONLY_REAL_PG_TO_DO",
+      "tests": 6,
+      "skips": 0,
+      "cancels": 0,
+      "receiptSha256": "cfd0b5345c24356fa59783dfa52067eaef56b6d95d57aba24d0bc17a3d0b4b22",
+      "assessmentSha256": "ab6c1cdd80869fc3bbe42c1f6cfd45faa73de31ac56f73bd1c098eea48221418",
+      "nextAction": "R4 compiles default-safe Java contracts. Approved actual local PostgreSQL18 execution and exact cleanup remain To Do."
+    }
+  ],
+  "sourceAcceptanceIsCertification": false,
+  "certificationStatus": "NOT CERTIFIED",
+  "nativeWindowsReopened": false,
+  "constraintsPreserved": [
+    "Seven initially dirty files untouched by R8",
+    "No commit/push or board/wiki/kanban/certification edits",
+    "No agent launch, Azure mutations/spending/application traffic, credentials or KeyVault secret reads",
+    "No root Maven/package/version/shared build writes",
+    "No named organizational owner/signoff imputed"
+  ],
+  "correctionToOwnEarlierHandoff": "IDN current-build blocker is the absent frozen build/runtime handoff. No additional approval requirement is invented for loopback-only captures; real native cloud windows stay closed.",
+  "capturedAtUtc": "2026-11-02T22:15:37.080Z",
+  "supersedes": {
+    "artifact": "queue-triage-20261102-v1.json",
+    "sha256": "74e7c3a65510902d445808474f3320a08af75e3125120c15ed54f9724327c683"
+  },
+  "assignedReviewActive": false,
+  "readyLocalWorkRemaining": false
+}

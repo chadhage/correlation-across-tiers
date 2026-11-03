@@ -1,15 +1,24 @@
 param(
-    [string]$ToolsRoot = 'C:\Users\chhage\.copilot\session-state\a2820816-7000-4e63-9cf2-cd2c8da2162f\files\tools\r4',
+    [string]$ToolsRoot = $env:CONTOSO_PORTABLE_TOOLS_ROOT,
     [switch]$RetryReproductionOnly
 )
 $ErrorActionPreference = 'Stop'
 $module = Split-Path $PSScriptRoot -Parent
 $project = Split-Path (Split-Path $module -Parent) -Parent
+. (Join-Path $project 'tools\java\PortableTools.ps1')
+$ToolsRoot = Resolve-ContosoToolsRoot $ToolsRoot
+if (-not (Test-Path -LiteralPath $ToolsRoot -PathType Container)) {
+    throw 'Existing portable tools required. Pass -ToolsRoot or set CONTOSO_PORTABLE_TOOLS_ROOT; the repository-local default is .tools\java. This runner installs nothing.'
+}
 $jdk = Get-ChildItem -LiteralPath $ToolsRoot -Directory | Where-Object Name -Like 'jdk-*' | Select-Object -First 1
 $maven = Join-Path $ToolsRoot 'apache-maven-3.10.0\bin\mvn.cmd'
 $repository = Join-Path $ToolsRoot 'm2'
-if (-not $jdk -or -not (Test-Path -LiteralPath $maven) -or -not (Test-Path -LiteralPath $repository)) {
-    throw 'Existing portable JDK25, Maven3.10 and populated offline repository required; this runner installs nothing.'
+if (-not $jdk -or
+    -not (Test-Path -LiteralPath (Join-Path $jdk.FullName 'bin\java.exe') -PathType Leaf) -or
+    -not (Test-Path -LiteralPath (Join-Path $jdk.FullName 'bin\javac.exe') -PathType Leaf) -or
+    -not (Test-Path -LiteralPath $maven -PathType Leaf) -or
+    -not (Test-Path -LiteralPath $repository -PathType Container)) {
+    throw 'Existing portable JDK25, Maven3.10 and populated offline repository required. Pass -ToolsRoot or set CONTOSO_PORTABLE_TOOLS_ROOT; this runner installs nothing.'
 }
 $run = Join-Path $PSScriptRoot ('.java-work\dat-01.1-' + [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ') + '-' + [Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $run | Out-Null

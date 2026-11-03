@@ -1,0 +1,11 @@
+{
+  "schema": "contoso.evidence-manifest.v1",
+  "sourceKind": "actual-bounded-local-checker-negative-control-resolution",
+  "sourceAcceptanceIsCertification": false,
+  "files": [
+    {
+      "path": "resolution.json",
+      "sha256": "b28c06be3b6ce0ae3db660eb1dce71e8405e505410cd5038586609f9481bed8a"
+    }
+  ]
+}
