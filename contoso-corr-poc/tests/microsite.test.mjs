@@ -244,6 +244,48 @@ test('welcome guide covers every orientation topic with valid scenario, section 
   }
 });
 
+test('Microsoft legal notices expose the exact repository license offline and agree with the root README', async () => {
+  const [license, template, readme] = await Promise.all([
+    readFile(new URL('../../LICENSE', import.meta.url), 'utf8'),
+    readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8'),
+    readFile(new URL('../../README.md', import.meta.url), 'utf8')
+  ]);
+  const source = data.sources.find(item => item.path === 'LICENSE');
+  assert.ok(source, 'The root license must be embedded, not fetched from GitHub at runtime');
+  assert.equal(source.content, license);
+  assert.equal(source.sha256, createHash('sha256').update(license).digest('hex'));
+  assert.match(license, /^ {4}MIT License/);
+  assert.match(license, /Copyright \(c\) Microsoft Corporation\./);
+  assert.match(license, /The above copyright notice and this permission notice shall be included/);
+  assert.match(license, /THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY/);
+  assert.match(license, /IN NO EVENT SHALL THE\s+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE/);
+  const footer = template.match(/<footer id="legal-notices"[^>]*>([\s\S]*?)<\/footer>/)[1];
+  const welcome = template.match(/<dialog id="welcome-dialog"[^>]*>([\s\S]*?)<\/dialog>/)[1];
+  assert.match(template, /<footer id="legal-notices" tabindex="-1" aria-labelledby="legal-notices-heading">/);
+  assert.match(footer, /data-source="LICENSE" aria-haspopup="dialog" aria-controls="source-dialog"/);
+  assert.match(welcome, /data-source="LICENSE"/);
+  assert.match(welcome, /href="#legal-notices"/);
+  assert.match(readme, /\[MIT License\]\(LICENSE\)/);
+  for (const text of [
+    'Copyright (c) Microsoft Corporation.',
+    'without warranty of any kind, express or implied',
+    'Third-party dependencies and referenced materials remain subject to their own licenses and notices.',
+    'Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.'
+  ]) {
+    assert.ok(footer.replace(/\s+/g, ' ').includes(text), `The footer is missing: ${text}`);
+    assert.ok(readme.replace(/\s+/g, ' ').includes(text), `The root README is missing: ${text}`);
+  }
+  for (const url of [
+    'https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks',
+    'https://github.com/microsoft/repo-templates',
+    'https://opensource.microsoft.com/codeofconduct/',
+    'https://cla.opensource.microsoft.com/'
+  ]) {
+    assert.ok(footer.includes(`href="${url}" target="_blank" rel="noopener noreferrer"`));
+    assert.ok(readme.includes(`](${url})`));
+  }
+});
+
 test('hero retains its introduction and actions without a scope aside or reserved column', async () => {
   const template = await readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8');
   const hero = template.match(/<div class="hero">([\s\S]*?)<div class="inventory-strip"/)[1];

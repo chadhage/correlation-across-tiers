@@ -140,6 +140,41 @@ digests.
 - [Residual limitations](contoso-corr-poc/docs/RESIDUAL_LIMITATIONS.md)
 - [KQL procedure contracts](contoso-corr-poc/kql/README.md)
 
+## Microsoft open source notices
+
+### License and warranty
+
+Copyright (c) Microsoft Corporation.
+
+This repository and its microsite are licensed under the [MIT License](LICENSE),
+following Microsoft's [official default repository template](https://github.com/microsoft/repo-templates).
+Keep the copyright and permission notices when redistributing copies or
+substantial portions of the software.
+
+The software and accompanying documentation are provided **"AS IS", without
+warranty of any kind, express or implied**, including warranties of
+merchantability, fitness for a particular purpose and noninfringement. The
+license contains the full warranty disclaimer and limitation of liability.
+This proof of concept does not establish production readiness or Microsoft
+product support; independently evaluate security, privacy and operational
+requirements before deployment.
+
+Third-party dependencies and referenced materials remain subject to their own
+licenses and notices. This repository's MIT license does not relicense them.
+
+### Trademarks
+
+This project may contain trademarks or logos for projects, products, or services.
+Authorized use of Microsoft trademarks or logos is subject to and must follow
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks).
+Use of Microsoft trademarks or logos in modified versions of this project must
+not cause confusion or imply Microsoft sponsorship. Any use of third-party
+trademarks or logos are subject to those third-party's policies.
+
+For Microsoft's community guidance, see the
+[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
+and [Contributor License Agreements](https://cla.opensource.microsoft.com/).
+
 **[Start with Demo 01][demo-01]** | [Continue exploring][walkthrough]
 
 [microsite]: https://chadhage.github.io/correlation-across-tiers/

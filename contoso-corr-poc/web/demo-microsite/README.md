@@ -61,6 +61,18 @@ their destination; source controls hand off to the existing source viewer
 without stacking dialogs. The scrollable guide keeps its heading and exit
 controls visible, contains keyboard focus and locks background scrolling.
 
+## License and legal notices
+
+The repository and microsite use the Microsoft Corporation
+[MIT License](../../../LICENSE). The guide links to the footer's warranty,
+trademark and third-party notices; full license text is available through the
+existing source viewer without a network request.
+
+The build embeds and hashes the repository-root `LICENSE`. Other displayed
+source paths are relative to `contoso-corr-poc`. A missing or unreadable license
+fails the build. See the [root notices](../../../README.md#microsoft-open-source-notices)
+for the same terms and official Microsoft guidance links.
+
 ## Presenter flow
 
 Use the header's **Menu** button to open the navigation drawer on desktop or

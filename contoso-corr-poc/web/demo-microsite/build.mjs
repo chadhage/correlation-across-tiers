@@ -113,7 +113,10 @@ export async function loadMicrositeData({ root = projectRoot, builtAt = new Date
     'kql\\orphan-candidates.kql',
     ...demos.map(demo => `demos\\${demo.id}\\README.md`)
   ];
-  const documents = await Promise.all(documentPaths.map(relative => source(root, relative)));
+  const documents = await Promise.all([
+    ...documentPaths.map(relative => source(root, relative)),
+    source(path.dirname(root), 'LICENSE')
+  ]);
   initial[2] = {
     ...initial[2],
     excerpt: true,
