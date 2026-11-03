@@ -210,6 +210,18 @@ test('header navigation lives in a hamburger-controlled modal drawer at every vi
   assert.match(template, /prefers-reduced-motion: reduce/);
 });
 
+test('hero retains its introduction and actions without a scope aside or reserved column', async () => {
+  const template = await readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8');
+  const hero = template.match(/<div class="hero">([\s\S]*?)<div class="inventory-strip"/)[1];
+  assert.match(hero, /<h1>Follow a request\.<br>Inspect the boundaries\.<\/h1>/);
+  for (const id of ['walkthrough', 'evidence']) {
+    assert.match(hero, new RegExp(`href="#${id}"`));
+  }
+  assert.doesNotMatch(hero, /<aside\b/);
+  assert.doesNotMatch(template, /scope-card|scope-row|scope-note/);
+  assert.doesNotMatch(template, /\.hero\s*\{[^}]*grid-template-columns/);
+});
+
 test('standalone output embeds source data safely, applies the required theme, and blocks network connections', async () => {
   const [template, script] = await Promise.all([
     readFile(new URL('../web/demo-microsite/template.html', import.meta.url), 'utf8'),

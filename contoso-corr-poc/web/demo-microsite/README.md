@@ -30,6 +30,22 @@ npm run microsite:test
 The focused tests also participate in the existing repository test discovery.
 They do not run native probes or cloud workloads.
 
+## GitHub Pages
+
+The published walkthrough is available at
+[chadhage.github.io/correlation-across-tiers](https://chadhage.github.io/correlation-across-tiers/).
+
+The [Pages workflow](../../../.github/workflows/pages.yml) runs the focused tests,
+builds the committed source snapshot, and deploys only the generated microsite
+on pushes to `main`. It can also be run manually from the repository's Actions
+tab. Generated output remains ignored; no repository files outside the built
+page are uploaded.
+
+GitHub Pages must use **GitHub Actions** as its source under
+**Settings > Pages > Build and deployment**. Publishing does not run demos,
+query telemetry, configure environment launch URLs, or change certification
+status.
+
 ## Presenter flow
 
 Use the header's **Menu** button to open the navigation drawer on desktop or

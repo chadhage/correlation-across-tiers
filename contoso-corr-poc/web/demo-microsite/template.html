@@ -115,14 +115,9 @@
     .muted, .small, .section-description { color: var(--cp-text-muted); }
     .small { font-size: 0.85rem; }
     .section-description { max-width: 700px; margin-bottom: 28px; }
-    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 72px; padding-top: 72px; padding-bottom: 56px; }
+    .hero { padding-top: 72px; padding-bottom: 56px; }
     .hero-description { max-width: 620px; color: var(--cp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; }
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-    .scope-card { border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-surface); padding: 28px; }
-    .scope-card h2 { font-size: 1.65rem; margin-bottom: 24px; letter-spacing: -0.035em; }
-    .scope-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 16px 0; border-top: 1px solid var(--cp-border); font-size: 0.85rem; }
-    .scope-row span:last-child { color: var(--cp-accent); font-weight: 600; }
-    .scope-note { border-left: 2px solid var(--cp-accent); padding-left: 16px; margin: 16px 0 0; color: var(--cp-text-muted); font-size: 0.8rem; }
     .inventory-strip { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; border-block: 1px solid var(--cp-border); margin-bottom: 16px; }
     .inventory-cell { padding: 24px 24px 24px 0; }
     .inventory-cell + .inventory-cell { padding-left: 28px; border-left: 1px solid var(--cp-border); }
@@ -263,15 +258,13 @@
     @media (max-width: 1100px) {
       .container { width: calc(100% - 48px); }
       .topbar-inner { gap: 16px; }
-      .hero { gap: 32px; }
       .walkthrough { grid-template-columns: 300px minmax(0, 1fr); }
       .graph-content { grid-template-columns: minmax(0, 1fr) 252px; }
     }
     @media (max-width: 800px) {
       .topbar-inner { min-height: 64px; gap: 12px; }
-      .hero { grid-template-columns: 1fr; padding-top: 44px; gap: 32px; }
+      .hero { padding-top: 44px; }
       .hero h1 br { display: none; }
-      .scope-card { padding: 24px; }
       .inventory-strip { grid-template-columns: repeat(3, 1fr); }
       .inventory-cell:last-child { grid-column: 1 / -1; border-top: 1px solid var(--cp-border); border-left: 0; padding: 16px 0; }
       .inventory-cell { padding-block: 20px; }
@@ -335,14 +328,6 @@
           <a class="button" href="#evidence">Review local evidence</a>
         </div>
       </div>
-      <aside class="scope-card" aria-label="Current project scope">
-        <p class="eyebrow">CURRENT SCOPE</p>
-        <h2>Implementation is not<br>certification.</h2>
-        <div class="scope-row"><span>Contracts and verification interfaces</span><span>Implemented</span></div>
-        <div class="scope-row"><span>Bounded local execution</span><span>Recorded</span></div>
-        <div class="scope-row"><span>Azure full-path acceptance</span><span>Not certified</span></div>
-        <p class="scope-note">This site is a read-only source snapshot. It does not emit traffic, query telemetry, or grant authorization.</p>
-      </aside>
     </div>
     <div class="inventory-strip" aria-label="Source inventory">
       <div class="inventory-cell"><span class="inventory-number">{{DEMO_COUNT}}</span><span class="inventory-label">cataloged demo scenarios</span></div>
