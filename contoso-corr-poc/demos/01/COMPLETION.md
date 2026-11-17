@@ -82,10 +82,13 @@ weighting the remaining acceptance work. Measurable facts are more useful:
   read approval. Provision also requires a reviewed digest, matching write
   reference, a successful dependency gate and confirmation.
 - [Select-AzureTarget.ps1](Select-AzureTarget.ps1): lists enabled subscriptions
-  from the user's Azure CLI authentication and writes new subscription-derived
-  root inputs. Discovery requires approved reads; saved-input Plan remains
-  offline. Deployment and publishing recheck access without changing the CLI
-  default. Subscription selection grants no deployment authority.
+  from the user's Azure CLI authentication, prompts for a target with reported
+  App Service SKU quota and recommends the lowest USD PAYG retail-price
+  supported, quota/region-eligible Premium v3/v4 SKU. New root inputs bind the
+  confirmed `computeSku` and subscription-derived names. Discovery requires
+  approved reads and public pricing access; saved-input Plan remains offline.
+  Deployment rechecks exact-SKU quota before ARM validation/WhatIf without
+  silently retargeting a reviewed plan. Selection grants no deployment authority.
 - [Publish-App.ps1](Publish-App.ps1): rejects wrong hash/role/layout, missing
   production dependencies and wrong Java member hashes before deployment.
   Execute retains the existing dependency gate and requires real readiness.
@@ -135,8 +138,8 @@ On 17 November 2026, read-only Azure CLI discovery found the requested
 subscription `474c40eb-d385-40d8-baa2-06883dbdca2d` enabled and listed
 `centralus` for that subscription. A Microsoft.Web regional usage query
 reported **P1v3: 0 used / 0 limit**; the root's
-[compute module](../../infra/modules/compute.bicep) specifies one P1v3
-instance. The Linux P1v3 region list includes Central US, but this does not
+[compute module](../../infra/modules/compute.bicep) at that epoch specified one
+P1v3 instance. The Linux P1v3 region list includes Central US, but this does not
 establish capacity or override the quota. Treat this as a deployment blocker
 until the owner obtains quota
 or approves and validates a different design. This single quota result does
@@ -180,7 +183,7 @@ write has been made for this candidate.
 On 17 November 2026 the user chose to retain P1v3 and pursue a quota increase;
 the B1 redesign remains unimplemented. A quota request, its approved limit,
 effective-quota read-back and the remaining Azure approvals are still needed.
-The current root requires at least one P1v3 plan instance; account for the
+That selected P1v3 target requires at least one plan instance; account for the
 separately planned operator host when deciding the requested limit. The owner
 can use the Azure portal's support request flow for **Web App (Windows and
 Linux)** quotas, specifying the subscription, Central US and P1v3. No quota
@@ -199,7 +202,50 @@ This proves only the observed local child cleanup after controller death;
 it does not prove native expiry, successful telemetry flush, in-flight traffic
 draining or a clean-checkout run. **GP13 remains OPEN.**
 
-### Dynamic target selection validation
+### Quota-aware target and SKU validation (latest deployment-script epoch)
+
+The selector now checks per-SKU regional instance quota and Linux location
+listings, retries subscription selection when no eligible choice remains, and
+ranks supported candidates using current primary USD hourly PAYG Linux retail
+meters. It preserves the single-plan, six-app topology and at least 2 vCPUs /
+8 GB; this is the existing capacity floor, not a measured minimum or the
+globally cheapest architecture. Noninteractive selection requires explicit
+subscription and SKU. Legacy root inputs still default to P1v3. This does not
+supersede the historical P1v3 quota result or approve the B1 redesign above.
+
+On the modified/uncommitted checkout, the following command passed:
+
+```powershell
+$env:CONTOSO_BICEP_PATH = (Resolve-Path .\.cache\r6-tools\bicep.exe).Path
+node --test --test-reporter=spec `
+  .\tests\root-composition.test.mjs `
+  .\tests\golden-path-deployment.test.mjs `
+  .\tests\names.test.mjs `
+  .\tests\golden-path.test.mjs
+```
+
+**41/41 passed, zero skips.** Azure CLI and retail-price requests were mocked
+in these tests; the real locked Bicep compiler ran. Coverage includes exhausted
+quota retry, missing quota, unavailable Linux regions, explicit noninteractive
+selection, malformed responses, incompatible existing plans, unchanged
+one-instance plan reuse, paginated/current Linux PAYG price filtering,
+missing/conflicting price rejection, exact compiled SKU allowlists and binding,
+quota failure before ARM validation, target-bound digests, offline planning and
+the existing local/API safety regressions.
+
+A separate real public-price parser smoke check returned P1v3 at **USD
+0.17/hour (124.10 per 730-hour month)** and P1v4 at **USD 0.18/hour (131.40)**.
+These are transient compute-only public prices, not hardcoded rates, total
+root costs or a target-qualified recommendation: that parser check supplied
+synthetic eligible capacity and made no authenticated Azure calls.
+
+No Azure resource, quota request or approval was created. Per-SKU usage and a
+Linux listing do not reserve physical capacity, qualify other/aggregate quotas,
+prove effective policy/RBAC or close GP20 for the complete root. Missing prices
+fail explicitly rather than choosing an unpriced fallback. The existing
+**75/100** score and **NOT CERTIFIED** status remain unchanged.
+
+### Dynamic target selection validation (historical, before quota-aware selection)
 
 The authenticated picker, reusable root target, target-bound v2 plan digest
 and explicit-input publisher passed this focused command on 17 November 2026:

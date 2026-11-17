@@ -100,6 +100,7 @@ CIDRs are rendered as canonical network ranges.
 | `subscriptionId/resourceGroup/location` | Explicit nonzero subscription GUID, matching generated resource group and `centralus`; syntax does not establish authorization |
 | `names` | Exact `frozenNames(subscriptionId, 'centralus', 'poc')` output from `tools\names.mjs`; availability remains unverified. Checked-in `infra\params\frozen-names.v1.json` remains the historical candidate map |
 | `deploymentPhase` | `foundation` or `application`; empty application bindings only in foundation |
+| `computeSku` | Optional supported Linux Premium v3/v4 SKU from [the compute catalogue](infra/compute-skus.json); defaults to `P1v3` for existing inputs. Preserves at least 2 vCPUs / 8 GB on the single shared plan |
 | `publisherName/publisherEmail` | Contoso and the separately approved contact |
 | `applicationConfiguration` | Actual tenant, Orders/Inventory registration GUIDs, Storefront client GUID, foundation `inventoryBaseUrl` (HTTPS default hostname plus `/api`) and `portalOrigin`, controller pair, seven compute/gateway client-object pairs, registered database roles, approved test allowlist and approved existing 32-lowerhex HMAC version |
 | `postgresAdministrator` | Actual approved object GUID, principal type and name; never runtime administrator credentials |
@@ -109,12 +110,19 @@ CIDRs are rendered as canonical network ranges.
 
 For reuse in your own subscription, the
 [Demo 01 selector](demos/01/Select-AzureTarget.ps1) lists enabled subscriptions
-from your authenticated Azure CLI session and writes a new non-secret root
-input with subscription-derived names. See the
+from your authenticated Azure CLI session, prompts for an ID with reported
+App Service quota, and recommends the lowest USD PAYG retail-price SKU among
+supported, quota/region-eligible candidates. It writes a new non-secret root
+input with subscription-derived names and the confirmed `computeSku`. The
+recommendation preserves the existing compute capacity floor, not a measured
+minimum or the cheapest possible redesign. See the
 [selection and deployment steps](demos/01/GETTING_STARTED.md#a-sign-in-and-select-the-target-subscription).
-Selection requires approved Azure reads; saved-input planning remains offline.
+Selection requires approved subscription/quota/plan/region reads and public
+retail-price access; saved-input planning remains offline.
 Deployment and publishing use that explicit input, recheck CLI access and never
-change the default CLI subscription. Other native-observer/operator approval
+change the default CLI subscription. Before ARM validation/WhatIf, deployment
+rechecks the selected SKU's reported quota and regional Linux listing; it never
+silently switches a reviewed target or SKU. Other native-observer/operator approval
 registries retain their separately scoped targets; selecting a subscription
 does not enroll or certify it.
 

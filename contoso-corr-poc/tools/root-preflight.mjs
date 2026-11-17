@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { frozenNames, validateFrozenNames } from "./names.mjs";
 import { validateCertificationManifest } from "./certification-path.mjs";
+import computeSkus from "../infra/compute-skus.json" with { type: "json" };
 
 export const ROOT_SUBSCRIPTION_ID = "474c40eb-d385-40d8-baa2-06883dbdca2d";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -65,10 +66,12 @@ export function validateRootInputs(input) {
     return { syntaxPassed: false, errors: ["ROOT_INPUT_OBJECT_REQUIRED"], deploymentReady: false, certification: "NOT_CERTIFIED" };
   }
   const permitted = ["schema", "subscriptionId", "resourceGroup", "location", "deploymentPhase", "names", "publisherName", "publisherEmail",
-    "applicationConfiguration", "postgresAdministrator", "scmRunnerCidrs", "notificationActionGroupIds", "deploymentApprovalReference"];
+    "applicationConfiguration", "postgresAdministrator", "scmRunnerCidrs", "notificationActionGroupIds", "deploymentApprovalReference", "computeSku"];
   if (Object.keys(input).some(key => !permitted.includes(key)) || input.schema !== "contoso.root-inputs.v1") error("ROOT_INPUT_SCHEMA_INVALID");
   if (!guid(input.subscriptionId) || input.location !== "centralus") error("ROOT_TARGET_NOT_APPROVED");
   if (!["foundation", "application"].includes(input.deploymentPhase)) error("ROOT_PHASE_INVALID");
+  if (Object.hasOwn(input, "computeSku") && (typeof input.computeSku !== "string" || !Object.hasOwn(computeSkus, input.computeSku)))
+    error("ROOT_COMPUTE_SKU_UNSUPPORTED");
   try {
     validateFrozenNames(input.names);
     if (!isDeepStrictEqual(input.names, frozenNames(input.subscriptionId, input.location))
@@ -141,12 +144,13 @@ export function rootArmParameters(input) {
   const result = validateRootInputs(input);
   if (!result.syntaxPassed) throw new Error("ROOT_INPUT_PREFLIGHT_REQUIRED");
   const keys = ["names", "location", "deploymentPhase", "publisherName", "publisherEmail", "applicationConfiguration",
-    "postgresAdministrator", "scmRunnerCidrs", "notificationActionGroupIds", "deploymentApprovalReference"];
+    "postgresAdministrator", "scmRunnerCidrs", "notificationActionGroupIds", "deploymentApprovalReference", "computeSku"];
   return {
     $schema: "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     contentVersion: "1.0.0.0",
     parameters: Object.fromEntries(keys.map(key => [key, {
       value: key === "scmRunnerCidrs" ? input.scmRunnerCidrs.map(canonicalScmCidr)
+        : key === "computeSku" ? input.computeSku ?? "P1v3"
         : input[key] ?? (key === "deploymentApprovalReference" ? "" : {})
     }]))
   };

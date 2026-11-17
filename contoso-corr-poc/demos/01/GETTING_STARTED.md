@@ -349,8 +349,10 @@ No script changes the global Azure account/subscription or enables Basic SCM.
 ### A. Sign in and select the target subscription
 
 Use your own Azure CLI sign-in. A VS Code Azure sign-in alone does not establish
-CLI authentication. After approval to read subscription inventory, run from
-the POC root:
+CLI authentication. Obtain approval for subscription inventory, regional
+Microsoft.Web quota, existing App Service plans and Linux SKU location reads,
+plus access to Microsoft's public retail-price endpoint. Then run from the
+POC root:
 
 ```powershell
 az login
@@ -359,26 +361,54 @@ New-Item -ItemType Directory -Force .\.cache\golden-path | Out-Null
 .\demos\01\Select-AzureTarget.ps1 `
   -OutputPath .\.cache\golden-path\foundation-input.json `
   -PublisherEmail '<approved contact email>' `
-  -AllowAzureRead -ApprovalReference '<approved-subscription-read-reference>'
+  -AllowAzureRead -ApprovalReference '<approved-target-read-reference>'
 ```
 
 The [selector](Select-AzureTarget.ps1) refreshes `az account list` from your
 CLI session, filters to enabled subscriptions, and displays name, subscription
-ID and tenant ID. Enter the numbered target, or `q` to cancel. No active/default
+ID and tenant ID. Enter a subscription GUID or its list number, or `q` to cancel. No active/default
 subscription is silently selected, even when only one is available. If no
 enabled subscriptions are returned, sign in with the appropriate account or
 tenant and retry. Subscription visibility is not evidence of deployment RBAC,
 quota, policy or spending approval.
 
+The selector checks per-SKU regional **Instances** usage/limits and the Linux
+regional listing for the [supported compute catalogue](../../infra/compute-skus.json).
+If no eligible candidate remains, it shows the statuses and prompts for another
+subscription ID. Missing/unknown quota is not treated as available. An existing
+same-SKU, one-instance Linux plan with the exact generated name/group/location
+can be reused without one additional unused instance; a mismatched existing
+plan is rejected.
+
+For eligible candidates, the script fetches current public USD PAYG hourly
+Linux prices, displays a cost-ranked table and recommends the lowest price.
+Press Enter to accept it, or enter another listed SKU. The comparison preserves
+the current **one-plan, six-app topology and at least 2 vCPUs / 8 GB**, including
+VNet integration and Always On. It compares supported Premium v3/v4 candidates,
+not every Azure architecture. Basic/Standard downsizing or splitting the apps
+requires separate sizing and workload qualification; the existing capacity
+floor is not a measured minimum. Prices are fetched live, not hardcoded; a
+failed lookup or missing/conflicting price stops selection without writing an
+input.
+
+The displayed monthly estimate is **one plan's hourly retail price times 730**.
+It excludes APIM, databases/cache, storage, messaging, telemetry, network,
+operator/watchdog hosts, taxes and negotiated/reservation discounts. It is not
+a total deployment quote. Reported per-SKU quota does not reserve physical
+capacity or qualify other/aggregate quotas, policies, RBAC or the complete root.
+
 For CI or a noninteractive shell, pass an explicit ID from the authenticated
-inventory; the script still verifies it is accessible and enabled:
+inventory and a supported SKU, with `-NonInteractive`. The script still checks
+access, quota, regional listing and live prices; an explicit choice is not
+silently replaced by its recommendation:
 
 ```powershell
 .\demos\01\Select-AzureTarget.ps1 `
   -SubscriptionId '<accessible subscription GUID>' `
+  -ComputeSku P1v3 -NonInteractive `
   -OutputPath .\.cache\golden-path\foundation-input-ci.json `
   -PublisherEmail '<approved contact email>' `
-  -AllowAzureRead -ApprovalReference '<approved-subscription-read-reference>'
+  -AllowAzureRead -ApprovalReference '<approved-target-read-reference>'
 ```
 
 The output is a **private, untracked** `contoso.root-inputs.v1` foundation input
@@ -390,7 +420,11 @@ Region selection is not added: the root still supports only `centralus`.
 Use a new output path for a different selection; existing inputs are never
 overwritten. The output's parent directory must already exist.
 
-Review the generated subscription, resource group and names with the owners.
+Review the generated subscription, resource group, names and `computeSku` with
+the owners. Keep the chosen SKU when promoting foundation inputs to application
+inputs. Older inputs that omit `computeSku` retain the original `P1v3` default;
+run the selector to obtain a live recommendation rather than treating that
+default as the cheapest currently eligible choice.
 Application/admin bindings, runner CIDRs, notification routes and deployment
 approval start empty and require the separate approvals/bootstrap below.
 The read approval is deliberately not reused as a deployment approval.
@@ -398,12 +432,19 @@ Do not insert credentials, resolved connection strings, tokens, private keys or
 fake client/object IDs. Keep input and plan directories private and out of
 packages/evidence.
 
-Selection performs one Azure CLI discovery command; it creates no resources
-and never runs `az account set`. Subsequent **Plan** and package inspection use
+Selection performs read-only Azure CLI discovery/quota/plan/location calls and
+public retail-price HTTPS requests; it creates no resources and never runs
+`az account set`. Subsequent **Plan** and package inspection use
 the saved input offline. WhatIf, Provision and publishing recheck the selected
 subscription against the signed-in inventory; application input must also
 match its actual tenant. Deployment commands explicitly pass `--subscription`,
 without changing your CLI default.
+WhatIf and Provision also recheck the selected compute SKU immediately before
+ARM validation and WhatIf. If quota/region availability changed, they stop:
+rerun selection with a quota-capable subscription, save a new input, and review
+a new plan and its target-specific approvals. They never automatically retarget
+an already reviewed deployment. The quota recheck is not a reservation or a
+replacement for complete target qualification.
 
 ### B. Compile, validate and review
 
@@ -418,7 +459,7 @@ $env:CONTOSO_BICEP_PATH = '<absolute path to the locked bicep.exe>'
 ```
 
 Plan schema v2 binds the selected subscription, resource group and region as
-well as the template/parameter hashes into `planSha256`. Regenerate and review
+well as the template/parameter hashes (including `computeSku`) into `planSha256`. Regenerate and review
 plans made before this change; an old digest is not a current authorization.
 Changing targets requires a new input, plan, target-specific bootstrap and
 approval; do not carry application identities or secret references across

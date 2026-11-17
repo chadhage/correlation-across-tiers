@@ -1,0 +1,18 @@
+{
+  "P1v3": { "tier": "PremiumV3", "vcpus": 2, "memoryGb": 8 },
+  "P1mv3": { "tier": "PremiumV3", "vcpus": 2, "memoryGb": 16 },
+  "P2v3": { "tier": "PremiumV3", "vcpus": 4, "memoryGb": 16 },
+  "P2mv3": { "tier": "PremiumV3", "vcpus": 4, "memoryGb": 32 },
+  "P3v3": { "tier": "PremiumV3", "vcpus": 8, "memoryGb": 32 },
+  "P3mv3": { "tier": "PremiumV3", "vcpus": 8, "memoryGb": 64 },
+  "P4mv3": { "tier": "PremiumV3", "vcpus": 16, "memoryGb": 128 },
+  "P5mv3": { "tier": "PremiumV3", "vcpus": 32, "memoryGb": 256 },
+  "P1v4": { "tier": "PremiumV4", "vcpus": 2, "memoryGb": 8 },
+  "P1mv4": { "tier": "PremiumV4", "vcpus": 2, "memoryGb": 16 },
+  "P2v4": { "tier": "PremiumV4", "vcpus": 4, "memoryGb": 16 },
+  "P2mv4": { "tier": "PremiumV4", "vcpus": 4, "memoryGb": 32 },
+  "P3v4": { "tier": "PremiumV4", "vcpus": 8, "memoryGb": 32 },
+  "P3mv4": { "tier": "PremiumV4", "vcpus": 8, "memoryGb": 64 },
+  "P4mv4": { "tier": "PremiumV4", "vcpus": 16, "memoryGb": 128 },
+  "P5mv4": { "tier": "PremiumV4", "vcpus": 32, "memoryGb": 256 }
+}

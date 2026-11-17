@@ -3,6 +3,8 @@ targetScope = 'resourceGroup'
 @description('Frozen physical names: plan, orders, inventory, portal, fulfillment, notify, aggregator.')
 param names object
 param location string = 'centralus'
+@allowed(['P1v3', 'P1mv3', 'P2v3', 'P2mv3', 'P3v3', 'P3mv3', 'P4mv3', 'P5mv3', 'P1v4', 'P1mv4', 'P2v4', 'P2mv4', 'P3v4', 'P3mv4', 'P4mv4', 'P5mv4'])
+param computeSku string = 'P1v3'
 param tags object
 param integrationSubnetId string
 param hostStorageAccountName string
@@ -47,13 +49,14 @@ var workerDefinitions = [
   { name: names.notify, role: 'contoso-notify-worker' }
   { name: names.aggregator, role: 'contoso-order-aggregator' }
 ]
+var computeSkus = loadJsonContent('../compute-skus.json')
 
 resource plan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: names.plan
   location: location
   tags: tags
   kind: 'linux'
-  sku: { name: 'P1v3', tier: 'PremiumV3', capacity: 1 }
+  sku: { name: computeSku, tier: computeSkus[computeSku].tier, capacity: 1 }
   properties: {
     reserved: true
     zoneRedundant: false

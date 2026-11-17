@@ -42,6 +42,7 @@ try {
         subscriptionId = $inputValue.subscriptionId
         resourceGroup = $inputValue.resourceGroup
         location = $inputValue.location
+        computeSku = $inputValue.computeSku ?? 'P1v3'
         phase = $inputValue.deploymentPhase
         templateSha256 = $templateHash
         parametersSha256 = $parametersHash
@@ -68,6 +69,8 @@ try {
     }
     . (Join-Path $root 'tools\AzureTarget.ps1')
     Assert-ContosoAzureSubscription -SubscriptionId $inputValue.subscriptionId -TenantId $inputValue.applicationConfiguration.tenantId
+    Assert-ContosoAzureComputeQuota -SubscriptionId $inputValue.subscriptionId -ResourceGroup $inputValue.resourceGroup `
+        -PlanName $inputValue.names.plan -ComputeSku ($inputValue.computeSku ?? 'P1v3')
     $common = @('--subscription', $inputValue.subscriptionId, '--resource-group', $inputValue.resourceGroup,
         '--template-file', $template, '--parameters', "@$parameters", '--only-show-errors')
     & az deployment group validate @common --output none

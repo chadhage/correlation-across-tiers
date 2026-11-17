@@ -74,6 +74,16 @@ test("reusable targets require a real subscription GUID and that subscription's 
   }
 });
 
+test("compute SKU selection renders the chosen tier while legacy inputs retain their original capacity", () => {
+  assert.equal(rootArmParameters(foundation()).parameters.computeSku.value, "P1v3");
+  assert.equal(rootArmParameters({ ...foundation(), computeSku: "P1v4" }).parameters.computeSku.value, "P1v4");
+  for (const computeSku of ["F1", "B1", "S1", "P0v4", "unknown", null, {}, 1]) {
+    const input = { ...foundation(), computeSku };
+    assert.ok(validateRootInputs(input).errors.includes("ROOT_COMPUTE_SKU_UNSUPPORTED"));
+    assert.throws(() => rootArmParameters(input), /PREFLIGHT_REQUIRED/);
+  }
+});
+
 test("SCM scope rejects every host-bits spelling of IPv4 /0 before rendering", () => {
   for (const cidr of ["0.0.0.0/0", "127.0.0.1/0", "203.0.113.17/0", "999.1.1.1/24", "127.000.0.1/32"]) {
     const input = { ...foundation(), scmRunnerCidrs: [cidr] };
