@@ -8,6 +8,10 @@
     "currentRoster": "Current construction uses the user-approved independent fresh R1-R9 identities in config\\board-state.json. Earlier acting/failed-agent routing is historical only; no roster identity grants native, deployment, spending, traffic, secrets or certification authority.",
     "sections": [
       {
+        "title": "Isolated Azure examples - source-only update",
+        "markdown": "The optional [Azure operator examples](../examples/azure-operator/README.md) now provide concrete drivers for all fifteen scenarios, a separately authenticated operator/watchdog, a test-only Inventory fixture, bounded preparation, scoped native-query intake and durable reset. The original independently enrolled observer/full-emission-ledger certification interface is not bypassed: example outcomes are OBSERVED/FAIL and remain NOT CERTIFIED.\n\nThis task executed 177 selected Node tests across two non-overlapping focused commands and 42 selected Java tests without failures or skips, built the new operator JAR in an isolated source copy to preserve concurrent Demo 01 build outputs, compiled the optional Bicep template without warnings, and verified the source-free ZIP and local SQL rendering controls. These are local source/unit/package checks, not Azure or PostgreSQL-specific grant/function execution, hosted CI, installed-byte lineage or native-agent qualification. No Azure resource actions, application traffic or native-agent qualification probes were executed by this implementation task; independently owned concurrent Demo 01 work is not adopted as this task's evidence.\n\nThe current VERIFY register has 640 OPEN claims; all new entries remain unverified against official content and deployment. Refreshing the actual inventory invalidated INF-05.2's old register-byte closure, so that child returned to To Do. Its original v2 reviews and hashes are preserved, never repinned. Four unaffected construction Done children remain; all 78 parents and all live/accountable-owner requirements remain incomplete. Earlier 635-claim/five-child results below describe their original historical epochs, not acceptance of these new sources. No new reviewer or owner acceptance is recorded."
+      },
+      {
         "title": "Prepared clean-checkout validation - 3 November 2026",
         "markdown": "The repaired Git index checkout preserved exact LF/CRLF source and evidence bytes with core.autocrlf=true. `npm run test:prepare` rebuilt the real checksum-pinned sampler and compiled the locked Portal browser adapter. The parent then executed `npm test -- --test-reporter=tap --test-concurrency=2`: 672/672 passed, zero failures/skips/cancellations; all 540 source/test inputs were unchanged before and after. [Actual result](../evidence/reviews/swarm-20261102/checkout-reproducibility-20261103/prepared-checkout-result.json) and [original TAP](../evidence/reviews/swarm-20261102/checkout-reproducibility-20261103/prepared-checkout-tests.tap) are retained with a verified manifest and separate failed attempts.\n\nThe unchanged 635-claim register retains its original byte pin and owning actions; no existing review hash was rewritten. All five construction Done-child evidence closures remain current. The older 659-test pass below is historical, not validation of these later source repairs. Preparation did not execute Java tests or generate Azure application traffic; no native/hosted/parent-card/accountable-owner acceptance is granted. NOT CERTIFIED."
       },
@@ -151,7 +155,7 @@
     },
     {
       "path": "config\\verification-register.v1.json",
-      "sha256": "059c1d56272a9cca718f344c0570e2f95cee25d33e7e26569af2a4cd15bd1d00"
+      "sha256": "d08a0a2955622ddbe843ac56bcc450edd4233c44d03670bcbd66f75d4fb60597"
     },
     {
       "path": "config\\versions.lock.json",
@@ -202,6 +206,14 @@
       "sha256": "7a3645edda1b55757dbe9a866a892196c24fba3c2913d8f502878e4746aec1d9"
     },
     {
+      "path": "demos\\01\\Deploy-Azure.ps1",
+      "sha256": "63b186cf50eb27cf89672d290c3e665c436acc2359e8045c84d18013cdd6f0dd"
+    },
+    {
+      "path": "demos\\01\\Publish-App.ps1",
+      "sha256": "2d16d94595bfc204b0159c1414e5a1b294121ff4ed289a2d2a3499b84b053518"
+    },
+    {
       "path": "demos\\01\\Reset.ps1",
       "sha256": "f509807fc5a8aaffbcab7f58d7a4f2aaf1e8c6fecf4a2b90a8b14dc0cfea720b"
     },
@@ -210,8 +222,20 @@
       "sha256": "5e43199516c703072de223483f2c7f01d6d37f85dfd50d3359da7bea066e72e5"
     },
     {
+      "path": "demos\\01\\compose.data.yml",
+      "sha256": "6e6eb6f6bc0fcb32a7a994bedc89b1d7f1ea7ab12e2d808ea363c4e28106fd9a"
+    },
+    {
       "path": "demos\\01\\demo.json",
       "sha256": "7fcdd0b51b76a69e7a672a10ab2265d9ed196d5988f014a4e6619abbd07fd000"
+    },
+    {
+      "path": "demos\\01\\launch.example.json",
+      "sha256": "8191929456e125a95996ebfbe73ef2735f3eef4ab54f1f29b8d707658877ceec"
+    },
+    {
+      "path": "demos\\01\\order-client.mjs",
+      "sha256": "78d79b4fc866089867bd0423a2a6e2f85c919cdca37d832520c3de8c9d75a009"
     },
     {
       "path": "demos\\02\\Reset.ps1",
@@ -386,6 +410,90 @@
       "sha256": "eae62d808cd31c4ef90a6550eead9a47d9b5604faa7e625ac2ef2e7c693dc839"
     },
     {
+      "path": "examples\\azure-operator\\Package.ps1",
+      "sha256": "67f84209f71a7958c9a9f443d83b61ee017fb3bb282530337eb6fef01f843cac"
+    },
+    {
+      "path": "examples\\azure-operator\\Prepare-Grants.ps1",
+      "sha256": "ce53c2212184501b8d372970655e8f1f33c24544ed615a343e13bca288ce00f4"
+    },
+    {
+      "path": "examples\\azure-operator\\client.example.json",
+      "sha256": "53910c9b3a9f28ba280249d06e520501780b8f32f7a9402d5cfb69b7193cd224"
+    },
+    {
+      "path": "examples\\azure-operator\\infra.bicep",
+      "sha256": "ae6f5250a54d5fc07806fdc0daa71f7499be55e9850fab07e1c8c5f7470869b9"
+    },
+    {
+      "path": "examples\\azure-operator\\infra.example.json",
+      "sha256": "60dd0f0ea228249a3ab9d2f3cfa3a9e42627cb1f8d690cf85709d3f582fa9a3d"
+    },
+    {
+      "path": "examples\\azure-operator\\pom.xml",
+      "sha256": "ef7276bd4d85c2ebd02b4e65de80f28c7d97b645df642bb48dbc8fd68e40674c"
+    },
+    {
+      "path": "examples\\azure-operator\\prepare.mjs",
+      "sha256": "ca6dd52511619cfc21d8aa3f371ca1a2af14cd028dbd432d02f923bb47846fc0"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+      "sha256": "7c6451cdc7c9314872b5063aa0c5ae7c20295738d0a9da16547773b9f51dca6c"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+      "sha256": "0de70534a8a1277be2d1dead74e0bceb461952d981daee696020c11e668fc48a"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+      "sha256": "9453b8b8f8d1ba359a847bd75b0cf2afee3159fe4c7d3b807cdc33c86ced128c"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+      "sha256": "8f09ed417f9964ef889c28d2337aee857d32915a01c105c46405758901f529f9"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+      "sha256": "8e73d8868ef6142bcd1de773e1d8aa695b3a2f4cd01bded5c7137f9fa07dd2f2"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+      "sha256": "1777126f1f7a4233b4cd59141627b44ebd6089f251233694c9671293ab1a66d1"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+      "sha256": "953dd92fdd7f93e1c48ae0281002d8a9e0a1984b30ffc76dff00b4b1f5f9fe28"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+      "sha256": "98117a592cd4f9ab43a855e38e5fff22c239248066f53861033b627821920f4c"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+      "sha256": "e40ae80c4fd9d9a62288a7695478ab59107958b917d331d4b481e2549dc1bce3"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+      "sha256": "8e6f2214343c3d3a9c699e8ed4c01199ee13f0288c5e7e8d34fc601d643bba4e"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+      "sha256": "4c7e375055a69566316368b718d7f22b996806e6d7dabdc2fa8a68bfd87616ac"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+      "sha256": "30ae7d0244c289597fa29b023cf8a490413861ecc7cfd99d4f76fd104376e828"
+    },
+    {
+      "path": "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+      "sha256": "92fb637338bdd079837e6af8d543a3f8def9e1cd20c78a3328d2afdf76ac8d62"
+    },
+    {
+      "path": "examples\\azure-operator\\startup.sh",
+      "sha256": "a468340809e050b22680dd5582fd8b919696cd03347c454f60377e4e72766e11"
+    },
+    {
       "path": "extensions\\parent-safe-sampler\\pom.xml",
       "sha256": "4984d885795bee6372eb19e87d80521c3d6a868be256fd72d3a952fc8ae7bfe1"
     },
@@ -495,11 +603,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "c0eebe7d610d678766a910c30897f2b396bf038a16b0cdc7c5ec35e94a08efd1"
+      "sha256": "49d0cad3005dbe83c96cd4e566d916d6673759316663029a5cef70e9a4e18ce5"
     },
     {
       "path": "pom.xml",
-      "sha256": "c357075208cab1e9c32fa658f0d0394b06eee3b4b6de9cf72b87ae2d44ea61cd"
+      "sha256": "bb90523b101e25ce43e8ca49a45ba727bc00e72472f95689527922a7ede0e469"
     },
     {
       "path": "services\\correlation-core\\pom.xml",
@@ -771,7 +879,7 @@
     },
     {
       "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
-      "sha256": "df8d302eef7233e5794cd6ff79e9f336281b15ed04e785c671d64c54db2d38f4"
+      "sha256": "2ee48a5dc525d59b5ca04f1cada2311da2eb0a5ea411395e9aec918edfb3edcd"
     },
     {
       "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RestorableInventoryCache.java",
@@ -780,6 +888,26 @@
     {
       "path": "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\SanitizedJdbc.java",
       "sha256": "34b4585aa4194fdc6d248fda8a2de9a6a73fdae387dc371f99f81b2ebd477bc9"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+      "sha256": "fb63684839e084c908612e15ef7fce96dd45235965dd272bb24933a8f73f5d07"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+      "sha256": "910285c6133b18e1b954c2f604ccbf561f453695db2f9e7e87a4f3b528655c08"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+      "sha256": "e2436fb51df38a4de025c9ced18f58d4b33a943b015ab7ee8d32c78ef11e3fcc"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+      "sha256": "6024d7ce2a4d20b05a5b8ffb24ab0278392a38ad04a655f6905407880c3e962d"
+    },
+    {
+      "path": "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+      "sha256": "8711e366d3b8b6b5c6b19f22f9a2f233eb63758550ad25b49eb8a2355801814a"
     },
     {
       "path": "services\\inventory-data\\src\\test\\java\\com\\contoso\\inventory\\data\\DataAgentProbe.java",
@@ -922,8 +1050,16 @@
       "sha256": "e66cd8722c6d2b446b4c7be2c1893916c2ac56fe92b0c1d2558b1d5de65f20f6"
     },
     {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+      "sha256": "af007b661f0f20728f56b237e462e5a90e8f90255e27a490f107de53972e17c0"
+    },
+    {
+      "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+      "sha256": "4139efb268a9d821cc7384627fcb8dcbead324eddd089a2d6b07f105ed7820b1"
+    },
+    {
       "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiFixture.java",
-      "sha256": "7e9140855643d816feb0c3ee6e97ac16f4034ceb6300bd346a16e225be8594a0"
+      "sha256": "d44dcf45800a984fafd199f41a6b349c3e0425391f244ddd5493bb7626cc58ed"
     },
     {
       "path": "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\NativeApiIntegrationTest.java",
@@ -1011,7 +1147,7 @@
     },
     {
       "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
-      "sha256": "a6a6ccdfcdc2bee719915af9c1f673143f3f57f472c6bacdf33972280c1734b6"
+      "sha256": "2a3291d0c125451e8592357fe2afdc8f6450d74383c0d92880580fc5629eb200"
     },
     {
       "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\HmacPseudonymizer.java",
@@ -1031,7 +1167,7 @@
     },
     {
       "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\RequestAuthenticator.java",
-      "sha256": "5c515a25ef9da3e1dd23074aace9fb757df57ac3fbdd69f37d64ca6d6bbde2f6"
+      "sha256": "a003b614c41adaacc2a134af97cfcfd1e6bedbf9a3c253b1a54cd8041d6c798b"
     },
     {
       "path": "services\\security-core\\src\\main\\java\\com\\contoso\\security\\SafeAuthenticationTelemetry.java",
@@ -1079,7 +1215,7 @@
     },
     {
       "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
-      "sha256": "f938b4bf362a5953ed291c5d614310c394c03f6ee4f773c22fc559e02b92a9b1"
+      "sha256": "bfc087a67c2316998562de5fff365eb2739e7f9d03989e6ae2ed34bfd1b6559e"
     },
     {
       "path": "services\\security-core\\src\\test\\java\\com\\contoso\\security\\SecurityFixture.java",
@@ -1194,6 +1330,10 @@
       "sha256": "18f20f367f0d23617a2ec06269fe95cb86be145757beb3183f77606ff535daea"
     },
     {
+      "path": "tools\\java\\Start-LocalPair.ps1",
+      "sha256": "00288a99910997fb48d28e23873d3da4ab76e221961d8f7db43059e883d38ffe"
+    },
+    {
       "path": "tools\\java\\Test-PackagedLaunch.ps1",
       "sha256": "023bb999223b34d7237e26f2f7cfb168436ed61c8f3a45290da19d58541a0827"
     },
@@ -1216,6 +1356,10 @@
     {
       "path": "tools\\java\\Write-ValidationReport.ps1",
       "sha256": "b36a2cff5b26a5afec425806d78d3ab5b8fba04a202a6b5527e818c0d9c338af"
+    },
+    {
+      "path": "tools\\java\\local-pair.mjs",
+      "sha256": "8409846c237112b272a9231bed69b9b7481c2352a21df4ba78c734ef60ec9eeb"
     },
     {
       "path": "tools\\java\\native-api-capture.mjs",
@@ -1387,7 +1531,7 @@
     },
     {
       "path": "tools\\security\\native-payload.mjs",
-      "sha256": "d3fa9007028fc8b69b4a0a4595a086f0256620124b3f68d1f901d9ba8f782e63"
+      "sha256": "4a85a93ecbdd3a62093c2221499a6bf49c6eadeb1faf9e1225cabf30f4a4e842"
     },
     {
       "path": "tools\\security\\repository.mjs",
@@ -1414,6 +1558,10 @@
       "sha256": "f77e0f20812f10e4f9e2a353501ce6b6fbfb85da06a0f4f6b55a5f7091606378"
     },
     {
+      "path": "tools\\verification\\adapters\\azure-operator.mjs",
+      "sha256": "aa6992de35903420e8f37fa275ed4ba4d81a648fef9df38a2e31be0b96e775c7"
+    },
+    {
       "path": "tools\\verification\\adapters\\demo01-browser.mjs",
       "sha256": "f77dc6e4618f7a71ece8b3a4ab9749570fb78db5c8a26cd7a8a895e59985e690"
     },
@@ -1436,6 +1584,14 @@
     {
       "path": "tools\\verification\\async-capture-receipts.mjs",
       "sha256": "0f7438fd3716656f2f2c6d2c9069eec5853ea435856ea5566c42d291b0642a97"
+    },
+    {
+      "path": "tools\\verification\\azure-examples.mjs",
+      "sha256": "cd13ec743f1ac7178d5faaddcf6b3a8a2ecfb948a66205bc2102ae0707578f10"
+    },
+    {
+      "path": "tools\\verification\\azure-scenarios.mjs",
+      "sha256": "4e617d3a7a141f1936ae412dd369d20d49483f27bfb897864e33c3294c58e26b"
     },
     {
       "path": "tools\\verification\\ci-node.mjs",
@@ -1479,7 +1635,7 @@
     },
     {
       "path": "tools\\verification\\demo.mjs",
-      "sha256": "32704d4d245e5c2eab1c5db0f91042b93ddb81484ef5c062f5cbfe2fc0efd744"
+      "sha256": "403521ac2831718f8be01f0edfe02ed8cd5dc35a7fd6a5f46253500d0f3122bb"
     },
     {
       "path": "tools\\verification\\evidence.mjs",
@@ -1551,7 +1707,7 @@
     },
     {
       "path": "web\\demo-microsite\\build.mjs",
-      "sha256": "b5dde0dbef7f69577799798addcf6c594946068aff4b902a1bee1051df876cca"
+      "sha256": "1ab355e36f4e7405f0fe711a510bd072d9af3a2b56bf639f85a5f943632df754"
     },
     {
       "path": "web\\demo-microsite\\serve.mjs",
@@ -1763,7 +1919,7 @@
     },
     {
       "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\AzureMessagingTransport.java",
-      "sha256": "1509708bf2eb080a6d9e022b51bd2e0379c2260de9d437cbfe6a3b1228f11df1"
+      "sha256": "2454053f41d8ac1b36a6b5b53639b042e2693cdc2252d705b6b7091f6899e765"
     },
     {
       "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\Branch.java",
@@ -1811,7 +1967,7 @@
     },
     {
       "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java",
-      "sha256": "9bc25811764d8c1e6ba20c9bf2daf17e05574163182dcbf4c2e9b28de75c9d8d"
+      "sha256": "a1be780cc211cba713fe3e0e7193e3408a4fa1e1f0b4884058b4ab5e48344334"
     },
     {
       "path": "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\OutboxPublisher.java",
@@ -1846,6 +2002,10 @@
       "sha256": "7a03694d4a040607ca30904070fd5ccc31ba5d173de5c51e0f9729bcac0ea515"
     },
     {
+      "path": "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+      "sha256": "33c599528ca859b46ceb8f9dbb3e6b961f61f0d4f2f7dcea3c542e4be905254a"
+    },
+    {
       "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AsyncNativeAgentTest.java",
       "sha256": "a8f7c0764a27adbe1a991274fb5f394d184418bd5e144f13f6ae69c5a2e18d77"
     },
@@ -1856,6 +2016,10 @@
     {
       "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\AzureSdkBoundaryTest.java",
       "sha256": "8e47ce74ac35585cacbf6ab95d12f159f5f12dc9f5974291014bd1ebc342bcdc"
+    },
+    {
+      "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java",
+      "sha256": "93fdfc515a5272cb7cad77ffe66c7ab209dc31bf9459cf47702b909fa95904af"
     },
     {
       "path": "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\EnvelopeTest.java",
@@ -2423,7 +2587,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -2548,7 +2752,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -3027,7 +3237,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -3152,7 +3402,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -3631,7 +3887,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -3756,7 +4052,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -4235,7 +4537,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -4360,7 +4702,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -4839,7 +5187,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -4964,7 +5352,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -5443,7 +5837,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -5568,7 +6002,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -6047,7 +6487,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -6172,7 +6652,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -6651,7 +7137,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -6776,7 +7302,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -7255,7 +7787,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -7380,7 +7952,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -7859,7 +8437,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -7984,7 +8602,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     },
     {
@@ -8463,7 +9087,47 @@
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayFixtureTest.java",
         "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\NotifyTopicReplayProbe.java",
         "tools\\verification\\adapters\\demo01-source-binding.v2.json",
-        "tools\\Prepare-NodeTests.ps1"
+        "tools\\Prepare-NodeTests.ps1",
+        "demos\\01\\Deploy-Azure.ps1",
+        "demos\\01\\Publish-App.ps1",
+        "demos\\01\\compose.data.yml",
+        "demos\\01\\launch.example.json",
+        "demos\\01\\order-client.mjs",
+        "examples\\azure-operator\\Package.ps1",
+        "examples\\azure-operator\\Prepare-Grants.ps1",
+        "examples\\azure-operator\\client.example.json",
+        "examples\\azure-operator\\infra.bicep",
+        "examples\\azure-operator\\infra.example.json",
+        "examples\\azure-operator\\pom.xml",
+        "examples\\azure-operator\\prepare.mjs",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureBrokerExamples.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureDataCanaries.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\AzureResources.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\InventoryFaultFixture.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorApplication.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorConfig.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorFailure.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorJson.java",
+        "examples\\azure-operator\\src\\main\\java\\com\\contoso\\demo\\operator\\OperatorRunStore.java",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator-grants.sql",
+        "examples\\azure-operator\\src\\main\\resources\\db\\operator.sql",
+        "examples\\azure-operator\\src\\main\\resources\\logback.xml",
+        "examples\\azure-operator\\src\\test\\java\\com\\contoso\\demo\\operator\\OperatorRunStoreTest.java",
+        "examples\\azure-operator\\startup.sh",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\aggregator.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\common.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\orders.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\grants\\workflow\\worker.sql",
+        "services\\inventory-data\\src\\main\\resources\\db\\migration\\V001__inventory.sql",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilter.java",
+        "services\\orders-api\\src\\test\\java\\com\\contoso\\orders\\LocalPairIngressFilterTest.java",
+        "tools\\java\\Start-LocalPair.ps1",
+        "tools\\java\\local-pair.mjs",
+        "tools\\verification\\adapters\\azure-operator.mjs",
+        "tools\\verification\\azure-examples.mjs",
+        "tools\\verification\\azure-scenarios.mjs",
+        "workers\\messaging-core\\src\\main\\resources\\db\\messaging\\V002__messaging.sql",
+        "workers\\messaging-core\\src\\test\\java\\com\\contoso\\messaging\\DemoWorkflowRoutingTest.java"
       ],
       "evidence": [],
       "changedSources": [
@@ -8588,7 +9252,13 @@
         ".tools\\java\\apache-maven-3.10.0\\conf\\settings.xml",
         ".tools\\java\\apache-maven-3.10.0\\conf\\toolchains.xml",
         "web\\demo-microsite\\site.mjs",
-        "tools\\verification\\security-client-qualification.mjs"
+        "tools\\verification\\security-client-qualification.mjs",
+        "services\\inventory-data\\src\\main\\java\\com\\contoso\\inventory\\data\\RedisSettings.java",
+        "services\\security-core\\src\\main\\java\\com\\contoso\\security\\EntraJwtVerifier.java",
+        "services\\security-core\\src\\test\\java\\com\\contoso\\security\\RequestAuthenticatorTest.java",
+        "tools\\security\\native-payload.mjs",
+        "web\\demo-microsite\\build.mjs",
+        "workers\\messaging-core\\src\\main\\java\\com\\contoso\\messaging\\MessagingWorkflowPort.java"
       ]
     }
   ],
@@ -8627,5 +9297,5 @@
       "reason": "Assessment source or versions changed; preserved metadata supplies no current execution capability"
     }
   ],
-  "sourceSnapshotSha256": "f708d0842919b66d26d7ff0d39f0e39d77b32797ab5e31e8f78acc45632f0523"
+  "sourceSnapshotSha256": "0abc0d73a95b5df61ad6d19b171e70a662f8d9bbb086940c529ca860b52abc53"
 }

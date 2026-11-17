@@ -68,6 +68,17 @@ inspection routine:
    any scenario below. Repeat the same review rather than assuming a previous
    scenario's result carries forward.
 
+For executable local development and the separately gated Azure path, use the
+[Demo 01 getting-started and reuse guide](contoso-corr-poc/demos/01/GETTING_STARTED.md).
+Its [completion assessment](contoso-corr-poc/demos/01/COMPLETION.md) records
+actual bounded local results and the atomic work still required for full
+Azure acceptance; the microsite remains a read-only source snapshot.
+
+For Azure-backed execution examples covering all fifteen scenarios, see the
+[isolated operator and fixture guide](contoso-corr-poc/examples/azure-operator/README.md).
+These opt-in tools require separate authorization and do not change the
+microsite's read-only or NOT CERTIFIED scope.
+
 **Every scenario, from the current catalog:**
 
 - [01 - Synchronous golden path][demo-01]

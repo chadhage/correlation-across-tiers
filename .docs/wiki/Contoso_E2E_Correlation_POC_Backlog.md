@@ -858,7 +858,7 @@ Deploys `contoso-corr-poc-pg` (database `contoso_orders`) and `contoso-corr-poc-
     - Deliverable: One smoke-test command that, for each store-consuming app (Inventory; Orders workflow store; Fulfillment, Notify and Aggregator messaging stores), connects under that app's own database role and Redis identity where used, through the app's own runtime identity, and performs one read-only probe.
     - Acceptance: The report gives one pass or fail per app naming only the role identity. A wrong-role or missing-grant case fails, and no connection string, token, password or SQL parameter reaches output or logs. Runs against H2 or the RESP fixture test the harness only and are labelled construction.
 
-  - [x] **INF-05.2 - Record and gate the untyped data-tier API versions**
+  - [ ] **INF-05.2 - Record and gate the untyped data-tier API versions**
     - Executor: R6.
     - Prerequisites: The frozen Bicep compiler (`CONTOSO_BICEP_PATH`) and the existing data-tier modules. Native `validate` and `what-if` additionally need the approved subscription and resource group.
     - Deliverable: One test and register update that compile `infra\modules\data-postgres.bicep` and `data-managed-redis.bicep` and record the BCP081 warnings for `Microsoft.DBforPostgreSQL/flexibleServers@2026-10-01` and `Microsoft.Cache/redisEnterprise@2026-09-01`, each tied to a VERIFY register row.

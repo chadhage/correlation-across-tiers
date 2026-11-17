@@ -48,12 +48,20 @@ public final class RequestAuthenticator implements AutoCloseable {
                     if (!identity.equals(portal)) throw new IllegalArgumentException("AUTH_CONFIGURATION_INVALID");
                     runControllers = Set.of(identity);
                 }
+                Set<WorkloadIdentity> callers = new HashSet<>(Set.of(portal));
+                Set<WorkloadIdentity> controllers = new HashSet<>(runControllers);
+                if (env.containsKey("CONTOSO_DEMO_OPERATOR_CLIENT_ID") || env.containsKey("CONTOSO_DEMO_OPERATOR_OBJECT_ID")) {
+                    WorkloadIdentity operator = workload(env, "DEMO_OPERATOR");
+                    if (operator.equals(gateway) || operator.equals(portal)) throw new IllegalArgumentException("AUTH_CONFIGURATION_INVALID");
+                    callers.add(operator);
+                    controllers.add(operator);
+                }
                 return new AuthorizationPolicy(serviceName,
                     audiences(required(env, "CONTOSO_PUBLIC_AUDIENCE")),
                     audiences(required(env, "CONTOSO_ORDERS_AUDIENCE")),
                     Set.of(WorkloadIdentity.canonical(required(env, "CONTOSO_STOREFRONT_CLIENT_ID"))),
                     env.getOrDefault("CONTOSO_DELEGATED_SCOPE", "Orders.Invoke"),
-                    Set.of(gateway), Set.of(portal), Set.of(portal), runControllers, "Portal.Invoke");
+                    Set.of(gateway), callers, callers, controllers, "Portal.Invoke");
             }
             if ("contoso-inventory-api".equals(serviceName)) {
                 WorkloadIdentity orders = workload(env, "ORDERS");

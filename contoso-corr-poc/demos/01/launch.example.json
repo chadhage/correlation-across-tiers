@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Demo 01: attach local Orders",
+      "request": "attach",
+      "hostName": "127.0.0.1",
+      "port": "${input:ordersPort}"
+    },
+    {
+      "type": "java",
+      "name": "Demo 01: attach local Inventory",
+      "request": "attach",
+      "hostName": "127.0.0.1",
+      "port": "${input:inventoryPort}"
+    }
+  ],
+  "inputs": [
+    { "id": "ordersPort", "type": "promptString", "description": "local-pair.json debugPorts.orders" },
+    { "id": "inventoryPort", "type": "promptString", "description": "local-pair.json debugPorts.inventory" }
+  ]
+}

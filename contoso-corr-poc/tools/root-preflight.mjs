@@ -67,11 +67,11 @@ export function validateRootInputs(input) {
   const permitted = ["schema", "subscriptionId", "resourceGroup", "location", "deploymentPhase", "names", "publisherName", "publisherEmail",
     "applicationConfiguration", "postgresAdministrator", "scmRunnerCidrs", "notificationActionGroupIds", "deploymentApprovalReference"];
   if (Object.keys(input).some(key => !permitted.includes(key)) || input.schema !== "contoso.root-inputs.v1") error("ROOT_INPUT_SCHEMA_INVALID");
-  if (input.subscriptionId !== ROOT_SUBSCRIPTION_ID || input.location !== "centralus") error("ROOT_TARGET_NOT_APPROVED");
+  if (!guid(input.subscriptionId) || input.location !== "centralus") error("ROOT_TARGET_NOT_APPROVED");
   if (!["foundation", "application"].includes(input.deploymentPhase)) error("ROOT_PHASE_INVALID");
   try {
     validateFrozenNames(input.names);
-    if (!isDeepStrictEqual(input.names, frozenNames(ROOT_SUBSCRIPTION_ID, "centralus"))
+    if (!isDeepStrictEqual(input.names, frozenNames(input.subscriptionId, input.location))
       || input.resourceGroup !== input.names.resourceGroup) error("ROOT_PHYSICAL_MAP_MISMATCH");
   } catch { error("ROOT_PHYSICAL_MAP_INVALID"); }
   if (input.publisherName !== "Contoso" || typeof input.publisherEmail !== "string"

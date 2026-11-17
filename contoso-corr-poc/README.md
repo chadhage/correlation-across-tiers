@@ -22,8 +22,25 @@ Source snapshots and local receipt matches are explicitly not certification.
 The Storefront's Demo 01 action uses ordinary order submission
 (`POST /contoso/v1/orders`) and order refresh, so the existing Orders handler
 can call Inventory. Other SPA demo actions use `/contoso/v1/demo-runs`;
-Demo 02 remains Portal-only. The routing correction has independent loopback
-browser-fixture validation, not deployed Gateway/Java/PostgreSQL/Redis proof.
+Demo 02 remains Portal-only. The bounded
+[Demo 01 getting-started guide](demos/01/GETTING_STARTED.md) now includes a
+working local browser/two-agent-JVM rehearsal, deployment helpers, sample client,
+debugging and reuse instructions. The
+[completion assessment](demos/01/COMPLETION.md) separates its measured local
+results from the remaining atomic Azure/native/recovery activities.
+H2/RESP, synthetic identity and a span-free forwarder are explicitly local
+substitutes, not deployed Gateway/Entra/PostgreSQL/Managed Redis proof.
+
+## Azure-backed examples for all fifteen scenarios
+
+The optional [isolated Azure operator examples](examples/azure-operator/README.md)
+provide concrete scenario drivers, a separately authenticated operator/watchdog,
+a test-only Inventory fault fixture, deployment preparation and durable reset.
+Start with `npm run examples:azure -- --list`; default commands do not contact
+Azure. Explicit execution requires reviewed inputs, actual identities/resources
+and separate approval. Results are `OBSERVED`/`FAIL`, never certification or
+independently enrolled native evidence. The ordinary v1 verification gates remain
+unchanged.
 
 ## Coherent root
 
@@ -80,7 +97,8 @@ CIDRs are rendered as canonical network ranges.
 
 | Input | Contract |
 |---|---|
-| `names` | Exact `infra\params\frozen-names.v1.json`, generated from approved subscription `474c40eb-d385-40d8-baa2-06883dbdca2d`, `centralus`, `poc`; availability remains unverified |
+| `subscriptionId/resourceGroup/location` | Explicit nonzero subscription GUID, matching generated resource group and `centralus`; syntax does not establish authorization |
+| `names` | Exact `frozenNames(subscriptionId, 'centralus', 'poc')` output from `tools\names.mjs`; availability remains unverified. Checked-in `infra\params\frozen-names.v1.json` remains the historical candidate map |
 | `deploymentPhase` | `foundation` or `application`; empty application bindings only in foundation |
 | `publisherName/publisherEmail` | Contoso and the separately approved contact |
 | `applicationConfiguration` | Actual tenant, Orders/Inventory registration GUIDs, Storefront client GUID, foundation `inventoryBaseUrl` (HTTPS default hostname plus `/api`) and `portalOrigin`, controller pair, seven compute/gateway client-object pairs, registered database roles, approved test allowlist and approved existing 32-lowerhex HMAC version |
@@ -88,6 +106,17 @@ CIDRs are rendered as canonical network ranges.
 | `scmRunnerCidrs` | Explicit approved authenticated runner routes; no `0.0.0.0/0` |
 | `notificationActionGroupIds` | Actual approved action groups; empty disables routes and leaves governance unmet |
 | `deploymentApprovalReference` | External approval locator; a caller string does not establish authority |
+
+For reuse in your own subscription, the
+[Demo 01 selector](demos/01/Select-AzureTarget.ps1) lists enabled subscriptions
+from your authenticated Azure CLI session and writes a new non-secret root
+input with subscription-derived names. See the
+[selection and deployment steps](demos/01/GETTING_STARTED.md#a-sign-in-and-select-the-target-subscription).
+Selection requires approved Azure reads; saved-input planning remains offline.
+Deployment and publishing use that explicit input, recheck CLI access and never
+change the default CLI subscription. Other native-observer/operator approval
+registries retain their separately scoped targets; selecting a subscription
+does not enroll or certify it.
 
 Outputs contain resource IDs, URLs, declared names and actual ARM identity
 object references, never a connection-string/iKey/key/token value. HMAC

@@ -57,6 +57,13 @@ public final class EntraJwtVerifier implements AutoCloseable {
         return new EntraJwtVerifier(tenant, provider, clock);
     }
 
+    public void requireController(String authorization, String audience, WorkloadIdentity expected) {
+        var claims = verify(authorization, Set.of(WorkloadIdentity.canonical(audience)));
+        if (!claims.appOnly() || !expected.equals(claims.workload()) || !claims.roles().contains("Demo.Control")) {
+            throw new SecurityException("CONTROLLER_REJECTED");
+        }
+    }
+
     VerifiedClaims verify(String authorization, Set<String> audiences) {
         try {
             String token = bearer(authorization);

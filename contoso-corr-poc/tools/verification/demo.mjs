@@ -10,7 +10,7 @@ import { projectRoot, createBoundDirectory, jsonBytes, sha256, readBoundFile, re
 
 const MODES = new Set(['LocalValidate', 'BootstrapValidate', 'Certify']);
 const REQUIRED_ADAPTER_METHODS = ['prepare', 'execute', 'drain', 'collect', 'scanPrivacy', 'observeSampling', 'stopTraffic', 'reset'];
-const SOURCE_EXTENSIONS = /\.(?:json|bicep|bicepparam|xml|java|ts|js|mjs|ps1|sh|ya?ml)$/;
+const SOURCE_EXTENSIONS = /\.(?:json|bicep|bicepparam|xml|java|ts|js|mjs|ps1|sh|sql|ya?ml)$/;
 const skip = new Set(['node_modules', 'target', 'dist', 'bin', 'obj', '.cache', '.tools', '.java-work', '.git', 'deployment-artifact', 'evidence', 'tests']);
 const failure = (code, detail) => { throw new VerificationFailure(code, detail); };
 
@@ -311,6 +311,10 @@ async function loadAdapter(name, expectedSha256) {
 }
 
 export async function demoMain(args) {
+  if (args.includes('--azure-examples')) {
+    const { azureExamplesMain } = await import('./azure-examples.mjs');
+    return azureExamplesMain(args.filter(argument => argument !== '--azure-examples'));
+  }
   const options = {};
   const flags = new Set(['--all', '--check', '--materialize', '--reset']);
   const valued = new Set(['--demo', '--mode', '--adapter', '--adapter-sha256', '--pack', '--timeout-seconds']);

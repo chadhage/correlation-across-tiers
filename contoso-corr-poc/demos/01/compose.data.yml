@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: ${CONTOSO_LOCAL_PG_USERNAME:?Set a disposable local administrator name}
+      POSTGRES_PASSWORD: ${CONTOSO_LOCAL_PG_PASSWORD:?Set a disposable local-only password}
+      POSTGRES_DB: postgres
+    ports:
+      - "127.0.0.1:${CONTOSO_LOCAL_PG_PORT:?Set an unused local port}:5432"
+    tmpfs:
+      - /var/lib/postgresql
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d postgres"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "64mb", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "127.0.0.1:10000:6379"
+    tmpfs:
+      - /data
+    mem_limit: 128m
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

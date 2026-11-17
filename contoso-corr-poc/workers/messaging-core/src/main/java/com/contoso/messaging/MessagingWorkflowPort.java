@@ -60,7 +60,7 @@ public final class MessagingWorkflowPort implements WorkflowPort, AutoCloseable 
     }
     @Override public WorkflowView startRun(DemoRunCommand command, OperationContext context) {
         Destination destination = switch (command.scenario()) {
-            case FAN_OUT, FAN_IN -> Destination.SERVICE_BUS_TOPIC;
+            case FAN_OUT, FAN_IN, DLQ -> Destination.SERVICE_BUS_TOPIC;
             case BATCH -> Destination.EVENT_HUBS;
             case EVENT_GRID -> Destination.EVENT_GRID;
             case STORAGE_QUEUE -> Destination.STORAGE_QUEUE;

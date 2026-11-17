@@ -1,6 +1,6 @@
 {
   "schema": "contoso.board-acceptance.v1",
-  "revision": 80,
+  "revision": 81,
   "defaultStatus": "To Do",
   "phaseAwareConstructionApproved": true,
   "explicitActiveFacetsRequired": true,
@@ -592,10 +592,10 @@
       ]
     },
     "INF-05.2": {
-      "status": "Done",
+      "status": "To Do",
       "scope": "construction",
-      "constructionReady": true,
-      "nextAction": "The original v2 warning/VERIFY scope remains byte-identical after the idempotent checkout repair. Both existing R4/R8 executed reviews and all eight inputs verify unchanged; provider/GA/deployment/connectivity remain To Do.",
+      "constructionReady": false,
+      "nextAction": "The additive Azure examples and concurrent Demo 01 source inventory changed config\\verification-register.v1.json. Re-execute the exact warning/VERIFY construction scope and obtain two current other-role executed reviews. Original v2 receipts and hashes remain historical, not repinned; no provider/GA/deployment/connectivity acceptance is granted.",
       "waitingOn": [],
       "certificationStatus": "NOT CERTIFIED",
       "sourceAcceptanceIsCertification": false,
@@ -633,7 +633,16 @@
           "scopeSha256": "5ed6bf998f82d6e2149e0d90baa71e104df58485e7e14de42d54461c6c2b2a7c"
         }
       ],
-      "historicalInvalidation": "Owner/reviewer v1 receipts retained; prior register drift required actual v2 re-execution. The checkout repair preserves the exact current v2 inputs and original receipt bytes; no review hashes or approvals were rewritten."
+      "historicalInvalidation": "Owner/reviewer v1 receipts retained; prior register drift required actual v2 re-execution. The checkout repair preserves the exact current v2 inputs and original receipt bytes; no review hashes or approvals were rewritten.",
+      "currentSourceInvalidation": {
+        "reason": "The current explicit VERIFY inventory contains additive source claims and no longer matches the original v2 reviewed register bytes.",
+        "changedSources": [
+          "config\\verification-register.v1.json"
+        ],
+        "historicalReviewsPreserved": true,
+        "newAcceptanceGranted": false,
+        "sourceAcceptanceIsCertification": false
+      }
     },
     "WEB-01.1": {
       "status": "To Do",
@@ -1180,8 +1189,8 @@
     }
   },
   "sourceHashes": {
-    "backlog": "de3aa4e85eae71db77f0b729b10f80dd364ff8233b7c607313d8e2edc959b2d6",
-    "kanban": "4a02632e3dca984a17b19c8b700e61403afb793e2ecf5ff5df648206885cc762"
+    "backlog": "969fd6836922577be48015b4f4d64d7402efd869a82d3975f2faf31293b50152",
+    "kanban": "a36603fbcc6bb8fcbdf65c01f63e6cc67ec93c2adf99196e1380f4265bdccf7f"
   },
   "historicalReadinessAtPriorKickoff": {
     "R1": "Original R1 implementation STOP/read-review-only. Existing R3 is acting Root R1; preserve original drafts and route Root writes/reviews through the approved assignment.",

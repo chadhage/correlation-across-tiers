@@ -1,0 +1,19 @@
+{
+  "schema": "contoso.azure-examples.v1",
+  "operatorOrigin": null,
+  "operatorTokenScope": null,
+  "portalOrigin": null,
+  "ordersTokenScope": null,
+  "managedIdentityClientId": null,
+  "operatorTokenEnvironment": "CONTOSO_OPERATOR_TOKEN",
+  "portalTokenEnvironment": "CONTOSO_PORTAL_CONTROLLER_TOKEN",
+  "userTokenEnvironment": "CONTOSO_DEMO_USER_TOKEN",
+  "browserStorageStateFile": null,
+  "headless": false,
+  "settleSeconds": 30,
+  "ingestionGraceSeconds": 60,
+  "waitSeconds": 180,
+  "pageSize": 5000,
+  "maxRows": 100000,
+  "load": { "requestsPerSecond": 10, "durationSeconds": 120 }
+}

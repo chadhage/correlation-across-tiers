@@ -27,6 +27,14 @@ run from `contoso-corr-poc` with a **new** repository-local output directory:
 node web\portal-ssr\scripts\local-rehearsal.mjs --pair evidence\local-pair\local-pair.json --out evidence\reviews\swarm-20261102\R2\local-browser-UNIQUE
 ```
 
+The launcher is now implemented. For the integrated, self-cleaning current
+local path, use `tools\java\Start-LocalPair.ps1 -OutputDirectory <new-repository-directory> -RunBrowser`.
+It builds the selected Java reactor, starts two real agent JVMs, runs this
+browser driver, seals native intake and checks the complete local graph.
+See the [Demo 01 guide](../../demos/01/GETTING_STARTED.md) for prerequisites,
+actual output paths, optional Java attach and the separate Azure blockers.
+The earlier swarm path above is an example, not a required current output.
+
 The manifest must declare `schemaVersion: 1`, `profile: "LOCAL REHEARSAL"`,
 `ready: true`, literal HTTP loopback `ordersOrigin`, `inventoryOrigin`,
 `receiverOrigin` and `controlOrigin`, and `telemetryPath` / `ingressPath`

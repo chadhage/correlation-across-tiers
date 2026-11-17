@@ -11,6 +11,54 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 
 class RequestAuthenticatorTest {
+    @Test void isolatedControllerRequiresItsOwnAudienceRoleAndExactWorkloadPair() throws Exception {
+        try (var f = new SecurityFixture()) {
+            String audience = UUID.randomUUID().toString();
+            var controller = SecurityFixture.identity();
+            String accepted = f.token(SecurityFixture.FIRST, audience, controller, true, Map.of("roles", List.of("Demo.Control")));
+            assertDoesNotThrow(() -> f.verifier.requireController(accepted, audience, controller));
+            for (String token : List.of(
+                    f.token(SecurityFixture.FIRST, audience, controller, false, Map.of("roles", List.of("Demo.Control"))),
+                    f.token(SecurityFixture.FIRST, audience, controller, true, Map.of("roles", List.of("Portal.Invoke"))),
+                    f.token(SecurityFixture.FIRST, audience, new WorkloadIdentity(controller.clientId(), UUID.randomUUID().toString()),
+                        true, Map.of("roles", List.of("Demo.Control"))),
+                    f.token(SecurityFixture.FIRST, UUID.randomUUID().toString(), controller, true, Map.of("roles", List.of("Demo.Control"))))) {
+                assertThrows(SecurityException.class, () -> f.verifier.requireController(token, audience, controller));
+            }
+
+        }
+    }
+
+    @Test void optionalOperatorIsExplicitlyPairedAndStillNeedsGatewayProofAndBothApplicationRoles() throws Exception {
+        try (var f = new SecurityFixture()) {
+            var operator = SecurityFixture.identity();
+            var env = new HashMap<>(Map.of(
+                "CONTOSO_PORTAL_CLIENT_ID", SecurityFixture.PORTAL.clientId(),
+                "CONTOSO_PORTAL_OBJECT_ID", SecurityFixture.PORTAL.objectId(),
+                "CONTOSO_GATEWAY_CLIENT_ID", SecurityFixture.GATEWAY.clientId(),
+                "CONTOSO_GATEWAY_OBJECT_ID", SecurityFixture.GATEWAY.objectId(),
+                "CONTOSO_PUBLIC_AUDIENCE", SecurityFixture.PUBLIC_AUDIENCE,
+                "CONTOSO_ORDERS_AUDIENCE", SecurityFixture.GATEWAY_AUDIENCE,
+                "CONTOSO_STOREFRONT_CLIENT_ID", SecurityFixture.STOREFRONT));
+            env.put("CONTOSO_DEMO_OPERATOR_CLIENT_ID", operator.clientId());
+            assertThrows(IllegalStateException.class, () -> RequestAuthenticator.policyFromEnvironment("contoso-orders-api", env));
+            env.put("CONTOSO_DEMO_OPERATOR_OBJECT_ID", operator.objectId());
+            var policy = RequestAuthenticator.policyFromEnvironment("contoso-orders-api", env);
+            try (var auth = new RequestAuthenticator(f.verifier, policy, f.hmac)) {
+                String accepted = f.token(SecurityFixture.FIRST, SecurityFixture.PUBLIC_AUDIENCE, operator,
+                    true, Map.of("roles", List.of("Portal.Invoke", "Demo.Control")));
+                assertTrue(auth.authenticate(accepted, f.gateway()).canControlRuns());
+                assertThrows(SecurityException.class, () -> auth.authenticate(accepted, null));
+                String invokeOnly = f.token(SecurityFixture.FIRST, SecurityFixture.PUBLIC_AUDIENCE, operator,
+                    true, Map.of("roles", List.of("Portal.Invoke")));
+                assertFalse(auth.authenticate(invokeOnly, f.gateway()).canControlRuns());
+                String controlOnly = f.token(SecurityFixture.FIRST, SecurityFixture.PUBLIC_AUDIENCE, operator,
+                    true, Map.of("roles", List.of("Demo.Control")));
+                assertThrows(SecurityException.class, () -> auth.authenticate(controlOnly, f.gateway()));
+            }
+        }
+    }
+
     @Test void realLoopbackKeysVerifyUserAndIndependentGatewayWithoutLeakingClaims() throws Exception {
         try (var f = new SecurityFixture()) {
             var caller = f.auth.authenticate(f.user(), f.gateway());

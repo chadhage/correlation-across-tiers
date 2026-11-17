@@ -1,13 +1,13 @@
 # Contoso End-to-End Correlation POC: atomic kanban
 
-**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 80. No certification is implied by construction progress.
+**Board state:** Rehydrated from the 78-card backlog and board-acceptance revision 81. No certification is implied by construction progress.
 **Columns:** Avoid doing · To Do · In Progress · Done
 
 | Avoid doing | To Do | In Progress | Done |
 |---|---|---|---|
 | 25 anti-patterns | 78 cards | 0 of 9 (WIP limit) | 0 |
 
-**Unranked construction children (52):** 47 To Do · 0 In Progress · 5 Done. Child Done is construction-only / NOT CERTIFIED; parents and native requirements are unchanged.
+**Unranked construction children (52):** 48 To Do · 0 In Progress · 4 Done. Child Done is construction-only / NOT CERTIFIED; parents and native requirements are unchanged.
 
 ## Board rules
 
@@ -938,14 +938,14 @@ Never built, in any lane, even behind a flag. Not counted in the backlog or the 
       - Deliverable: One smoke-test command that, for each store-consuming app (Inventory; Orders workflow store; Fulfillment, Notify and Aggregator messaging stores), connects under that app's own database role and Redis identity where used, through the app's own runtime identity, and performs one read-only probe.
       - Acceptance: The report gives one pass or fail per app naming only the role identity. A wrong-role or missing-grant case fails, and no connection string, token, password or SQL parameter reaches output or logs. Runs against H2 or the RESP fixture test the harness only and are labelled construction.
 
-    - [x] **INF-05.2 - Record and gate the untyped data-tier API versions**
+    - [ ] **INF-05.2 - Record and gate the untyped data-tier API versions**
       - Executor: R6.
       - Prerequisites: The frozen Bicep compiler (`CONTOSO_BICEP_PATH`) and the existing data-tier modules. Native `validate` and `what-if` additionally need the approved subscription and resource group.
       - Deliverable: One test and register update that compile `infra\modules\data-postgres.bicep` and `data-managed-redis.bicep` and record the BCP081 warnings for `Microsoft.DBforPostgreSQL/flexibleServers@2026-10-01` and `Microsoft.Cache/redisEnterprise@2026-09-01`, each tied to a VERIFY register row.
       - Acceptance: The test passes only when the warning set equals the recorded set and fails on an unrecorded warning or any error; without a compiler it reports skipped. The documentation states that provider property validation for those resources happens at deployment. A successful ARM validate and no-change what-if against the approved group (GATE-11 clauses 1 and 4) is the native exit and is not claimed here.
     - INF-05.1: **To Do — construction-only / NOT CERTIFIED**. Obtain approved per-app targets/identities and run each consuming app's real PostgreSQL/Redis connectivity and denied-role controls under its own identity.
       Waiting on: Approved actual private data targets and app identities; Explicit native connectivity/window authorization
-    - INF-05.2: **Done — construction-only / NOT CERTIFIED**. The original v2 warning/VERIFY scope remains byte-identical after the idempotent checkout repair. Both existing R4/R8 executed reviews and all eight inputs verify unchanged; provider/GA/deployment/connectivity remain To Do.
+    - INF-05.2: **To Do — construction-only / NOT CERTIFIED**. The additive Azure examples and concurrent Demo 01 source inventory changed config\verification-register.v1.json. Re-execute the exact warning/VERIFY construction scope and obtain two current other-role executed reviews. Original v2 receipts and hashes remain historical, not repinned; no provider/GA/deployment/connectivity acceptance is granted.
       Evidence: [R4 executed review](../../contoso-corr-poc/evidence/reviews/swarm-20261102/R4/review-R6-INF05.2-v2/review.json).
       Evidence: [R8 executed review](../../contoso-corr-poc/evidence/reviews/swarm-20261102/R8/r6-inf05.2-v2-20261102/receipt/review.json).
 

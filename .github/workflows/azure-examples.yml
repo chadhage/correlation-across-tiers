@@ -1,0 +1,44 @@
+name: Isolated Azure example source tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Enable long paths on this disposable runner before checkout
+        run: git config --global core.longpaths true
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.23.4'
+      - name: Run local-only example and evidence regressions
+        working-directory: contoso-corr-poc
+        run: |
+          node --test --test-reporter=spec tests\verification\azure-examples.test.mjs tests\verification\demo.test.mjs tests\security\native-payload.test.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Azure example source regressions failed' }
+          node tools\verification\azure-examples.mjs --list
+          if ($LASTEXITCODE -ne 0) { throw 'Offline example discovery failed' }
+      - name: Install existing checksum-locked Java build prerequisites
+        working-directory: contoso-corr-poc
+        run: |
+          & .\tools\java\Install-Portable.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Portable build prerequisite failed' }
+      - name: Test the optional operator and related pure Java behavior
+        working-directory: contoso-corr-poc
+        run: |
+          . .\tools\java\Use-Portable.ps1
+          mvn -B -ntp -Pazure-examples -pl :contoso-azure-demo-operator -am test '-Dtest=OperatorRunStoreTest,RequestAuthenticatorTest,AzureSdkBoundaryTest,PgMessagingStoreTest,DemoWorkflowRoutingTest' '-Dsurefire.failIfNoSpecifiedTests=false'
+          if ($LASTEXITCODE -ne 0) { throw 'Isolated operator tests failed' }
+          'Local source/unit tests only. No Azure credentials, provisioning, native agent probes, application traffic or certification.' | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY

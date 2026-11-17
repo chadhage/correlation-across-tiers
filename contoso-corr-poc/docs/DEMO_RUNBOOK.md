@@ -2,6 +2,20 @@
 
 **NOT CERTIFIED — preparation only.** Fifteen Windows entry points and the verifier execute; absent/unapproved native adapters, absent telemetry or incomplete source/coverage fail closed. BootstrapValidate is always **NOT CERTIFIED**, even when local checks pass.
 
+Demo 01 additionally has a standalone
+[local browser/two-JVM rehearsal and reuse guide](../demos/01/GETTING_STARTED.md)
+and [completion backlog](../demos/01/COMPLETION.md). That local runner uses
+H2/RESP and synthetic identity, omits both Gateway spans explicitly, and does
+not advertise a native demo adapter or close these live gates.
+
+An opt-in `--azure-examples` route now dispatches to the separate
+[Azure operator example runner](../tools/verification/azure-examples.mjs).
+It records OBSERVED/FAIL and server-side reset, never Certify or an independently
+enrolled observer. Its isolated hosts, credentials, per-demo behavior, finite
+window preparation and durable reset are documented in the
+[Azure example guide](../examples/azure-operator/README.md); ordinary v1 adapter
+behavior below is unchanged. The separate local Demo 01 rehearsal is preserved.
+
 ## Pre-show checklist
 
 1. Obtain explicit traffic/control/deployment/privacy authorization; none is granted here. Do not provision, grant, spend or change global authentication during preparation.

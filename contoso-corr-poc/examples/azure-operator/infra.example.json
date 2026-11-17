@@ -1,0 +1,12 @@
+{
+  "schema": "contoso.azure-operator-infra.v1",
+  "subscriptionId": "474c40eb-d385-40d8-baa2-06883dbdca2d",
+  "appServicePlanResourceId": null,
+  "integrationSubnetResourceId": null,
+  "names": { "operator": null, "watchdog": null, "inventoryFixture": null },
+  "runnerCidrs": [],
+  "operatorSettings": {},
+  "watchdogSettings": {},
+  "inventoryFixtureSettings": {},
+  "location": "centralus"
+}

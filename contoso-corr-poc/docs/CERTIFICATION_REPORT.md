@@ -17,6 +17,14 @@
 
 These source/construction-only notes supply no current native/hosted execution capability or accountable signoff.
 
+### Isolated Azure examples - source-only update
+
+The optional [Azure operator examples](../examples/azure-operator/README.md) now provide concrete drivers for all fifteen scenarios, a separately authenticated operator/watchdog, a test-only Inventory fixture, bounded preparation, scoped native-query intake and durable reset. The original independently enrolled observer/full-emission-ledger certification interface is not bypassed: example outcomes are OBSERVED/FAIL and remain NOT CERTIFIED.
+
+This task executed 177 selected Node tests across two non-overlapping focused commands and 42 selected Java tests without failures or skips, built the new operator JAR in an isolated source copy to preserve concurrent Demo 01 build outputs, compiled the optional Bicep template without warnings, and verified the source-free ZIP and local SQL rendering controls. These are local source/unit/package checks, not Azure or PostgreSQL-specific grant/function execution, hosted CI, installed-byte lineage or native-agent qualification. No Azure resource actions, application traffic or native-agent qualification probes were executed by this implementation task; independently owned concurrent Demo 01 work is not adopted as this task's evidence.
+
+The current VERIFY register has 640 OPEN claims; all new entries remain unverified against official content and deployment. Refreshing the actual inventory invalidated INF-05.2's old register-byte closure, so that child returned to To Do. Its original v2 reviews and hashes are preserved, never repinned. Four unaffected construction Done children remain; all 78 parents and all live/accountable-owner requirements remain incomplete. Earlier 635-claim/five-child results below describe their original historical epochs, not acceptance of these new sources. No new reviewer or owner acceptance is recorded.
+
 ### Prepared clean-checkout validation - 3 November 2026
 
 The repaired Git index checkout preserved exact LF/CRLF source and evidence bytes with core.autocrlf=true. `npm run test:prepare` rebuilt the real checksum-pinned sampler and compiled the locked Portal browser adapter. The parent then executed `npm test -- --test-reporter=tap --test-concurrency=2`: 672/672 passed, zero failures/skips/cancellations; all 540 source/test inputs were unchanged before and after. [Actual result](../evidence/reviews/swarm-20261102/checkout-reproducibility-20261103/prepared-checkout-result.json) and [original TAP](../evidence/reviews/swarm-20261102/checkout-reproducibility-20261103/prepared-checkout-tests.tap) are retained with a verified manifest and separate failed attempts.

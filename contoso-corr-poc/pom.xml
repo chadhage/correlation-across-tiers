@@ -66,4 +66,10 @@
       </rules></configuration></execution></executions>
     </plugin></plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>azure-examples</id>
+      <modules><module>examples/azure-operator</module></modules>
+    </profile>
+  </profiles>
 </project>

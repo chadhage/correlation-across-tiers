@@ -211,6 +211,14 @@ export function parseNativeCaptureInput(bytes) {
   }).value;
 }
 
+export function parseBoundedObservationJson(bytes) {
+  if (!Buffer.isBuffer(bytes) || !bytes.length || bytes.length > 8388608) fail('NATIVE_CAPTURE_BOUND');
+  let text;
+  try { text = new TextDecoder('utf-8', { fatal: true }).decode(bytes); }
+  catch { fail('NATIVE_PAYLOAD_INVALID'); }
+  return parseStrictJson(text, { depth: 16, nodes: 524288, keyBytes: 128, scalarBytes: 65536 }).value;
+}
+
 function configuration(options) {
   if (!plainObject(options) || Object.keys(options).some(key => !['publisherKeys', 'forbiddenValues'].includes(key)) ||
       !Array.isArray(options.publisherKeys) || !options.publisherKeys.length ||

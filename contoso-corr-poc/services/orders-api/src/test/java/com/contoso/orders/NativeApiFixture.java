@@ -85,10 +85,16 @@ public final class NativeApiFixture {
             Class<?> application = role.equals("orders") ? OrdersApplication.class : Class.forName("com.contoso.inventory.InventoryApplication");
             var bootstrap = new SpringApplication(application);
             bootstrap.setDefaultProperties(Map.of("server.port", "0", "spring.main.banner-mode", "off"));
+            boolean localPair = "true".equals(System.getenv("CONTOSO_LOCAL_PAIR_REHEARSAL"));
+            if (localPair) bootstrap.setDefaultProperties(Map.of("server.port", "0",
+                "server.address", "127.0.0.1", "spring.main.banner-mode", "off"));
             boolean observeNativeRoots = "true".equals(System.getenv("CONTOSO_TRUST_ROOT_OBSERVER"));
             if (observeNativeRoots && !role.equals("orders")) throw new IllegalStateException("NATIVE_OBSERVER_ROLE");
             bootstrap.addInitializers(context -> context.addBeanFactoryPostProcessor(beans -> {
                 beans.registerSingleton("authenticator", auth);
+                if (localPair && role.equals("orders")) {
+                    beans.registerSingleton("localPairIngressFilter", new LocalPairIngressFilter());
+                }
                 if (observeNativeRoots) {
                     beans.registerSingleton("nativeTrustRootObservationFilter", new NativeTrustRootObservationFilter(service));
                 }

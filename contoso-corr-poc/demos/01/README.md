@@ -1,5 +1,23 @@
 # Contoso Demo 01: Synchronous golden path
 
+## Start here
+
+- [Getting started, sample code, Azure/local deployment, testing, debugging and reuse](GETTING_STARTED.md)
+- [Step-by-step adoption from stock ARM/Application Insights boilerplate](BOILERPLATE_INTEGRATION.md)
+- [Completion assessment, actual validation and atomic remaining tasks](COMPLETION.md)
+
+The bounded local browser/two-JVM rehearsal is runnable:
+
+```powershell
+# From contoso-corr-poc, with the declared local tools/dependencies prepared:
+.\tools\java\Start-LocalPair.ps1 -OutputDirectory ".cache\golden-path\run-$([Guid]::NewGuid())" -RunBrowser
+```
+
+It uses real application handlers and agent/browser exports with H2/RESP and
+synthetic identities. It is **not APIM, real-store, Entra or Azure acceptance**.
+The existing native Run/Reset adapter remains blocked; the local launcher does
+not bypass it. NOT CERTIFIED.
+
 ## Purpose
 Observe Storefront, real Gateway request/backend dependency, Orders, Inventory and safe JDBC/Redis CLIENT spans. Brief sections: 17, 19, 24.
 

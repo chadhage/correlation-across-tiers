@@ -134,15 +134,22 @@ public final class AzureMessagingTransport implements MessagingTransport {
                     sender(destination).sendMessage(carriers.serviceBus(envelope));
                 case EVENT_GRID -> grid().sendEvent(carriers.cloudEvent(envelope));
                 case EVENT_HUBS -> {
-                    var batch = hubProducer().createBatch();
+                    var batch = hubProducer().createBatch(batchOptions(envelope));
                     if (!batch.tryAdd(carriers.eventHub(envelope))) throw new MessagingFailure(MessagingFailure.Code.ENVELOPE_TOO_LARGE);
                     hubProducer().send(batch);
                 }
+
                 case STORAGE_QUEUE -> queue(destination.entity()).sendMessageWithResponse(carriers.queue(envelope),
                     Duration.ZERO, Duration.ofDays(1), Duration.ofSeconds(10), com.azure.core.util.Context.NONE);
             }
         } catch (MessagingFailure safe) { throw safe; }
         catch (RuntimeException ignored) { throw new MessagingFailure(MessagingFailure.Code.BROKER_UNAVAILABLE); }
+    }
+
+    static com.azure.messaging.eventhubs.models.CreateBatchOptions batchOptions(Envelope envelope) {
+        var options = new com.azure.messaging.eventhubs.models.CreateBatchOptions();
+        if (envelope.kind() == Envelope.Kind.BATCH) options.setPartitionKey(envelope.workflowId());
+        return options;
     }
 
     @Override public List<Delivery> receive(Source source, int maximum, Duration wait) {

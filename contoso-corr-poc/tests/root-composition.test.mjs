@@ -54,6 +54,26 @@ test("application rejects absent bindings, zero IDs, broad SCM and inline secret
   assert.equal(validateRootInputs({ ...foundation(), location: "eastus2" }).syntaxPassed, false);
 });
 
+test("reusable targets require a real subscription GUID and that subscription's exact physical map, not approval", () => {
+  const subscriptionId = "11111111-2222-4333-8444-555555555555";
+  const names = frozenNames(subscriptionId, "centralus");
+  const input = { ...foundation(), subscriptionId, names, resourceGroup: names.resourceGroup };
+  const result = validateRootInputs(input);
+  assert.equal(result.syntaxPassed, true);
+  assert.equal(result.authorizationVerified, false);
+  assert.equal(result.deploymentReady, false);
+  assert.deepEqual(rootArmParameters(input).parameters.names.value, names);
+  for (const change of [
+    { subscriptionId: ROOT_SUBSCRIPTION_ID },
+    { subscriptionId: "00000000-0000-0000-0000-000000000000" },
+    { subscriptionId: "not-a-subscription" },
+    { resourceGroup: foundation().resourceGroup },
+    { names: foundation().names }
+  ]) {
+    assert.equal(validateRootInputs({ ...input, ...change }).syntaxPassed, false);
+  }
+});
+
 test("SCM scope rejects every host-bits spelling of IPv4 /0 before rendering", () => {
   for (const cidr of ["0.0.0.0/0", "127.0.0.1/0", "203.0.113.17/0", "999.1.1.1/24", "127.000.0.1/32"]) {
     const input = { ...foundation(), scmRunnerCidrs: [cidr] };
