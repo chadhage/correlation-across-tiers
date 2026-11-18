@@ -47,6 +47,36 @@ test("FIXTURE privileged API route rejection happens before obtaining a credenti
   await assert.rejects(api.workflow("orders", "invalid"), ContosoError);
   assert.equal(credentialCalls, 0);
 });
+test("FIXTURE browser order submission and read-back require 202 and 200 respectively", async context => {
+  const command = { schemaVersion: 1 as const, sku: "CONTOSO-001", quantity: 1, orderId: randomUUID() };
+  const actionId = randomUUID(), workflowId = randomUUID(), readActionId = randomUUID();
+  let postStatus = 202, getStatus = 200;
+  context.mock.method(globalThis, "fetch", async (_input: string, init: RequestInit) => {
+    const post = init.method === "POST";
+    return new Response(JSON.stringify({
+      schemaVersion: 1, id: command.orderId, state: "QUEUED", details: {},
+      businessInvocationId: post ? actionId : workflowId,
+      ...(post ? { workflowBusinessInvocationId: workflowId } : {})
+    }), {
+      status: post ? postStatus : getStatus,
+      headers: { "content-type": "application/json", "x-business-invocation-id": post ? actionId : readActionId }
+    });
+  });
+  const api = createBrowserApi(fixtureConfig(), async () => "fixture-token");
+  const staged = await api.order(command);
+  const stored = await api.workflow("orders", staged.id);
+  assert.equal(staged.state, "QUEUED");
+  assert.equal(staged.businessInvocationId, actionId);
+  assert.equal(stored.businessInvocationId, staged.workflowBusinessInvocationId);
+  for (const status of [200, 201]) {
+    postStatus = status;
+    await assert.rejects(api.order(command), { code: "API_RESPONSE_INVALID", status: 502 });
+  }
+  for (const status of [201, 202]) {
+    getStatus = status;
+    await assert.rejects(api.workflow("orders", staged.id), { code: "API_RESPONSE_INVALID", status: 502 });
+  }
+});
 test("FIXTURE R4 request DTOs reject unknown fields and unsafe values", () => {
   assert.deepEqual(validateOrderRequest({ schemaVersion: 1, sku: "CONTOSO-001", quantity: 2 }),
     { schemaVersion: 1, sku: "CONTOSO-001", quantity: 2 });

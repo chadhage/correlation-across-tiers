@@ -114,6 +114,60 @@ Use this order to learn the implementation before modifying your application:
 To adapt existing stock Application Insights code rather than run the sample,
 continue with [the step-by-step boilerplate changes](BOILERPLATE_INTEGRATION.md#2-inventory-the-out-of-box-integration).
 
+#### Submit an order and verify durable identity
+
+Copy this into the Storefront after its telemetry SDK and authenticated
+browser `api` have been initialized. Use a seeded SKU in an owned fixture:
+the POST writes durable state.
+
+```typescript
+const staged = await api.order({
+  schemaVersion: 1, orderId: crypto.randomUUID(), sku: "CONTOSO-001", quantity: 1
+}); // Requires HTTP 202: accepted and staged, not fulfilled.
+const stored = await api.workflow("orders", staged.id); // Requires HTTP 200.
+const actionId = staged.businessInvocationId;          // The POST action.
+const workflowId = staged.workflowBusinessInvocationId; // The stored workflow.
+if (stored.businessInvocationId !== workflowId) {
+  throw new Error("Order read-back returned a different workflow identity");
+}
+// Use actionId to look up the POST; use workflowId to identify the durable order.
+// The IDs can match for a new order. Do not compare the GET action header to either.
+```
+
+#### Follow the correlation at `InventoryHttpClient`
+
+1. [The browser SDK](../../web/portal-ssr/src/shared/browser-telemetry.ts)
+   creates the Fetch dependency and injects its W3C carrier for the approved
+   API origin. The application does not set `traceparent`.
+2. The Java agent extracts the incoming context for the Orders server span.
+   [InventoryHttpClient.java](../../services/orders-api/src/main/java/com/contoso/orders/InventoryHttpClient.java)
+   restores that context on its executor thread before `sendAsync`. The agent
+   creates the child HTTP client span and injects its context; the Inventory
+   agent extracts it for the Inventory server span. A deployed APIM adds its
+   own request and backend spans before Orders; the local forwarder does not.
+3. `x-business-invocation-id` is sent separately for business lookup. It is
+   neither the W3C trace ID nor a credential. The GET response header identifies
+   the GET action, while the GET body identifies the stored workflow.
+
+#### See what hit, miss, and fallback actually emit
+
+The [isolated agent test](../../services/inventory-data/src/test/java/com/contoso/inventory/data/DataAgentQualificationTest.java)
+uses a fresh loopback RESP peer and H2 database per case. It checks exported
+logical CLIENT spans under each lookup's parent, not synthetic export rows.
+
+| Lookup | Inventory-side CLIENT spans |
+|---|---|
+| Cold cache | Redis `GET` (miss), PostgreSQL `SELECT`, Redis `SET` |
+| Warm cache | Redis `GET` (hit) only; no Inventory PostgreSQL lookup |
+| Cache read error | Failed Redis `GET`, PostgreSQL `SELECT`, Redis `SET` if cache population succeeds |
+
+These are Inventory lookup spans, not all database spans in an order request.
+The full Demo 01 graph uses a cold fixture when it expects the Inventory
+PostgreSQL span. The adapter reports `inventory.cache.get_fallback` or
+`inventory.cache.put_failed` with a bounded error category, not cache keys,
+values, or exception messages. It still falls back or returns the database
+result as before.
+
 ## 3. One-command local scenario
 
 From the POC root:

@@ -1,13 +1,13 @@
 import {
   ContosoError, isUuid4, parseIdentityView, parseWorkflowMutationView, parseWorkflowView, validateDemoRequest, validateOrderRequest,
   type ApiCollection, type ContosoPublicRuntimeConfigV1, type DemoRunRequestV1,
-  type IdentityViewV1, type OrderRequestV1, type WorkflowViewV1
+  type IdentityViewV1, type OrderRequestV1, type WorkflowMutationViewV1, type WorkflowViewV1
 } from "./contracts.js";
 import { operationDeadline, raceWithAbort } from "./deadline.js";
 
 export type BrowserTokenProvider = (signal?: AbortSignal) => Promise<string>;
 export interface ContosoBrowserApi {
-  order(body: OrderRequestV1): Promise<WorkflowViewV1>;
+  order(body: OrderRequestV1): Promise<WorkflowMutationViewV1>;
   demo(body: DemoRunRequestV1): Promise<WorkflowViewV1>;
   workflow(collection: ApiCollection, id: string): Promise<WorkflowViewV1>;
   identity(): Promise<IdentityViewV1>;
@@ -57,7 +57,7 @@ export function createBrowserApi(
 ): ContosoBrowserApi {
   if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 60000) throw new ContosoError("CONFIG_INVALID");
   async function request(
-    path: string, method: "GET" | "POST", body?: OrderRequestV1 | DemoRunRequestV1
+    path: string, method: "GET" | "POST", body?: OrderRequestV1 | DemoRunRequestV1, expectedStatus?: number
   ): Promise<{ value: unknown; businessInvocationId: string }> {
     const url = guardedApiUrl(config, path);
     beforeRequest();
@@ -83,6 +83,10 @@ export function createBrowserApi(
         await response.body?.cancel();
         throw new ContosoError("API_REQUEST_FAILED", response.status);
       }
+      if (expectedStatus !== undefined && response.status !== expectedStatus) {
+        await response.body?.cancel();
+        throw new ContosoError("API_RESPONSE_INVALID", 502);
+      }
       const value = await readApiResponse(response);
       deadline.check();
       return value;
@@ -94,6 +98,12 @@ export function createBrowserApi(
     } finally { deadline.close(); }
   }
   function workflowResult(
+    response: { value: unknown; businessInvocationId: string }, expectedId: string | undefined, mutation: true
+  ): WorkflowMutationViewV1;
+  function workflowResult(
+    response: { value: unknown; businessInvocationId: string }, expectedId: string
+  ): WorkflowViewV1;
+  function workflowResult(
     response: { value: unknown; businessInvocationId: string }, expectedId?: string, mutation = false
   ): WorkflowViewV1 {
     const view = mutation ? parseWorkflowMutationView(response.value) : parseWorkflowView(response.value);
@@ -104,7 +114,7 @@ export function createBrowserApi(
   return {
     async order(body) {
       const command = validateOrderRequest(body);
-      return workflowResult(await request("/orders", "POST", command), command.orderId, true);
+      return workflowResult(await request("/orders", "POST", command, 202), command.orderId, true);
     },
     async demo(body) {
       const command = validateDemoRequest(body);
@@ -112,7 +122,7 @@ export function createBrowserApi(
     },
     async workflow(collection, id) {
       if (!isUuid4(id)) throw new ContosoError("REQUEST_INVALID");
-      return workflowResult(await request(`/${collection}/${id}`, "GET"), id);
+      return workflowResult(await request(`/${collection}/${id}`, "GET", undefined, 200), id);
     },
     async identity() {
       const response = await request("/me", "GET");

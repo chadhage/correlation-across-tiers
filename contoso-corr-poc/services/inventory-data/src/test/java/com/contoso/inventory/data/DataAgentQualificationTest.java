@@ -63,7 +63,41 @@ class DataAgentQualificationTest {
             result.rows.stream().filter(row -> name(row).equals("contoso.pg.select")).count()));
     }
 
+    @Test void cacheHitMissAndFallbackExportOnlyTheOperationsTheyPerform() throws Exception {
+        Capture capture = capture("cache-paths");
+        for (String scenario : List.of("hit", "miss", "fallback")) {
+            var root = capture.rows.stream().filter(row -> name(row).equals("contoso.data.cache." + scenario))
+                .findFirst().orElseThrow();
+            String trace = root.path("tags").path("ai.operation.id").asText();
+            var clients = capture.rows.stream().filter(row -> row.path("tags").path("ai.operation.id").asText().equals(trace)
+                && (name(row).startsWith("contoso.redis.") || name(row).startsWith("contoso.pg."))).toList();
+            assertEquals(scenario.equals("hit") ? List.of("contoso.redis.get") :
+                List.of("contoso.pg.select", "contoso.redis.get", "contoso.redis.set"),
+                clients.stream().map(DataAgentQualificationTest::name).sorted().toList(), scenario);
+            for (var row : clients) {
+                assertEquals(id(root), row.path("tags").path("ai.operation.parentId").asText(), scenario);
+                assertEquals("CLIENT", row.path("data").path("baseData").path("properties")
+                    .path("contoso.span.kind").asText(), scenario);
+            }
+        }
+        assertFalse((capture.rows.toString() + capture.output).contains("DEMO_CACHE_VALUE_CANARY"));
+    }
+
     private static Result run(boolean missing) throws Exception {
+        Capture capture = capture(missing ? "missing-client" : "normal");
+        String output = capture.output;
+        var match = Pattern.compile("DATAORACLE ([0-9a-f]{32}) ([0-9a-f]{16}) (missing|[0-9a-f]{16}) ([0-9a-f]{16}) ([0-9a-f]{16}) ([0-9]+)").matcher(output);
+        assertTrue(match.find(), output);
+        var budget = Pattern.compile("DATARESOURCE ([0-9]+) ([0-9]+) ([0-9]+)").matcher(output);
+        assertTrue(budget.find(), output);
+        assertTrue(Integer.parseInt(budget.group(1)) <= 2, "Bounded JVM processor hint, not a per-app CPU quota");
+        assertTrue(Long.parseLong(budget.group(2)) < Duration.ofSeconds(30).toNanos(), "Local probe CPU budget");
+        assertTrue(Long.parseLong(budget.group(3)) < Duration.ofSeconds(60).toNanos(), "Bounded probe wall-clock budget");
+        return new Result(capture.rows, output, match.group(1), match.group(2), match.group(3),
+            match.group(4), match.group(5), Long.parseLong(match.group(6)));
+    }
+
+    private static Capture capture(String mode) throws Exception {
         Path agent = Path.of(System.getenv("CONTOSO_AGENT_JAR"));
         assertEquals(RuntimeGuard.AGENT_SHA256, java.util.HexFormat.of().formatHex(
             java.security.MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(agent))));
@@ -96,7 +130,7 @@ class DataAgentQualificationTest {
             var builder = new ProcessBuilder(Path.of(System.getProperty("java.home"), "bin", "java").toString(),
                 "-Xmx256m", "-XX:ActiveProcessorCount=2", "-javaagent:" + agent, "-cp",
                 System.getProperty("surefire.test.class.path", System.getProperty("java.class.path")),
-                DataAgentProbe.class.getName(), missing ? "missing-client" : "normal").redirectErrorStream(true);
+                DataAgentProbe.class.getName(), mode).redirectErrorStream(true);
             var env = builder.environment();
             for (String key : List.of("AZURE_CLIENT_SECRET", "APPLICATIONINSIGHTS_AUTHENTICATION_STRING",
                 "OTEL_EXPORTER_OTLP_ENDPOINT", "OTEL_EXPORTER_OTLP_HEADERS", "APPLICATIONINSIGHTS_CONFIGURATION_FILE",
@@ -115,15 +149,7 @@ class DataAgentQualificationTest {
             assertTrue(child.waitFor(Duration.ofSeconds(60)), "Data probe did not finish bounded shutdown");
             String output = child.inputReader(StandardCharsets.UTF_8).lines().reduce("", (a, b) -> a + b + "\n");
             assertEquals(0, child.exitValue(), output);
-            var match = Pattern.compile("DATAORACLE ([0-9a-f]{32}) ([0-9a-f]{16}) (missing|[0-9a-f]{16}) ([0-9a-f]{16}) ([0-9a-f]{16}) ([0-9]+)").matcher(output);
-            assertTrue(match.find(), output);
-            var budget = Pattern.compile("DATARESOURCE ([0-9]+) ([0-9]+) ([0-9]+)").matcher(output);
-            assertTrue(budget.find(), output);
-            assertTrue(Integer.parseInt(budget.group(1)) <= 2, "Bounded JVM processor hint, not a per-app CPU quota");
-            assertTrue(Long.parseLong(budget.group(2)) < Duration.ofSeconds(30).toNanos(), "Local probe CPU budget");
-            assertTrue(Long.parseLong(budget.group(3)) < Duration.ofSeconds(60).toNanos(), "Bounded probe wall-clock budget");
-            return new Result(received, output, match.group(1), match.group(2), match.group(3),
-                match.group(4), match.group(5), Long.parseLong(match.group(6)));
+            return new Capture(List.copyOf(received), output);
         } finally {
             if (child != null && child.isAlive()) child.destroyForcibly();
             server.stop(0);
@@ -132,6 +158,7 @@ class DataAgentQualificationTest {
 
     private static String name(JsonNode row) { return row.path("data").path("baseData").path("name").asText(); }
     private static String id(JsonNode row) { return row.path("data").path("baseData").path("id").asText(); }
+    private record Capture(List<JsonNode> rows, String output) {}
     private record Result(List<JsonNode> rows, String output, String traceId, String rootId,
                           String sqlId, String linkedId, String negativeId, long maximumHeap) {}
 }

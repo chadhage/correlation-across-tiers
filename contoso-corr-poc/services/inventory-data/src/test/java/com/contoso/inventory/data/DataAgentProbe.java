@@ -6,6 +6,10 @@ import com.contoso.correlation.data.DataAccessException;
 import com.contoso.correlation.data.OperationContext;
 import com.contoso.correlation.data.PgOperation;
 import com.contoso.correlation.data.PgOperations;
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.SpanContext;
 import io.opentelemetry.api.trace.SpanKind;
@@ -15,6 +19,7 @@ import io.opentelemetry.context.Context;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.LoggerFactory;
 
 public final class DataAgentProbe {
     private DataAgentProbe() {}
@@ -22,6 +27,21 @@ public final class DataAgentProbe {
     public static void main(String[] args) throws Exception {
         long started = System.nanoTime();
         RuntimeGuard.verifyAgentArguments(java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments());
+        if (args.length > 0 && args[0].equals("cache-paths")) {
+            var log = (Logger) LoggerFactory.getLogger(PgRedisInventoryDataAdapter.class);
+            var events = new ListAppender<ILoggingEvent>();
+            events.start();
+            log.setLevel(Level.INFO);
+            log.addAppender(events);
+            cachePath("miss");
+            cachePath("hit");
+            cachePath("fallback");
+            if (events.list.size() != 1 || events.list.getFirst().getThrowableProxy() != null ||
+                !"inventory.cache.get_fallback INTERNAL".equals(events.list.getFirst().getFormattedMessage())) {
+                throw new IllegalStateException("CACHE_FALLBACK_DIAGNOSTIC_NOT_OBSERVED");
+            }
+            return;
+        }
         boolean missing = args.length > 0 && args[0].equals("missing-client");
         try (var fixture = new DataFixture(); var resp = new RespFixture(); var cache = RedisDataTest.cache(resp);
              var root = Correlation.start("contoso.data.oracle", SpanKind.SERVER, Context.root(),
@@ -90,6 +110,24 @@ public final class DataAgentProbe {
             long cpu = ProcessHandle.current().info().totalCpuDuration().orElseThrow().toNanos();
             System.out.printf("DATARESOURCE %d %d %d%n", Runtime.getRuntime().availableProcessors(),
                 cpu, System.nanoTime() - started);
+        }
+    }
+
+    private static void cachePath(String scenario) throws Exception {
+        String sku = "CONTOSO-001";
+        try (var fixture = new DataFixture(); var resp = new RespFixture(); var cache = RedisDataTest.cache(resp);
+             var root = Correlation.start("contoso.data.cache." + scenario, SpanKind.SERVER, Context.root(),
+                 com.contoso.correlation.InvocationId.generate(), Map.of());
+             var current = root.makeCurrent()) {
+            if (scenario.equals("hit")) resp.values.put(LettuceInventoryCache.key(sku), "20:1");
+            if (scenario.equals("fallback")) resp.values.put(LettuceInventoryCache.key(sku), "DEMO_CACHE_VALUE_CANARY");
+            var adapter = new PgRedisInventoryDataAdapter(fixture.connections, cache);
+            var item = adapter.lookupInventory(sku, new OperationContext(Correlation.invocation(root.context()),
+                root.context(), Instant.now().plusSeconds(5)));
+            String expected = scenario.equals("fallback") ? "ERROR" : scenario.toUpperCase(java.util.Locale.ROOT);
+            if (!expected.equals(item.cacheOutcome()) || item.available() != 20) {
+                throw new IllegalStateException("CACHE_BRANCH_NOT_OBSERVED");
+            }
         }
     }
 }

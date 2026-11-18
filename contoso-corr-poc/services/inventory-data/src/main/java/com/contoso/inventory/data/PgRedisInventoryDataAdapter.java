@@ -1,6 +1,7 @@
 package com.contoso.inventory.data;
 
 import com.azure.core.credential.TokenCredential;
+import com.contoso.correlation.Correlation;
 import com.contoso.correlation.data.DataAccessException;
 import com.contoso.correlation.data.DataErrorKind;
 import com.contoso.correlation.data.DataValidation;
@@ -16,8 +17,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class PgRedisInventoryDataAdapter implements InventoryDataAdapter {
+    private static final Logger LOG = LoggerFactory.getLogger(PgRedisInventoryDataAdapter.class);
     private final PgConnectionFactory connections;
     private final OwnedInventoryCache cache;
     private final String expectedResourceId;
@@ -59,11 +63,17 @@ public final class PgRedisInventoryDataAdapter implements InventoryDataAdapter {
             if (value.isPresent()) {
                 return new InventoryItem(sku, value.get().available(), value.get().revision(), "HIT");
             }
-        } catch (DataAccessException failure) { outcome = "ERROR"; }
+        } catch (DataAccessException failure) {
+            outcome = "ERROR";
+            Correlation.log(LOG, "inventory.cache.get_fallback", failure.kind().name());
+        }
         InventoryItem item = PgOperations.execute(connections, PgOperation.SELECT, context, 1,
             connection -> load(connection, sku, false));
         try { cache.put(sku, new OwnedInventoryCache.Value(item.available(), item.revision()), context); }
-        catch (DataAccessException failure) { outcome = "ERROR"; }
+        catch (DataAccessException failure) {
+            outcome = "ERROR";
+            Correlation.log(LOG, "inventory.cache.put_failed", failure.kind().name());
+        }
         return new InventoryItem(item.sku(), item.available(), item.revision(), outcome);
     }
 

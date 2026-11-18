@@ -87,6 +87,7 @@ public final class InventoryHttpClient implements AutoCloseable {
         Future<InventoryItem> task;
         try {
             task = calls.submit(() -> {
+                // Restore the inbound agent SERVER context so the agent's HTTP CLIENT span is its child.
                 try (var parent = context.parentContext().makeCurrent();
                      var scope = Correlation.bind(context.invocationId())) {
                     return execute(sku, context, budget, state);
