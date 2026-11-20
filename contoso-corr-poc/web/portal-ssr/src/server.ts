@@ -3,7 +3,7 @@ import { randomUUID, randomBytes, timingSafeEqual, createHash } from "node:crypt
 import { readFile } from "node:fs/promises";
 import { dirname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
-import { inlineConfig, runtimeConfig, type ContosoEnvironment } from "./config.js";
+import { inlineConfig, nodeTelemetryProfile, runtimeConfig, type ContosoEnvironment } from "./config.js";
 import { createPortalGateway, managedIdentityTokenProvider, type PortalGateway } from "./gateway.js";
 import { portalControlAuthorizer, type PortalControlAuthorizer } from "./control-auth.js";
 import type { ContosoServerTelemetryStatus } from "./telemetry.js";
@@ -121,6 +121,10 @@ export function createContosoServer(options: ContosoServerOptions): Server {
   const portalPublicRoot = options.portalPublicRoot ?? resolve(base, "public");
   const sessions = new Map<string, PortalSession>();
   const config = options.config;
+  const profile = nodeTelemetryProfile(options.env);
+  if (profile === "spa-only" && (options.telemetryStatus || options.shutdownTelemetry ||
+    (config && (config.portal.enabled || config.demos.allowedDemoIds.some(id => id !== 1)))))
+    throw new ContosoError("CONFIG_INVALID", 503);
   const originalLeaseId = config?.certification.enabled ? config.certification.windowId : null;
   let quiesced = false;
   let inFlight = 0;
@@ -131,7 +135,7 @@ export function createContosoServer(options: ContosoServerOptions): Server {
   }
   if (config?.executionMode !== "fixture" && (options.gateway || options.authorizeControl || options.fixtureConnectOrigins || options.fixtureRequestHandler))
     throw new ContosoError("CONFIG_INVALID", 503);
-  const gateway = options.gateway ?? (config ? createPortalGateway(config,
+  const gateway = options.gateway ?? (config && profile !== "spa-only" ? createPortalGateway(config,
     managedIdentityTokenProvider(config.identity.apiClientId, options.env.CONTOSO_PORTAL_MI_CLIENT_ID), 10000, requireTraffic) : undefined);
   const authorizeControl = options.authorizeControl ?? portalControlAuthorizer(options.env);
   function security(request: IncomingMessage, response: ServerResponse): void {
@@ -185,12 +189,15 @@ export function createContosoServer(options: ContosoServerOptions): Server {
       if (url.search || url.hash || url.username || url.password) throw new ContosoError("REQUEST_INVALID");
       if (["/health/live", "/health/ready"].includes(url.pathname) && request.method === "GET") {
         const status = options.telemetryStatus?.() ?? { active: false, samplingPercentage: 0 };
-        const ready = Boolean(config && status.active);
+        const ready = Boolean(config && (profile === "spa-only" || status.active));
         response.writeHead(url.pathname.endsWith("ready") && !ready ? 503 : 200, { "Content-Type": "application/json" });
         response.end(JSON.stringify({ schemaVersion: 1, service: "contoso-portal-ssr", live: true, ready,
-          providerActive: status.active, samplingPercentage: status.samplingPercentage, liveCertification: "To Do" }));
+          providerActive: status.active, samplingPercentage: status.samplingPercentage, liveCertification: "To Do",
+          ...(profile === "spa-only" ? { telemetryProfile: profile, ssrTracing: false, certification: "NOT_CERTIFIED" } : {}) }));
         return;
       }
+      if (profile === "spa-only" && (url.pathname === "/portal" || url.pathname.startsWith("/portal/")))
+        throw new ContosoError("PORTAL_DISABLED", 409);
       if (url.pathname === "/" && request.method === "GET") {
         response.writeHead(302, { Location: "/storefront/" }); response.end(); return;
       }

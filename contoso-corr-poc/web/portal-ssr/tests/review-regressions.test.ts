@@ -1,7 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import { createContosoServer } from "../dist/server.js";
 import { runtimeWindow } from "../dist/config.js";
 import { MAX_CERT_WINDOW_SECONDS, parsePublicConfig, type WorkflowViewV1 } from "../dist/shared/contracts.js";
@@ -25,6 +27,47 @@ test("LOCAL agreed certification maximum is enforced by environment and public c
   assert.equal(runtimeWindow(environment()).windowId, config.certification.windowId);
   config.certification.startsAtUtc = config.certification.startsAtUtc.replace("Z", "+00:00");
   assert.throws(() => parsePublicConfig(config), { code: "CONFIG_INVALID" });
+});
+
+test("LOCAL SPA-only readiness exposes absent SSR telemetry and rejects Portal endpoints", async () => {
+  const config = fixtureConfig();
+  config.portal.enabled = false;
+  config.demos.allowedDemoIds = [1];
+  const env = { CONTOSO_NODE_TELEMETRY_PROFILE: "spa-only" };
+  assert.throws(() => createContosoServer({ env, config: fixtureConfig() }), { code: "CONFIG_INVALID" });
+  assert.throws(() => createContosoServer({ env, config, telemetryStatus: () => ({ active: true, samplingPercentage: 100 }) }),
+    { code: "CONFIG_INVALID" });
+  const server = createContosoServer({ env, config });
+  await new Promise<void>(resolve => server.listen(0, "127.0.0.1", resolve));
+  const address = server.address();
+  assert.ok(address && typeof address !== "string");
+  const origin = `http://127.0.0.1:${address.port}`;
+  try {
+    const response = await fetch(`${origin}/health/ready`);
+    assert.equal(response.status, 200);
+    const status: unknown = await response.json();
+    assert.deepEqual(status, { schemaVersion: 1, service: "contoso-portal-ssr", live: true, ready: true,
+      providerActive: false, samplingPercentage: 0, liveCertification: "To Do",
+      telemetryProfile: "spa-only", ssrTracing: false, certification: "NOT_CERTIFIED" });
+    const runtime = parsePublicConfig(await (await fetch(`${origin}/storefront/runtime-config.v1.json`)).json());
+    assert.deepEqual(runtime.demos.allowedDemoIds, [1]);
+    for (const path of ["/portal", "/portal/", "/portal/session", "/portal/runtime-state", "/portal/runtime-config.v1.json"]) {
+      const blocked = await fetch(`${origin}${path}`);
+      assert.equal(blocked.status, 409);
+      assert.deepEqual(await blocked.json(), { schemaVersion: 1, errorCode: "PORTAL_DISABLED" });
+    }
+  } finally {
+    server.closeAllConnections();
+    await new Promise<void>(resolve => server.close(() => resolve()));
+  }
+});
+
+test("LOCAL SPA-only entry point fails closed on a conflicting telemetry profile", () => {
+  const result = spawnSync(process.execPath, [fileURLToPath(new URL("../dist/bootstrap-spa-only.js", import.meta.url))], {
+    env: { ...process.env, CONTOSO_NODE_TELEMETRY_PROFILE: "microsoft-distro" }, encoding: "utf8", timeout: 5000
+  });
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /CONFIG_INVALID/);
 });
 
 test("FIXTURE real HTTP controls reject foreign leases and permit only the original expired lease to dispatch drain", async () => {

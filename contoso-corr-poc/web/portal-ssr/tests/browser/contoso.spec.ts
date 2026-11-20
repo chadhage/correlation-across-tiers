@@ -71,6 +71,12 @@ test("FIXTURE real click emits JS3.4.5 W3C_TRACE Fetch dependency and safe heade
   await page.screenshot({ path: ".cache/contoso-fixture-storefront.png", fullPage: true });
 });
 test("FIXTURE Demo 01 advertised Run demo submits an order and refreshes its original workflow identity", async ({ page }) => {
+  if (process.env.CONTOSO_FIXTURE_SPA_ONLY === "true") {
+    const response = await page.request.get("/health/ready");
+    const status: unknown = await response.json();
+    expect(status).toMatchObject({ ready: true, telemetryProfile: "spa-only", providerActive: false, ssrTracing: false });
+    expect((await page.request.get("/portal/")).status()).toBe(409);
+  }
   await page.goto("/fixtures/storefront");
   await page.evaluate(async () => window.contosoDemos?.ready);
   await page.locator("#order-sku").fill("CONTOSO-ORIGINAL-WORKFLOW");

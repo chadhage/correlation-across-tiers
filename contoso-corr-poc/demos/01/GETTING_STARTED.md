@@ -632,6 +632,36 @@ Do not use Windows development `node_modules` as Linux runtime qualification.
 The deployed root has remote build automation disabled; a package containing
 only `dist` and a manifest is insufficient.
 
+#### Local telemetry-profile comparison
+
+The default package retains the Microsoft Node distro and Portal SSR tracing;
+its resolved beta dependencies still fail the certification gate. A separate
+**experimental, local-only** package is available after the same cohost build:
+
+```powershell
+npm run package:deployment:spa-only --workspace @contoso/portal-ssr
+```
+
+This creates `web\portal-ssr\.cache\deployment-artifact-spa-only` only if that
+directory does not already exist. Its separate
+[runtime lock](../../web/portal-ssr/profiles/spa-only/package-lock.json)
+contains no prerelease-versioned packages. Packaging also rebuilds both browser
+bundles in memory, checks their actual resolved package versions against the
+Storefront and Portal locks, and rejects prerelease versions or stale bundled
+files. Some dependencies have pre-1.0 versions; no blanket GA or vendor
+support claim is made. Their source-register entries remain partially verified
+and do not establish deployment support. As with the default package, restore
+production dependencies separately before running it.
+
+The SPA-only entry point disables Node/Portal SSR tracing and Portal routes,
+reports `NOT_CERTIFIED`, and admits only Demo 01 through the demo controller.
+It is **not** a substitute for Demo 02. Browser-to-Gateway-to-Java correlation
+is the intended Demo 01 path, but it has not been verified in Azure for this
+profile. The existing publisher expects the default distro package, and neither
+profile has an automated identity/data bootstrap or a completed cloud
+deployment. This package does not change or bypass the existing deployment and
+certification gates and does not provide side-by-side Azure targets.
+
 Review the actual ZIP bytes and record each SHA-256 independently. Inspect
 without sending anything:
 

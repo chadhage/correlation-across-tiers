@@ -9,6 +9,7 @@
     "build": "tsc -p tsconfig.json && vite build --config vite.portal.config.ts && node scripts/package-cohost.mjs",
     "package:cohost": "node scripts/package-cohost.mjs",
     "package:deployment": "node scripts/package-deployment.mjs",
+    "package:deployment:spa-only": "node scripts/package-deployment.mjs --profile=spa-only",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "test:browser": "npm run build && vite build --config tests/browser/vite.fixture.config.ts && playwright test --config playwright.config.ts",

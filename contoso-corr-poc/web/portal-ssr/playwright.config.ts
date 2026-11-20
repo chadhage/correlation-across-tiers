@@ -3,7 +3,7 @@ import { createServer } from "node:net";
 import { mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-const browserWork = fileURLToPath(new URL("./.cache/browser-work", import.meta.url));
+const browserWork = process.env.CONTOSO_FIXTURE_WORK_ROOT ?? fileURLToPath(new URL("./.cache/browser-work", import.meta.url));
 mkdirSync(browserWork, { recursive: true });
 process.env.TEMP = browserWork;
 process.env.TMP = browserWork;

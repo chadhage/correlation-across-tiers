@@ -11307,6 +11307,1026 @@
       "nextAction": "Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime."
     },
     {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages//version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages//version"
+      },
+      "value": "1.0.0",
+      "source": "DECISIONS.md",
+      "owner": "R2",
+      "category": "contoso-owned",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages//version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1abort-controller/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1abort-controller/version"
+      },
+      "value": "2.2.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/abort-controller/-/abort-controller-2.2.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1abort-controller/version = 2.2.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-auth/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-auth/version"
+      },
+      "value": "1.11.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-auth/-/core-auth-1.11.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-auth/version = 1.11.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-client/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-client/version"
+      },
+      "value": "1.11.2",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-client/-/core-client-1.11.2.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-client/version = 1.11.2",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-process/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-process/version"
+      },
+      "value": "1.0.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-process/-/core-process-1.0.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-process/version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-rest-pipeline/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-rest-pipeline/version"
+      },
+      "value": "1.25.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-rest-pipeline/-/core-rest-pipeline-1.25.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-rest-pipeline/version = 1.25.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-tracing/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-tracing/version"
+      },
+      "value": "1.4.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-tracing/-/core-tracing-1.4.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-tracing/version = 1.4.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-util/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1core-util/version"
+      },
+      "value": "1.14.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/core-util/-/core-util-1.14.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1core-util/version = 1.14.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1identity/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1identity/version"
+      },
+      "value": "4.14.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/identity/-/identity-4.14.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1identity/version = 4.14.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1logger/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1logger/version"
+      },
+      "value": "1.4.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/logger/-/logger-1.4.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1logger/version = 1.4.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-browser/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1msal-browser/version"
+      },
+      "value": "5.29.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/msal-browser/-/msal-browser-5.29.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-browser/version = 5.29.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-common/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1msal-common/version"
+      },
+      "value": "16.16.2",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/msal-common/-/msal-common-16.16.2.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-common/version = 16.16.2",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-node/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@azure~1msal-node/version"
+      },
+      "value": "7.2.2",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@azure/msal-node/-/msal-node-7.2.2.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@azure~1msal-node/version = 7.2.2",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@typespec~1ts-http-runtime/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1@typespec~1ts-http-runtime/version"
+      },
+      "value": "0.3.11",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/@typespec/ts-http-runtime/-/ts-http-runtime-0.3.11.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1@typespec~1ts-http-runtime/version = 0.3.11",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1agent-base/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1agent-base/version"
+      },
+      "value": "7.1.4",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/agent-base/-/agent-base-7.1.4.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1agent-base/version = 7.1.4",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1buffer-equal-constant-time/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1buffer-equal-constant-time/version"
+      },
+      "value": "1.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1buffer-equal-constant-time/version = 1.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1bundle-name/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1bundle-name/version"
+      },
+      "value": "4.1.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/bundle-name/-/bundle-name-4.1.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1bundle-name/version = 4.1.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1debug/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1debug/version"
+      },
+      "value": "4.4.3",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/debug/-/debug-4.4.3.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1debug/version = 4.4.3",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1default-browser-id/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1default-browser-id/version"
+      },
+      "value": "5.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/default-browser-id/-/default-browser-id-5.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1default-browser-id/version = 5.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1default-browser/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1default-browser/version"
+      },
+      "value": "5.5.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/default-browser/-/default-browser-5.5.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1default-browser/version = 5.5.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1define-lazy-prop/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1define-lazy-prop/version"
+      },
+      "value": "3.0.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1define-lazy-prop/version = 3.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1ecdsa-sig-formatter/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1ecdsa-sig-formatter/version"
+      },
+      "value": "1.0.11",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1ecdsa-sig-formatter/version = 1.0.11",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1http-proxy-agent/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1http-proxy-agent/version"
+      },
+      "value": "7.0.2",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/http-proxy-agent/-/http-proxy-agent-7.0.2.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1http-proxy-agent/version = 7.0.2",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1https-proxy-agent/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1https-proxy-agent/version"
+      },
+      "value": "7.0.6",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/https-proxy-agent/-/https-proxy-agent-7.0.6.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1https-proxy-agent/version = 7.0.6",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-docker/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1is-docker/version"
+      },
+      "value": "3.0.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/is-docker/-/is-docker-3.0.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-docker/version = 3.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-in-ssh/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1is-in-ssh/version"
+      },
+      "value": "1.0.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/is-in-ssh/-/is-in-ssh-1.0.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-in-ssh/version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-inside-container/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1is-inside-container/version"
+      },
+      "value": "1.0.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/is-inside-container/-/is-inside-container-1.0.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-inside-container/version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-wsl/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1is-wsl/version"
+      },
+      "value": "3.1.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/is-wsl/-/is-wsl-3.1.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1is-wsl/version = 3.1.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jose/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1jose/version"
+      },
+      "value": "6.2.13",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/jose/-/jose-6.2.13.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jose/version = 6.2.13",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jsonwebtoken/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1jsonwebtoken/version"
+      },
+      "value": "9.0.3",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/jsonwebtoken/-/jsonwebtoken-9.0.3.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jsonwebtoken/version = 9.0.3",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jwa/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1jwa/version"
+      },
+      "value": "2.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/jwa/-/jwa-2.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jwa/version = 2.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jws/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1jws/version"
+      },
+      "value": "4.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/jws/-/jws-4.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1jws/version = 4.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.includes/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.includes/version"
+      },
+      "value": "4.3.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.includes/-/lodash.includes-4.3.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.includes/version = 4.3.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isboolean/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.isboolean/version"
+      },
+      "value": "3.0.3",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isboolean/version = 3.0.3",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isinteger/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.isinteger/version"
+      },
+      "value": "4.0.4",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isinteger/version = 4.0.4",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isnumber/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.isnumber/version"
+      },
+      "value": "3.0.3",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isnumber/version = 3.0.3",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isplainobject/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.isplainobject/version"
+      },
+      "value": "4.0.6",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isplainobject/version = 4.0.6",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isstring/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.isstring/version"
+      },
+      "value": "4.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.isstring/-/lodash.isstring-4.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.isstring/version = 4.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.once/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1lodash.once/version"
+      },
+      "value": "4.1.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/lodash.once/-/lodash.once-4.1.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1lodash.once/version = 4.1.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1ms/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1ms/version"
+      },
+      "value": "2.1.3",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/ms/-/ms-2.1.3.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1ms/version = 2.1.3",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1open/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1open/version"
+      },
+      "value": "11.0.4",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/open/-/open-11.0.4.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1open/version = 11.0.4",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1powershell-utils/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1powershell-utils/version"
+      },
+      "value": "0.2.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/powershell-utils/-/powershell-utils-0.2.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1powershell-utils/version = 0.2.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1run-applescript/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1run-applescript/version"
+      },
+      "value": "7.1.0",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/run-applescript/-/run-applescript-7.1.0.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1run-applescript/version = 7.1.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1safe-buffer/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1safe-buffer/version"
+      },
+      "value": "5.2.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/safe-buffer/-/safe-buffer-5.2.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1safe-buffer/version = 5.2.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1semver/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1semver/version"
+      },
+      "value": "7.8.6",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/semver/-/semver-7.8.6.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1semver/version = 7.8.6",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1tslib/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1tslib/version"
+      },
+      "value": "2.9.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/tslib/-/tslib-2.9.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1tslib/version = 2.9.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1wsl-utils/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/packages/node_modules~1wsl-utils/version"
+      },
+      "value": "1.0.1",
+      "source": "https://ms-feed-25.pkgs.visualstudio.com/1es-public/_packaging/npm-public/npm/registry/wsl-utils/-/wsl-utils-1.0.1.tgz",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/packages/node_modules~1wsl-utils/version = 1.0.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package-lock.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/version"
+      },
+      "value": "1.0.0",
+      "source": "DECISIONS.md",
+      "owner": "R2",
+      "category": "contoso-owned",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package-lock.json#json:/version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package.json#json:/dependencies/@azure~1identity",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/dependencies/@azure~1identity"
+      },
+      "value": "4.14.1",
+      "source": "https://registry.npmjs.org/%40azure%2Fidentity/4.14.1",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package.json#json:/dependencies/@azure~1identity = 4.14.1",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package.json#json:/dependencies/jose",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/dependencies/jose"
+      },
+      "value": "6.2.13",
+      "source": "https://registry.npmjs.org/jose/6.2.13",
+      "owner": "R2",
+      "category": "pin",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package.json#json:/dependencies/jose = 6.2.13",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Check exact source contents and approved deployed value; a release/POM pin is not runtime compatibility or regional support evidence."
+    },
+    {
+      "id": "web\\portal-ssr\\profiles\\spa-only\\package.json#json:/version",
+      "file": "web\\portal-ssr\\profiles\\spa-only\\package.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/version"
+      },
+      "value": "1.0.0",
+      "source": "DECISIONS.md",
+      "owner": "R2",
+      "category": "contoso-owned",
+      "label": "Partially verified",
+      "verification": "VERIFY: web\\portal-ssr\\profiles\\spa-only\\package.json#json:/version = 1.0.0",
+      "lockedValueVerified": true,
+      "deployedValueVerified": false,
+      "officialSourceContentVerified": false,
+      "prereleaseSupportNeedsVerification": false,
+      "test": "node tools\\verification\\register.mjs --check",
+      "nextAction": "Contoso-owned semantic version, not a vendor GA/support assertion; bind the actual reviewed artifact and runtime."
+    },
+    {
       "id": "web\\storefront-spa\\package-lock.json#json:/packages//version",
       "file": "web\\storefront-spa\\package-lock.json",
       "selector": {

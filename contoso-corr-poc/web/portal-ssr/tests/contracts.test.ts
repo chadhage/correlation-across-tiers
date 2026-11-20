@@ -6,7 +6,7 @@ import {
   validateDemoRequest, validateOrderRequest
 } from "../dist/shared/contracts.js";
 import { guardedApiUrl, createBrowserApi } from "../dist/shared/browser-api.js";
-import { inlineConfig, runtimeWindow } from "../dist/config.js";
+import { inlineConfig, runtimeConfig, runtimeWindow } from "../dist/config.js";
 import { safeTraceparent } from "../dist/browser-adapter.js";
 import { fixtureConfig } from "./fixture-config.ts";
 
@@ -37,6 +37,33 @@ test("LOCAL runtime lease inputs reject partial, malformed and nonopaque fields 
     { ...valid, CONTOSO_CERT_END: valid.CONTOSO_CERT_START },
     { ...valid, CONTOSO_CERT_WINDOW_ID: "not an opaque lease ID" }
   ]) assert.throws(() => runtimeWindow(invalid), ContosoError);
+});
+test("LOCAL SPA-only profile admits Demo 01 without enabling uninstrumented Portal work", () => {
+  const config = fixtureConfig();
+  const env = {
+    CONTOSO_EXECUTION_MODE: "fixture",
+    CONTOSO_PUBLIC_ORIGIN: config.portal.origin,
+    CONTOSO_GATEWAY_ORIGIN: config.api.origin,
+    CONTOSO_ORDERS_API_CLIENT_ID: config.identity.apiClientId,
+    CONTOSO_TENANT_ID: config.identity.tenantId,
+    CONTOSO_SPA_CLIENT_ID: config.identity.spaClientId,
+    CONTOSO_DELEGATED_SCOPE: config.identity.scopes[0],
+    APPLICATIONINSIGHTS_CONNECTION_STRING: config.telemetry.connectionString,
+    CONTOSO_CERT_START: config.certification.startsAtUtc ?? undefined,
+    CONTOSO_CERT_END: config.certification.endsAtUtc ?? undefined,
+    CONTOSO_CERT_WINDOW_ID: config.certification.windowId ?? undefined,
+    CONTOSO_DEMOS_ENABLED: "true"
+  };
+  const standard = runtimeConfig(env, "storefront-spa");
+  assert.equal(standard.demos.allowedDemoIds.length, 15);
+  const spaOnly = runtimeConfig({ ...env, CONTOSO_NODE_TELEMETRY_PROFILE: "spa-only" }, "storefront-spa");
+  assert.deepEqual(spaOnly.demos.allowedDemoIds, [1]);
+  assert.equal(spaOnly.demos.enabled, true);
+  assert.equal(spaOnly.portal.enabled, false);
+  assert.throws(() => runtimeConfig({ ...env, CONTOSO_NODE_TELEMETRY_PROFILE: "spa-only",
+    CONTOSO_PORTAL_DEMO_ENABLED: "true" }, "storefront-spa"), { code: "CONFIG_INVALID" });
+  assert.throws(() => runtimeConfig({ ...env, CONTOSO_NODE_TELEMETRY_PROFILE: "unknown" }, "storefront-spa"),
+    { code: "CONFIG_INVALID" });
 });
 test("FIXTURE privileged API route rejection happens before obtaining a credential", async () => {
   const config = fixtureConfig();

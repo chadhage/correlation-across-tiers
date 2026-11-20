@@ -27,7 +27,12 @@ const apiOrigin = `http://127.0.0.1:${apiPort}`;
 const excludedOrigin = `http://127.0.0.1:${excludedPort}`;
 const config = fixtureConfig(webOrigin, apiOrigin);
 config.certification.windowId = randomUUID();
-const telemetry = await initializeTelemetry(config, {
+const spaOnly = process.env.CONTOSO_FIXTURE_SPA_ONLY === "true";
+if (spaOnly) {
+  config.portal.enabled = false;
+  config.demos.allowedDemoIds = [1];
+}
+const telemetry = spaOnly ? undefined : await initializeTelemetry(config, {
   CONTOSO_SERVER_SAMPLING_PERCENTAGE: "10", CONTOSO_CERT_START: config.certification.startsAtUtc ?? undefined,
   CONTOSO_CERT_END: config.certification.endsAtUtc ?? undefined, CONTOSO_CERT_WINDOW_ID: config.certification.windowId
 }, {
@@ -245,18 +250,24 @@ const fixtureHandler = (request: import("node:http").IncomingMessage, response: 
     })().catch(() => { response.writeHead(500); response.end("FIXTURE_BUILD_REQUIRED"); }); return true;
   }
   if (path === "/fixtures/fixture.js" || path === "/fixtures/style.css") {
-    void readFile(resolve(".cache/fixture-web", path.endsWith(".js") ? "fixture.js" : "portal-ssr.css")).then(value => {
+    void readFile(resolve(process.env.CONTOSO_FIXTURE_ASSET_ROOT ?? ".cache/fixture-web",
+      path.endsWith(".js") ? "fixture.js" : "portal-ssr.css")).then(value => {
       response.setHeader("Content-Type", path.endsWith(".js") ? "text/javascript" : "text/css"); response.end(value);
     }).catch(() => { response.writeHead(404); response.end("FIXTURE_ASSET_MISSING"); }); return true;
   }
   return false;
 };
 const web = createContosoServer({
-  env: {}, config, storefrontRoot: resolve("../storefront-spa/dist"), portalPublicRoot: resolve("dist/public"),
-  gateway: createPortalGateway(config, async () => `fixture-workload-${randomUUID()}`),
-  authorizeControl: async bearer => { if (!bearer.startsWith("fixture-control-")) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403); },
+  env: spaOnly ? { CONTOSO_NODE_TELEMETRY_PROFILE: "spa-only" } : {}, config,
+  storefrontRoot: resolve("../storefront-spa/dist"), portalPublicRoot: resolve("dist/public"),
+  ...(telemetry ? {
+    gateway: createPortalGateway(config, async () => `fixture-workload-${randomUUID()}`),
+    authorizeControl: async (bearer: string) => {
+      if (!bearer.startsWith("fixture-control-")) throw new ContosoError("PORTAL_CONTROL_REJECTED", 403);
+    },
+    telemetryStatus: () => telemetry.status(), shutdownTelemetry: () => telemetry.shutdown()
+  } : {}),
   fixtureConnectOrigins: [excludedOrigin], fixtureRequestHandler: fixtureHandler,
-  telemetryStatus: () => telemetry.status(), shutdownTelemetry: () => telemetry.shutdown()
 });
 await new Promise<void>(resolveReady => web.listen(webPort, "127.0.0.1", resolveReady));
 process.stdout.write(`Contoso FIXTURE servers ready on ${webPort}; not Azure certification.\n`);
@@ -265,7 +276,7 @@ async function close(): Promise<void> {
   if (closing) return;
   closing = true;
   await new Promise<void>(resolveClose => web.close(() => resolveClose()));
-  await telemetry.shutdown();
+  if (telemetry) await telemetry.shutdown();
   await Promise.all([
     new Promise<void>(resolveClose => api.close(() => resolveClose())),
     new Promise<void>(resolveClose => excluded.close(() => resolveClose()))
