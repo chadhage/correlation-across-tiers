@@ -19,6 +19,14 @@ Source snapshots and local receipt matches are explicitly not certification.
 
 ## Storefront Demo 01 routing
 
+Start a customer local-proof session with the
+[engineer-to-engineer local workshop](demos/01/LOCAL_DEMO.md).
+`npm run demo:local` executes the real browser/two-JVM path;
+`npm run demo:local -- -Present -DebugJava` opens Chromium and pauses for
+debugger setup and observed-ID inspection. Select the verified portable tools
+first as documented. All helpers are loopback-only and stopped after capture;
+request deadlines and the explicit missing-Gateway check remain intact.
+
 The Storefront's Demo 01 action uses ordinary order submission
 (`POST /contoso/v1/orders`) and order refresh, so the existing Orders handler
 can call Inventory. Other SPA demo actions use `/contoso/v1/demo-runs`;

@@ -60,8 +60,15 @@ export async function readLocalPair(manifestFile) {
   const inventoryOrigin = loopbackOrigin(manifest.inventoryOrigin);
   const receiverOrigin = loopbackOrigin(manifest.receiverOrigin);
   const controlOrigin = loopbackOrigin(manifest.controlOrigin);
+  if (manifest.expiresAtUtc !== undefined) {
+    const expiry = Date.parse(manifest.expiresAtUtc);
+    requireValue(typeof manifest.expiresAtUtc === "string" && Number.isFinite(expiry)
+      && new Date(expiry).toISOString() === manifest.expiresAtUtc && expiry > Date.now()
+      && expiry <= Date.now() + 1800000, "LOCAL_REHEARSAL_PAIR_WINDOW_INVALID");
+  }
   const tokenUrl = new URL("/token", controlOrigin);
   return { manifestFile: path, ordersOrigin, inventoryOrigin, receiverOrigin, tokenUrl: tokenUrl.href,
+    expiresAtUtc: manifest.expiresAtUtc,
     telemetryPath: repositoryPath(manifest.telemetryPath, dirname(path)),
     ingressPath: repositoryPath(manifest.ingressPath, dirname(path)) };
 }
@@ -74,6 +81,38 @@ async function body(request, max = 65536) {
     parts.push(part);
   }
   return Buffer.concat(parts);
+}
+function syntheticTokens(value) {
+  requireValue([value?.accessToken, value?.gatewayAccessToken].every(token => typeof token === "string"
+    && token.length > 0 && token.length < 32000 && !/[\x00-\x20\x7f]/.test(token)), "LOCAL_REHEARSAL_SYNTHETIC_TOKEN_INVALID");
+  return value;
+}
+export async function readBackLocalOrder({ ordersOrigin, tokens, staged }) {
+  const origin = loopbackOrigin(ordersOrigin);
+  requireValue(staged?.schemaVersion === 1 && UUID.test(staged.id) && UUID.test(staged.businessInvocationId)
+    && UUID.test(staged.workflowBusinessInvocationId) && typeof staged.state === "string"
+    && /^[A-Z][A-Z0-9_]{0,63}$/.test(staged.state), "LOCAL_REHEARSAL_STAGED_ORDER_REQUIRED");
+  const { accessToken, gatewayAccessToken } = syntheticTokens(tokens);
+  const response = await fetch(`${origin}/api/orders/${staged.id}`, {
+    headers: { Authorization: `Bearer ${accessToken}`, "X-Contoso-Gateway-Authorization": `Bearer ${gatewayAccessToken}` },
+    redirect: "error", signal: AbortSignal.timeout(10000)
+  });
+  const actionBusinessInvocationId = response.headers.get("x-business-invocation-id");
+  if (response.status !== 200 || !UUID.test(actionBusinessInvocationId ?? "")
+    || response.headers.get("content-type")?.split(";")[0]?.trim() !== "application/json" || !response.body) {
+    await response.body?.cancel();
+    throw new Error("LOCAL_REHEARSAL_ORDER_READBACK_RESPONSE_INVALID");
+  }
+  const bytes = await body(response.body);
+  let stored;
+  try { stored = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)); }
+  catch { throw new Error("LOCAL_REHEARSAL_ORDER_READBACK_JSON_INVALID"); }
+  requireValue(stored?.schemaVersion === 1 && stored.id === staged.id
+    && stored.businessInvocationId === staged.workflowBusinessInvocationId && stored.state === staged.state,
+  "LOCAL_REHEARSAL_ORDER_READBACK_IDENTITY_MISMATCH");
+  return { method: "GET", status: 200, orderId: stored.id, actionBusinessInvocationId,
+    workflowBusinessInvocationId: stored.businessInvocationId, state: stored.state,
+    sourceScope: "AUTHENTICATED_LOOPBACK_API_GET_NOT_BROWSER_DRIVEN" };
 }
 async function listen(server) {
   await new Promise((accept, reject) => {
@@ -244,11 +283,11 @@ export function assertLocalParentJoin(evidence, browserEnvelopes, ordersEnvelope
     ...(ingress[0].tracestate !== undefined ? { ordersReceivedTracestate: ingress[0].tracestate } : {}),
     forwarderCreatesSpan: false };
 }
-export async function buildLocalBrowser(outputDirectory) {
+export async function buildLocalBrowser(outputDirectory, { sourceMaps = false } = {}) {
   const out = repositoryPath(outputDirectory);
   const { build } = await import("vite");
   await build({ configFile: false, root: portalRoot, logLevel: "error", publicDir: false,
-    build: { outDir: join(out, "assets"), emptyOutDir: true, sourcemap: false,
+    build: { outDir: join(out, "assets"), emptyOutDir: true, sourcemap: sourceMaps,
       lib: { entry: join(portalRoot, "tests", "browser", "local-rehearsal-entry.ts"),
         formats: ["es"], fileName: () => "storefront.js", cssFileName: "storefront" }, cssCodeSplit: false } });
   await build({ configFile: false, root: portalRoot, logLevel: "error", publicDir: false,
@@ -256,7 +295,7 @@ export async function buildLocalBrowser(outputDirectory) {
       rollupOptions: { output: { entryFileNames: "browser-adapter.mjs" } } } });
   return { assetsRoot: join(out, "assets"), adapterFile: join(out, "driver", "browser-adapter.mjs") };
 }
-export async function startLocalSurface({ ordersOrigin, assetsRoot, gatewayAccessToken }) {
+export async function startLocalSurface({ ordersOrigin, assetsRoot, gatewayAccessToken, expiresAtUtc }) {
   ordersOrigin = loopbackOrigin(ordersOrigin);
   assetsRoot = repositoryPath(assetsRoot);
   const browserEnvelopes = [];
@@ -286,9 +325,9 @@ export async function startLocalSurface({ ordersOrigin, assetsRoot, gatewayAcces
             '<script type="module" src="/local-rehearsal/storefront.js"></script><link rel="stylesheet" href="/local-rehearsal/storefront.css">'));
         return;
       }
-      if (path === "/local-rehearsal/storefront.js" || path === "/local-rehearsal/storefront.css") {
-        response.setHeader("Content-Type", path.endsWith(".js") ? "text/javascript" : "text/css");
-        response.end(await readFile(join(assetsRoot, path.endsWith(".js") ? "storefront.js" : "storefront.css"))); return;
+      if (["/local-rehearsal/storefront.js", "/local-rehearsal/storefront.css", "/local-rehearsal/storefront.js.map"].includes(path)) {
+        response.setHeader("Content-Type", path.endsWith(".map") ? "application/json" : path.endsWith(".js") ? "text/javascript" : "text/css");
+        response.end(await readFile(join(assetsRoot, path.slice("/local-rehearsal/".length)))); return;
       }
       if (path === "/v2/track" && request.method === "POST") {
         let bytes = await body(request, 1_000_000);
@@ -325,7 +364,7 @@ export async function startLocalSurface({ ordersOrigin, assetsRoot, gatewayAcces
         roleName: "contoso-storefront-spa", tracingMode: "W3C_TRACE", samplingPercentage: 100,
         approvedCorrelationOrigins: [forwarder.origin], excludedCorrelationHosts: ["login.microsoftonline.com"] },
       certification: { enabled: true, startsAtUtc: new Date(Date.now() - 1000).toISOString(),
-        endsAtUtc: new Date(Date.now() + 120000).toISOString(), windowId: randomUUID() },
+        endsAtUtc: expiresAtUtc ?? new Date(Date.now() + 120000).toISOString(), windowId: randomUUID() },
       demos: { controllerVersion: 1, enabled: true, allowedDemoIds: [1] } };
     return { webOrigin, forwarderOrigin: forwarder.origin, excludedOrigin, browserEnvelopes, excludedObservations,
       forwarderObservations: forwarder.observations, async close() {
@@ -371,7 +410,10 @@ async function readEnvelopes(path) {
   const text = await readFile(path, "utf8");
   return text.split(/\r?\n/).filter(Boolean).map(line => JSON.parse(line));
 }
-export async function runLocalRehearsal({ pairFile, outputDirectory }) {
+export async function runLocalRehearsal({ pairFile, outputDirectory, headed = false, sourceMaps = false, onReady, onObserved }) {
+  requireValue(typeof headed === "boolean" && typeof sourceMaps === "boolean"
+    && (onReady === undefined || typeof onReady === "function") && (onObserved === undefined || typeof onObserved === "function"),
+  "LOCAL_REHEARSAL_OPTIONS_INVALID");
   const pair = await readLocalPair(pairFile);
   const output = repositoryPath(outputDirectory);
   await mkdir(dirname(output), { recursive: true });
@@ -387,7 +429,7 @@ export async function runLocalRehearsal({ pairFile, outputDirectory }) {
   let browser;
   let surface;
   const receipt = { schema: "contoso.local-browser-rehearsal.v1", profile: "LOCAL REHEARSAL", status: "BLOCKED",
-    nativeEvidence: false, certificationEligible: false,
+    nativeEvidence: false, certificationEligible: false, headed, sourceMaps,
     pairManifestFile: relative(projectRoot, pair.manifestFile), pairTelemetryFile: relative(projectRoot, pair.telemetryPath),
     pairIngressFile: relative(projectRoot, pair.ingressPath),
     browserEvidenceFile: "browser-evidence.json", browserTelemetryFile: "browser-telemetry.ndjson",
@@ -395,18 +437,16 @@ export async function runLocalRehearsal({ pairFile, outputDirectory }) {
     limitations: ["Synthetic identity; no Entra proof", "H2 PostgreSQL mode and RESP substitutes are not real stores",
       "Pass-through forwarder is not APIM and creates no span", "No Azure traffic or native certification"] };
   try {
-    const built = await buildLocalBrowser(output);
+    const built = await buildLocalBrowser(output, { sourceMaps });
     const { chromium } = await import("@playwright/test");
     const { driveContosoBrowser } = await import(pathToFileURL(built.adapterFile).href);
     const tokenResponse = await fetch(pair.tokenUrl, { redirect: "error", signal: AbortSignal.timeout(10000) });
     requireValue(tokenResponse.ok, "LOCAL_REHEARSAL_SYNTHETIC_TOKEN_UNAVAILABLE");
-    const tokenResult = await tokenResponse.json();
-    requireValue([tokenResult.accessToken, tokenResult.gatewayAccessToken].every(value => typeof value === "string"
-      && value.length > 0 && value.length < 32000 && !/[\x00-\x20\x7f]/.test(value)), "LOCAL_REHEARSAL_SYNTHETIC_TOKEN_INVALID");
+    const tokenResult = syntheticTokens(await tokenResponse.json());
     surface = await startLocalSurface({ ordersOrigin: pair.ordersOrigin, assetsRoot: built.assetsRoot,
-      gatewayAccessToken: tokenResult.gatewayAccessToken });
+      gatewayAccessToken: tokenResult.gatewayAccessToken, expiresAtUtc: pair.expiresAtUtc });
     receipt.cleanup.loopbackServersClosed = false;
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: !headed });
     receipt.cleanup.browserClosed = false;
     const context = await browser.newContext({ serviceWorkers: "block" });
     await context.exposeBinding("contosoLocalRehearsalToken", source => {
@@ -421,11 +461,19 @@ export async function runLocalRehearsal({ pairFile, outputDirectory }) {
     });
     const page = await context.newPage();
     await page.goto(`${surface.webOrigin}/storefront/orders`);
+    await page.evaluate(async () => { await window.contosoDemos?.ready; });
+    if (onReady) await onReady({ webOrigin: surface.webOrigin });
     const evidence = await driveContosoBrowser(page, localDemo01Spec());
     const control = await page.evaluate(() => window.contosoLocalRehearsalClickReceipt?.());
     requireValue(control?.control === "contoso-run-demo" && control.trustedClicks === 1, "LOCAL_REHEARSAL_REAL_DEMO01_CLICK_REQUIRED");
     const label = await page.locator("#execution-mode").textContent();
     requireValue(label?.startsWith("LOCAL REHEARSAL"), "LOCAL_REHEARSAL_LABEL_REQUIRED");
+    const staged = await page.evaluate(id => {
+      const backend = window.contosoDemos?.result(id)?.backend;
+      return backend ? { schemaVersion: backend.schemaVersion, id: backend.id, state: backend.state,
+        businessInvocationId: backend.businessInvocationId, workflowBusinessInvocationId: backend.workflowBusinessInvocationId } : null;
+    }, evidence.runId);
+    const workflowReadback = await readBackLocalOrder({ ordersOrigin: pair.ordersOrigin, tokens: tokenResult, staged });
     await writeFile(join(output, "browser-evidence.json"), `${JSON.stringify(evidence, null, 2)}\n`);
     await writeFile(join(output, "browser-telemetry.ndjson"), surface.browserEnvelopes.map(item => JSON.stringify(item)).join("\n") + "\n");
     await writeFile(join(output, "forwarder-observations.json"), `${JSON.stringify(surface.forwarderObservations, null, 2)}\n`);
@@ -444,8 +492,9 @@ export async function runLocalRehearsal({ pairFile, outputDirectory }) {
     }
     if (!parentJoin) throw lastError ?? new Error("LOCAL_REHEARSAL_ORDERS_PARENT_JOIN_REQUIRED");
     Object.assign(receipt, { status: "PASS", runId: evidence.runId, observedAtUtc: new Date().toISOString(), browserLabel: label,
-      parentJoin, excludedOriginControl: negative, corsControl: corsNegative, browserVersion: evidence.browserVersion,
+      parentJoin, workflowReadback, excludedOriginControl: negative, corsControl: corsNegative, browserVersion: evidence.browserVersion,
       browserRequestsOutsideAllowlist: blockedRequests, entryControl: control });
+    if (onObserved) await onObserved({ runId: evidence.runId, businessInvocationId: evidence.businessInvocationId, parentJoin, workflowReadback });
   } catch (error) {
     receipt.blockedReason = error.message?.startsWith("LOCAL_") ? error.message : "LOCAL_REHEARSAL_FAILED";
     throw error;

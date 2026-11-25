@@ -170,6 +170,11 @@ result as before.
 
 ## 3. One-command local scenario
 
+For a customer session with a visible browser, debugger setup, source maps,
+before/after checkpoints and an engineer talk track, use the
+[local correlation workshop](LOCAL_DEMO.md) and [Run-Local.ps1](Run-Local.ps1).
+It wraps the same checked local path below, not a synthetic trace demo.
+
 From the POC root:
 
 ```powershell
@@ -194,6 +199,9 @@ The command:
 5. Joins the browser's emitted dependency to the agent-emitted Orders request
    and to a separate actual Orders ingress observation. Async servlet body
    dispatch is observed exactly once.
+   A separate authenticated loopback GET verifies the stored order ID, workflow
+   business identity and state; it does not substitute the GET action header
+   for workflow identity or claim that the browser Refresh button was driven.
 6. Stops both JVMs gracefully, collects their final flush and seals the shared
    original-payload privacy scanner before checking the downstream graph.
 7. Reuses the existing A/B/C checker and nine seeded checker-negative controls.

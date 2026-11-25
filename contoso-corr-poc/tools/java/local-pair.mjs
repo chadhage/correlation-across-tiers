@@ -4,6 +4,7 @@ import { createServer } from 'node:http';
 import { appendFile, lstat, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createInterface } from 'node:readline';
+import { createInterface as createPrompt } from 'node:readline/promises';
 import { fileURLToPath } from 'node:url';
 import { ownedConfigurationHash } from '../observability/telemetry-contract.mjs';
 import { openSamplerNativeReceiver } from '../observability/sampler-native-intake.mjs';
@@ -285,9 +286,60 @@ export async function startLocalPair({ outputDirectory, durationSeconds = 600, d
   }
 }
 
-export async function runLocalGoldenPath(pair, outputDirectory) {
+export function parseLocalPairArguments(args) {
+  const flags = args.slice(4);
+  requireValue(args[0] === '--out' && typeof args[1] === 'string' && args[1].length > 0 &&
+    args[2] === '--duration' && flags.length <= 3 && new Set(flags).size === flags.length &&
+    flags.every(flag => ['--debug-java', '--run-browser', '--present'].includes(flag)), 'LOCAL_PAIR_ARGUMENTS');
+  requireValue(!flags.includes('--present') || flags.includes('--run-browser'), 'LOCAL_PAIR_PRESENT_REQUIRES_BROWSER');
+  return { outputDirectory: args[1], durationSeconds: Number(args[3]), debugJava: flags.includes('--debug-java'),
+    runBrowser: flags.includes('--run-browser'), present: flags.includes('--present') };
+}
+
+export async function localDemoCheckpoint({ phase, expiresAtUtc, finished, input = process.stdin, output = process.stdout }) {
+  requireValue(['BEFORE_REQUEST', 'AFTER_REQUEST'].includes(phase), 'LOCAL_DEMO_CHECKPOINT_INVALID');
+  const remaining = Date.parse(expiresAtUtc) - Date.now() - 60000;
+  requireValue(Number.isFinite(remaining) && remaining > 0 && remaining <= 1800000, 'LOCAL_DEMO_CHECKPOINT_EXPIRED');
+  const prompt = createPrompt({ input, output });
+  const closed = new Promise((_, reject) => {
+    prompt.once('close', () => reject(new Error('LOCAL_DEMO_INPUT_CLOSED')));
+  });
   try {
-    await runLocalRehearsal({ pairFile: pair.manifestPath, outputDirectory });
+    output.write(`LOCAL_DEMO_CHECKPOINT ${phase}\n`);
+    const waits = [prompt.question('Press Enter to continue (Ctrl+C cancels; 60 seconds reserved for cleanup): ',
+      { signal: AbortSignal.timeout(remaining) }), closed];
+    if (finished) waits.push(finished.then(() => { throw new Error('LOCAL_DEMO_PAIR_STOPPED'); }));
+    await Promise.race(waits);
+  } catch (error) {
+    if (error.name === 'AbortError') throw new Error('LOCAL_DEMO_CHECKPOINT_EXPIRED');
+    throw error;
+  } finally { prompt.close(); }
+}
+
+export async function runLocalGoldenPath(pair, outputDirectory, { present = false } = {}) {
+  try {
+    await runLocalRehearsal({ pairFile: pair.manifestPath, outputDirectory, headed: present, sourceMaps: present,
+      ...(present ? {
+        async onReady({ webOrigin }) {
+          process.stdout.write(`\nLOCAL_DEMO_BROWSER ${webOrigin}/storefront/orders\n`);
+          process.stdout.write('No order POST yet. Open DevTools Sources, or attach Java using the printed debug ports.\n');
+          process.stdout.write('Set one short breakpoint or safe ID-only logpoints. Inventory has a 5-second deadline; Orders/browser have 10 seconds.\n');
+          process.stdout.write('Do not click Run demo yourself: Enter drives exactly one real Demo 01 click.\n');
+          await localDemoCheckpoint({ phase: 'BEFORE_REQUEST', expiresAtUtc: pair.manifest.expiresAtUtc, finished: pair.finished });
+        },
+        async onObserved({ runId, businessInvocationId, parentJoin, workflowReadback }) {
+          process.stdout.write(`\nLOCAL_DEMO_ORDER ${runId}\nLOCAL_DEMO_BUSINESS_ID ${businessInvocationId}\n`);
+          process.stdout.write(`LOCAL_DEMO_TRACE_ID ${parentJoin.traceId}\n`);
+          process.stdout.write(`LOCAL_DEMO_RECEIVED_TRACEPARENT ${parentJoin.ordersReceivedTraceparent}\n`);
+          process.stdout.write(`LOCAL_DEMO_BROWSER_SPAN ${parentJoin.browserDependencySpanId}\n`);
+          process.stdout.write(`LOCAL_DEMO_ORDERS_SPAN ${parentJoin.ordersRequestSpanId} parent=${parentJoin.ordersParentId}\n`);
+          process.stdout.write(`LOCAL_DEMO_READBACK GET ${workflowReadback.status} workflow=${workflowReadback.workflowBusinessInvocationId} action=${workflowReadback.actionBusinessInvocationId}\n`);
+          process.stdout.write('Browser/Orders join observed. Show the staged order; this is not fulfillment.\n');
+          process.stdout.write('The stored workflow was independently read back via authenticated local GET, not an automatic browser Refresh click.\n');
+          process.stdout.write('Enter closes the browser, flushes/stops both JVMs, and checks the complete LOCAL_REHEARSAL data graph.\n');
+          await localDemoCheckpoint({ phase: 'AFTER_REQUEST', expiresAtUtc: pair.manifest.expiresAtUtc, finished: pair.finished });
+        }
+      } : {}) });
   } finally { await pair.stop(); }
   const [map, browserEvidence, browserLines, jvmLines] = await Promise.all([
     readFile(path.join(root, 'contracts', 'expected-boundary-map.v1.json'), 'utf8'),
@@ -312,17 +364,17 @@ export async function runLocalGoldenPath(pair, outputDirectory) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const args = process.argv.slice(2);
-    const flags = args.slice(4);
-    requireValue(args[0] === '--out' && args[2] === '--duration' && flags.length <= 2 &&
-      new Set(flags).size === flags.length && flags.every(flag => ['--debug-java', '--run-browser'].includes(flag)),
-    'LOCAL_PAIR_ARGUMENTS');
-    const pair = await startLocalPair({ outputDirectory: args[1], durationSeconds: Number(args[3]), debugJava: args.includes('--debug-java') });
+    const options = parseLocalPairArguments(args);
+    const pair = await startLocalPair(options);
     const shutdown = () => { void pair.stop().catch(() => {}); };
     process.once('SIGINT', shutdown); process.once('SIGTERM', shutdown);
     process.stdout.write(`LOCAL_PAIR_READY ${pair.manifestPath}\n`);
     process.stdout.write('LOCAL REHEARSAL: synthetic identity, H2/RESP, no APIM, no Azure, NOT CERTIFIED. Ctrl+C stops owned processes.\n');
-    if (args.includes('--run-browser')) {
-      const tree = await runLocalGoldenPath(pair, path.join(path.dirname(pair.manifestPath), 'browser'));
+    if (options.debugJava) {
+      process.stdout.write(`LOCAL_PAIR_DEBUG Orders=${pair.manifest.debugPorts.orders} Inventory=${pair.manifest.debugPorts.inventory} (127.0.0.1 only)\n`);
+    }
+    if (options.runBrowser) {
+      const tree = await runLocalGoldenPath(pair, path.join(path.dirname(pair.manifestPath), 'browser'), options);
       process.stdout.write(tree.tree);
       process.stdout.write('LOCAL_GOLDEN_PATH_PASS: browser, two JVMs, logical data spans, parent joins and seeded checker negatives; owned processes stopped. NOT CERTIFIED.\n');
     } else await pair.finished;

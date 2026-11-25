@@ -4,11 +4,13 @@ param(
     [ValidateRange(180, 1800)] [int] $DurationSeconds = 600,
     [switch] $DebugJava,
     [switch] $RunBrowser,
+    [switch] $Present,
     [switch] $RestoreDependencies,
     [string] $MavenRepository,
     [string] $ToolsRoot = $env:CONTOSO_PORTABLE_TOOLS_ROOT
 )
 $ErrorActionPreference = 'Stop'
+if ($Present -and -not $RunBrowser) { throw 'LOCAL_PAIR_PRESENT_REQUIRES_BROWSER' }
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..'))
 . (Join-Path $PSScriptRoot 'Use-Portable.ps1') -ToolsRoot $ToolsRoot
 $output = if ([IO.Path]::IsPathRooted($OutputDirectory)) { [IO.Path]::GetFullPath($OutputDirectory) }
@@ -57,6 +59,7 @@ try {
     $arguments = @((Join-Path $PSScriptRoot 'local-pair.mjs'), '--out', $output, '--duration', "$DurationSeconds")
     if ($DebugJava) { $arguments += '--debug-java' }
     if ($RunBrowser) { $arguments += '--run-browser' }
+    if ($Present) { $arguments += '--present' }
     & node @arguments
     if ($LASTEXITCODE -ne 0) { throw 'LOCAL_PAIR_FAILED' }
 } finally {

@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { selectLocalClasspath, startLocalPair, validateIngress } from '../tools/java/local-pair.mjs';
+import { PassThrough } from 'node:stream';
+import { localDemoCheckpoint, parseLocalPairArguments, selectLocalClasspath, startLocalPair, validateIngress } from '../tools/java/local-pair.mjs';
 import { runOrderClient } from '../demos/01/order-client.mjs';
 
 test('local launcher keeps the fresh explicit classpath, never an implicit current directory', () => {
@@ -41,6 +42,42 @@ test('local startup rejects unbounded windows before creating files or starting 
     await assert.rejects(() => startLocalPair({ durationSeconds, outputDirectory: 'must-not-be-created' }),
       /LOCAL_PAIR_DURATION/);
   }
+});
+
+test('presenter arguments require the browser and reject duplicate or unknown flags', () => {
+  const base = ['--out', 'new-run', '--duration', '900'];
+  assert.equal(parseLocalPairArguments(base).present, false);
+  const options = parseLocalPairArguments([...base, '--run-browser', '--present', '--debug-java']);
+  assert.equal(options.present, true);
+  assert.equal(options.runBrowser, true);
+  assert.equal(options.debugJava, true);
+  for (const flags of [['--present'], ['--run-browser', '--present', '--present'], ['--run-browser', '--azure']]) {
+    assert.throws(() => parseLocalPairArguments([...base, ...flags]), /LOCAL_PAIR_(?:ARGUMENTS|PRESENT_REQUIRES_BROWSER)/);
+  }
+});
+
+test('presenter checkpoints wait for Enter and fail on closed input, stopped pairs or expired cleanup budgets', async () => {
+  const expiresAtUtc = new Date(Date.now() + 180000).toISOString();
+  const input = new PassThrough(), output = new PassThrough();
+  let text = '';
+  output.on('data', chunk => { text += chunk; });
+  const checkpoint = localDemoCheckpoint({ phase: 'BEFORE_REQUEST', expiresAtUtc, input, output });
+  assert.match(text, /LOCAL_DEMO_CHECKPOINT BEFORE_REQUEST/);
+  input.write('\n');
+  await checkpoint;
+  input.destroy(); output.destroy();
+
+  for (const stopped of [false, true]) {
+    const input = new PassThrough(), output = new PassThrough();
+    try {
+      const pending = localDemoCheckpoint({ phase: 'AFTER_REQUEST', expiresAtUtc, input, output,
+        ...(stopped ? { finished: Promise.resolve() } : {}) });
+      if (!stopped) input.end();
+      await assert.rejects(pending, stopped ? /LOCAL_DEMO_PAIR_STOPPED/ : /LOCAL_DEMO_INPUT_CLOSED/);
+    } finally { input.destroy(); output.destroy(); }
+  }
+  await assert.rejects(localDemoCheckpoint({ phase: 'BEFORE_REQUEST',
+    expiresAtUtc: new Date(Date.now() + 30000).toISOString() }), /LOCAL_DEMO_CHECKPOINT_EXPIRED/);
 });
 
 function clientFixture() {

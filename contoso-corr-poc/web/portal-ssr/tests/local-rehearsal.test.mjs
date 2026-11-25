@@ -7,7 +7,7 @@ import { join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import {
   assertLocalParentJoin, buildLocalBrowser, createLocalForwarder, localDemo01Spec, loopbackOrigin,
-  observeCorsDenial, observeExcludedOrigin, readLocalPair, repositoryPath, runLocalRehearsal, sanitizeBrowserEnvelope, SOURCE_INPUTS, startLocalSurface
+  observeCorsDenial, observeExcludedOrigin, readBackLocalOrder, readLocalPair, repositoryPath, runLocalRehearsal, sanitizeBrowserEnvelope, SOURCE_INPUTS, startLocalSurface
 } from "../scripts/local-rehearsal.mjs";
 
 const portalRoot = fileURLToPath(new URL("..", import.meta.url));
@@ -144,6 +144,56 @@ test("LOCAL REHEARSAL forwarder rejects redirects without following credential-b
   } finally { await forwarder.close(); await backend.close(); }
 });
 
+test("LOCAL REHEARSAL authenticated GET proves stored workflow identity separately from the POST and GET action IDs", async () => {
+  const staged = { schemaVersion: 1, id: randomUUID(), businessInvocationId: randomUUID(),
+    workflowBusinessInvocationId: randomUUID(), state: "QUEUED" };
+  const action = randomUUID(), received = [];
+  const tokens = { accessToken: "local-unit-access", gatewayAccessToken: "local-unit-gateway" };
+  const backend = await server((request, response) => {
+    received.push({ path: request.url, method: request.method, headers: request.headers });
+    response.writeHead(200, { "Content-Type": "application/json", "x-business-invocation-id": action });
+    response.end(JSON.stringify({ schemaVersion: 1, id: staged.id,
+      businessInvocationId: staged.workflowBusinessInvocationId, state: staged.state, details: {} }));
+  });
+  try {
+    const result = await readBackLocalOrder({ ordersOrigin: backend.origin, tokens, staged });
+    assert.equal(result.workflowBusinessInvocationId, staged.workflowBusinessInvocationId);
+    assert.equal(result.actionBusinessInvocationId, action);
+    assert.equal(result.state, "QUEUED");
+    assert.equal(result.sourceScope, "AUTHENTICATED_LOOPBACK_API_GET_NOT_BROWSER_DRIVEN");
+    assert.equal(received.length, 1);
+    assert.equal(received[0].method, "GET");
+    assert.equal(received[0].path, `/api/orders/${staged.id}`);
+    assert.equal(received[0].headers.authorization, "Bearer local-unit-access");
+    assert.equal(received[0].headers["x-contoso-gateway-authorization"], "Bearer local-unit-gateway");
+    assert.equal(received[0].headers.traceparent, undefined);
+    assert.equal(received[0].headers["x-business-invocation-id"], undefined);
+    assert.equal(JSON.stringify(result).includes("local-unit-"), false);
+  } finally { await backend.close(); }
+});
+
+test("LOCAL REHEARSAL GET refuses incorrect stored identities, state or status instead of accepting an echoed action ID", async () => {
+  const staged = { schemaVersion: 1, id: randomUUID(), businessInvocationId: randomUUID(),
+    workflowBusinessInvocationId: randomUUID(), state: "QUEUED" };
+  const tokens = { accessToken: "local-unit-access", gatewayAccessToken: "local-unit-gateway" };
+  const original = { schemaVersion: 1, id: staged.id, businessInvocationId: staged.workflowBusinessInvocationId, state: staged.state };
+  let stored = original, status = 200;
+  const backend = await server((_request, response) => {
+    response.writeHead(status, { "Content-Type": "application/json", "x-business-invocation-id": randomUUID() });
+    response.end(JSON.stringify(stored));
+  });
+  try {
+    for (const change of [{ id: randomUUID() }, { businessInvocationId: staged.businessInvocationId }, { state: "FULFILLED" }]) {
+      stored = { ...original, ...change };
+      await assert.rejects(readBackLocalOrder({ ordersOrigin: backend.origin, tokens, staged }),
+        /LOCAL_REHEARSAL_ORDER_READBACK_IDENTITY_MISMATCH/);
+    }
+    status = 401;
+    await assert.rejects(readBackLocalOrder({ ordersOrigin: backend.origin, tokens, staged }),
+      /LOCAL_REHEARSAL_ORDER_READBACK_RESPONSE_INVALID/);
+  } finally { await backend.close(); }
+});
+
 function envelope(type = "RemoteDependencyData") {
   return { time: new Date().toISOString(), iKey: "not-retained",
     tags: { "ai.cloud.role": "contoso-storefront-spa", "ai.operation.id": traceId,
@@ -247,7 +297,12 @@ test("LOCAL REHEARSAL pair manifest requires ready local origins and never accep
     assert.equal(pair.tokenUrl, "http://127.0.0.1:19344/token");
     assert.equal(pair.telemetryPath, join(path, "telemetry.ndjson"));
     assert.equal(pair.ingressPath, join(path, "ingress.ndjson"));
+    const expiry = new Date(Date.now() + 180000).toISOString();
+    await writeFile(file, JSON.stringify({ ...manifest, expiresAtUtc: expiry }));
+    assert.equal((await readLocalPair(file)).expiresAtUtc, expiry);
     for (const changes of [{ ready: false }, { profile: "APIM" }, { accessToken: "never-persist-this" },
+      { expiresAtUtc: "not-a-window" }, { expiresAtUtc: new Date(Date.now() - 1000).toISOString() },
+      { expiresAtUtc: new Date(Date.now() + 1801000).toISOString() },
       { controlOrigin: "https://example.invalid" }, { ordersOrigin: "http://127.0.0.1:19341/api/orders" }]) {
       await writeFile(file, JSON.stringify({ ...manifest, ...changes }));
       await assert.rejects(readLocalPair(file), /LOCAL_REHEARSAL_/);
@@ -283,6 +338,41 @@ test("LOCAL REHEARSAL unavailable synthetic token blocks the executable driver w
   } finally { await backend.close(); await rm(path, { recursive: true, force: true }); }
 });
 
+test("LOCAL REHEARSAL cancellation at the ready checkpoint sends no order and closes the real browser and servers", async () => {
+  const path = await scratch();
+  let orders = 0, ready = 0, observed = 0;
+  const backend = await server((request, response) => {
+    if (request.url === "/token") {
+      response.writeHead(200, { "Content-Type": "application/json" });
+      response.end(JSON.stringify({ accessToken: "local-unit-access", gatewayAccessToken: "local-unit-gateway" }));
+    } else { orders++; response.writeHead(503); response.end(); }
+  });
+  const pairFile = join(path, "local-pair.json"), outputDirectory = join(path, "cancelled");
+  try {
+    await writeFile(pairFile, JSON.stringify({ schemaVersion: 1, profile: "LOCAL REHEARSAL", ready: true,
+      ordersOrigin: backend.origin, inventoryOrigin: backend.origin, receiverOrigin: backend.origin,
+      controlOrigin: backend.origin, telemetryPath: "telemetry.ndjson", ingressPath: "ingress.ndjson",
+      expiresAtUtc: new Date(Date.now() + 180000).toISOString() }));
+    await assert.rejects(runLocalRehearsal({ pairFile, outputDirectory,
+      async onReady({ webOrigin }) {
+        ready++;
+        assert.equal(orders, 0);
+        assert.equal(loopbackOrigin(webOrigin), webOrigin);
+        throw new Error("LOCAL_REHEARSAL_TEST_CANCELLED");
+      },
+      async onObserved() { observed++; }
+    }), /LOCAL_REHEARSAL_TEST_CANCELLED/);
+    const receipt = JSON.parse(await readFile(join(outputDirectory, "local-browser-rehearsal.json"), "utf8"));
+    assert.equal(ready, 1);
+    assert.equal(observed, 0);
+    assert.equal(orders, 0);
+    assert.equal(receipt.status, "BLOCKED");
+    assert.equal(receipt.sourceInputsStable, true);
+    assert.deepEqual(receipt.cleanup, { browserClosed: true, loopbackServersClosed: true });
+    assert.equal("parentJoin" in receipt, false);
+  } finally { await backend.close(); await rm(path, { recursive: true, force: true }); }
+});
+
 test("LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and rejects excluded-origin Fetch and XHR injection", async () => {
   const output = await scratch();
   const work = join(output, "browser-work");
@@ -296,7 +386,7 @@ test("LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and reje
   let backend;
   const received = [];
   try {
-    const built = await buildLocalBrowser(output);
+    const built = await buildLocalBrowser(output, { sourceMaps: true });
     backend = await server((request, response) => {
       const parts = [];
       request.on("data", part => parts.push(part));
@@ -310,7 +400,14 @@ test("LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and reje
           workflowBusinessInvocationId: randomUUID(), state: "DURABLE_STAGED", details: { source: "unit-loopback-not-JVM" } }));
       });
     });
-    surface = await startLocalSurface({ ordersOrigin: backend.origin, assetsRoot: built.assetsRoot });
+    const expiresAtUtc = new Date(Date.now() + 180000).toISOString();
+    surface = await startLocalSurface({ ordersOrigin: backend.origin, assetsRoot: built.assetsRoot, expiresAtUtc });
+    const script = await fetch(`${surface.webOrigin}/local-rehearsal/storefront.js`);
+    assert.match(await script.text(), /sourceMappingURL=storefront\.js\.map/);
+    const mapResponse = await fetch(`${surface.webOrigin}/local-rehearsal/storefront.js.map`);
+    assert.equal(mapResponse.status, 200);
+    const map = await mapResponse.json();
+    assert.ok(map.sources.some(source => source.endsWith("storefront-spa/src/app.ts")));
     const { chromium } = await import("@playwright/test");
     const { driveContosoBrowser } = await import(pathToFileURL(built.adapterFile).href);
     browser = await chromium.launch({ headless: true });
@@ -328,6 +425,8 @@ test("LOCAL REHEARSAL real Demo 01 Run-demo click preserves SDK carrier and reje
     const page = await context.newPage();
     await page.goto(`${surface.webOrigin}/storefront/orders`);
     await page.evaluate(async () => window.contosoDemos?.ready);
+    assert.equal(await page.evaluate(() => JSON.parse(document.getElementById("contoso-runtime-config").textContent).certification.endsAtUtc),
+      expiresAtUtc, "The presentation uses the finite pair lease, not a two-minute browser window");
     assert.equal(await page.getByTestId("contoso-run-demo").isEnabled(), true,
       "WEB-01.1 requires the admitted real Demo 01 Run demo control, not Create order");
     const spec = localDemo01Spec();

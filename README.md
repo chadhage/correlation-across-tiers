@@ -70,6 +70,11 @@ inspection routine:
 
 For executable local development and the separately gated Azure path, use the
 [Demo 01 getting-started and reuse guide](contoso-corr-poc/demos/01/GETTING_STARTED.md).
+For the customer-facing **run-it-locally-first** session, use the
+[local correlation workshop](contoso-corr-poc/demos/01/LOCAL_DEMO.md):
+one-command execution, a visible browser, Java debugger attach, source maps,
+before/after checkpoints and actual exported trace/parent evidence. No Azure
+deployment is performed.
 Its [completion assessment](contoso-corr-poc/demos/01/COMPLETION.md) records
 actual bounded local results and the atomic work still required for full
 Azure acceptance; the microsite remains a read-only source snapshot.

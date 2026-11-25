@@ -7,6 +7,11 @@ Demo 01 additionally has a standalone
 and [completion backlog](../demos/01/COMPLETION.md). That local runner uses
 H2/RESP and synthetic identity, omits both Gateway spans explicitly, and does
 not advertise a native demo adapter or close these live gates.
+For the requested local-first customer proof, follow the
+[engineer workshop and presenter script](../demos/01/LOCAL_DEMO.md) before
+the Azure/native procedures below. Its executable entry point is
+`npm run demo:local -- -Present -DebugJava`; local A/B/C and observed ID joins
+are evidence of the bounded rehearsal, not full-chain certification.
 
 An opt-in `--azure-examples` route now dispatches to the separate
 [Azure operator example runner](../tools/verification/azure-examples.mjs).
